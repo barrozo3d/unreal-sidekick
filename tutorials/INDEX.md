@@ -25,7 +25,14 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 
 ## Entries
 
-*(Empty — add your first entry by saying "ingest this: [URL]")*
+### Creating Visual Effects in Niagara for Unreal Engine
+- **Source:** Epic Documentation
+- **URL:** https://dev.epicgames.com/documentation/unreal-engine/creating-visual-effects-in-niagara-for-unreal-engine
+- **Pages:** 37
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/creating-visual-effects-in-niagara-for-unreal-engine.md
 
 ---
 
