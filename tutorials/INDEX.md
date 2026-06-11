@@ -34,6 +34,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/creating-visual-effects-in-niagara-for-unreal-engine.md
 
+
+### Designing Visuals, Rendering, and Graphics with Unreal Engine
+- **Source:** Epic Documentation
+- **URL:** https://dev.epicgames.com/documentation/unreal-engine/designing-visuals-rendering-and-graphics-with-unreal-engine
+- **Pages:** 170
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/designing-visuals-rendering-and-graphics-with-unreal-engine.md
+
 ---
 
 ## Tag Reference
