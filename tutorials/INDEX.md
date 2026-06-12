@@ -144,6 +144,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-57-release-notes.md
 
+
+### Unreal Engine 5.5 Release Notes
+- **Source:** Epic Documentation
+- **URL:** https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-5-5-release-notes
+- **Pages:** 3
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-55-release-notes.md
+
 ---
 
 ## Tag Reference
