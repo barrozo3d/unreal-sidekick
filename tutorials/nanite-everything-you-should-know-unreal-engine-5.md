@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=P65cADzsP8Q
 author: William Faucher
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.0"
+tags: [nanite, geometry, lod, cluster-culling, performance, virtualized-geometry, static-mesh, william-faucher, beginner, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/nanite-everything-you-should-know-unreal-engine-5/
 frame_count: 0
 ---
@@ -48,27 +48,86 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Nanite virtualized geometry system in UE5 — cluster-based per-screen-pixel LOD culling that eliminates traditional LOD chains and lightmap UV requirements, enabling millions of triangles in real-time without draw call explosion.
 
 ### Summary
-[PENDING EXTRACTION]
+10-minute overview of Nanite in UE5.0. Explains the cluster culling system (~128 triangles per cluster, LOD per cluster per screen pixel/distance), how to enable it (import checkbox or Static Mesh Editor toggle), when to use it vs. not (high-triangle static meshes = yes; tree leaves/foliage = use carefully), key advantages over UE4 (no lightmap UVs, better kit bashing, landscape overhangs), and debug tools (Nanite Cluster View Mode, `nanite stats list`).
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Enable on Import:**
+- Import dialog → check **Build Nanite** ✓
+- That's it — mesh is now Nanite enabled
+
+**Enable on Existing Mesh:**
+1. Content Browser → double-click Static Mesh → open Static Mesh Editor
+2. Nanite Settings → **Enabled** ✓ → Save
+3. To revert: uncheck Enabled
+
+**When to use Nanite (good candidates):**
+- High triangle count meshes (rocks, foliage clumps, detailed props)
+- Meshes with triangles that appear small on screen at a distance
+- Meshes with many instances in scene (Megascans rocks, etc.)
+- Major occluders (large cliff faces, large closed water meshes)
+
+**When NOT to use Nanite (bad candidates):**
+- Open-ended, leaf-type geometry (individual tree leaves)
+- Skeletal meshes (not supported)
+- Spline meshes (not supported at time of UE5.0)
+
+**Debug / Inspect:**
+```
+// View Mode dropdown in Viewport:
+Nanite Cluster View Mode   -- shows cluster color visualization
+Nanite Triangle Mode       -- shows triangle density per cluster
+
+// Console:
+nanite stats list          -- prints all Nanite stats to console
+```
+
+**Cluster Culling Explained:**
+- Each mesh = many clusters (~128 triangles each)
+- Clusters cull independently: cluster facing away, behind camera, or too small on screen = culled immediately
+- LOD is per-cluster, not per-mesh → ~per-pixel granularity
+- Smart enough to only update changed clusters (great for animated/changing scenes)
+- This is why kit bashing is dramatically better with Nanite: overlapping geometry that was previously wasteful now gets per-cluster culled
+
+**Landscape with Nanite:**
+- Nanite supports landscape overhangs — impossible before UE5
+- No longer limited to heightmap-only landscape
+- Landscape caves, cliffs with overhangs now achievable
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+
+**Static Mesh Editor — Nanite Settings:**
+```
+Nanite Settings:
+  Enabled: True / False
+  Position Precision: (leave default unless you see Z-fighting)
+  Fallback Triangle Percent: percentage of triangles kept for non-Nanite fallback
+```
+
+**No Lightmap UVs Required:**
+- Nanite meshes don't need lightmap UVs
+- Static lighting (baked) is not supported on Nanite meshes — must use dynamic Lumen
+
+**Key Stats from `nanite stats list`:**
+- Instance count (Nanite vs non-Nanite)
+- Cluster count, triangle count visible vs. culled
+- Memory usage
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner — one checkbox to enable, rest is just knowing when/where to use it
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.0 (improved in each subsequent release; displacement and tessellation added experimental in UE5.4)
 
 ### Tags
-[PENDING EXTRACTION]
+nanite, geometry, lod, cluster-culling, performance, virtualized-geometry, static-mesh, william-faucher, beginner, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `references/version-tracker.md` — Nanite improvements per UE version (5.0 → 5.4 displacement)
+- `tutorials/lumen-explained---important-tips-for-ue5.md` — Lumen (required for Nanite static lighting replacement)
+- `tutorials/lighting-in-unreal-engine-5-for-beginners.md` — Lighting Nanite scenes

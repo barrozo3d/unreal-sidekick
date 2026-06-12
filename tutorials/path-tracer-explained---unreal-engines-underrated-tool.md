@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=X5zVhc5ahl0
 author: William Faucher
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 4.27"
+tags: [rendering, path-tracing, ground-truth, movie-render-queue, denoising, samples, materials, subsurface-scattering, glass, william-faucher, intermediate, ue4]
+extraction_status: complete
 frames_dir: tutorials/frames/path-tracer-explained---unreal-engines-underrated-tool/
 frame_count: 0
 ---
@@ -80,27 +80,106 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Path Tracer as a ground-truth renderer and final quality output tool in UE4.27 — understanding samples vs. denoising tradeoffs, MRQ integration, material support (subsurface, glass, caustics), sky workaround, and the key insight: skip the built-in denoiser, denoise in post instead.
 
 ### Summary
-[PENDING EXTRACTION]
+26-minute deep-dive on the UE4.27 Path Tracer. Covers what path tracing is (ground truth via multi-ray sampling), system requirements, all settings through PPV, why denoising is problematic for animation, material improvements in 4.27 (subsurface, thin translucent, frosted glass, caustics), sky atmosphere workaround, known limitations, and full MRQ rendering workflow. Key takeaway: 16 spatial × 16 temporal samples, no built-in denoiser — denoise in DaVinci Resolve for better results.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**System Requirements:**
+- DX12: Project Settings → Platforms → Windows → Default RHI = DirectX 12
+- Ray Tracing: Project Settings → search "ray tracing" → Enable
+- Support Compute Skin Cache: will auto-prompt when enabling ray tracing → click Yes
+
+**Enable Path Tracer:**
+- Viewport top → Lit dropdown → **Path Tracing**
+- Scene starts rendering progressively; rotates/moves = resets
+
+**Path Tracer PPV Settings (search "Path" in Details):**
+| Setting | Notes |
+|---------|-------|
+| `Samples Per Pixel` | Max 16384; 10 = fast but noisy after denoiser; 500+ = clean detail |
+| `Max Bounces` | Indirect lighting bounces; diminishing returns ~7-10; use only what you need |
+| `Filter Width` | Anti-aliasing sharpness filter; lower = sharper |
+| Denoiser | Enabled by default — see below |
+
+**Samples vs. Denoiser Tradeoff:**
+- 10 samples + denoiser: fast but destroys fine texture/specular detail
+- 500 samples + denoiser: cleaner but still loses subtle surface variation
+- Denoiser is NON-TEMPORAL → each frame denoised independently → causes frame flicker on video
+- **William Faucher's recommendation:** Turn OFF denoiser, use more samples, denoise in post (DaVinci Resolve)
+
+**Sky Atmosphere Workaround:**
+- Path Tracer doesn't natively support Sky Atmosphere / Volumetric Clouds → sky goes black
+- Fix: Skylight Details → **Real Time Capture** ✓ → set `Cubemap Resolution` to 1024
+- Captures sky as high-res cubemap → path tracer can use it
+
+**Path Tracer Limitations (UE4.27):**
+- Not supported: Hair Strands, Cascade Particles, Spline Meshes, Decals, Volumetric Fog, Exponential Height Fog, Light Functions, Hair material, Single Layer Water
+- No multi-GPU support
+- Depth of field: semi-supported (uses regular DOF post process, not path-traced)
+
+**Supported Materials (new in 4.27):**
+- Subsurface Scattering: Random Walk method (setup unchanged, just works)
+- Thin Translucent: clear plastic, colored shadows
+- Glass: proper caustics + frosted glass via roughness
+- All standard opaque materials
+
+**MRQ Rendering with Path Tracer:**
+1. Open Movie Render Queue
+2. Settings → Add **Anti Aliasing** plugin
+3. Anti Aliasing tab → `Spatial Sample Count` = target sample count (e.g. 500)
+4. Override Anti Aliasing = None
+5. Also set `Temporal Sample Count` for motion blur quality
+6. **Total effective samples = Spatial × Temporal**
+7. NOTE: PPV Samples Per Pixel is IGNORED in MRQ — only MRQ Anti-Aliasing count matters
+
+**Recommended MRQ Path Tracer Settings:**
+```
+Spatial Sample Count: 16
+Temporal Sample Count: 16
+Override Anti Aliasing: None
+Denoiser: OFF (denoise in DaVinci Resolve post)
+```
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+
+**Enabling Path Tracing in PPV:**
+```
+Post Process Volume > Path Tracing:
+  Samples Per Pixel: 512+ (or use MRQ for final renders)
+  Max Bounces: 7 (good starting point)
+  Denoiser: OFF for animation, ON for quick preview stills only
+```
+
+**Skylight for Path Tracing:**
+```
+Skylight > Real Time Capture: True
+Skylight > Cubemap Resolution: 1024
+// Workaround: path tracer renders skylight cubemap instead of volumetric sky
+```
+
+**MRQ Anti-Aliasing:**
+```
+Spatial Sample Count: 16   // path tracer samples per frame
+Temporal Sample Count: 16  // motion blur sub-frames (total = 256 effective samples)
+Override AA: None
+```
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate — requires ray tracing setup and understanding of sampling theory
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 4.27 (Path Tracer significantly improved in this release; UE5 improves further with production-ready status in UE5.5)
 
 ### Tags
-[PENDING EXTRACTION]
+rendering, path-tracing, ground-truth, movie-render-queue, denoising, samples, materials, subsurface-scattering, glass, william-faucher, intermediate, ue4
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/lighting-interiors-in-unreal-engine-5.md` — Uses path tracer as reference tool
+- `tutorials/lumen-explained---important-tips-for-ue5.md` — Real-time GI complement
+- `references/rendering-pipeline.md` — Full rendering settings reference
+- `references/version-tracker.md` — Path Tracer production-ready status per version (UE5.5)

@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=hJohX8T5O-8
 author: William Faucher
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 4.27"
+tags: [lighting, rtxgi, global-illumination, irradiance-probes, dynamic-gi, indirect-lighting, nvidia, william-faucher, intermediate, ue4]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-improve-your-lighting-w-rtxgi/
 frame_count: 0
 ---
@@ -72,27 +72,93 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Setting up Nvidia's RTXGI (DDGI) plugin for UE4 — irradiance-probe-based global illumination providing fully dynamic, ray-traced indirect lighting without lightmap baking, with 2× better performance than UE4's legacy ray-traced GI.
 
 ### Summary
-[PENDING EXTRACTION]
+21-minute tutorial on Nvidia's RTXGI plugin for UE4 — the best GI option for UE4 users who want dynamic, high-quality indirect lighting without baking. RTXGI uses ray-traced irradiance probes (fully dynamic, no denoising needed, no lightmap UVs). Covers installation, DDGI volume setup, probe density tuning, large-scene fixes, and light leak resolution. Particularly valuable for productions that must stay on UE4 for stability.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**How RTXGI Works:**
+- Places irradiance probes throughout the scene volume
+- Each probe traces and shades rays from its position (like a tiny reflection capture)
+- Computes indirect lighting and visibility from all probes
+- More probes = more accurate lighting; probes update in real-time (character walks by → GI updates)
+
+**Pros vs UE4 Legacy RTGI:**
+- Works on ANY DXR GPU (GTX 1060 → RTX 3090)
+- No denoising noise artifacts
+- No light leaks (visibility information is baked into probes)
+- No lightmap UVs required
+- What you see in viewport = runtime result
+- ~2× better performance than legacy ray-traced GI
+
+**Cons / Limitations:**
+- No Sky Atmosphere support
+- Movie Render Queue batch rendering: RTXGI needs to recalculate at the start of each frame — problematic for batch jobs
+- Requires manual Nvidia download and engine plugin install
+
+**Installation:**
+1. Epic Marketplace → search "Nvidia RTX Global Illumination" → click External Link button
+2. On Nvidia's website: Download RTX GI UE4 Plugin → extract ZIP
+3. Copy `RTXGI` folder to: `C:\Program Files\Epic Games\UE_4.27\Engine\Plugins\Runtime\Nvidia\`
+4. Open UE4 → Edit → Plugins → search "RTXGI" → Enable → Restart
+
+**DDGI Volume Setup:**
+1. Modes/Place Actors → Volumes tab → scroll to **RTX GI DDGI Volume** → drag into scene
+2. Scale volume to fit entire playable area (just slightly larger than level bounds)
+3. Do NOT make it enormous — it dilutes probe density
+4. Enable GI via console commands:
+```
+r.GlobalIllumination.ExperimentalPlugin 1
+r.RTXGI.DDGI 1
+```
+
+**Tuning Probe Density:**
+- DDGI Volume Details → **Visualize Probes** ✓ → see probe spheres in scene
+- Default: 8×8×8 = 512 probes
+- Light leaks? → increase to 16×16×16 or higher
+- Large volume = fewer probes per area → increase probe count proportionally
+
+**Fix for Large/Outdoor Environments:**
+- Probes trace rays; if HDRI is very far, rays don't reach the sky
+- DDGI Volume Details → **Probe Max Ray Distance** → add a zero (e.g. 1000 → 10000)
+- Restores sky/HDRI contribution in large-scale environments
+
+**Fix Light Leaks:**
+1. Nudge the DDGI Volume slightly in position
+2. Or increase probe count (8×8×8 → 16×16×16)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+
+**Console Variables:**
+```
+r.GlobalIllumination.ExperimentalPlugin 1  // enable experimental GI plugin
+r.RTXGI.DDGI 1                              // enable DDGI
+```
+
+**Key DDGI Volume Settings:**
+```
+Visualize Probes: True/False    // debug view
+Probe Count: 8×8×8 (default) → 16×16×16 (better quality/leaks fix)
+Probe Max Ray Distance: 1000 (default) → increase for large outdoor scenes
+```
+
+**Probe Density Rule:** Volume size is fixed triangular/voxel distribution — smaller volume = denser probes. Always fit volume as tightly around the playable level as possible.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate — UE4-specific plugin; involves manual installation
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 4.27 (plugin is UE4-only; UE5 uses Lumen instead)
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, rtxgi, global-illumination, irradiance-probes, dynamic-gi, indirect-lighting, nvidia, william-faucher, intermediate, ue4
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/lumen-explained---important-tips-for-ue5.md` — UE5 equivalent (Lumen)
+- `tutorials/lighting-in-unreal-engine-5-for-beginners.md` — Indirect lighting in UE5
+- `tutorials/lighting-interiors-in-unreal-engine-5.md` — Interior GI workflow (UE5)
+- `references/rendering-pipeline.md` — Rendering settings overview

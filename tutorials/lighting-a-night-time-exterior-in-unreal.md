@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=1LfiYtKDsac
 author: William Faucher
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 4.27"
+tags: [lighting, night-lighting, exterior, moonlight, volumetric-fog, skylight, practical-lights, fill-lights, rim-lights, lighting-channels, william-faucher, intermediate, ue4]
+extraction_status: complete
 frames_dir: tutorials/frames/lighting-a-night-time-exterior-in-unreal/
 frame_count: 0
 ---
@@ -84,27 +84,95 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Full night-time exterior lighting workflow in UE4: cinematic moon simulation with directional light, volumetric fog for atmosphere, skylight for shadow lift, warm practical lights for interest, fill/rim lights for silhouettes, and lighting channels to isolate specific lights from unwanted geometry.
 
 ### Summary
-[PENDING EXTRACTION]
+29-minute intermediate tutorial on creating a believable night-time exterior using UE4. Opens with film reference analysis — real moonlight is too dim to shoot (0.25–1 lux vs. sun's 100,000 lux); all cinematic "moonlight" is faked with cool blue artificial lights. Teaches the full layered night lighting workflow: directional (moon) → volumetric fog → skylight shadow lift → practical candle/lamp lights → fill/rim lights for silhouette. Includes the UE4-specific trick of Lighting Channels to isolate rim lights.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Film Reference First:**
+- Real moonlight: 0.25–1 lux; sun is 100,000–400,000× brighter
+- Cinematographers fake moon with large cool-blue artificial key lights
+- Night scenes are characterized by: cool/blue color temperature, strong silhouettes, motivated practicals
+- **Rule:** silhouette is the most important element in night lighting
+
+**Scene Setup (UE4):**
+1. Delete all existing lights — start from zero
+2. Content Browser → Engine Content → search "sky" → filter Blueprint → drag **BP Sky Sphere** into scene
+3. BP Sky Sphere Details → `Sun Height` = -0.2 to -0.5 (push below horizon) → `Stars Brightness` = 1.0+
+
+**Moon Simulation (Directional Light):**
+1. Lights panel → add Directional Light → set Movable
+2. Details → search "atmosphere" → enable **Atmosphere Sun Light** (enables Ctrl+L rotate shortcut)
+3. Color: very slight cool blue tint (not too aggressive)
+4. Intensity: very low to simulate dim moon
+5. Use Ctrl+L to rotate and find best rim angle → edge-light the hero subjects
+
+**Volumetric Fog (most impactful step — 80% of the mood):**
+1. Visual Effects → Exponential Height Fog → drag into scene
+2. **Project Settings**: search "fog" → enable **Support Sky Atmosphere Affecting Height Fog** → restart
+3. Fog Details → `Fog In Scattering Color` = Black
+4. Fog Details → `Directional In Scattering Color` = Black
+5. Now fog correctly inherits directional light color (moonlight blue)
+6. **Art tip:** place large hero props (rocks, trees) to shape and interrupt the fog for depth
+
+**Skylight (shadow lift):**
+1. Lights → add Skylight → Movable
+2. Details → `Sky Distance Threshold` = 1
+3. Uncheck `Lower Hemisphere Is Solid Color`
+4. Intensity ~0.5 (lifts shadows without overbearing)
+5. Slightly blue tint to match the moon color temperature
+
+**Practical Lights (warm contrast):**
+- Add Point Light inside each lantern/lamp prop
+- Color: warm orange (creates teal-orange contrast with blue moon/fog)
+- Intensity: very low (1.0 or less)
+- This contrast between warm practicals + cool moonlight is the "teal and orange" look
+
+**Fill Lights & Rim Lights (non-physical, cinematic):**
+- Add small Spot/Rect Lights strategically to illuminate specific hero objects
+- Purpose: guarantee silhouette reads regardless of where main directional falls
+- Can use multiple small fills per hero asset (lanterns, trees, hero props)
+
+**Lighting Channels (UE4 only — isolate rim lights):**
+1. Select a light → Details → search "channel" → uncheck Channel 0 → check Channel 1
+2. Select target mesh → Details → Lighting → enable Channel 1
+3. Light now ONLY affects that specific mesh — no spillover to other objects
+4. **Note:** Lighting Channels do NOT work with Lumen in UE5
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+
+**Project Settings Required:**
+```
+Support Sky Atmosphere Affecting Height Fog: True
+// Requires engine restart
+```
+
+**Lighting Stack for Night Exterior:**
+```
+1. Directional Light (moon key): Movable, cool blue, low intensity
+2. Exponential Height Fog: Fog/Directional In Scattering = Black
+3. Skylight: Movable, SkyDistanceThreshold=1, ~0.5 intensity
+4. Practical Point Lights: warm orange, very low intensity
+5. Fill/Rim Lights: lighting channels to isolate per hero asset
+```
+
+**Ctrl+L Shortcut:** Only works when Directional Light has "Atmosphere Sun Light" enabled. Hold Ctrl+L + drag to rotate the sun/moon.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate — requires understanding of lighting layers and film reference analysis
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 4.27 (WF was using UE4 for foliage quality/stability at time of filming; principles apply to UE5 but Lighting Channels won't work with Lumen)
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, night-lighting, exterior, moonlight, volumetric-fog, skylight, practical-lights, fill-lights, rim-lights, lighting-channels, william-faucher, intermediate, ue4
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/lighting-in-unreal-engine-5-for-beginners.md` — Beginner exterior lighting (daylight)
+- `tutorials/lighting-interiors-in-unreal-engine-5.md` — Interior lighting with similar layered approach
+- `tutorials/tips-for-sky-atmosphere-fog---unreal-engine-5-ue4.md` — Fog color fix (same black inscattering fix)
+- `tutorials/demystifying-the-skylight-unreal-engine-4-5.md` — Skylight deep dive

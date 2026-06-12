@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=0GYyHDuaPcg
 author: William Faucher
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.3"
+tags: [lighting, interiors, lumen, hardware-ray-tracing, path-tracing, indirect-lighting, rect-light, virtual-shadow-maps, light-bleeding, diffuse-color-boost, william-faucher, intermediate, ue5-3]
+extraction_status: complete
 frames_dir: tutorials/frames/lighting-interiors-in-unreal-engine-5/
 frame_count: 0
 ---
@@ -60,27 +60,86 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Interior lighting workflow combining Lumen + Hardware Ray Tracing — using path tracer as ground-truth reference to validate lighting, fixing light bleeding with geometry blockers, boosting indirect lighting with Lumen Diffuse Color Boost, building believable artificial-light scenes with practical props + light actors.
 
 ### Summary
-[PENDING EXTRACTION]
+17-minute tutorial on lighting interior scenes in UE5.3. Covers a complete workflow from reference analysis to execution: using path tracer to verify lighting accuracy, ray-traced shadows for soft penumbras (vs VSM limitations), light blocker geometry for sky light bleeding, Lumen Diffuse Color Boost to lift shadows, and the principle of using physical prop light fixtures to ground artificial lighting.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Project Settings (UE5.3):**
+- Support Hardware Ray Tracing ✓
+- Hardware Ray Tracing When Available ✓
+- Path Tracing ✓
+- Virtual Shadow Maps ✓
+- Default RHI = DirectX 12
+
+**Workflow Philosophy:**
+1. Analyze reference: identify single vs multiple light sources, natural vs artificial
+2. Start with darkness, build up from primary source
+3. Use Path Tracer as "ground truth" check — compare to Lumen result
+4. If they look very different → fix the lighting, don't fight the renderer
+
+**Natural Interior Light (window/doorway only):**
+1. Place Rect Light at window/doorway opening
+2. Scale to match opening
+3. Set Source Width/Height to fill opening
+4. Enable Cast Ray Tracing Shadows → soft shadows through space
+5. Use Indirect Lighting Intensity to amplify bounce if needed
+
+**Using Path Tracer as Reference:**
+- Viewport → View Mode → Path Tracing
+- Compare shadow quality: if PT looks better → VSM limitations; enable "Cast Ray Tracing Shadows" per light
+- Compare brightness: if PT is brighter → need more indirect lighting in Lumen
+
+**Fix Soft Shadows with Hardware Ray Tracing:**
+1. Select Rect/Point/Spot Light
+2. Details → search "ray trace" → **Cast Ray Tracing Shadows** ✓
+3. Massively improved shadow softness vs VSM at large source radius
+
+**Fix Light Bleeding / Sky Leaking Through Walls:**
+- Add large Static Mesh cube (white, invisible to player) BELOW and around the exterior of building
+- Acts as light blocker → prevents sky light sampling artifacts bleeding through thin walls
+- Common in tight interiors or buildings without thick enough geometry
+
+**Boost Indirect Lighting (Lumen Diffuse Color Boost):**
+- Post Process Volume → search "lumen" → **Diffuse Color Boost** (default 1.0)
+- Set to 1.5–3.0 → amplifies albedo contribution to bounce light without changing direct lighting
+- Non-physical but artistically controllable
+
+**Artificial Interior Lighting:**
+1. Add physical light fixture props (not just invisible lights)
+2. Match a light actor to each fixture prop position
+3. Point/Spot Light for focused fixtures
+4. Rect Light for panel/strip lights
+5. Enable Cast Ray Tracing Shadows for soft fixture falloff
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+
+**PPV Lumen Settings for Interiors:**
+```
+Lumen > Diffuse Color Boost: 1.0 (default) to 3.0 (lifted shadows)
+Lumen > Final Gather Quality: 2-4 (higher = cleaner GI)
+```
+
+**Key Tip: Specular Highlights:**
+- Even mostly indirectly-lit scenes NEED a direct light component for specular highlights
+- Without direct light → surface normals flatten → scene looks wrong
+- Principle: add a small direct fill even when primarily indirect
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate — assumes Lumen basics; covers practical workflow decisions
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.3 (RTX GPU required for hardware ray tracing)
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, interiors, lumen, hardware-ray-tracing, path-tracing, indirect-lighting, rect-light, virtual-shadow-maps, light-bleeding, diffuse-color-boost, william-faucher, intermediate, ue5-3
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/lighting-in-unreal-engine-5-for-beginners.md` — Prerequisite beginner lighting tutorial
+- `tutorials/lumen-explained---important-tips-for-ue5.md` — Lumen internals and best practices
+- `tutorials/path-tracer-explained---unreals-underrated-tool.md` — Deep-dive on path tracing (WF)
+- `references/rendering-pipeline.md` — Lumen + Path Tracing settings
