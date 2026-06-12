@@ -204,6 +204,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/tips-for-sky-atmosphere-fog---unreal-engine-5-ue4.md
 
+
+### Volumetric Cloud Secrets  [Unreal Engine 4 & 5] Works in UE5!
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=yolGEIrhu0s
+- **Author:** William Faucher
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/volumetric-cloud-secrets-unreal-engine-4-5-works-in-ue5.md
+
 ---
 
 ## Tag Reference
