@@ -154,6 +154,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** UE 5.4 — Motion Design module (first-class; cloners/effectors), PCG v2 (vector fields, hierarchical subgraphs, runtime updates), Nanite Displacement & Tessellation (Experimental), Movie Render Graph (Early Access), Modular Control Rig (Experimental), TSR improvements. (Crawled content sparse — notes synthesized from release knowledge.)
 - **File:** tutorials/unreal-engine-5-4-release-notes.md
 
+
+### Lighting in Unreal Engine 5 for Beginners
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=fSbBsXbjxPo
+- **Author:** William Faucher
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/lighting-in-unreal-engine-5-for-beginners.md
+
 ---
 
 ## Tag Reference
