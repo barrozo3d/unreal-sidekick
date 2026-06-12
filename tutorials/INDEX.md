@@ -54,6 +54,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/animating-characters-and-objects-in-unreal-engine.md
 
+
+### Understanding the Basics of Unreal Engine
+- **Source:** Epic Documentation
+- **URL:** https://dev.epicgames.com/documentation/unreal-engine/understanding-the-basics-of-unreal-engine
+- **Pages:** 78
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/understanding-the-basics-of-unreal-engine.md
+
 ---
 
 ## Tag Reference
