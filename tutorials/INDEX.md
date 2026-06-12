@@ -354,6 +354,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-to-render-cryptomatte-in-unreal-new-in-426.md
 
+
+### Fix the Broken First Frame in Sequencer / Movie Render Queue! - Unreal Engine
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=lXcerW59onA
+- **Author:** William Faucher
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/fix-the-broken-first-frame-in-sequencer-movie-render-queue---unreal-engine.md
+
 ---
 
 ## Tag Reference
