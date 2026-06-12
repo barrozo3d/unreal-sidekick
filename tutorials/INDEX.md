@@ -74,6 +74,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/procedural-content-generation-framework-in-unreal-engine.md
 
+
+### Physics in Unreal Engine
+- **Source:** Epic Documentation
+- **URL:** https://dev.epicgames.com/documentation/unreal-engine/physics-in-unreal-engine
+- **Pages:** 68
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/physics-in-unreal-engine.md
+
 ---
 
 ## Tag Reference
