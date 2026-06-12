@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=wTYM9TfckOQ
 author: William Faucher
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.0"
+tags: [lumen, reflections, hardware-ray-tracing, translucency, glass, nanite, project-settings, william-faucher, beginner, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/fixing-common-ue5-issues-changes-in-50/
 frame_count: 0
 ---
@@ -68,27 +68,89 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Fixing the three most common UE5.0 confusion points for UE4 migrants: getting sharp Lumen reflections (hit lighting mode + HWRT option), restoring ray-traced glass refraction (translucency type = Ray Tracing), and understanding Nanite's path tracer limitation.
 
 ### Summary
-[PENDING EXTRACTION]
+15-minute troubleshoot video clarifying UE5.0 changes that confused many UE4 users. Core message: Lumen doesn't need RTX hardware for GI, but if you want sharp reflections you have options. Covers the full reflection quality ladder, correct translucency settings for glass materials, and the Nanite + path tracer caveat.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Project Settings (HWRT + Path Tracing):**
+- Settings → Project Settings → Rendering:
+  - Dynamic Global Illumination = Lumen
+  - Support Hardware Ray Tracing ✓
+  - Use Hardware Ray Tracing When Available ✓
+  - Path Tracing ✓
+  - Default RHI = DirectX 12
+- Note: Lumen GI works without HWRT (software Lumen runs on GTX 1070-1080)
+
+**Lumen Reflection Quality Ladder (worst → best):**
+1. Default Lumen reflections: blurry, soft, but captures GI in reflections
+2. **Hit Lighting for Reflections** (PPV): Lumen → Ray Lighting Mode → Hit Lighting for Reflections
+   - Much sharper reflections
+   - Loses multi-bounce reflection-of-reflections
+3. **Hardware Ray-Traced Reflections** (PPV): Reflections → Reflection Method → Standalone Ray-Traced *(deprecated)*
+   - Sharpest possible
+   - Loses GI in reflections entirely (reverts to old UE4 behavior)
+4. **Best of both (Lumen + HWRT)**: keep Lumen reflections but set `Lumen Reflection Quality = 4` in PPV
+   - Sharpness of HWRT + GI capture of Lumen
+
+**Fix Glass/Translucency Refraction (UE4 → UE5 migration):**
+- PPV → Translucency → Type: change from **Raster** to **Ray Tracing**
+- This restores the correct glass refraction behavior from UE4
+
+**Glass Material Setup (quick reference):**
+```
+Base Color: 0
+Specular: 1
+Roughness: 0.05
+Opacity: 0.1
+Refraction: 1.5 (IOR of glass)
+Blend Mode: Translucent
+Lighting Mode: Surface Forward Shading
+```
+
+**Nanite + Path Tracer Limitation:**
+- Path Tracer traces against Nanite fallback mesh (proxy), NOT the full Nanite geo
+- Same issue as ray-traced shadows — low-res proxy used for performance
+- Aware of this when path tracing Nanite-heavy scenes
+
+**Quixel Bridge (UE5 migration):**
+- No longer built into UE5 editor
+- Fix: Epic Games Launcher → Library → Vault → search "Bridge" → install to engine version
+
+**Skylight Real Time Capture + Environment Light Mixer:**
+- Window → Env Light Mixer → create Skylight + Atmospheric Light + Sky Atmosphere + Fog
+- Skylight → Real Time Capture ✓ → updates GI with sky movement (Ctrl+L shortcut)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+
+**Reflections PPV Settings:**
+```
+Post Process Volume > Lumen:
+  Ray Lighting Mode: Hit Lighting for Reflections   // sharper Lumen reflections
+  Lumen Reflections Quality: 4                       // HWRT-quality with Lumen GI
+
+Post Process Volume > Reflections:
+  Reflection Method: Standalone Ray-Traced           // sharpest; loses GI in reflections (deprecated)
+  
+Post Process Volume > Translucency:
+  Type: Ray Tracing                                  // proper glass refraction
+```
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner — migration guide for UE4 users confused by UE5 changes
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.0 (some settings apply to all UE5 versions)
 
 ### Tags
-[PENDING EXTRACTION]
+lumen, reflections, hardware-ray-tracing, translucency, glass, nanite, project-settings, william-faucher, beginner, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/lumen-explained---important-tips-for-ue5.md` — Lumen internals deep dive
+- `tutorials/fixing-the-ugly-shadow-issues-in-unreal-engine-5.md` — Nanite ray-traced shadow issues
+- `tutorials/path-tracer-explained---unreal-engines-underrated-tool.md` — Path Tracer details
+- `references/rendering-pipeline.md` — Full rendering settings reference

@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=FxvF3zncClA
 author: William Faucher
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 4.26"
+tags: [rendering, movie-render-queue, mrq, anti-aliasing, spatial-samples, motion-blur, exr, high-resolution-tiling, william-faucher, beginner, intermediate, ue4]
+extraction_status: complete
 frames_dir: tutorials/frames/improve-your-renders-with-unreal-movie-render-queue-part-1---goodbye-sequencer-4/
 frame_count: 0
 ---
@@ -76,27 +76,84 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Introduction to Movie Render Queue (MRQ) in UE4.26 — how it compares to the legacy Sequencer renderer, the four key improvements (UI, multi-format, high-res tiling, AA subsampling), and how AA=None + 64 spatial samples dramatically improves render quality over default.
 
 ### Summary
-[PENDING EXTRACTION]
+16-minute foundational MRQ tutorial from when MRQ was first production-ready (UE4.26). Shows side-by-side comparisons: default MRQ = same as Sequencer, but with AA=None + 64 spatial samples = dramatically cleaner motion blur and texture/noise detail. Key insight: MRQ is a render quality multiplier on top of Sequencer, not a replacement for it.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Enable MRQ:**
+1. Settings → Plugins → search "Movie Render Queue" → enable both plugins:
+   - `Movie Render Pipeline`
+   - `Movie Render Pipeline Additional Render Passes` (enables Cryptomatte/Object ID passes)
+2. Restart engine
+
+**Open MRQ:**
+- Window → Cinematic → Movie Render Queue
+- Add sequence: click + button → select your Level Sequence
+- Click "Unsaved Config" to open settings
+
+**Default Settings (same as Sequencer):**
+- Add Output tab → choose file format (PNG/JPEG/EXR)
+- Default render = identical to Sequencer render (confirmed by pixel comparison)
+- Safe baseline: if you don't touch AA settings, you're not breaking anything
+
+**Key MRQ Improvements:**
+1. **Multiple file formats simultaneously** — render EXR + JPEG at once (Sequencer: one at a time)
+2. **Multiple render passes** — color pass + object ID + depth simultaneously
+3. **High Resolution Tiling**: add "High Resolution" tab
+   - 4× resolution by rendering 4 tiled shots
+   - ⚠ Does NOT support screen-space effects: reflections, bloom, lens flare, motion blur
+4. **AA Subsampling** (biggest quality win):
+   - Add Anti-Aliasing tab
+   - Override Anti-Aliasing → **None**
+   - Spatial Sample Count → **64** (or as high as needed)
+   - Result: dramatically cleaner renders with better motion blur, less temporal noise
+
+**AA Subsampling Quality (before vs. after):**
+- Before (default): temporal noise, rough motion blur edges
+- After (AA=None, 64 spatial): smooth motion blur ("creamy"), clean plant/foliage noise, sharp outlines
+
+**Console Variables Tab:**
+- Add for specific ray-tracing quality tweaks
+- Epic docs recommended CVars for when tiling + disabling temporal AA
+- Careful: don't add without knowing what they change
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+
+**MRQ Settings for High Quality (UE4.26):**
+```
+Output:
+  Format: EXR (preferred for post) or PNG/JPEG
+
+Anti-Aliasing:
+  Override Anti-Aliasing: None
+  Spatial Sample Count: 64          // much cleaner renders
+  Temporal Sample Count: 1          // for still/crisp shots
+  // For motion blur: use Temporal Samples instead
+
+High Resolution:
+  [ONLY use if screen-space effects are not needed]
+```
+
+**Why AA=None + High Samples works:**
+- With TSR/TAA enabled: temporal anti-aliasing uses history frames → smearing + noise
+- With AA disabled: each spatial sample renders its own clean version → they average to a pristine image
+- 64 spatial samples = 64 clean sub-pixels averaged → nearly noiseless
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner to Intermediate — foundational MRQ intro; follow up with MRQ Part 2 for advanced features
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 4.26 (MRQ first production-ready; concept identical in UE5)
 
 ### Tags
-[PENDING EXTRACTION]
+rendering, movie-render-queue, mrq, anti-aliasing, spatial-samples, motion-blur, exr, high-resolution-tiling, william-faucher, beginner, intermediate, ue4
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/the-2025-guide-to-rendering-in-unreal-engine-5.md` — Updated 2025 MRQ guide (UE5.5)
+- `tutorials/path-tracer-explained---unreal-engines-underrated-tool.md` — Path Tracer MRQ integration
+- `references/rendering-pipeline.md` — Full rendering settings reference

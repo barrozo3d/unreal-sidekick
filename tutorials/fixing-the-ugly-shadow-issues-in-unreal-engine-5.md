@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=F3XSKXhIAuU
 author: William Faucher
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.0"
+tags: [shadows, nanite, hardware-ray-tracing, ray-traced-shadows, fallback-mesh, virtual-shadow-maps, william-faucher, beginner, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/fixing-the-ugly-shadow-issues-in-unreal-engine-5/
 frame_count: 0
 ---
@@ -60,27 +60,79 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Three solutions to Nanite + ray-traced shadow splotch artifacts — dark blotchy shadows on Nanite meshes caused by ray tracing tracing against the low-res Nanite fallback proxy mesh instead of the full Nanite geometry.
 
 ### Summary
-[PENDING EXTRACTION]
+7-minute focused troubleshoot for the common "nasty black splotches" shadow artifact on Nanite meshes in UE5. Root cause: HWRT shadows trace against the Nanite fallback mesh (a lower-res proxy with potentially inverted normals), not the actual Nanite geometry. Three solutions with different tradeoffs — from quick (disable RT shadows) to comprehensive (fix fallback mesh resolution).
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Root Cause:**
+- Ray-traced shadows use the **Nanite fallback mesh** (low-res proxy, often with inverted normals) as the shadow caster
+- Fallback mesh ≠ Nanite mesh shape → incorrect shadow projection on surface → dark splotches
+- This is BY DESIGN — tracing against full Nanite geometry would be too expensive
+
+**Solution 1: Disable Ray-Traced Shadows (Quickest)**
+1. Select the directional/point/spot light
+2. Details panel → search "ray" → **Cast Ray Traced Shadows** → Disabled (or "Use Project Settings")
+3. Reverts to Virtual Shadow Maps → splotches gone
+- Tradeoff: loses HWRT shadow softness (VSM shadows are sharper, especially at wide penumbra)
+- Best when: you don't specifically need ray-traced shadows
+
+**Solution 2: Disable Two-Sided Geometry CVar (Balance)**
+```
+r.RayTracing.Shadows.EnableTwoSidedGeometry 0
+```
+1. Open Console (`~`) and enter the command
+2. Keeps ray-traced shadows enabled while fixing splotch artifacts
+- Tradeoff: One-sided plane meshes (a flat plane, grass cards, etc.) will no longer cast shadows
+- Flip one-sided mesh to correct direction → shadow works
+- Best when: you need HWRT shadows and scene has mostly closed/two-sided geometry
+
+**Solution 3: Fix Nanite Fallback Mesh (Most Thorough)**
+1. Content Browser → double-click Nanite mesh → Static Mesh Editor
+2. Show → Show Nanite Fallback Mesh (visualize the proxy)
+3. Nanite Settings → **Fallback Relative Error** → `0` → Apply Changes
+4. Fallback mesh now matches Nanite mesh exactly → splotches gone
+- Tradeoff: performance impact (denser fallback mesh costs more memory/processing)
+- Can take several minutes to recompile
+- Best when: the mesh is critical and you need HWRT shadows to be accurate
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+
+**Console Variable:**
+```
+r.RayTracing.Shadows.EnableTwoSidedGeometry 0   // fix Nanite shadow splotches
+// Set back to 1 to re-enable two-sided shadow casting (for planes/open geo)
+```
+
+**Static Mesh Editor — Nanite Settings:**
+```
+Show → Show Nanite Fallback Mesh    // visualize current fallback shape
+Nanite Settings:
+  Fallback Relative Error: 0        // makes fallback = high-res mesh (perf cost)
+  [Apply Changes]
+```
+
+**Quick Reference — When to Use Which:**
+| Solution | RT Shadows | Planes Cast Shadows | Performance | Speed |
+|----------|-----------|---------------------|-------------|-------|
+| Disable RT Shadows | No (VSM) | Yes | Best | Instant |
+| Disable TwoSidedGeo | Yes | No (1-sided) | Same | Instant |
+| Fix Fallback Mesh | Yes | Yes | Slight cost | Slow compile |
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner — quick fix reference; explains the why behind the issue
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.0 (applies to all UE5 versions using Nanite + hardware ray tracing)
 
 ### Tags
-[PENDING EXTRACTION]
+shadows, nanite, hardware-ray-tracing, ray-traced-shadows, fallback-mesh, virtual-shadow-maps, william-faucher, beginner, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/fixing-common-ue5-issues-changes-in-50.md` — Related UE5.0 issues (HWRT, translucency)
+- `tutorials/nanite-everything-you-should-know-unreal-engine-5.md` — Nanite fundamentals
+- `references/rendering-pipeline.md` — Shadow system overview

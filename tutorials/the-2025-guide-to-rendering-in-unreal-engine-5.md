@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=fVg5ihB8Wdc
 author: William Faucher
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.5"
+tags: [rendering, movie-render-queue, mrq, anti-aliasing, temporal-samples, spatial-samples, motion-blur, exr, color-output, tsr, dlss, william-faucher, intermediate, ue5-5]
+extraction_status: complete
 frames_dir: tutorials/frames/the-2025-guide-to-rendering-in-unreal-engine-5/
 frame_count: 0
 ---
@@ -76,27 +76,87 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Movie Render Queue (MRQ) 2025 setup guide — correct use of temporal vs. spatial samples for motion blur, why NOT to add console variables manually, EXR + Disable Tone Curve for color grading pipelines, and fixing Niagara/physics ghosting artifacts via framerate doubling trick.
 
 ### Summary
-[PENDING EXTRACTION]
+13-minute opinionated MRQ guide synthesizing community knowledge (Matt Workman, Dylan Brown, Sean Commonly from Epic). Key insight: MRQ already maxes cinematic quality via Game Overrides — don't add console variable tabs. Covers EXR/linear output, temporal vs. spatial samples (pick one), TSR vs. AA=None, the framerate-doubling ghost fix, and the critical misconception that more samples fixes noise.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Enable MRQ:**
+- Edit → Plugins → search "Movie Render Queue" → enable both plugins → restart
+
+**Core Settings Stack:**
+1. **Output**: EXR format (16-bit, recoverable highlights/shadows for color grading)
+2. **Color Output**: Disable Tone Curve ✓ → renders in linear space (more grading latitude)
+3. **Anti-Aliasing**: see below
+4. **Game Overrides**: add this tab — it auto-enables all cinematic quality settings (no manual CVars needed)
+
+**Temporal vs. Spatial Samples — Choose ONE:**
+| Goal | Use |
+|------|-----|
+| Motion blur in shot | Temporal samples ONLY (temporal=16, spatial=1) |
+| No motion blur (crisp) | Spatial samples ONLY (spatial=16+, temporal=1) + PPV Motion Blur Amount=0 |
+
+**DO NOT mix temporal and spatial** — you don't get benefits of both, you lose both.
+
+**AA Method:**
+- TSR (default): good at ≤8 samples; diminishing returns above that
+- AA=None: better for fine detail (power lines, branches, leaves); William's preference for most shots
+- William's starting point: AA=None, 9–15 temporal samples
+- 15–31 samples handles 95-98% of situations; no need for 64/128 unless denoisers disabled
+
+**Fix Niagara/Physics Ghosting (Double Framerate Trick):**
+1. Set Sequencer to render at 48 FPS (double of desired 24)
+2. PPV → Motion Blur Amount = 1.0
+3. Render at 48 FPS
+4. Import into DaVinci on 24 FPS timeline → it skips every other frame automatically
+5. Why it works: halves motion per frame → effectively eliminates ghost artifacts from particle/physics motion
+
+**Console Variables — DON'T add them:**
+- MRQ's Game Overrides tab already maxes all cinematic quality vars
+- Only add CVars if you know exactly what you're changing (e.g., disabling denoiser with specific CVar)
+
+**Noise / Flickering is NOT fixed by more samples:**
+- Large low-frequency noise = denoiser artifact (disable denoiser CVar)
+- Flickering/popping = Lumen distance field issue, not MRQ
+- Sharp noise = individual light's own sample count (set per light in Details)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+
+**Recommended MRQ Config (2025):**
+```
+Output:
+  Format: EXR (16-bit)
+  
+Color Output:
+  Disable Tone Curve: True   // linear space output for color grading
+
+Anti-Aliasing:
+  Override AA: None
+  Temporal Sample Count: 9–15  (motion blur shots)
+  // OR
+  Spatial Sample Count: 16–31  (still shots, no motion blur)
+  Motion Blur Amount (PPV): 0   // if using spatial only
+
+Game Overrides:
+  [add tab — auto-enables all cinematic quality settings]
+```
+
+**DLSS vs TSR note:** For absolute best quality MRQ stills/animation, still use AA=None + temporal samples — DLSS Frame Gen doesn't help offline renders.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate — assumes basic MRQ familiarity; corrects many common misconceptions
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.5 (principles apply to UE5.3+ and partly to UE4.26+)
 
 ### Tags
-[PENDING EXTRACTION]
+rendering, movie-render-queue, mrq, anti-aliasing, temporal-samples, spatial-samples, motion-blur, exr, color-output, tsr, dlss, william-faucher, intermediate, ue5-5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/improve-your-renders-with-unreal-movie-render-queue-part-1---goodbye-sequencer-4.md` — MRQ Part 1 (UE4.26, foundational intro)
+- `tutorials/path-tracer-explained---unreal-engines-underrated-tool.md` — Path Tracer MRQ settings
+- `references/rendering-pipeline.md` — Full rendering settings reference

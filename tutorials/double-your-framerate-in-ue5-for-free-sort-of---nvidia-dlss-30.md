@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=RaY_FDaydoQ
 author: William Faucher
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.2"
+tags: [dlss, frame-generation, tsr, upscaling, performance, nvidia, rtx, anti-aliasing, william-faucher, intermediate, ue5-2]
+extraction_status: complete
 frames_dir: tutorials/frames/double-your-framerate-in-ue5-for-free-sort-of---nvidia-dlss-30/
 frame_count: 0
 ---
@@ -64,27 +64,87 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+DLSS 3.0 in UE5.2 — understanding Frame Generation (doubles FPS via ML-interpolated frames, requires RTX 40-series) vs. DLSS (AI upscaling, any DLSS-capable GPU), where each works and doesn't work, and how to install/enable.
 
 ### Summary
-[PENDING EXTRACTION]
+13-minute evaluation of DLSS 3.0 in UE5.2. Clarifies the confusing DLSS 3.0 umbrella naming: DLSS (upscaler, works on older DLSS GPUs) vs. Frame Generation (inserts synthesized frames between rendered ones, only meaningful on RTX 40 series due to optical flow hardware). Frame Gen works in PIE and packaged builds but NOT in viewport/MRQ/nDisplay. Best MRQ quality still requires AA=None + temporal samples — Frame Gen doesn't help offline.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**DLSS 3.0 Components:**
+| Component | What It Does | GPU Requirement |
+|-----------|-------------|-----------------|
+| DLSS (Super Resolution) | AI upscaling from lower resolution | RTX 20+ (DLSS capable) |
+| Frame Generation | ML-inserts frames between rendered ones | RTX 40 series (meaningful) |
+| Reflex | Input latency reduction | RTX 20+ |
+
+**DLSS Quality Presets (screen percentage):**
+| Mode | Screen % | Notes |
+|------|----------|-------|
+| DLAA | 100% | Full resolution + AA only |
+| Quality | 66.67% | Best balance |
+| Balanced | 58% | |
+| Performance | 50% | |
+| Ultra Performance | 33.33% | Not recommended for quality renders |
+
+**TSR vs DLSS:**
+- Both are upscalers with different algorithms
+- TSR = Epic's temporal super resolution (default in UE5)
+- DLSS = Nvidia ML upscaler
+- Frame Gen is fundamentally different — not an upscaler, inserts new frames
+
+**Frame Generation Details:**
+- Uses ML + optical flow hardware to synthesize a frame between each real rendered frame
+- Does NOT need DLSS running simultaneously (can combine with TSR)
+- Requires baseline ≥30 FPS to work well (below that: too much AI guesswork → artifacts)
+- RTX 30/20 series: technically possible via software unlock but negligible real-world benefit
+- Ghosting artifacts on thin objects (lamp posts, wires) in some cases
+
+**Where Frame Gen Works:**
+- Play In Editor (standalone window) ✓
+- Packaged executable ✓
+- Viewport ✗
+- Movie Render Queue ✗ (no effect on offline renders)
+- nDisplay: tested — DLSS works, Frame Gen had flickering (black frames)
+
+**Install DLSS 3.0:**
+1. Download from Nvidia (link in description) — comes as folder + PDF instructions
+2. Copy DLSS plugin folders to engine directory
+3. UE Project → Edit → Plugins → enable DLSS + Streamline + Frame Generation plugins
+4. Project Settings → Nvidia tabs → enable relevant features
+
+**MRQ Rendering — DLSS doesn't help:**
+- Add DLSS tab in MRQ for upscaling quality control
+- But for absolute best render quality → still use AA=None + 16+ temporal samples
+- DLAA renders vs. TSR in MRQ: differences subtle; DLAA handles water/foliage differently
+
+**Future Potential:**
+- Real-time path tracing via: low-res path trace (540p @ 12-15 FPS) → DLSS/TSR upscale to 1080p → Frame Gen to 24-30 FPS
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+
+**Sharpness Console Variable:**
+```
+// DLSS/DLAA sharpness (not a post-process sharpener — sharpens at ML inference time)
+// Set in PPV console variables or project settings
+```
+
+**DLSS CVar for Sharpness:**
+- Configurable in project settings under Nvidia tab
+- Applies sharpening to the ML output itself
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate — requires understanding of upscalers vs. frame interpolation; useful for archviz/games developers
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.2 (DLSS 3.0 support released for UE5.2; later versions have improved support)
 
 ### Tags
-[PENDING EXTRACTION]
+dlss, frame-generation, tsr, upscaling, performance, nvidia, rtx, anti-aliasing, william-faucher, intermediate, ue5-2
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/the-2025-guide-to-rendering-in-unreal-engine-5.md` — Current MRQ best practices (2025)
+- `tutorials/path-tracer-explained---unreal-engines-underrated-tool.md` — Path Tracer (Frame Gen future potential)
+- `references/version-tracker.md` — TSR improvements per UE version
