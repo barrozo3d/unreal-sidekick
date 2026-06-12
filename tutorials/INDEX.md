@@ -94,6 +94,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/blueprints-visual-scripting-in-unreal-engine.md
 
+
+### World Partition in Unreal Engine
+- **Source:** Epic Documentation
+- **URL:** https://dev.epicgames.com/documentation/unreal-engine/world-partition-in-unreal-engine
+- **Pages:** 1
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/world-partition-in-unreal-engine.md
+
 ---
 
 ## Tag Reference
