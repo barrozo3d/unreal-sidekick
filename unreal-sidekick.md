@@ -52,9 +52,12 @@ Before answering, read `tutorials/INDEX.md`. Search for entries matching the tec
 | `references/sequencer-cinematics.md` | Sequencer, Cine Camera, Level Sequences, Movie Render Queue |
 | `references/rendering-pipeline.md` | Lumen, Nanite, Path Tracing, TSR, post-process, GPU Lightmass |
 | `references/materials-shaders.md` | Material Editor, PBR, instances, HLSL custom expressions |
-| `references/blueprints-scripting.md` | Blueprint event graph, functions, macros, interfaces |
+| `references/blueprints-scripting.md` | Blueprint types, communication patterns, variable types |
 | `references/python-unreal.md` | unreal Python API, editor scripting, automation |
-| `references/version-tracker.md` | Current UE version, release notes state |
+| `references/version-tracker.md` | Current UE version, release notes, feature version matrix |
+| `references/chaos-physics.md` | Chaos destruction, cloth, rigid bodies, vehicles, physics fields |
+| `references/metahuman-reference.md` | MetaHuman setup, LOD, animation methods, materials, CVars |
+| `references/ndisplay-icvfx.md` | nDisplay cluster setup, ICVFX LED wall, Switchboard, ports |
 
 ### Step 2b — Check Recipes (for multi-step pipeline questions)
 
