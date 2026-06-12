@@ -29,9 +29,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** Epic Documentation
 - **URL:** https://dev.epicgames.com/documentation/unreal-engine/creating-visual-effects-in-niagara-for-unreal-engine
 - **Pages:** 37
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.7
+- **Tags:** `#niagara` `#vfx` `#particles` `#gpu-particles` `#fluids` `#rendering` `#blueprints` `#audio` `#epic-docs` `#intermediate` `#advanced` `#ue5-7`
+- **Summary:** UE 5.7 Niagara VFX system reference — Getting Started, key concepts, emitter/system architecture, Fluids, GPU Raytracing Collisions, Niagara Script Editor, Debugger, optimization. 37 pages.
 - **File:** tutorials/creating-visual-effects-in-niagara-for-unreal-engine.md
 
 
@@ -49,9 +49,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** Epic Documentation
 - **URL:** https://dev.epicgames.com/documentation/unreal-engine/animating-characters-and-objects-in-unreal-engine
 - **Pages:** 162
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.7
+- **Tags:** `#animation` `#skeletal-mesh` `#animation-blueprints` `#sequencer` `#cinematics` `#mrq` `#movie-render-graph` `#control-rig` `#ik-rig` `#motion-matching` `#live-link` `#blend-spaces` `#montages` `#state-machines` `#deformer-graph` `#ml-deformer` `#locomotion` `#epic-docs` `#advanced` `#ue5-7`
+- **Summary:** Full UE 5.7 animation reference — Skeletal Mesh Animation System, Animation Blueprints, Sequencer cinematics, MRQ/Movie Render Graph, Control Rig, IK Rig/Retargeter, Motion Matching, Live Link, ML Deformer, Deformer Graph, Paper 2D. 162 pages.
 - **File:** tutorials/animating-characters-and-objects-in-unreal-engine.md
 
 
@@ -59,9 +59,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** Epic Documentation
 - **URL:** https://dev.epicgames.com/documentation/unreal-engine/understanding-the-basics-of-unreal-engine
 - **Pages:** 78
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.7
+- **Tags:** `#basics` `#editor` `#actors` `#components` `#blueprints` `#levels` `#assets` `#content-browser` `#plugins` `#projects` `#templates` `#packaging` `#gameplay-framework` `#ue-terminology` `#epic-docs` `#beginner` `#ue5-7`
+- **Summary:** Foundational UE 5.7 reference — installation, terminology (Actor/Component/Blueprint/GameMode/World), all core editors overview, Content Browser, Levels, Assets, Actors, gameplay framework classes, packaging. 78 pages.
 - **File:** tutorials/understanding-the-basics-of-unreal-engine.md
 
 ---

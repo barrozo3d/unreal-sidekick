@@ -3,9 +3,9 @@ title: Designing Visuals, Rendering, and Graphics with Unreal Engine
 source: Epic Documentation
 url: https://dev.epicgames.com/documentation/unreal-engine/designing-visuals-rendering-and-graphics-with-unreal-engine
 ingested: 2026-06-11
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.7"
+tags: [rendering, lumen, nanite, virtual-shadow-maps, path-tracing, substrate, materials, textures, post-process, lighting, reflections, tsr, anti-aliasing, rdg, performance, debugging, neural, nne, ml-deformer, cinematics, mrq, epic-docs, intermediate, advanced, ue5-7]
+extraction_status: complete
 page_count: 170
 ---
 
@@ -876,24 +876,87 @@ How to Use the Machine Learning Deformer in Unreal Engine | Unreal Engine 5.7 Do
 ## Structured Notes
 
 ### Core Topics
-[PENDING EXTRACTION]
+Lumen GI & Reflections, Nanite Virtualized Geometry, Virtual Shadow Maps, Substrate Materials, Path Tracer, Textures & Materials, Post Process, Lighting, TSR/Anti-Aliasing, Render Dependency Graph, GPU Debugging, Neural Rendering (NNE / NFOR / ML Deformer)
 
 ### Summary
-[PENDING EXTRACTION]
+Comprehensive UE 5.7 rendering reference covering the full pipeline from asset setup to final output. Lumen provides dynamic GI/reflections via software or hardware ray tracing; Nanite delivers virtualized geometry at pixel scale; Virtual Shadow Maps replace legacy shadow methods with 16K virtual resolution; Substrate replaces fixed shading models with modular BSDF authoring; the Path Tracer delivers offline-quality unbiased renders for MRQ pipelines. Also covers graphics programming (RDG, shader parameter structs, uniform buffers), neural post-processing with ONNX models, NFOR temporal denoiser for path-traced MRQ renders, and ML Deformer for real-time skeletal mesh deformation approximation.
 
 ### Key Concepts & Systems
-[PENDING EXTRACTION]
+
+**Lumen**
+- Fully dynamic GI + reflections; default in new UE5 projects
+- Software Ray Tracing (Mesh Distance Fields, SM6+) vs Hardware Ray Tracing (requires DXR GPU)
+- Surface Cache: auto-parameterization of scene surfaces via Cards (default 12/mesh, configurable)
+- Final Gather solves indirect diffuse + sky lighting in one pass
+- Key CVars: `r.Lumen.Visualize.CardPlacement`, `r.LumenScene.*`
+
+**Nanite**
+- Virtualized geometry: hierarchical triangle clusters, per-frame LOD selection on GPU
+- No manual LOD setup required; supports Static, Skeletal, Landscape, Foliage, Splines
+- Nanite tessellation: runtime programmable displacement via material displacement maps
+- Static Displacement Mapping: offline adaptive tessellator bakes displacement into Nanite mesh
+- Requires VSM for shadowing; integrates with Lumen Surface Cache
+
+**Virtual Shadow Maps (VSM)**
+- 16K virtual resolution; tile-based allocation (128×128 pages), only renders visible tiles
+- Replaces Stationary precomputed shadows, CSMs, per-object shadows for Nanite workflows
+- Shadow Map Ray Tracing (SMRT): samples along rays for soft shadows + contact hardening
+- Directional lights use clipmaps (levels 6–22, ~64cm–40km range)
+- Key CVars: `r.Shadow.Virtual.Enable`, `r.Shadow.Virtual.SMRT.RayCountLocal`
+
+**Substrate Materials**
+- Replaces fixed shading models (Default Lit, Clear Coat, etc.) with modular BSDF slabs
+- Supports layering, fuzzy shading, thin-film interference, dielectric/conductor workflows
+- Beta feature in UE 5.7
+
+**Path Tracer**
+- Progressive hardware-accelerated renderer; shares DXR architecture with ray tracing features
+- Full integration with MRQ: Anti-aliasing module (spatial/temporal samples), High Resolution tiling
+- Lighting Components mode: decompose image into diffuse/specular/emissive passes for compositing
+- NFOR Denoiser: spatial-temporal denoiser for MRQ; uses NonLocalMean patches; supports 0–3 frame history
+- Requires: DX12, Hardware Ray Tracing enabled in Project Settings
+
+**Render Dependency Graph (RDG)**
+- Immediate-mode API for high-level rendering code; compiles a pass graph
+- Automates: transient resource allocation, sub-resource transitions, async compute fences, pass culling
+- Shader Parameter Structs: `BEGIN_SHADER_PARAMETER_STRUCT` macros → compile-time reflection metadata
+- Uniform Buffers: `BEGIN_UNIFORM_BUFFER_STRUCT`; static bindings for Mesh Draw Commands
+- All new renderer code should be written using RDG
+
+**GPUDump Viewer**
+- Console command `DumpGPU` (or Ctrl+Shift+/) captures all RDG textures/buffers to disk
+- HTML viewer (Chrome/WebGL 2.0); supports all platforms including mobile
+- Key CVar: `r.DumpGPU.Root` to filter passes; `r.DumpGPU.Directory` to set output path
+- Saves to `Saved/GPUDumps/` by default; highly compressible (~4× zip ratio)
+
+**Neural Rendering**
+- Neural Post Processing: ONNX models in Post Process Materials via Neural Input/Output nodes; NNERuntimeORTDml or NNERuntimeRDGHlsl
+- NFOR Denoiser: temporal denoiser for path-traced MRQ; `r.NFOR.FrameCount` (0–3 side frames)
+- ML Deformer: trains on Maya-generated deformation data (FBX + Alembic) → Morph Targets at runtime; Neural Morph Model plugin; ~15,000 training poses recommended
 
 ### UE Systems / Settings / Code
-[PENDING EXTRACTION]
+
+| System | Key Setting / CVar | Location |
+|--------|-------------------|----------|
+| Lumen GI | Dynamic Global Illumination Method → Lumen | Project Settings → Rendering |
+| Lumen Reflections | Reflection Method → Lumen | Project Settings → Rendering |
+| Hardware RT | Use Hardware Ray Tracing when available | Project Settings → Rendering |
+| Nanite | Enable Nanite Support | Static Mesh Editor → Build Settings |
+| VSM | Shadow Map Method → Virtual Shadow Maps | Project Settings → Rendering → Shadows |
+| Substrate | (enable plugin) | Plugins browser |
+| Path Tracer | Enable Support Hardware Ray Tracing + Enable Path Tracing | Project Settings → Rendering |
+| NFOR | r.PathTracing.TemporalDenoiser.Name NFOR | Console / MRQ Path Traced Renderer node |
+| Mesh Distance Fields | Generate Mesh Distance Fields | Project Settings → Rendering |
+| TSR | r.TemporalAA.Algorithm 1 | Console |
+| RDG Insights | RDG Insights tool | Unreal Insights |
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.7 (confirmed across all 170 pages)
 
 ### Tags
-[PENDING EXTRACTION]
+`#rendering` `#lumen` `#nanite` `#virtual-shadow-maps` `#path-tracing` `#substrate` `#materials` `#textures` `#post-process` `#lighting` `#reflections` `#tsr` `#anti-aliasing` `#rdg` `#performance` `#debugging` `#neural` `#nne` `#ml-deformer` `#cinematics` `#mrq` `#epic-docs` `#intermediate` `#advanced` `#ue5-7`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[creating-visual-effects-in-niagara-for-unreal-engine]] — Niagara VFX (references Post Process and Rendering systems)

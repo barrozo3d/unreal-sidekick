@@ -3,9 +3,9 @@ title: Animating Characters and Objects in Unreal Engine
 source: Epic Documentation
 url: https://dev.epicgames.com/documentation/unreal-engine/animating-characters-and-objects-in-unreal-engine
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.7"
+tags: [animation, skeletal-mesh, animation-blueprints, sequencer, cinematics, mrq, movie-render-graph, control-rig, ik-rig, ik-retargeter, motion-matching, live-link, blend-spaces, montages, state-machines, deformer-graph, ml-deformer, paper-2d, animation-notifies, retargeting, locomotion, physics-animation, epic-docs, intermediate, advanced, ue5-7]
+extraction_status: complete
 page_count: 162
 ---
 
@@ -836,24 +836,132 @@ How to use Paper 2D in Unreal Engine | Unreal Engine 5.7 Documentation | Epic De
 ## Structured Notes
 
 ### Core Topics
-[PENDING EXTRACTION]
+Skeletal Mesh Animation System, Animation Blueprints, Sequencer & Cinematics, Control Rig, IK Rig / IK Retargeter, Motion Matching, Live Link, Blend Spaces, Montages, State Machines, Deformer Graph, ML Deformer, Animation Notifies, Locomotion, Physics-driven Animation, Paper 2D
 
 ### Summary
-[PENDING EXTRACTION]
+Complete UE 5.7 animation reference covering both runtime gameplay animation and cinematic production pipelines. The Skeletal Mesh Animation System (Animation Blueprints, AnimGraph, State Machines, Blend Spaces, Montages) powers runtime character animation. Sequencer is the non-linear cinematic editor; Movie Render Queue / Movie Render Graph handle high-quality output with multi-pass rendering. Control Rig enables in-engine rigging and animation without external DCC tools. IK Rig + IK Retargeter handle cross-skeleton retargeting and runtime IK. Motion Matching provides data-driven locomotion. Live Link streams real-time data from MotionBuilder, Maya, XR devices. ML Deformer trains neural mesh deformers from Maya sim data for real-time skeletal deformation quality.
 
 ### Key Concepts & Systems
-[PENDING EXTRACTION]
+
+**Skeletal Mesh Animation System**
+- Foundation: Skeleton Asset → Skeletal Mesh → Animation Sequences → Animation Blueprints
+- Animation Editors: Skeleton Editor, Skeletal Mesh Editor, Animation Sequence Editor, Animation Blueprint Editor, Physics Asset Editor
+- `Animation Mode` → Use Animation Blueprint; `Anim Class` → set ABP asset
+
+**Animation Blueprints**
+- Three graph types: Event Graph (BP logic), AnimGraph (pose evaluation), State Machines (locomotion states)
+- Linked Anim Instances: `Animation Blueprint Linking` for modular/additive systems
+- Multi-threaded update: `Use Multi Threaded Animation Update` in Class Settings
+- Root Motion modes: No Extraction, Ignore, From Everything, From Montages Only
+- Pose Watch Manager for debugging active pose states
+
+**Blend Spaces & Montages**
+- Blend Space: 1D or 2D blending between animations by parameter values (speed, direction)
+- Aim Offset: special Blend Space for additive aim direction
+- Animation Montage: sequenced animation sections, used for root-motion-from-montage in multiplayer; slots define layering
+
+**State Machines**
+- States, Transition Rules, Conduits; best practice: use for locomotion, not for complex logic
+- Accessible via AnimGraph; can be nested
+
+**Animation Assets**
+- Animation Sequence: base keyframed animation
+- Animation Composite: joins sequences end-to-end
+- Pose Asset: stores individual poses for pose blending / facial
+- Animation Notify / Notify State: events fired at specific frames (footsteps, particles, sounds)
+- Sync Groups: keep animations in step across blend layers
+
+**IK Rig + IK Retargeter**
+- IK Rig: define chains (Full Body IK, limb IK) per skeleton; used for runtime IK and retargeting
+- IK Retargeter: maps one IK Rig to another; handles proportional differences; animates retarget settings in Sequencer
+- Runtime IK Retargeting: Blueprint API for dynamic retargeting at play time
+- Foot sliding fix: IK Retargeter post-retarget pass
+
+**Motion Matching**
+- Data-driven locomotion: selects best-matching animation frame from a large database every N frames
+- No state machine required; replaces manual blend tree for locomotion
+- Uses Pose Search plugin; requires large annotated animation database
+
+**Control Rig**
+- In-engine rigging system; Control Rig Asset → Controls (FK/IK), Bones, Nulls
+- Forwards Solve (controls → bones) / Backwards Solve (bones → controls for animation capture)
+- Modular Control Rigs: reusable rig modules (spine, limb, etc.) assembled per character
+- Full Body IK node for procedural IK chains
+- Animating with Control Rig: in Sequencer via Animation Mode; FK Control Rig for quick edits without a full rig
+- Python scripting: drive rigs, bake animations, automate rigging workflows
+- Space Switching (re-parent controls at runtime); Constraints (position/rotation/scale attach to objects)
+
+**Sequencer**
+- Multi-track non-linear editor; Level Sequences → Shots → Takes hierarchy
+- Tracks: Actor/Component Transform, Animation, Camera Cut, Event, Audio, Particle, Material Parameter, Property
+- Dynamic Binding: custom Blueprint picks which actor to possess at runtime
+- Spawnables vs Possessables: Spawnables own their lifetime; Possessables reference existing level actors
+- Take Recorder: record gameplay, Live Link, motion capture → Level Sequence
+- Python Scripting in Sequencer: `unreal.LevelSequenceEditorSubsystem`
+
+**Movie Render Queue / Movie Render Graph**
+- MRQ: legacy; plugin-based render settings (Anti-aliasing, High Res, Console Variables, Path Tracer, Output)
+- Movie Render Graph (MRG): node-based replacement; supports Callback Scripts, dynamic branching
+- Render passes: Beauty, Diffuse, Specular, Shadow, Depth, Normal, Object ID, etc.
+- Command line rendering: `-MoviePipelineLocalExecutorClass`, `-MoviePipelineConfig`
+- NFOR temporal denoiser integration via MRG Path Traced Renderer node (see Rendering doc)
+
+**Live Link**
+- Streams real-time data from MotionBuilder, Maya, MotionCapture systems, XR devices (LiveLinkXR), VRPN
+- Live Link Source → Live Link Subject → Skeletal Mesh → Live Link Controller
+- Live Link Curve Debugger for inspecting streamed curve data
+- FreedD protocol support for camera tracking (FreeD Live Link plugin)
+
+**Deformer Graph**
+- Node-based deformer system; runs compute shaders on mesh deformation
+- Custom deformer graphs per Skeletal Mesh; integrates with GPU skinning pipeline
+- Used as runtime complement to ML Deformer
+
+**ML Deformer**
+- Neural Morph Model: trains on Maya-generated FBX + Alembic deformation data (~15,000 poses recommended)
+- Output: Morph Targets driven at runtime by network inference
+- See also: Rendering doc for full ML Deformer setup walkthrough
+
+**Animation Optimization**
+- Animation Budget Allocator: rate-limits animation updates based on screen size / priority
+- Animation Sharing Plugin: shares animation states across many identical characters
+- Animation Compression: bone + curve compression settings per sequence
+- Rewind Debugger: playback and inspect animation state frame-by-frame post-PIE
+
+**Physics-driven Animation**
+- Physical Animation Component: blend physics simulation onto animated pose per bone
+- Ragdoll blending: blend from animation to full ragdoll via `Set All Bodies Simulate Physics`
+- Animation Pose Snapshot: capture a pose at runtime for use as simulation start state
+
+**Paper 2D**
+- Plugin-based 2D/hybrid system; Sprites → Flipbooks for 2D character animation
+- TileSet + TileMap for 2D level layout
+- Full access to UE physics, lighting, world rendering
 
 ### UE Systems / Settings / Code
-[PENDING EXTRACTION]
+
+| System | Key Setting / Property | Location |
+|--------|----------------------|----------|
+| Animation Blueprint | Animation Mode → Use Animation Blueprint | Skeletal Mesh Details |
+| Multi-threaded ABP | Use Multi Threaded Animation Update | ABP Class Settings |
+| Root Motion | EnableRootMotion | Animation Sequence Asset Details |
+| IK Rig | IK Rig Asset | IK Rig Editor |
+| IK Retargeter | Source / Target IK Rig | IK Retargeter Editor |
+| Motion Matching | Pose Search Database | Motion Matching node in AnimGraph |
+| Control Rig | Control Rig Asset | Control Rig Editor |
+| Live Link | Live Link Source (plugin) | Live Link panel (Window → Live Link) |
+| Animation Budget | UAnimationBudgetAllocator | ABP → Enable Budget Allocator |
+| MRQ | Movie Pipeline Configuration | Movie Render Queue window |
+| MRG | Movie Render Graph Asset | Movie Render Graph editor |
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.7 (confirmed across all 162 pages)
 
 ### Tags
-[PENDING EXTRACTION]
+`#animation` `#skeletal-mesh` `#animation-blueprints` `#sequencer` `#cinematics` `#mrq` `#movie-render-graph` `#control-rig` `#ik-rig` `#ik-retargeter` `#motion-matching` `#live-link` `#blend-spaces` `#montages` `#state-machines` `#deformer-graph` `#ml-deformer` `#animation-notifies` `#retargeting` `#locomotion` `#physics-animation` `#paper-2d` `#epic-docs` `#intermediate` `#advanced` `#ue5-7`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[designing-visuals-rendering-and-graphics-with-unreal-engine]] — ML Deformer full setup walkthrough; MRQ/MRG Path Tracer integration
+- [[creating-visual-effects-in-niagara-for-unreal-engine]] — Niagara particle effects triggered from Sequencer Event Tracks

@@ -3,9 +3,9 @@ title: Understanding the Basics of Unreal Engine
 source: Epic Documentation
 url: https://dev.epicgames.com/documentation/unreal-engine/understanding-the-basics-of-unreal-engine
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.7"
+tags: [basics, editor, actors, components, blueprints, levels, assets, content-browser, plugins, projects, templates, packaging, gameplay-framework, ue-terminology, directory-structure, epic-docs, beginner, ue5-7]
+extraction_status: complete
 page_count: 78
 ---
 
@@ -416,24 +416,136 @@ Target Point Actors in Unreal Engine | Unreal Engine 5.7 Documentation | Epic De
 ## Structured Notes
 
 ### Core Topics
-[PENDING EXTRACTION]
+Installation & Setup, UE Terminology, Editor Overview, Content Browser, Projects & Templates, Levels & World, Assets, Actors & Components, Gameplay Framework classes, Playing & Simulating, Packaging
 
 ### Summary
-[PENDING EXTRACTION]
+Foundational UE 5.7 reference for new users. Covers the full lifecycle: install via Epic Games Launcher → learn terminology (Actor, Component, Blueprint, Pawn, Character, PlayerController, GameMode, Level, World) → navigate core editors → manage Content Browser and assets → work with Levels → place and transform Actors → play-test and package for distribution. Also covers directory structure, plugin management, keyboard shortcut customization, and Editor Preferences.
 
 ### Key Concepts & Systems
-[PENDING EXTRACTION]
+
+**UE Terminology (Gameplay Framework)**
+- **Project** — holds all game content; identified by `.uproject` file
+- **Object / UObject** — base class of everything; garbage collection, metadata, serialization
+- **Actor / AActor** — anything placeable in a level; supports 3D transforms; spawned/destroyed via code
+- **Component** — adds functionality to an Actor (SpotLightComponent, RotatingMovementComponent, AudioComponent)
+- **Pawn** — Actor that can be possessed (controlled by player or AI)
+- **Character** — Pawn subclass; includes collision, bipedal movement, input bindings
+- **PlayerController** — translates player input to game interactions; one per player; primary multiplayer network interaction point
+- **AIController** — possesses a Pawn to represent NPC; default for Pawns not explicitly possessed
+- **PlayerState** — per-player replicated data (name, health, score); exists on all machines
+- **GameMode** — sets game rules (join logic, win conditions); server-only; one per Level
+- **GameState** — replicated game-wide state container; one local instance per machine
+- **Level / Map** — `.umap` file; gameplay area with geometry, Actors, settings
+- **World** — container for all streaming Levels; manages dynamic Actor spawning
+- **Blueprint** — node-based visual scripting; defines OO classes without C++
+- **Brush** — 3D shape Actor for BSP geometry; useful for quick level blockout
+- **Volume** — bounded 3D space with effects (Blocking, Pain Causing, Trigger)
+
+**Core Editors**
+| Editor | Purpose |
+|--------|---------|
+| Level Editor | Build gameplay levels; primary workspace |
+| Static Mesh Editor | Preview, LODs, collision, UVs for Static Meshes |
+| Material Editor | Node-based material/shader authoring |
+| Blueprint Editor | Visual scripting for gameplay logic |
+| Physics Asset Editor | Ragdoll, collision bodies for Skeletal Meshes |
+| Behavior Tree Editor | AI behavior node graph |
+| Niagara Editor | VFX particle system editor |
+| UMG UI Editor | HUD, menu, UI widget authoring |
+| Sequencer Editor | Cinematic multi-track editor |
+| Animation Editor | Skeleton, AnimSeq, AnimBP, Skeletal Mesh editors |
+| Control Rig Editor | In-engine rigging system |
+| Sound Cue Editor | Audio mixing and behavior |
+| nDisplay Config Editor | Multi-display virtual production setup |
+| DMX Library Editor | Live events lighting/device control |
+
+**Content Browser**
+- Primary hub for creating, importing, organizing, and managing all Assets
+- Sources Panel: folder tree for project + engine content
+- Filters & Collections: group assets by type or manual collection
+- Advanced Search: operators like `Name:`, `Type:`, `Tag:` for precise queries
+- Developers Folder: per-developer scratch space; not shipped with project
+- Asset Metadata: custom key-value tags on any asset; queryable via Blueprint/Python
+- Reference Viewer: visualizes asset dependency graph (Find → Reference Viewer)
+- Consolidate Assets: merges duplicate assets, fixes all references
+
+**Projects & Templates**
+- Create via Epic Games Launcher or in-editor; `.uproject` identifies project
+- Templates: First Person, Third Person, Top Down, Vehicle, Blank — set starting content, input bindings
+- Updating to newer UE versions: use `UE5 Migration Guide`; check deprecation warnings
+- Recovery Hub plugin: restore session after crash/abnormal exit
+
+**Levels & World**
+- Levels are `.umap` files; World Settings sets per-level overrides (gravity, default GameMode, lighting)
+- Managing Multiple Levels: Levels panel for persistent level + streaming sublevels (World Partition alternative)
+- Changing default level: `Project Settings → Maps & Modes → Default Maps`
+
+**Actors & Geometry**
+- Placing Actors: drag from Content Browser, Place Actors panel, or Ctrl+drag to duplicate
+- Selecting: click, Ctrl+click multi-select, box select; `Ctrl+Shift+Click` for BSP surfaces
+- Transforming: W (translate), E (rotate), R (scale); world vs local space toggle
+- Actor Snapping: surface snapping, grid snapping, vertex snapping
+- Actor Mobility: Static (baked lighting), Stationary (baked indirect + dynamic direct), Movable (fully dynamic)
+- Grouping (G key): treat multiple actors as one unit; lock/unlock groups
+- Merging Actors: combine multiple Static Meshes into one asset (reduces draw calls)
+
+**Key Actor Types**
+- Static Mesh Actor — non-deforming geometry; most common
+- Skeletal Mesh Actor — rigged/animated mesh
+- Camera Actor — CineCamera preferred for cinematics
+- Light Actors — Directional, Point, Spot, Rect, Sky
+- Trigger Volume — overlapping events in Blueprint/C++
+- Player Start — spawn location for player
+- Decal Actor — projected material onto surfaces
+- 3D Text Actor — runtime text in world space
+- Target Point — lightweight transform marker for spawn/path waypoints
+
+**Directory Structure**
+- `Engine/` — core engine; `Content/`, `Config/`, `Source/`, `Shaders/`
+- `[ProjectName]/Binaries/` — compiled executables
+- `[ProjectName]/Config/` — project settings (`.ini` overrides engine defaults)
+- `[ProjectName]/Content/` — all project assets
+- `[ProjectName]/Saved/` — autosaves, logs, crash reports (safe to delete)
+- `[ProjectName]/Intermediate/` — build artifacts (safe to delete)
+- `[ProjectName]/Source/` — C++ source organized into modules (`Public/`, `Private/`, `Classes/`)
+
+**Plugins**
+- Enable/disable per-project: `Edit → Plugins`
+- Install from Fab: in-launcher Library → Fab Library, or via Fab window inside UE
+- Installed location: `C:\Program Files\Epic Games\UE_[ver]\Engine\Plugins\`
+- Project-local plugins: `[ProjectName]/Plugins/`
+
+**Playing & Simulating**
+- Play In Editor (PIE): test with full gameplay; Alt+P shortcut
+- Simulate: run simulation without player possession; inspect actor state
+- Selected Viewport / New Window / Standalone Game modes
+
+**Packaging**
+- `File → Package Project → [Platform]`
+- Required: target platform SDKs for mobile/console
+- Shipping builds: optimized, no debug tools; Development builds: include editor tooling
 
 ### UE Systems / Settings / Code
-[PENDING EXTRACTION]
+
+| Setting | Location |
+|---------|---------|
+| Default Game Mode | Project Settings → Maps & Modes |
+| Default Level | Project Settings → Maps & Modes → Default Maps |
+| Actor Mobility | Actor Details panel → Transform → Mobility |
+| Auto-save interval | Edit → Editor Preferences → Auto Save |
+| Keyboard Shortcuts | Edit → Editor Preferences → Keyboard Shortcuts |
+| Plugins | Edit → Plugins |
+| World Settings (per-level) | Window → World Settings |
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.7 (confirmed across all 78 pages)
 
 ### Tags
-[PENDING EXTRACTION]
+`#basics` `#editor` `#actors` `#components` `#blueprints` `#levels` `#assets` `#content-browser` `#plugins` `#projects` `#templates` `#packaging` `#gameplay-framework` `#ue-terminology` `#directory-structure` `#epic-docs` `#beginner` `#ue5-7`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[animating-characters-and-objects-in-unreal-engine]] — deeper animation system docs building on Actors/Components/Blueprints concepts
+- [[designing-visuals-rendering-and-graphics-with-unreal-engine]] — rendering pipeline details for Level Editor visuals
+- [[creating-visual-effects-in-niagara-for-unreal-engine]] — VFX system mentioned in Tools & Editors overview
