@@ -364,6 +364,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/fix-the-broken-first-frame-in-sequencer-movie-render-queue---unreal-engine.md
 
+
+### Bake Lighting FASTER with GPU Lightmass - Unreal Engine 4.26
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=hq1WFFF6iD0
+- **Author:** William Faucher
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/bake-lighting-faster-with-gpu-lightmass---unreal-engine-426.md
+
 ---
 
 ## Tag Reference
