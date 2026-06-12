@@ -31,24 +31,100 @@ World Partition in Unreal Engine | Unreal Engine 5.7 Documentation | Epic Develo
 ## Structured Notes
 
 ### Core Topics
-[PENDING EXTRACTION]
+World Partition streaming system, Grid cells, Streaming Sources, Data Layers, One File Per Actor, Hierarchical LOD (HLOD), Level Instancing, Level conversion commandlet, Large world design
 
 ### Summary
-[PENDING EXTRACTION]
+World Partition is UE5's automatic data management and distance-based level streaming system for large worlds. It replaces manual sub-level division with a single persistent level divided into grid cells that load/unload based on streaming sources (player position + explicit streaming source components). Key companion features: One File Per Actor (source control friendly actor storage), Data Layers (toggle-able actor groups), HLOD (automatic LOD for far objects), and Level Instancing (reusable sub-level templates).
 
 ### Key Concepts & Systems
-[PENDING EXTRACTION]
+
+| Concept | Description |
+|---------|-------------|
+| **Grid Cells** | Level divided into configurable cells (default Cell Size 256m); each cell is a streaming Level |
+| **Streaming Sources** | Components that define a position; trigger cell loading within `Loading Range` radius |
+| **Player Controller** | Default streaming source (enabled by default via `Enable Streaming Source`) |
+| **WP Streaming Source Component** | Add to any Actor to serve as a streaming source (e.g., teleport destination) |
+| **Is Spatially Loaded** | Actor property: ON = loaded when in range of source; OFF = always loaded |
+| **Runtime Grid** | 2D Runtime Hash grid; Cell Size + Loading Range define what's streamed |
+| **Data Layers** | Tag actors with layers; layers can be activated/deactivated at runtime (story gating, seasonal changes) |
+| **One File Per Actor** | Each actor saved to own file; no Level file checkout needed for edits (source control friendly) |
+| **HLOD** | Hierarchical Levels of Detail; auto-generates lower-fidelity proxies for distant cells |
+| **Level Instancing** | Reusable sub-level templates; can be placed multiple times in a WP world |
+| **Open World Template** | Default map with WP + One File Per Actor + Data Layers + HLOD enabled; 2km×2km landscape |
+| **World Partition Window** | Editor window for manually loading/unloading regions and visualizing grid |
+
+**Data Layers:**
+- **Editor Data Layers**: visible only in editor (markup layers for organization)
+- **Runtime Data Layers**: toggle at runtime via Blueprints → event-driven level streaming
+- Use case: unload daytime environment, load nighttime; unload pre-mission map, load post-mission
+
+**One File Per Actor:**
+- Actors saved as individual `.uasset` files instead of all-in-level
+- Multiple team members can edit different actors simultaneously (no Level file conflict)
+- Works with Perforce/Svn/Git via `SCCProvider` argument
 
 ### UE Systems / Settings / Code
-[PENDING EXTRACTION]
+
+**World Settings — World Partition Setup:**
+
+| Setting | Description |
+|---------|-------------|
+| `Enable Streaming` | Toggle distance-based streaming (can disable for smaller maps) |
+| `Cell Size` | Grid cell dimensions in cm (default: 25600 cm = 256m) |
+| `Loading Range` | Radius from streaming source where cells load (default: 768m) |
+| `Block on Slow Streaming` | Blocks loading if cells not streaming fast enough |
+| `Preview Grids` | Shows grid visualization in viewport |
+
+**Actor Details — World Partition Section:**
+
+| Property | Description |
+|----------|-------------|
+| `Runtime Grid` | Which partition grid this actor belongs to |
+| `Is Spatially Loaded` | ON = distance-streamed; OFF = always loaded (managers, directors) |
+| `Data Layers` | Assign to Data Layers for conditional loading |
+
+**Level Conversion Commandlet:**
+```powershell
+# Convert existing level to World Partition
+UnrealEditor.exe YourProject -run=WorldPartitionConvertCommandlet YourMap.umap -AllowCommandletRendering
+
+# Key flags:
+-SCCProvider=None                # No source control
+-ConversionSuffix                # Appends _WP to filename (keeps original)
+-DeleteSourceLevels              # Removes old sub-levels after conversion
+-ReportOnly                      # Preview what would be converted (dry run)
+-FoliageTypePath=/Game/Foliage   # Extract embedded foliage types
+```
+
+**Blueprint — Enable/Disable Streaming Source:**
+```
+Context: Level Blueprint or Game Mode
+
+// Pre-load teleport destination
+[Get All Actors with Component (WPStreamingSource)]
+    → [Enable Streaming Source]  → wait
+    → [Is Streaming Completed?] → True
+        → [Teleport Player]
+        → [Disable Streaming Source]  // Unload previous region
+```
+
+**Blueprint — Toggle Data Layer:**
+```
+Context: Game Mode or Level Blueprint
+
+[Get World Partition Subsystem]
+    → [Set Data Layer State (Layer: "NightLayer", State: Activated)]
+```
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.7 (World Partition introduced UE 5.0; Data Layers stable UE 5.0; One File Per Actor 5.0; HLOD improvements 5.2+)
 
 ### Tags
-[PENDING EXTRACTION]
+world-partition, large-worlds, streaming, data-layers, hlod, one-file-per-actor, environment, pcg, intermediate, advanced, ue5-7
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/procedural-content-generation-framework-in-unreal-engine.md` — PCG integration with World Partition + Hierarchical Generation
+- `tutorials/understanding-the-basics-of-unreal-engine.md` — Levels, Worlds, Actor basics
+- `tutorials/animating-characters-and-objects-in-unreal-engine.md` — Sequencer with large worlds

@@ -3,9 +3,9 @@ title: MetaHumans in Unreal Engine
 source: Epic Documentation
 url: https://dev.epicgames.com/documentation/en-us/metahuman/metahumans-in-unreal-engine
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.7"
+tags: [metahuman, character, lod, groom, hair, animation, control-rig, sequencer, live-link, ik-retargeting, performance, materials, intermediate, advanced, ue5-7]
+extraction_status: complete
 page_count: 20
 ---
 
@@ -126,24 +126,144 @@ Using the MetaHuman Facial Rig in Unreal Engine | MetaHuman Documentation | Epic
 ## Structured Notes
 
 ### Core Topics
-[PENDING EXTRACTION]
+MetaHuman Blueprint structure, MetaHuman Component (UE5.5+), LODSync Component, platform LOD specs, hair Groom asset LODs, animation (custom FBX, Sequencer+Control Rig, IK Retargeting, Live Link, facial rig), materials & textures, performance settings, mobile configuration
 
 ### Summary
-[PENDING EXTRACTION]
+MetaHumans are high-fidelity digital humans assembled in MetaHuman Creator and imported into UE via Quixel Bridge. Each character is a Blueprint (BP_MetaHumanName) containing skeletal meshes (head + body), groom components (hair/brows/lashes), LODSync, and MetaHuman Component. The MetaHuman Component (UE 5.5+) controls corrective quality and per-feature LOD thresholds. LODSync synchronizes all components (head has 8 LODs, body has 4) so they transition together. Animation is driven through the body skeleton — facial animation uses Face_ControlBoard_CtrlRig in Sequencer; body uses MetaHuman_ControlRig. Live Link, IK retargeting, and runtime retargeting are all supported.
 
 ### Key Concepts & Systems
-[PENDING EXTRACTION]
+
+| Concept | Description |
+|---------|-------------|
+| **BP_MetaHumanName** | Character Blueprint; root of all MH components |
+| **MetaHuman Component** | UE 5.5+ — controls body correctives, Rig Logic, neck correctives, per-LOD thresholds |
+| **LODSync Component** | Synchronizes LOD transitions across face (8 LODs), body (4 LODs), grooms; Body + Face = Drive, others = Passive |
+| **MetaHuman_ControlRig** | Body control rig at `Common/Common/MetaHuman_ControlRig` |
+| **Face_ControlBoard_CtrlRig** | Facial rig at `Common/Face/Face_ControlBoard_CtrlRig` (used in Sequencer facial animation) |
+| **metahuman_base_skel** | Skeleton used when importing custom FBX animations |
+| **RTG_MH_IKRig** | Optimized IK retargeter for full-body MH at `Engine/Plugins/MetaHumanCreator/Animation/Retargeting/` |
+| **IK_MH_IKRig** | MetaHuman IK Rig asset (source rig for custom retargeters) |
+| **Rig Logic** | 3Lateral facial animation rig; evaluated up to `Facial Animation LOD Threshold`; requires Rig Logic Plugin |
+| **Groom Asset** | Hair strand/card/mesh asset; each groom has its own LOD config in Groom Asset Editor |
+| **Hair Art Directability** | Joint-based hair deformation via Dataflow graph + deformer skinning; simulation must be disabled |
+| **UE Cine / UE Optimized** | Assembly pipelines — Cine = 8K textures, Optimized = 2K, baked materials |
+| **MI_Face_Skin_Baked** | Baked face skin material instance (per-LOD: LOD0–LOD7 with different scalability settings) |
+| **Animated Delta Maps** | Low-res delta maps for animated expressions (BaseColor delta + Normal delta) |
+| **Live Link Subject** | Assign in MH Blueprint Details → Live Link → Live Link Subject field |
+| **UAF (Unified Anim Framework)** | Experimental UAF plugin — Driving Anim Graph property in BP component |
+
+**Platform Support:**
+
+| Platform | Ray Tracing | Best Hair | Best LOD | Max Texture |
+|----------|-------------|-----------|----------|-------------|
+| PC (Epic/Cinematic) | Yes | Strands + Cards | 0 | 8192 |
+| PC (Medium/Low) | No | Strands + Cards | 0 | 8192 |
+| Mac | No | Cards | 0 | 8192 |
+| iOS/Android | No | Cards | 3 | 2048 |
+
+**LOD Specs (target values):**
+
+| LOD | Head Verts | Body Verts | Hair Strands | Blendshapes | Physics |
+|-----|-----------|-----------|-------------|-------------|---------|
+| 0 | 24,000 | 30,500 | 50,000 | 669 | Yes |
+| 1 | 12,000 | 7,600 | 25,000 | — | Yes |
+| 2 | 6,000 | 3,350 | Cards 30K verts | — | Yes |
+| 3 | 2,500 | 1,507 | Cards 15K verts | — | No |
+| 4 | 1,300 | — | Cards 10K verts | — | No |
+| 5 | 560 | — | Cards 3K verts | — | No |
 
 ### UE Systems / Settings / Code
-[PENDING EXTRACTION]
+
+**Required CVars (auto-added on first Bridge import to `DefaultEngine.ini`):**
+```ini
+[ConsoleVariables]
+r.GPUSkin.Support16BitBoneIndex=True
+r.GPUSkin.UnlimitedBoneInfluences=True
+r.SkinCache.CompileShaders=True
+r.SkinCache.DefaultBehavior=0
+SkeletalMesh.UseExperimentalChunking=1
+fx.Niagara.ForceLastTickGroup=1
+```
+
+**Required Plugins:** Groom, Rig Logic Plugin, Live Link, Live Link Control Rig, Control Rig, Megascans
+
+**Hair Quality CVars (add to `PlatformEngine.ini`):**
+```ini
+r.HairStrands.Voxelization.Raymarching.SteppingScale=1
+r.HairStrands.Voxelization.Virtual.VoxelWorldSize=0.1
+r.HairStrands.Visibility.MSAA.SamplePerPixel=2
+r.HairStrands.SkyAO=0        ; disable if env lighting doesn't need groom AO (performance)
+r.HairStrands.MinLOD=3       ; mobile: force card/mesh geometry only
+```
+
+**Force Cards instead of Strands (performance):**
+```
+r.HairStrands.UseCardsInsteadOfStrands 1
+```
+
+**Mobile — Max Bones:**
+```ini
+[ConsoleVariables]
+Compat.MAX_GPUSKIN_BONES=75
+```
+
+**Mobile — Early Z Pass:**
+```ini
++CVars=r.EarlyZPass=3
++CVars=r.Mobile.EarlyZPassOnlyMaterialMasking=1
+```
+
+**MetaHuman Component (UE 5.5+) — Key Properties:**
+
+| Property | Default | Description |
+|----------|---------|-------------|
+| `Enable Body Correctives` | LOD 0 only | Volume-preserving skin deformation; expensive |
+| `Facial Animation LOD Threshold` | LOD 2 | Max LOD where Rig Logic evaluates |
+| `Enable Neck Correctives` | LOD 0 | Neck volume correction on extreme rotations |
+| `Neck Procedural Control Rig LOD Threshold` | LOD 0 | Keep in sync with neck correctives |
+| `Control Rig LOD Threshold` | varies | Per body-part control rig max LOD |
+| `Rigid Body LOD Threshold` | varies | Per body-part physics simulation max LOD |
+
+**Custom Animation — FBX Import:**
+1. Import FBX → select `metahuman_base_skel` in Skeleton dropdown
+2. Body component → `Anim to Play` field → drag animation asset
+
+**Sequencer Animation Setup:**
+- Add MH Actor to Level Sequence
+- Body track → `MetaHuman_ControlRig` (full body pose controls)
+- Face track → `Face_ControlBoard_CtrlRig` (facial expression controls)
+- Keyframe body: select all controls → `S` over Sequencer window
+- Bake animation: right-click Body track → `Bake Animation Sequence` or `Create Linked Animation Sequence`
+- Bake to Control Rig: Body track → `+ Track` → Animation → right-click → `Bake To Control Rig` → `MetaHuman_ControlRig`
+
+**IK Retargeting — Use RTG_MH_IKRig:**
+- Source: RTG_MH_IKRig at `Engine/Plugins/MetaHumanCreator/Animation/Retargeting/`
+- Right-click animation → Retarget Animations → select target MH skeletal mesh → select RTG_MH_IKRig → Export
+
+**Live Link Realtime Animation:**
+1. Configure Live Link subject (video/audio/Live Link Face source)
+2. In MH Blueprint Details → Live Link section → set Subject → enable `Use Live Link`
+
+**Material Scalability:**
+
+| LOD | Material Features |
+|-----|------------------|
+| LOD0 | Full — subsurface, animated maps, micro-skin detail |
+| LOD1 | Micro Skin Detail normals disabled |
+| LOD2 | Animated maps disabled; AO baked to base color |
+| LOD3 | Baked normal map approximating LOD0 mesh |
+| LOD4+ | UseSimpleShading = Default Lit material |
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.7 (MetaHuman Component added UE 5.5; LODSync 5.5; Hair Art Directability 5.x; IK Retargeting 5.0+; MetaHuman Creator ongoing)
 
 ### Tags
-[PENDING EXTRACTION]
+metahuman, character, lod, groom, hair, animation, control-rig, sequencer, live-link, ik-retargeting, performance, materials, intermediate, advanced, ue5-7
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `recipes/metahuman-sequencer-mrq.md` — Full MetaHuman → Sequencer → MRQ render pipeline
+- `tutorials/animating-characters-and-objects-in-unreal-engine.md` — Sequencer, Control Rig, IK fundamentals
+- `tutorials/rendering-and-post-process-effects-in-unreal-engine.md` — Groom strand rendering, hair path tracing
+- `tutorials/ndisplay-overview-for-unreal-engine.md` — MetaHuman on LED wall stage with nDisplay

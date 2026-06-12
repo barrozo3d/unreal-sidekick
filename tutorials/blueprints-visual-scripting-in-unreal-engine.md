@@ -3,9 +3,9 @@ title: Blueprints Visual Scripting in Unreal Engine
 source: Epic Documentation
 url: https://dev.epicgames.com/documentation/unreal-engine/blueprints-visual-scripting-in-unreal-engine
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.7"
+tags: [blueprints, visual-scripting, blueprint-types, event-graph, variables, functions, macros, interfaces, cpp, beginner, intermediate, ue5-7]
+extraction_status: complete
 page_count: 35
 ---
 
@@ -201,24 +201,124 @@ Overview of Blueprints Visual Scripting in Unreal Engine | Unreal Engine 5.7 Doc
 ## Structured Notes
 
 ### Core Topics
-[PENDING EXTRACTION]
+Blueprint types (Actor/Character/GameMode/UMG/Interface), Event Graph, Functions vs Macros vs Events, Variables and types, Blueprint communication (Cast/Interface/Event Dispatcher), Blueprint Nativization, Blueprint best practices
 
 ### Summary
-[PENDING EXTRACTION]
+Blueprints is UE5's visual scripting system — node-based logic without C++. Blueprint Classes extend C++ classes (Actor, Character, GameMode, etc.) and expose their functionality visually. The Event Graph handles event-driven logic; Functions are reusable callable graphs; Macros are inline code substitutions; Interfaces allow polymorphic communication between Blueprints. Blueprint Variables hold state (bool, int, float, vector, object references). Cast nodes verify and access typed references. Blueprint Interfaces enable communication without direct reference (decoupled architecture). Performance-sensitive Blueprints can be nativized to C++ automatically.
 
 ### Key Concepts & Systems
-[PENDING EXTRACTION]
+
+**Blueprint Types:**
+
+| Type | Parent Class | Use Case |
+|------|-------------|---------|
+| **Actor Blueprint** | Actor | Any object in the world with logic/components |
+| **Character Blueprint** | Character | Player/NPC with movement, input, animation |
+| **Pawn Blueprint** | Pawn | Possessable AI/player entity |
+| **Game Mode Blueprint** | GameMode | Rules, win conditions, player setup |
+| **Player Controller Blueprint** | PlayerController | Input handling, HUD spawning |
+| **Widget Blueprint (UMG)** | UserWidget | UI screens, HUDs, menus |
+| **Animation Blueprint** | AnimInstance | Skeletal mesh animation logic (state machines, blend spaces) |
+| **Blueprint Interface** | Interface | Defines function signatures; any BP can implement |
+| **Blueprint Macro Library** | — | Reusable macro nodes shared across BPs |
+| **Blueprint Function Library** | — | Static functions accessible globally |
+| **Data-Only Blueprint** | Any | Override defaults without code nodes |
+
+**Core Graph Types:**
+
+| Graph | Description |
+|-------|-------------|
+| **Event Graph** | Main logic; event-driven; runs top-level async logic |
+| **Function** | Pure callable graph; no latent nodes; returns values synchronously |
+| **Macro** | Inline code substitution; can have latent nodes; not callable from other BPs |
+| **Construction Script** | Runs when actor is placed/modified in editor; initializes components |
+
+**Variable Types:**
+
+| Category | Types |
+|----------|-------|
+| Primitive | Boolean, Integer, Integer64, Float, String, Name, Text |
+| Math | Vector, Vector2D, Rotator, Transform, LinearColor |
+| Object | Object Reference (any class), Soft Object Reference (async load) |
+| Container | Array, Set, Map (dictionary) |
+| Structure | Custom structs (groups of variables) |
+
+**Key Node Categories:**
+
+| Category | Important Nodes |
+|----------|----------------|
+| **Flow Control** | Branch (if), Sequence, For Each Loop, While Loop, Do Once, Gate, Flip Flop |
+| **Event** | Event BeginPlay, Event Tick, Event ActorBeginOverlap, Custom Event |
+| **Cast** | Cast To [Class], Is Valid, Ensure Valid |
+| **Communication** | Get Player Controller, Get Actor of Class, Get All Actors, Event Dispatcher, Interface Message |
+| **Math** | Add/Sub/Mul/Div, Clamp, Lerp, VInterp To, Normalize, Dot/Cross Product |
+| **Utilities** | Print String, Delay, Set Timer by Event/Function, Spawn Actor, Destroy Actor |
+| **Component** | Add Component, Set Relative Location, Attach to Actor |
+
+**Blueprint Communication Patterns:**
+
+| Pattern | When to Use |
+|---------|------------|
+| **Direct Reference** | Actor A holds reference to Actor B; calls functions directly |
+| **Cast To** | When B's type is known; cast from Actor to specific class |
+| **Blueprint Interface** | When target type is unknown or multiple classes share same function |
+| **Event Dispatcher** | Broadcast to unknown listeners (observer pattern) |
+| **Game State / Game Instance** | Global data accessible from any BP |
 
 ### UE Systems / Settings / Code
-[PENDING EXTRACTION]
+
+**Blueprint Interface Example — Interact system:**
+```
+// Define Interface "BPI_Interactable":
+// Function: "Interact" → Input: (Actor) Instigator → No output
+
+// In Player Controller Event Graph:
+[Input Action Interact (Pressed)]
+    → [Line Trace By Channel]
+        → Hit Result → [Break Hit Result]
+            → Hit Actor → [Does Implement Interface (BPI_Interactable)?]
+                True → [Interact (Message) → Target: Hit Actor, Instigator: Self]
+
+// In any interactive Actor (door, button, chest):
+// Implements BPI_Interactable → Override "Interact":
+[Event Interact]
+    → [Open Door / Play Animation / Grant Item]
+```
+
+**Event Dispatcher (Observer Pattern):**
+```
+// In Broadcasting BP (e.g., EnemyCharacter):
+Event Dispatchers panel → Create "OnEnemyDied"
+→ [Event AnyDamage] → [Is Dead?] → [Call OnEnemyDied]
+
+// In Subscribing BP (e.g., QuestManager):
+// On reference to EnemyCharacter:
+[Assign OnEnemyDied] → connect to [Update Quest Progress]
+```
+
+**Performance Tips:**
+- Avoid `Event Tick` for every actor — use `Set Timer by Function` or input events instead
+- Use `Soft Object References` for assets loaded at runtime; avoid hard refs that always load
+- `Cast To` is O(1) — not expensive; avoid overusing "Is Valid" checks on every tick
+- Blueprint Nativization: `Project Settings → Blueprint Nativization` converts hot BPs to C++
+- Prefer Functions over Macros for reusable logic (Functions compile to separate callable methods)
+- Use `Struct` variables instead of many individual variables when grouping related data
+
+**Blueprint Compiler Warning — Latent Nodes in Functions:**
+- `Delay`, `Set Timer`, `Do Once with Reset` are latent — cannot be used in Functions
+- Latent nodes only valid in Event Graph or Macros
+- Fix: convert Function to Custom Event + call from Event Graph
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.7 (Blueprint system exists since UE 4; Blueprint Interfaces since UE 4.14; significant changes in UE 5.0 for performance)
 
 ### Tags
-[PENDING EXTRACTION]
+blueprints, visual-scripting, blueprint-types, event-graph, variables, functions, macros, interfaces, cpp, beginner, intermediate, ue5-7
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `references/blueprints-scripting.md` — Blueprint patterns, common nodes, VFX/cinematics Blueprint examples
+- `tutorials/understanding-the-basics-of-unreal-engine.md` — Blueprint context in core editors
+- `tutorials/animating-characters-and-objects-in-unreal-engine.md` — Animation Blueprints state machines
+- `tutorials/procedural-content-generation-framework-in-unreal-engine.md` — Blueprint nodes in PCG graphs

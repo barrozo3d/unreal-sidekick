@@ -3,9 +3,9 @@ title: Procedural Content Generation  Framework in Unreal Engine
 source: Epic Documentation
 url: https://dev.epicgames.com/documentation/unreal-engine/procedural-content-generation-framework-in-unreal-engine
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.7"
+tags: [pcg, procedural-generation, environment, modelling, geometry, blueprints, gpu, hlsl, intermediate, advanced, ue5-7]
+extraction_status: complete
 page_count: 18
 ---
 
@@ -116,24 +116,97 @@ Procedural Content Generation (PCG) Biome Core and Sample Plugins Glossary in Un
 ## Structured Notes
 
 ### Core Topics
-[PENDING EXTRACTION]
+PCG Graph system, Point data flow, GPU Processing (Beta), Shape Grammar, PCG Editor Mode, Biome system, Procedural Vegetation Editor, Runtime Generation, World Partition integration
 
 ### Summary
-[PENDING EXTRACTION]
+The PCG Framework is UE5's procedural content generation system — a node-based graph editor (similar to Blueprint/Material Editor) for artists and designers to build procedural environments, vegetation, buildings, and entire worlds. Points (3D locations with density, transform, and metadata) flow through processing nodes that sample, filter, transform, and spawn assets. PCG integrates with World Partition for large-world runtime generation, and supports GPU execution with Custom HLSL nodes for high-performance compute-based PCG. Also includes Shape Grammar for rules-based linear generation (fences, roads, modular buildings).
 
 ### Key Concepts & Systems
-[PENDING EXTRACTION]
+
+| Concept | Description |
+|---------|-------------|
+| **PCG Graph** | Node-based graph; Points flow through: Sampler → Filter → Point Ops → Spawner |
+| **PCG Component** | Attaches to any Actor; drives graph execution; runtime or edit-time |
+| **Points** | 3D locations with transform, bounds, density (0-1), seed, and metadata |
+| **Point Density** | Probability that a point exists at its position; 0=black, 1=white in debug |
+| **Attributes** | Static ($Position, $Rotation, $Scale, $Density, $Extents) and dynamic (user-defined) |
+| **Metadata Domains** | @Data (single values), @Points (per-point), @Elements (attribute sets) |
+| **Attribute Selector** | Names starting with `$` = static; `@Last` = last dynamic attribute |
+| **GPU Execution** | Custom HLSL nodes via Compute Framework; Copy Points + Static Mesh Spawner GPU-enabled |
+| **Compute Graph** | Group of connected GPU nodes that execute together as one dispatch |
+| **Shape Grammar** | Rules syntax for linear procedural placement (fences, modular buildings) |
+| **PCG Editor Mode** | Interactive tools: Draw Spline, Draw Spline Surface, Paint, Volume |
+| **Runtime Generation** | Proximity-based generation; Hierarchical Generation + grid cells |
+| **PCG Biome Core** | Experimental biome plugin (Attribute Set Tables, Feedback loops, Recursive Subgraphs) |
+| **PVE** | Procedural Vegetation Editor: Nanite-ready vegetation from Megaplant presets |
+| **PCG Templates** | Mark PCG graphs as templates for quick-start presets |
+
+**Node Categories:**
+
+| Category | Purpose |
+|----------|---------|
+| Sampler | Generate points from surfaces, volumes, meshes, splines |
+| Filter | Filter points by density, distance, overlap, custom criteria |
+| Point Ops | Modify point transforms, density, attributes |
+| Density | Control point density globally or per-attribute |
+| Metadata | Attribute manipulation: add, copy, transform, remap attributes |
+| Spawner | Place Actors or Static Meshes at point locations |
+| Subgraph | Nested PCG graphs for reusable sub-operations |
+| GPU | Custom HLSL, Copy Points (GPU), Static Mesh Spawner (GPU) |
+| Control Flow | Branch, Gate, Gather — control graph execution flow |
+
+**Shape Grammar Syntax:**
+```
+A         → place module A once
+A*        → place A as many times as possible
+A+        → place A at least once, fill rest
+[A,B]*    → place A and B together, fill indefinitely
+{A:2,B:1}* → weighted random: A twice as likely as B
+{[A,P]:2,[BL,P]:1,[BS,P]:1}*,[G,P],{...}* → fence with posts + gate example
+```
 
 ### UE Systems / Settings / Code
-[PENDING EXTRACTION]
+
+**Console Variables:**
+
+| CVar | Description | Default |
+|------|-------------|---------|
+| `pcg.RuntimeGeneration.EnableDebugOverlay 1` | Screen overlay: tick time, generating cells, PA pool | OFF |
+| `pcg.GraphExecution.DebugDrawGeneratedCells 1` | Wireframe grid cells currently generating | OFF |
+| `pcg.RuntimeGeneration.BasePoolSize N` | Initial partition actor pool size (double on exhaust = expensive) | auto |
+| `pcg.RuntimeGeneration.FramesBeforeFirstGenerate N` | Delay gen N ticks (use for VT warmup) | 0 |
+| `pcg.Cache.Runtime.Enabled` | Runtime PCG graph cache (avoids re-execution) | OFF |
+| `pcg.Cache.Editor.Enabled` | Editor PCG graph cache | ON |
+| `pcg.Cache.Runtime.MemoryBudgetMB N` | Max cache memory for runtime | auto |
+| `pcg.GPU.FuzzMemory` | Randomize GPU buffer memory — exposes uninitialized reads | OFF |
+| `pcg.FrameTime N` | Max milliseconds per frame for PCG execution | default |
+| `pcg.RuntimeGeneration.NumGeneratingComponents N` | Limit concurrent generating cells (for profiling) | default |
+
+**Custom HLSL Node — Point Processor example:**
+```hlsl
+// Context: Custom HLSL node, Kernel Type: Point Processor
+// Applies sine wave height offset to each point
+
+float3 Position = In_GetPosition(In_DataIndex, ElementIndex);
+const float Wave = 500.0f * sin(Position.x / 400.0f);
+Position.z += Wave;
+Out_SetPosition(Out_DataIndex, ElementIndex, Position);
+```
+
+**PCG Python / Blueprint integration:**
+- Blueprint nodes: `PCGBlueprintElement` derived class → `Execute()` override
+- Subgraph nodes wrap reusable sub-operations
+- Parameter Overrides: expose graph parameters to instances in the level
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.7 (PCG framework present since UE 5.2; GPU Processing added UE 5.4; PCG Editor Mode added UE 5.7)
 
 ### Tags
-[PENDING EXTRACTION]
+pcg, procedural-generation, environment, modelling, geometry, blueprints, gpu, hlsl, intermediate, advanced, ue5-7
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/world-partition-in-unreal-engine.md` — World Partition integration with PCG Runtime Generation
+- `tutorials/understanding-the-basics-of-unreal-engine.md` — Actor/Component/Blueprint fundamentals
+- `references/blueprints-scripting.md` — Blueprint patterns used in PCG nodes

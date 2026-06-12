@@ -3,9 +3,9 @@ title: Physics in Unreal Engine
 source: Epic Documentation
 url: https://dev.epicgames.com/documentation/unreal-engine/physics-in-unreal-engine
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.7"
+tags: [chaos, physics, destruction, cloth, ragdoll, vehicles, fluids, collision, animation, niagara, intermediate, advanced, ue5-7]
+extraction_status: complete
 page_count: 68
 ---
 
@@ -366,24 +366,114 @@ Tutorials about Physical Materials in Unreal Engine | Unreal Engine 5.7 Document
 ## Structured Notes
 
 ### Core Topics
-[PENDING EXTRACTION]
+Chaos Destruction, Rigid Body Dynamics, Chaos Cloth + ML Cloth, Ragdoll Physics, Chaos Vehicles, Physics Fields, Networked Physics, Fluid Simulation, Hair Physics, Flesh Simulation, Chaos Visual Debugger
 
 ### Summary
-[PENDING EXTRACTION]
+Unreal Engine 5's Chaos Physics is the complete physics simulation system. It covers real-time cinematic destruction (Geometry Collections with fracturing levels), cloth simulation (physics-based + ML deformer), ragdoll physics, vehicle simulation, physics fields, and fluid/hair/flesh simulations. The Chaos Visual Debugger records and replays simulations for debugging. Networked physics supports client prediction and server authority across 3 replication modes. All Chaos systems integrate with Niagara for particle effects and Physics Fields for runtime simulation control.
 
 ### Key Concepts & Systems
-[PENDING EXTRACTION]
+
+| System | Description |
+|--------|-------------|
+| **Chaos Destruction** | Geometry Collections (fractured Static Meshes) broken by Damage Thresholds + Connection Graphs |
+| **Geometry Collection** | Asset built from 1+ Static Meshes; fractured into clusters with hierarchy |
+| **Damage Thresholds** | Per-cluster values that trigger fracture when impact force exceeds threshold |
+| **Connection Graph** | Controls structural integrity; how fracture propagates through the collection |
+| **Cache System** | Records per-frame transforms + events; enables deterministic replay of destruction |
+| **Chaos Cloth** | Simulation: physics-based + Animation Drive (matches parent skeleton animation) |
+| **ML Cloth** | Machine learning cloth using trained dataset; higher fidelity than physics-based |
+| **Panel Cloth (5.3+)** | Non-destructive Chaos Cloth Panel workflow; Cloth Asset works with any Skeletal/Static Mesh |
+| **Physical Animation** | Rigid body simulation on character bones (Physics Asset); Physical Animation Component |
+| **Ragdoll** | Skeletal Mesh rigid bodies in Physical Asset Editor; Simulate All Bodies / specific bones |
+| **Chaos Vehicles** | Wheeled Vehicle Pawn + Skeletal Mesh + Wheel BPs + Physics Asset; supports aerofoils |
+| **Physics Fields** | Runtime fields that affect Chaos sim in a region: force, break Geometry Clusters, anchor |
+| **Physics Field Blueprint** | Field System Component; configure World Field for Niagara/Material sampling |
+| **Fluid Simulation** | Chaos Fluids plugin; Eulerian grid-based liquid + gas simulation |
+| **Hair Physics** | Groom asset physics sim; strand-based with constraints + wind |
+| **Flesh Simulation** | Deformable flesh via physics simulation; muscle/fat layer |
+| **CVD** | Chaos Visual Debugger; records + replays physics state; standalone tool (5.6+) |
+| **Networked Physics** | 3 replication modes for server-authoritative or client-predicted physics |
+
+**Networked Physics Replication Modes:**
+
+| Mode | Description | Use Case |
+|------|-------------|---------|
+| **Default** | Legacy mode; root component simulates physics, replicated movement | Simple physics props |
+| **Predictive Interpolation** | Client velocity matches server; handles local physics alterations | Predictable server-auth objects |
+| **Resimulation** | Client prediction + resimulation when state diverges from server | Physics-driven Pawns (5.0+) |
+
+**Chaos Cloth Key Nodes:**
+- `Chaos Cloth Component` — attaches cloth simulation to any mesh via Cloth Asset
+- `Animation Drive` — deforms cloth toward parent skeleton animation (blend between physics and anim)
+- `Chaos Cloth Panel` — node editor for non-destructive cloth authoring (5.3+)
+- Blueprints: cloth sim parameters exposed → change stiffness/damping at runtime (e.g., cloth underwater)
+
+**Chaos Destruction Workflow:**
+1. Select Static Meshes → right-click → `Fracture Actor` → opens Fracture Editor
+2. Choose fracture type: Uniform, Voronoi, Radial, Cluster, Custom
+3. Set Damage Thresholds per cluster level
+4. Add `Geometry Collection Actor` to level → assign collection
+5. Optional: Add `Anchor Fields` or use World Support for kinematic anchoring
+6. Niagara: subscribe to `BreakEvents` / `CollisionEvents` data channel
+
+**Physics Fields Setup:**
+1. Create `Field System Actor` blueprint → add Field System Component
+2. Add field types: `Radial Falloff`, `Uniform Vector`, `Noise Vector`
+3. Target: Rigid Bodies, Geometry Collections, Cloth, Hair
+4. Blueprint sample: `Apply Radial Force`, `Apply Radial Velocity`
 
 ### UE Systems / Settings / Code
-[PENDING EXTRACTION]
+
+**Key CVars:**
+
+| CVar | Description |
+|------|-------------|
+| `p.ChaosSolverIterations N` | Solver iteration count (higher = more accurate, slower) |
+| `p.Chaos.DumpHierarchy 1` | Dump Geometry Collection hierarchy to log |
+| `p.Chaos.EnableGeometryCollectionReplication 1` | Enable replication for Geometry Collections |
+| `p.Chaos.DebugMode` | Enable Chaos debug rendering |
+| `cloth.Chaos.Enable 1` | Enable Chaos cloth simulation |
+| `cloth.Chaos.ML.Enable 1` | Enable ML cloth deformer |
+| `p.ChaosVehicles.Enable 1` | Enable Chaos vehicle simulation |
+
+**Physical Asset Editor key settings:**
+- `Simulate All Bodies`: full ragdoll
+- `Physics Type`: `Simulated` (ragdoll) / `Kinematic` (animated) / `Default` (follows skeleton)
+- `Mass Override`: per-body mass in kg
+- `Linear Damping` / `Angular Damping`: resistance to movement/rotation
+- `Collision Mode`: `Simple` (convex hull) or `Complex` (trimesh, CPU-expensive)
+
+**Blueprint — Apply Radial Destruction Force:**
+```
+Context: Blueprint / Level Blueprint
+Event: On Overlap / On Button Press
+
+[Get All Actors of Class (GeometryCollectionActor)]
+    → [For Each Loop]
+        → [Get Geometry Collection Component]
+            → [Apply Radial Damage (Origin, Radius, MinDamage, MaxDamage)]
+```
+
+**Python — detect physics objects:**
+```python
+import unreal
+world = unreal.EditorLevelLibrary.get_editor_world()
+actors = unreal.EditorLevelLibrary.get_all_level_actors()
+physics_actors = [a for a in actors 
+                  if a.root_component and 
+                  a.root_component.is_simulating_physics()]
+```
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.7 (Chaos Physics stable since UE 5.0; ML Cloth 5.1+; Cloth Panel 5.3+; CVD standalone 5.6+)
 
 ### Tags
-[PENDING EXTRACTION]
+chaos, physics, destruction, cloth, ragdoll, vehicles, fluids, collision, animation, niagara, intermediate, advanced, ue5-7
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/animating-characters-and-objects-in-unreal-engine.md` — Ragdoll + Physical Animation, Skeletal Mesh
+- `tutorials/creating-visual-effects-in-niagara-for-unreal-engine.md` — Niagara + Chaos Destruction events
+- `references/niagara-vfx.md` — Niagara BreakEvents data channel for destruction
+- `recipes/metahuman-sequencer-mrq.md` — MetaHuman physics in cinematics

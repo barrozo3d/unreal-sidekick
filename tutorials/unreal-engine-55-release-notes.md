@@ -3,9 +3,9 @@ title: Unreal Engine 5.5 Release Notes
 source: Epic Documentation
 url: https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-5-5-release-notes
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.5"
+tags: [release-notes, animation, sequencer, control-rig, metahuman, lumen, path-tracer, megalights, physics, ml-deformer, mutable, ue5-5]
+extraction_status: complete
 page_count: 3
 ---
 
@@ -41,24 +41,48 @@ Table of Contents
 ## Structured Notes
 
 ### Core Topics
-[PENDING EXTRACTION]
+Animation improvements (Sequencer usability, Dynamic Sequencer, Animation Layers, Modular Control Rig Beta, Skeletal Editor production-ready), MetaHuman Optimized pipeline, MegaLights experimental, Path Tracer production-ready, Lumen HWRT improvements, Choosers production-ready, ML Deformer improvements, Mutable Beta, Physics Control refinements, Audio-driven animation for MetaHuman
 
 ### Summary
-[PENDING EXTRACTION]
+UE 5.5 is a major release focused on animation tooling and rendering quality. Sequencer gains Dynamic bindings, Animation Layers (non-destructive), and customizable filtering. Modular Control Rig enters Beta. MetaHuman gets a major optimization overhaul (Cinematic/High/Medium/Low pipelines; new MetaHuman Component). MegaLights is a new Experimental feature for hundreds of dynamic shadow-casting lights. Path Tracer hits Production Ready with Spatio-Temporal denoiser. Choosers are now Production Ready as a general asset selector.
 
-### Key Concepts & Systems
-[PENDING EXTRACTION]
+### Key Features Added in UE 5.5
 
-### UE Systems / Settings / Code
-[PENDING EXTRACTION]
+**Animation:**
+- **Dynamic Sequencer**: Runtime dynamic object bindings; replaceable binding type; conditional track state; Time Warp; Transform Origin override
+- **Animation Layers**: Non-destructive layers over Sequencer sections; additive + override; multi-object; merge layers
+- **Modular Control Rig (Beta)**: Module Variants; Schematic Overlay; Quadruped/Vehicle modules; native Bipedal support (Vicon, Mixamo, mGear, HumanIK, Motive, XSens, Advanced Skeleton)
+- **Rig Variants (Experimental)**: Non-destructive Control Rig module/function swapping
+- **Skeletal Editor (Production Ready)**: Weight transfer, LOD alt skin weight profiles, edge/face selection with Grow/Shrink/Flood, lasso selection
+- **Animation Deformers**: Spawn custom deformers inside Control Rig; Animator Kit plugin (Lattice, Camera Space Lattice, Sculpt deformers)
+- **ML Deformer**: Mask painting in viewport; per-animation mask input; Maya plugin pose mixer for training data
+- **Choosers (Production Ready)**: Game context asset selector; database-driven animation logic; any asset type selector
+- **Physics Control**: Refined Control Profile API; improved editor; simplified creation; works with both component and anim graph node
+
+**MetaHuman:**
+- **Optimized MetaHumans**: Cinematic (800MB, unchanged) / High / Medium / Low pipelines (baked textures + reduced complexity); 60MB at High quality vs 800MB Cinematic
+- **MetaHuman Component** (introduced 5.5): Toggle animation features per LOD (body correctives, Rig Logic, neck correctives)
+- **Audio-Driven Animation for MetaHuman Animator**: Generate facial animation from audio; works with multiple voices/languages; local/offline; batch processing
+
+**Rendering:**
+- **MegaLights (Experimental)**: Hundreds of dynamic shadow-casting lights; textured area lights; lighting functions; media texture playback; volumetric shadows on consoles
+- **Path Tracer (Production Ready)**: Reference atmosphere + volumetric clouds; Spatio-Temporal denoiser for MRQ/Movie Render Graph; Linux support
+- **Lumen**: HWRT performance improvements for 60hz on consoles; hit-lighting for GI; new reflection denoiser; translucency with refraction in reflections
+- **Hardware Raytracing**: Async evaluation improvements; better acceleration structure management; enables higher HWRT refresh rates
+
+**Characters:**
+- **Mutable (Beta)**: Runtime dynamic skeletal mesh/material/texture generation; hidden surface removal; mesh/texture merging; morph baking; graph-based editor
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.5 (2024)
 
 ### Tags
-[PENDING EXTRACTION]
+release-notes, animation, sequencer, control-rig, metahuman, lumen, path-tracer, megalights, physics, ml-deformer, mutable, ue5-5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/animating-characters-and-objects-in-unreal-engine.md` — Sequencer, Control Rig, Animation Layers details
+- `tutorials/metahumans-in-unreal-engine.md` — MetaHuman Component, Optimized pipeline in depth
+- `tutorials/designing-visuals-rendering-and-graphics-with-unreal-engine.md` — Lumen, Path Tracer, MegaLights details
+- `references/version-tracker.md` — All UE version comparison

@@ -3,9 +3,9 @@ title: nDisplay Overview for Unreal Engine
 source: Epic Documentation
 url: https://dev.epicgames.com/documentation/unreal-engine/ndisplay-overview-for-unreal-engine
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.7"
+tags: [ndisplay, icvfx, led-wall, virtual-production, switchboard, live-link, multi-display, rendering, clustering, synchronization, advanced, ue5-7]
+extraction_status: complete
 page_count: 22
 ---
 
@@ -136,24 +136,114 @@ Adding nDisplay to an Existing Project in Unreal Engine | Unreal Engine 5.7 Docu
 ## Structured Notes
 
 ### Core Topics
-[PENDING EXTRACTION]
+nDisplay cluster architecture, 3D Config Editor, Switchboard, In-Camera VFX (ICVFX), multi-display rendering, synchronization, projection policies, Output Mapping, Failover, Multi-GPU, Live Link VRPN integration, Virtual Production
 
 ### Summary
-[PENDING EXTRACTION]
+nDisplay is UE's multi-display/multi-PC synchronized rendering system for LED walls, projection arrays, and cave environments. A primary node drives all secondary nodes — each running a UE instance rendering one or more viewports. Configuration is stored in a single `.ndisplay` Config Asset edited in the 3D Config Editor; deployment is managed by Switchboard + SwitchboardListener. ICVFX uses a dedicated ICVFX Camera component to render the inner frustum (optionally on a second GPU). Tracking input arrives via VRPN → Live Link Component. All nodes synchronize frames across barrier timeouts.
 
 ### Key Concepts & Systems
-[PENDING EXTRACTION]
+
+| Concept | Description |
+|---------|-------------|
+| **Primary Node** | Master PC that accepts input (VRPN/Live Link) and drives all secondary nodes |
+| **Secondary Node** | Any additional PC rendering viewports; connects to primary at startup |
+| **Cluster Node** | UE application instance — one or more per host PC |
+| **Config Asset** | `.ndisplay`/`.uasset` file defining entire cluster topology; loaded by Switchboard or command-line |
+| **nDisplay 3D Config Editor** | Visual editor: Components panel (displays/cameras), Cluster panel (PCs/viewports), Output Mapping panel |
+| **nDisplay Root Actor** | Actor dragged into level for preview; not required at runtime if config specified externally |
+| **Viewport** | Rendered rectangular area bound to a Display/Screen/Mesh + View Origin + Projection Policy |
+| **View Origin** | 3D origin point for viewport frustum; can have stereo settings |
+| **Screen Component** | Flat 2D display component; defines frustum with View Origin |
+| **Static Mesh Component** | For curved/non-flat displays (LED walls); compatible with most projection policies |
+| **Xform** | Named 3D transform acting as parent for screens/cameras |
+| **ICVFX Camera** | CineCamera component generating the inner frustum for In-Camera VFX on LED volumes |
+| **Switchboard** | Python app for remote device control — starts UE instances, take recording, P4 sync/build |
+| **SwitchboardListener** | TCP socket server running on each device; installed on every cluster PC |
+| **Projection Policy** | Defines how 3D scene is projected onto the display surface (planar, curved, MPCDI, Scalable Display, VIOSO) |
+| **Output Remapping** | Maps viewport pixels to the application window via mesh UV or transform operations (rotate, flip, scale) |
+| **Output Mapping Panel** | Visual tool for placing/mapping viewports within app window |
+| **Failover** | Drop unresponsive S-nodes after configurable timeout; policy = "Drop S-node on fail" |
+| **Multi-GPU (mGPU)** | Assign viewports/inner frustum to specific GPU index; NVLink for peer-to-peer VRAM transfer |
+| **NVIDIA Mosaic / AMD Eyefinity** | OS-level multi-display aggregation — recommended for best sync on multi-output setups |
+
+**Synchronization:**
+- Frame barrier: all nodes hit render barrier each frame before advancing
+- DisplayClusterRenderSyncPolicy: nvSwapLock, vSync, skip-frame (for 24hz displays)
+- Quadro Sync / house sync visible in Switchboard nDisplay Monitor panel
+
+**Extending nDisplay (C++):**
+- `DisplayClusterRenderingDevice` — extends IStereoRendering
+- `DisplayClusterPostProcess` — six callbacks for viewport post-processing
+- `DisplayClusterProjectionPolicy` — custom projection math
+- `DisplayClusterRenderSyncPolicy` — custom sync logic
 
 ### UE Systems / Settings / Code
-[PENDING EXTRACTION]
+
+**Default Communication Ports:**
+
+| Port | Purpose |
+|------|---------|
+| 41001 | Cluster Sync |
+| 41002 | Render Sync |
+| 41003 | JSON Cluster Events |
+| 41004 | Binary Cluster Events |
+
+**Network Settings (Cluster Details panel):**
+
+| Parameter | Default | Description |
+|-----------|---------|-------------|
+| `Connect Retries Amount` | 300 | Attempts to connect secondary → primary before shutdown |
+| `Connect Retry Delay` | 1000ms | Wait between retries |
+| `Game Start Barrier Timeout` | 18000000ms | Time primary waits for all nodes before first frame |
+| `Frame Start Barrier Timeout` | 30000ms | Per-frame game thread sync timeout |
+| `Render Sync Barrier Timeout` | 1800000ms | Render thread sync per-frame |
+
+**Enable Failover:**
+- In 3D Config Editor → Cluster Details → Failover Policy → `Drop S-node on fail`
+
+**Enable Multi-GPU:**
+- Config Asset → Configuration Render Frame Settings → Multi GPU Mode = Enabled
+- Per viewport: Cluster Node → Viewport → GPUIndex = [0,1,2,...]
+- Per ICVFX camera: ICVFX Camera → GPUIndex
+
+**SwitchboardListener custom port:**
+```cmd
+SwitchboardListener.exe -port=2980
+```
+
+**Quick Start — Required Ports (firewall):** TCP 41000–41003 open on all cluster PCs
+
+**Blueprint API:**
+```
+// Get cluster API
+[Create N Display DisplayCluster Module API]
+    → Out API pin → Display Cluster category
+    → cluster management / input device queries / rendering control
+```
+
+**Adding nDisplay to Existing Project:**
+1. Edit → Plugins → search "nDisplay" → Enable
+2. Edit → Project Settings → Plugins → nDisplay → Enable
+3. Restart editor
+4. Drag `.ndisplay` config into Content Browser (auto-converts to `.uasset`)
+
+**Switchboard — Take Recording:**
+- Enable: Virtual Production Editor plugin → "Start an OSC Server when editor launches"
+- OSC Server Port must match OSC Client Port in Switchboard Settings
+- Virtual Production Roles: each user needs a VP Role (Editor, Render, etc.)
+
+**Switchboard — nDisplay Monitor Columns:** Node, Host, Connected, Driver, PresentMode, Gpus, Display, SyncRate, HouseSync, SyncSource, Mosaics, Taskbar, InFocus, ExeFlags, OSVer, CPUUtilization, MemUtilization, GpuUtilization, GpuTemperature
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.7 (nDisplay available since UE 4.x; ICVFX mature in UE 5.x; mGPU support added UE 5.x)
 
 ### Tags
-[PENDING EXTRACTION]
+ndisplay, icvfx, led-wall, virtual-production, switchboard, live-link, multi-display, rendering, clustering, synchronization, advanced, ue5-7
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `recipes/mrq-multipass-exr.md` — MRQ render passes; nDisplay uses separate rendering path but similar quality CVars
+- `recipes/path-tracer-nfor-delivery.md` — Path Tracer; nDisplay uses rasterizer + inner frustum, not path tracer
+- `tutorials/animating-characters-and-objects-in-unreal-engine.md` — Sequencer + Live Link for ICVFX shoots
+- `tutorials/metahumans-in-unreal-engine.md` — MetaHuman on LED wall stage setups

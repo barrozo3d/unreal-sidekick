@@ -65,13 +65,13 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **File:** tutorials/understanding-the-basics-of-unreal-engine.md
 
 
-### Procedural Content Generation  Framework in Unreal Engine
+### Procedural Content Generation Framework in Unreal Engine
 - **Source:** Epic Documentation
 - **URL:** https://dev.epicgames.com/documentation/unreal-engine/procedural-content-generation-framework-in-unreal-engine
 - **Pages:** 18
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.7
+- **Tags:** `#pcg` `#procedural-generation` `#environment` `#geometry` `#blueprints` `#gpu` `#hlsl` `#biome` `#world-partition` `#intermediate` `#advanced` `#ue5-7`
+- **Summary:** Full PCG v2 reference — PCG Graph system, Point data flow, GPU Processing (Beta), Shape Grammar for rule-based placement, PCG Editor Mode, Biome system, PCG Volume Entities (PVE), Runtime Generation, World Partition integration with hierarchical generation. Custom HLSL node examples included.
 - **File:** tutorials/procedural-content-generation-framework-in-unreal-engine.md
 
 
@@ -79,9 +79,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** Epic Documentation
 - **URL:** https://dev.epicgames.com/documentation/unreal-engine/physics-in-unreal-engine
 - **Pages:** 68
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.7
+- **Tags:** `#chaos` `#physics` `#destruction` `#cloth` `#ragdoll` `#vehicles` `#fluids` `#collision` `#animation` `#niagara` `#networked-physics` `#intermediate` `#advanced` `#ue5-7`
+- **Summary:** Full UE 5.7 physics reference — Chaos Destruction (fracture, fields, anchor constraints), Rigid Body Dynamics (constraints, joints, welding), Chaos Cloth + ML Cloth, Ragdoll, Chaos Vehicles, Physics Fields, Networked Physics (3 replication modes), Chaos Visual Debugger (CVD), Hair/Fluid/Flesh simulations. Blueprint and Python examples.
 - **File:** tutorials/physics-in-unreal-engine.md
 
 
@@ -89,9 +89,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** Epic Documentation
 - **URL:** https://dev.epicgames.com/documentation/unreal-engine/blueprints-visual-scripting-in-unreal-engine
 - **Pages:** 35
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.7
+- **Tags:** `#blueprints` `#visual-scripting` `#blueprint-types` `#event-graph` `#variables` `#functions` `#macros` `#interfaces` `#cpp` `#beginner` `#intermediate` `#ue5-7`
+- **Summary:** Complete Blueprint Visual Scripting reference — all Blueprint types (Level/Actor/Widget/Anim/Data/Interface), core graph types (Event/Construction/Function/Macro), variable types and replication, key node categories, communication patterns (Direct Reference/Cast/Interface/Dispatcher/GameState), performance tips, Blueprint-to-C++ integration guidance.
 - **File:** tutorials/blueprints-visual-scripting-in-unreal-engine.md
 
 
@@ -99,29 +99,19 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** Epic Documentation
 - **URL:** https://dev.epicgames.com/documentation/unreal-engine/world-partition-in-unreal-engine
 - **Pages:** 1
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.7
+- **Tags:** `#world-partition` `#large-worlds` `#streaming` `#data-layers` `#hlod` `#one-file-per-actor` `#environment` `#pcg` `#intermediate` `#advanced` `#ue5-7`
+- **Summary:** World Partition automatic streaming system — grid cells, distance-based streaming sources (Player Controller + custom components), Data Layers (runtime toggle for event-driven streaming), One File Per Actor (source-control-friendly actor storage), HLOD (automatic distant proxies), Level Instancing, level conversion commandlet with all flags documented.
 - **File:** tutorials/world-partition-in-unreal-engine.md
 
 
 ### nDisplay Overview for Unreal Engine
 - **Source:** Epic Documentation
 - **URL:** https://dev.epicgames.com/documentation/unreal-engine/ndisplay-overview-for-unreal-engine
-- **Pages:** 1
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
-- **File:** tutorials/ndisplay-overview-for-unreal-engine.md
-
-
-### nDisplay Overview for Unreal Engine
-- **Source:** Epic Documentation
-- **URL:** https://dev.epicgames.com/documentation/unreal-engine/ndisplay-overview-for-unreal-engine
 - **Pages:** 22
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.7
+- **Tags:** `#ndisplay` `#icvfx` `#led-wall` `#virtual-production` `#switchboard` `#live-link` `#multi-display` `#rendering` `#clustering` `#synchronization` `#advanced` `#ue5-7`
+- **Summary:** Full nDisplay multi-display clustering reference — primary/secondary node architecture, 3D Config Editor (Components/Cluster/Output Mapping panels), Switchboard + SwitchboardListener deployment, ICVFX inner frustum workflow, Multi-GPU support, Failover policy, projection policies API, Output Remapping, synchronization/barrier timeouts, default ports (41001–41004). 22 pages.
 - **File:** tutorials/ndisplay-overview-for-unreal-engine.md
 
 
@@ -129,19 +119,19 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** Epic Documentation
 - **URL:** https://dev.epicgames.com/documentation/en-us/metahuman/metahumans-in-unreal-engine
 - **Pages:** 20
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.7
+- **Tags:** `#metahuman` `#character` `#lod` `#groom` `#hair` `#animation` `#control-rig` `#sequencer` `#live-link` `#ik-retargeting` `#performance` `#materials` `#intermediate` `#advanced` `#ue5-7`
+- **Summary:** Full MetaHuman UE reference — Blueprint structure (BP_MetaHumanName), MetaHuman Component (UE5.5+ correctives + LOD thresholds), LODSync Component (synchronized 8-LOD head + 4-LOD body), platform specs table (PC/Mac/iOS/Android), hair Groom LODs, Hair Art Directability via Dataflow graph, all animation methods (custom FBX, Sequencer+Control Rig, IK Retargeting, runtime retargeting, Live Link, facial rig), baked materials (MI_Face_Skin_Baked), key CVars, required plugins. 20 pages.
 - **File:** tutorials/metahumans-in-unreal-engine.md
 
 
-### Unreal Engine 5.7 Release Notes
+### Unreal Engine 5.6 Release Notes
 - **Source:** Epic Documentation
-- **URL:** https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-5-7-release-notes
+- **URL:** https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-5-6-release-notes
 - **Pages:** 1
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.6
+- **Tags:** `#release-notes` `#rendering` `#animation` `#nanite` `#lumen` `#substrate` `#motion-design` `#virtual-production` `#ue5-6`
+- **Summary:** UE 5.6 release notes — Movie Render Graph production ready, Substrate Materials production ready, Modular Control Rig production ready, MegaLights improvements, PCG node additions, nDisplay/ICVFX improvements, Optimized MetaHumans refinements. (Crawled content sparse — notes synthesized from release knowledge.)
 - **File:** tutorials/unreal-engine-57-release-notes.md
 
 
@@ -149,40 +139,20 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** Epic Documentation
 - **URL:** https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-5-5-release-notes
 - **Pages:** 3
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.5
+- **Tags:** `#release-notes` `#animation` `#sequencer` `#control-rig` `#metahuman` `#lumen` `#path-tracer` `#megalights` `#physics` `#ml-deformer` `#mutable` `#ue5-5`
+- **Summary:** UE 5.5 — Dynamic Sequencer (runtime bindings, Time Warp), Animation Layers (non-destructive), Modular Control Rig (Beta), Skeletal Editor (production ready), Optimized MetaHumans (Cinematic/High/Medium/Low pipelines; MetaHuman Component introduced), MegaLights (Experimental), Path Tracer (Production Ready + Spatio-Temporal denoiser), Lumen HWRT improvements, Choosers (production ready), ML Deformer mask painting. 3 pages with full content.
 - **File:** tutorials/unreal-engine-55-release-notes.md
 
 
-### unreal-engine-5-4-release-notes
+### Unreal Engine 5.4 Release Notes
 - **Source:** Epic Documentation
 - **URL:** https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-5-4-release-notes
 - **Pages:** 1
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.4
+- **Tags:** `#release-notes` `#motion-design` `#pcg` `#rendering` `#animation` `#niagara` `#nanite` `#lumen` `#ue5-4`
+- **Summary:** UE 5.4 — Motion Design module (first-class; cloners/effectors), PCG v2 (vector fields, hierarchical subgraphs, runtime updates), Nanite Displacement & Tessellation (Experimental), Movie Render Graph (Early Access), Modular Control Rig (Experimental), TSR improvements. (Crawled content sparse — notes synthesized from release knowledge.)
 - **File:** tutorials/unreal-engine-5-4-release-notes.md
-
-
-### Unreal Engine 5.7 Release Notes
-- **Source:** Epic Documentation
-- **URL:** https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-5-6-release-notes
-- **Pages:** 1
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
-- **File:** tutorials/unreal-engine-57-release-notes.md
-
-
-### World Partition in Unreal Engine
-- **Source:** Epic Documentation
-- **URL:** https://dev.epicgames.com/documentation/unreal-engine/world-partition-in-unreal-engine
-- **Pages:** 1
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
-- **File:** tutorials/world-partition-in-unreal-engine.md
 
 ---
 
