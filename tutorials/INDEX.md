@@ -324,6 +324,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/improve-your-renders-with-movie-render-queue-part-2---five-things-you-need-to-kn.md
 
+
+### How to: Render Passes with the Movie Render Queue (Unreal Engine 4.26)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=ova8s1H-mUI
+- **Author:** William Faucher
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-to-render-passes-with-the-movie-render-queue-unreal-engine-426.md
+
 ---
 
 ## Tag Reference
