@@ -201,12 +201,19 @@ def fetch_page_text(url):
     raw_title = tm.group(1).strip() if tm else url.split("/")[-1]
     title = raw_title.split(" | ")[0].strip()
 
-    # Extract sub-page links (same domain, documentation paths)
-    links = re.findall(
-        r'href="(https://dev\.epicgames\.com/documentation/unreal-engine/[^"?#]+)"',
+    # Extract sub-page links — absolute and relative, all Epic doc path prefixes
+    EPIC_BASE = "https://dev.epicgames.com"
+    DOC_PAT   = r"(?:en-us/)?(?:unreal-engine|metahuman)"
+    abs_links = re.findall(
+        rf'href="(https://dev\.epicgames\.com/documentation/{DOC_PAT}/[^"?#]+)"',
         html
     )
-    sub_links = list(dict.fromkeys(l for l in links if l.rstrip("/") != url.rstrip("/")))
+    rel_links = re.findall(
+        rf'href="(/documentation/{DOC_PAT}/[^"?#]+)"',
+        html
+    )
+    all_links = abs_links + [EPIC_BASE + l for l in rel_links]
+    sub_links = list(dict.fromkeys(l for l in all_links if l.rstrip("/") != url.rstrip("/")))
 
     # Extract readable text
     html = re.sub(r"<script[^>]*>.*?</script>", "", html, flags=re.DOTALL)
@@ -521,7 +528,12 @@ def main():
 
     # ── Route: Epic documentation hub ────────────────────────────────────────
     is_epic_doc = (EPIC_DOC_HOST in args.url and
-                   "/documentation/unreal-engine/" in args.url)
+                   any(p in args.url for p in (
+                       "/documentation/unreal-engine/",
+                       "/documentation/en-us/unreal-engine/",
+                       "/documentation/metahuman/",
+                       "/documentation/en-us/metahuman/",
+                   )))
 
     # ── Route: Epic community page → YouTube ─────────────────────────────────
     is_epic_community = (EPIC_DOC_HOST in args.url and "/community/" in args.url)
