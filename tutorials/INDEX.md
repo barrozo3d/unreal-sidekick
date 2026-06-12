@@ -344,6 +344,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/why-you-should-be-using-stencil-render-layers---unreal-engine-426.md
 
+
+### How to Render Cryptomatte in Unreal (NEW in 4.26)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=Ry4-Q8mBjdg
+- **Author:** William Faucher
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-to-render-cryptomatte-in-unreal-new-in-426.md
+
 ---
 
 ## Tag Reference
