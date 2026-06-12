@@ -254,6 +254,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/path-tracer-explained---unreal-engines-underrated-tool.md
 
+
+### Nanite: Everything You Should Know [Unreal Engine 5]
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=P65cADzsP8Q
+- **Author:** William Faucher
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/nanite-everything-you-should-know-unreal-engine-5.md
+
 ---
 
 ## Tag Reference
