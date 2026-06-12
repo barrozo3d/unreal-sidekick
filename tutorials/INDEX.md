@@ -374,6 +374,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/bake-lighting-faster-with-gpu-lightmass---unreal-engine-426.md
 
+
+### The 2026 Unreal Engine to Davinci Resolve Guide - ACES & sRGB
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=2Q3CybANHKE
+- **Author:** William Faucher
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/the-2026-unreal-engine-to-davinci-resolve-guide---aces-srgb.md
+
 ---
 
 ## Tag Reference
