@@ -51,6 +51,70 @@ If you get 429 / "Sign in to confirm" errors:
 
 ---
 
+## UE Remote Control MCP Server (Mode 4)
+
+Enables Claude to execute commands directly in an open Unreal Editor via MCP. Two options — choose based on your needs.
+
+### Option A: runreal/unreal-mcp (Recommended — no custom plugin needed)
+
+**Requires:** Node.js 18+ and UE Python Remote Execution
+
+**One-time UE setup:**
+1. `Edit → Plugins → search "Python Editor Script Plugin" → Enable → Restart`
+2. `Edit → Project Settings → Plugins → Python → Enable Remote Execution ✓`
+3. Set Remote Execution Multicast Group IP: `239.0.0.1` (default is fine)
+
+**Claude Code config** — add to `%USERPROFILE%\.config\claude-desktop\mcp.json`:
+```json
+{
+  "mcpServers": {
+    "unreal": {
+      "command": "npx",
+      "args": ["-y", "@runreal/unreal-mcp"]
+    }
+  }
+}
+```
+
+**Available tools:** list/search/export assets, execute Python in editor, create/update/delete actors, viewport screenshots, console commands, project and map info.
+
+**Verify:** With UE open, say "unreal: take a viewport screenshot" in Claude Code.
+
+---
+
+### Option B: chongdashu/unreal-mcp (More features — Blueprint graph editing)
+
+**Requires:** Visual Studio 2022, UE C++ project
+
+**One-time setup:**
+```powershell
+git clone https://github.com/chongdashu/unreal-mcp
+```
+1. Copy `MCPGameProject/Plugins/UnrealMCP` → your project's `Plugins/` folder
+2. Right-click `.uproject` → Generate Visual Studio project files
+3. Build: `Development Editor` configuration
+4. In UE: `Edit → Plugins → search "UnrealMCP" → Enable → Restart`
+5. Start server: `uv --directory <path/to/unreal-mcp/Python> run unreal_mcp_server.py`
+
+**Claude Code config:**
+```json
+{
+  "mcpServers": {
+    "unrealMCP": {
+      "command": "uv",
+      "args": ["--directory", "<path/to/unreal-mcp/Python>", "run", "unreal_mcp_server.py"]
+    }
+  }
+}
+```
+
+**Available tools:** Create/delete/transform actors, query actor properties, create Blueprint classes, add components, configure physics, add event/function nodes, connect Blueprint graph pins, compile Blueprints, spawn actors.
+
+**Use Option B if:** you need Claude to build Blueprints graphically (add nodes, wire pins).  
+**Use Option A if:** you want to execute Python scripts and manage assets with minimal setup.
+
+---
+
 ## Ingest Commands
 
 ```powershell

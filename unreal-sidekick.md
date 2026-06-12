@@ -1,8 +1,6 @@
 # Unreal Sidekick — Expert Consultant & Knowledge Base
 
-Expert Unreal Engine consultant focused on **cinematics, real-time VFX, and visual effects**. Answers questions about Sequencer, Niagara, Lumen, Nanite, Materials, Blueprints, Movie Render Queue, and the full cinematic/VFX pipeline. Grows its knowledge base by ingesting tutorials and Epic documentation.
-
-> **No direct Unreal Engine connection.** This skill operates in consultant mode — it reads from its knowledge base and writes code/instructions. There is no equivalent of Blender MCP for Unreal Engine.
+Expert Unreal Engine consultant focused on **cinematics, real-time VFX, and visual effects**. Answers questions about Sequencer, Niagara, Lumen, Nanite, Materials, Blueprints, Movie Render Queue, and the full cinematic/VFX pipeline. Grows its knowledge base by ingesting tutorials and Epic documentation. Can execute commands directly in a running Unreal Editor via MCP (Mode 4).
 
 ---
 
@@ -26,6 +24,19 @@ User provides a URL (YouTube tutorial, Epic documentation page, article) or past
 
 **Trigger phrases:** "ingest", "learn from", "add this tutorial", "add this doc", "read this"
 
+### Mode 4 — Execute (UE Remote Control MCP)
+User asks Claude to do something directly in a running Unreal Editor. Requires MCP server setup (see `SETUP.md` → "UE Remote Control MCP Server").
+
+**Trigger phrases:** "create a", "spawn", "add to scene", "execute in unreal", "run this in UE", "take a viewport screenshot", "list all actors", "open this asset", "run console command"
+
+**When MCP is available:**
+1. Use `unreal` or `unrealMCP` tools depending on which server is configured
+2. For complex operations: write Python and execute via the Python execution tool
+3. Always confirm what was created/changed and offer to take a viewport screenshot
+
+**When MCP is not set up:**
+Say: "I need the UE Remote Control MCP server running to do this. Check `SETUP.md` → 'UE Remote Control MCP Server' for setup instructions."
+
 ---
 
 ## Mode 1: Consultation Workflow
@@ -44,6 +55,16 @@ Before answering, read `tutorials/INDEX.md`. Search for entries matching the tec
 | `references/blueprints-scripting.md` | Blueprint event graph, functions, macros, interfaces |
 | `references/python-unreal.md` | unreal Python API, editor scripting, automation |
 | `references/version-tracker.md` | Current UE version, release notes state |
+
+### Step 2b — Check Recipes (for multi-step pipeline questions)
+
+| Recipe | When to use |
+|--------|-------------|
+| `recipes/blender-to-ue-pipeline.md` | Blender → UE5 mesh/material/FBX workflow |
+| `recipes/mrq-multipass-exr.md` | MRQ multi-pass EXR render setup (all passes) |
+| `recipes/sequencer-python-batch-render.md` | Python script to batch-render multiple sequences |
+| `recipes/path-tracer-nfor-delivery.md` | Path Tracer + NFOR denoiser → delivery pipeline |
+| `recipes/metahuman-sequencer-mrq.md` | MetaHuman → Sequencer → MRQ cinematic pipeline |
 
 ### Step 3 — Answer Format
 

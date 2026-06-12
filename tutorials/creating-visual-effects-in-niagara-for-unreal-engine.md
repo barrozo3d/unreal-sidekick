@@ -3,9 +3,9 @@ title: Creating Visual Effects in Niagara for Unreal Engine
 source: Epic Documentation
 url: https://dev.epicgames.com/documentation/unreal-engine/creating-visual-effects-in-niagara-for-unreal-engine
 ingested: 2026-06-11
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.7"
+tags: [niagara, vfx, particles, gpu-particles, fluids, rendering, blueprints, audio, epic-docs, intermediate, advanced]
+extraction_status: complete
 page_count: 37
 ---
 
