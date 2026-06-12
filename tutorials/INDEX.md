@@ -424,6 +424,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-i-made-this-shot-in-unreal-engine-5.md
 
+
+### How to Add Camera Shake in Unreal Engine
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=8eIavj62Mu8
+- **Author:** William Faucher
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-to-add-camera-shake-in-unreal-engine.md
+
 ---
 
 ## Tag Reference
