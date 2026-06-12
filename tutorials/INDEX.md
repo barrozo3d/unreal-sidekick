@@ -384,6 +384,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/the-2026-unreal-engine-to-davinci-resolve-guide---aces-srgb.md
 
+
+### Unreal to Davinci Resolve Workflow - ACES & sRGB
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=Bo3BvhGdaUo
+- **Author:** William Faucher
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-to-davinci-resolve-workflow---aces-srgb.md
+
 ---
 
 ## Tag Reference
