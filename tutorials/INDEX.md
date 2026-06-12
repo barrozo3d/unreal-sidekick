@@ -84,6 +84,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/physics-in-unreal-engine.md
 
+
+### Blueprints Visual Scripting in Unreal Engine
+- **Source:** Epic Documentation
+- **URL:** https://dev.epicgames.com/documentation/unreal-engine/blueprints-visual-scripting-in-unreal-engine
+- **Pages:** 35
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/blueprints-visual-scripting-in-unreal-engine.md
+
 ---
 
 ## Tag Reference
