@@ -174,6 +174,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/lumen-explained---important-tips-for-ue5.md
 
+
+### Things To Know About LUMEN [Unreal Engine 5]
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=CFKNoeUPQGQ
+- **Author:** William Faucher
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/things-to-know-about-lumen-unreal-engine-5.md
+
 ---
 
 ## Tag Reference
