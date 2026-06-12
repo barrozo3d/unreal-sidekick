@@ -184,6 +184,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/things-to-know-about-lumen-unreal-engine-5.md
 
+
+### Demystifying the Skylight [Unreal Engine 4 & 5]
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=BGoaPyfZlYg
+- **Author:** William Faucher
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/demystifying-the-skylight-unreal-engine-4-5.md
+
 ---
 
 ## Tag Reference
