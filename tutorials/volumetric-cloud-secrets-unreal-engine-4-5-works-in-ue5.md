@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=yolGEIrhu0s
 author: William Faucher
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 4.26 & UE5"
+tags: [lighting, volumetric-clouds, clouds, cloud-masking, sky, environment, william-faucher, intermediate, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/volumetric-cloud-secrets-unreal-engine-4-5-works-in-ue5/
 frame_count: 0
 ---
@@ -44,27 +44,65 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Art-directing volumetric clouds in UE using the Cloud Mask Generator Blueprint workflow — enables precise placement and control over cloud positions instead of relying on procedural randomness.
 
 ### Summary
-[PENDING EXTRACTION]
+Hidden technique for controlling volumetric cloud placement in UE4.26/5 using the Volumetric plugin's Cloud Mask Generator and Cloud Mask Object Blueprints. These are engine content (hidden by default — need "Show Engine Content" enabled). Place Cloud Mask Objects where you want clouds, run the Cloud Mask Generator to render cloud masks, apply the BILOE material profile for realistic results.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Prerequisites:**
+1. Edit → Plugins → search "Volumetric" → enable Volumetric plugin → Restart
+2. Content Browser → View Options → **Show Engine Content** ✓
+
+**Cloud Mask Workflow:**
+1. Create Volumetric Cloud Actor: Place Actors → Volumetric Cloud
+2. Find Cloud Blueprints: Engine Content → Volumetric Content → Content → Sky → Tools → Cloud Compositing → Blueprints
+3. Place **Cloud Mask Object** Blueprint in scene → move to where you want clouds
+   - Scale up (e.g. 25) to cover desired area
+4. Place **Cloud Mask Generator** Blueprint in scene
+5. Generator renders cloud masks from your mask objects
+6. Change material on Volumetric Cloud Actor:
+   - Engine Content → Volumetric Content → Content → Sky → Materials → Profiles → **BILOE**
+7. To update: tick "Render Clouds" on Cloud Mask Generator to refresh
+
+**Remove Clouds:**
+1. Delete all Cloud Mask Objects
+2. Select Cloud Mask Generator → tick "Render Clouds" to update render targets
+
+**Recommended Profile Material:**
+- `BILOE` — good realistic cumulus appearance; works well out of the box
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+
+**Key Assets (Engine Content — Show Engine Content required):**
+```
+/Engine/Volumetric Content/Content/Sky/Tools/Cloud Compositing/Blueprints/
+    Cloud Mask Object     -- place where you want clouds
+    Cloud Mask Generator  -- renders the cloud mask from placed objects
+    
+/Engine/Volumetric Content/Content/Sky/Materials/Profiles/
+    BILOE                 -- realistic cumulus material profile
+```
+
+**Tips:**
+- Each Cloud Mask Object affects clouds in its area when the generator re-renders
+- Multiple objects = multiple cloud groupings
+- Scale controls the cloud footprint
+- After deleting masks: must tick "Render Clouds" on generator to clear old masks
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate — requires knowing where engine content is hidden
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 4.26 & UE5 (workflow identical)
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, volumetric-clouds, clouds, cloud-masking, sky, environment, william-faucher, intermediate, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/tips-for-sky-atmosphere-fog---unreal-engine-5-ue4.md` — Sky Atmosphere complement
+- `tutorials/demystifying-the-skylight-unreal-engine-4-5.md` — Skylight for cloud lighting
+- `tutorials/lighting-in-unreal-engine-5-for-beginners.md` — Full lighting tutorial

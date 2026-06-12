@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=SbxO-Z5rzwk
 author: William Faucher
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 4 & 5"
+tags: [lighting, sky-atmosphere, exponential-height-fog, atmosphere, volumetric-fog, environment-light-mixer, rayleigh-scattering, william-faucher, beginner, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/tips-for-sky-atmosphere-fog---unreal-engine-5-ue4/
 frame_count: 0
 ---
@@ -44,27 +44,60 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Sky Atmosphere Actor settings to create alien/exotic skies via Rayleigh and Mie scattering; correct Exponential Height Fog configuration to properly inherit sky color instead of washing out at night.
 
 ### Summary
-[PENDING EXTRACTION]
+Quick 5-minute tutorial on transforming the look of a scene using Sky Atmosphere and Exponential Height Fog. Key practical tip: by default, Exponential Height Fog has incorrect inscattering colors that prevent it from going dark at night. Fixing fog inscattering colors makes it correctly react to sun angle and time of day.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Create a Functional Sky Setup (Environment Light Mixer):**
+1. Window → Env Light Mixer → Create Skylight + Create Atmospheric Light 0 + Create Sky Atmosphere
+2. Scene will start with good baseline sky
+
+**Sky Atmosphere Sliders (in Details → Atmosphere):**
+| Setting | Effect |
+|---------|--------|
+| `Rayleigh Scattering Scale` | Atmospheric haze/thickness; crank up for alien sky |
+| `Mie Scattering Scale` | Dust/particle haze; increases contrast and sunset glow |
+| `Mie Absorption Scale` | Absorption of Mie particles; darkens atmosphere |
+| `Rayleigh Scattering` (color) | Base sky color shift |
+
+**Fix Exponential Height Fog for Day/Night Cycle:**
+1. Add Exponential Height Fog to scene
+2. Default fog stays bright blue at night → wrong
+3. **Fix:** Fog Details → `Fog In Scattering Color` = Black (0,0,0)
+4. **Fix:** Fog Details → `Directional In Scattering Color` = Black (0,0,0)
+5. Now fog correctly inherits sky color based on sun angle
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+
+**Sky Atmosphere Key Settings:**
+```
+Atmosphere > Rayleigh Scattering Scale: 0-1 (default 0.0331)
+Atmosphere > Mie Scattering Scale: 0-1 (default 0.003996)
+Atmosphere > Mie Absorption Scale: 0-1 (default 0.000444)
+```
+
+**Exponential Height Fog — Correct Night Setup:**
+```
+Fog In Scattering Color: (0, 0, 0) Black
+Directional In Scattering Color: (0, 0, 0) Black
+// Now fog color inherits from the sky atmosphere
+```
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner — 5-minute tips video
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 4 & 5 (same process in both)
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, sky-atmosphere, exponential-height-fog, atmosphere, volumetric-fog, environment-light-mixer, rayleigh-scattering, william-faucher, beginner, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/demystifying-the-skylight-unreal-engine-4-5.md` — Skylight companion tutorial
+- `tutorials/lighting-in-unreal-engine-5-for-beginners.md` — Full lighting tutorial; fog section
+- `tutorials/volumetric-cloud-secrets-unreal-engine-4-5-works-in-ue5.md` — Clouds complement

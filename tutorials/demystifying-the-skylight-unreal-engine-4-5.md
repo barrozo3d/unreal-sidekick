@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=BGoaPyfZlYg
 author: William Faucher
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 4 & 5"
+tags: [lighting, skylight, hdri, cubemap, distance-field-ao, ambient-occlusion, reflections, realtime-capture, william-faucher, beginner, intermediate, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/demystifying-the-skylight-unreal-engine-4-5/
 frame_count: 0
 ---
@@ -44,27 +44,69 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Skylight actor setup and configuration — Captured Scene vs HDRI source types, Recapture Sky for realtime updates, Distance Field Ambient Occlusion (DFAO) as a non-raytraced AO alternative, chrome ball reference tool for visualizing Skylight contribution.
 
 ### Summary
-[PENDING EXTRACTION]
+Short but dense tutorial by William Faucher on the Skylight Actor — frequently misunderstood and misused. Covers using HDRI as skylight source, the difference between SLS Captured Scene (captures everything above) and SLS Specified Cubemap (static HDRI), enabling Real Time Capture, and Distance Field Ambient Occlusion as a performance-friendly AO option for non-RTX machines.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Chrome Ball Reference Setup:**
+- Add Sphere → apply material: BaseColor=0.8, Metallic=1.0, Roughness=0.0
+- Shows what the skylight is reflecting → immediate feedback on sky capture quality
+
+**Skylight Source Types:**
+| Source | Behavior |
+|--------|----------|
+| **SLS Captured Scene** | Captures everything above the horizon in the level (dynamic, updates with scene) |
+| **SLS Specified Cubemap** | Uses a static HDRI cubemap file (faster; doesn't react to level changes) |
+
+**Enable Real Time Capture:**
+- Skylight Details → Real Time Capture ✓
+- Updates continuously (more expensive but necessary for dynamic skies)
+- Without it: manually press "Recapture Sky" after scene changes
+
+**HDRI as Skylight Source:**
+1. Add Skylight to scene
+2. Details → Source Type = SLS Specified Cubemap
+3. Cubemap = browse to your HDRI asset (.hdr/.exr imported to Content Browser)
+4. Cubemap Resolution = 256 (default) up to 1024 (sharper)
+
+**Distance Field Ambient Occlusion (DFAO):**
+- Skylight Details → search "Distance Fields" → Enable DFAO ✓
+- Adds contact shadow/AO effect without raytracing
+- Good for non-RTX hardware; cheaper than ray-traced AO
+- `r.AOQuality 2` — set AO quality (0=off, 1=low, 2=medium, 3=high)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+
+**Skylight Detail Settings:**
+```
+Source Type: SLS Captured Scene | SLS Specified Cubemap
+Cubemap: [HDRI asset]
+Cubemap Resolution: 256 | 512 | 1024
+Real Time Capture: True/False
+Intensity: multiplier (1.0 = default)
+Tint: color tint the sky contribution
+Lower Hemisphere is Solid Color: True (prevent black from below horizon)
+Distance Field Ambient Occlusion: True/False
+Occlusion Max Distance: cm radius for DFAO
+```
+
+**Key Note:** When using Lumen, Skylight with Real Time Capture is essential — it provides the sky contribution to Lumen's final gather. A static skylight will not update with time-of-day changes.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner to Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 4 & 5 (settings apply to both)
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, skylight, hdri, cubemap, distance-field-ao, ambient-occlusion, reflections, realtime-capture, william-faucher, beginner, intermediate, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/lighting-in-unreal-engine-5-for-beginners.md` — Full beginner lighting tutorial
+- `tutorials/tips-for-sky-atmosphere-fog---unreal-engine-5-ue4.md` — Sky Atmosphere complement
+- `references/rendering-pipeline.md` — Lumen + lighting settings reference
