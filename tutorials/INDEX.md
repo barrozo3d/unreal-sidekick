@@ -64,6 +64,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Foundational UE 5.7 reference — installation, terminology (Actor/Component/Blueprint/GameMode/World), all core editors overview, Content Browser, Levels, Assets, Actors, gameplay framework classes, packaging. 78 pages.
 - **File:** tutorials/understanding-the-basics-of-unreal-engine.md
 
+
+### Procedural Content Generation  Framework in Unreal Engine
+- **Source:** Epic Documentation
+- **URL:** https://dev.epicgames.com/documentation/unreal-engine/procedural-content-generation-framework-in-unreal-engine
+- **Pages:** 18
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/procedural-content-generation-framework-in-unreal-engine.md
+
 ---
 
 ## Tag Reference
