@@ -194,6 +194,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/demystifying-the-skylight-unreal-engine-4-5.md
 
+
+### Tips for Sky Atmosphere & Fog - Unreal Engine 5 (& UE4)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=SbxO-Z5rzwk
+- **Author:** William Faucher
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/tips-for-sky-atmosphere-fog---unreal-engine-5-ue4.md
+
 ---
 
 ## Tag Reference
