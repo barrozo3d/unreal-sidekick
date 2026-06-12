@@ -124,6 +124,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/ndisplay-overview-for-unreal-engine.md
 
+
+### MetaHumans in Unreal Engine
+- **Source:** Epic Documentation
+- **URL:** https://dev.epicgames.com/documentation/en-us/metahuman/metahumans-in-unreal-engine
+- **Pages:** 20
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/metahumans-in-unreal-engine.md
+
 ---
 
 ## Tag Reference
