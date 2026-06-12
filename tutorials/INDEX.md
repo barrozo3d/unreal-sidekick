@@ -414,6 +414,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-to-make-unreal-look-more-cinematic.md
 
+
+### How I Made This Shot in Unreal Engine 5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=HbGJyQVq3tk
+- **Author:** William Faucher
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-i-made-this-shot-in-unreal-engine-5.md
+
 ---
 
 ## Tag Reference
