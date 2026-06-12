@@ -244,6 +244,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-to-improve-your-lighting-w-rtxgi.md
 
+
+### PATH TRACER Explained - Unreal Engine's Underrated Tool
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=X5zVhc5ahl0
+- **Author:** William Faucher
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/path-tracer-explained---unreal-engines-underrated-tool.md
+
 ---
 
 ## Tag Reference
