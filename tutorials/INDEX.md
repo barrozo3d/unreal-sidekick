@@ -179,9 +179,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=CFKNoeUPQGQ
 - **Author:** William Faucher
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.0
+- **Tags:** `#lumen` `#global-illumination` `#project-settings` `#nanite` `#beginner` `#youtube` `#ue5`
+- **Summary:** Early UE5.0 Lumen overview — project settings (DX12, HWRT toggle, VSM), indirect lighting controls (Final Gather Quality, Diffuse Color Boost), Nanite LOD troubleshooting for black meshes in Lumen surface cache.
 - **File:** tutorials/things-to-know-about-lumen-unreal-engine-5.md
 
 
@@ -189,9 +189,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=BGoaPyfZlYg
 - **Author:** William Faucher
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 4 & 5
+- **Tags:** `#lighting` `#skylight` `#hdri` `#cubemap` `#distance-field-ao` `#ambient-occlusion` `#realtime-capture` `#beginner` `#youtube` `#ue5`
+- **Summary:** Skylight deep dive — SLS Captured Scene vs SLS Specified Cubemap, HDRI cubemap setup, Real Time Capture for dynamic skies, Distance Field Ambient Occlusion (DFAO) as non-RTX AO alternative, chrome ball reference technique for visualizing skylight contribution.
 - **File:** tutorials/demystifying-the-skylight-unreal-engine-4-5.md
 
 
@@ -199,19 +199,19 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=SbxO-Z5rzwk
 - **Author:** William Faucher
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 4 & 5
+- **Tags:** `#lighting` `#sky-atmosphere` `#exponential-height-fog` `#rayleigh-scattering` `#beginner` `#youtube` `#ue5`
+- **Summary:** Sky Atmosphere Rayleigh/Mie scattering sliders for alien sky looks + critical Exponential Height Fog fix: set Fog In Scattering Color and Directional In Scattering Color to Black so fog correctly inherits sky color (not bright blue at night).
 - **File:** tutorials/tips-for-sky-atmosphere-fog---unreal-engine-5-ue4.md
 
 
-### Volumetric Cloud Secrets  [Unreal Engine 4 & 5] Works in UE5!
+### Volumetric Cloud Secrets [Unreal Engine 4 & 5]
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=yolGEIrhu0s
 - **Author:** William Faucher
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 4.26 & UE5
+- **Tags:** `#lighting` `#volumetric-clouds` `#cloud-masking` `#sky` `#environment` `#intermediate` `#youtube` `#ue5`
+- **Summary:** Hidden Cloud Mask Generator Blueprint workflow (Show Engine Content required) — place Cloud Mask Object Blueprints to position clouds, Cloud Mask Generator renders masks, apply BILOE material profile for realistic cumulus. Also covers how to delete clouds: remove mask objects + tick "Render Clouds" on generator.
 - **File:** tutorials/volumetric-cloud-secrets-unreal-engine-4-5-works-in-ue5.md
 
 
@@ -303,6 +303,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Tags:** [PENDING]
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/double-your-framerate-in-ue5-for-free-sort-of---nvidia-dlss-30.md
+
+
+### Improve Your Renders With Unreal Movie Render Queue PART 1 - Goodbye Sequencer?! (4.26)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=FxvF3zncClA
+- **Author:** William Faucher
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/improve-your-renders-with-unreal-movie-render-queue-part-1---goodbye-sequencer-4.md
 
 ---
 
