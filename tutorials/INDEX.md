@@ -169,9 +169,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=1e6oOiKh91U
 - **Author:** William Faucher
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.1
+- **Tags:** `#lumen` `#global-illumination` `#hardware-ray-tracing` `#surface-cache` `#reflections` `#emissive` `#intermediate` `#youtube` `#ue5`
+- **Summary:** Lumen internals — screen traces → distance fields → surface cache, critical constraint: separate wall/floor/ceiling meshes required, HWRT reflections simultaneously needs Reflection Quality=4, emissive best practice (large+dim + actual light actor), limitations (landscape, translucency, WPO, subsurface).
 - **File:** tutorials/lumen-explained---important-tips-for-ue5.md
 
 
@@ -293,6 +293,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Tags:** [PENDING]
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/fixing-common-ue5-issues-changes-in-50.md
+
+
+### Double Your Framerate in UE5 for FREE, Sort Of. - Nvidia DLSS 3.0
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=RaY_FDaydoQ
+- **Author:** William Faucher
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/double-your-framerate-in-ue5-for-free-sort-of---nvidia-dlss-30.md
 
 ---
 
