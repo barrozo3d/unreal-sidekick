@@ -274,6 +274,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/the-2025-guide-to-rendering-in-unreal-engine-5.md
 
+
+### Fixing the Ugly Shadow Issues in Unreal Engine 5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=F3XSKXhIAuU
+- **Author:** William Faucher
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/fixing-the-ugly-shadow-issues-in-unreal-engine-5.md
+
 ---
 
 ## Tag Reference
