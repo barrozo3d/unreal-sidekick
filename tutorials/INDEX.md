@@ -394,6 +394,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-to-davinci-resolve-workflow---aces-srgb.md
 
+
+### Intro to UnrealReader - Nuke 13.2
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=cZTO4ojzX2g
+- **Author:** William Faucher
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/intro-to-unrealreader---nuke-132.md
+
 ---
 
 ## Tag Reference
