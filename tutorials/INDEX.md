@@ -39,10 +39,20 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** Epic Documentation
 - **URL:** https://dev.epicgames.com/documentation/unreal-engine/designing-visuals-rendering-and-graphics-with-unreal-engine
 - **Pages:** 170
+- **UE Version:** UE 5.7
+- **Tags:** `#rendering` `#lumen` `#nanite` `#virtual-shadow-maps` `#path-tracing` `#substrate` `#materials` `#textures` `#post-process` `#lighting` `#tsr` `#rdg` `#performance` `#neural` `#ml-deformer` `#mrq` `#epic-docs` `#advanced` `#ue5-7`
+- **Summary:** Full UE 5.7 rendering pipeline reference — Lumen GI/Reflections, Nanite, Virtual Shadow Maps, Substrate Materials, Path Tracer + NFOR denoiser for MRQ, RDG programming, GPUDump debugging, neural post-processing, and ML Deformer. 170 pages.
+- **File:** tutorials/designing-visuals-rendering-and-graphics-with-unreal-engine.md
+
+
+### Animating Characters and Objects in Unreal Engine
+- **Source:** Epic Documentation
+- **URL:** https://dev.epicgames.com/documentation/unreal-engine/animating-characters-and-objects-in-unreal-engine
+- **Pages:** 162
 - **UE Version:** [PENDING]
 - **Tags:** [PENDING]
 - **Summary:** [PENDING EXTRACTION]
-- **File:** tutorials/designing-visuals-rendering-and-graphics-with-unreal-engine.md
+- **File:** tutorials/animating-characters-and-objects-in-unreal-engine.md
 
 ---
 
