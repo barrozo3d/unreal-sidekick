@@ -214,6 +214,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/volumetric-cloud-secrets-unreal-engine-4-5-works-in-ue5.md
 
+
+### Lighting Interiors in Unreal Engine 5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=0GYyHDuaPcg
+- **Author:** William Faucher
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/lighting-interiors-in-unreal-engine-5.md
+
 ---
 
 ## Tag Reference
