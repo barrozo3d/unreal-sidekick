@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=fSbBsXbjxPo
 author: William Faucher
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.x (UE5)"
+tags: [lighting, lumen, beginners, directional-light, point-light, spot-light, rect-light, virtual-shadow-maps, ray-tracing, emissive, volumetric-fog, hdri, skylight, exposure, soft-shadows, indirect-lighting, william-faucher, beginner, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/lighting-in-unreal-engine-5-for-beginners/
 frame_count: 0
 ---
@@ -80,27 +80,113 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Dynamic lighting with Lumen in UE5 — all light types, soft shadow fundamentals (source radius / shadow penumbra), indirect lighting control, emissive materials as light sources, volumetric fog god rays, HDR environment setups for interior and exterior scenes.
 
 ### Summary
-[PENDING EXTRACTION]
+Comprehensive 44-minute beginner lighting tutorial for UE5 with Lumen. Covers every light type, the crucial concept of source radius controlling shadow softness, indirect lighting via albedo contribution, emissive Lumen light emitters, using HDRI backdrop for reference and IBL, volumetric god rays, and two complete lighting scenarios from scratch (daylight interior, overcast exterior).
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Project Setup for Best Lumen:**
+1. Project Settings → Default RHI: DirectX 12
+2. Rendering → Lumen: Dynamic Global Illumination = Lumen
+3. Array Lighting Mode = Surface Cache; Software Ray Tracing = Detailed Tracing
+4. Shadow Map Method = Virtual Shadow Maps
+5. Enable "Support Hardware Ray Tracing" + "Hardware Ray Tracing When Available" (RTX GPU required)
+
+**Light Types:**
+| Light | Use Case |
+|-------|----------|
+| **Directional Light** | Sun / moon; exterior; casts parallel shadows |
+| **Point Light** | Omni; light bulbs, candles |
+| **Spot Light** | Cone; flashlights, theatre spots |
+| **Rect Light** | Soft area light; TV screens, windows, panels |
+| **Sky Light** | Captures sky + environment → fills shadows with ambient color |
+| **HDRI Backdrop** | IBL environment from HDRI; includes Skylight |
+
+**Source Radius = Shadow Softness (The Magic Sauce):**
+- Larger source radius → larger light contact area → softer shadow penumbra
+- Point/Spot/Rect: set `Source Radius` in Details panel
+- For best soft shadows: enable `Cast Ray Tracing Shadows` per-light (needs HWRT)
+- VSM limitation: penumbra artifacts appear at large radius; HWRT shadows = clean soft penumbra
+
+**Indirect Lighting — Three Controls:**
+1. Increase light intensity
+2. Increase `Indirect Lighting Intensity` on light actor
+3. Increase material Albedo (Base Color) value — higher albedo = more bounce light
+
+**Emissive Materials as Lumen Light Sources:**
+```
+Material Editor:
+- Multiply node: LightColor (vector parameter) × LightIntensity (scalar, e.g. 100)
+- Plug Multiply → Emissive Color
+- High Emissive values (50-200) = visible GI contribution through Lumen
+```
+
+**Volumetric Fog / God Rays:**
+1. Exponential Height Fog → Details → Enable Volumetric Fog ✓
+2. Directional Light → Details → Volumetric Scattering Intensity (1-10)
+3. Higher = stronger god rays through windows
+
+**Reference Spheres for Calibration:**
+| Sphere | Albedo | Represents |
+|--------|--------|-----------|
+| Black | 0.04 | Coal / darkest real material |
+| 18% Gray | 0.18 | Middle gray; correct exposure check |
+| White | 0.85 | Fresh snow / brightest material |
+
+**Daylight Interior Setup (Megascans Apartment):**
+1. Place Directional Light → rotate sun angle
+2. Atmosphere Sun Light: enabled
+3. Place Sky Atmosphere
+4. Place Exponential Height Fog (Volumetric on)
+5. Place Skylight → Real Time Capture
+6. Use Environment Light Mixer (Window → Env Light Mixer) to manage all lights
+7. Adjust Directional Light Intensity + Color Temperature
+8. Adjust PPV Exposure Compensation
+
+**Overcast Exterior Setup:**
+1. HDRI Backdrop → drop in scene
+2. Choose overcast HDRI
+3. Sky Atmosphere actor for atmospheric scattering
+4. Minimal Directional Light (weak fill) + add volumetric fog
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+
+**Nanite + Lumen Performance Tip:**
+- Convert mesh to Nanite → Lumen performance improves significantly
+- Nanite Visualization: Viewport → Nanite Visualization → Triangles
+
+**Lumen Project Settings Recap:**
+```
+Dynamic Global Illumination Method = Lumen
+Reflection Method = Lumen
+Lumen Scene Lighting Quality = 1 (realtime) to 4 (high quality)
+Shadow Map Method = Virtual Shadow Maps
+Support Hardware Ray Tracing = True (RTX required)
+```
+
+**Environment Light Mixer (Window menu):**
+- One panel to control Directional Light, Sky Light, Sky Atmosphere, HDRI Backdrop
+- Fast iteration without hunting actors in Outliner
+
+**Cast Ray Tracing Shadows toggle (per light):**
+- Select light → Details → search "ray" → Cast Ray Tracing Shadows ✓
+- Requires HWRT project setting + RTX GPU
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner — foundational lighting concepts; no prior UE or lighting experience needed
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 with Lumen (fully dynamic, no baked lighting)
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, lumen, beginners, directional-light, point-light, spot-light, rect-light, virtual-shadow-maps, ray-tracing, emissive, volumetric-fog, hdri, skylight, exposure, soft-shadows, indirect-lighting, william-faucher, beginner, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `references/rendering-pipeline.md` — Lumen settings, Path Tracing, TSR, post-process
+- `tutorials/designing-visuals-rendering-and-graphics-with-unreal-engine.md` — Full Lumen docs, Virtual Shadow Maps
+- `tutorials/lumen-explained-important-tips-for-ue5.md` — (William Faucher) Advanced Lumen tips
+- `tutorials/things-to-know-about-lumen-unreal-engine-5.md` — (William Faucher) Lumen tips overview
