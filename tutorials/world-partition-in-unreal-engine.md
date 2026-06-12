@@ -3,9 +3,9 @@ title: World Partition in Unreal Engine
 source: Epic Documentation
 url: https://dev.epicgames.com/documentation/unreal-engine/world-partition-in-unreal-engine
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.7"
+tags: [world-partition, large-worlds, streaming, data-layers, hlod, one-file-per-actor, level-instancing, environment, pcg, intermediate, advanced, ue5-7]
+extraction_status: complete
 page_count: 1
 ---
 
