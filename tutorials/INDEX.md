@@ -219,9 +219,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=0GYyHDuaPcg
 - **Author:** William Faucher
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.3
+- **Tags:** `#lighting` `#interiors` `#lumen` `#hardware-ray-tracing` `#path-tracing` `#light-bleeding` `#diffuse-color-boost` `#intermediate` `#youtube` `#ue5-3`
+- **Summary:** Interior lighting with Lumen + HWRT + Path Tracer as ground-truth validator — Cast Ray Tracing Shadows on Rect Lights for soft penumbras, cube blockers under level for sky bleeding fix, PPV Lumen Diffuse Color Boost=2 to lift shadows, practical prop + light actor pairing.
 - **File:** tutorials/lighting-interiors-in-unreal-engine-5.md
 
 
@@ -229,9 +229,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=1LfiYtKDsac
 - **Author:** William Faucher
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 4.27
+- **Tags:** `#lighting` `#night-lighting` `#exterior` `#moonlight` `#volumetric-fog` `#skylight` `#lighting-channels` `#intermediate` `#youtube` `#ue4`
+- **Summary:** Full night exterior workflow — film reference (real moonlight = 0.25–1 lux, all cinematic moon is faked with blue artificial key light), layered build: directional moon → volumetric fog (80% of mood) → skylight shadow lift → warm practical lanterns → fill/rim lights for silhouettes, Lighting Channels to isolate rim lights (UE4 only).
 - **File:** tutorials/lighting-a-night-time-exterior-in-unreal.md
 
 
@@ -239,9 +239,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=hJohX8T5O-8
 - **Author:** William Faucher
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 4.27
+- **Tags:** `#lighting` `#rtxgi` `#global-illumination` `#irradiance-probes` `#dynamic-gi` `#nvidia` `#intermediate` `#youtube` `#ue4`
+- **Summary:** Nvidia RTXGI (DDGI) for UE4 — irradiance-probe-based fully dynamic GI, 2× perf vs legacy UE4 RTGI, no lightmap UVs. Install: manual Nvidia download → engine plugins folder. Setup: DDGI Volume + two console vars. Probe density tuning (8×8×8 → 16×16×16), Probe Max Ray Distance for large outdoor scenes.
 - **File:** tutorials/how-to-improve-your-lighting-w-rtxgi.md
 
 
@@ -249,9 +249,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=X5zVhc5ahl0
 - **Author:** William Faucher
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 4.27
+- **Tags:** `#rendering` `#path-tracing` `#ground-truth` `#mrq` `#denoising` `#samples` `#glass` `#subsurface-scattering` `#intermediate` `#youtube` `#ue4`
+- **Summary:** UE4.27 Path Tracer deep-dive — ground truth renderer, PPV settings (Samples Per Pixel, Max Bounces), denoiser is non-temporal (causes flicker → turn off, denoise in DaVinci post instead), new material support (subsurface, frosted glass, caustics), Sky Atmosphere workaround, MRQ: samples controlled via Anti-Aliasing tab not PPV. Recommended: 16×16 samples, no denoiser.
 - **File:** tutorials/path-tracer-explained---unreal-engines-underrated-tool.md
 
 
@@ -259,9 +259,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=P65cADzsP8Q
 - **Author:** William Faucher
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.0
+- **Tags:** `#nanite` `#geometry` `#lod` `#cluster-culling` `#performance` `#static-mesh` `#beginner` `#youtube` `#ue5`
+- **Summary:** Nanite overview — cluster culling (~128 triangles/cluster, per-pixel LOD), enable via import checkbox or Static Mesh Editor, no lightmap UVs required, good candidates (high-poly statics, occluders), bad candidates (tree leaves), landscape overhangs now possible. Debug: `nanite stats list`, Nanite Cluster View Mode.
 - **File:** tutorials/nanite-everything-you-should-know-unreal-engine-5.md
 
 
@@ -313,6 +313,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Tags:** [PENDING]
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/improve-your-renders-with-unreal-movie-render-queue-part-1---goodbye-sequencer-4.md
+
+
+### Improve Your Renders With Movie Render Queue PART 2 - FIVE Things You Need To Know (Unreal 4.26)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=2U1wP8sJgfU
+- **Author:** William Faucher
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/improve-your-renders-with-movie-render-queue-part-2---five-things-you-need-to-kn.md
 
 ---
 
