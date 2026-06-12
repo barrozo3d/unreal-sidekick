@@ -234,6 +234,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/lighting-a-night-time-exterior-in-unreal.md
 
+
+### How To Improve Your Lighting w/ RTXGI
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=hJohX8T5O-8
+- **Author:** William Faucher
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-to-improve-your-lighting-w-rtxgi.md
+
 ---
 
 ## Tag Reference
