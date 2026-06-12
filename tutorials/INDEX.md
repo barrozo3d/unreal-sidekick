@@ -159,9 +159,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=fSbBsXbjxPo
 - **Author:** William Faucher
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.0
+- **Tags:** `#lighting` `#lumen` `#virtual-shadow-maps` `#rect-light` `#volumetric-fog` `#emissive` `#indirect-lighting` `#beginner` `#youtube` `#ue5`
+- **Summary:** 44-minute beginner lighting masterclass — all light types, source radius for soft shadows, VSM vs HWRT shadows, albedo impact on GI bounce, Lumen project setup (DX12/HWRT/VSM), reference sphere technique (albedo 0.04/0.18/0.85), emissive + volumetric god rays, daylight/overcast workflows.
 - **File:** tutorials/lighting-in-unreal-engine-5-for-beginners.md
 
 
@@ -283,6 +283,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Tags:** [PENDING]
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/fixing-the-ugly-shadow-issues-in-unreal-engine-5.md
+
+
+### Fixing Common UE5 Issues! Changes in 5.0
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=wTYM9TfckOQ
+- **Author:** William Faucher
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/fixing-common-ue5-issues-changes-in-50.md
 
 ---
 
