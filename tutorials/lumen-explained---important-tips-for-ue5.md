@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=1e6oOiKh91U
 author: William Faucher
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.x (UE5)"
+tags: [lumen, lighting, indirect-lighting, global-illumination, reflections, surface-cache, hardware-ray-tracing, nanite, best-practices, troubleshooting, william-faucher, intermediate, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/lumen-explained---important-tips-for-ue5/
 frame_count: 0
 ---
@@ -68,27 +68,98 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Deep-dive into how Lumen works (surface cache, mesh distance fields, screen traces), critical best practices (emissive as fill not primary source, albedo impact on GI, surface topology rules), limitations, and the trick to get hardware ray-traced reflections alongside Lumen GI simultaneously.
 
 ### Summary
-[PENDING EXTRACTION]
+Comprehensive Lumen explainer by William Faucher. Covers the internals of Lumen (hybrid ray tracing: screen traces → distance fields → surface cache), why Nanite is critical for Lumen performance, the Lumen Scene view mode for debugging, key limitations (no landscape, no translucency, WPO artifacts), and the critical best practices. Key insight: you CAN use hardware ray-traced reflections with Lumen by setting Lumen Reflection quality to 4 in PPV.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Lumen How It Works:**
+1. Ray traces against depth buffer first (screen traces)
+2. Then traces against mesh distance fields
+3. Applies lighting to ray hits using surface cache (low-res material atlas)
+4. Surface cache: constantly recaptured; fast on Nanite meshes, SLOW on non-Nanite → frame spikes
+
+**Critical Surface Cache Constraint:**
+- Surface cache cards capture the OUTSIDE of meshes
+- Can only support **simple** meshes and interiors properly
+- **Don't** use one large combined mesh for an interior (walls/floor/ceiling merged = garbage GI)
+- **Do** keep walls, floor, ceiling as separate meshes with proper LODs
+
+**Lumen Scene View Mode:**
+- Shortcut: `G` key (or Viewport → Lumen Scene)
+- If Lumen Scene doesn't roughly match the main viewport → screen-space artifacts
+- **Black objects** in Lumen Scene = not contributing to GI → fix mesh settings or Nanite
+
+**Get Raytraced Reflections + Lumen Together:**
+1. Project Settings → Support Hardware Ray Tracing ✓
+2. Project Settings → Hardware Ray Tracing When Available ✓
+3. Default RHI → DirectX 12
+4. Restart editor
+5. Post Process Volume → Lumen Reflection Quality = **4** (magic number)
+
+**Emissive Material Best Practices:**
+- Lumen picks up emissive as light source, BUT:
+- Small + bright emissive = noisy, inconsistent GI
+- **Correct approach:** emissive large + dim (for visual look) → add actual light (Rect/Point) for brightness
+- Never rely on emissive alone as the primary light source
+
+**Albedo & GI:**
+- High albedo (bright base colors) → more bounce light → better GI fill
+- Dark base colors → poor GI
+- Clean white walls → much better interior Lumen quality than dark walls
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+
+**Project Settings (minimum for Lumen):**
+```
+Dynamic Global Illumination Method = Lumen
+Reflection Method = Lumen
+Generate Mesh Distance Fields = True
+Support Hardware Ray Tracing = True (for HWRT)
+Default RHI = DirectX 12
+```
+
+**Lumen Limitations (as of UE 5.0–5.2):**
+| Feature | Supported |
+|---------|-----------|
+| Static Meshes / ISMs | ✓ |
+| Skeletal Meshes | Partial |
+| Landscape | ✗ (planned) |
+| World Position Offset | Artifacts |
+| Translucent Material Reflections | ✗ |
+| Subsurface Scattering | ✗ |
+| Subsurface Profile | ✓ |
+| TSR (required) | ✓ |
+| Hardware Ray Tracing | Partial (Nanite proxy only) |
+
+**Post Process Volume Lumen Controls:**
+```
+Final Gather Quality: 1 (fast) – 4 (high)
+Lumen Reflection Quality: 1 (default) – 4 (enables HWRT reflections)
+Lumen Scene Lighting Quality: 1 – 4
+```
+
+**Surface Cache Debug Commands:**
+```
+r.Lumen.Visualize.CardPlacement 1   -- visualize surface cache cards
+r.Lumen.Visualize.SurfaceCache 1    -- visualize surface cache atlas
+```
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate — assumes some UE familiarity; explains Lumen internals
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (UE5) — some early-access caveats (landscape support added later)
 
 ### Tags
-[PENDING EXTRACTION]
+lumen, lighting, indirect-lighting, global-illumination, reflections, surface-cache, hardware-ray-tracing, nanite, best-practices, troubleshooting, william-faucher, intermediate, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/lighting-in-unreal-engine-5-for-beginners.md` — Beginner companion tutorial
+- `tutorials/things-to-know-about-lumen-unreal-engine-5.md` — Earlier Lumen overview (UE5.0 EA)
+- `tutorials/designing-visuals-rendering-and-graphics-with-unreal-engine.md` — Epic docs: full Lumen reference
+- `references/rendering-pipeline.md` — Lumen settings quick reference

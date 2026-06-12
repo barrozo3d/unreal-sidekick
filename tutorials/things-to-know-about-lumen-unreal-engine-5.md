@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=CFKNoeUPQGQ
 author: William Faucher
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.0 (Early Access)"
+tags: [lumen, lighting, indirect-lighting, global-illumination, nanite, troubleshooting, project-settings, william-faucher, beginner, ue5-0]
+extraction_status: complete
 frames_dir: tutorials/frames/things-to-know-about-lumen-unreal-engine-5/
 frame_count: 0
 ---
@@ -44,27 +44,58 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Introduction to Lumen in UE5.0 Early Access — project settings, controlling indirect lighting intensity, albedo effect on GI, Nanite LOD troubleshooting, key Lumen limitations in early UE5.
 
 ### Summary
-[PENDING EXTRACTION]
+Early UE5.0 Lumen tutorial from William Faucher. Covers enabling Lumen, the three ways to control indirect lighting (light intensity, indirect intensity, PPV final gather quality), and troubleshooting common Nanite+Lumen issues (LOD shadow disappearing). Note: some early-access caveats may be resolved in later UE5 versions.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Enabling Lumen (from UE4 migrated project):**
+- Project Settings → Rendering → Global Illumination = Lumen
+- Project Settings → Rendering → Reflections = Lumen
+
+**Three Ways to Control Indirect Lighting:**
+1. Increase `Intensity` on the Directional/Sky Light
+2. Increase `Indirect Lighting Intensity` on the Directional Light (Details panel)
+3. Post Process Volume → `Final Gather Quality` (1-4) → more passes = brighter/more accurate GI
+
+**Albedo Impact on GI:**
+- Bright base colors → more bounce light → brighter interiors
+- Dark materials kill bounce light
+- Keep wall/floor albedo reasonably bright for believable interiors
+
+**Nanite + Lumen LOD Issue:**
+- Symptom: shadows disappear when zoomed out; foliage disappears at distance
+- Cause: Nanite mesh LOD settings cutting detail too aggressively
+- Fix: Nanite Fallback Relative Error / Preserve Area settings; or set Min LOD on the static mesh
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+
+**Project Settings (UE5.0 baseline):**
+```
+Dynamic Global Illumination Method = Lumen
+Reflection Method = Lumen
+Generate Mesh Distance Fields = True
+```
+
+**PPV Settings:**
+```
+Lumen → Final Gather Quality: 1-4 (controls GI accumulation quality)
+```
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner — UE5.0 first-time Lumen setup; short troubleshooting tips
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.0 Early Access (some information may be outdated in 5.1+)
 
 ### Tags
-[PENDING EXTRACTION]
+lumen, lighting, indirect-lighting, global-illumination, nanite, troubleshooting, project-settings, william-faucher, beginner, ue5-0
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/lumen-explained---important-tips-for-ue5.md` — More comprehensive follow-up Lumen deep-dive
+- `tutorials/lighting-in-unreal-engine-5-for-beginners.md` — Full beginner lighting tutorial
+- `references/rendering-pipeline.md` — Lumen settings quick reference
