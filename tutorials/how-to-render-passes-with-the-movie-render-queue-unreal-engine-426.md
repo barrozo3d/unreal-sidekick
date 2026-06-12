@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=ova8s1H-mUI
 author: William Faucher
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 4.26"
+tags: [rendering, movie-render-queue, mrq, render-passes, z-depth, scene-depth, post-process-materials, nuke, william-faucher, beginner, ue4]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-render-passes-with-the-movie-render-queue-unreal-engine-426/
 frame_count: 0
 ---
@@ -52,27 +52,67 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Adding render passes (Z-depth, World Normal, etc.) to MRQ via the hidden Additional Post Process Materials slot in the Deferred Rendering tab — a non-obvious workflow that allows MRQ to output the same render passes as Sequencer, with the added benefit of subsampling quality.
 
 ### Summary
-[PENDING EXTRACTION]
+5-minute quick tutorial (Two Minute Tuesday format) correcting a claim from MRQ Part 1. Render passes ARE available in MRQ — they're just hidden under "Additional Post Process Materials" in the Deferred Rendering tab. Shows how to add Scene Depth (World Units), World Normal, and any other post-process material pass. Demonstrates result in Nuke for DOF workflow using the Z-depth channel.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Add Render Passes to MRQ:**
+1. MRQ → job settings → Rendering tab (Deferred Rendering section)
+2. Look for **Additional Post Process Materials** → click + button
+3. Click the dropdown arrow → search for the render pass material by name
+4. Select the pass → check Enable
+5. Repeat for each additional pass
+
+**Available Pass Names to Search For:**
+| Pass | Material Name |
+|------|--------------|
+| Z-Depth | `Scene Depth World Units` |
+| World Normal | `World Normal` |
+| AO | Ambient Occlusion related |
+| Motion Vectors | Motion Blur related |
+
+**Warning:** The material browser shows ALL materials in the project — you must know the specific name. No user-friendly "add render pass" button like in Sequencer.
+
+**MRQ vs. Sequencer Passes:**
+- MRQ: hidden but works + has subsampling quality
+- Sequencer: obvious UI + 32-bit Z-depth but no subsampling
+
+**Z-Depth in Nuke:**
+1. Render with Scene Depth World Units pass (multi-layer EXR)
+2. In Nuke: bring in EXR → ZDefocus node → use depth channel
+3. Focal point control via ZDefocus settings
+4. Result: full control over DOF in post (position, amount, bokeh)
+5. Caveat: depth edges at motion-blurred areas can be problematic
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+
+**MRQ Deferred Rendering — Add Post Process Pass:**
+```
+MRQ Settings > Rendering > Deferred Rendering:
+  Additional Post Process Materials:
+    + (add) → [dropdown arrow] → search material name
+    e.g., "Scene Depth World Units" → Enable ✓
+    
+Output:
+  EXR Sequence → check Multi-Layer ✓
+  // All passes baked into one multi-layer EXR per frame
+```
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner — short tutorial; assumes basic MRQ knowledge
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 4.26 (workflow same in UE5)
 
 ### Tags
-[PENDING EXTRACTION]
+rendering, movie-render-queue, mrq, render-passes, z-depth, scene-depth, post-process-materials, nuke, william-faucher, beginner, ue4
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/improve-your-renders-with-unreal-movie-render-queue-part-1---goodbye-sequencer-4.md` — MRQ Part 1
+- `tutorials/improve-your-renders-with-movie-render-queue-part-2---five-things-you-need-to-kn.md` — MRQ Part 2 (Z-depth limitations)
+- `tutorials/why-you-should-be-using-stencil-render-layers---unreal-engine-426.md` — Better alternative for compositing

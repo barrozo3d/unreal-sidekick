@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=hq1WFFF6iD0
 author: William Faucher
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 4.26"
+tags: [lighting, baked-lighting, gpu-lightmass, lightmap-uv, rtx, ray-tracing, virtual-texturing, hdri, william-faucher, intermediate, ue4]
+extraction_status: complete
 frames_dir: tutorials/frames/bake-lighting-faster-with-gpu-lightmass---unreal-engine-426/
 frame_count: 0
 ---
@@ -68,27 +68,105 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+GPU Lightmass for accelerated lightmap baking in UE4.26 — full interior setup from scratch including requirements (RTX GPU + ray tracing + virtual texturing), lightmap UV setup, resolution tuning, compressed lightmap disable for smooth gradients, HDRI backdrop baking, and "Bake What You See" mode for rapid iteration.
 
 ### Summary
-[PENDING EXTRACTION]
+21-minute practical guide to GPU Lightmass interior baking. Walks through all the gotchas: lightmap UVs must be on UV channel 1 (no overlapping), resolution must be cranked up (default is too low), ambient occlusion should be disabled during baking, compressed lightmaps cause splotchy gradients and should be unchecked, and material brightness (albedo) dramatically affects bounce light quantity. The "Bake What You See" mode is a hidden gem for fast testing.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Requirements (all three required):**
+1. RTX-capable GPU (required as of UE4.26)
+2. Project Settings → enable Ray Tracing
+3. Project Settings → search "virtual" → enable Virtual Texturing
+
+**Scene Setup:**
+1. Add Post Process Volume → check **Infinite Extent (Unbound)**
+2. Disable Auto Exposure: PPV → Exposure → set Min/Max to **1**
+3. In viewport settings → disable Ray Tracing effects (recommended by Epic for baked lighting scenes)
+
+**Lightmap UV Requirements:**
+- Every static mesh needs two UV channels: UV0 = texturing, UV1 = lightmap baking
+- Static Mesh Editor → UV button → verify channel 1 exists
+- No UV shells in channel 1 may overlap (unlike texturing UVs)
+
+**Lightmap Resolution:**
+1. Select all wall/floor/ceiling meshes
+2. Details panel → search "res" → **Overridden Light Map Res** → set to 1024 or 2048
+3. Higher resolution = cleaner bake + longer bake time
+
+**Slow Mode Fix:**
+- If lightmass hangs or builds seem slow: look for "Disable Real Time Override" in the GPU Lightmass window
+- Ctrl+R accidentally enables viewport real-time override, which slows baking
+- Click the arrow dropdown → Disable Real Time Override
+
+**After Bake Cleanup:**
+- PPV → search "ambient" → Ambient Occlusion intensity → set to **0** (AO from baked lighting is too aggressive by default)
+
+**Compressed Lightmaps (Critical Quality Fix):**
+1. Window → World Settings → Lightmap Settings
+2. Uncheck **Compress Lightmaps** → rebake
+3. Result: smooth gradients instead of splotchy banding
+4. Cost: 4× lightmap file size (only disable if you have memory budget)
+
+**HDRI Backdrop:**
+1. Place + → search "HDRI Backdrop" → drag in
+2. Click HDRI Backdrop actor → Details:
+   - Add Component section → Skylight → set Mobility to **Static**
+   - Source Type → **SLS Specified Cubemap** → pick same HDRI as the backdrop
+3. Build Lighting → HDRI will be baked
+
+**Bake What You See Mode:**
+1. GPU Lightmass window → Mode dropdown → select **Bake What You See**
+2. Click Build Lighting → only bakes the area currently visible in the camera
+3. IMPORTANT: Hit **Save** button in GPU Lightmass window before stopping
+4. Hit Stop → bake is applied + denoised for only the visible area
+
+**Material Albedo and Bounce Light:**
+- Material brightness directly affects indirect light bounce in baked scenes
+- Dark albedo (0.2) = much less bounce light + possible dark artifacts
+- Keep wall/floor albedo reasonable (0.4–0.7) for good bounce
+- If scene is too dark after bake: check material albedo before adjusting light intensity
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+
+**Minimum setup for GPU Lightmass:**
+```
+Project Settings:
+  Hardware Ray Tracing: Enabled
+  Virtual Texture: Enabled
+
+Post Process Volume:
+  Infinite Extent: True
+  Auto Exposure Min/Max: 1.0 (disables auto-exp)
+  Ambient Occlusion Intensity: 0.0
+
+World Settings → Lightmap:
+  Compress Lightmaps: False  // smooth gradients
+
+GPU Lightmass Window:
+  Mode: Full Bake (or Bake What You See for test iterations)
+```
+
+**Lightmap resolution override per-mesh:**
+```
+Select meshes → Details:
+  Overridden Light Map Res: 1024  // default 64 is too low
+                           2048  // high quality interiors
+```
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate — several required settings across multiple panels; pitfalls easy to hit
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 4.26 (GPU Lightmass was introduced in 4.26; core workflow same in UE5 but Lumen is usually preferred)
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, baked-lighting, gpu-lightmass, lightmap-uv, rtx, ray-tracing, virtual-texturing, hdri, william-faucher, intermediate, ue4
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/lighting-interiors-in-unreal-engine-5.md` — Interior lighting with Lumen (UE5 alternative to baked)
+- `tutorials/demystifying-the-skylight-unreal-engine-4-5.md` — Skylight for baking HDRI contribution
+- `references/lighting-systems.md` — Lighting systems reference

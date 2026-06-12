@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=QUyznLlnchA
 author: William Faucher
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 4.26"
+tags: [rendering, movie-render-queue, mrq, render-layers, stencil-layers, compositing, nuke, depth-of-field, motion-blur, alpha, exr, william-faucher, intermediate, advanced, ue4]
+extraction_status: complete
 frames_dir: tutorials/frames/why-you-should-be-using-stencil-render-layers---unreal-engine-426/
 frame_count: 0
 ---
@@ -68,27 +68,103 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Stencil Render Layers in MRQ — the superior alternative to Cryptomatte/Object IDs for compositing because they support depth of field and motion blur natively, with full actor-level control over layer assignment. Includes Nuke integration workflow.
 
 ### Summary
-[PENDING EXTRACTION]
+17-minute tutorial on stencil render layers in UE4.26 — why they beat Cryptomatte for production compositing (DOF + motion blur support), how to set them up (Layers panel + MRQ Deferred Rendering), critical settings (disable tone curve, disable auto exposure, screen percentage = 100%), and how to combine layers correctly in Nuke (Shuffle nodes + PLUS merge, not over). Epic themselves acknowledge it's not a perfect comp workflow, but it's the best available.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**When to Use Stencil Layers vs. Cryptomatte:**
+| Feature | Stencil Layers | Cryptomatte/Object ID |
+|---------|---------------|----------------------|
+| DOF in mask | ✓ Supported | ✗ Hard edges |
+| Motion blur in mask | ✓ Supported | ✓ Limited support |
+| Actor assignment control | ✓ Full control | ✗ Auto-assigned |
+| Render time | +100% per layer | Small overhead |
+| Output | Alpha in each layer | Separate crypto pass |
+
+**Setup Workflow:**
+
+1. **Create a Layer:**
+   - Window → Layers (or Cinematics → Movie Render Queue → Settings → Deferred Rendering → right-click → Create Layer)
+   - Name it (e.g., "Foreground")
+
+2. **Assign Actors to Layer:**
+   - Select actors in viewport
+   - In Layers panel → right-click layer → Add Selected Actors to Selected Layers
+
+3. **Configure MRQ:**
+   - MRQ → Settings → Deferred Rendering tab
+   - Check foreground layer ✓ (or whatever layer you created)
+   - "Default Layer" will contain everything NOT assigned to any named layer
+
+4. **Critical Settings (must set these):**
+   - Color Output tab → **Disable Tone Curve** ✓ (layers won't add correctly in comp otherwise → black halos)
+   - PPV → **Auto Exposure: disabled** ✓
+   - Screen Percentage = **100%** (lower values break alpha channel pass-through)
+
+5. **Each layer = +100% render time** — plan accordingly
+
+**Compositing in Nuke:**
+
+1. Import multi-layer EXR
+2. Add Shuffle node per layer:
+   - Input: RGB → select `Final Image [LayerName]`
+   - Repeat for each layer
+3. Merge with **Plus** operator (NOT Over) for accurate linear recombination
+4. Color grade individual layers:
+   - Add Shuffle for layer alpha → Grade node → connect alpha as mask
+
+**Best Practices:**
+- Use stencil layers for foreground/background separation with DOF
+- Use Cryptomatte when DOF isn't needed (simpler setup, faster render)
+- Epic acknowledges it's "not a perfect match" — always a compromise in Unreal comp
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+
+**MRQ Deferred Rendering — Stencil Layers:**
+```
+Deferred Rendering tab:
+  [right-click] Create Layer → name it
+  Assign actors via Layers panel
+  [check layer] in MRQ Deferred Rendering tab
+  Default Layer: all unassigned actors
+
+Color Output tab:
+  Disable Tone Curve: True   // REQUIRED for correct layer compositing
+
+Post Process Volume:
+  Auto Exposure: Disabled    // REQUIRED — prevents exposure mismatch per layer
+
+Rendering:
+  Screen Percentage: 100%    // REQUIRED — otherwise alpha breaks
+```
+
+**Nuke Merge Workflow:**
+```
+// Correct method for stencil layer recombination:
+Shuffle (layer A) → 
+Shuffle (layer B) → 
+Merge (Plus) → final image
+
+// For color grade per layer:
+Shuffle → Grade (mask = layer alpha) → 
+Merge (Plus) with other layers
+```
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate to Advanced — assumes Nuke/compositor knowledge; production-grade pipeline
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 4.26 (stencil layers available in same form in UE5)
 
 ### Tags
-[PENDING EXTRACTION]
+rendering, movie-render-queue, mrq, render-layers, stencil-layers, compositing, nuke, depth-of-field, motion-blur, alpha, exr, william-faucher, intermediate, advanced, ue4
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/improve-your-renders-with-movie-render-queue-part-2---five-things-you-need-to-kn.md` — MRQ Part 2 (DOF + Object ID limitations)
+- `tutorials/how-to-render-cryptomatte-in-unreal-new-in-426.md` — Cryptomatte (simpler but no DOF)
+- `tutorials/how-to-render-passes-with-the-movie-render-queue-unreal-engine-426.md` — Render passes in MRQ

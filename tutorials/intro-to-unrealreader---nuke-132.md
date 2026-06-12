@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=cZTO4ojzX2g
 author: William Faucher
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.0"
+tags: [rendering, compositing, nuke, unreal-reader, mrq, stencil-layers, render-passes, camera-data, pipeline, advanced, william-faucher, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/intro-to-unrealreader---nuke-132/
 frame_count: 0
 ---
@@ -76,27 +76,113 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Unreal Reader plugin for Nuke 13.2 — live TCP/IP bridge from Nuke directly to Unreal's Movie Render Queue. Allows triggering renders from Nuke, receiving render passes (stencil layers, world normal, depth), controlling settings, and even pulling camera data into Nuke's 3D scene for projection work.
 
 ### Summary
-[PENDING EXTRACTION]
+20-minute introduction to Foundry's UnrealReader plugin (built into Nuke 13.2). The plugin connects Nuke to Unreal over TCP/IP — you set up a Nuke Server in UE, then the UnrealReader node in Nuke connects and can control MRQ renders live. Key features: live render preview in Nuke viewer, all MRQ settings accessible (AA, stencil layers, color output, warmup frames), Cryptomatte/object ID picker, render pass visualization, and live camera data export into Nuke's 3D space. The camera tracking feature alone makes it powerful for matte painting and projection work.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Installation:**
+1. Download Nuke Server plugin from Foundry (NOT on Epic Marketplace — custom plugin)
+2. Select the download for your Nuke version (13.2) and UE version
+3. Extract → find the `Foundry` folder
+4. Copy `Foundry` folder into: `C:\Program Files\Epic Games\UE_5.0\Engine\Plugins\`
+5. Launch Unreal → Settings → Plugins → search "Nuke" → enable **Nuke Server**
+6. Restart engine
+
+**Starting the Server in Unreal:**
+1. Window → Nuke Server
+2. Port number: default `9000` (note this number for Nuke)
+3. Click **Start Server**
+4. Status shows "Running" → ready
+
+**Connecting in Nuke:**
+1. In Node Graph → press Tab → search "UnrealReader" → create node
+2. Set port to match Unreal server (9000 by default)
+3. Click **Connect Server**
+4. Unreal Engine version shows in the node panel → connected
+
+**Display in Nuke Viewer:**
+- Select UnrealReader node → press **1 key** to connect to Viewer
+- If nothing shows: check the 1 key, check port match, check server is running
+
+**Fix Washed-Out Colors:**
+1. Select UnrealReader node → Advanced tab
+2. **Disable Tone Curve** ✓ → Nuke receives linear image
+3. Apply OCIO colorspace conversion in Nuke if needed for correct display
+
+**Stencil Layers / Object ID Picker:**
+1. UnrealReader → Render Mode → **Stencil Layers**
+2. Click **Preview Layers** → objects highlighted in viewport
+3. Ctrl+Shift+click → select individual objects as layers
+4. Ctrl+Shift+drag → multi-select
+5. Layers appear in layer list for export as separate passes
+
+**Render Passes Visualization:**
+- Set Render Mode → Full Image
+- Click **RGB** button → dropdown shows: World Depth, World Normal, World Position
+- Click any pass to preview it in the Nuke Viewer
+
+**Live Camera Export:**
+1. UnrealReader → Camera tab
+2. Click **Link Output** → Create Camera
+3. Select camera node → press **1** key
+4. Camera animates in sync with Unreal sequence camera
+5. Enables: 3D projection, matte painting, camera-matched geometry
+
+**Render Warmup for Lumen:**
+```
+Advanced tab:
+  Engine Warm Up Frame Count: 30–50
+  Render Warm Up Frame Count: 30–50
+// Lumen needs time to settle — without this, first frames have no GI
+```
+
+**Writing Renders to Disk from Nuke:**
+1. UnrealReader → click folder icon
+2. Set output path
+3. File name: `render_name_####.exr` — hashtags REQUIRED for frame numbers, `.exr` REQUIRED at end
+4. Click **Write to Disk**
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+
+**Nuke Server in Unreal:**
+```
+Window → Nuke Server:
+  Port: 9000 (default)
+  Start Server → Status: Running
+
+Plugins required: Nuke Server (from Foundry Engine/Plugins folder)
+```
+
+**UnrealReader MRQ Settings (accessible from Nuke):**
+```
+Advanced tab → Anti-Aliasing:
+  Override AA: True
+  AA Method: None
+  Temporal Sub Samples: 16
+  Engine Warm Up: 30 (for Lumen)
+
+Advanced tab → Color Output:
+  Disable Tone Curve: True   // REQUIRED for linear image in Nuke
+
+Camera tab:
+  Link Output → Create Camera   // exports UE camera to Nuke 3D
+```
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced — requires Nuke license, Foundry plugin, and understanding of compositing pipeline
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.0 (Unreal Reader supports UE5 from Nuke 13.2+)
 
 ### Tags
-[PENDING EXTRACTION]
+rendering, compositing, nuke, unreal-reader, mrq, stencil-layers, render-passes, camera-data, pipeline, advanced, william-faucher, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/why-you-should-be-using-stencil-render-layers---unreal-engine-426.md` — Stencil layers in MRQ
+- `tutorials/how-to-render-passes-with-the-movie-render-queue-unreal-engine-426.md` — Render passes in MRQ
+- `tutorials/unreal-to-davinci-resolve-workflow---aces-srgb.md` — Alternative: Resolve-based pipeline

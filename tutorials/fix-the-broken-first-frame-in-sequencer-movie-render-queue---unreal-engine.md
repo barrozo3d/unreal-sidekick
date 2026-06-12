@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=lXcerW59onA
 author: William Faucher
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 4 & 5"
+tags: [rendering, movie-render-queue, mrq, sequencer, first-frame, warm-up-frames, temporal-aa, william-faucher, beginner, ue4, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/fix-the-broken-first-frame-in-sequencer-movie-render-queue---unreal-engine/
 frame_count: 0
 ---
@@ -40,27 +40,67 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Fix for the classic "broken first frame" bug in Sequencer/MRQ — camera appears in wrong position on frame 0 due to temporal AA needing warm-up frames to initialize. The fix is a single slider (Warm Up Frame Count) in MRQ Anti-Aliasing settings.
 
 ### Summary
-[PENDING EXTRACTION]
+5-minute fix tutorial for one of Unreal's most persistent rendering annoyances. First frame of any Sequencer/MRQ render shows camera in wrong position due to temporal rendering systems (TAA, Lumen) needing history frames to warm up. Old workaround was 5-frame handles — still good practice, but now there's an actual fix: set "Engine Warm Up Frame Count" in MRQ Anti-Aliasing settings. William literally says "it's just a slider" — simple but unknown for years.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**The Problem:**
+- Frame 0 of Sequencer/MRQ render: camera in wrong position (temporal AA hasn't initialized)
+- Temporal systems (TSR, Lumen, motion blur) need history frames to "warm up"
+- Old workaround: add 5 frames of handle before actual start of shot
+
+**The Fix (MRQ):**
+1. MRQ → job settings → **Anti-Aliasing** tab
+2. Find **Engine Warm Up Frame Count** (or "Override Warm Up Frame Count")
+3. Set to **16–32 frames** (or higher for heavy temporal effects)
+4. MRQ will run the scene forward these many frames before capturing any rendered output
+5. Frame 0 of your render will now be clean and stable
+
+**The Fix (Sequencer):**
+- Works similarly — handles + warm-up setting
+- Same principle: allow temporal history to accumulate before capturing
+
+**Best Practice:**
+- ALSO keep 5-frame handles at start/end of every shot anyway
+- Warm-up ensures frame 0 is clean; handles give editorial flexibility
+
+**Why This Happens:**
+- TSR/TAA uses history from previous frames for temporal accumulation
+- On frame 0, there is no history → system uses default/zeroed state → camera sees its "default" transform momentarily
+- After 1+ frames, history builds and camera is correct
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+
+**MRQ Anti-Aliasing Settings:**
+```
+MRQ Settings > Anti-Aliasing:
+  Engine Warm Up Frame Count: 16   // run N frames before capture begins
+  // (also called "Override Warm Up Count" in some versions)
+  
+// This resolves broken first frame for TSR, Lumen, and physics warm-up
+```
+
+**Shot Handles (Sequencer) — still recommended even with fix:**
+```
+Right-click sequence in MRQ > Set Start/End
+Add handle frames before/after shot for editorial trim
+```
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner — one setting change; immediately solves a years-old pain point
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 4 & 5 (same issue exists in all versions; same fix applies)
 
 ### Tags
-[PENDING EXTRACTION]
+rendering, movie-render-queue, mrq, sequencer, first-frame, warm-up-frames, temporal-aa, william-faucher, beginner, ue4, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/improve-your-renders-with-unreal-movie-render-queue-part-1---goodbye-sequencer-4.md` — MRQ Part 1 (setup)
+- `tutorials/the-2025-guide-to-rendering-in-unreal-engine-5.md` — 2025 MRQ guide
+- `references/rendering-pipeline.md` — Rendering settings reference

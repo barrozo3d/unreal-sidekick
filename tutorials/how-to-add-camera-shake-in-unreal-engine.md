@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=8eIavj62Mu8
 author: William Faucher
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 4 & 5"
+tags: [camera, camera-shake, sequencer, blueprints, cinematics, animation, procedural, william-faucher, beginner, ue4, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-add-camera-shake-in-unreal-engine/
 frame_count: 0
 ---
@@ -48,27 +48,93 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Procedural camera shake in Unreal Sequencer — create a CameraShakeBase Blueprint, configure amplitude/frequency/duration for location and rotation channels, then add it to a Sequencer camera track. Stack multiple shakes (one slow+broad, one fast+micro) for realistic feel.
 
 ### Summary
-[PENDING EXTRACTION]
+12-minute tutorial on adding procedural camera shake to Sequencer. Create a Blueprint class from CameraShakeBase, configure the Procedural Shake Component's Location/Rotation/Scale amplitude and frequency, then add it to the camera in Sequencer via Add Track → Camera Shake. Pro tip: stack two shake blueprints — one with low frequency + medium amplitude (slow sway) and one with high frequency + low amplitude (micro tremors) to get a realistic handheld feel.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Create Camera Shake Blueprint:**
+1. Content Browser → right-click → **Blueprint Class**
+2. Search bar → type `shake` → select **CameraShakeBase**
+3. Name it (e.g., `BP_CameraShake_Handheld`)
+4. Open the Blueprint
+
+**Configure Shake Settings:**
+1. In Blueprint editor, select the **Procedural Shake** component (or add it)
+2. Expand **Rotation** section:
+   - **Amplitude**: how strong the shake (higher = bigger movement)
+   - **Frequency**: how fast the shake (higher = more jitter)
+3. Expand **Location** section (optional — adds physical camera displacement):
+   - Same Amplitude/Frequency controls
+4. **Duration**: -1 = infinite loop (good for ambient camera shake)
+5. Compile + Save
+
+**Typical Starting Values:**
+| Purpose | Amplitude | Frequency |
+|---------|-----------|-----------|
+| Slow organic sway | 0.3–0.5 | 0.3–0.6 |
+| Micro vibration | 0.05–0.1 | 8–15 |
+| Heavy action | 1.0–2.0 | 1.0–2.0 |
+
+**Add Shake to Sequencer:**
+1. Open Level Sequence in Sequencer
+2. Click on your camera track
+3. Click **+ Track** → **Camera Shake**
+4. In the picker → select your `BP_CameraShake_Handheld`
+5. Play sequence → shake is applied to camera
+
+**Stacking Multiple Shakes (Best Practice):**
+1. Duplicate your shake Blueprint → call it `BP_CameraShake_Micro`
+2. In `_Micro` Blueprint: low amplitude (0.05) + high frequency (12)
+3. In `_Handheld` Blueprint: medium amplitude (0.4) + low frequency (0.5)
+4. In Sequencer: Camera track → + Track → Camera Shake → add `_Handheld`
+5. Camera track → + Track → Camera Shake → add `_Micro`
+6. Both shakes run simultaneously → layered realistic feel
+
+**Why Stack Shakes:**
+- One shake = single frequency band = looks mechanical/artificial
+- Two shakes (different frequency+amplitude) = approximates real camera movement
+- Real cameras have both: large slow movements + small high-frequency micro-vibrations
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+
+**CameraShakeBase Blueprint:**
+```
+Blueprint Class → CameraShakeBase:
+  Procedural Shake component:
+    Rotation:
+      Amplitude: 0.3   // shake strength
+      Frequency: 0.5   // shake speed (Hz)
+    Location:
+      Amplitude: 0.0   // keep 0 unless you want camera to physically move
+      Frequency: 0.0
+    Duration: -1       // -1 = infinite
+```
+
+**Sequencer Camera Shake Track:**
+```
+Sequencer → Camera Track:
+  + Track → Camera Shake → [select Blueprint]
+  
+  // Multiple shakes on same camera track = additive/stacked
+  + Track → Camera Shake → BP_CameraShake_Slow   // broad movement
+  + Track → Camera Shake → BP_CameraShake_Micro  // micro tremors
+```
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner — Blueprint creation is minimal; no coding required
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 4 & 5 (CameraShakeBase available in both; Matinee Camera Shake is older equivalent)
 
 ### Tags
-[PENDING EXTRACTION]
+camera, camera-shake, sequencer, blueprints, cinematics, animation, procedural, william-faucher, beginner, ue4, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/how-to-make-unreal-look-more-cinematic.md` — Full cinematics guide (includes camera principles)
+- `tutorials/the-2025-guide-to-rendering-in-unreal-engine-5.md` — MRQ settings
+- `references/cinematics-pipeline.md` — Cinematics pipeline reference

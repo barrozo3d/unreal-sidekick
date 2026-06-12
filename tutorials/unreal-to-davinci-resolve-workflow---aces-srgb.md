@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=Bo3BvhGdaUo
 author: William Faucher
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 4 & 5"
+tags: [rendering, color-grading, davinci-resolve, aces, ocio, color-science, mrq, exr, vignette, film-grain, chromatic-aberration, pipeline, william-faucher, intermediate, ue4, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-to-davinci-resolve-workflow---aces-srgb/
 frame_count: 0
 ---
@@ -92,27 +92,106 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Original Unreal-to-DaVinci Resolve color workflow — older tutorial requiring manual ACES 1.2 config file download, full OCIO setup in Unreal, and full color page walkthrough in Resolve including ACES vs. sRGB linear import transforms, Lift/Gamma/Gain grading, vignette, chromatic aberration with mask isolation, film grain, and export.
 
 ### Summary
-[PENDING EXTRACTION]
+30-minute original color grading guide (older workflow). Requires downloading ACES 1.2 config from GitHub and setting up OCIO manually in Unreal. Two workflows shown side-by-side: ACES CG (exports in ACES color space) vs. non-ACES (Tone Curve disabled, exports linear sRGB). Both import into Resolve with specific input transforms. Includes full color grade walkthrough: waveform reading, non-destructive node editing, chromatic aberration isolation to highlights, film grain. **For newer/simpler workflow see 2026 Guide.**
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Download ACES Config (older workflow only):**
+1. Search "aces-dev GitHub" or use link from description
+2. Download: ACES 1.2 config ZIP (NOT the full 5GB package)
+3. Extract locally
+
+**OCIO Setup in Unreal:**
+1. Content Browser → right-click → Miscellaneous → OpenColorIO Configuration
+2. In config asset, set Configuration File Path to the extracted `config.ocio` file path
+3. Color Spaces to add: **ACEScg** + **sRGB Linear**
+4. In MRQ → Color Output tab → OCIO Configuration: enabled → load config
+5. Source: **Linear SRGB** (what UE outputs) → Destination: **ACEScg** (for ACES workflow)
+
+**Non-ACES Workflow (simpler):**
+- MRQ → Color Output → just disable Tone Curve
+- No OCIO config needed
+- Resolve will receive linear sRGB
+
+**Resolve Project Settings:**
+- File → Project Settings → Color Management tab
+- Color Science: **ACES CCT**
+- ACES Version: **1.2**
+- ACES Output Transform: **Rec 709**
+
+**Importing and Input Transforms in Resolve:**
+- For ACEScg renders: right-click clip → ACES Input Transform → Color Space Conversion → **ACEScg**
+- For Linear sRGB (no ACES): right-click → ACES Input Transform → Color Space Conversion → **sRGB Linear**
+- Common mistake: applying ACEScg transform to a non-ACES render → oversaturated, wrong colors
+
+**Color Grading Workflow:**
+- First node: Tone ("ACE's Transform" node — already applied via project settings)
+- Alt+S = add new corrector node
+- Lift/Gamma/Gain: shadows/midtones/highlights
+- Offset: shifts everything uniformly
+- Waveform: use to check clipping and shadow crush
+
+**Chromatic Aberration with Mask (Highlights Only):**
+1. Add node → apply Chromatic Aberration
+2. Right-click → Add Node → Add Layer Mixer
+3. Right-click → Add Node → Corrector
+4. Connect Corrector to bottom input of Layer Mixer (the unaffected base)
+5. In Layer Mixer node: eyedropper → select bright highlights as mask
+6. Result: CA only visible in high-contrast bright areas (realistic lens behavior)
+
+**Vignette:**
+- FX Library → Window → draw ellipse → Curves → darken outer area via lift
+
+**Film Grain:**
+- FX Library → Film Grain → set preset (35mm 400T etc.) → adjust opacity
+
+**Export:**
+- Deliver page → H264 or H265 → bitrate rule: fps × 2000 kbps
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+
+**OCIO Config in MRQ:**
+```
+Content Browser → OpenColorIO Configuration:
+  Config File Path: [path to extracted aces_1.2/config.ocio]
+  Color Spaces: ACEScg, sRGB Linear
+  
+MRQ → Color Output:
+  OCIO Configuration: Enabled ✓
+  Transform Source: Linear SRGB
+  Transform Destination: ACEScg     // for ACES workflow
+  
+  OR:
+  Disable Tone Curve: True           // for simple linear sRGB workflow
+```
+
+**Resolve Color Science:**
+```
+File → Project Settings → Color Management:
+  Color Science: ACES CCT
+  ACES Version: 1.2
+  Output Transform: Rec 709
+
+Right-click clip → ACES Input Transform:
+  → Color Space Conversion → ACEScg   // if rendered in ACEScg
+  → Color Space Conversion → sRGB Linear  // if tone curve was disabled
+```
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate — older workflow; requires ACES config file, more setup steps
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 4 & 5 (works on any version — transcript says "UE5 Preview 1 but works on any version")
 
 ### Tags
-[PENDING EXTRACTION]
+rendering, color-grading, davinci-resolve, aces, ocio, color-science, mrq, exr, vignette, film-grain, chromatic-aberration, pipeline, william-faucher, intermediate, ue4, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/the-2026-unreal-engine-to-davinci-resolve-guide---aces-srgb.md` — Updated 2026 workflow (simpler, no config download needed)
+- `tutorials/the-2025-guide-to-rendering-in-unreal-engine-5.md` — 2025 rendering guide
+- `tutorials/path-tracer-explained---unreal-engines-underrated-tool.md` — Path Tracer + Resolve denoising

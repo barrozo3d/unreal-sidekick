@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=doUDJFKLyZs
 author: William Faucher
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 4 & 5"
+tags: [cinematics, camera, frame-rate, motion-blur, depth-of-field, film-back, focal-length, aspect-ratio, color-grading, william-faucher, beginner, intermediate, ue4, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-make-unreal-look-more-cinematic/
 frame_count: 0
 ---
@@ -56,27 +56,102 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Five fundamentals for making Unreal renders look cinematic: 24 FPS + 180° shutter rule for organic motion blur, full-frame film back for proper sensor feel, long focal lengths (85–200mm) for cinematic compression, 2.35:1 aspect ratio, and post-production color grading in DaVinci Resolve.
 
 ### Summary
-[PENDING EXTRACTION]
+29-minute cinematic fundamentals video covering the most common mistakes game-artist-turned-filmmaker Unreal users make. Each of the 5 topics is a dimension that separates game-looking renders from film-looking renders. The most critical insight: rendering is only halfway done — post-production color grading is what makes the real difference between mediocre and cinematic. Shooting in 24fps is the single biggest and easiest win.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**1. Frame Rate — 24 FPS (Most Important)**
+- 60 FPS = soap opera effect / video game cutscene
+- 24 FPS = cinematic, natural motion blur at 180° shutter
+- 180° Shutter Rule: shutter speed = 1 / (2 × fps) → 24fps = 1/48s shutter
+- In Unreal: Camera → Shutter Speed = 48 (for 24fps), OR use Motion Blur Amount instead
+- DO NOT render at 48, 60, or 120 FPS for cinematic work
+- Only exception: slow-motion footage shot at higher fps, played at 24fps
+
+**2. Film Back — Sensor Size**
+- Default Unreal camera sensor is small → "video camera" look
+- Change: CineCamera Actor → Filmback Settings → choose Full Frame DSLR (36×24mm) or Super 35
+- Larger sensor = shallower DOF at equivalent aperture + wider field of view at same focal length
+- Film Back affects how much of the scene fills the frame and overall perspective feel
+
+**3. Focal Length — Go Long**
+- 35mm is Unreal default → overused, boring, distorts faces when close
+- For close-ups: use 85mm minimum, 150mm–200mm for portraits
+- Longer focal = background compression (background appears closer) → cinematic look
+- To get subject large in frame at 150mm: back the camera up further
+- Combined with large aperture (f/2.8–f/4): very shallow DOF, beautifully blurred background
+
+**4. Depth of Field — Use It Creatively**
+- DOF hides background flaws, focuses viewer attention
+- CineCamera → Current Focal Length + Aperture + Focus Distance
+- F/2.8 = very shallow; f/10 = sharper background
+- DOF in game dev was often disabled (annoying) — in cinematics, it's essential
+- For close-up portraits or product shots: exaggerated shallow DOF looks professional
+
+**5. Aspect Ratio — 2.35:1 Cinema Scope**
+- Most cinematic films: 2.35:1 (also written as 2.39:1)
+- In Unreal: add black bars in Post Process Material OR crop in Resolve
+- Instantly triggers "movie theater" association in the viewer
+- Alternative: 1.85:1 (widescreen), 4:3 (classic), 1.78:1 (16:9)
+
+**6. Post-Production (Most Underrated)**
+- Color grading in DaVinci Resolve is essential — rendering is only 50% of the work
+- William's workflow: render EXR (tone curve off) → Resolve → ACES convert → grade
+- Post: contrast, vignette, chromatic aberration, film grain, color temperature shifts
+- VFX compositors in production are legendary for how much they improve renders
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+
+**CineCamera Actor Settings:**
+```
+CineCamera Actor:
+  Filmback → Sensor Width: 36 mm (Full Frame DSLR)
+  Filmback → Sensor Height: 24 mm
+  
+  Current Focal Length: 85–200mm (not 35mm default)
+  Current Aperture: 2.8 (shallow DOF) or f/8 (sharper background)
+  Current Focus Distance: [distance to subject]
+
+Sequencer → Camera cut track → right-click → Pilot:
+  Ensure CineCamera is used (not generic Camera Actor)
+```
+
+**Motion Blur / Shutter:**
+```
+// 180° Shutter Rule for 24 FPS:
+CineCamera → Shutter Speed: 48  // = 1/48s = half of 1/24s
+// OR
+Post Process Volume → Motion Blur Amount: 0.5 (default) — represents 180° shutter at 24fps
+
+// For renders: ensure MRQ doesn't override motion blur to 0
+MRQ → Game Overrides → Motion Blur: leave default (don't set to 0)
+```
+
+**Aspect Ratio (2.35:1):**
+```
+// Method 1: Crop in DaVinci Resolve (most flexible)
+// Method 2: Post Process Material with black bars on top/bottom
+
+Resolution 4K with 2.35:1:
+  3840 × 1634 (exact 2.35:1 crop at 4K width)
+```
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner to Intermediate — conceptual knowledge more than technical setup
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 4 & 5 (concepts apply to any version)
 
 ### Tags
-[PENDING EXTRACTION]
+cinematics, camera, frame-rate, motion-blur, depth-of-field, film-back, focal-length, aspect-ratio, color-grading, william-faucher, beginner, intermediate, ue4, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/the-2026-unreal-engine-to-davinci-resolve-guide---aces-srgb.md` — Color grading in Resolve
+- `tutorials/the-2025-guide-to-rendering-in-unreal-engine-5.md` — 2025 rendering guide (MRQ settings)
+- `tutorials/how-to-add-camera-shake-in-unreal-engine.md` — Adding procedural camera shake
+- `references/cinematics-pipeline.md` — Cinematics pipeline reference

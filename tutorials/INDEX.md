@@ -269,9 +269,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=fVg5ihB8Wdc
 - **Author:** William Faucher
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.5
+- **Tags:** `#rendering` `#mrq` `#temporal-aa` `#spatial-aa` `#motion-blur` `#niagara` `#game-overrides` `#tsr` `#william-faucher` `#intermediate` `#ue5-5`
+- **Summary:** 2025 MRQ guide — use Game Overrides tab (not manual console vars), pick temporal OR spatial samples (never both), motion blur needs temporal, no motion blur needs spatial + PPV=0, 9–15 temporal = standard, Niagara ghosting fix: double framerate + import at half speed.
 - **File:** tutorials/the-2025-guide-to-rendering-in-unreal-engine-5.md
 
 
@@ -279,9 +279,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=F3XSKXhIAuU
 - **Author:** William Faucher
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.0
+- **Tags:** `#rendering` `#shadows` `#nanite` `#hwrt` `#ray-tracing` `#bug-fix` `#william-faucher` `#intermediate` `#ue5`
+- **Summary:** Nanite + HWRT shadow splotch bug — root cause: HWRT traces Nanite fallback mesh (low-res proxy), not actual geometry. 3 fixes: disable Ray Traced Shadows on light, `r.RayTracing.Shadows.EnableTwoSidedGeometry 0`, or Nanite Fallback Relative Error = 0.
 - **File:** tutorials/fixing-the-ugly-shadow-issues-in-unreal-engine-5.md
 
 
@@ -289,9 +289,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=wTYM9TfckOQ
 - **Author:** William Faucher
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.0
+- **Tags:** `#lumen` `#reflections` `#translucency` `#nanite` `#path-tracing` `#quixel` `#william-faucher` `#beginner` `#ue5`
+- **Summary:** UE5.0 migration gotchas — Lumen works on GTX 1070–1080 (no RTX needed for software Lumen), glass refraction fix (PPV → Translucency → Ray Tracing), Nanite + Path Tracer traces fallback mesh (same splotch bug), Quixel Bridge install (Epic Launcher Library → Vault, no longer built-in).
 - **File:** tutorials/fixing-common-ue5-issues-changes-in-50.md
 
 
@@ -299,9 +299,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=RaY_FDaydoQ
 - **Author:** William Faucher
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.2
+- **Tags:** `#rendering` `#dlss` `#nvidia` `#upscaling` `#frame-generation` `#rtx` `#performance` `#william-faucher` `#intermediate` `#ue5-2`
+- **Summary:** DLSS 3.0 breakdown — DLSS (upscaling, any DLSS GPU) vs Frame Generation (ML-interpolated frames, RTX 40 series only). Quality modes table (DLAA=100% to Ultra=33.33%). Frame Gen requires ≥30fps baseline. Frame Gen doesn't work in MRQ — use AA=None + 16+ temporal samples for renders.
 - **File:** tutorials/double-your-framerate-in-ue5-for-free-sort-of---nvidia-dlss-30.md
 
 
@@ -309,9 +309,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=FxvF3zncClA
 - **Author:** William Faucher
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 4.26
+- **Tags:** `#rendering` `#mrq` `#movie-render-queue` `#anti-aliasing` `#exr` `#spatial-samples` `#william-faucher` `#intermediate` `#ue4`
+- **Summary:** MRQ introduction — why MRQ beats Sequencer (AA=None + 64 spatial samples = no noise/motion-blur issues vs. TAA default). Setup: enable Movie Render Pipeline + Additional Render Passes plugins. High Resolution Tiling: 4× resolution but no screen-space effects.
 - **File:** tutorials/improve-your-renders-with-unreal-movie-render-queue-part-1---goodbye-sequencer-4.md
 
 
@@ -319,9 +319,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=2U1wP8sJgfU
 - **Author:** William Faucher
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 4.26
+- **Tags:** `#rendering` `#mrq` `#cryptomatte` `#object-id` `#depth-of-field` `#z-depth` `#render-presets` `#william-faucher` `#intermediate` `#ue4`
+- **Summary:** MRQ Part 2 — 3 critical limitations: Object ID+subsampling=very slow, Object ID has no DOF (use Stencil Layers instead), no 32-bit Z-depth from MRQ. 2 features: Render Presets (save full config for reuse), Batch Render Queue (queue all shots to render overnight unattended).
 - **File:** tutorials/improve-your-renders-with-movie-render-queue-part-2---five-things-you-need-to-kn.md
 
 
@@ -329,9 +329,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=ova8s1H-mUI
 - **Author:** William Faucher
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 4.26
+- **Tags:** `#rendering` `#mrq` `#render-passes` `#z-depth` `#scene-depth` `#post-process-materials` `#nuke` `#william-faucher` `#beginner` `#ue4`
+- **Summary:** Render passes in MRQ are hidden under Deferred Rendering → Additional Post Process Materials (not in a visible passes list). Must know material names: "Scene Depth World Units" = Z-depth, "World Normal" = normals. Z-depth works for re-focus in Nuke but edge quality at motion-blurred areas is problematic.
 - **File:** tutorials/how-to-render-passes-with-the-movie-render-queue-unreal-engine-426.md
 
 
@@ -339,9 +339,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=QUyznLlnchA
 - **Author:** William Faucher
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 4.26
+- **Tags:** `#rendering` `#mrq` `#render-layers` `#stencil-layers` `#compositing` `#nuke` `#depth-of-field` `#motion-blur` `#alpha` `#william-faucher` `#intermediate` `#ue4`
+- **Summary:** Stencil Render Layers — superior to Cryptomatte because they support DOF AND motion blur in masks. Setup: MRQ → Deferred Rendering → Create Layer → assign actors via Layers panel. Critical: Disable Tone Curve + Disable Auto Exposure + Screen Percentage=100. Nuke: Shuffle nodes + Merge Plus (not Over). +100% render time per layer.
 - **File:** tutorials/why-you-should-be-using-stencil-render-layers---unreal-engine-426.md
 
 
@@ -349,9 +349,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=Ry4-Q8mBjdg
 - **Author:** William Faucher
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 4.26
+- **Tags:** `#rendering` `#mrq` `#cryptomatte` `#object-id` `#matte` `#compositing` `#exr` `#nuke` `#william-faucher` `#beginner` `#ue4`
+- **Summary:** Cryptomatte setup in UE4.26 (first version to support it) — enable Movie Render Pipeline Additional Render Passes plugin, MRQ → Add Object IDs Limited + EXR Sequence with Multi-Layer enabled. View in Photoshop with free EXRIO plugin. Limitation: no DOF support in masks — use Stencil Layers for DOF-accurate compositing.
 - **File:** tutorials/how-to-render-cryptomatte-in-unreal-new-in-426.md
 
 
@@ -359,9 +359,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=lXcerW59onA
 - **Author:** William Faucher
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 4 & 5
+- **Tags:** `#rendering` `#mrq` `#sequencer` `#first-frame` `#warm-up-frames` `#temporal-aa` `#william-faucher` `#beginner` `#ue4` `#ue5`
+- **Summary:** Classic "broken first frame" fix — temporal AA (TSR/TAA) needs warm-up history frames or frame 0 shows camera in wrong position. Fix: MRQ → Anti-Aliasing → Engine Warm Up Frame Count = 16–32. William: "it's literally just a slider." Keep 5-frame handles at start too.
 - **File:** tutorials/fix-the-broken-first-frame-in-sequencer-movie-render-queue---unreal-engine.md
 
 
@@ -369,9 +369,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=hq1WFFF6iD0
 - **Author:** William Faucher
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 4.26
+- **Tags:** `#lighting` `#baked-lighting` `#gpu-lightmass` `#lightmap-uv` `#rtx` `#ray-tracing` `#virtual-texturing` `#hdri` `#william-faucher` `#intermediate` `#ue4`
+- **Summary:** GPU Lightmass baking setup — requires RTX GPU + ray tracing + virtual texturing. Two UV channels per mesh required (channel 1 = lightmap, no overlapping). Uncheck Compressed Lightmaps in World Settings for smooth gradients (+4× memory). "Bake What You See" mode for fast camera-area-only test bakes. Disable AO in PPV, keep material albedo 0.4+ for good bounce.
 - **File:** tutorials/bake-lighting-faster-with-gpu-lightmass---unreal-engine-426.md
 
 
@@ -379,9 +379,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=2Q3CybANHKE
 - **Author:** William Faucher
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** `#rendering` `#color-grading` `#davinci-resolve` `#aces` `#ocio` `#tone-curve` `#linear-srgb` `#color-science` `#mrq` `#william-faucher` `#intermediate` `#ue5`
+- **Summary:** Updated 2026 color pipeline — simpler than older workflow. OCIO config is now built-in: type `ocio://default` in config path (no download needed!). Render linear sRGB (Tone Curve OFF). In Resolve: ACES transform node. With Tone Curve ON: perfect viewport match but limited grading. Set Blue Correction + Expand Gamut to 0 in PPV.
 - **File:** tutorials/the-2026-unreal-engine-to-davinci-resolve-guide---aces-srgb.md
 
 
@@ -389,9 +389,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=Bo3BvhGdaUo
 - **Author:** William Faucher
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 4 & 5
+- **Tags:** `#rendering` `#color-grading` `#davinci-resolve` `#aces` `#ocio` `#color-science` `#mrq` `#vignette` `#film-grain` `#chromatic-aberration` `#william-faucher` `#intermediate` `#ue4` `#ue5`
+- **Summary:** Original ACES workflow (older, more manual) — download ACES 1.2 config from aces-dev GitHub, set up OCIO in UE, MRQ Color Output → OCIO config. In Resolve: right-click → ACES Input Transform: ACEScg (ACES) or sRGB Linear (no-ACES). Full grade walkthrough: vignette, chromatic aberration with highlight mask, film grain. See 2026 Guide for simplified version.
 - **File:** tutorials/unreal-to-davinci-resolve-workflow---aces-srgb.md
 
 
@@ -399,9 +399,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=cZTO4ojzX2g
 - **Author:** William Faucher
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.0
+- **Tags:** `#rendering` `#compositing` `#nuke` `#unreal-reader` `#mrq` `#stencil-layers` `#render-passes` `#camera-data` `#pipeline` `#william-faucher` `#advanced` `#ue5`
+- **Summary:** Foundry's UnrealReader (built into Nuke 13.2) — live TCP/IP bridge to MRQ. Setup: copy Nuke Server plugin to UE Engine/Plugins, enable plugin, Window → Nuke Server → Start. In Nuke: UnrealReader node → connect. Disable Tone Curve in Advanced tab for linear image. Access stencil layers, render passes, and export live UE camera to Nuke 3D space. Write to disk: filename must include `####.exr`.
 - **File:** tutorials/intro-to-unrealreader---nuke-132.md
 
 
@@ -409,9 +409,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=doUDJFKLyZs
 - **Author:** William Faucher
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 4 & 5
+- **Tags:** `#cinematics` `#camera` `#frame-rate` `#motion-blur` `#depth-of-field` `#film-back` `#focal-length` `#aspect-ratio` `#color-grading` `#william-faucher` `#beginner` `#intermediate` `#ue4` `#ue5`
+- **Summary:** 5 fundamentals for cinematic renders: 24fps (not 60fps) + 180° shutter rule for organic motion blur, full-frame film back (36×24mm), long focal lengths 85–200mm (not 35mm default), 2.35:1 aspect ratio for cinema scope feel, and mandatory post-production color grading in Resolve. Rendering is only 50% of the job.
 - **File:** tutorials/how-to-make-unreal-look-more-cinematic.md
 
 
@@ -419,9 +419,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=HbGJyQVq3tk
 - **Author:** William Faucher
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.0
+- **Tags:** `#rendering` `#path-tracing` `#photogrammetry` `#3d-scanning` `#compositing` `#davinci-resolve` `#mrq` `#workflow` `#william-faucher` `#intermediate` `#ue5`
+- **Summary:** Full production breakdown: photogrammetry (RealityCapture + cross-polarized flash) → Substance Painter → UE5 (composition first!) → Path Tracer render (MRQ: Path Tracing tab, 16×16 samples, denoiser OFF, tone curve OFF) → DaVinci Resolve denoising (Fusion page noise reduction, free) + color grade. 3 lighting variations: day/overcast/night.
 - **File:** tutorials/how-i-made-this-shot-in-unreal-engine-5.md
 
 
@@ -429,9 +429,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=8eIavj62Mu8
 - **Author:** William Faucher
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 4 & 5
+- **Tags:** `#camera` `#camera-shake` `#sequencer` `#blueprints` `#cinematics` `#animation` `#procedural` `#william-faucher` `#beginner` `#ue4` `#ue5`
+- **Summary:** Procedural camera shake — create CameraShakeBase Blueprint, configure Procedural Shake Component amplitude/frequency per channel, add to Sequencer camera via + Track → Camera Shake. Stack two shakes (low-freq+medium-amp for sway + high-freq+low-amp for micro-vibration) for realistic handheld feel.
 - **File:** tutorials/how-to-add-camera-shake-in-unreal-engine.md
 
 ---

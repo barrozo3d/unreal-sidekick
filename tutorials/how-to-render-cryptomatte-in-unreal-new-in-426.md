@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=Ry4-Q8mBjdg
 author: William Faucher
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 4.26"
+tags: [rendering, movie-render-queue, mrq, cryptomatte, object-id, matte, compositing, exr, nuke, william-faucher, beginner, ue4]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-render-cryptomatte-in-unreal-new-in-426/
 frame_count: 0
 ---
@@ -52,27 +52,74 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Cryptomatte / Object ID pass setup in MRQ (new in UE4.26) — enables automatic per-object alpha masks embedded in multi-layer EXR, usable in Nuke/Fusion/Photoshop for isolating any object in post without manual roto.
 
 ### Summary
-[PENDING EXTRACTION]
+5-minute quick tutorial for Cryptomatte in UE4.26 — the first version to support it. Previously Unreal had no Cryptomatte support, which was a major production limitation. Setup: enable MRQ Additional Render Passes plugin → add Object IDs tab in MRQ settings → render as multi-layer EXR. View result in Photoshop with the free EXRIO plugin, or use natively in Nuke/Fusion. Important: Cryptomatte does NOT support depth of field in masks — see stencil layers for DOF-accurate masking.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Requirements:**
+1. Settings → Plugins → enable **Movie Render Queue Additional Render Passes** (separate from base MRQ plugin)
+2. Restart engine
+
+**MRQ Cryptomatte Setup:**
+1. Create a Level Sequence + camera (even minimal sequence works)
+2. Window → Cinematics → Movie Render Queue
+3. + Render → add sequence → click Unsaved Config
+4. Settings → delete JPEG Sequence if present
+5. Settings → **Add EXR Sequence** (PNG doesn't work reliably)
+6. EXR Sequence settings → check **Multi-Layer** ✓
+7. Settings → **Add Object IDs** (this is the Cryptomatte pass)
+8. Set output directory + resolution → Accept → Render Local
+
+**Output:**
+- Multi-layer EXR file per frame
+- Contains: Beauty pass + Alpha + Cryptomatte layers (one per object)
+- Each Cryptomatte layer = unique identifier for one object
+
+**View in Photoshop:**
+1. Install free **EXRIO** Photoshop plugin
+2. File → Open → select EXR file → EXRIO splits into layers
+3. Crypto-mat layer shows each object's color-coded mask
+
+**Works Natively In:**
+- Nuke (native EXR import)
+- Fusion 16/17 (native support)
+- After Effects (with EXR plugin)
+
+**Cryptomatte Limitation:**
+- Does NOT support depth of field in masks (objects remain hard-edged even if DOF-blurred)
+- For DOF-accurate compositing: use Stencil Render Layers instead
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+
+**MRQ Cryptomatte Config:**
+```
+Plugins required:
+  Movie Render Pipeline ✓
+  Movie Render Pipeline Additional Render Passes ✓
+
+MRQ Settings:
+  Output → EXR Sequence:
+    Multi-Layer: True ✓    // REQUIRED — without this, passes render as separate files
+
+  Rendering → Object IDs:
+    [add tab] → renders Cryptomatte pass
+```
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner — quick setup; just enabling the right plugin
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 4.26 (Cryptomatte first introduced in this version)
 
 ### Tags
-[PENDING EXTRACTION]
+rendering, movie-render-queue, mrq, cryptomatte, object-id, matte, compositing, exr, nuke, william-faucher, beginner, ue4
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/why-you-should-be-using-stencil-render-layers---unreal-engine-426.md` — Better alternative for DOF-accurate masking
+- `tutorials/improve-your-renders-with-movie-render-queue-part-2---five-things-you-need-to-kn.md` — Cryptomatte limitations (DOF, slow subsampling)
+- `tutorials/how-to-render-passes-with-the-movie-render-queue-unreal-engine-426.md` — Other render passes

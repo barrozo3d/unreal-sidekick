@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=HbGJyQVq3tk
 author: William Faucher
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.0"
+tags: [rendering, path-tracing, photogrammetry, 3d-scanning, compositing, davinci-resolve, mrq, workflow, william-faucher, intermediate, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/how-i-made-this-shot-in-unreal-engine-5/
 frame_count: 0
 ---
@@ -56,27 +56,99 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Full production workflow breakdown for a cinematic still: photogrammetry (RealityCapture) → Substance Painter texturing → UE5 scene composition with Path Tracer → MRQ rendering (16×16 samples, no denoiser, tone curve off) → DaVinci Resolve denoising + color grading. Demonstrates composition-first methodology.
 
 ### Summary
-[PENDING EXTRACTION]
+14-minute behind-the-scenes walkthrough of creating 3 cinematic stills of a scanned axe. Starts with photogrammetry using cross-polarized flash (eliminates reflections, ideal for PBR scanning), Substance Painter to add material definition beyond base color, then UE5 scene building (composition first → light direction → Path Tracer). Key production insight: set up camera and framing immediately — build only what the camera sees. Denoise in Resolve's Fusion page (free) or Color page (Studio).
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Photogrammetry Workflow:**
+1. Mount object on ceiling arm (object rotates, camera stays fixed on tripod)
+2. Cross-polarized flash: flash + polarizing filter + matching lens filter = cuts reflections → matte consistent photos
+3. Rotate subject at 5° increments, photograph from each angle
+4. Import into RealityCapture → align → mesh → texture
+5. Result: base color + normal map from Reality Capture (good starting point)
+
+**Texturing in Substance Painter:**
+1. Export mesh from Reality Capture
+2. Import into Substance Painter
+3. Define PBR material channels: roughness, metallic, specular for each material zone
+4. Export textures (base color, normal, roughness, metallic, AO)
+5. Import into UE5 as material
+
+**UE5 Scene Setup — Composition First:**
+1. **Open UE5** → environment light mixer for quick daylight (Directional + Sky Atmosphere + Sky Light + Volumetric Fog)
+2. **Set up camera FIRST** — place subject, position camera, nail composition
+3. **Don't build anything outside camera frustum** — waste of time
+4. Move Directional Light to rough desired direction
+5. Iterate lighting with Path Tracer previews (PPV → Path Tracing tab → Preview mode)
+
+**Path Tracer Render Settings:**
+1. MRQ → delete Deferred Rendering tab → add **Path Tracing** tab
+2. MRQ → Color Output → **Disable Tone Curve**
+3. MRQ → Anti-Aliasing → Override AA → None, **16 Spatial × 16 Temporal** samples
+4. PPV → Path Tracing → **Disable Denoiser** (denoise in Resolve instead)
+5. Output → EXR 16-bit, 4K resolution
+6. Hit Render Local → expect LONG render times (Path Tracer is slow)
+
+**Denoising in DaVinci Resolve:**
+- **Free version:** Import clip → Fusion page → Shift+Space → add **Noise Reduction** node
+- **Studio version ($300):** Color page → add Noise Reduction in node graph (preferred)
+- Color grade as normal after denoising
+
+**Lighting Variations (for multiple shots):**
+- Daylight: Directional Light + Sky Atmosphere
+- Overcast: Skylight only with HDRI from HDRI Haven
+- Night: Directional Light (blue, low intensity) + Point Light (warm, simulates campfire)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+
+**Path Tracer MRQ Config:**
+```
+MRQ Settings:
+  Rendering tab: [delete Deferred Rendering] → Add Path Tracing
+  
+  Path Tracing settings:
+    Samples Per Pixel: controlled by Anti-Aliasing tab (not here)
+  
+  Anti-Aliasing:
+    Override AA: True
+    Method: None
+    Spatial Samples: 16
+    Temporal Samples: 16
+    // Noisy? Add more samples — that's the ONLY fix
+  
+  Color Output:
+    Disable Tone Curve: True
+  
+  Output:
+    EXR Sequence 16-bit
+    Resolution: 4K (3840×2160)
+
+Post Process Volume:
+  Path Tracing → Denoiser: Disabled  // denoise in Resolve instead
+```
+
+**Quick Daylight Setup:**
+```
+Window → Environment Light Mixer:
+  Create All (Directional Light + SkyAtmosphere + Sky Light + Volumetric Fog)
+  // One-click daylight foundation
+```
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced — full production pipeline across multiple apps
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.0
 
 ### Tags
-[PENDING EXTRACTION]
+rendering, path-tracing, photogrammetry, 3d-scanning, compositing, davinci-resolve, mrq, workflow, william-faucher, intermediate, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/path-tracer-explained---unreal-engines-underrated-tool.md` — Path Tracer deep-dive
+- `tutorials/the-2026-unreal-engine-to-davinci-resolve-guide---aces-srgb.md` — DaVinci Resolve workflow
+- `tutorials/the-2025-guide-to-rendering-in-unreal-engine-5.md` — MRQ render settings reference

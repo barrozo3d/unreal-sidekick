@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=2U1wP8sJgfU
 author: William Faucher
 ingested: 2026-06-12
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 4.26"
+tags: [rendering, movie-render-queue, mrq, cryptomatte, object-id, depth-of-field, z-depth, render-presets, render-queue, limitations, william-faucher, intermediate, ue4]
+extraction_status: complete
 frames_dir: tutorials/frames/improve-your-renders-with-movie-render-queue-part-2---five-things-you-need-to-kn/
 frame_count: 0
 ---
@@ -56,27 +56,70 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+MRQ Part 2 — three production-critical limitations of MRQ's Object ID/Cryptomatte and Z-depth passes (slow sub-sampling, no DOF support, no 32-bit depth), plus two powerful productivity features (render presets and batch render queue).
 
 ### Summary
-[PENDING EXTRACTION]
+11-minute follow-up to MRQ Part 1. Covers hard-won production lessons: Object ID passes are extremely slow with subsampling AND don't support depth of field (making the masks nearly unusable for DOF compositing). Z-depth is only 16-bit. On the productivity side: render presets save your full MRQ config for reuse, and the queue lets you batch all your shots to render overnight unattended.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Limitation 1: Object ID Pass + Subsampling = Very Slow**
+- Object ID pass with AA=None + high spatial samples causes extreme render time (hangs at ~13 sub-samples per frame)
+- Each sub-sample re-renders the Object ID pass → exponential time increase
+- Workaround: render Object ID pass without subsampling (separate render pass at lower quality for masking only)
+
+**Limitation 2: Object ID / Cryptomatte = No DOF**
+- Object ID mask does NOT account for depth of field
+- Out-of-focus objects still get a hard-edged mask → impossible to use for DOF blending in comp
+- Resolution: use **Stencil Render Layers** instead (supports DOF natively — see stencil layers tutorial)
+
+**Limitation 3: No 32-bit Z-Depth from MRQ**
+- MRQ only outputs 16-bit EXR
+- Z-depth (Scene Depth World Units) is 16-bit → insufficient precision for clean DOF in Nuke
+- Sequencer can output 32-bit depth BUT loses subsampling quality
+- No perfect solution in UE4.26 — a production tradeoff
+
+**Productivity Feature 1: Render Presets**
+1. Set up your full MRQ config (output paths, AA settings, console vars, render passes, resolution)
+2. Click the Presets button (top right of MRQ window)
+3. Save as Preset → name it
+4. On any new project: Presets → load preset → entire config restores instantly
+
+**Productivity Feature 2: Batch Render Queue**
+1. Open MRQ
+2. Click the + Render button → add Shot 1 sequence
+3. Click + Render button again → add Shot 2
+4. Repeat for all shots in production
+5. Hit Render Local → renders all shots in sequence, unattended
+6. Before MRQ: had to open each map manually, capture movie, wait, repeat → overnight impossible
+7. Now: queue 50 shots, go home, come back to finished renders
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+
+**Object ID / Cryptomatte Pass Caveats:**
+```
+// Object ID with subsampling = VERY SLOW
+// Object ID does NOT support Depth of Field in masks
+// Z-Depth (Scene Depth World Units) = 16-bit only from MRQ
+
+// Workaround for DOF-accurate masks: use Stencil Render Layers instead
+```
+
+**Render Presets Location:**
+- MRQ window → Presets button (top right) → Save as Preset / Load Preset
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate — assumes MRQ Part 1 knowledge; covers production gotchas
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 4.26 (limitations partly resolved in later versions; core concepts still apply)
 
 ### Tags
-[PENDING EXTRACTION]
+rendering, movie-render-queue, mrq, cryptomatte, object-id, depth-of-field, z-depth, render-presets, render-queue, limitations, william-faucher, intermediate, ue4
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/improve-your-renders-with-unreal-movie-render-queue-part-1---goodbye-sequencer-4.md` — MRQ Part 1
+- `tutorials/why-you-should-be-using-stencil-render-layers---unreal-engine-426.md` — Stencil Layers (fix for DOF masking)
+- `tutorials/how-to-render-cryptomatte-in-unreal-new-in-426.md` — Cryptomatte setup
