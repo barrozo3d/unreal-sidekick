@@ -164,6 +164,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/lighting-in-unreal-engine-5-for-beginners.md
 
+
+### Lumen Explained - IMPORTANT Tips for UE5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=1e6oOiKh91U
+- **Author:** William Faucher
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/lumen-explained---important-tips-for-ue5.md
+
 ---
 
 ## Tag Reference
