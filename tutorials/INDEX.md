@@ -455,23 +455,13 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **File:** tutorials/how-i-use-lumen-in-aaa-projects-unreal-engine-5.md
 
 
-### I Textured The Entire Environment Using a SINGLE Texture
-- **Source:** YouTube
-- **URL:** https://www.youtube.com/watch?v=pkRH_mdAP2E
-- **Author:** Procedural Minds
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
-- **File:** tutorials/i-textured-the-entire-environment-using-a-single-texture.md
-
-
 ### It Took Me 7+ Years To Get Interior Lighting That Easy in Unreal Engine 5
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=MJQ-0tmIhQk
 - **Author:** Karim Yasser
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.5+ (MegaLights present)
+- **Tags:** `#lighting` `#interiors` `#lumen` `#hardware-ray-tracing` `#post-process` `#volumetric-fog` `#megalights` `#console-commands` `#intermediate` `#advanced` `#youtube` `#ue5`
+- **Summary:** Full interior lighting workflow from scratch for a moody restaurant scene — clean slate from baked lighting, night skylight base, single exterior Spotlight as moon source with volumetric god rays, fill lights, PPV color grade. Key value: `r.Lumen.ScreenProbes.Radiosity.HemisphereFromResolution 32` (fixes Lumen flicker; default 4), `r.VolumetricFog.GridPixelSize 4` + `r.VolumetricFog.GridSizeZ 512` (improve fog quality). Also covers Source Radius vs. Soft Source Radius distinction for specular control.
 - **File:** tutorials/it-took-me-7-years-to-get-interior-lighting-that-easy-in-unreal-engine-5.md
 
 

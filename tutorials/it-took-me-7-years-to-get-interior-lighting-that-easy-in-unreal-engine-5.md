@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=MJQ-0tmIhQk
 author: Karim Yasser
 ingested: 2026-06-15
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.x (MegaLights present → UE 5.5+)"
+tags: [lighting, interiors, lumen, hardware-ray-tracing, post-process, volumetric-fog, megalights, console-commands, intermediate, advanced, youtube, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/it-took-me-7-years-to-get-interior-lighting-that-easy-in-unreal-engine-5/
 frame_count: 13
 ---
@@ -93,27 +93,195 @@ frame_count: 13
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Complete interior Lumen HWRT lighting workflow from a clean scene — build-order: project settings → clean slate → sky base → PPV exposure → single exterior spotlight with volumetric fog → fill lights → color grade → fix Lumen flickering with hemisphere resolution console command → improve volumetric fog quality with grid sampling console commands.
 
 ### Summary
-[PENDING EXTRACTION]
+Karim Yasser (AAA professional) walks through the full process of building cinematic interior lighting for a restaurant/cafe scene in UE5 from scratch. The approach relies on Lumen Hardware Ray Tracing with MegaLights enabled, a single high-intensity Spotlight as the exterior moon source, and Exponential Height Fog for volumetric atmosphere. The tutorial's most distinctive value is two sets of specific console commands: one to fix Lumen's screen probe flickering noise (`r.Lumen.ScreenProbes.Radiosity.HemisphereFromResolution`) and one to improve volumetric fog softness (`r.VolumetricFog.GridPixelSize` / `r.VolumetricFog.GridSizeZ`). Scene progression captured across 13 frames from pure black → near-final cinematic moody interior.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+#### 1. Project Settings (Edit → Project Settings → Rendering)
+- `Dynamic Global Illumination Method` → **Lumen**
+- `Reflections Method` → **Lumen**
+- `Support Hardware Ray Tracing` → **true**
+- `Use Hardware Ray Tracing When Available` → **true**
+- `Generate Mesh Distance Fields` → **false** (not needed with HWRT)
+- `Local Exposure Highlight Contrast` → **1**, `Shadow Contrast` → **1**
+- `GBuffer Format` → **High Precision Normals**
+- `MegaLights` → **enabled** (soft shadows without point-light config overhead)
+- Restart editor after changes.
+
+#### 2. Clean Slate — Remove All Existing Lighting
+- Select and **delete all light actors** (DirectionalLight, PointLights, SpotLights, RectLights)
+- Delete all **Reflection Capture actors** (SphereReflectionCapture, BoxReflectionCapture)
+- Delete **Exponential Height Fog** and **Post Process Volume**
+- Keep the sky sphere actor for now
+- Go to `Window → World Settings → Lightmass → Advanced` → hit **Invalidate Lightmass** or **Build All Levels** to zero out all Light Maps
+- **Disable emissive materials** temporarily so they don't pollute the Lumen GI base
+
+#### 3. Add Post Process Volume — Base Exposure
+- Add a `Post Process Volume`, tick **Infinite Extent**
+- `Exposure → Metering Mode` → Manual, set **Min/Max Brightness = 1, 1**, `Exposure Compensation = 0`
+- This locks exposure so light changes are predictable as you build the scene
+
+#### 4. Skylight — Night Ambient Base
+- Adjust Sky Sphere texture saturation (sky material → reduce saturation, target ~2.25 to desaturate the blue night tone)
+- Set Sky Sphere emissive intensity ~**5**
+- Add a **Skylight** to the lighting folder, set intensity ~**0.5–0.6** for night mood
+- Result: very subtle cool ambient in the interior (frame_003: interior nearly black, windows glowing white)
+
+#### 5. Local Exposure Tone Mapping (PPV)
+- `Post Process Volume → Local Exposure` → `Highlight Contrast = 0.6` (pulls shadow detail into dark interior without adding lights)
+- `Shadow Contrast` adjust as needed (~2.0)
+- This brings out interior detail before any fill lights are placed
+
+#### 6. Exponential Height Fog — Atmosphere
+- Add `Exponential Height Fog`, reset location
+- Set **Fog Inscattering Color** to a muted cyan/night tone (avoid oversaturated blue)
+- Adjust **Fog Density** via the value/brightness (too bright = fog washes out interior)
+- Enable **Volumetric Fog** on the EHF component
+
+#### 7. Exterior Spotlight — Main Moon/Sun Source
+- Add a **Spotlight** as the exterior light source (moon or filtered daylight through window)
+- Initial settings: **Intensity = 10,000**, small **Inner/Outer Cone Angle** (~20° outer), **Attenuation Radius = 1500–2000**
+- Color: hue 94, saturation ~2.7 (cool blue-white moonlight)
+- **Volumetric Scattering Intensity = 80–100** (creates visible god-ray shafts through windows)
+- Use **Right-click → Pilot Light** in the viewport to fly the spotlight through the window opening and aim it into the interior without guessing position values
+- `Indirect Lighting Intensity = 2–3` to boost bounce light into dark corners
+
+#### 8. Source Radius vs. Soft Source Radius — Shadow & Specular Fix
+- **Source Radius** = makes the light source physically larger → **softer shadows**, but also enlarges the specular highlight on reflective surfaces (can look wrong on chrome/metals)
+- **Soft Source Radius** = diffuses the specular reflection only, keeps shadow softness → **use this for interiors** where you want soft shadows without a giant specular blob
+- Workflow: increase Source Radius for shadow softness, then dial in Soft Source Radius (e.g., 200) to fix the specular — verify with a chrome sphere placed in the scene
+- Do NOT reduce `Specular Scale` to fix the specular blob — it removes reflections from all geometry
+
+#### 9. Fill Lights
+- Add **Point Lights** in the darkest interior corners as fill
+- They will initially have sharp shadows — apply the same Source Radius trick for softness
+- Keep fill lights at low intensity (they're supporting, not primary)
+- Use `Outer Cone Angle` adjustments on the spotlight to control falloff sharpness
+
+#### 10. Post Process Color Grading
+- `Bloom` → Convolution Bloom, Intensity **1–1.5**
+- `Chromatic Aberration` → slight (0.5–1.0)
+- `Local Exposure Shadow Contrast` → reduce from 0.6 toward 0.4 for more shadow detail
+- `Detail Strength` → **1.2** (adds micro-contrast, sharpens surface detail)
+- `Shadow Saturation` → reduce to ~**0.45** (desaturates deep shadows for a filmic look)
+- `Gain` → slight warm/finish tint
+
+#### 11. Fix Lumen Screen Probe Noise / Flickering
+The main two console commands for interior Lumen quality:
+
+```
+// Debug view — shows how Lumen screen probes are sampled
+r.Lumen.ScreenProbes.Radiosity.Visualize.Proximity 1
+// (set to 0 to turn off)
+
+// Fix flickering — raise from default 4 to 32
+r.Lumen.ScreenProbes.Radiosity.HemisphereFromResolution 32
+```
+
+Also in PPV → Lumen GI:
+- `Lumen Scene Lighting Quality` → increase (e.g., 4)
+- `Lumen Scene Detail` → increase (e.g., 4)
+- `Final Gather Quality` → **4**
+- `Ray Lighting Mode` (Advanced) → `Surface Cache` or `Hit Lighting` — test both
+
+#### 12. Improve Volumetric Fog Sampling
+Two console commands — significant visual improvement for interior fog shafts:
+
+```
+// Horizontal fog grid resolution — default 8, lower = softer/better
+// Warning: very low values (1) can crash — use 3–4 for production
+r.VolumetricFog.GridPixelSize 4
+
+// Vertical fog grid resolution — default 128, higher = better
+r.VolumetricFog.GridSizeZ 512
+```
+
+Values to compare:
+- GridPixelSize: 16 (bad) → 8 (default) → 4 (good) → 1 (very soft, risky)
+- GridSizeZ: 32 (bad/noisy) → 128 (default) → 512 (clean)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+
+**Project Settings → Rendering:**
+- Dynamic GI = Lumen | Reflections = Lumen
+- Support HWRT = true | Use HWRT When Available = true
+- Generate Mesh Distance Fields = false
+- GBuffer Format = High Precision Normals
+- Local Exposure Highlight/Shadow Contrast = 1
+- MegaLights = enabled
+
+**Actors:**
+- Skylight (intensity 0.5–0.6, adjust sky sphere saturation)
+- Exponential Height Fog (Volumetric Fog = true, muted cyan color)
+- Spotlight (10,000 intensity, cone ~20°, attenuation 1500–2000, Source Radius + Soft Source Radius)
+- Post Process Volume (Infinite Extent)
+
+**PPV Settings:**
+- Exposure: Manual, Min/Max = 1, Compensation = 0
+- Local Exposure Highlight Contrast = 0.6
+- Final Gather Quality = 4
+- Lumen Scene Lighting Quality = 4
+- Lumen Scene Detail = 4
+- Bloom Convolution Intensity = 1–1.5
+- Detail Strength = 1.2
+- Shadow Saturation = 0.45
+- Chromatic Aberration = 0.5–1.0
+
+**Console Commands (paste in UE console `~`):**
+```
+r.Lumen.ScreenProbes.Radiosity.HemisphereFromResolution 32
+r.VolumetricFog.GridPixelSize 4
+r.VolumetricFog.GridSizeZ 512
+```
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate / Advanced
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.5+ (MegaLights feature referenced; Lumen HWRT available since UE 5.0 but MegaLights is UE 5.5+)
 
 ### Tags
-[PENDING EXTRACTION]
+`#lighting` `#interiors` `#lumen` `#hardware-ray-tracing` `#post-process` `#volumetric-fog` `#megalights` `#console-commands` `#intermediate` `#advanced` `#youtube` `#ue5`
+
+---
+
+## Frame Analysis
+
+**frame_000:** Target reference — moody restaurant interior, dark with warm light through large windows, chairs and tables, very cinematic. Pre-production reference.
+
+**frame_001:** UE5 editor early stage — restaurant with warm ambient, light fixtures active, relatively bright overall. Project settings done.
+
+**frame_002:** After lighting cleanup — mostly dark interior, minimal window light, World Settings panel visible.
+
+**frame_003:** Skylight + PPV added — interior almost completely black; windows show pure white blown-out exterior. Shows how dark a zero-bake Lumen interior starts before building up lights.
+
+**frame_004:** EHF added — slight cool/cyan tint appearing in the atmosphere. Interior still very dark but atmosphere is taking shape.
+
+**frame_005:** Spotlight piloting — large white blown-out fog beam visible in the scene (the spotlight being positioned through window). Thick volumetric fog test.
+
+**frame_006:** Exterior spotlight configured — blue-cool moonlight spilling through windows. Restaurant interior visible. Details panel showing Source Radius / spotlight settings.
+
+**frame_007:** Source Radius overexposure issue — the entire scene is blown out / overexposed. This shows the problem when Source Radius + specular is too large.
+
+**frame_008:** Fill lights added — warm red/orange light from right side (fire or lamp prop). Scene darkening toward the intended mood.
+
+**frame_009:** Color grading applied — restaurant looking polished and cinematic. PPV color grade panel visible on right.
+
+**frame_010:** Lumen debug view — Lumen ScreenProbe radiosity debug visualization (dots/probes visible on all surfaces). Console command `r.Lumen.ScreenProbes.Radiosity.Visualize.Proximity 1` active.
+
+**frame_011:** Improved volumetric fog — soft god-ray shafts through windows. `r.VolumetricFog.GridPixelSize 4` applied.
+
+**frame_012:** Near-final result — dark moody restaurant interior, excellent soft shadows, subtle volumetric, cinematic color grade. Very close to target frame_000.
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+
+- [[lighting-interiors-in-unreal-engine-5]] — William Faucher's interior lighting tutorial (same topic: Lumen + HWRT + path tracer reference, light bleeding fix, Diffuse Color Boost). Shares: `#lighting` `#interiors` `#lumen` `#hardware-ray-tracing`
+- [[how-i-use-lumen-in-aaa-projects-unreal-engine-5]] — Same author (Karim Yasser), HWRT vs SWRT selection, Final Gather Quality, Ray Lighting Mode. Shares: `#lumen` `#hardware-ray-tracing` `#post-process`
+- [[lumen-explained---important-tips-for-ue5]] — Lumen internals, surface cache, emissive best practices. Shares: `#lumen` `#global-illumination` `#hardware-ray-tracing`
+- [[things-to-know-about-lumen-unreal-engine-5]] — Project settings for Lumen (DX12, HWRT, VSM). Shares: `#lumen` `#project-settings`
+- [[designing-visuals-rendering-and-graphics-with-unreal-engine]] — Full Epic rendering docs (Lumen, post-process, volumetric fog). Shares: `#lumen` `#rendering` `#post-process`
