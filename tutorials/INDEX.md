@@ -434,6 +434,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Procedural camera shake — create CameraShakeBase Blueprint, configure Procedural Shake Component amplitude/frequency per channel, add to Sequencer camera via + Track → Camera Shake. Stack two shakes (low-freq+medium-amp for sway + high-freq+low-amp for micro-vibration) for realistic handheld feel.
 - **File:** tutorials/how-to-add-camera-shake-in-unreal-engine.md
 
+
+### How I Use Lumen in AAA Projects | Unreal Engine 5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=yspmZJ6YjpM
+- **Author:** Karim Yasser
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-i-use-lumen-in-aaa-projects-unreal-engine-5.md
+
 ---
 
 ## Tag Reference
