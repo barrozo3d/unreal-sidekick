@@ -469,9 +469,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=mKZUlyM9oZQ
 - **Author:** Karim Yasser
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** `#lighting` `#skylight` `#hdri` `#lumen` `#reflections` `#ambient-lighting` `#pbr` `#distance-field-ao` `#beginner` `#intermediate` `#youtube` `#ue5`
+- **Summary:** Full Skylight reference using a chrome sphere as a live diagnostic tool — SLS Captured Scene vs SLS Specified Cubemap vs Real-Time Capture, Sky Distance Threshold black-skylight bug (sky mesh smaller than threshold = no capture), "Is Sky" material flag required for real-time capture to work, cubemap rotation and resolution (512 sweet spot), Lower Hemisphere Solid Color (keep ON for interiors), Intensity Scale=1 for PBL. With Lumen: DFAO is automatic. Debug with Detail Lighting view mode.
 - **File:** tutorials/the-perfect-sky-light-in-unreal-engine-5.md
 
 ---
