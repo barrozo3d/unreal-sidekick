@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=pkRH_mdAP2E
 author: Procedural Minds
 ingested: 2026-06-15
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.x"
+tags: [materials, textures, rgb-mask, blueprints, animation, combat, indie, devlog, intermediate, youtube, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/i-textured-the-entire-environment-using-a-single-texture/
 frame_count: 5
 ---
@@ -53,27 +53,79 @@ frame_count: 5
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Using a single RGB mask texture to drive all material variation across an entire stylized environment — each color channel (R/G/B) encodes a different visual stroke/pattern, and a master material samples them to differentiate rocks, bricks, columns, trees, and characters without needing separate textures.
 
 ### Summary
-[PENDING EXTRACTION]
+An indie game devlog (project: "Swords Included") by Procedural Minds covering two distinct UE techniques. First: the entire environment — all rocks, bricks, columns, trees, characters, and enemies — is textured using exactly one texture, an RGB mask where each channel holds a different brush stroke pattern. A master material reads the appropriate channel per mesh. Second: a Blueprint combo attack system (3 light + 3 heavy attacks, accumulating cooldowns) paired with an animation early-exit fix that lets players act 0.1 seconds before the full animation completes, removing the need for dash-cancel workarounds.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+#### RGB Single-Texture Environment Technique
+1. **Create an RGB mask texture** — in any 2D software (Photoshop, Krita, etc.), paint three distinct stroke/brush patterns into the R, G, and B channels separately. Each channel = one visual "material type" (e.g., R=stone, G=brick, B=wood grain).
+2. **Import into UE as a single texture** — in the Texture Editor, note the compression. For a stylized look, standard compression is fine (artifacts are invisible at game scale). For cleaner edges, switch `Compression Settings` → `TC_Grayscale` or `TC_BC7`.
+3. **Build a Master Material** — use a `Texture Sample` node pointing to your RGB mask. Use `Component Mask` nodes (or `Break Out Float 3 Components`) to separate R, G, B into individual masks.
+4. **Multiply each mask channel by a color parameter** — e.g., `Mask_R * ColorA`, `Mask_G * ColorB`, `Mask_B * ColorC`. Add the results together for the final `Base Color`.
+5. **Apply a single Material Instance per mesh type** — set different color parameters per material instance so rocks, bricks, and columns have distinct tones while sharing one underlying texture sample.
+6. **Use the same texture for characters and enemies** — maintain visual cohesion across environment and characters by sampling the same RGB mask with appropriate channel selections per mesh.
+7. **Adjust UV tiling per mesh** — in the Material, expose a `Tiling` scalar parameter so instances can scale the pattern independently without creating new textures.
+
+#### Blueprint Combo Attack System
+1. **Create an Animation Montage per attack** — one montage each for Light_Attack_1/2/3 and Heavy_Attack_1/2/3. Mark the "damage" portion with a notif section.
+2. **Implement a combo counter integer variable** in the Character Blueprint — increment on each attack input, reset after cooldown expires.
+3. **Light attack cooldown: 0.75s, Heavy attack cooldown: 1.5s** — cooldown accumulates additively (2 heavy attacks = 3.0s total cooldown).
+4. **Allow input mix** — track whether each slot in the combo was light or heavy, sum cooldowns independently.
+
+#### Animation Early-Exit (Snappier Attacks)
+1. **Add a `Branching Point` or `End Attack Window` notify** in the montage — place it ~0.1s before the animation actually ends (at the point the damage/impact frame is already done).
+2. **On that notify: set a `bCanAct` boolean to true** — this unlocks movement and new attack inputs without waiting for the full anim to complete.
+3. **In the AnimBP State Machine**: transition out of the attack state using `bCanAct` rather than `montage end` — player can move, dash, or chain the next attack immediately.
+4. **If no new input is received**: the montage continues and plays its final frames naturally (recovery/follow-through). The notify only enables early exit, not forced early exit.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+
+**Texture:**
+- `Compression Settings` → `TC_Default` (stylized fine) or `TC_BC7` (cleaner channels)
+- Single RGBA/RGB texture, 3 channels used as independent masks
+
+**Material Editor:**
+- `TextureSample` → `ComponentMask (R)`, `ComponentMask (G)`, `ComponentMask (B)`
+- `Multiply` (mask × color) → `Add` all three → `Base Color`
+- Expose `ColorA`, `ColorB`, `ColorC` as `Vector Parameter` → override per Material Instance
+- Expose `Tiling` as `Scalar Parameter` → multiply UV coords before sampling
+
+**Animation:**
+- `Animation Montage` per attack (Light × 3, Heavy × 3)
+- `Anim Notify` → `Branching Point` type for deterministic early-exit timing
+- `bCanAct` boolean in Character BP gates movement/attack re-entry
+- Accumulating cooldown: `Light_CD = 0.75s × light_attacks_used + 1.5s × heavy_attacks_used`
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (version not explicitly stated; stylized 3D game, modern UE5 viewport visible in frames)
 
 ### Tags
-[PENDING EXTRACTION]
+`#materials` `#textures` `#rgb-mask` `#blueprints` `#animation` `#combat` `#indie` `#devlog` `#intermediate` `#youtube` `#ue5`
+
+---
+
+## Frame Analysis
+
+**frame_000:** Presenter (Procedural Minds) talking to camera, home office setup with gaming art prints behind him. Intro segment.
+
+**frame_001:** Top-down isometric game viewport showing the stylized dungeon environment — stone brick floor, rocks, trees, a character and enemies visible. All assets share the same flat stylized shading from the single RGB mask material. Demonstrates the visual result of the technique.
+
+**frame_002:** UE5 editor running a grey test floor with the character and enemy models, no environment art. Used for combat system testing (combo attack + animation snappiness). Simple test scene standard for gameplay prototyping.
+
+**frame_003:** Presenter talking to camera again, discussing snappier attack feel.
+
+**frame_004:** UI card grid showing power-up/spell cards — 3 rows of stylized cards with character portraits and ability icons (lightning, fire, green effects). Sneak peek of the upcoming card system UI update.
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+
+- [[designing-visuals-rendering-and-graphics-with-unreal-engine]] — Full rendering/materials reference including Substrate and material instancing. Shares: `#materials` `#rendering`
+- [[animating-characters-and-objects-in-unreal-engine]] — Animation Blueprints, montages, state machines, and Control Rig. Shares: `#animation` `#blueprints`
+- [[blueprints-visual-scripting-in-unreal-engine]] — Blueprint types, communication patterns, variable types. Shares: `#blueprints` `#ue5`

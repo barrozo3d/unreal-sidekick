@@ -435,6 +435,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **File:** tutorials/how-to-add-camera-shake-in-unreal-engine.md
 
 
+### I Textured The Entire Environment Using a SINGLE Texture
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=pkRH_mdAP2E
+- **Author:** Procedural Minds
+- **UE Version:** UE 5.x
+- **Tags:** `#materials` `#textures` `#rgb-mask` `#blueprints` `#animation` `#combat` `#indie` `#devlog` `#intermediate` `#youtube` `#ue5`
+- **Summary:** Indie devlog (project "Swords Included") with two core UE techniques: (1) entire stylized environment textured with a single RGB mask — R/G/B channels each encode a brush stroke pattern, a master material samples each channel as a separate mask and multiplies by color parameters per Material Instance; (2) Blueprint combo system (light 0.75s / heavy 1.5s accumulating cooldowns) with animation early-exit notify enabling snappy attack chaining without dash cancels.
+- **File:** tutorials/i-textured-the-entire-environment-using-a-single-texture.md
+
+
 ### How I Use Lumen in AAA Projects | Unreal Engine 5
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=yspmZJ6YjpM
