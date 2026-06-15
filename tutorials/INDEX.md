@@ -444,6 +444,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** AAA professional's Lumen guide — HWRT vs SWRT selection based on project type and platform target, Post Process Volume quality knobs beyond the commonly cited three (Final Gather Quality, Scene Lighting Sensitivity, Ray Lighting Mode: Surface Cache vs Hit Lighting for Reflections). Covers three scene types: warm outdoor, nighttime urban, golden-hour canal.
 - **File:** tutorials/how-i-use-lumen-in-aaa-projects-unreal-engine-5.md
 
+
+### I Textured The Entire Environment Using a SINGLE Texture
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=pkRH_mdAP2E
+- **Author:** Procedural Minds
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/i-textured-the-entire-environment-using-a-single-texture.md
+
 ---
 
 ## Tag Reference
