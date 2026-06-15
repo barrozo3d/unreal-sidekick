@@ -474,6 +474,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/it-took-me-7-years-to-get-interior-lighting-that-easy-in-unreal-engine-5.md
 
+
+### The Perfect Sky Light in Unreal Engine 5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=mKZUlyM9oZQ
+- **Author:** Karim Yasser
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/the-perfect-sky-light-in-unreal-engine-5.md
+
 ---
 
 ## Tag Reference
