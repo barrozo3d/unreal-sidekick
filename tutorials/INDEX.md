@@ -439,9 +439,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=yspmZJ6YjpM
 - **Author:** Karim Yasser
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.0+
+- **Tags:** `#lumen` `#global-illumination` `#hardware-ray-tracing` `#project-settings` `#post-process` `#rendering` `#lighting` `#intermediate` `#youtube` `#ue5`
+- **Summary:** AAA professional's Lumen guide — HWRT vs SWRT selection based on project type and platform target, Post Process Volume quality knobs beyond the commonly cited three (Final Gather Quality, Scene Lighting Sensitivity, Ray Lighting Mode: Surface Cache vs Hit Lighting for Reflections). Covers three scene types: warm outdoor, nighttime urban, golden-hour canal.
 - **File:** tutorials/how-i-use-lumen-in-aaa-projects-unreal-engine-5.md
 
 ---
