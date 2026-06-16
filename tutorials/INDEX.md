@@ -944,6 +944,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-black-eye-cameras-v12-preview-shot-list-module.md
 
+
+### Unreal Engine Black Eye Cameras: Your Cinematics, Reinvented
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=sda3K-M2j0g
+- **Author:** Black Eye Technologies
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-black-eye-cameras-your-cinematics-reinvented.md
+
 ---
 
 ## Tag Reference
