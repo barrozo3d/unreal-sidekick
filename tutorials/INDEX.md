@@ -1174,6 +1174,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/dash-110---procedural-scatter-presets-in-ue5.md
 
+
+### Creating a Massive Procedural Game World in UE5 with Dash
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=GLOQdCQonOg
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/creating-a-massive-procedural-game-world-in-ue5-with-dash.md
+
 ---
 
 ## Tag Reference
