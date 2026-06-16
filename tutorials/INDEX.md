@@ -584,6 +584,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/these-simple-mistakes-are-ruining-your-vfx.md
 
+
+### The 5 Secrets to Hollywood-Level Visual Effects With No Budget
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=oSux_qv3dzs
+- **Author:** Boundless Entertainment
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/the-5-secrets-to-hollywood-level-visual-effects-with-no-budget.md
+
 ---
 
 ## Tag Reference
