@@ -924,6 +924,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-black-eye-cameras-speed-of-thought.md
 
+
+### Unreal Engine Black Eye Cameras: That's a Cool Shot #1 Pedestal Pan
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=NOOpWzeC0Mg
+- **Author:** Black Eye Technologies
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-black-eye-cameras-thats-a-cool-shot-1-pedestal-pan.md
+
 ---
 
 ## Tag Reference
