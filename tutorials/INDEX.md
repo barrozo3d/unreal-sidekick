@@ -1204,6 +1204,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/ue5-world-building-for-beginners-full-dash-demo-level.md
 
+
+### DASH 1.9.2 - NEW UE5 TOOLS + AMAZON 3D LIBRARY INTEGRATION
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=XNac5ylJ5LQ
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/dash-192---new-ue5-tools-amazon-3d-library-integration.md
+
 ---
 
 ## Tag Reference
