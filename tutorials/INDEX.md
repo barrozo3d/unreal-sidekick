@@ -594,6 +594,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/the-5-secrets-to-hollywood-level-visual-effects-with-no-budget.md
 
+
+### Unreal Engine 5.4 Cinematic PREVIS Course
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=BW0oesmih9I
+- **Author:** Boundless Entertainment
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-54-cinematic-previs-course.md
+
 ---
 
 ## Tag Reference
