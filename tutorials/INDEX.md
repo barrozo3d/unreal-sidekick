@@ -574,6 +574,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/no-cost-virtual-production-is-here---and-its-changing-filmmaking.md
 
+
+### These Simple Mistakes are RUINING your VFX
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=oGZJ4PcKqBE
+- **Author:** Boundless Entertainment
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/these-simple-mistakes-are-ruining-your-vfx.md
+
 ---
 
 ## Tag Reference
