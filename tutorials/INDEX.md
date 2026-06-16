@@ -814,6 +814,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/easiest-way-to-get-cinematic-renders-in-unreal-engine---path-tracing.md
 
+
+### Roger Deakins Lighting Tutorial - BLADE RUNNER 2049
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=S8nDuuIucCc
+- **Author:** Boundless Entertainment
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/roger-deakins-lighting-tutorial---blade-runner-2049.md
+
 ---
 
 ## Tag Reference
