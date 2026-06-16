@@ -1364,6 +1364,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/dash-170---massive-ue5-world-building-tool.md
 
+
+### Creating a Helldivers 2 Environment in 79 minutes - UE5 Tutorial
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=kJhqc5_6usc
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/creating-a-helldivers-2-environment-in-79-minutes---ue5-tutorial.md
+
 ---
 
 ## Tag Reference
