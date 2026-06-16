@@ -479,9 +479,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=771myWapQ_s
 - **Author:** World Of VFX
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5 (version unspecified; ~5.2–5.3 era)
+- **Tags:** `#vfx` `#compositing` `#rendering` `#lighting` `#materials` `#beginner` `#youtube` `#ue5`
+- **Summary:** Uses the Media Plate Beta plugin to stream green screen footage onto a plane actor in a UE5 scene and key out the background via the built-in chroma key material (Main Element). The composited actor casts shadows and receives Lumen lighting from the scene — no external compositor needed. ~9 min, plugin-only workflow.
 - **File:** tutorials/how-to-remove-green-screen-composite-in-unreal-engine-5-using-media-plate-realis.md
 
 ---
