@@ -804,6 +804,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-for-filmmakers---create-cinematic-3d-worlds-for-free-course-in-des.md
 
+
+### Easiest Way to Get CINEMATIC Renders in UNREAL ENGINE - Path Tracing
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=g8aHQqbQfOU
+- **Author:** Boundless Entertainment
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/easiest-way-to-get-cinematic-renders-in-unreal-engine---path-tracing.md
+
 ---
 
 ## Tag Reference
