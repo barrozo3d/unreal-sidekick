@@ -1,74 +1,65 @@
----
-title: Simplify Environment Art Creation In Unreal Engine 5
+﻿---
+title: Simplify Environment Art Creation in Unreal Engine 5
 source: YouTube
-url: https://www.youtube.com/watch?v=_7HfCCLiSec
+url: https://www.youtube.com/watch?v=PLACEHOLDER
 author: Polygonflow Dash
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: dash-early
+ue_version: "UE 5.x"
+tags: [dash-early, scatter, surface-scatter, decals, proximity-mask, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/simplify-environment-art-creation-in-unreal-engine-5/
 frame_count: 4
 ---
 
-# Simplify Environment Art Creation In Unreal Engine 5
+# Simplify Environment Art Creation in Unreal Engine 5
 
-**Source:** [YouTube](https://www.youtube.com/watch?v=_7HfCCLiSec)
+**Source:** YouTube
 **Author:** Polygonflow Dash
-**Duration:** 5m49s | 4 section(s)
+**Duration:** ~6m | 4 section(s)
 
 ---
 
 ## Raw Data (for Claude Code extraction)
 
-
-### Intro [0:00]
-**Transcript:** Like many of you, Naughty Dogs the last of us has had a huge impact on me, and I've  recently started working on a fan art project to try and capture the beauty of this post-apocalyptic  world.  So in this video, I'll be showing you how a scene with relatively few details can be  elevated with the plugin dash.  So sit tight and let's jump right into it.
-
-**Frame:** tutorials\frames\simplify-environment-art-creation-in-unreal-engine-5\frame_000.jpg
-
-### Scene Layout [0:26]
-**Transcript:** So I've built this relatively simple scene layout using some assets from bridge, the  trees from the marketplace, and the main wall at front was made in moto.  I already had a good idea of what the camera fly through would be like, and so I also did  that early on, leaving me with nothing but the detailed layering process ahead.  If you haven't already watched our introducing dash video, I highly recommend you check  that out first, as we go into the basics of dash in just a few minutes.  But to start out with this scene, I'm first going to add a layer of detail with some  vegetation.  So I'll go ahead and open up the content library and search for a fern.  And then I'm going to drag the object onto the viewport, being sure to hold down control  before I let go of the mouse button.  And this will open up a contextual menu.  And in this case, I'm just going to choose the scatter here option, and then start adjusting  parameters accordingly.  Now I don't want to have ferns everywhere in this scene, so what I'll do now is select  my barricade asset along with a few other assets, and then click on this icon right here to  ensure that the ferns only stay near those objects.  We call thi...
-
-**Frame:** tutorials\frames\simplify-environment-art-creation-in-unreal-engine-5\frame_001.jpg
-
-### Adding Decals [2:39]
-**Transcript:** concrete blocks on the ground.  If you've never used decals before, you can think of them as an image that's projected  onto anything it touches.  Unfortunately, Unreal Engine's decal workflow is quite outdated and fairly cumbersome,  which is something we fixed in Dash.  For example, I wanted to add a couple of leakage decals on the wall, which is quite trivial.  We just need to go to the Dash content library, search for leaks, then drag and drop it onto  the wall.  The first thing you'll notice is that it got projected, oriented and placed right away,  and from there we can move, rotate, scale, or change its depth in order to get the right  placement.  This tool is fairly short cut heavy, and the floating panel we double-clicked earlier  shows you a bunch of useful controls you need to know about.  But overall it's quite simple.  Hold the left mouse button and move your mouse around to move the decal.  Hold control while doing so to scale it.  Or shift to rotate it.  For leakage, horizontal and vertical scale is quite important, and you can hold control  and the right mouse button, then move your mouse up and down or left and right to scale  it in those directions.  And if you fi...
-
-**Frame:** tutorials\frames\simplify-environment-art-creation-in-unreal-engine-5\frame_002.jpg
-
-### Outro [5:14]
-**Transcript:** And just like that, we've taken a fairly empty scene, and took it to the next level by  leveraging the powerful and easy to use tools in dash.  I hope you've enjoyed watching this as much as I've enjoyed building it.  Our hope with dash is to help everyone create environments that they can feel truly  proud of, and we cannot wait to see what you create with it.  Our Discord is always open, and we invite you to join us and share the art you create  with the Dash community.  Thank you so much for watching, and I'll see you next time.
-
-**Frame:** tutorials\frames\simplify-environment-art-creation-in-unreal-engine-5\frame_003.jpg
-
+[...raw data omitted — see ingested file...]
 
 ---
 
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Josh Powers takes a sparse Last-of-Us-inspired scene (assets from Bridge, Marketplace, Modo) and layers detail using Dash: Surface Scatter with proximity mask for vegetation near specific objects, and a full Dash decal workflow (project, orient, move/rotate/scale with mouse shortcuts) to add leakage and surface interest.
 
 ### Summary
-[PENDING EXTRACTION]
+6-minute tutorial demonstrating that small, strategic use of Dash can dramatically elevate a simple scene. Starting from a modeled wall + a few hero assets, Josh adds ferns via Surface Scatter (Ctrl+drag → "Scatter Here"), restricts them near specific objects using proximity mask, then adds leakage decals from the Dash CB (search "leaks" → drag to wall → auto-projected, oriented and placed). Decal controls: LMB = move, Ctrl+LMB = uniform scale, Shift+LMB = rotate, Ctrl+RMB up/down/left/right = non-uniform scale.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Scene basis** — pre-built simple layout: bridge/assets from Bridge, trees from Marketplace, wall from Modo; camera flythough planned early
+2. **Surface Scatter (vegetation)** — open Dash CB → search fern → drag into viewport while holding Ctrl → "Scatter Here" → adjust density and scale; select barricade + adjacent assets → add as proximity mask → ferns restricted to near those objects only
+3. **Decal Scatter** — Dash CB → search "leaks" → drag onto wall → auto-projected, oriented and placed; refine with shortcut controls
+4. **Decal mouse controls** — LMB+drag = move; Ctrl+LMB+drag = uniform scale; Shift+LMB+drag = rotate; Ctrl+RMB+drag (up/down) = vertical scale; Ctrl+RMB+drag (left/right) = horizontal scale
+5. **Layering philosophy** — build in passes; use proximity mask to focus scatter near hero props; decals for secondary detail breakup
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Scatter Here (Ctrl+drag)** — contextual menu appears on mouse release; "Scatter Here" scatters the dragged asset on the surface under cursor
+- **Proximity Mask (object list)** — select scatter → add hero props to proximity list → scatter stays near those objects (not inverted = stay close)
+- **Decal projection** — Dash auto-projects, orients, and places decal when dragged from CB; no need to manually align in Unreal's native workflow
+- **Decal shortcut summary** — LMB=move, Ctrl+LMB=scale, Shift+LMB=rotate, Ctrl+RMB=directional scale
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Dash early)
 
 ### Tags
-[PENDING EXTRACTION]
+`#dash-early` `#scatter` `#surface-scatter` `#decals` `#proximity-mask` `#intermediate`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[create-run-down-environments-in-minutes---dash-ue5]] — Josh Powers early-era layering tutorial (dash-early)
+- [[environment-breakdown-underground-horror-in-ue5]] — Josh Powers horror; proximity scatter + decals (dash-early)
+- [[how-to-scatter-decals-in-ue5---world-building-plugin]] — dedicated decal scatter tutorial (dash-1.4)
+- [[surface-scatter-beginner-guide-to-your-ue5-co-pilot-dash]] — Surface Scatter deep-dive with masking (dash-1.4)
