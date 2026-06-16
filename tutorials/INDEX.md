@@ -524,6 +524,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/the-simplest-rendering-trick-90-of-unreal-artists-miss.md
 
+
+### The Ultimate Plugin for Filmmaking in Unreal Engine
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=dF_W-9OBjus
+- **Author:** Boundless Entertainment
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/the-ultimate-plugin-for-filmmaking-in-unreal-engine.md
+
 ---
 
 ## Tag Reference
