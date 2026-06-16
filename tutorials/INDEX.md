@@ -1414,6 +1414,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/architecture-scenes-made-easy-in-unreal-engine-5---dash-tutorial.md
 
+
+### No Nodes Procedural Environment in Unreal Engine 5 - Dash Tutorial
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=6U2jbJmqs4k
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/no-nodes-procedural-environment-in-unreal-engine-5---dash-tutorial.md
+
 ---
 
 ## Tag Reference
