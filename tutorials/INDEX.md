@@ -974,6 +974,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-black-eye-cameras-cam-switcher-tutorial.md
 
+
+### Unreal Engine Black Eye Cameras: v1.1.7 Switcher + Pilot
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=ctm38XzfzIo
+- **Author:** Black Eye Technologies
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-black-eye-cameras-v117-switcher-pilot.md
+
 ---
 
 ## Tag Reference
