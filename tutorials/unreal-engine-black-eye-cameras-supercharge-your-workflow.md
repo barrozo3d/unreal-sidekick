@@ -4,9 +4,10 @@ source: YouTube
 url: https://www.youtube.com/watch?v=WNkFghUIA7M
 author: Black Eye Technologies
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: blackeye-v1
+ue_version: "UE 5.x"
+tags: [blackeye-v1, camera, teaser]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-supercharge-your-workflow/
 frame_count: 4
 ---
@@ -31,27 +32,27 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Brand/teaser video. Single title-card frame ("YOUR") with no narration. No instructional content.
 
 ### Summary
-[PENDING EXTRACTION]
+42-second promotional teaser. No audio transcript. Single frame shows the word "YOUR" on a black background — likely part of a "SUPERCHARGE YOUR WORKFLOW" title sequence. No technical content.
 
 ### Key Steps
-[PENDING EXTRACTION]
+N/A — teaser only.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+N/A
 
 ### Difficulty
-[PENDING EXTRACTION]
+N/A (teaser)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Black Eye v1)
 
 ### Tags
-[PENDING EXTRACTION]
+`#blackeye-v1` `#camera` `#teaser`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unreal-engine-black-eye-cameras-start-here-tutorial]] — full technical entry

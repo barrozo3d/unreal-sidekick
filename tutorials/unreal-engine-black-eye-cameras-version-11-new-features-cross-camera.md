@@ -4,9 +4,10 @@ source: YouTube
 url: https://www.youtube.com/watch?v=uUxE0gaOvnQ
 author: Black Eye Technologies
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: blackeye-v1.1
+ue_version: "UE 5.x"
+tags: [blackeye-v1, camera, cinematics, dialogue, beginner, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-version-11-new-features-cross-camera/
 frame_count: 4
 ---
@@ -33,27 +34,41 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Black Eye v1.1 Cross Camera: a new camera type that positions itself based on the spatial relationship between two subjects (heading angle, distance, height), always maintaining its configured angle between them regardless of how they move.
 
 ### Summary
-[PENDING EXTRACTION]
+4.75-minute feature overview for the Cross Camera introduced in v1.1. The Cross Camera draws a conceptual ray between two subjects (e.g., their pelvises) and positions the camera at the end of that ray at a configurable heading angle, distance, and height. When one character moves or picks up the other, the camera swings to maintain the heading relationship. Ideal for dialogue, combat two-shots, and any scenario where you need a consistent spatial relationship between two moving targets. Subjects can be bones on a single character, two different actors, or any two scene objects.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Drop Cross Camera actor** — Black Eye v1.1+; new camera type in the plugin.
+2. **Assign Subject Left and Subject Right** — pick two characters (or bones, or objects). A ray is established between their positions (defaulting to pelvis/root).
+3. **Set heading** — the angle around the two-subject ray where the camera sits. Adjust to move camera behind, to the side, or for an over-the-shoulder position.
+4. **Set camera height** — vertical offset of the camera from the midpoint between the two subjects.
+5. **Set distance** — how far the camera sits along the heading from the midpoint.
+6. **Configure LookAt** — for dialogue over-the-shoulder shots, set LookAt to one character's head bone. Adjust bounding volume on that head for correct framing.
+7. **Dynamic behavior** — when one subject moves relative to the other (e.g., one pulls forward), the camera maintains the heading angle and swings accordingly. No keyframing needed for the tracking behavior.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Cross Camera** — Black Eye v1.1+ camera type; establishes a 3D relationship between two subjects
+- **Subject Left / Subject Right** — the two subjects; can be actors, bones, or any scene objects
+- **Heading** — angle around the subject-pair axis where the camera positions (0 = beside, 180 = behind)
+- **Camera Height** — vertical offset from subject midpoint
+- **Distance** — camera distance along the heading from the subject midpoint
+- **Bounding Volume / Bone targeting** — set LookAt to a specific bone (head) for over-the-shoulder framing
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner / Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Black Eye v1.1)
 
 ### Tags
-[PENDING EXTRACTION]
+`#blackeye-v1` `#camera` `#cinematics` `#dialogue` `#beginner` `#intermediate`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unreal-engine-black-eye-cameras-start-here-tutorial]] — Cross Camera section in v1 START HERE
+- [[unreal-engine-black-eye-cameras-v2-start-here-tutorial]] — v2 Cross Camera (updated; same concept)
+- [[unreal-engine-black-eye-cameras-dynamic-dialog-intro]] — Dynamic Dialog (extends Cross Camera for multi-person variable dialogue)
+- [[plugin-blackeye-versions]] — v1.1 changelog

@@ -4,9 +4,10 @@ source: YouTube
 url: https://www.youtube.com/watch?v=rw5OmVtBri8
 author: Black Eye Technologies
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: blackeye-v1
+ue_version: "UE 5.x"
+tags: [blackeye-v1, camera, cinematics, sequencer, beginner, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-unleash-your-army-of-camera-operators/
 frame_count: 7
 ---
@@ -65,27 +66,38 @@ frame_count: 7
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Director workflow: deploy multiple Black Eye cameras (Follow + LookAt + Screen Space Position keyframes) to cover a scene from all angles, then edit between them freely — each camera operator tracks independently while you make edit decisions.
 
 ### Summary
-[PENDING EXTRACTION]
+3-minute workflow concept video. Demonstrates building multiple Black Eye cameras around a moving subject (each with Follow + LookAt + screen-space composition keyframes), then cutting between them freely in the edit. The paradigm: you're the director with an army of robot camera operators. Cameras track and compose automatically; you decide the edit. Shows a side-follow shot (push up + tip-out using Follow offset Z + LookAt screen composition keyframes), a front-follow shot, and a close-up — all following the same character with different compositions. If the character walks faster/slower, all cameras still work correctly.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Set up multiple cameras** — each camera gets Follow on the character + LookAt on the head. Position each for a different angle (side, front, close-up, high push).
+2. **Side shot with pedestal-tip** — Follow offset keyframes on Z (camera rises); LookAt Screen Space Position keyframe (tip camera up to reveal world).
+3. **Screen Space Position keyframes** — add LookAt channel in Sequencer → Screen Space Position. Keyframe the target's position on screen at key moments (rule of thirds, left, right, center). Black Eye smoothly interpolates between positions.
+4. **Follow offset keyframes** — keyframe camera position relative to subject (behind → side → 45 degrees). Damping on Follow decouples slightly for natural motion.
+5. **Front shot** — camera locked to front of character; compose up/down via screen space. Works regardless of character speed.
+6. **Cut between cameras** — all cameras track the subject throughout. Make edit decisions based on story, not tracking setup. Change mind on the cut freely.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Follow** — translational follow; keyframe Follow Offset (position of camera relative to subject)
+- **LookAt** — rotational tracking on head bone
+- **Screen Space Position** — Sequencer channel under LookAt; keyframe subject placement on screen
+- **Follow damping** — small amount decouples camera from character micro-motion
+- **Multiple cameras** — each camera is independent; they all track simultaneously and can be cut between freely
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner / Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Black Eye v1)
 
 ### Tags
-[PENDING EXTRACTION]
+`#blackeye-v1` `#camera` `#cinematics` `#sequencer` `#beginner` `#intermediate`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unreal-engine-black-eye-cameras-start-here-tutorial]] — full v1 system; Follow, LookAt, Keyframe Composition sections
+- [[unreal-engine-black-eye-cameras-thats-a-cool-shot-1-pedestal-pan]] — similar hybrid keyframing technique
+- [[unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics]] — same workflow applied to vehicles

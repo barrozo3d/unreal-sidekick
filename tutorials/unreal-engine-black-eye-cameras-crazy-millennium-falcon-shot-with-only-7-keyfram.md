@@ -4,9 +4,10 @@ source: YouTube
 url: https://www.youtube.com/watch?v=7jNy5snGOJM
 author: Black Eye Technologies
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: blackeye-v1
+ue_version: "UE 5.x"
+tags: [blackeye-v1, camera, cinematics, sequencer, vehicles, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-crazy-millennium-falcon-shot-with-only-7-keyfram/
 frame_count: 4
 ---
@@ -33,27 +34,40 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Recreating the Force Awakens Millennium Falcon shot with 7 keyframes in Black Eye: Follow in subject-locked mode + LookAt + 3-4 Screen Space Position keyframes + roll keyframes for cinematic banking feel.
 
 ### Summary
-[PENDING EXTRACTION]
+2.5-minute tutorial recreating a famous Star Wars: The Force Awakens Millennium Falcon tracking shot using only 7 keyframes in Black Eye. The technique: Follow the ship in "subject locked" mode (camera transforms tied to all subject transforms), LookAt the ship with damping, then keyframe screen-space composition (ship center → left of screen → right) and camera roll. The camera feels heavy and cinematic because the damping on the Follow gives it mass, and the composition keyframes handle all the reframing.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Animate the Millennium Falcon** — quick animation pass on the subject (simple keyframes). Acquire Falcon asset from Fab.
+2. **Drop Black Eye camera + set Follow** — set Follow mode to "subject locked" (camera subscribes to all subject transforms including roll/pitch). Set follow distance appropriately close for the "bringingness" of the damping.
+3. **Set distance damping** — adds camera mass; you feel the ship's weight because the camera lags slightly behind the ship's motion.
+4. **Set LookAt on the Falcon** — adds rotational tracking; camera always points at ship.
+5. **Tune composition damping** — adds slight lag on the screen-space position target.
+6. **Add Screen Space Position keyframes** — only 3-4 keyframes: ship starts at center, moves left of screen, then right. Black Eye interpolates smoothly between compositions.
+7. **Add roll keyframes** — camera banks slightly with the ship's movement for cinematic feel.
+8. **Total: 7 keyframes** — roll keys + screen space position keys = roughly 7 total, yet the result looks like a dense hand-animated camera move.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Follow (subject locked mode)** — camera position locked to all subject transforms (translation + rotation); camera moves with the ship including when it banks
+- **Distance damping** — controls lag between camera and subject position; gives mass/weight to the camera
+- **LookAt** — rotational tracking; camera always points at ship
+- **Composition damping** — lag on screen-space target for cinematic smoothness
+- **Screen Space Position** — Sequencer keyframes; target position on screen (center → left → right)
+- **Roll keyframes** — camera rotation channel in Sequencer; bank with ship motion
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Black Eye v1; Fab used for asset acquisition)
 
 ### Tags
-[PENDING EXTRACTION]
+`#blackeye-v1` `#camera` `#cinematics` `#sequencer` `#vehicles` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unreal-engine-black-eye-cameras-start-here-tutorial]] — Follow Vehicles + Keyframe Composition sections
+- [[unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics]] — detailed vehicle cinematic rigs with same technique

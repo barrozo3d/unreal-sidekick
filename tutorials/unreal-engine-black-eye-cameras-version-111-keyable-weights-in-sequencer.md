@@ -4,9 +4,10 @@ source: YouTube
 url: https://www.youtube.com/watch?v=94UWBG7hKDI
 author: Black Eye Technologies
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: blackeye-v1.1.1
+ue_version: "UE 5.x"
+tags: [blackeye-v1, camera, cinematics, sequencer, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-version-111-keyable-weights-in-sequencer/
 frame_count: 5
 ---
@@ -51,27 +52,40 @@ frame_count: 5
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Black Eye v1.1.1 Keyable Weights in Sequencer: keyframe the weight/contribution of each individual subject in multi-subject Follow and LookAt, enabling smooth transitions between subjects within a single camera setup.
 
 ### Summary
-[PENDING EXTRACTION]
+4.5-minute feature tutorial for keyable weights, introduced in v1.1.1. A single camera can Follow and LookAt multiple subjects simultaneously; each subject has an individual weight (0–1). By keyframing these weights in Sequencer you can smoothly ramp from "looking at red car" to "looking at yellow truck" to "averaging between plane and car" — all on one camera without cuts. Blue debug boxes visualize which subjects are being considered and their relative weights. Dynamic FOV adjusts automatically as the camera frames different combinations of subjects.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Set up multi-subject Follow** — drop Black Eye camera, click Follow → Multiple Subjects. Open subjects array, click + for each subject. Camera averages the positions (contribution per subject weight).
+2. **Add LookAt multi-subjects** — same process for Look At: add all subjects you want to track. Camera composes on the weighted average.
+3. **Add Dynamic FOV** — required when subjects vary greatly in position/distance. Adjust screen size so framing looks good.
+4. **Add Sequencer channels for weights** — in Sequencer, find the camera, expand LookAt or Follow → Subjects → Camera Target Weight for each subject.
+5. **Keyframe transitions** — set all weights to 0 except one (= looking at subject 1). Move playhead forward → change weight to transition to subject 2. Can blend multiple subjects simultaneously by setting multiple non-zero weights.
+6. **Debug visualization** — blue boxes appear around each subject based on its current weight. Useful to verify the blending behavior.
+7. **Adjust composition + damping** — after weight keyframing, tweak Follow and LookAt damping for smooth transitions. Pitch damping may need to be more aggressive during subject swaps.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Keyable Weight** — per-subject float value (0–1) on Follow and LookAt multi-subject arrays; keyframeable in Sequencer
+- **Multi-subject Follow** — camera position = weighted average of all subject positions
+- **Multi-subject LookAt** — camera rotation = weighted average of all subject look-at targets
+- **Dynamic FOV** — required for variable subject groupings; set screen size to control how large subjects appear
+- **Blue debug boxes** — visualize active subjects and their weight contribution
+- **Camera Target Weight channel** — Sequencer sub-channel under LookAt / Follow → each subject
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Black Eye v1.1.1)
 
 ### Tags
-[PENDING EXTRACTION]
+`#blackeye-v1` `#camera` `#cinematics` `#sequencer` `#intermediate`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unreal-engine-black-eye-cameras-start-here-tutorial]] — Keyframe Weights section (overview); Multiple Subjects section
+- [[unreal-engine-black-eye-cameras-version-11-new-features-multi-subject-lookat-wei]] — v1.1 Multi-Subject LookAt Weights (precursor to v1.1.1 keyable weights)
+- [[plugin-blackeye-versions]] — v1.1.1 changelog

@@ -1004,9 +1004,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=rw5OmVtBri8
 - **Author:** Black Eye Technologies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** blackeye-v1
+- **UE Version:** UE 5.x
+- **Tags:** `#blackeye-v1` `#camera` `#cinematics` `#sequencer` `#beginner` `#intermediate`
+- **Summary:** 3-minute director workflow video: deploy multiple Black Eye cameras (Follow + LookAt + Screen Space Position keyframes) for different angles, then cut freely between them in the edit. Each camera tracks independently while you make story decisions. Shows side-push, tip-out, front, and close-up setups all on the same character.
 - **File:** tutorials/unreal-engine-black-eye-cameras-unleash-your-army-of-camera-operators.md
 
 
@@ -1014,9 +1015,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=WNkFghUIA7M
 - **Author:** Black Eye Technologies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** blackeye-v1
+- **UE Version:** UE 5.x
+- **Tags:** `#blackeye-v1` `#camera` `#teaser`
+- **Summary:** 42-second promotional teaser. No narration, single title-card frame. No instructional content.
 - **File:** tutorials/unreal-engine-black-eye-cameras-supercharge-your-workflow.md
 
 
@@ -1024,9 +1026,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=7jNy5snGOJM
 - **Author:** Black Eye Technologies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** blackeye-v1
+- **UE Version:** UE 5.x
+- **Tags:** `#blackeye-v1` `#camera` `#cinematics` `#sequencer` `#vehicles` `#beginner`
+- **Summary:** 2.5-minute tutorial recreating a Force Awakens Millennium Falcon tracking shot with 7 keyframes. Follow in subject-locked mode (camera subscribes to all ship transforms) + distance damping for weight + LookAt + 3-4 Screen Space Position keyframes + camera roll keyframes. Total = 7 keys, cinematic result.
 - **File:** tutorials/unreal-engine-black-eye-cameras-crazy-millennium-falcon-shot-with-only-7-keyfram.md
 
 
@@ -1034,9 +1037,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=94UWBG7hKDI
 - **Author:** Black Eye Technologies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** blackeye-v1.1.1
+- **UE Version:** UE 5.x
+- **Tags:** `#blackeye-v1` `#camera` `#cinematics` `#sequencer` `#intermediate`
+- **Summary:** 4.5-minute tutorial for v1.1.1 keyable weights: keyframe each subject's weight (0–1) on multi-subject Follow and LookAt in Sequencer. Ramp between subjects on a single camera — red car → yellow truck → plane + car — without cuts. Debug blue boxes visualize active subjects. Dynamic FOV adjusts framing automatically.
 - **File:** tutorials/unreal-engine-black-eye-cameras-version-111-keyable-weights-in-sequencer.md
 
 
@@ -1044,9 +1048,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=uUxE0gaOvnQ
 - **Author:** Black Eye Technologies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** blackeye-v1.1
+- **UE Version:** UE 5.x
+- **Tags:** `#blackeye-v1` `#camera` `#cinematics` `#dialogue` `#beginner` `#intermediate`
+- **Summary:** 4.75-minute intro to the Cross Camera (v1.1 new feature): positions itself at a configurable heading/distance/height relative to the ray between two subjects. Camera swings to maintain that heading as subjects move relative to each other. Ideal for dialogue, combat two-shots, any two-subject scenario.
 - **File:** tutorials/unreal-engine-black-eye-cameras-version-11-new-features-cross-camera.md
 
 
