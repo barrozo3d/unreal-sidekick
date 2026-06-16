@@ -1492,9 +1492,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=IU8VFAXOa7w
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.4
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.4` `#decals` `#scatter` `#placement-tool` `#environment-art` `#detail` `#beginner`
+- **Summary:** Dash decal workflow guide by Jonathan — single decal drag-and-drop with auto surface alignment + modifier keys; OR Shift-select multiple decals + Ctrl+drag → Scatter Here for area scatter with full density/scale/rotation/masking controls. Use case: stains, cracks, grunge, footprints for surface variation.
 - **File:** tutorials/how-to-scatter-decals-in-ue5---world-building-plugin.md
 
 
@@ -1502,9 +1503,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=uNzCmzeEISU
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.4
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.4` `#cable-tool` `#procedural` `#world-building` `#environment-art` `#beginner`
+- **Summary:** Dash Cable Tool guide by Jonathan — three modes (Objects/Curve/Mixed); Objects mode: select anchors → cables auto-generate between them; params: Divisions (smoothness), Gradius/Radius (thickness), Gravity Min/Max (droop variation). Use case: utility wiring, hanging cables, rope bridges.
 - **File:** tutorials/how-to-create-procedural-cables-in-ue5---world-building-plugin.md
 
 
@@ -1584,9 +1586,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=00kSXM3b788
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.3
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.3` `#camera` `#dof` `#color-grading` `#post-process` `#cinematics` `#beginner`
+- **Summary:** Dash 1.3 Camera Tool guide by Jonathan — type `camera` → CineCameraActor + settings panel; Focal Length (zoom), Aperture (DOF range; lower number = shallower), Focus Distance (target Z), Post-Process FX (color grade/bloom/vignette/film grain/chromatic aberration), LUT preset cycling.
 - **File:** tutorials/beginner-guide-to-ue5-co-pilot-dash-camera-settings.md
 
 
@@ -1604,9 +1607,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=x6DR-CGi8dE
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.3
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.3` `#road-tool` `#curves` `#terrain-projection` `#world-building` `#beginner`
+- **Summary:** Dash 1.3 Road Tool intro by Jonathan — draw terrain-conforming curve → add to Road Tool → density 0.9 + width + smoothness → project onto terrain via Surface → Sync value to prevent Z-fighting. Fully non-destructive; live-updates when curve or terrain changes.
 - **File:** tutorials/beginner-guide-to-road-tool-in-ue5-co-pilot-dash.md
 
 
@@ -1647,9 +1651,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=oY4pVa6mPYM
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-early
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-early` `#water` `#terrain` `#world-building` `#beginner`
+- **Summary:** 1.75-minute water tool beginner guide by Jonathan — type `plane` → scale mesh (R key) → type `water` → Set Water Material; Dash applies pre-built water material; inline material properties for adjustment. Part of the beginner series.
 - **File:** tutorials/beginner-water-tool-tutorial-for-ue5.md
 
 

@@ -1,12 +1,13 @@
----
+﻿---
 title: How to Scatter Decals in UE5 - World Building Plugin
 source: YouTube
 url: https://www.youtube.com/watch?v=IU8VFAXOa7w
 author: Polygonflow Dash
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: dash-1.4
+ue_version: "UE 5.x"
+tags: [dash-1.4, decals, scatter, placement-tool, environment-art, detail, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-scatter-decals-in-ue5---world-building-plugin/
 frame_count: 4
 ---
@@ -23,7 +24,7 @@ frame_count: 4
 
 
 ### Full Content [0:00]
-**Transcript:** Greetings, I'm Jonathan, Polygonflow's Community Director. Today I'm covering Decal Scattering, one of the many incredible tools available in Polygonflow's Dash, our next Gen Unreal Engine plugin. If you want to create environments featuring heavy use of Decal to break up repetition, this video is for you. I'll start by opening Dash, then move it out of the Unreal Viewport. Select the Content Library and find a Decal that you'd like to work with. Decal can be selected and dragged directly into the world. Dash will automatically align the Decal to the surface of any object. You can also adjust how the Decal is rotated, scaled, and placed at any point prior to hitting Enter. The little Quick Tip menu covers all aspects of the placement tool. Feel free to pause and you can read all of the options available. The Decal placement in Dash is super robust, making it very easy to place Decal precisely. But what if you want to scatter those Decal's instead? That is where Dash really shines. Using the Content Browser, hold Shift and select multiple Decal's, then hold Ctrl and drag those Decal's into the world. Then select scatter here, and watch the magic unfold. There's a wide array of optio...
+**Transcript:** Greetings, I'm Jonathan, Polygonflow's Community Director. Today I'm covering Decal Scattering, one of the many incredible tools available in Polygonflow's Dash, our next Gen Unreal Engine plugin. If you want to create environments featuring heavy use of Decals to break up repetition, this video is for you. I'll start by opening Dash, then move it out of the Unreal Viewport. Select the Content Library and find a Decal that you'd like to work with. Decals can be selected and dragged directly into the world. Dash will automatically align the Decal to the surface of any object. You can also adjust how the Decal is rotated, scaled, and placed at any point prior to hitting Enter. The little Quick Tip menu covers all aspects of the placement tool. The Decal placement in Dash is super robust, making it very easy to place Decals precisely. But what if you want to scatter those Decals instead? That is where Dash really shines. Using the Content Browser, hold Shift and select multiple Decals, then hold Ctrl and drag those Decals into the world. Then select scatter here, and watch the magic unfold. There's a wide array of options available for the decal scatter.
 
 **Frame:** tutorials\frames\how-to-scatter-decals-in-ue5---world-building-plugin\frame_000.jpg
 
@@ -33,27 +34,35 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Dash decal workflow: single decal drag-and-drop with auto surface alignment + modifier keys for precise placement, OR multi-select decals + Ctrl+drag → Scatter Here for area decal scatter with density/scale/rotation controls.
 
 ### Summary
-[PENDING EXTRACTION]
+5-minute decal scattering tutorial (Dash 1.4 era) by Jonathan. Two workflows: (1) Single decal placement — drag from Content Library → auto-aligns to surface; rotate/scale/position with modifier keys before confirming with Enter; (2) Multi-decal scatter — Shift-select multiple decals in Content Library → Ctrl+drag → Scatter Here → full surface scatter panel with density, scale, rotation, masking options. Ideal for breaking up surface repetition with stains, cracks, grunge, footprints etc.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Single decal placement** — Content Library → find decal → drag into viewport → Dash auto-aligns to surface; use placement modifier keys (Shift=rotate, Ctrl=scale, etc.) → Enter to confirm.
+2. **Multi-decal scatter** — Content Library → hold Shift + click multiple decals → hold Ctrl + drag into viewport → select Scatter Here.
+3. **Scatter settings** — density, min/max scale, rotation jitter, masking — same surface scatter options apply to decals.
+4. **Use case** — stains, cracks, grunge, wet patches, footprints, road markings; scatter across floors, roads, walls for surface variation.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Dash Decal Placement** — drag from Content Library; auto surface-alignment; modifier keys for rotation/scale (same as mesh placement); Enter = confirm
+- **Multi-decal Scatter** — Shift-select multiple decals + Ctrl+drag → Scatter Here; same scatter panel as mesh scatter
+- **Scatter settings for decals** — density, min/max scale, rotation jitter, proximity/object masking — all applicable to decals
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Dash 1.4 era)
 
 ### Tags
-[PENDING EXTRACTION]
+`#dash-1.4` `#decals` `#scatter` `#placement-tool` `#environment-art` `#detail` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[surface-scatter-beginner-guide-to-your-ue5-co-pilot-dash]] — full surface scatter system (masking, rotation, etc.)
+- [[beginner-content-library-tutorial-for-ue5]] — content library placement modifier keys
+- [[introducing-dash-for-unreal-engine-5]] — decal placement in original Dash intro
+- [[create-run-down-environments-in-minutes---dash-ue5]] — decal scatter for run-down environment detailing
