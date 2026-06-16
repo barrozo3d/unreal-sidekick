@@ -1244,6 +1244,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-dash-medieval-environment-tutorial.md
 
+
+### CENTRALIZED CONTENT BROWSER FOR UE5 - FREE PLUGIN
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=rjTv9jWfY4s
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/centralized-content-browser-for-ue5---free-plugin.md
+
 ---
 
 ## Tag Reference
