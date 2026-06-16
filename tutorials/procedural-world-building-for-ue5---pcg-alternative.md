@@ -1,12 +1,13 @@
----
+﻿---
 title: PROCEDURAL WORLD BUILDING FOR UE5 - PCG ALTERNATIVE
 source: YouTube
 url: https://www.youtube.com/watch?v=KsgW-19y4ts
 author: Polygonflow Dash
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: dash-1.7
+ue_version: "UE 5.x"
+tags: [dash-1.7, environment, scatter, path-scatter, grid-scatter, radial-scatter, decals, property-references, compound-tool, tool-presets, procedural, beginner, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/procedural-world-building-for-ue5---pcg-alternative/
 frame_count: 10
 ---
@@ -21,84 +22,54 @@ frame_count: 10
 
 ## Raw Data (for Claude Code extraction)
 
-
-### Intro [0:00]
-**Transcript:** Hello and welcome. Have you ever opened an under scene and thought, uh, this needs a lot more details?  In this video we'll take a look at the dash plugin for under 5. These tools let you build  environments fully procedurally, just like with the native PCG plugin, but these tools are designed  to be very easy to use, so that you can quickly bring your environments to life, without  dealing with all the notes and complexity of PCG. And if you stick around till the end, I'll show you  some clever tips to speed up your workflow and get the most out of dash. So let's get started.
-
-**Frame:** tutorials\frames\procedural-world-building-for-ue5---pcg-alternative\frame_000.jpg
-
-### Surface Scatter [0:35]
-**Transcript:** Let's start with the simplest and most popular tool, the Surface Skiather.  I've opened up a first scene in Unreal, with nothing just a basic terrain plane, nothing too fancy.  From the dash toolbar, I open the content browser,  and from here I can find and use my already downloaded quicksomegascancessets.  Including these nice oiled grass models.  Using dash is super straightforward. I just grab the asset, hold down Ctrl,  and drag and drop it onto the terrain. And I choose Scatter on Selection.  Grassclamps are instantly scattered across the selected surface.  The toolspanel shows up, giving us access to how the scatter settings. If you don't  see it or accidentally close it, no worries. Just go back to the dash toolbar, click edit,  and the toolspanel will open up again. And if you click the list button in the top left corner,  you will see a list of all the active dash tools in the scene. So now, under density,  we can control how densely the assets are scattered. Below that, we can also tweak the scale of  the instances. Let's pump up the density a bit and turn this into nice, grassy field.  Now let's take a quick look at basic masking, starting with the noise mask.  I can con...
-
-**Frame:** tutorials\frames\procedural-world-building-for-ue5---pcg-alternative\frame_001.jpg
-
-### Path Scatter [7:04]
-**Transcript:** I'm in a new scene now and I've bought in a mega-scancliffe asset. I want to scatter this clip along  a path to create a kind of rocky shoreline. From dash toolbar, I open the path scatter under the  scatter section. In the tool panel that pops up, we have two main sections, curves and scatter.  I add my cliff as set to the scatter section, but right now there's no curve in the scene.  So let's throw one. I got to create curve tools, draw curve.  Here I can define the spacing between curve points and choose how smooth I want the curve to be.  Once I'm happy, I hit stop and I add the curve to my path scatter. The cliffs show up along the path.  And let's hide the original cliff.  As usual, I can tweak the density to control harmony as the passes appear and I can change the density mode.  For example, right now I'm using the mode that places one cliff per curve point.  You can also specify an exact number of instances to scatter, regardless of the curve length.  Try different modes to see what fits your needs.  Another super useful option is to adjust the pivot offset or the path smills, which controls how  your assets align to the curve and how smoothly they follow its direction.  W...
-
-**Frame:** tutorials\frames\procedural-world-building-for-ue5---pcg-alternative\frame_002.jpg
-
-### Grid Scatter [13:35]
-**Transcript:** stone fence ruins using a few mega-scans assets. The grid scatter is great for when you want to lay  out assets in an even structured pattern. I will start by dragging a rock model from the  content browser into the scene. Then under the scatter section of the dash toolbar, I select the  grid scatter tool. I set the rock as both the origin of the grid and the object I want to scatter.  And as you can see, a bunch of instances appear around the original mesh.  I take the scale a bit and set the distribution mode to 3D, so I can stack instances along the Z  axis too. At first nothing seems to appear above, and that's because the high division value is  set to 0. Once I increase it, we'll start getting vertical layers of the rocks.  After a bit of experimentation, I'm happy with the overall pile of rocks.  So now since the grid scatter duplicates in both positive and negative directions from the pivot  point, I scroll down to the feature masking section and enable the option to remove instances  below the origin on the Z axis. Here's also where I refine the remove mask,  and I will use this combination with the proximity mask to carve out the chunk of the stone pile.  From the dash to...
-
-**Frame:** tutorials\frames\procedural-world-building-for-ue5---pcg-alternative\frame_003.jpg
-
-### Radial Scatter [17:08]
-**Transcript:** our familiar rock model. From the scatter menu, I select radial scatter, and in the tool's model,  I add the model. Instances appear arranged in a circle pattern. From here, we have tons of  possibilities. I can control the number of instances, the radius, the start angle, or even create a  spiral staircase effect by taking the height parameter. I'd like to create a tower. To do that,  I need to duplicate the concentric rings, which I can do in the concentric section.  I want these extra rings to stack up parts instead of spreading outward.  So I increase the ring height, and set both the minimum and maximum concentric distance to zero.  Add a little adjustment to the overall height, and some fine tuning of the ring offsets.  I will add a few more rings to flesh out the structure, and keep adjusting it until I'm happy with the  tower. But I'm not limited to circles. I can also switch to a random square shape,  using the shaping section in a tool's panel.  And by playing with the scale settings, I can get some interesting results.  I will also apply a bit of random rotation to break up the uniformity.  The color of my tower feels a bit off compared to the environment. Luckily, with ...
-
-**Frame:** tutorials\frames\procedural-world-building-for-ue5---pcg-alternative\frame_004.jpg
-
-### Decal Scatter [22:40]
-**Transcript:** use scatter decals across surfaces with ease. I have some dulled up decals from the quickslaunch  bridge plugin that I can use through the dash content browser. I select a couple of them and  with control held down, I drag and drop them onto the surface where I want them scattered.  From the pop-up, I choose scatter here.  I adjust the scale of the scatter decals and tweak the seed value until I get the distribution I like.  I can also define the total number of decals I want in the surface and even adjust the depth.  Just like with the other tools, masking and rotation controls are also available in the decals  scatter tool. You can also access decals scattered directly from the dash toolbar like any other  scatter tool. I will now create another scatter setup. This time, I'm using an existing decal from  my scene. I add the ground surface to the surface section and the goes decal to the decal section.
-
-**Frame:** tutorials\frames\procedural-world-building-for-ue5---pcg-alternative\frame_005.jpg
-
-### Reference & Compound Tool [24:09]
-**Transcript:** Now let's take a look at a couple of incredibly useful features, starting with the reference tool  and the compound tool. In every scene, you can have a reference tool. Think of it as a centralized  storage for any properties you want to share between multiple tools, so they all stay in sync.  Let's start with a simple example. I will drag in our familiar rock model and set up a grid  scatter using it. Let's say I want to control the width, depth and the height parameters together,  while still having the flexibility to tweak them individually. I go to a little like a next  the width and choose convert reference. I will name this reference spacing.  So now I can assign the same spacing reference to other sliders. All three parameters are now  linked to the same reference, which means I can adjust them globally via the reference tool,  but also individually through their own sliders.  The reference tool appears in the tools panel, like any other tool, and from there I can easily  manage or rename the references I've created. Now let's move on to the compound tool. Think of  this as an empty container where you can collect and expose only the parameters you care about  from various t...
-
-**Frame:** tutorials\frames\procedural-world-building-for-ue5---pcg-alternative\frame_006.jpg
-
-### Merge Action [26:53]
-**Transcript:** mesh from a selection of multiple actors. For example, if you've made a stone ruin and scattered  some foliage on it, you can use the merge actors to combine them into one mesh. I will select both the  ruin and the foliage scatter on top of it. In the dash toolbar, I type merge and select merge  actors. This process might take a few seconds depending on how complex your selection is. The newly  merge static mesh appears in the content browser and I can drag it straight into the scene. This is a  great way to create modular assets, helping you build your scenes faster and keep everything more  manageable. Finally, I want to say a few words about tool presets. Every tool in dash
-
-**Frame:** tutorials\frames\procedural-world-building-for-ue5---pcg-alternative\frame_007.jpg
-
-### Tool Presets [27:35]
-**Transcript:** can have its properties saved as a preset, making it super easy to reuse your favorite setups  or even share them with others. Let me show you a simple example. I've used the grid scatter tool  to create a stone pillar. It's fully procedural and adjustable. From the toolspanel, I'd  click this icon and choose create preset. Let's say I want to create another pillar with the same  grid scatter settings. I select my mesh, edit to a new grid scatter tool,  and then click the preset icon in the toolspanel. From there, I simply select the preset I saved  earlier and there it is, another pillar instantly set up.
-
-**Frame:** tutorials\frames\procedural-world-building-for-ue5---pcg-alternative\frame_008.jpg
-
-### Outro [28:35]
-**Transcript:** And so that wraps up the video. We've covered a lot from scattering, masking, references, material  tweaks and presets to even merging assets into a final mesh. If you enjoyed this overview,  don't forget to like, subscribe and most importantly, give dash a try.  It's a powerful toolset that makes working in Unreal not just faster, but more fun.  Thanks for watching and see you in the next one.
-
-**Frame:** tutorials\frames\procedural-world-building-for-ue5---pcg-alternative\frame_009.jpg
-
+[...raw data omitted — see ingested file...]
 
 ---
 
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+29-minute comprehensive overview of all Dash procedural scatter tools as a node-free PCG alternative — Surface Scatter (density/scale/masking/noise), Path Scatter (density modes/pivot/parallel curves), Grid Scatter (3D/height division/remove below origin/proximity), Radial Scatter (radius/height/concentric rings/spiral/square mode), Decal Scatter, Reference Tool (shared properties), Compound Tool (grouped tool parameters), Merge Actors, Tool Presets.
 
 ### Summary
-[PENDING EXTRACTION]
+28-minute beginner-to-intermediate PCG alternative overview. Covers all major Dash scatter tools: (1) Surface Scatter — Ctrl+drag → Scatter on Selection; density; scale; Noise Mask (pattern/frequency/invert); Proximity Mask (distance/falloff; curve as mask); Color Texture Mask. (2) Path Scatter — type `create curve`/`draw curve` for spline; add to Path Scatter; density modes (per-point or exact count); pivot offset/path smoothness; parallel curves. (3) Grid Scatter — 3D distribution mode (X/Y/Z stacking); Height Division for Z layers; remove-below-origin; Proximity Mask carving; Random Remove; Random Spin + Jitter; stone fence ruin example. (4) Radial Scatter — radius/start angle/height/concentric rings; ring height for Z stacking; min/max concentric distance = tower by stacking rings; square shaping mode; scale variation. (5) Decal Scatter — multi-select + Ctrl+drag → Scatter Here; depth control; masking; rotation. (6) Reference Tool — Convert value to Reference → name it → assign same reference to other tool parameters → one Reference Tool slider controls all linked values. (7) Compound Tool — drag scatter tools into Compound → exposes only desired parameter controls in one panel; share compound presets. (8) Merge Actors — type `merge` → combines multiple static meshes + scatter instances into single mesh → appears in CB → drag to scene for reuse. (9) Tool Presets — save scatter config as preset → apply to new scatter tools; share with teams.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Surface Scatter** — open CB → Ctrl+drag asset → Scatter on Selection; density/scale sliders; Noise Mask (pattern/frequency/invert for exclusion zones); Proximity Mask (select curve or mesh → distance falloff); Color Texture Mask (choose UE texture as mask)
+2. **Path Scatter** — Create Curve tool → draw spline with point spacing set; OR Draw Curve tool; add spline to Path Scatter curves section + assets to scatter; density mode (per-point/exact count); pivot offset; path smoothness; parallel curves option
+3. **Grid Scatter — 3D** — Grid Scatter → Distribution Mode=3D → Height Division=N for Z layers; remove-below-origin option in Feature Masking; combine with Proximity Mask to carve shape; scale variation + Random Spin + Rotation Jitter for natural look; Random Remove for gaps
+4. **Radial Scatter** — Radial Scatter → add mesh → adjust radius/start angle/height; Concentric section: duplicate rings → min/max concentric distance=0 + ring height = stack vertically (tower); square shaping mode in Shaping section; scale variation + random rotation
+5. **Decal Scatter** — Shift+click decals in CB → Ctrl+drag → Scatter Here; depth control; masking; rotation; OR add from Dash toolbar scatter section; can target existing scene decal as input
+6. **Reference Tool** — in any tool parameter → click ✦ icon → Convert Reference → name it (e.g. "spacing"); assign same reference to other parameters in same or different tools → Reference Tool in Tools Panel controls all linked values simultaneously; per-reference individual sliders still available
+7. **Compound Tool** — drag multiple scatter tools into Compound container in Tools Panel → Compound exposes only the parameters you choose; one control panel for multi-tool setups; save as compound preset for reuse
+8. **Merge Actors** — select multiple actors + scatter instances → type `merge` in Dash bar → Merge Actors → result appears in CB → drag to scene; great for reusable modular pieces
+9. **Tool Presets** — in tool panel: click preset icon → Create Preset (name it) → apply preset icon on new tool → select saved preset → instant same-configuration tool
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Surface Scatter masking types** — Noise (procedural pattern), Proximity (object/spline distance), Color Texture (UE texture as mask) — all stackable
+- **Path Scatter density modes** — Per-Point (one per spline point) vs Exact Count (fixed total instances regardless of curve length)
+- **Grid Scatter 3D** — Distribution Mode=3D; Height Division=N (N layers in Z); Remove Below Origin in Feature Masking (eliminates downward half of grid)
+- **Radial Scatter concentric rings** — Concentric Distance=0 + Ring Height=N → stack rings vertically (tower); Concentric Distance>0 → expand rings outward; multiple ring duplicates for tower levels
+- **Radial Scatter shaping** — Shaping section: Circle (default) or Square → square mode for urban block/column patterns
+- **Reference Tool** — Convert any slider to Reference via ✦ → link multiple parameters → global control + individual fine-tune; visible in Tools Panel list
+- **Compound Tool** — empty container; drag tools into it; expose only desired params; create preset for team sharing
+- **Merge Actors** — type `merge` → select actors + scatter → one static mesh in CB; ideal for frequently-used modular elements
+- **Tool Presets** — save scatter configuration (all params) → apply preset → identical setup in seconds; available per tool + compound level
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner / Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Dash 1.7)
 
 ### Tags
-[PENDING EXTRACTION]
+`#dash-1.7` `#environment` `#scatter` `#path-scatter` `#grid-scatter` `#radial-scatter` `#decals` `#property-references` `#compound-tool` `#tool-presets` `#procedural` `#beginner` `#intermediate`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[creating-a-massive-procedural-game-world-in-ue5-with-dash]] — Property References + Curve Masking production workflow (1.7)
+- [[dash-170---massive-ue5-world-building-tool]] — 1.7 release overview with Reference Tool + Compound + Presets
+- [[surface-scatter-beginner-guide-to-your-ue5-co-pilot-dash]] — Surface Scatter masking deep-dive (1.4)
+- [[path-scatter-beginner-guide-to-your-ue5-co-pilot-dash]] — Path Scatter beginner guide (1.4)
+- [[no-nodes-procedural-environment-in-unreal-engine-5---dash-tutorial]] — Galen canyon with Path Scatter + Grid Scatter 3D (1.4)

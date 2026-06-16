@@ -1,12 +1,13 @@
----
+﻿---
 title: NEW UE5 ASSET MANAGEMENT PLUGIN - NOW FREE ON FAB
 source: YouTube
 url: https://www.youtube.com/watch?v=MwjUZJ7qkIk
 author: Polygonflow Dash
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: dash-1.9
+ue_version: "UE 5.x"
+tags: [dash-1.9, content-library, polyhaven, megascans, amazon-abo, ambientcg, ies-lights, ai-tagging, collections, cross-project, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/
 frame_count: 13
 ---
@@ -21,99 +22,57 @@ frame_count: 13
 
 ## Raw Data (for Claude Code extraction)
 
-
-### Intro [0:00]
-**Transcript:** If you ever spend more time looking for assets than actually building your scene,  this one's for you. The free version of Dash, available on Fab,  gives you access to the Dash content browser, making it easy to browse, search,  and drag assets directly into Unreal Engine. Dash brings multiple asset libraries together  into one single browser. You can search, preview, and drag assets into your scene without breaking  your workflow. Getting started only takes a minute. Install the free Dash version from Fab,
-
-**Frame:** tutorials\frames\new-ue5-asset-management-plugin---now-free-on-fab\frame_000.jpg
-
-### Initial Setup [0:23]
-**Transcript:** and enable the plugin in your project. Once Unreal starts, you see the Dash icon in the middle  of your toolbar. When you click it, the content browser pops up, and just like that,  you've got access to all the different asset libraries.  But let's break them down one by one. Polyhiven includes high quality HDRIs,
-
-**Frame:** tutorials\frames\new-ue5-asset-management-plugin---now-free-on-fab\frame_001.jpg
-
-### Poly Haven [0:54]
-**Transcript:** textures, and 3D assets. It's a great source for environment art, realistic lighting,  and filling out scenes with production quality assets.
-
-**Frame:** tutorials\frames\new-ue5-asset-management-plugin---now-free-on-fab\frame_002.jpg
-
-### Quixel Megascans [1:22]
-**Transcript:** You also get access to quickslam mega scans directly from Dash.  This tab only shows you your downloaded individual mega scans assets from the bridge plugin  or the fab plugin. From here, you can easily switch over to the fab library as well,  where you can quickly browse and download assets directly into your project.  The Amazon Berkeley Library contains a scan of three of our objects and props.
-
-**Frame:** tutorials\frames\new-ue5-asset-management-plugin---now-free-on-fab\frame_003.jpg
-
-### Amazon Berkeley Objects [1:49]
-**Transcript:** Perfect when you need everyday items to make your scene feel more believable.  Do you need material quickly? Ambience G gives you access to a huge collection of
-
-**Frame:** tutorials\frames\new-ue5-asset-management-plugin---now-free-on-fab\frame_004.jpg
-
-### AmbientCG [2:18]
-**Transcript:** free PBR textures and materials, covering everything from concrete, asphalt, to wood,  metal, and fabric. You also get atlases, decals, and HDRIs, giving you even more options for  building and lighting your scenes. Dash also includes the IES library. These light
-
-**Frame:** tutorials\frames\new-ue5-asset-management-plugin---now-free-on-fab\frame_005.jpg
-
-### IES Lights [2:38]
-**Transcript:** profiles help you recreate the way re-avert fixtures distribute light.
-
-**Frame:** tutorials\frames\new-ue5-asset-management-plugin---now-free-on-fab\frame_006.jpg
-
-### Base Mesh Library [2:55]
-**Transcript:** And when you just want to start building, the base mesh library gives you a collection of  simple block art meshes that are great for prototyping and layout work.
-
-**Frame:** tutorials\frames\new-ue5-asset-management-plugin---now-free-on-fab\frame_007.jpg
-
-### Project Assets & AI tags [3:16]
-**Transcript:** One of my favorite features in Dash doesn't just work with online libraries.  It also indexes your own project assets, so they available right alongside everything else.  That means less digging through folders and more time actually building.  You can also organize your assets using custom search decks.  The free version supports digging up to 1000 assets per month.
-
-**Frame:** tutorials\frames\new-ue5-asset-management-plugin---now-free-on-fab\frame_008.jpg
-
-### Collection System [3:47]
-**Transcript:** On top of that, smart collections let you create custom asset groups for specific projects, workflows,  or teams. It's a really nice way to keep frequently used assets organized and easy to access.
-
-**Frame:** tutorials\frames\new-ue5-asset-management-plugin---now-free-on-fab\frame_009.jpg
-
-### Centralized Asset Browser [4:10]
-**Transcript:** So I'm in a completely different project right now, but with just a few clicks, I can instantly access  my own tech assets from other projects.  The full Dash plugin includes a complete set of world building tools, but the
-
-**Frame:** tutorials\frames\new-ue5-asset-management-plugin---now-free-on-fab\frame_010.jpg
-
-### Full Dash Plugin [4:34]
-**Transcript:** fifth version focuses on asset browsing and management. If you'd like to access the full toolkit,  you can download Dash from the Polygonflow website. You can also access the free Dash content  browser through three license in the standard Dash installation. So if you are using Dash,  there's no need for a separate workflow. Just activate the free license and start using the  content browser right away. So if you're looking for an easier way to manage assets in Unreal Engine,
-
-**Frame:** tutorials\frames\new-ue5-asset-management-plugin---now-free-on-fab\frame_011.jpg
-
-### Outro [5:05]
-**Transcript:** the free Dash content browser is definitely worth checking out. You get access to multiple free  libraries, your own project assets, tagging, collections, and much faster way to find what you need.  Grab it on Fab, give it a try, and we'll see you in the next one.
-
-**Frame:** tutorials\frames\new-ue5-asset-management-plugin---now-free-on-fab\frame_012.jpg
-
+[...raw data omitted — see ingested file...]
 
 ---
 
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Promotional overview of the free Dash Content Browser tier on Fab — install free plugin → get access to Polyhaven (HDRIs/textures/3D assets), Quixel Megascans (downloaded assets from Bridge/Fab), Amazon Berkeley Objects, ambientCG (PBR textures/atluses/HDRIs), IES library, Base Mesh Library, Project Assets with AI tagging (1000 assets/month free), Collections, and cross-project asset access.
 
 ### Summary
-[PENDING EXTRACTION]
+6-minute promotional video introducing the free Dash Content Browser tier available on Fab. Covers all built-in libraries available in the free tier: Polyhaven (HDRIs + textures + 3D assets for environment art + realistic lighting), Quixel Megascans (shows previously downloaded Bridge/Fab assets), Amazon Berkeley Objects (photorealistic scanned everyday items), ambientCG (free PBR textures + atlases + decals + HDRIs covering concrete/asphalt/wood/metal/fabric), IES Library (photometric light profiles for realistic fixture emission), Base Mesh Library (simple block art for prototyping). Also covers: Project Assets AI tagging (free tier = 1000 assets/month), Collections (custom asset groups for projects/teams), cross-project access (click to access tagged assets from other UE projects). Full paid Dash adds world building tools; Content Browser is available free or via "free license" mode inside standard Dash install.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Install** — install free Dash from Fab → enable plugin → Unreal restart → Dash icon appears in toolbar center → click → Content Browser opens
+2. **Polyhaven** — tab in CB → high-quality HDRIs, textures, 3D assets; all free; drag to scene
+3. **Quixel Megascans** — tab shows previously downloaded Megascans assets from Bridge or Fab plugin; switch to Fab library tab for browsing + downloading
+4. **ABO (Amazon Berkeley Objects)** — tab → photorealistic scanned everyday items (kitchenware, furniture, accessories); drag to scene; material edit supported
+5. **ambientCG** — tab → free PBR textures, atlases, decals, HDRIs; concrete/asphalt/wood/metal/fabric; download → use
+6. **IES Library** — tab → photometric light profiles; drag to place light with real-world emission pattern
+7. **Base Mesh Library** — tab → simple low-poly meshes for prototyping + layout
+8. **Project Assets AI Tagging** — indexes own UE project assets alongside online libraries; free tier = 1000 assets/month; search by property/concept not just filename
+9. **Collections** — create custom groups (personal or team-shared) for frequently used assets per project/workflow
+10. **Cross-Project Access** — click to access tagged assets from other UE projects in any current project; useful for reusing hero assets
+11. **Licensing** — free Content Browser = install free Fab plugin; standard Dash = activate free license within Dash to access CB alongside world building tools
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Free Dash on Fab** — Dash Content Browser as standalone free plugin; install via Fab; enable in project settings → toolbar icon
+- **Polyhaven tab** — HDRIs + textures + 3D assets; auto-download on drag; PBR material assigned
+- **Megascans tab** — shows Bridge/Fab-downloaded assets only; Fab library tab for browsing + new downloads
+- **ABO tab** — Amazon Berkeley Objects photoscans; auto-import on drag
+- **ambientCG tab** — free PBR: concrete/asphalt/wood/metal/fabric; also atlases, decals, HDRIs
+- **IES Library** — photometric profiles → place = light with real fixture distribution shape
+- **Base Mesh tab** — free low-poly block art for prototyping
+- **AI Tagging (Project Assets)** — Compute → assigns property tags from thumbnails; free tier = 1000/month; search by concept
+- **Collections** — personal or shared; organize per project/workflow/team
+- **Cross-Project** — access tagged assets from other local UE projects without copy
+- **Dual licensing** — free standalone CB plugin from Fab OR free license mode inside full Dash install
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Dash 1.9+)
 
 ### Tags
-[PENDING EXTRACTION]
+`#dash-1.9` `#content-library` `#polyhaven` `#megascans` `#amazon-abo` `#ambientcg` `#ies-lights` `#ai-tagging` `#collections` `#cross-project` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[best-free-unreal-engine-5-asset-management-plugin-in-2025]] — Full Dash 1.9 Content Browser deep-dive (Tomáš)
+- [[dash-19---managing-assets-in-ue5-just-got-a-lot-easier]] — 1.9 base release with Collections + RVT + Advanced Water
+- [[dash-192---new-ue5-tools-amazon-3d-library-integration]] — ABO + ambientCG introduction (1.9.2)
+- [[2000-free-high-quality-assets-for-any-unreal-engine-project]] — Polyhaven + IES library showcase (1.5)
