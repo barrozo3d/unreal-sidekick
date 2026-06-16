@@ -984,6 +984,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-black-eye-cameras-v117-switcher-pilot.md
 
+
+### Unreal Engine Black Eye Cameras: Unleash Your Army of Camera Operators
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=rw5OmVtBri8
+- **Author:** Black Eye Technologies
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-black-eye-cameras-unleash-your-army-of-camera-operators.md
+
 ---
 
 ## Tag Reference
