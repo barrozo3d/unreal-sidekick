@@ -1314,6 +1314,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/dash-185---big-update-for-ue5-world-building.md
 
+
+### How to Create Vines Procedurally in Unreal Engine 5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=Y_Ja4n3RSf0
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-to-create-vines-procedurally-in-unreal-engine-5.md
+
 ---
 
 ## Tag Reference
