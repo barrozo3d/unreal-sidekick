@@ -1004,6 +1004,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-black-eye-cameras-supercharge-your-workflow.md
 
+
+### Unreal Engine Black Eye Cameras: Crazy Millennium Falcon shot with only 7 keyframes
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=7jNy5snGOJM
+- **Author:** Black Eye Technologies
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-black-eye-cameras-crazy-millennium-falcon-shot-with-only-7-keyfram.md
+
 ---
 
 ## Tag Reference
