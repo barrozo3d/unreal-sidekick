@@ -664,6 +664,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/why-modern-vfx-dont-suck---low-budget-virtual-production-everything-everywhere-a.md
 
+
+### Unreal Engine 5 Compositing Tutorial - Composite Any Scene Fully Inside of UE5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=OvvtTYB46b8
+- **Author:** Boundless Entertainment
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-5-compositing-tutorial---composite-any-scene-fully-inside-of-ue5.md
+
 ---
 
 ## Tag Reference
