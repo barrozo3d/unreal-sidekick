@@ -1384,6 +1384,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/recreating-a-helldivers-2-game-environment-in-ue5-with-dash.md
 
+
+### How to create a training environment in Unreal Engine 5 - Dash Workflow
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=rBcGl_ScDKs
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-to-create-a-training-environment-in-unreal-engine-5---dash-workflow.md
+
 ---
 
 ## Tag Reference
