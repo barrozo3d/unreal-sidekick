@@ -1554,6 +1554,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/beginner-guide-to-ue5-co-pilot-dash-camera-settings.md
 
+
+### Create Realistic Scatter Using Merge Actors with Dash
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=P90HaXlYSNE
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/create-realistic-scatter-using-merge-actors-with-dash.md
+
 ---
 
 ## Tag Reference
