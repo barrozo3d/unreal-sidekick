@@ -1524,6 +1524,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/path-scatter-beginner-guide-to-your-ue5-co-pilot-dash.md
 
+
+### Speed Up Your Archviz Workflow with Dash in UE5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=cC0l3yZMt3M
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/speed-up-your-archviz-workflow-with-dash-in-ue5.md
+
 ---
 
 ## Tag Reference
