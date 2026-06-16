@@ -1024,6 +1024,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-black-eye-cameras-version-111-keyable-weights-in-sequencer.md
 
+
+### Unreal Engine Black Eye Cameras: Version 1.1 New Features: Cross Camera
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=uUxE0gaOvnQ
+- **Author:** Black Eye Technologies
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-black-eye-cameras-version-11-new-features-cross-camera.md
+
 ---
 
 ## Tag Reference
