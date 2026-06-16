@@ -4,9 +4,10 @@ source: YouTube
 url: https://www.youtube.com/watch?v=sda3K-M2j0g
 author: Black Eye Technologies
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: blackeye-v1
+ue_version: "UE 5.x"
+tags: [blackeye-v1, camera, teaser]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-your-cinematics-reinvented/
 frame_count: 4
 ---
@@ -33,27 +34,27 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Brand teaser video — Black Eye Cameras logo reveal. No instructional content.
 
 ### Summary
-[PENDING EXTRACTION]
+1-minute brand/intro video. Transcript contains only non-verbal audio. Frame shows the Black Eye Cameras logo (stylized eye with needles, "BLACK EYE CAMERAS" text on dark background). No technical content.
 
 ### Key Steps
-[PENDING EXTRACTION]
+N/A — brand teaser only.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+N/A
 
 ### Difficulty
-[PENDING EXTRACTION]
+N/A (teaser)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Black Eye v1)
 
 ### Tags
-[PENDING EXTRACTION]
+`#blackeye-v1` `#camera` `#teaser`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unreal-engine-black-eye-cameras-start-here-tutorial]] — full technical entry for the plugin

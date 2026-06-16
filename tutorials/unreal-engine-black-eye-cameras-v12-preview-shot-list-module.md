@@ -4,9 +4,10 @@ source: YouTube
 url: https://www.youtube.com/watch?v=w2CBsFWMUys
 author: Black Eye Technologies
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: blackeye-v1.2
+ue_version: "UE 5.x"
+tags: [blackeye-v1, camera, esports, live-events, mocap, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-v12-preview-shot-list-module/
 frame_count: 4
 ---
@@ -33,27 +34,36 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Black Eye v1.2 Shot List module: a single camera actor containing an ordered list of sub-cameras; uses raycasting to auto-evaluate which sub-camera has an unoccluded shot and cuts to it, with a minimum shot time to prevent rapid-fire cuts.
 
 ### Summary
-[PENDING EXTRACTION]
+1-minute feature preview for the Black Eye Shot List introduced in v1.2. Solves the problem of cameras getting occluded (character passes under an obstacle, blocking the shot). One Shot List camera holds multiple sub-cameras in a priority stack; the system raycasts from camera to subject and automatically cuts to the next available unoccluded shot. A minimum shot time prevents jitter. Extremely powerful for eSports, replay cameras, and any live scenario where you can't manually control cuts.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Create a Shot List camera** — Add a Black Eye Shot List camera to the scene (new camera type in v1.2).
+2. **Add sub-cameras to priority stack** — Each sub-camera is a separate Black Eye camera (with its own Follow/LookAt config). Add them in order of preference (best shot first).
+3. **Set minimum shot time** — Prevents the system from cutting too rapidly when the shot quality fluctuates at the threshold.
+4. **Place cameras to cover your scene** — Ensure your sub-camera positions cover all angles so there's always at least one unoccluded option.
+5. **Raycast evaluation** — The system automatically raycasts from each sub-camera to the subject. The first un-occluded camera in the priority list wins. When the character walks under something, the system cuts to a safer shot and cuts back when clear.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Shot List** — Black Eye v1.2+ camera actor; contains ordered array of sub-cameras
+- **Priority stack** — ordered list; system tries camera 0 first, falls back down the list when occluded
+- **Raycast evaluation** — each tick, raycast from camera position to subject; occlusion triggers priority fallback
+- **Minimum shot time** — cooldown before the system is allowed to cut again; prevents rapid-fire switching
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Black Eye v1.2)
 
 ### Tags
-[PENDING EXTRACTION]
+`#blackeye-v1` `#camera` `#esports` `#live-events` `#mocap` `#intermediate`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unreal-engine-black-eye-cameras-cam-switcher-tutorial]] — manual camera switcher (keyboard-driven); complementary to the auto Shot List
+- [[unreal-engine-black-eye-cameras-start-here-tutorial]] — full v1 system overview including Camera Switcher
+- [[plugin-blackeye-versions]] — v1.2 feature release notes

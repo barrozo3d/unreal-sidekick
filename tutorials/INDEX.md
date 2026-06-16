@@ -949,9 +949,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=w2CBsFWMUys
 - **Author:** Black Eye Technologies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** blackeye-v1.2
+- **UE Version:** UE 5.x
+- **Tags:** `#blackeye-v1` `#camera` `#esports` `#live-events` `#mocap` `#intermediate`
+- **Summary:** 1-minute preview of the v1.2 Shot List module — a single camera with multiple sub-cameras in priority order; raycasts from each to the subject and auto-cuts to the first unoccluded option with a minimum shot time. Game-changer for eSports, replays, and live events.
 - **File:** tutorials/unreal-engine-black-eye-cameras-v12-preview-shot-list-module.md
 
 
@@ -959,9 +960,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=sda3K-M2j0g
 - **Author:** Black Eye Technologies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** blackeye-v1
+- **UE Version:** UE 5.x
+- **Tags:** `#blackeye-v1` `#camera` `#teaser`
+- **Summary:** 1-minute brand logo reveal video. No instructional content.
 - **File:** tutorials/unreal-engine-black-eye-cameras-your-cinematics-reinvented.md
 
 
@@ -969,9 +971,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=oZ_0JPrN-hE
 - **Author:** Black Eye Technologies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** blackeye-v1
+- **UE Version:** UE 5.x
+- **Tags:** `#blackeye-v1` `#camera` `#gameplay` `#beginner`
+- **Summary:** 3-minute Look Around rig tutorial: Follow on root bone + LookAt on head bone with local offset, per-axis damping (separate pitch/yaw), and Dead Zone. Emulates a human camera operator tracking a character's head. Teases upcoming free-look orbit system.
 - **File:** tutorials/unreal-engine-black-eye-cameras-look-around-tutorial.md
 
 
@@ -979,9 +982,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=ub1_ET0LLJc
 - **Author:** Black Eye Technologies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** blackeye-v1.1.7
+- **UE Version:** UE 5.x
+- **Tags:** `#blackeye-v1` `#camera` `#esports` `#live-events` `#mocap` `#beginner`
+- **Summary:** 3-minute Camera Switcher tutorial (v1.1.7): drag Camera Switcher Actor into level, bind cameras to keyboard keys, live-switch during PIE between dynamically-tracking cameras. Gotcha: Camera Cuts track clips in Sequencer override the switcher and must be removed.
 - **File:** tutorials/unreal-engine-black-eye-cameras-cam-switcher-tutorial.md
 
 
@@ -989,9 +993,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=ctm38XzfzIo
 - **Author:** Black Eye Technologies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** blackeye-v1.1.7
+- **UE Version:** UE 5.x
+- **Tags:** `#blackeye-v1` `#camera` `#esports` `#live-events` `#mocap` `#beginner`
+- **Summary:** 55-second preview of v1.1.7: Camera Switcher (keyboard-driven live camera switching) and Pilot Mode (fly the camera manually while Black Eye's dynamic Follow and LookAt remain active). Visual demo only.
 - **File:** tutorials/unreal-engine-black-eye-cameras-v117-switcher-pilot.md
 
 

@@ -4,9 +4,10 @@ source: YouTube
 url: https://www.youtube.com/watch?v=ub1_ET0LLJc
 author: Black Eye Technologies
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: blackeye-v1.1.7
+ue_version: "UE 5.x"
+tags: [blackeye-v1, camera, esports, live-events, mocap, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-cam-switcher-tutorial/
 frame_count: 6
 ---
@@ -56,27 +57,40 @@ frame_count: 6
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Black Eye Camera Switcher: drag in a Camera Switcher Actor, bind cameras to keyboard keys, and live-switch between an army of dynamically-tracking Black Eye cameras during playback.
 
 ### Summary
-[PENDING EXTRACTION]
+3-minute tutorial for the Camera Switcher introduced in Black Eye v1.1.7. Drop a Camera Switcher Actor into the level, assign cameras from an array and bind each to a key. Live-switch during PIE between cameras that are all independently following and composing on different subjects. Add text label components to cameras for on-screen identification. Critical gotcha: remove any Camera Cuts clips on the Sequencer timeline — they override the switcher.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Drag Camera Switcher Actor into level** — available under Black Eye actors.
+2. **Add cameras to the Cameras array** — click + to add entries; each entry = one camera + one key binding.
+3. **Bind keys** — click the keyboard icon next to each entry, then tap the desired key to bind it.
+4. **Set up cameras** — for each camera: set LookAt on desired subject/bone; optionally add Follow + Dynamic FOV. Example setups shown: head-only shot (LookAt head bone, actor bounds off) and wide follow shot (Follow + Dynamic FOV for auto-zoom).
+5. **Remove Camera Cuts track clips** — if a Camera Cuts track is active on the Sequencer timeline, it overrides the switcher. Delete or disable those clips before testing.
+6. **Play and switch** — enter PIE, press bound keys to cut between cameras. All cameras track their subjects dynamically while you switch.
+7. **Add text label** — add a text component to a camera actor to show its name on-screen during switching (helps in complex scenes).
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Camera Switcher Actor** — Black Eye actor; holds Cameras array (camera + keyboard binding pairs)
+- **Key binding** — click keyboard icon in array entry, tap key
+- **Camera Cuts track** — UE Sequencer track; OVERRIDES the Camera Switcher if clips present — must be empty/disabled for switcher to work
+- **Dynamic FOV** — auto-zoom on follow camera; screen size setting = how big the character should appear on screen
+- **Follow damping** — small amount for a slight lag in following; improves feel
+- **Text component** — optional label on camera actor for on-screen identification during switching
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Black Eye v1.1.7)
 
 ### Tags
-[PENDING EXTRACTION]
+`#blackeye-v1` `#camera` `#esports` `#live-events` `#mocap` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unreal-engine-black-eye-cameras-v117-switcher-pilot]] — 55s feature preview of same v1.1.7 Switcher + Pilot mode
+- [[unreal-engine-black-eye-cameras-start-here-tutorial]] — full v1 system; Camera Switcher section
+- [[unreal-engine-black-eye-cameras-v12-preview-shot-list-module]] — auto-switching by occlusion (Shot List); complements manual switching

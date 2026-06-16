@@ -4,9 +4,10 @@ source: YouTube
 url: https://www.youtube.com/watch?v=ctm38XzfzIo
 author: Black Eye Technologies
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: blackeye-v1.1.7
+ue_version: "UE 5.x"
+tags: [blackeye-v1, camera, esports, live-events, mocap, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-v117-switcher-pilot/
 frame_count: 4
 ---
@@ -42,27 +43,29 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Black Eye v1.1.7 feature preview: Camera Switcher (keyboard-driven live switching) and Pilot Mode (fly a camera like a drone while dynamic Follow and LookAt remain active).
 
 ### Summary
-[PENDING EXTRACTION]
+55-second preview video for Black Eye v1.1.7 features. Shows two features: (1) Camera Switcher — live keyboard-driven switching between multiple tracking cameras, each labeled "Shot #1", "Shot #2" etc.; (2) Pilot Mode — pilot/fly a camera through the scene manually while Black Eye's dynamic Follow and LookAt remain fully active. Frame captions confirm: "Pilot mode works with dynamic Follow and Look At." Minimal narration; visual demo only.
 
 ### Key Steps
-[PENDING EXTRACTION]
+N/A — feature preview only. See [[unreal-engine-black-eye-cameras-cam-switcher-tutorial]] for Camera Switcher setup details.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Camera Switcher** — keyboard-bound camera switching panel; each slot labeled (Shot #1, #2...)
+- **Pilot Mode** — manual camera flight mode that coexists with dynamic Follow/LookAt; allows artist to fly the camera while tracking behavior stays live
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner (preview)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Black Eye v1.1.7)
 
 ### Tags
-[PENDING EXTRACTION]
+`#blackeye-v1` `#camera` `#esports` `#live-events` `#mocap` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unreal-engine-black-eye-cameras-cam-switcher-tutorial]] — full Camera Switcher tutorial (same version)
+- [[unreal-engine-black-eye-cameras-start-here-tutorial]] — v1 system overview; Camera Switcher section

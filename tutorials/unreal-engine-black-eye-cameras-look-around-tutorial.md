@@ -4,9 +4,10 @@ source: YouTube
 url: https://www.youtube.com/watch?v=oZ_0JPrN-hE
 author: Black Eye Technologies
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: blackeye-v1
+ue_version: "UE 5.x"
+tags: [blackeye-v1, camera, gameplay, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-look-around-tutorial/
 frame_count: 8
 ---
@@ -68,27 +69,41 @@ frame_count: 8
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Black Eye "Look Around" camera rig: camera follows character's root bone and looks at head bone with per-axis damping and dead zone, emulating a human head-tracking camera operator.
 
 ### Summary
-[PENDING EXTRACTION]
+3-minute tutorial for the Look Around rig — a camera that follows the character's root bone (translation) while dynamically composing on the head bone (rotation), with adjustable pitch/yaw damping and a dead zone. Ideal for over-shoulder or face-tracking gameplay cameras. Teases an upcoming free-look orbit third-person system at the end.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Drop Black Eye camera + rename** — add actor to scene, rename it (good naming habit).
+2. **Follow on root bone** — click Follow → pick character → set follow bone to root bone (most stable for translation).
+3. **LookAt on head bone** — click Look At → pick character → type head bone name → disable "use actor bounds" (targets bone, not bounding box).
+4. **Spawned characters** — if character isn't in scene yet, enable Auto-Assign to player ID + enable Look At and Follow; configure on a scene-placed reference then hide it.
+5. **Save-in-Play** — enable save-and-play to iterate camera feel while game runs.
+6. **LookAt offset in local space** — select Look At → set local offset (e.g., Y = -80 to aim 80 units in front of head bone). Adjust offset to re-compose subject position in frame.
+7. **Damping** — set per-axis damping: `pitch damping` (vertical response) and `yaw damping` (horizontal response). Adjust independently to get natural weight — e.g., more horizontal lag for cinematic feel on wide aspect ratios.
+8. **Dead Zone** — create a dead zone region; motion inside the zone is ignored. Camera only reacts when the target exits the zone. Adjust horizontal and vertical dead zone size independently.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Follow (root bone)** — translational follow target set to root bone for stability
+- **LookAt (head bone)** — rotational tracking; bone name typed manually; disable actor bounds
+- **Auto-Assign** — player ID; enables automatic binding on spawn
+- **LookAt local offset** — spatial offset from bone in local space; controls subject placement in frame
+- **Pitch / Yaw damping** — per-axis; adjust vertical vs horizontal response independently
+- **Dead Zone** — screen-space ignore region; independent horizontal and vertical size controls
+- **Save-in-Play** — iterate camera feel while game is running
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Black Eye v1)
 
 ### Tags
-[PENDING EXTRACTION]
+`#blackeye-v1` `#camera` `#gameplay` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unreal-engine-black-eye-cameras-start-here-tutorial]] — full v1 system; Follow + LookAt covered in detail
+- [[unreal-engine-black-eye-cameras-v2-start-here-tutorial]] — Dead Zones section in v2 START HERE covers the same concept in depth
