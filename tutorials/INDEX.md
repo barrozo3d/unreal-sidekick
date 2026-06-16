@@ -484,6 +484,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Uses the Media Plate Beta plugin to stream green screen footage onto a plane actor in a UE5 scene and key out the background via the built-in chroma key material (Main Element). The composited actor casts shadows and receives Lumen lighting from the scene — no external compositor needed. ~9 min, plugin-only workflow.
 - **File:** tutorials/how-to-remove-green-screen-composite-in-unreal-engine-5-using-media-plate-realis.md
 
+
+### 3D Tracking Natively in Unreal Engine - FULL TUTORIAL
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=z9t4XIoNsHY
+- **Author:** Boundless Entertainment
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/3d-tracking-natively-in-unreal-engine---full-tutorial.md
+
 ---
 
 ## Tag Reference
