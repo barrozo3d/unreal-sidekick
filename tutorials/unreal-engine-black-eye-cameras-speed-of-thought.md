@@ -4,9 +4,10 @@ source: YouTube
 url: https://www.youtube.com/watch?v=2MeieZV_A1E
 author: Black Eye Technologies
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: blackeye-v1
+ue_version: "UE 5.x"
+tags: [blackeye-v1, camera, teaser]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-speed-of-thought/
 frame_count: 4
 ---
@@ -33,27 +34,27 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Showcase reel / highlight video. Transcript empty (non-verbal audio only). No instructional content.
 
 ### Summary
-[PENDING EXTRACTION]
+1.5-minute showcase/highlight reel for Black Eye Cameras. Audio-only transcript; no narration or instruction. Demonstrates camera work results visually but provides no technical steps. No actionable content extractable from transcript alone.
 
 ### Key Steps
-[PENDING EXTRACTION]
+N/A — showcase reel. No instructional content.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+N/A
 
 ### Difficulty
-[PENDING EXTRACTION]
+N/A (showcase)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Black Eye v1)
 
 ### Tags
-[PENDING EXTRACTION]
+`#blackeye-v1` `#camera` `#teaser`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unreal-engine-black-eye-cameras-start-here-tutorial]] — full tutorial for technical details

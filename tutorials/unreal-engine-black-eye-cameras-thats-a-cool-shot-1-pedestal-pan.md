@@ -4,9 +4,10 @@ source: YouTube
 url: https://www.youtube.com/watch?v=NOOpWzeC0Mg
 author: Black Eye Technologies
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: blackeye-v1
+ue_version: "UE 5.x"
+tags: [blackeye-v1, camera, cinematics, sequencer, beginner, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-thats-a-cool-shot-1-pedestal-pan/
 frame_count: 5
 ---
@@ -55,27 +56,39 @@ frame_count: 5
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Hybrid Sequencer shot: classic pedestal pan using Black Eye's follow + multi-subject LookAt with a Z-channel keyframe pedestal move — camera follows a car while looking at two walking characters and manually rises over the car.
 
 ### Summary
-[PENDING EXTRACTION]
+5.5-minute "That's a Cool Shot" episode #1. Demonstrates building a cinematic pedestal pan in under 20 seconds setup time using Black Eye. Camera follows a car but looks at two people walking beside it. Adds manual Z-axis keyframes in Sequencer (pedestal up) while keeping all rotation/tracking procedural. Uses 28mm lens for wide feel. Iterates on timing via curve editor.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Install plugin + add camera** — install Black Eye from Fab, drop a Black Eye Camera into the scene.
+2. **Set Follow on car** — click Follow → pick car → camera jumps 300 units to side.
+3. **Set Multi-subject LookAt** — click Look At → Multiple Subjects → eyedropper person left, eyedropper person right. Camera now follows the car but looks at two walking people.
+4. **Add to Sequencer** — drag camera to Sequencer timeline.
+5. **Add Follow Offset track** — keyframe Z channel only: start low (set key), pedestal up at the desired moment (set key). Camera rises over the car while still following it.
+6. **Choose lens** — set to 28mm for wider feel. Adjust composition by reviewing through lens.
+7. **Refine timing** — use Sequencer curve editor to push/pull keyframe positions for pacing. Adjust camera speed (how fast it rises) by moving keys on the Z channel.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Follow** — translational tracking; camera rigidly attached to follow subject offset
+- **Multiple Subjects LookAt** — camera looks at combined bounding box of multiple subjects
+- **Follow Offset track** — Sequencer track; keyframe spatial relationship between camera and follow target; Z channel = pedestal
+- **Hybrid mode** — procedural follow/look-at + manual Sequencer keyframes on select channels only
+- **28mm lens** — wider field for the pedestal pan feel
+- **Snap-to-keyframe buttons** — Sequencer navigation; bounce between keyframe positions while adjusting
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner / Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Black Eye v1)
 
 ### Tags
-[PENDING EXTRACTION]
+`#blackeye-v1` `#camera` `#cinematics` `#sequencer` `#beginner` `#intermediate`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unreal-engine-black-eye-cameras-start-here-tutorial]] — full v1 system; Follow Keyframes section covers the same hybrid technique
+- [[unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics]] — follow fly-by rig uses the same hybrid approach with more tracks

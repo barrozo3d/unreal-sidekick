@@ -4,9 +4,10 @@ source: YouTube
 url: https://www.youtube.com/watch?v=U5FGuo59IJc
 author: Black Eye Technologies
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: blackeye-v1
+ue_version: "UE 5.x"
+tags: [blackeye-v1, camera, testimonial]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-behind-the-lens/
 frame_count: 4
 ---
@@ -33,27 +34,27 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+User testimonial video — multiple artists share their experience using Black Eye Cameras. No instructional content.
 
 ### Summary
-[PENDING EXTRACTION]
+3-minute testimonial reel featuring real users praising Black Eye's speed ("hours vs minutes"), workflow integration, and shot quality improvement. Key quotes: setup is "minutes"; replaces janky manual keyframing; enables real-time Zoom-call shot collaboration; produces better results than manual keyframing even when working fast. No technical steps or settings demonstrated.
 
 ### Key Steps
-[PENDING EXTRACTION]
+N/A — testimonials only. For technical content see [[unreal-engine-black-eye-cameras-start-here-tutorial]] or [[unreal-engine-black-eye-cameras-v2-start-here-tutorial]].
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+N/A
 
 ### Difficulty
-[PENDING EXTRACTION]
+N/A (testimonial)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Black Eye v1, unspecified)
 
 ### Tags
-[PENDING EXTRACTION]
+`#blackeye-v1` `#camera` `#testimonial`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unreal-engine-black-eye-cameras-start-here-tutorial]] — full technical tutorial for the system discussed in testimonials

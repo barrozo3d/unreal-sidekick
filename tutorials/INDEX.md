@@ -861,9 +861,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=U5FGuo59IJc
 - **Author:** Black Eye Technologies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** blackeye-v1
+- **UE Version:** UE 5.x
+- **Tags:** `#blackeye-v1` `#camera` `#testimonial`
+- **Summary:** 3-minute user testimonial reel — artists praise Black Eye for speed (hours → minutes), workflow integration, and shot quality improvement over manual keyframing. No instructional content.
 - **File:** tutorials/unreal-engine-black-eye-cameras-behind-the-lens.md
 
 
@@ -904,9 +905,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=4X16gnNVD1E
 - **Author:** Black Eye Technologies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** blackeye-v1
+- **UE Version:** UE 5.x
+- **Tags:** `#blackeye-v1` `#camera` `#gameplay` `#cinematics` `#vehicles` `#sequencer` `#intermediate`
+- **Summary:** 24-minute complete car camera tutorial. Gameplay driving camera with rotational damping + velocity look-ahead. Three cinematic Sequencer rigs: (1) position keyframes + procedural look-at, (2) follow camera with keyframed offsets sweeping around the car, (3) follow fly-by rig with extra yaw + follow offset + screen-space position tracks. Camera shake tracks included.
 - **File:** tutorials/unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics.md
 
 
@@ -914,9 +916,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=3KxVyOQwTRo
 - **Author:** Black Eye Technologies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** blackeye-v1
+- **UE Version:** UE 5.x (Fab install = 5.4+)
+- **Tags:** `#blackeye-v1` `#camera` `#cinematics` `#sequencer` `#blueprints` `#intermediate` `#advanced`
+- **Summary:** 55-minute v1 complete system tutorial: LookAt (single/multi-subject), Plate & Pedestal rig pivot, Follow with damping, Follow Vehicles, Keyframe Weights, Cross Camera for dialogue, Camera Switcher actor, Sequencer hybrid keyframing (screen-space position keys), and baking to CineCameraActor for DCC export.
 - **File:** tutorials/unreal-engine-black-eye-cameras-start-here-tutorial.md
 
 
@@ -924,9 +927,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=2MeieZV_A1E
 - **Author:** Black Eye Technologies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** blackeye-v1
+- **UE Version:** UE 5.x
+- **Tags:** `#blackeye-v1` `#camera` `#teaser`
+- **Summary:** 1.5-minute showcase/highlight reel. Audio-only, no narration. No instructional content.
 - **File:** tutorials/unreal-engine-black-eye-cameras-speed-of-thought.md
 
 
@@ -934,9 +938,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=NOOpWzeC0Mg
 - **Author:** Black Eye Technologies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** blackeye-v1
+- **UE Version:** UE 5.x
+- **Tags:** `#blackeye-v1` `#camera` `#cinematics` `#sequencer` `#beginner` `#intermediate`
+- **Summary:** 5.5-minute hybrid Sequencer shot tutorial: pedestal pan using Follow (car) + multi-subject LookAt (two people) + Z-channel keyframe rise over the car. 20-second setup, then refine timing in curve editor. Classic cinematic move with minimal keyframes.
 - **File:** tutorials/unreal-engine-black-eye-cameras-thats-a-cool-shot-1-pedestal-pan.md
 
 

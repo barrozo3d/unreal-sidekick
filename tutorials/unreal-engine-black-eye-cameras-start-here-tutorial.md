@@ -4,9 +4,10 @@ source: YouTube
 url: https://www.youtube.com/watch?v=3KxVyOQwTRo
 author: Black Eye Technologies
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: blackeye-v1
+ue_version: "UE 5.x"
+tags: [blackeye-v1, camera, cinematics, sequencer, blueprints, intermediate, advanced]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-start-here-tutorial/
 frame_count: 15
 ---
@@ -103,27 +104,51 @@ frame_count: 15
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Black Eye Cameras v1 complete system tutorial: LookAt (single and multiple subjects), Plate & Pedestal rig pivot, Follow with damping, Follow Vehicles, Keyframe Weights, Cross Camera, Camera Switcher, Sequencer hybrid keyframing of composition, and baking camera animations to CineCameraActor.
 
 ### Summary
-[PENDING EXTRACTION]
+55-minute original (v1) Black Eye START HERE tutorial. Covers why the plugin exists (cinema-accurate camera behavior in CG), all core camera types (LookAt, Follow, Cross Camera), multi-subject tracking with keyframeable weights, the Camera Switcher actor for live switching between an army of cameras, hybrid Sequencer mode (procedural tracking + manual position/composition keyframes), and baking the result to a standard CineCameraActor for export/round-trip. Installs via Fab tab inside UE. Includes CVARs/debug overlay.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Install** — Fab tab inside UE, search Black Eye Cameras. Enable plugin under Edit → Plugins. Debug overlay: Eyeball → Black Eye; CVARs: type `black` to filter. Note: before UE 5.6, show button is top-left.
+2. **LookAt camera** — Black Eye Create → LookAt Camera. Click Look At → eyedropper → pick subject. By default tracks actor bounds; switch to bone targeting for characters (type bone name, disable use component bounds). Dynamic FOV auto-zooms to keep subject at constant screen size.
+3. **Plate and Pedestal** — Offsets the camera's rotation pivot point to emulate real-world steady cam / fluid head geometry (pivot below/behind the sensor). Adjust plate offset X/Z to mimic specific rigs. Subtle but critical for cinematic realism.
+4. **Follow (character)** — Click Follow → pick subject (camera jumps 300 units to side). Add positional damping to decouple camera from subject jitter. Drag camera to adjust spatial relationship; offset back-propagates to follow offset automatically.
+5. **Follow (vehicles)** — Same flow as characters. Add Look At on the car for dynamic FOV Zolly effect. Combine with Sequencer to keyframe relative position changes while tracking continues.
+6. **Multiple Subjects** — Set subject mode to Multiple Subjects. Pick subject one + two. Camera frames both actors' combined bounding box. Add Dynamic FOV to handle variable distances (subjects approach/diverge).
+7. **Keyframe Weights** — With multiple subjects, keyframe individual subject weights (0–1) in Sequencer. Cut between subjects by ramping one weight down and another up. Can target specific bones (type bone name, disable actor bounds, set bounding radius). Useful for detailed setups like space vehicles with multiple camera target points.
+8. **Cross Camera** — Drop Cross Camera actor. Assign Subject Left + Subject Right (e.g., two dialogue characters). Camera positions itself relative to both. Adjust heading, camera height, follow distance. Look At targets one character's head bone. Cross Camera is relative to the two subjects' midpoint.
+9. **Camera Switcher** — Drag Camera Switch Actor into level. In Cameras array, bind cameras to keyboard keys. Live-switch during playback. Extremely powerful for MoCap, eSports, live events — an army of Black Eye cameras all tracking dynamically.
+10. **Keyframe Composition in Sequencer** — Add LookAt channel → Screen Space Position. Keyframe subject position on screen (e.g., move from left third to right third over the shot). Black Eye handles all rotation math while you control what appears where on screen.
+11. **Bake to CineCameraActor** — Create CineCameraActor, drag to Sequencer. Select the Black Eye camera → Linked Cameras → set target CineCameraActor → hit Record. Bakes all procedural animation to dense keyframes on every channel. Ready for DCC export / NukeX round-trip.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Black Eye LookAt** — core camera type; params: subject, bone name, use component bounds, bounding radius, Dynamic FOV
+- **Black Eye Follow** — translation component; params: subject, follow offset (spatial relationship, keyframeable), positional damping
+- **Plate and Pedestal** — pivot point offset; X (forward/back), Z (up/down) mimic real-world rig geometry
+- **Multiple Subjects** — subject mode; adds subject array; white bounding box = combined frame of all subjects
+- **Keyframe Weights** — per-subject weight in multi-subject mode; keyframeable 0→1 in Sequencer
+- **Cross Camera** — two-subject follow+look-at; params: heading, camera height, follow distance; look-at targets one bone
+- **Camera Switcher** — actor with camera array bound to keyboard keys; enable Camera Manager for blends
+- **Screen Space Position** — Sequencer channel under LookAt; keyframe where the subject appears on screen (0,0 = center)
+- **Linked Cameras** — bake target for recording Black Eye output to CineCameraActor keyframes
+- **CVARs** — `blackeye.guides 0/1`, `blackeye.cameranames`, `blackeye.frustums`; exposed under Eyeball → Black Eye
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Fab install method = UE 5.4+; "before 5.6 it's under show button" confirms tutorial spans multiple versions)
 
 ### Tags
-[PENDING EXTRACTION]
+`#blackeye-v1` `#camera` `#cinematics` `#sequencer` `#blueprints` `#intermediate` `#advanced`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unreal-engine-black-eye-cameras-v2-start-here-tutorial]] — v2 version; adds Orbit Camera, Camera Manager, gameplay system, Save-in-Play
+- [[unreal-engine-black-eye-cameras-version-11-new-features-cross-camera]] — Cross Camera feature detail
+- [[unreal-engine-black-eye-cameras-cam-switcher-tutorial]] — Camera Switcher dedicated tutorial
+- [[unreal-engine-black-eye-cameras-bake-down-cam-anims]] — Baking cameras dedicated tutorial
+- [[unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics]] — car-specific applications
+- [[plugin-blackeye-versions]] — version history and compatibility

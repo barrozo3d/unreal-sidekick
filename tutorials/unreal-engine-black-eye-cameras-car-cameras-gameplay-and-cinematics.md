@@ -4,9 +4,10 @@ source: YouTube
 url: https://www.youtube.com/watch?v=4X16gnNVD1E
 author: Black Eye Technologies
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: blackeye-v1
+ue_version: "UE 5.x"
+tags: [blackeye-v1, camera, gameplay, cinematics, vehicles, sequencer, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics/
 frame_count: 8
 ---
@@ -68,27 +69,46 @@ frame_count: 8
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Black Eye Cameras for car scenes: gameplay driving camera with rotational damping + velocity look-ahead, and cinematic car sequences using hybrid keyframing (position keys + procedural tracking) in Sequencer.
 
 ### Summary
-[PENDING EXTRACTION]
+24-minute complete car camera tutorial covering two modes. Gameplay: Simple LookAt + follow-damping + world-space velocity look-ahead for physics-feeling driving cameras. Cinematics: three Sequencer rigs — (1) camera with position keyframes + procedural look-at on a moving car, (2) follow camera rig with keyframed offset positions (sweeping around the car), (3) follow fly-by rig with extra yaw + follow offset + screen-space position tracks. Also covers UE camera shake tracks and velocity look-ahead for both gameplay and cinematics.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Gameplay driving camera** — Drop a Black Eye Simple LookAt. Set auto-assign to player zero, set Look At and Follow on the car. Enable Save-in-Play. Adjust follow offset for distance. Switch Look At from screen space to world space to enable velocity look-ahead. Add follow damping (positional decoupling between camera and vehicle).
+2. **Velocity look-ahead (gameplay)** — With world-space look-at enabled, set velocity look-ahead amount. Camera composition shifts forward proportionally to speed; returns to center when stopped. Works in all directions including reverse.
+3. **Rotational damping** — Controls how much the camera physically responds to the car's rotation (braking lean, acceleration pitch). Dial it so the camera "feels" the car without being slaved to it.
+4. **Cinematic sequence rig 1 (position keyframes + procedural track)** — Drop Black Eye camera in scene. Pick Look At on the car. Add camera to Sequencer with a Transform track. Set a few position keyframes (swoosh behind the car as it drives). Black Eye handles all rotation/tracking automatically.
+5. **Cinematic rig 2 (follow camera, keyframed offsets)** — Set camera to Follow + Look At the car. Add Follow Offset track in Sequencer. Keyframe the offset positions (side → middle → other side → low angle). Camera sweeps around the car; composition stays procedural.
+6. **Cinematic rig 3 (follow fly-by)** — Follow + Look At the car. Add Sequencer tracks: Extra Yaw, Follow Offset, Screen Space Position. Keyframe the yaw (camera swings from front to side), offset (low angle near logo), and screen-space composition (offset left/right). Result: a buttery sweeping flyby with ~5 keyframes.
+7. **Camera shakes** — Add Camera Shake track in Sequencer. Use included noise camera shakes under plugin content (enable Show Plugin Content). Set duration to 0 for infinite. Tune amplitude. Note: author prefers non-noise shakes; treats these as a quick start.
+8. **Velocity look-ahead (cinematic)** — Same system as gameplay. Camera composition shifts toward front of car at speed, returns to center when stopped. Works with follow and look-at cameras.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Black Eye Simple LookAt** — v1 camera type; handles rotation toward subject, screen-space or world-space look-at mode
+- **Follow** — v1 follow component; positional damping decouples camera position from vehicle
+- **Follow damping** — viscous lag between camera and subject position
+- **Follow offset** — fixed spatial offset from followed subject; keyframeable in Sequencer
+- **World-space Look At** — enables velocity look-ahead; contrast with screen-space (no look-ahead)
+- **Velocity look-ahead** — shifts composition target proportionally to subject velocity
+- **Extra Yaw track** — Sequencer track; camera's yaw relative to its look-at subject
+- **Screen Space Position track** — Sequencer track; procedural composition offset (left/right/up/down) keyframeable
+- **Camera Shake track** — UE native; add noise shake profiles from `Engine/Plugins/Black Eye/examples/` (requires Show Plugin Content). Set duration = 0 for infinite loop.
+- **Dynamic FOV** — auto-zoom to keep subject at constant screen size (Zolly effect); used for vehicle framing
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Black Eye v1 camera types — Simple LookAt, Follow; Fab install method shown)
 
 ### Tags
-[PENDING EXTRACTION]
+`#blackeye-v1` `#camera` `#gameplay` `#cinematics` `#vehicles` `#sequencer` `#intermediate`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unreal-engine-black-eye-cameras-car-camera-intro]] — 1.5-min teaser for this tutorial
+- [[unreal-engine-black-eye-cameras-v2-start-here-tutorial]] — v2 system; Orbit Camera replaces Simple LookAt for gameplay
+- [[unreal-engine-black-eye-cameras-start-here-tutorial]] — v1 full system overview including cinematic rig techniques
+- [[unreal-engine-black-eye-cameras-thats-a-cool-shot-1-pedestal-pan]] — another hybrid Sequencer keyframing example
