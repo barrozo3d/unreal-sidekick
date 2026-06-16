@@ -1,12 +1,13 @@
----
+﻿---
 title: Auto-Tag & Sort 1000 UE5 Assets/Month with This FREE Content Browser
 source: YouTube
 url: https://www.youtube.com/watch?v=I58cCdLiVF4
 author: Polygonflow Dash
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: dash-1.5
+ue_version: "UE 5.x"
+tags: [dash-1.5, ai-tagging, content-library, asset-management, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/auto-tag-sort-1000-ue5-assetsmonth-with-this-free-content-browser/
 frame_count: 6
 ---
@@ -58,27 +59,40 @@ frame_count: 6
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Dash AI Tagging system in the Project Library tab — Compute assigns vision-AI-generated tags to all project assets, enabling property-based search (color, type, material, shape) beyond file names, with + and - search operators for Boolean filtering.
 
 ### Summary
-[PENDING EXTRACTION]
+2.5-minute demo of the Dash Project Library AI tagging workflow. Select a folder → click Compute → Dash AI analyzes asset thumbnails and assigns descriptive tags. After computing, right-click any asset to view physical size, triangle count, and generated tags. Search by name or property keyword (`books`, `food`, `orange` for color), combine with `+` (include additional tags) or `-` (exclude a tag) operators. Shown as a free tier feature of the Dash Content Browser.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Open Dash Content Browser** — Dash toolbar → Content menu → Content Browser
+2. **Go to Project Library tab** — shows folder tree on left with project assets
+3. **Select folder** — click the folder containing your assets in the left tree
+4. **Click Compute** — Dash AI processes asset thumbnails; may take a few minutes for large libraries
+5. **Right-click asset** — view Asset Details: physical size, triangle count, generated AI tags
+6. **Search by property** — type `plant`, `food`, `orange`, `blueprint`, `material` etc.; returns all assets with matching tags even if not in filename
+7. **Boolean operators** — `food + kitchen` = assets tagged with food AND including kitchen-tagged; `food + kitchen - material` = exclude materials; note: space required before operators
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Project Library tab** — folder tree on left; shows project assets; separate from Poly Haven / Fab tabs
+- **Compute button** — triggers AI vision tagging for selected folder; processes thumbnails; runs once, result persists across projects
+- **AI Tags** — generated from thumbnail image analysis; describe shape, color, material, type, function
+- **Search syntax** — plain term = name or tag match; `term1 + term2` = include both; `term1 - term2` = exclude second tag class
+- **Right-click → Asset Details** — physical size (cm), triangle count, tag list
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Dash 1.5+)
 
 ### Tags
-[PENDING EXTRACTION]
+`#dash-1.5` `#ai-tagging` `#content-library` `#asset-management` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[best-free-unreal-engine-5-asset-management-plugin-in-2025]] — full Content Browser feature overview including Batch Edit tags, Collections, cross-project
+- [[centralized-content-browser-for-ue5---free-plugin]] — cross-project access using computed tags
+- [[2000-free-high-quality-assets-for-any-unreal-engine-project]] — Poly Haven + IES library in Content Browser
+- [[architecture-scenes-made-easy-in-unreal-engine-5---dash-tutorial]] — AI tagging in full archviz workflow

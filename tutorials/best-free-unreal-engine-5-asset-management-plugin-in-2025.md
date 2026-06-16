@@ -1,12 +1,13 @@
----
+﻿---
 title: BEST FREE UNREAL ENGINE 5 ASSET MANAGEMENT PLUGIN IN 2025
 source: YouTube
 url: https://www.youtube.com/watch?v=bsy4xZvhOqs
 author: Polygonflow Dash
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: dash-1.9
+ue_version: "UE 5.x"
+tags: [dash-1.9, asset-management, content-library, polyhaven, ai-tagging, collections, fab, megascans, ies-lights, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/best-free-unreal-engine-5-asset-management-plugin-in-2025/
 frame_count: 9
 ---
@@ -73,27 +74,47 @@ frame_count: 9
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Comprehensive Dash Content Browser overview (free tier) — Poly Haven library (2000 assets + auto-PBR), Fab tab (downloaded assets with tags), Quixel Bridge tab (Megascans Atlas), IES library, Project Library AI tagging with Batch Edit, Unified View with + / - Boolean search, and Collections (personal + shared team sync).
 
 ### Summary
-[PENDING EXTRACTION]
+8-minute complete guide by Tomáš covering every feature of the free Dash Content Browser as of 2025. Key differentiators vs native UE Content Browser: AI-generated property tags (not just names), unified search across all asset sources, cross-project access (compute once → available everywhere), and a Collections system for team-shared curation. Fab tab shows downloaded Fab assets with tags; Quixel tab exposes Megascans Atlas (via standalone Bridge, still available March 2025). Preferences → Search for External Projects auto-discovers computed project folders.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Open Content Browser** — Dash icon (top left) → Content menu → window opens with tabs: Fab, Quixel Bridge, Poly Haven, IES, Project Library
+2. **Poly Haven** — browse 2000 meshes/materials/HDRIs; Ctrl+scroll = reveal resolution options; right-click = tags + properties; drag to scene = auto-PBR material
+3. **Fab tab** — assets downloaded via Fab plugin appear here automatically with AI tags
+4. **Quixel Bridge tab** — Megascans downloaded via standalone Bridge software appear here; Megascans Atlas only via standalone Bridge (not Fab plugin as of March 2025); configure Preferences if assets missing
+5. **IES library** — browse photometric light profiles; drag to scene
+6. **Project Library → Compute** — select folder → Compute → AI vision tags assigned from thumbnails
+7. **Edit tags** — double-click single asset = edit tags; Shift-select multiple + Batch Edit = bulk tag editing
+8. **Cross-project access** — computed assets available in any UE project; Preferences → Search for External Projects if not visible; or add project folder manually
+9. **Unified View** — all sources in one search panel; `tool - hdri` excludes HDRIs; `tool + box` broadens search; note: space required before operators
+10. **Collections** — Shift+select assets → drag to collection; right-click → Create Shared Version; team gets notifications on shared collection modifications
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Fab tab** — Fab plugin downloads appear automatically with auto-AI tags
+- **Quixel Bridge tab** — standalone Bridge exports appear here; Megascans Atlas requires standalone Bridge (not Fab plugin) as of March 2025; check Preferences if paths missing
+- **IES Library** — photometric light profile browser; drag to scene
+- **Project Library → Compute** — AI vision tagging; analyzes thumbnails; tags persist across all UE projects once computed
+- **Batch Edit** — select multiple assets → Batch Edit; modify tags on multiple assets simultaneously
+- **Cross-project asset use** — original files remain in source project; UE mirrors file structure when asset is used; no copy/migration needed
+- **Unified View** — combined search across Poly Haven + Fab + Quixel + IES + Project Library in one panel
+- **Search operators** — space before operator required: `term1 + term2` (include), `term1 - term2` (exclude)
+- **Collections** — personal and shared; team notifications on shared collection changes; load or override changes
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Dash 1.9)
 
 ### Tags
-[PENDING EXTRACTION]
+`#dash-1.9` `#asset-management` `#content-library` `#polyhaven` `#ai-tagging` `#collections` `#fab` `#megascans` `#ies-lights` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[auto-tag-sort-1000-ue5-assetsmonth-with-this-free-content-browser]] — AI tagging focused walkthrough
+- [[centralized-content-browser-for-ue5---free-plugin]] — cross-project access deep dive
+- [[2000-free-high-quality-assets-for-any-unreal-engine-project]] — Poly Haven + IES library showcase
+- [[dash-19---managing-assets-in-ue5-just-got-a-lot-easier]] — Dash 1.9 feature overview

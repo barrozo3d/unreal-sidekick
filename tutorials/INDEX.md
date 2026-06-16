@@ -1281,9 +1281,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=rjTv9jWfY4s
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.6
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.6` `#content-library` `#asset-management` `#cross-project` `#ai-tagging` `#polyhaven` `#beginner`
+- **Summary:** Dash 1.6 cross-project asset access — Compute assets in source project once → available in every future UE5 project via Preferences → Search for External Projects. AI tagging optional for property-based search. Original files stay in source project; UE mirrors file structure on use. Recommended: one master asset project or category-specific projects.
 - **File:** tutorials/centralized-content-browser-for-ue5---free-plugin.md
 
 
@@ -1291,9 +1292,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=HXyU7Z_Hz_U
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.5
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.5` `#content-library` `#polyhaven` `#ies-lights` `#ai-tagging` `#asset-management` `#beginner`
+- **Summary:** Showcase of the free Dash Content Browser's Poly Haven tab (2000+ meshes/materials/HDRIs with auto-PBR on drop + AI tag search) and IES photometric light library. No separate downloads — drag assets directly from Dash into any UE project. AI tags enable color/type/property search beyond filenames.
 - **File:** tutorials/2000-free-high-quality-assets-for-any-unreal-engine-project.md
 
 
@@ -1301,9 +1303,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=I58cCdLiVF4
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.5
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.5` `#ai-tagging` `#content-library` `#asset-management` `#beginner`
+- **Summary:** 2.5-minute demo of Dash Project Library AI tagging — select folder → Compute → AI assigns property-based tags from thumbnails. Right-click assets for size/triangle count/tags. Search by property (`food`, `orange`, `blueprint`) with + (include) and - (exclude) Boolean operators. Free tier feature.
 - **File:** tutorials/auto-tag-sort-1000-ue5-assetsmonth-with-this-free-content-browser.md
 
 
@@ -1311,9 +1314,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=bsy4xZvhOqs
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.9
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.9` `#asset-management` `#content-library` `#polyhaven` `#ai-tagging` `#collections` `#fab` `#megascans` `#ies-lights` `#beginner`
+- **Summary:** Comprehensive Dash Content Browser guide by Tomáš — Poly Haven (2000 assets + auto-PBR), Fab tab, Quixel Bridge/Megascans Atlas tab (standalone Bridge required as of March 2025), IES library, Project Library AI tagging with Batch Edit, cross-project access, Unified View with Boolean search operators, and Collections system (personal + team-shared with notifications).
 - **File:** tutorials/best-free-unreal-engine-5-asset-management-plugin-in-2025.md
 
 
@@ -1444,9 +1448,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=N7XLl348vG4
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.6
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.6` `#architecture` `#archviz` `#scatter` `#radial-scatter` `#cable-tool` `#physics` `#ai-tagging` `#terrain` `#lighting` `#intermediate`
+- **Summary:** 18-minute full archviz workflow by Tomáš — concrete material drag-drop, AI tagging, Radial Scatter for spiral staircase (count=18, radius=0), foliage wall with Proximity Mask exclusion, Physics Paint for debris, Quick Pipe Tool for cables, Terrain + Poly Haven texture, cross-project tree access (Dash 1.6), rect/IES lights, Cable Tool string lights, camera post-process polish.
 - **File:** tutorials/architecture-scenes-made-easy-in-unreal-engine-5---dash-tutorial.md
 
 

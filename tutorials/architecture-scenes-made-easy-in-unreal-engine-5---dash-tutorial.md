@@ -1,12 +1,13 @@
----
+﻿---
 title: Architecture Scenes Made Easy in Unreal Engine 5 - Dash Tutorial
 source: YouTube
 url: https://www.youtube.com/watch?v=N7XLl348vG4
 author: Polygonflow Dash
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: dash-1.6
+ue_version: "UE 5.x"
+tags: [dash-1.6, architecture, archviz, scatter, radial-scatter, cable-tool, physics, ai-tagging, terrain, lighting, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/architecture-scenes-made-easy-in-unreal-engine-5---dash-tutorial/
 frame_count: 17
 ---
@@ -113,27 +114,50 @@ frame_count: 17
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Full Dash archviz workflow by Tomáš — Blender-modeled interior brought to life with Materials, AI Tagging, Radial Scatter (staircase), foliage wall scatter with proximity mask exclusion, Quick Pipe Tool, Physics Paint, terrain, cross-project trees (Dash 1.6), IES/rect lights, Cable Tool string lights, and post-process camera polish.
 
 ### Summary
-[PENDING EXTRACTION]
+18-minute interior archviz tutorial demonstrating nearly the full Dash toolset in one project. Tomáš builds a Blender-imported interior space by layering: drag-drop concrete material, AI-tagged asset search, Radial Scatter for a spiral staircase (count=18, radius=0, adjust height), foliage wall with Proximity Mask invert for window exclusion, Physics simulation for debris and firewood, Quick Pipe/Cable Tool for cables and string lights, cross-project tree access (Dash 1.6 feature), rect/IES lights, decals with Received Decals disabled for concrete-only placement, and camera post-processing.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Apply Megascans material** — drag concrete/material from Dash Content Browser onto mesh; edit inline
+2. **AI Tag assets** — click AI Tagging button → Content Browser → select folder → Compute; search by property (type `books`, `firewood`, `vegetation`)
+3. **Radial Scatter (staircase)** — type `radial` → Radial Scatter Tool → add mesh → Count=18 → Radius=0 → adjust Height; repeat for balustrade wires
+4. **Camera setup early** — type `camera` → CineCameraActor; set all angles before detailing invisible areas
+5. **Foliage wall** — create plane aligned to wall → Ctrl+drag plant → Scatter on Selection → density/scale; duplicate plane scaled down → add to Proximity Mask → set Distance + Invert → moveable mask plane controls foliage boundary
+6. **Planter vegetation** — place small plate inside planter → Ctrl+drag plants onto plate mesh → Scatter Here
+7. **Physics simulation** — select logs/firewood → Physics Tool → Start → duplicate → adjust positions
+8. **Quick Pipe/Cable Tool** — type `pipe` → draw curve (freehand) → Quick Pipe Tool → + curve → set Radius + Smoothness → apply material; add second curve for variation
+9. **Physics Paint** — select wood pieces → Physics Tool → Paint function; Shift+MMB = adjust brush size
+10. **Terrain** — type `terrain` → Dash creates terrain mesh; drop Poly Haven texture for material → adjust UV Scale
+11. **Cross-project trees (Dash 1.6)** — select project folder in Content Browser top bar → access trees from another UE project → drag into scene → Proximity Mask to exclude building
+12. **String lights** — place 3 cubes as anchors → Cable Tool → + objects → adjust Radius + Gravity → Scatter scatter light bulb mesh along cable → set Surface Alignment + Edge Breakup
+13. **Post-processing** — Camera → Adjust Camera Settings → color grade, exposure, bloom, vignette
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Radial Scatter** — type `radial`; parameters: Count, Radius (0 = no offset), Height (Z stacking), Rotation step
+- **Quick Pipe / Cable Tool (Curves)** — draw curve → add to pipe; parameters: Radius (thickness), Smoothness; non-destructive — edit curve = live pipe update
+- **Physics Tool → Paint** — paint objects onto surfaces; Shift+MMB = brush size; random placement + physics settle
+- **Scatter on Selection** — Ctrl+drag any asset onto plane → Scatter Here; scatter respects plane bounds; plane can be hidden after
+- **Proximity Mask (invert)** — add a scale-down mesh as proximity actor; Distance + Invert = exclusion zone around it; moveable for real-time adjustment
+- **Cross-project access (Dash 1.6)** — Content Browser → project folder picker in top bar; access assets computed in external UE project directly
+- **Received Decals (UE Detail Panel)** — uncheck on selected mesh so decals only render on adjacent surface, not the selected one
+- **Cable Tool → Objects mode** — add cube anchors to Objects array; Dash auto-connects cables between them with Gravity + Radius
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Dash 1.6)
 
 ### Tags
-[PENDING EXTRACTION]
+`#dash-1.6` `#architecture` `#archviz` `#scatter` `#radial-scatter` `#cable-tool` `#physics` `#ai-tagging` `#terrain` `#lighting` `#intermediate`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[how-to-create-procedural-cables-in-ue5---world-building-plugin]] — Cable Tool full reference (Objects/Curve/Mixed modes)
+- [[surface-scatter-beginner-guide-to-your-ue5-co-pilot-dash]] — Proximity Mask invert pattern
+- [[new-physics-tool-for-unreal-engine-5]] — Physics Tool basics + Paint mode
+- [[centralized-content-browser-for-ue5---free-plugin]] — Cross-project asset access (Dash 1.6) explained in depth
+- [[beginner-guide-to-ue5-co-pilot-dash-camera-settings]] — Camera Tool + post-process settings

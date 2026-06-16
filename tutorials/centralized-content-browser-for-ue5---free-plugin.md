@@ -1,12 +1,13 @@
----
+﻿---
 title: CENTRALIZED CONTENT BROWSER FOR UE5 - FREE PLUGIN
 source: YouTube
 url: https://www.youtube.com/watch?v=rjTv9jWfY4s
 author: Polygonflow Dash
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: dash-1.6
+ue_version: "UE 5.x"
+tags: [dash-1.6, content-library, asset-management, cross-project, ai-tagging, polyhaven, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/centralized-content-browser-for-ue5---free-plugin/
 frame_count: 5
 ---
@@ -53,27 +54,40 @@ frame_count: 5
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Dash 1.6 cross-project asset access — compute assets in a source project once, then search and drag-drop them into any future UE5 project directly from the Dash Content Browser without migration or re-import.
 
 ### Summary
-[PENDING EXTRACTION]
+5-minute tutorial introducing the centralized/cross-project feature of the free Dash Content Browser. Compute assets in one "source" UE project (with optional AI tagging for property-based search) → open any new project → Preferences → Search for External Projects → computed assets appear and are browseable by keyword. Original file structure from the source project is mirrored in the UE Content Browser when assets are used. Recommended workflows: one master asset project OR category-specific projects (city, nature, stylized).
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Open source project** — the project where your 3D assets live; open Dash Content Browser → Project Library tab
+2. **Select folder** — choose the folder(s) to make globally available; enable AI Tagging option
+3. **Click Compute** — Dash AI processes thumbnails and generates tags; may take a few minutes; runs once and persists
+4. **Open new/target project** — open Dash Content Browser; if external projects not visible → Preferences → Search for External Projects → Dash auto-discovers computed projects
+5. **Search and use** — type keywords (`trees`, `rocks`, `city`) to search across external project assets; drag and drop directly into scene
+6. **Right-click → Asset Details** — view physical size, triangle count, AI-generated tags
+7. **Check UE Content Browser** — source project's file structure is mirrored when assets are used (original files, not copies)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Cross-project compute** — Compute in source project marks assets as globally discoverable; no file migration
+- **Preferences → Search for External Projects** — auto-discovers all UE projects with computed Dash assets on the machine
+- **AI Tagging (optional)** — enables property-based search across external project assets (`trees`, `wooden`, `blue`)
+- **UE Content Browser mirroring** — when an external asset is dropped into a scene, UE creates a reference in the native Content Browser mirroring source folder structure
+- **Organization strategies** — Option A: one master "all assets" project; Option B: category projects (city/nature/stylized) for structured browsing
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Dash 1.6)
 
 ### Tags
-[PENDING EXTRACTION]
+`#dash-1.6` `#content-library` `#asset-management` `#cross-project` `#ai-tagging` `#polyhaven` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[best-free-unreal-engine-5-asset-management-plugin-in-2025]] — full Content Browser feature set including Collections + Unified View
+- [[auto-tag-sort-1000-ue5-assetsmonth-with-this-free-content-browser]] — AI tagging workflow
+- [[architecture-scenes-made-easy-in-unreal-engine-5---dash-tutorial]] — cross-project tree access used in production (Dash 1.6 mention)
+- [[2000-free-high-quality-assets-for-any-unreal-engine-project]] — Poly Haven + IES libraries

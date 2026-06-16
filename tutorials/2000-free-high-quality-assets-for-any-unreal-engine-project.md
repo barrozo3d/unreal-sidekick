@@ -1,12 +1,13 @@
----
+﻿---
 title: 2000 FREE HIGH-QUALITY ASSETS FOR ANY UNREAL ENGINE PROJECT
 source: YouTube
 url: https://www.youtube.com/watch?v=HXyU7Z_Hz_U
 author: Polygonflow Dash
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: dash-1.5
+ue_version: "UE 5.x"
+tags: [dash-1.5, content-library, polyhaven, ies-lights, ai-tagging, asset-management, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/2000-free-high-quality-assets-for-any-unreal-engine-project/
 frame_count: 7
 ---
@@ -63,27 +64,40 @@ frame_count: 7
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Dash Content Browser's free integrated Poly Haven library (2000+ 3D meshes, materials, HDRIs) and IES Lights library — drag-and-drop into UE5 with auto-generated PBR materials and AI search tags, no separate downloads required.
 
 ### Summary
-[PENDING EXTRACTION]
+4-minute showcase of the free Dash Content Browser's external libraries. The Poly Haven tab provides 2000+ 3D meshes, materials, and HDRIs instantly accessible via keyword search (AI tagging searches by properties, not just names); drag-and-drop auto-creates PBR materials from Poly Haven assets. The IES library adds pre-configured photometric lights. No setup required — the Content Browser is a free tier of the Dash plugin.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Open Dash Content Browser** — click Dash icon in toolbar → Content menu → Content Browser window
+2. **Open Poly Haven tab** — browse 3D meshes, materials, HDRIs; Ctrl+scroll = zoom to reveal resolution options
+3. **Search by property** — type `plant`, `green`, `tool`, `outdoor` etc.; AI tags allow property-based search beyond file names
+4. **Select resolution** — choose 1K/2K/4K based on project needs
+5. **Drag into scene** — Dash auto-generates PBR material for meshes; materials drop directly onto mesh
+6. **HDRI tab** — tagged HDRIs; drag into scene to swap background instantly
+7. **IES library tab** — pre-configured IES photometric lights; drag to place with realistic light profiles
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Poly Haven tab** — 2000+ free assets from polyhaven.com; categories: 3D meshes, materials, HDRIs; all AI-tagged
+- **Auto PBR material** — Dash auto-connects Poly Haven texture maps into a ready-to-use PBR material on drop
+- **AI tagging** — property-based search (color, shape, type) beyond file names; runs at compute time
+- **IES Library** — free photometric light profiles; drag to create Point/Rect/Spot light with real-world emission shape
+- **Resolution selector** — Ctrl+scroll to zoom out and reveal 1K/2K/4K options before drop
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Dash 1.5+)
 
 ### Tags
-[PENDING EXTRACTION]
+`#dash-1.5` `#content-library` `#polyhaven` `#ies-lights` `#ai-tagging` `#asset-management` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[best-free-unreal-engine-5-asset-management-plugin-in-2025]] — comprehensive Content Browser feature overview including Collections + Fab tab
+- [[auto-tag-sort-1000-ue5-assetsmonth-with-this-free-content-browser]] — AI tagging for project assets in Project Library
+- [[centralized-content-browser-for-ue5---free-plugin]] — cross-project asset access via Content Browser
+- [[beginner-content-library-tutorial-for-ue5]] — placement modifier keys for dropping assets
