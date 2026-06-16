@@ -724,6 +724,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-for-filmmakers---how-to-make-your-lighting-cinematic.md
 
+
+### FREE Unreal Engine 5.3 Beginner Course - Create Cinematic 3D Worlds
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=mGcyo5rh7l0
+- **Author:** Boundless Entertainment
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/free-unreal-engine-53-beginner-course---create-cinematic-3d-worlds.md
+
 ---
 
 ## Tag Reference
