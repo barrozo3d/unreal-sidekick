@@ -1404,6 +1404,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-to-re-create-the-walking-dead-in-unreal-engine-5---dash-workflow.md
 
+
+### Architecture Scenes Made Easy in Unreal Engine 5 - Dash Tutorial
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=N7XLl348vG4
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/architecture-scenes-made-easy-in-unreal-engine-5---dash-tutorial.md
+
 ---
 
 ## Tag Reference
