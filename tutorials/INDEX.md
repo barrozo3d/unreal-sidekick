@@ -784,6 +784,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-depth-fog-tutorial-path-traced.md
 
+
+### DUNE Cinematography Breakdown | HOW TO GET THE DUNE LOOK
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=ibAyJjNbnpo
+- **Author:** Boundless Entertainment
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/dune-cinematography-breakdown-how-to-get-the-dune-look.md
+
 ---
 
 ## Tag Reference
