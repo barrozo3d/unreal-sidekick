@@ -1484,6 +1484,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/dash-for-ue5-helps-you-organize-your-local-3d-assets-with-ai-tagging.md
 
+
+### How to Edit Megascans and Poly Haven Materials Easily - UE5 Plugin
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=7NKl90gt0w0
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-to-edit-megascans-and-poly-haven-materials-easily---ue5-plugin.md
+
 ---
 
 ## Tag Reference
