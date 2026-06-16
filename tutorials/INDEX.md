@@ -674,6 +674,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-5-compositing-tutorial---composite-any-scene-fully-inside-of-ue5.md
 
+
+### Why Modern VFX Suck (And How to Make Yours Not Suck) PART 2 - Transformers vs Marvel
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=zOcXC-imA5U
+- **Author:** Boundless Entertainment
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/why-modern-vfx-suck-and-how-to-make-yours-not-suck-part-2---transformers-vs-marv.md
+
 ---
 
 ## Tag Reference
