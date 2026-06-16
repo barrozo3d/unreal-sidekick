@@ -1584,6 +1584,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/new-ue5-plugin---easy-environment-creation.md
 
+
+### Beginner Content Library Tutorial for UE5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=J0x7Krbgja4
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/beginner-content-library-tutorial-for-ue5.md
+
 ---
 
 ## Tag Reference
