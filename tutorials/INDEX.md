@@ -1064,6 +1064,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-black-eye-cameras-overview-tutorial.md
 
+
+### Unreal Engine Black Eye Cameras: Change Anims (the cameras are fine)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=VADulk2Gao4
+- **Author:** Black Eye Technologies
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-black-eye-cameras-change-anims-the-cameras-are-fine.md
+
 ---
 
 ## Tag Reference
