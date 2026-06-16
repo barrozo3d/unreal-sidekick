@@ -994,6 +994,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-black-eye-cameras-unleash-your-army-of-camera-operators.md
 
+
+### Unreal Engine Black Eye Cameras: Supercharge your workflow
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=WNkFghUIA7M
+- **Author:** Black Eye Technologies
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-black-eye-cameras-supercharge-your-workflow.md
+
 ---
 
 ## Tag Reference
