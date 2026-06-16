@@ -1664,6 +1664,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/simplify-environment-art-creation-in-unreal-engine-5.md
 
+
+### New Physics Tool for Unreal Engine 5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=pWEnE86hZrM
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/new-physics-tool-for-unreal-engine-5.md
+
 ---
 
 ## Tag Reference
