@@ -1464,6 +1464,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-to-scatter-decals-in-ue5---world-building-plugin.md
 
+
+### How to Create Procedural Cables in UE5 - World Building Plugin
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=uNzCmzeEISU
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-to-create-procedural-cables-in-ue5---world-building-plugin.md
+
 ---
 
 ## Tag Reference
