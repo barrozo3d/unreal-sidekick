@@ -1504,6 +1504,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/whats-new-in-dash-15---ai-content-tagging-tool-presets-more.md
 
+
+### New UE5 Plugin - Adding Detail to Your Game with DASH
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=UO2ehs5OjEw
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/new-ue5-plugin---adding-detail-to-your-game-with-dash.md
+
 ---
 
 ## Tag Reference
