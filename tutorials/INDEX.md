@@ -1134,6 +1134,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-black-eye-cameras-multiple-follow-and-look-at-modules.md
 
+
+### NEW UE5 ASSET MANAGEMENT PLUGIN - NOW FREE ON FAB
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=MwjUZJ7qkIk
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/new-ue5-asset-management-plugin---now-free-on-fab.md
+
 ---
 
 ## Tag Reference
