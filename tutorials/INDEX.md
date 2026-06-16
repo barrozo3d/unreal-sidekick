@@ -1094,6 +1094,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-black-eye-cameras-follow-component-dwell-radius.md
 
+
+### Unreal Engine | Black Eye Cameras: 2 person combat side camera tutorial
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=W4UZ4-vLxxw
+- **Author:** Black Eye Technologies
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-black-eye-cameras-2-person-combat-side-camera-tutorial.md
+
 ---
 
 ## Tag Reference
