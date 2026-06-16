@@ -494,6 +494,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/3d-tracking-natively-in-unreal-engine---full-tutorial.md
 
+
+### I BUILT The Camera Tracking Tool I Always Wished Unreal Had
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=uMJXtDJf6VQ
+- **Author:** Boundless Entertainment
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/i-built-the-camera-tracking-tool-i-always-wished-unreal-had.md
+
 ---
 
 ## Tag Reference
