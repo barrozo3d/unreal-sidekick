@@ -634,6 +634,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-to-make-your-unreal-engine-renders-look-real.md
 
+
+### FASTEST Way to Optimize Unreal Engine 5.6 for Cinematic Renders - Path Tracer Pro
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=BCWThDhzImI
+- **Author:** Boundless Entertainment
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro.md
+
 ---
 
 ## Tag Reference
