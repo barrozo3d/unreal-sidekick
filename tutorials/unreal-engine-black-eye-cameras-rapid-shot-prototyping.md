@@ -4,9 +4,10 @@ source: YouTube
 url: https://www.youtube.com/watch?v=jhNjKV70uzk
 author: Black Eye Technologies
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: blackeye-v1
+ue_version: "UE 5.x"
+tags: [blackeye-v1, camera, cinematics, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-rapid-shot-prototyping/
 frame_count: 4
 ---
@@ -33,27 +34,37 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Rapid shot prototyping with Black Eye: move a camera freely in the scene without keyframes to explore angles and follow setups; the camera always tracks its subject regardless of where you drag it, enabling fast idea exploration.
 
 ### Summary
-[PENDING EXTRACTION]
+2.5-minute workflow tip video. Black Eye cameras track their subjects regardless of camera position — you can grab and move the camera anywhere in the scene and it will re-compose in real time. No keyframes needed to prototype shots. Also demonstrates attaching a camera to a world object (cube) as the Follow target, then pointing LookAt at two characters for a creative dolly rig. Demonstrates: live repositioning, damping adjustment on the fly, attaching to world objects as non-standard follow subjects.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Set up LookAt + Follow** — configure camera as normal (bone tracking, follow on subject).
+2. **Prototype by moving camera** — grab the camera and drag it anywhere. It re-composes and follows automatically. No keyframes needed.
+3. **Tune damping live** — if zoom is pumping, dampen it slightly while repositioning.
+4. **Attach to world object** — click Follow → pick any object in scene (cube, prop). Camera snaps to 300-unit offset from that object. Use Follow Offset to pull camera out if it clips inside.
+5. **LookAt two characters** — while following the world object, add multi-subject LookAt on two characters. Camera is now a moving platform that always looks at the characters.
+6. **Try ideas without keyframes** — test camera angles quickly; when satisfied, add Sequencer for polished version.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **LookAt** — tracks subject during live repositioning; always recomposes
+- **Follow** — can follow any actor (characters, props, world objects); 300-unit default offset
+- **Follow Offset** — pull camera out if Follow target is inside an object
+- **Zoom damping** — reduces pumping if Dynamic FOV is reacting too aggressively during live repositioning
+- **No-keyframe prototyping** — core workflow: drag camera → inspect shot → no commit needed until satisfied
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Black Eye v1)
 
 ### Tags
-[PENDING EXTRACTION]
+`#blackeye-v1` `#camera` `#cinematics` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unreal-engine-black-eye-cameras-overview-tutorial]] — LookAt + Follow setup in detail
+- [[unreal-engine-black-eye-cameras-unleash-your-army-of-camera-operators]] — director workflow using multiple cameras similarly

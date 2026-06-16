@@ -4,9 +4,10 @@ source: YouTube
 url: https://www.youtube.com/watch?v=D_CrTaBzEa4
 author: Black Eye Technologies
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: blackeye-v1.1
+ue_version: "UE 5.x"
+tags: [blackeye-v1, camera, sequencer, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-bake-down-cam-anims/
 frame_count: 4
 ---
@@ -33,27 +34,36 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Black Eye v1.1 Camera Bake: link a Black Eye procedural camera to a destination CineCameraActor and record it in Sequencer to produce dense baked keyframes for DCC round-trips or layered rendering.
 
 ### Summary
-[PENDING EXTRACTION]
+1.5-minute tutorial for the Camera Bake feature introduced in v1.1. Creates a baked, static CineCameraActor with dense keyframes from a Black Eye procedural camera. Use case: you want to export camera animation to Maya/Blender, render in layers, or hand off to a pipeline that expects standard keyframed cameras. Steps: create destination camera → drag to Sequencer → link Black Eye camera to it → hit Bake.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Create a destination CineCameraActor** — standard UE CineCamera; rename it clearly.
+2. **Drag destination camera to Sequencer** — it appears as a new track.
+3. **Select the Black Eye camera → Linked Cameras** — in the Black Eye camera details, find the "Linked Cameras" section.
+4. **Set the destination camera as the bake target** — pick the CineCamera from the Linked Cameras selector.
+5. **Hit Record (Bake)** — Black Eye bakes all procedural motion to dense keyframes on every channel of the destination camera.
+6. **Inspect output** — open the baked camera's Sequencer curves. All transforms are now keyframed. The Black Eye camera is no longer needed for playback.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Camera Bake** — Black Eye v1.1+ feature; found in Black Eye camera Details panel under "Linked Cameras"
+- **Linked Cameras** — array on the Black Eye camera; specifies bake destination CineCameraActor
+- **Record/Bake button** — triggers the bake pass; outputs dense keyframes
+- **CineCameraActor** — standard UE camera; receives baked keyframes; compatible with all DCC exporters
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Black Eye v1.1)
 
 ### Tags
-[PENDING EXTRACTION]
+`#blackeye-v1` `#camera` `#sequencer` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unreal-engine-black-eye-cameras-start-here-tutorial]] — Baking Cameras section (same feature, more context)
+- [[unreal-engine-black-eye-cameras-version-11-new-features-cross-camera]] — other v1.1 new features

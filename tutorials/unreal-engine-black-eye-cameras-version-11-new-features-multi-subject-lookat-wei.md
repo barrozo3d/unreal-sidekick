@@ -4,9 +4,10 @@ source: YouTube
 url: https://www.youtube.com/watch?v=WBgBhPjzzbI
 author: Black Eye Technologies
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: blackeye-v1.1
+ue_version: "UE 5.x"
+tags: [blackeye-v1, camera, cinematics, sequencer, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-version-11-new-features-multi-subject-lookat-wei/
 frame_count: 4
 ---
@@ -33,27 +34,36 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Black Eye v1.1 Multi-Subject LookAt Weights: assign independent weight values per subject on a multi-subject LookAt to blend the camera's attention between different objects or bone targets on the same character.
 
 ### Summary
-[PENDING EXTRACTION]
+1.5-minute feature preview for Multi-Subject LookAt Weights introduced in v1.1. One camera can LookAt two subjects simultaneously with adjustable weight per subject. Demonstrates tracking head and pelvis on the same character at different weights. Blue debug cubes show active subjects. Important limitation at time of recording: weights are not yet keyframeable in Sequencer (that was fixed in v1.1.1 — see [[unreal-engine-black-eye-cameras-version-111-keyable-weights-in-sequencer]]).
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Drop camera + set LookAt** — add Black Eye camera, click Look At → open subjects array.
+2. **Add second subject** — click + in subjects → eyedropper for each. Both show as blue cubes.
+3. **Target bones (not actor bounds)** — for intra-character targeting (head + pelvis): disable actor bounds, type bone names.
+4. **Adjust weights** — each subject has a Weight value (0–1). At weight 1/weight 1, camera averages both; bias toward one by raising its weight and lowering the other.
+5. **Drag to Sequencer** — add to Camera Cuts track to activate.
+6. **Note: not yet keyframeable** — as of v1.1, weights cannot be keyframed in Sequencer. Upgrade to v1.1.1 for keyframeable weights.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Multi-Subject LookAt** — subjects array; each entry has Weight (float 0–∞, normalized internally)
+- **Blue debug cubes** — visualize each active LookAt target and its bounding volume
+- **Bone targeting** — disable "actor bounds"; type bone name manually
+- **Keyframing limitation** — weights not keyframeable in v1.1; fixed in v1.1.1
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Black Eye v1.1)
 
 ### Tags
-[PENDING EXTRACTION]
+`#blackeye-v1` `#camera` `#cinematics` `#sequencer` `#intermediate`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unreal-engine-black-eye-cameras-version-111-keyable-weights-in-sequencer]] — v1.1.1 makes weights keyframeable in Sequencer
+- [[unreal-engine-black-eye-cameras-start-here-tutorial]] — Multiple Subjects + Keyframe Weights sections

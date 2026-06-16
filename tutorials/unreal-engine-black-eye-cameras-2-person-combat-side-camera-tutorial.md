@@ -4,9 +4,10 @@ source: YouTube
 url: https://www.youtube.com/watch?v=W4UZ4-vLxxw
 author: Black Eye Technologies
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: blackeye-v1
+ue_version: "UE 5.x"
+tags: [blackeye-v1, camera, gameplay, combat, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-2-person-combat-side-camera-tutorial/
 frame_count: 4
 ---
@@ -33,27 +34,39 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+2-person combat side camera using Black Eye: multi-subject Follow (two characters) + multi-subject LookAt with bone targeting + Dynamic FOV to keep both fighters framed from the side, like a fighting game camera.
 
 ### Summary
-[PENDING EXTRACTION]
+4-minute tutorial for a fighting-game-style side camera that follows two characters and keeps them both framed. Simple LookAt + Follow in multi-subject mode. Camera positions itself between and beside the two characters (side view). Dynamic FOV zooms to maintain both fighters in frame as they move apart or together. Dynamic compositional damping ensures smooth framing.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Drop Simple LookAt camera** — find under Plugins → Black Eye → Cameras.
+2. **Set Follow, Multiple Subjects** — enable Follow, set mode to Multiple Subjects. Add two subjects, eyedropper left + right characters. Red line between them confirms tracking.
+3. **Reposition camera** — grab camera, move it to the side of the action (perpendicular to the fight plane). Black Eye maintains the offset relationship.
+4. **Set LookAt, Multiple Subjects** — same as Follow: add subjects array, pick both characters for LookAt.
+5. **Enable Dynamic FOV** — keeps both fighters in frame as they approach or separate. Adjust screen size for desired framing margins.
+6. **Tune composition damping** — adjust LookAt damping for smooth framing during fast movement.
+7. **Test with movement** — fighters running toward/away from each other; camera maintains side framing and zooms accordingly.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Simple LookAt** — Black Eye v1 camera type with Follow + LookAt modules
+- **Multiple Subjects (Follow)** — camera position = average of two characters; Red debug line confirms tracking
+- **Multiple Subjects (LookAt)** — camera rotates to compose on both characters
+- **Dynamic FOV** — auto-zooms to keep both subjects in frame; set screen size for framing margins
+- **Composition damping** — smooths camera framing during fast motion
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Black Eye v1)
 
 ### Tags
-[PENDING EXTRACTION]
+`#blackeye-v1` `#camera` `#gameplay` `#combat` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unreal-engine-black-eye-cameras-overview-tutorial]] — Multiple Subjects section
+- [[unreal-engine-black-eye-cameras-v2-start-here-tutorial]] — Cross Camera (v2) for two-subject relationship camera
+- [[unreal-engine-black-eye-cameras-version-11-new-features-cross-camera]] — Cross Camera (v1.1) — alternative for two-subject framing with heading control

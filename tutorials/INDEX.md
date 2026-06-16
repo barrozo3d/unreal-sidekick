@@ -1059,9 +1059,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=WBgBhPjzzbI
 - **Author:** Black Eye Technologies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** blackeye-v1.1
+- **UE Version:** UE 5.x
+- **Tags:** `#blackeye-v1` `#camera` `#cinematics` `#sequencer` `#intermediate`
+- **Summary:** 1.5-minute preview of v1.1 Multi-Subject LookAt Weights: assign individual weight per subject in multi-subject LookAt to blend camera attention. Tracks head + pelvis on same character as example. Note: not yet keyframeable in Sequencer (fixed in v1.1.1).
 - **File:** tutorials/unreal-engine-black-eye-cameras-version-11-new-features-multi-subject-lookat-wei.md
 
 
@@ -1069,9 +1070,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=D_CrTaBzEa4
 - **Author:** Black Eye Technologies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** blackeye-v1.1
+- **UE Version:** UE 5.x
+- **Tags:** `#blackeye-v1` `#camera` `#sequencer` `#beginner`
+- **Summary:** 1.5-minute tutorial for Camera Bake (v1.1): link a Black Eye camera to a destination CineCameraActor in Sequencer → Bake → generates dense keyframes on every channel. For DCC round-trips, layered rendering, or handing off to standard camera pipelines.
 - **File:** tutorials/unreal-engine-black-eye-cameras-bake-down-cam-anims.md
 
 
@@ -1079,9 +1081,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=JGnNpbWiT_0
 - **Author:** Black Eye Technologies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** blackeye-v1
+- **UE Version:** UE 5.x
+- **Tags:** `#blackeye-v1` `#camera` `#cinematics` `#sequencer` `#beginner` `#intermediate`
+- **Summary:** 20-minute early overview: install, LookAt (bone targeting, Dynamic FOV, composition presets, per-axis damping), Multiple Subjects, Plate + Pedestal, Follow with damping, Sequencer multi-cam setup, and hybrid workflow (procedural tracking + position keyframes + Screen Space Position keyframes).
 - **File:** tutorials/unreal-engine-black-eye-cameras-overview-tutorial.md
 
 
@@ -1089,9 +1092,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=VADulk2Gao4
 - **Author:** Black Eye Technologies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** blackeye-v1
+- **UE Version:** UE 5.x
+- **Tags:** `#blackeye-v1` `#camera` `#animation` `#beginner`
+- **Summary:** 1-minute concept demo: Black Eye bone-based cameras (LookAt head + Follow) remain valid when you swap character animations (walk→run). No camera updates needed. Camera always finds the head bone regardless of which animation is playing.
 - **File:** tutorials/unreal-engine-black-eye-cameras-change-anims-the-cameras-are-fine.md
 
 
@@ -1099,9 +1103,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=jhNjKV70uzk
 - **Author:** Black Eye Technologies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** blackeye-v1
+- **UE Version:** UE 5.x
+- **Tags:** `#blackeye-v1` `#camera` `#cinematics` `#beginner`
+- **Summary:** 2.5-minute workflow tip: drag a Black Eye camera anywhere in the scene without keyframes — it always re-composes and tracks. Prototype by exploring angles live. Also shows attaching Follow to a world object (cube) as a creative dolly rig while keeping LookAt on characters.
 - **File:** tutorials/unreal-engine-black-eye-cameras-rapid-shot-prototyping.md
 
 
@@ -1109,9 +1114,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=oYYxZc2jO2c
 - **Author:** Black Eye Technologies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** blackeye-v1
+- **UE Version:** UE 5.x
+- **Tags:** `#blackeye-v1` `#camera` `#gameplay` `#cinematics` `#beginner`
+- **Summary:** 1-minute tutorial on Follow Dwell Radius: a sphere around the subject within which camera follow is ignored. Combine with damping to emulate human camera operator feel (1917-style). Large radius + high damping = organic, floating weight; small radius + low damping = tight follow.
 - **File:** tutorials/unreal-engine-black-eye-cameras-follow-component-dwell-radius.md
 
 
@@ -1119,9 +1125,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=W4UZ4-vLxxw
 - **Author:** Black Eye Technologies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** blackeye-v1
+- **UE Version:** UE 5.x
+- **Tags:** `#blackeye-v1` `#camera` `#gameplay` `#combat` `#beginner`
+- **Summary:** 4-minute tutorial for a fighting-game-style side camera: multi-subject Follow (two characters) + multi-subject LookAt + Dynamic FOV. Camera sits between and beside two fighters, auto-zooms to keep both in frame as they close or separate.
 - **File:** tutorials/unreal-engine-black-eye-cameras-2-person-combat-side-camera-tutorial.md
 
 
@@ -1129,9 +1136,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=hcd3Ohyjr_E
 - **Author:** Black Eye Technologies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** blackeye-v1
+- **UE Version:** UE 5.x
+- **Tags:** `#blackeye-v1` `#camera` `#teaser`
+- **Summary:** 1-minute release announcement. Frame shows Plate + Pedestal feature. Garbled transcript; no actionable steps. See START HERE or Overview tutorials for Plate + Pedestal setup.
 - **File:** tutorials/unreal-engine-black-eye-cameras-november-release.md
 
 
@@ -1139,9 +1147,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=x18zbUJoI9U
 - **Author:** Black Eye Technologies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** blackeye-v1
+- **UE Version:** UE 5.x
+- **Tags:** `#blackeye-v1` `#camera` `#beginner`
+- **Summary:** 32-second visual demo of multi-bone targeting on one character (Head + Torso_5 bones on an animal). No recoverable narration. Shows intra-character multi-subject LookAt for specific body-region framing.
 - **File:** tutorials/unreal-engine-black-eye-cameras-multiple-targets-on-a-character.md
 
 
@@ -1149,9 +1158,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=lzFH7Peyyk0
 - **Author:** Black Eye Technologies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** blackeye-v1
+- **UE Version:** UE 5.x
+- **Tags:** `#blackeye-v1` `#camera` `#beginner`
+- **Summary:** 1.75-minute visual tutorial: one camera rig with multiple Follow subjects (averages positions) AND multiple LookAt subjects independently. Frame shows the setup workflow. No recoverable narration. Follow and LookAt are independent systems with their own subject arrays.
 - **File:** tutorials/unreal-engine-black-eye-cameras-multiple-follow-and-look-at-modules.md
 
 

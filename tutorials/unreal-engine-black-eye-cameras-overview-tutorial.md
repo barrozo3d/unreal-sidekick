@@ -4,9 +4,10 @@ source: YouTube
 url: https://www.youtube.com/watch?v=JGnNpbWiT_0
 author: Black Eye Technologies
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: blackeye-v1
+ue_version: "UE 5.x"
+tags: [blackeye-v1, camera, cinematics, sequencer, beginner, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-overview-tutorial/
 frame_count: 11
 ---
@@ -83,27 +84,48 @@ frame_count: 11
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Black Eye Cameras early overview: installation, LookAt (single + multiple subjects, bone targeting, Dynamic FOV, composition presets), per-axis damping, Plate + Pedestal, Follow with damping, Sequencer multi-cam setup, and hybrid workflows (procedural tracking + position keyframes + screen-space composition keyframes).
 
 ### Summary
-[PENDING EXTRACTION]
+20-minute earlier overview tutorial covering the core Black Eye v1 feature set. Good companion to the v1 START HERE tutorial — more focused on the LookAt module (detailed damping, Dynamic FOV, bone targeting, composition presets) and Sequencer multi-camera setup. Shows the hybrid workflow pattern (procedural LookAt + manual Transform + Screen Space Position keyframes) in detail. This tutorial predates some v1.1 features.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Install** — Marketplace → Library → add to project → Edit Plugins → enable Black Eye → restart.
+2. **Basic LookAt** — Plugins folder → Black Eye → Cameras → LookAt Cine. Place, click Look At, eyedropper → subject. Default: tracks actor bounds.
+3. **Dynamic FOV** — enable Dynamic FOV; set Desired Subject Viewport Size (how big the subject should appear); Zoom Damping controls aggressiveness; FOV stays within telephoto and wide limits.
+4. **Composition presets** — click rule-of-thirds buttons to instantly snap subject to standard compositional positions on screen.
+5. **Bone tracking** — disable actor bounds, type bone name. Now tracking the specific bone, not bounding box.
+6. **Per-axis damping** — set Pitch (vertical) and Yaw (horizontal) damping independently. Values ≈ seconds to catch up. > 1 is heavy/goopy; 0.1–0.2 is natural and weighted. Can link or decouple axes.
+7. **Multiple subjects** — add subjects to array. Camera combines bounding boxes (head + pelvis = cowboy shot or mid-shot across different character sizes). Blue cubes show targets; white box = combined frame.
+8. **Plate + Pedestal** — camera plate distance (forward/back) and pedestal height (up/down) set the pivot point to match real-world rig geometry (tripod, fluid head, steady cam). Subtle but adds cinematic realism.
+9. **Follow** — click Follow → eyedropper → character. Camera jumps 300 units back. Add positional damping (0.1 = weighted, 1.0 = heavy). Grab camera to set desired spatial relationship.
+10. **Sequencer multi-cam** — drag multiple cameras onto Camera Cuts track. Each can have different LookAt + Follow setups. Set shots up per camera in parallel.
+11. **Hybrid workflow** — add Transform track to camera + keyframe position. Black Eye still handles rotation (LookAt). Add Screen Space Position channel → keyframe composition offset per shot moment. Combine for fully procedural tracking + art-directed camera moves.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **LookAt Cine** — primary camera type; all rotation tracking
+- **Dynamic FOV** — desired viewport size (%), zoom damping, telephoto + wide limits
+- **Composition presets** — rule-of-thirds buttons for instant screen placement
+- **Bone targeting** — disable actor bounds + type bone name
+- **Per-axis damping** — Pitch Damping, Yaw Damping; can link or decouple
+- **Multiple subjects** — subjects array; blue cubes per target; white box = combined frame
+- **Plate + Pedestal** — pivot point offset (plate distance + pedestal height)
+- **Follow** — positional tracking; positional damping (0 = rigid, 1+ = heavy)
+- **Screen Space Position** — Sequencer channel under LookAt; keyframeable subject placement on screen
+- **Camera Cuts track** — UE Sequencer track; holds all camera clips
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner / Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Black Eye v1, pre-v1.1)
 
 ### Tags
-[PENDING EXTRACTION]
+`#blackeye-v1` `#camera` `#cinematics` `#sequencer` `#beginner` `#intermediate`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unreal-engine-black-eye-cameras-start-here-tutorial]] — later, more complete v1 START HERE tutorial
+- [[unreal-engine-black-eye-cameras-v2-start-here-tutorial]] — v2 version with gameplay cameras + Camera Manager
+- [[unreal-engine-black-eye-cameras-look-around-tutorial]] — per-axis damping + dead zones in more detail

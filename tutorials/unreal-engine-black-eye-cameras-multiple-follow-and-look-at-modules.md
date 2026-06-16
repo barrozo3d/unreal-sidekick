@@ -4,9 +4,10 @@ source: YouTube
 url: https://www.youtube.com/watch?v=lzFH7Peyyk0
 author: Black Eye Technologies
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: blackeye-v1
+ue_version: "UE 5.x"
+tags: [blackeye-v1, camera, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-multiple-follow-and-look-at-modules/
 frame_count: 4
 ---
@@ -31,27 +32,36 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Black Eye multiple Follow and LookAt modules on a single camera rig: one camera can simultaneously follow multiple subjects and look at multiple subjects independently, with the subjects configured in separate arrays.
 
 ### Summary
-[PENDING EXTRACTION]
+1.75-minute tutorial demonstrating having multiple Follow targets and multiple LookAt targets on a single Black Eye camera rig. Frame shows: "Select a Black Eye camera rig / Select the stuff you want to follow" — the video walks through adding multiple entries to both the Follow and LookAt subject arrays. No narration recoverable from audio. Key concept: Follow and LookAt are independent systems with their own subject arrays; a camera can follow the average position of multiple objects while simultaneously looking at a different set of subjects.
 
 ### Key Steps
-[PENDING EXTRACTION]
+N/A — visual demo only (audio transcript empty). Core workflow:
+1. Select Black Eye camera rig.
+2. Click Follow → open subjects → add multiple entries via + → eyedropper each subject.
+3. Click LookAt → open subjects → add multiple entries → eyedropper each.
+4. Adjust weights and damping per-system as needed.
+5. Camera position = weighted average of Follow subjects; camera rotation = composite of LookAt subjects.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Follow subjects array** — multiple targets; camera position = weighted average of all Follow positions
+- **LookAt subjects array** — multiple targets; camera rotation = composite look-at of all LookAt positions
+- **Independent systems** — Follow and LookAt can track completely different objects simultaneously
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Black Eye v1)
 
 ### Tags
-[PENDING EXTRACTION]
+`#blackeye-v1` `#camera` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unreal-engine-black-eye-cameras-overview-tutorial]] — Multiple Subjects section (foundational)
+- [[unreal-engine-black-eye-cameras-version-11-new-features-multi-subject-lookat-wei]] — per-subject LookAt weights
+- [[unreal-engine-black-eye-cameras-version-111-keyable-weights-in-sequencer]] — keyframeable weights for multi-subject

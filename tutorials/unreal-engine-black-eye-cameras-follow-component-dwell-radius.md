@@ -4,9 +4,10 @@ source: YouTube
 url: https://www.youtube.com/watch?v=oYYxZc2jO2c
 author: Black Eye Technologies
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: blackeye-v1
+ue_version: "UE 5.x"
+tags: [blackeye-v1, camera, gameplay, cinematics, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-follow-component-dwell-radius/
 frame_count: 4
 ---
@@ -33,27 +34,35 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Black Eye Follow Dwell Radius: a sphere around the subject within which camera follow motion is ignored; combine with positional damping to emulate human camera operator behaviors like the 1917 continuous-shot follow rig.
 
 ### Summary
-[PENDING EXTRACTION]
+1-minute tutorial on the Follow Dwell Radius feature. Inspired by 1917's complex follow-camera choreography (dollies, arms on cars, human operators passing the camera). The dwell radius (red sphere around subject) creates a "dead zone" for positional follow — camera ignores all subject motion inside the sphere. Outside the sphere, positional damping adds heavy organic weight. Adjusting dwell radius + damping creates a wide range of follow personalities from rigid to floaty.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Set Follow on character** — standard Follow setup.
+2. **Enable Dwell Radius** — sets a red sphere around the follow subject. Visible in viewport.
+3. **Adjust dwell radius size** — large sphere: camera stays still until subject travels far outside the center; small sphere: camera follows very tightly.
+4. **Add positional damping** — the "line" off the sphere visualizes damping; controls how slowly the camera "catches up" after the subject exits the dwell radius. Heavy values = soft, organic, weighted feel.
+5. **Combine for personality** — large radius + high damping = very loose, human-operator feel; small radius + low damping = tight follow.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Follow Dwell Radius** — sphere around follow subject; camera ignores motion within the sphere
+- **Red sphere debug visualizer** — visible in viewport; size matches dwell radius
+- **Positional damping** — how quickly camera catches up after subject exits dwell radius; "line" off sphere indicates amount
+- **Combination** — dwell radius + damping = complete follow personality control
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Black Eye v1)
 
 ### Tags
-[PENDING EXTRACTION]
+`#blackeye-v1` `#camera` `#gameplay` `#cinematics` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unreal-engine-black-eye-cameras-v2-start-here-tutorial]] — Dwell Radius section in v2 START HERE (same concept, more detail)
+- [[unreal-engine-black-eye-cameras-overview-tutorial]] — Follow damping system context

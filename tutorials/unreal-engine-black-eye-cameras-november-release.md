@@ -4,9 +4,10 @@ source: YouTube
 url: https://www.youtube.com/watch?v=hcd3Ohyjr_E
 author: Black Eye Technologies
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: blackeye-v1
+ue_version: "UE 5.x"
+tags: [blackeye-v1, camera, teaser]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-november-release/
 frame_count: 4
 ---
@@ -33,27 +34,28 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+November release showcase video. Frame shows "Adjust camera plate and pedestal position" — likely a release preview/demo focused on the Plate + Pedestal feature and rig pivot emulation. Garbled transcript; no actionable steps recoverable.
 
 ### Summary
-[PENDING EXTRACTION]
+1-minute release announcement/showcase for a November update to Black Eye Cameras. Frame confirms the video demonstrates the Plate + Pedestal camera pivot system ("Adjust camera plate and pedestal position" shown in viewport). Audio transcript is garbled and not useful. For Plate + Pedestal setup details see [[unreal-engine-black-eye-cameras-overview-tutorial]] or [[unreal-engine-black-eye-cameras-start-here-tutorial]].
 
 ### Key Steps
-[PENDING EXTRACTION]
+N/A — release announcement; no actionable steps from transcript.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Plate + Pedestal** — camera pivot offset feature; focus of this release; see START HERE and Overview tutorials for setup
 
 ### Difficulty
-[PENDING EXTRACTION]
+N/A (release preview)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Black Eye v1)
 
 ### Tags
-[PENDING EXTRACTION]
+`#blackeye-v1` `#camera` `#teaser`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unreal-engine-black-eye-cameras-start-here-tutorial]] — Plate and Pedestal section
+- [[unreal-engine-black-eye-cameras-overview-tutorial]] — Plate + Pedestal section

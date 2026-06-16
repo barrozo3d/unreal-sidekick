@@ -4,9 +4,10 @@ source: YouTube
 url: https://www.youtube.com/watch?v=VADulk2Gao4
 author: Black Eye Technologies
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: blackeye-v1
+ue_version: "UE 5.x"
+tags: [blackeye-v1, camera, animation, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-change-anims-the-cameras-are-fine/
 frame_count: 4
 ---
@@ -33,27 +34,34 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Black Eye cameras remain valid when character animations change — bone-based tracking (head + follow) is animation-agnostic, so the same camera setup works for walk, run, or any other animation.
 
 ### Summary
-[PENDING EXTRACTION]
+1-minute concept demo. Sets up a Black Eye camera following a character's position + looking at its head, then swaps the character's animation from walk to run. The camera adapts automatically to the new speed and movement rhythm because it tracks the head bone, not the animation clip. The camera is always oriented toward the head and maintains the desired follow distance — "the cameras are fine" when animations change.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Set up LookAt on head bone** — camera looks at the head, not actor bounds.
+2. **Set Follow on character** — camera follows position with follow distance and loose damping.
+3. **Adjust composition** — set screen size, composition placement while character is in default anim.
+4. **Swap animation** — change the character's running animation to another (walk→run or vice versa).
+5. **No camera changes needed** — camera still correctly frames the head and follows at the same distance. Works with any animation speed.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **LookAt (head bone)** — targets the head bone; animation-agnostic; always finds the bone regardless of animation playing
+- **Follow** — world-space follow at set distance; adjusts to new movement speed automatically via damping
+- **Follow damping** — loose/small value; camera follows loosely, giving it some weight
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Black Eye v1)
 
 ### Tags
-[PENDING EXTRACTION]
+`#blackeye-v1` `#camera` `#animation` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unreal-engine-black-eye-cameras-overview-tutorial]] — full LookAt + Follow system explanation
+- [[unreal-engine-black-eye-cameras-look-around-tutorial]] — bone-targeting + damping in more detail
