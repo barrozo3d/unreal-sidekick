@@ -1200,9 +1200,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=EN6X-d6DIb0
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.10
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.10` `#presets` `#compound-presets` `#path-scatter` `#physics-paint` `#decal-scatter` `#blueprint-scatter` `#world-building` `#intermediate`
+- **Summary:** Dash 1.10 preset system overhaul — single-tool presets (global/project scope), compound presets (multi-tool with editable reference table), dedicated Preset Library in Content Browser, built-in Quaternius free presets. New: PathScatter supports Decal and Blueprint Actor scatter; Physics Paint gained min/max scale range.
 - **File:** tutorials/dash-110---procedural-scatter-presets-in-ue5.md
 
 
@@ -1551,9 +1552,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=i6GTbioHD4k
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.4
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.4` `#scatter` `#path-scatter` `#curves` `#environment-art` `#world-building` `#beginner`
+- **Summary:** Dash 1.4 Path Scatter complete guide by Jonathan — draw curve (Ctrl+MMB=vertex density), assign curve+mesh to PathScatter, density, min/max scale, offset/gap/jitter, forward/side/vertical XYZ offset, align-to-curve + step size, random rotation per axis, stagger, snap-to-terrain, multi-curve/mesh support. Demo combines Surface Scatter (trees/ground cover) + Path Scatter (rocky boundary) for rapid environment building.
 - **File:** tutorials/path-scatter-beginner-guide-to-your-ue5-co-pilot-dash.md
 
 
@@ -1571,9 +1573,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=D4IPvlypNkg
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.4
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.4` `#scatter` `#surface-scatter` `#proximity-masking` `#vertex-color-masking` `#texture-masking` `#feature-masking` `#environment-art` `#intermediate`
+- **Summary:** Dash 1.4 Surface Scatter deep dive by Jonathan — density/scale/noise, Feature Masking (angle/height/raycast mesh), Proximity (distance/invert/curve), Object Masking (precise/bounding-box cube trick), Vertex Color Masking (live non-destructive), Texture Masking (any UE texture), border break-up, fall-off. Pro tip: transparent cube + object masking = moveable portable scatter zone.
 - **File:** tutorials/surface-scatter-beginner-guide-to-your-ue5-co-pilot-dash.md
 
 
@@ -1622,9 +1625,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=J0x7Krbgja4
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.4
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.4` `#content-library` `#placement-tool` `#scatter` `#beginner`
+- **Summary:** 2.5-minute Dash Content Library beginner intro by Jonathan — open with B icon, browse/search Megascans assets, full placement modifier key system (LMB=move, Ctrl+LMB=scale, Shift+LMB=rotate, Ctrl+Shift+LMB=scale-along-normal, Ctrl+RMB=width/height, Shift+RMB=off-normal rotate), Ctrl+drag = Surface Scatter or Physics entry point.
 - **File:** tutorials/beginner-content-library-tutorial-for-ue5.md
 
 
@@ -1632,9 +1636,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=N8kCskb3V1k
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-early
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-early` `#terrain` `#world-building` `#beginner`
+- **Summary:** 2.5-minute Dash terrain beginner guide by Jonathan — type `create terrain`, all parameters explained: UV Scale, Curved (edge warp), Sink (overall height), Subdivision (poly density), Turbulence (mid noise), Height (large hills, turbulence-driven), Mid-Turbulence (fine detail), Seed (randomize variant). Slider speed: default=slow, Ctrl=faster, Alt=fastest. Apply material from Content Library.
 - **File:** tutorials/beginner-terrain-tool-tutorial-for-ue5.md
 
 
