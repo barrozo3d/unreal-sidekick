@@ -1224,6 +1224,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-56-physics-tools-asset-placement-piles-tutorial.md
 
+
+### PROCEDURAL WORLD BUILDING FOR UE5 - PCG ALTERNATIVE
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=KsgW-19y4ts
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/procedural-world-building-for-ue5---pcg-alternative.md
+
 ---
 
 ## Tag Reference
