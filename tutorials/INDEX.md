@@ -714,6 +714,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-for-filmmakers---add-cinematic-vfx-to-your-films-for-free---ue5-pa.md
 
+
+### Unreal Engine for Filmmakers - How to Make your Lighting CINEMATIC
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=SMCTeoj9YaA
+- **Author:** Boundless Entertainment
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-for-filmmakers---how-to-make-your-lighting-cinematic.md
+
 ---
 
 ## Tag Reference
