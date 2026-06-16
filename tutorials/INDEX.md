@@ -774,6 +774,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-for-filmmakers---cinematic-camera-settings-setting-up-virtual-came.md
 
+
+### Unreal Engine Depth Fog TUTORIAL [Path Traced]
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=0ltfUCHwevY
+- **Author:** Boundless Entertainment
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-depth-fog-tutorial-path-traced.md
+
 ---
 
 ## Tag Reference
