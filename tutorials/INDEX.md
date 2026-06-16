@@ -834,6 +834,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/3d-tracked-camera-from-after-effects-to-unreal-engine-tutorial.md
 
+
+### Unreal Engine Black Eye Cameras v2: START HERE Tutorial
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=vs6yjL-l_FQ
+- **Author:** Black Eye Technologies
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-black-eye-cameras-v2-start-here-tutorial.md
+
 ---
 
 ## Tag Reference
