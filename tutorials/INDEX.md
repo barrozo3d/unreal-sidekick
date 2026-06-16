@@ -1014,6 +1014,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-black-eye-cameras-crazy-millennium-falcon-shot-with-only-7-keyfram.md
 
+
+### Unreal Engine Black Eye Cameras: Version 1.1.1: Keyable Weights in Sequencer
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=94UWBG7hKDI
+- **Author:** Black Eye Technologies
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-black-eye-cameras-version-111-keyable-weights-in-sequencer.md
+
 ---
 
 ## Tag Reference
