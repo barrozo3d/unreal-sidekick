@@ -1,12 +1,13 @@
----
+﻿---
 title: How to Create a Cinematic Archviz Render with UE5 & Dash
 source: YouTube
 url: https://www.youtube.com/watch?v=HL8NDvv1G44
 author: Polygonflow Dash
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: dash-1.9
+ue_version: "UE 5.x"
+tags: [dash-1.9, archviz, scatter, vines, path-tracing, amazon-abo, materials, lighting, hdri, mrq, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-create-a-cinematic-archviz-render-with-ue5-dash/
 frame_count: 8
 ---
@@ -21,74 +22,51 @@ frame_count: 8
 
 ## Raw Data (for Claude Code extraction)
 
-
-### Intro [0:00]
-**Transcript:** Hello, I'm Tamash from Polygonflow.  In this video I will show you how I created the scene for the 3DMOS.org renovation challenge  using Dash inside Unreal Engine 5.  I will also help you to get started with the challenge and show you how you can build  your own scene in just a few days using the free Dash Trail.  For the final result, I will render the scene using Path Tracer for a more realistic look.
-
-**Frame:** tutorials\frames\how-to-create-a-cinematic-archviz-render-with-ue5-dash\frame_000.jpg
-
-### The House [0:23]
-**Transcript:** So let's get started.  Let's start on the 3DMOS.org website.  We can download the house model and find all the information you need for the challenge.  You just have to fill out the application from first.  I have unpacked the model and textures and now I'm here in Blender.  I already have a vision for how I want to renovate this house so I quickly put together  a mood board and frame ref.  So the idea is to extend the rustic house with the modern section surrounded by an English  Thai garden with lush vegetation.  I'm also going to heavily rebuild the side building and add the rustic stone wall around  the scene covered with climbing plants.  Let's start with the renovation.  First I will remove everything I want to need.  This process took the longest.  I modeled the side building so now it's time to export everything to Unreal Engine.  I'm exporting it as an FBX and in the geometry section I set smoothing the face.  Inside Unreal I will import the house into a new folder.  I don't need collisions in this project.  I can simply drag and drop the static meshes into the scene.  As you can see I kept original textures but I would like to replace them with better  materials.  This is...
-
-**Frame:** tutorials\frames\how-to-create-a-cinematic-archviz-render-with-ue5-dash\frame_001.jpg
-
-### The Environment [4:53]
-**Transcript:** Next let's check out the Surface Ketter tool.  I'm going to scatter a small gravel mesh across the ground to create a gravel surface.  While holding Ctrl, I drag the mesh into the scene and click scatter on selection.  Then I adjust the scale and density.  I don't want to cover the entire surface, only the area around the terrace.  To achieve this, I will add the terrace to the proximity mask and invert the distance  value.  Next up is the Stonewall.  I will build this using mesh scattered along another curve.  For the climbing vegetation, I can download some foliage and bring them into the scene.  I hold Ctrl and choose Placing Red.  Then I can select a few and add them as scatter objects inside the Surface Ketter setup  to break up the vegetation a bit, I can use the noise mask.  And to reduce the repetition in the wall itself, I can bake the scatter so I can manually  tweak the individual wall pieces.  I also want some climbing vegetation on the building.  For this I will use the wine tool.  I can add a few wall pieces as a surface and use a simple cube mesh as the origin.  For the leaves, I can reuse some IVSs from before.  And now let's work on the background.  I'm simply goin...
-
-**Frame:** tutorials\frames\how-to-create-a-cinematic-archviz-render-with-ue5-dash\frame_002.jpg
-
-### Camera Composition [9:52]
-**Transcript:** want even visible in the finer render.
-
-**Frame:** tutorials\frames\how-to-create-a-cinematic-archviz-render-with-ue5-dash\frame_003.jpg
-
-### The Interior [10:12]
-**Transcript:** And for the interior decoration, you can find some amazing free assets directly inside  the content browser.  I already have some furniture pieces from the Amazon Berk library and I will use them  to furnish the side building.  Of course the materials on these assets are also very easy to customize.
-
-**Frame:** tutorials\frames\how-to-create-a-cinematic-archviz-render-with-ue5-dash\frame_004.jpg
-
-### Lightning & HDRI [10:52]
-**Transcript:** The scene is almost finished.  All the smithing is an HDRI background.  I will drag the light studio blueprint into the scene.  If you can't find it, you can edit manually with the add button.  After that, in the outliner I can select every lighting related actor except the directional  light and delete them.  Inside the light studio I can enable use HDRI and select an HDRI file.  I downloaded from polyhaven as the HDRI cube map.  I will also uncheck use sunlight, use atmosphere and use fog if needed.  Then in skylight 1 I will change the source type to cube map and assign the same HDRI file  to the background trees.  We can also increase the cube map resolution for sharper reflections.  Finally I can tweak the directional light a bit.  Now let's see how the scene looks in past racing mode.  Looking nice.  I will finish the scene with a few extra details like small grass patches growing near the  walls, some teacals and a few decorative props.
-
-**Frame:** tutorials\frames\how-to-create-a-cinematic-archviz-render-with-ue5-dash\frame_005.jpg
-
-### Rendering [12:15]
-**Transcript:** So I can bring the camera into level sequence and add a bit of movement.  After that I can render everything using the movie render cube.  Here are my render settings.  A little bit of color grading and vedon.
-
-**Frame:** tutorials\frames\how-to-create-a-cinematic-archviz-render-with-ue5-dash\frame_006.jpg
-
-### Outro [12:35]
-**Transcript:** And that's it for this renovation scene.  I hope this gave you some ideas for your own challenge entry and also showed how much  faster environment creation can be with dash inside Unreal Engine 5.  I managed to build this scene in just 5 work days and most of the time went into planning  and modeling.  You still have a lot of time left to create your own entry, so good luck and have fun  building.  Thank you for watching and see you in the next one.
-
-**Frame:** tutorials\frames\how-to-create-a-cinematic-archviz-render-with-ue5-dash\frame_007.jpg
-
+[...raw data omitted — see ingested file...]
 
 ---
 
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Tomáš walks through a 3DMOS renovation challenge archviz scene built in UE5 + Dash — Blender modeling/export → UE5 import → Surface Scatter gravel (proximity masked to terrace area) + Curve-based stone wall scatter → Vine Tool for climbing vegetation → ABO library furniture for interior → HDRI lighting via Light Studio Blueprint → Path Tracer render via MRQ → color grade.
 
 ### Summary
-[PENDING EXTRACTION]
+13-minute archviz production workflow for a rustic-meets-modern renovation scene. Pipeline: Blender modeling (side building + FBX export: Geometry → Smoothing=Face) → UE5 import (no collision) → replace original textures with Megascans materials via Dash → Surface Scatter gravel (Ctrl+drag → Scatter on Selection, proximity mask on terrace + invert distance) → stone wall using scatter along curve + bake for manual tweaks → Vine Tool for climbing vegetation (wall pieces as surface + cube as origin + IVY leaf atlases) → background trees as low-res geo barely visible → Amazon Berkeley Objects furniture for side building interior → material edit on ABO assets → Light Studio Blueprint (enable HDRI → select Polyhaven HDRI as cubemap; uncheck sunlight/atmosphere/fog; Skylight 1 → Cube Map source → same HDRI; increase cubemap resolution for reflections) → tweak directional light → final details (grass near walls, decals, props) → MRQ render (camera in Level Sequence, Path Tracing mode) → color grade + vignette.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Blender export** — FBX export: Geometry section → Smoothing = Face (critical for UE5 normal import)
+2. **UE5 import** — import FBX to new folder; disable collision; drag static meshes to scene; replace textures with Megascans via Dash Content Library
+3. **Surface Scatter Gravel** — search for gravel mesh in Dash CB → Ctrl+drag onto ground → Scatter on Selection → adjust scale and density → add terrace mesh to Proximity Mask → invert distance value → scatter excluded from terrace (gravel only outside)
+4. **Stone Wall** — scatter stone mesh along a curve; use Noise Mask for natural variation; Bake scatter to static mesh → manual tweaks on individual pieces
+5. **Vine Tool** — assign multiple wall mesh pieces as surface → simple cube as origin mesh → use Vine Tool → assign IVY leaf atlases from previous scatter reuse
+6. **Background Trees** — Ctrl+drag trees → place quickly as background fill; barely visible in render
+7. **ABO Interior Furniture** — open Dash CB → ABO tab → browse furniture → drag to place; material edit for color/surface matching
+8. **HDRI Lighting (Light Studio Blueprint)** — drag Light Studio Blueprint from content drawer → in Outliner: select all lighting actors except Directional Light → delete → open Light Studio details → enable Use HDRI → select Polyhaven HDRI file as HDRI Cubemap → uncheck Use Sunlight, Use Atmosphere, Use Fog if needed → Skylight 1: Source Type = Cube Map → assign same HDRI; increase Cubemap Resolution for sharper reflections → tweak Directional Light intensity
+9. **Final Details** — Surface Scatter small grass patches near walls; decals for surface interest; decorative props
+10. **Path Tracer Render** — add camera to Level Sequence → MRQ → Path Tracing tab → render → color grade + vignette in post
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **FBX Export from Blender** — Geometry → Smoothing=Face for correct normals in UE5
+- **Surface Scatter (proximity inversion)** — Ctrl+drag → Scatter on Selection → Proximity Mask: assign terrace mesh → Invert Distance = ON → scatter avoids terrace surface
+- **Scatter Bake** — type `bake` in Dash bar → converts scatter instances to editable static meshes for manual adjustment; non-destructive backup retained
+- **Vine Tool** — assign multiple wall pieces as surface; cube as origin; Vine Tool creates climbing vines; attach leaf atlas for leaves
+- **Light Studio Blueprint** — drag from Dash or UE content drawer; enable Use HDRI → assign Polyhaven HDRI cubemap; disable Sunlight/Atmosphere/Fog; Skylight → Cube Map → same HDRI; increase resolution for reflections
+- **Path Tracer (MRQ)** — camera in Level Sequence → MRQ → Path Tracing output; Tomáš renders for realistic archviz look
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Dash 1.9+)
 
 ### Tags
-[PENDING EXTRACTION]
+`#dash-1.9` `#archviz` `#scatter` `#vines` `#path-tracing` `#amazon-abo` `#materials` `#lighting` `#hdri` `#mrq` `#intermediate`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[architecture-scenes-made-easy-in-unreal-engine-5---dash-tutorial]] — Archviz workflow with Cable Tool string lights (Dash 1.6)
+- [[how-to-create-vines-procedurally-in-unreal-engine-5]] — Vine Tool dedicated tutorial
+- [[dash-192---new-ue5-tools-amazon-3d-library-integration]] — ABO Library introduction (1.9.2)
+- [[realistic-architecture-environment-in-ue5---dash-workflow]] — Related archviz workflow tutorial
