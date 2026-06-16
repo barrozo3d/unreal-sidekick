@@ -964,6 +964,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-black-eye-cameras-look-around-tutorial.md
 
+
+### Unreal Engine Black Eye Cameras: Cam Switcher Tutorial
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=ub1_ET0LLJc
+- **Author:** Black Eye Technologies
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-black-eye-cameras-cam-switcher-tutorial.md
+
 ---
 
 ## Tag Reference
