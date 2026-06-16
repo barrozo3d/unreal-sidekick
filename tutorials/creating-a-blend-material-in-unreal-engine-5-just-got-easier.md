@@ -1,12 +1,13 @@
----
+﻿---
 title: Creating a Blend Material in Unreal Engine 5 Just Got Easier
 source: YouTube
 url: https://www.youtube.com/watch?v=MoAk8c1ek7A
 author: Polygonflow Dash
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: dash-1.8
+ue_version: "UE 5.x"
+tags: [dash-1.8, blend-material, materials, road, nanite, displacement, wetness, snow, rain, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/creating-a-blend-material-in-unreal-engine-5-just-got-easier/
 frame_count: 9
 ---
@@ -73,27 +74,44 @@ frame_count: 9
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Dash Blend Material tool: applying up to three Megascans materials as a multi-layer blend on a Nanite-displaced road mesh, with per-layer wetness, displacement, snow, and rain controls.
 
 ### Summary
-[PENDING EXTRACTION]
+9-minute tutorial demonstrating the Dash Blend Material workflow on a road created with the Road Tool. The workflow requires baking the road to a static mesh (losing non-destructive properties) to enable Nanite + displacement, then Ctrl+dragging three Megascans materials onto the mesh and applying a blend. The resulting material supports per-layer tiling, wetness, displacement intensity, snow, dirt, and rain layers — creating highly detailed wet/snowy/rainy surfaces without manual material graphs. Also demonstrates the simpler Edit Material snow/wetness/rain on individual Megascans objects.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Create road** — Dash Create → Draw Curves → Road Tool → assign curve + set width
+2. **Set scatter proximity mask** — add road as Reference object with proximity + follow settings; shared across scatter instances
+3. **Basic material layers** — open Edit Material → add snow/dirt/rain layers for quick surface treatment
+4. **Increase subdivisions** — Road Tool → Geometry Settings → increase Subdivision for Nanite displacement
+5. **Bake to static mesh** — convert actor to static mesh (loses non-destructive edit; back up first)
+6. **Enable Nanite + Displacement** — type `Nanite` in Dash → enable Nanite → enable Nanite Displacement
+7. **Apply Blend Material** — Ctrl+drag three Megascans materials from Dash Asset Library onto road mesh → select Apply Blend Material
+8. **Edit Blend Material** — Tools panel → Edit Blend Material → adjust tiling per layer; mix three material layers; tune per-layer wetness, displacement, snow, dirt
+9. **Apply to objects** — drag Megascans model → select → Edit Material → snow/wet/dirty/rain controls per object
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Road Tool** — Geometry Settings → Subdivision (increases poly density for Nanite displacement)
+- **Convert to Static Mesh** — required step before enabling Nanite (loses non-destructive road properties)
+- **Nanite command** — type `Nanite` in Dash prompt → Actor Switch Nanite → enable Nanite Displacement
+- **Blend Material** — Ctrl+drag up to 3 Megascans materials onto Nanite mesh → Apply Blend Material; per-layer: Tiling, Wetness, Displacement intensity
+- **Blend Material layers** — Snow, Dirt, Rain, Wetness — additive layers on top of the three base material blend
+- **Edit Material (objects)** — standard Dash material editor; snow/wetness/rain settings work on individual Megascans objects
+- **Proximity Mask Reference** — pin a reference actor to share scatter exclusion settings across multiple scatter instances simultaneously
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Dash 1.8)
 
 ### Tags
-[PENDING EXTRACTION]
+`#dash-1.8` `#blend-material` `#materials` `#road` `#nanite` `#displacement` `#wetness` `#snow` `#rain` `#intermediate`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[how-to-edit-megascans-and-poly-haven-materials-easily---ue5-plugin]] — Edit Material tool full reference (Dash 1.4)
+- [[beginner-guide-to-road-tool-in-ue5-co-pilot-dash]] — Road Tool basics
+- [[getting-started-with-dash---easy-world-building-in-ue5]] — Blend Material introduced in Dash 1.8 overview
+- [[surface-scatter-beginner-guide-to-your-ue5-co-pilot-dash]] — Proximity Mask for road exclusion zones

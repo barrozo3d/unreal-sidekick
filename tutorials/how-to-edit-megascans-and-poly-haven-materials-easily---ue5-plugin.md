@@ -1,12 +1,13 @@
----
+﻿---
 title: How to Edit Megascans and Poly Haven Materials Easily - UE5 Plugin
 source: YouTube
 url: https://www.youtube.com/watch?v=7NKl90gt0w0
 author: Polygonflow Dash
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: dash-1.4
+ue_version: "UE 5.x"
+tags: [dash-1.4, materials, megascans, polyhaven, displacement, nanite, snow, dirt, water, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-edit-megascans-and-poly-haven-materials-easily---ue5-plugin/
 frame_count: 9
 ---
@@ -73,27 +74,47 @@ frame_count: 9
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Dash 1.4's Material Edit tool for non-destructive inline editing of Megascans and Poly Haven assets — albedo, roughness, normal intensity, displacement (Nanite), and layered dirt/snow effects — plus the Dash Water Material system.
 
 ### Summary
-[PENDING EXTRACTION]
+7-minute tutorial by Jonathan (Community Director) covering the significantly improved Dash 1.4 Material Edit tool. Demonstrates the full suite: basic albedo/roughness/normal/tiling sliders, Nanite displacement (requires Actor Switch Nanite command first), Dirt layer (intensity, hue, saturation, brightness, tiling), Snow layer (sharpness, angular slope, roughness/reflectivity, normal chunkiness, coverage), and the procedural Water Material (depth, distortion, tiling, underlying hue/saturation). All edits are non-destructive and update live as terrain or object shape changes.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Open Material Edit** — select mesh/terrain → palette icon in Dash panel (or art palette icon)
+2. **Basic adjustments** — Albedo Hue, Saturation, Brightness/Contrast; Roughness; Normal Map Intensity; Texture Tiling
+3. **Enable Nanite for displacement** — type `Nanite` in Dash prompt → select "Actor Switch Nanite" command → then adjust Displacement values (note: may create shadow artifacts; fix by slightly moving mesh)
+4. **Add Dirt layer** — expand Dirt rollout → adjust Intensity, Albedo Hue, Saturation, Brightness, Tiling
+5. **Add Snow layer** — enable Snow rollout → Enable Snow checkbox → Sharpness, Angular Slope coverage, Roughness (reflectivity), Normal Map (chunkiness), Tiling; lower base material brightness first so snow shows up
+6. **Apply to terrain** — terrain subdivisions + surface variation required; material auto-updates as terrain shape changes
+7. **Create Water** — type `water` in Dash prompt → Create Water → plane with pre-applied Dash Water Material
+8. **Tune water** — Tiling (type manually for values >100), Depth (murk/opacity), Distortion (refraction wave strength), Underlying Hue + Saturation (color of submerged objects)
+9. **Reset** — Material Editor Options → Reset to Default
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Material Edit tool** — art palette icon in Dash panel; works with Megascans + Poly Haven only (custom textures via material instance replacement)
+- **Albedo Hue / Saturation / Brightness / Contrast** — inline color correction per surface
+- **Roughness slider** — surface specular/glossiness control
+- **Normal Map Intensity** — slider for normal bumpiness strength
+- **Texture Tiling** — UV scale control
+- **Actor Switch Nanite command** — Dash command enabling Nanite + real-time displacement on selected mesh
+- **Displacement** — Nanite-based; adjustable amount; shadow artifact workaround = slightly move mesh in world
+- **Dirt Layer** — Intensity, Albedo Hue, Saturation, Brightness, Tiling
+- **Snow Layer** — Enable Snow toggle; Sharpness (edge definition), Angular Slope (which faces collect snow), Roughness (snow reflectivity), Normal Map (snow chunkiness), Tiling, Coverage
+- **Dash Water Material** — `Create Water` command; Tiling (type manually for >100), Depth (underwater murk), Distortion (refraction/wave), Underlying Hue + Saturation
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Dash 1.4)
 
 ### Tags
-[PENDING EXTRACTION]
+`#dash-1.4` `#materials` `#megascans` `#polyhaven` `#displacement` `#nanite` `#snow` `#dirt` `#water` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[creating-a-blend-material-in-unreal-engine-5-just-got-easier]] — Blend Material with wetness/rain/snow on road mesh
+- [[beginner-water-tool-tutorial-for-ue5]] — Dash Water tool basics
+- [[how-to-create-vines-procedurally-in-unreal-engine-5]] — Edit Material usage on leaf/bark assets
+- [[getting-started-with-dash---easy-world-building-in-ue5]] — Blend Material introduced in Dash 1.8 overview

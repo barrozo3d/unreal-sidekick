@@ -1,12 +1,13 @@
----
+﻿---
 title: How to Create Vines Procedurally in Unreal Engine 5
 source: YouTube
 url: https://www.youtube.com/watch?v=Y_Ja4n3RSf0
 author: Polygonflow Dash
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: dash-1.4
+ue_version: "UE 5.x"
+tags: [dash-1.4, vine, procedural, materials, megascans, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-create-vines-procedurally-in-unreal-engine-5/
 frame_count: 8
 ---
@@ -68,27 +69,41 @@ frame_count: 8
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Procedural vine generation along drawn curves using the Dash Vine Tool, with Megascans leaf atlases and bark materials applied via the Edit Material tool.
 
 ### Summary
-[PENDING EXTRACTION]
+4-minute tutorial covering two vine creation methods in Dash: drawing a freehand curve on a surface (Draw Vines) and drag-dropping a vine actor onto a mesh with surface assignment (Create Vines). Covers branch and leaf settings including growth iterations, radius, cylinder sides, smoothness, and replacing default leaves with Megascans Atlas assets. Branch materials are applied via the Dash Edit Material tool with Hue, Saturation, Brightness, and tiling controls.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Open Dash toolbar** → Create → Curve Tools → Draw Vines
+2. **Draw curve on wall** — adjust point spacing and curve smoothness before drawing
+3. **Tune branch settings** — Growth Iterations (density of sub-branches), Growth Size, Radius, Sides (cylinder resolution), Smoothness
+4. **Replace leaves** — open Dash Content Browser → Ctrl+drag Megascans leaf atlas into scene → Place Over Left option → select all leaf versions → add to Leaf Meshes array
+5. **Edit leaf material** — Tools panel → active tools list → Edit Material → adjust Hue, Saturation, Brightness
+6. **Alternate method** — Curve Tools → Create Vines → specify surface mesh target + origin actor (or Ctrl+drag mesh → Create Vines)
+7. **Apply bark material** — drag Megascans bark into scene → select branch → Dash Edit Material → adjust tiling and color properties
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Draw Vines (Curve Tool)** — freehand curve; point spacing + smoothness pre-draw; vines auto-generate along the curve
+- **Growth Iterations** — controls density of smaller branching offshoots
+- **Growth Size** — overall vine size scale
+- **Radius / Sides / Smoothness** — branch cylinder geometry quality
+- **Leaf Meshes array** — replace default leaves; accepts any static mesh (Megascans leaf atlas supported)
+- **Create Vines** — popup specifies surface mesh + origin actor; Ctrl+drag shortcut available
+- **Edit Material** — Dash inline material editor; Hue, Saturation, Brightness, tiling controls; must select target mesh first
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Dash 1.4)
 
 ### Tags
-[PENDING EXTRACTION]
+`#dash-1.4` `#vine` `#procedural` `#materials` `#megascans` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[beginner-content-library-tutorial-for-ue5]] — Ctrl+drag and Place Over Left shortcut pattern
+- [[how-to-edit-megascans-and-poly-haven-materials-easily---ue5-plugin]] — full Material Edit tool reference
+- [[surface-scatter-beginner-guide-to-your-ue5-co-pilot-dash]] — curve-based placement patterns

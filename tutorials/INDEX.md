@@ -1351,9 +1351,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=Y_Ja4n3RSf0
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.4
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.4` `#vine` `#procedural` `#materials` `#megascans` `#beginner`
+- **Summary:** 4-minute Vine Tool tutorial — Draw Vines (freehand curve on surface) or Create Vines (Ctrl+drag onto mesh + surface assignment). Branch settings: Growth Iterations, Size, Radius, Sides, Smoothness. Replace default leaves with Megascans leaf atlases (Ctrl+drag → Place Over Left), adjust bark/leaf materials via Edit Material (Hue/Saturation/Brightness/Tiling).
 - **File:** tutorials/how-to-create-vines-procedurally-in-unreal-engine-5.md
 
 
@@ -1361,9 +1362,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=MoAk8c1ek7A
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.8
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.8` `#blend-material` `#materials` `#road` `#nanite` `#displacement` `#wetness` `#snow` `#rain` `#intermediate`
+- **Summary:** Dash Blend Material workflow on a road — requires baking road to static mesh → enable Nanite + Displacement → Ctrl+drag 3 Megascans materials → Apply Blend Material → per-layer tiling/wetness/displacement/snow/dirt/rain. Demonstrates simpler Edit Material snow/rain/wetness on individual objects too.
 - **File:** tutorials/creating-a-blend-material-in-unreal-engine-5-just-got-easier.md
 
 
@@ -1524,9 +1526,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=7NKl90gt0w0
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.4
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.4` `#materials` `#megascans` `#polyhaven` `#displacement` `#nanite` `#snow` `#dirt` `#water` `#beginner`
+- **Summary:** Jonathan (Community Director) covers the Dash 1.4 Material Edit tool — Albedo Hue/Saturation/Brightness/Contrast, Roughness, Normal Map Intensity, Texture Tiling, Nanite displacement (Actor Switch Nanite command), Dirt layer (intensity/hue/saturation/tiling), Snow layer (sharpness/slope/roughness/normal/tiling), Dash Water Material (depth/distortion/tiling/underlying hue+saturation). All procedural/non-destructive.
 - **File:** tutorials/how-to-edit-megascans-and-poly-haven-materials-easily---ue5-plugin.md
 
 
@@ -1597,9 +1600,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=P90HaXlYSNE
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.3
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.3` `#merge-actors` `#physics` `#pivot` `#scatter` `#megascans` `#sketchfab` `#beginner`
+- **Summary:** Josh Powers demonstrates Dash 1.3's two new utility commands — Merge Actors (type `merge actors` to consolidate multi-mesh Sketchfab GLTF imports into one static mesh) and Pivot Adjustment (`pivot center/top/bottom` repositions pivot to bounding box instantly) — combined with Physics Drop for debris scatter in a WWI battle scene.
 - **File:** tutorials/create-realistic-scatter-using-merge-actors-with-dash.md
 
 
@@ -1713,9 +1717,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=pWEnE86hZrM
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-early
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-early` `#physics` `#placement` `#scatter` `#nanite` `#megascans` `#beginner`
+- **Summary:** Josh Powers introduces the Dash Physics Tool — drop any mesh (including Nanite assets) to surfaces with realistic randomization. Toolbar: Start/Stop, Reset (selected), Ctrl+Reset (all), Duplicate, Select (last batch), Switch (isolate dynamic/static), Simple/Complex collision. Ctrl+drag from Content Library → Physics Drop shortcut. Can operate on top of live Scatter instances with seed adjustment.
 - **File:** tutorials/new-physics-tool-for-unreal-engine-5.md
 
 

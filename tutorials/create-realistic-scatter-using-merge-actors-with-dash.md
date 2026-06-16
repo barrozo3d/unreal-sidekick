@@ -1,12 +1,13 @@
----
+﻿---
 title: Create Realistic Scatter Using Merge Actors with Dash
 source: YouTube
 url: https://www.youtube.com/watch?v=P90HaXlYSNE
 author: Polygonflow Dash
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: dash-1.3
+ue_version: "UE 5.x"
+tags: [dash-1.3, merge-actors, physics, pivot, scatter, megascans, sketchfab, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/create-realistic-scatter-using-merge-actors-with-dash/
 frame_count: 6
 ---
@@ -58,27 +59,37 @@ frame_count: 6
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Dash 1.3 Merge Actors command (consolidate multi-mesh Sketchfab GLTFs into a single static mesh) combined with Pivot Adjustment (center/top/bottom) and Physics Drop to scatter debris realistically.
 
 ### Summary
-[PENDING EXTRACTION]
+6-minute tutorial by Josh Powers demonstrating a WWI battle scene enriched with physically-dropped debris. The key new Dash 1.3 features highlighted are: Merge Actors (type `merge actors` in prompt to combine multi-mesh Sketchfab imports into one static mesh) and Pivot Adjustment (type `pivot center/top/bottom` to instantly reposition the pivot to the bounding box). These combine with the Physics Tool to allow physics-accurate placement of varied debris without stacking hundreds of actor instances.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Select bricks** → type `Physics` in Dash prompt → open Physics Tool → Start (selected assets become dynamic, drop to floor)
+2. **Duplicate physics assets** — use Duplicate button in Physics toolbar 3-5 times; then Select button (selects newly duplicated objects) → Duplicate again to multiply
+3. **Handle duplicate repetition** — Ctrl+Reset to respawn all duplicates from origin → re-drop for different positions/rotations (assets overlap at spawn and separate on drop)
+4. **Merge multi-mesh Sketchfab imports** — select all meshes of a single object → type `merge actors` in Dash prompt → single static mesh result
+5. **Fix distant pivot** — type `pivot bottom` in Dash prompt → pivot moves to bottom-center of bounding box; options: `pivot center`, `pivot top`, `pivot bottom`
+6. **Drop fixed asset** — now correctly pivoted asset can be physics-dropped and placed precisely in scene
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Merge Actors command** — type `merge actors` in Dash prompt; merges all selected static meshes into one; new in Dash 1.3; solves multi-mesh GLTF imports from Sketchfab
+- **Pivot Adjustment commands** — `pivot center`, `pivot top`, `pivot bottom`; repositions pivot to bounding box center/top/bottom instantly; new in Dash 1.3
+- **Physics Tool** — Start = all selected assets become dynamic + drop; Reset = reset selected assets; Ctrl+Reset = reset all dynamic assets; Duplicate = duplicate selected; Select = select only the duplicated batch
+- **Sketchfab GLTF import quirks** — may import as multiple static meshes; may have pivot far from geometry; both fixed with Merge Actors + Pivot commands
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Dash 1.3)
 
 ### Tags
-[PENDING EXTRACTION]
+`#dash-1.3` `#merge-actors` `#physics` `#pivot` `#scatter` `#megascans` `#sketchfab` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[new-physics-tool-for-unreal-engine-5]] — full Physics Tool explainer (early Dash)
+- [[beginner-content-library-tutorial-for-ue5]] — Content Library drag-and-drop + Ctrl+drag physics entry
+- [[surface-scatter-beginner-guide-to-your-ue5-co-pilot-dash]] — Surface Scatter for dense coverage; Physics for specific placement

@@ -1,12 +1,13 @@
----
+﻿---
 title: New Physics Tool for Unreal Engine 5
 source: YouTube
 url: https://www.youtube.com/watch?v=pWEnE86hZrM
 author: Polygonflow Dash
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: dash-early
+ue_version: "UE 5.x"
+tags: [dash-early, physics, placement, scatter, nanite, megascans, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/new-physics-tool-for-unreal-engine-5/
 frame_count: 6
 ---
@@ -28,7 +29,7 @@ frame_count: 6
 **Frame:** tutorials\frames\new-physics-tool-for-unreal-engine-5\frame_000.jpg
 
 ### Physics Overview [0:27]
-**Transcript:** So the first thing we need to do is open the tool.  Now there are two ways we can access the tool, but we'll first go over how you can open  it from the main Dash tool bar up here.  All you need to do is click this icon just to the left of the bridge icon.  You'll notice that a new floating bar is popped up underneath the Dash prompt bar, just  like many of the other tools.  This is where we can set up a temporary physics simulation to add a lot of truly random  detail to an environment.  You might also notice that, quite frankly, there aren't a lot of settings up here.  That's because like everything else in Dash, we want this tool to be incredibly powerful  with limited overhead, so that you never have to break your stride from your workflow.  It's designed to give you exactly what you want, with as few settings as possible.  In this first example, we have some objects that we want to drop to the floor.  Of course we could use the scatter tool for this, but if your scene only needs a few  of these items, or you're just wanting to place them in very specific locations, it's  much more efficient to use the physics tool.  So I'm simply going to select my objects, and then I'll simpl...
+**Transcript:** So the first thing we need to do is open the tool.  Now there are two ways we can access the tool, but we'll first go over how you can open  it from the main Dash tool bar up here.  All you need to do is click this icon just to the left of the bridge icon.  All you need to do is click this icon just to the left of the bridge icon.  You'll notice that a new floating bar is popped up underneath the Dash prompt bar, just  like many of the other tools.  This is where we can set up a temporary physics simulation to add a lot of truly random  detail to an environment.  You might also notice that, quite frankly, there aren't a lot of settings up here.  That's because like everything else in Dash, we want this tool to be incredibly powerful  with limited overhead, so that you never have to break your stride from your workflow.  It's designed to give you exactly what you want, with as few settings as possible.  In this first example, we have some objects that we want to drop to the floor.  Of course we could use the scatter tool for this, but if your scene only needs a few  of these items, or you're just wanting to place them in very specific locations, it's  much more efficient to use the physics tool.  So I'm simply going to select my objects, and then I'll simpl...
 
 **Frame:** tutorials\frames\new-physics-tool-for-unreal-engine-5\frame_001.jpg
 
@@ -48,7 +49,7 @@ frame_count: 6
 **Frame:** tutorials\frames\new-physics-tool-for-unreal-engine-5\frame_004.jpg
 
 ### Scatter Physics [4:48]
-**Transcript:** Lastly, I just want to mention that this tool isn't just limited to individual assets.  The Physics tool can be used on scattered objects as well.  To enable this on scattered objects, just select your scatter instance, click on Set Static,  and then drop your objects on there.  While the simulation is still running, you can even adjust the seat of your scatter tool  and watch as the changes impact the dropped Physics objects, making the entire process  dynamic and non-destructive.  So I hope you were able to get a better understanding of just how powerful and fun it is to use the  Physics tool in Dash.  We will continue to improve and add features to this tool in future updates and look forward  to seeing what you create with it.  Thanks so much for watching and we'll see you in the next video.
+**Transcript:** Lastly, I just want to mention that this tool isn't just limited to individual assets.  The Physics tool can be used on scattered objects as well.  To enable this on scattered objects, just select your scatter instance, click on Set Static,  and then drop your objects on there.  While the simulation is still running, you can even adjust the seed of your scatter tool  and watch as the changes impact the dropped Physics objects, making the entire process  dynamic and non-destructive.  So I hope you were able to get a better understanding of just how powerful and fun it is to use the  Physics tool in Dash.  We will continue to improve and add features to this tool in future updates and look forward  to seeing what you create with it.  Thanks so much for watching and we'll see you in the next video.
 
 **Frame:** tutorials\frames\new-physics-tool-for-unreal-engine-5\frame_005.jpg
 
@@ -58,27 +59,41 @@ frame_count: 6
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Dash Physics Tool: a temporary physics simulation that drops selected meshes (including Nanite assets) to surfaces with random rotation, supporting Duplicate+Select looping, Switch (selectively set dynamic/static), and Simple/Complex collision for precise placement.
 
 ### Summary
-[PENDING EXTRACTION]
+5-minute introduction to the Dash Physics Tool by Josh Powers. Covers both access methods (toolbar icon and Ctrl+drag Content Library), the full toolbar button set (Start/Stop, Reset, Ctrl+Reset, Duplicate, Select, Switch, Simple, Complex), and two important behaviors: assets remain live-dynamic during the simulation (can grab + re-drop), and the tool can also be applied on top of a Scatter instance while adjusting the Scatter seed simultaneously. Simple collision is generated on-the-fly but floats above Megascans high-fidelity meshes; Complex collision fixes this at a performance cost.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Open Physics Tool** — Dash toolbar icon (left of Bridge icon) → floating Physics bar appears; OR Ctrl+drag asset from Content Library → choose Physics Drop from context menu
+2. **Start simulation** — select objects → click Start; assets immediately go dynamic and fall to surface
+3. **Re-drop specific objects** — select only those assets → Reset (resets only selected); pick up and release for new drop position
+4. **Reset all** — Ctrl+Reset → all dynamic objects reset to spawn origin
+5. **Duplicate loop** — Duplicate button → Select button (selects new duplicates) → Duplicate again → repeat to multiply assets
+6. **Switch** — select objects to keep dynamic → Switch button; all unselected become Static, selected remain Dynamic; use to isolate active physics work area
+7. **Fix floating assets (Megascans)** — select floating static asset → Complex button; asset re-drops to exact mesh surface (heavier; use case-by-case)
+8. **Physics on Scatter** — select scatter instance → Set Static (on Physics bar) → assets drop onto scatter; adjust scatter Seed live to see physics react
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Physics Tool toolbar** — Start/Stop, Reset (selected only), Ctrl+Reset (all dynamic), Duplicate, Select (selects last duplicated batch), Switch, Simple, Complex
+- **Dynamic state** — assets remain dynamic while simulation runs; grab + release = re-drop with physics; interact with both static and dynamic objects
+- **Simple collision** — auto-generated from geometry data; fast but may float above high-fidelity Megascans meshes
+- **Complex collision** — uses rendered mesh for collision; accurate but compute-heavy; recommended case-by-case
+- **Scatter + Physics** — scatter instance → Set Static in Physics bar → drop objects on scatter surface; scatter seed adjustable live while physics active
+- **Ctrl+drag (Content Library)** — context menu includes Physics Drop option directly
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Dash early)
 
 ### Tags
-[PENDING EXTRACTION]
+`#dash-early` `#physics` `#placement` `#scatter` `#nanite` `#megascans` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[create-realistic-scatter-using-merge-actors-with-dash]] — Physics + Merge Actors + Pivot for debris scatter (Dash 1.3)
+- [[beginner-content-library-tutorial-for-ue5]] — Ctrl+drag context menu (Physics Drop entry point)
+- [[surface-scatter-beginner-guide-to-your-ue5-co-pilot-dash]] — Surface Scatter vs Physics: when to use each
