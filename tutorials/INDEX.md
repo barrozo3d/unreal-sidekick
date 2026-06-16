@@ -1374,6 +1374,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/creating-a-helldivers-2-environment-in-79-minutes---ue5-tutorial.md
 
+
+### Recreating a Helldivers 2 Game Environment in UE5 with Dash
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=plpGMR46HnE
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/recreating-a-helldivers-2-game-environment-in-ue5-with-dash.md
+
 ---
 
 ## Tag Reference
