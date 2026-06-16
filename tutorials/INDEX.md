@@ -1434,6 +1434,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/dash-160-release---improved-content-library-and-ai-asset-tagging.md
 
+
+### This Plugin Makes Unreal Engine 5 Even More Amazing - Dash for World Building
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=EezUW6MSqfE
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/this-plugin-makes-unreal-engine-5-even-more-amazing---dash-for-world-building.md
+
 ---
 
 ## Tag Reference
