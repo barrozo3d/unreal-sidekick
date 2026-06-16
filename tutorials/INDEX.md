@@ -1264,6 +1264,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/2000-free-high-quality-assets-for-any-unreal-engine-project.md
 
+
+### Auto-Tag & Sort 1000 UE5 Assets/Month with This FREE Content Browser
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=I58cCdLiVF4
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/auto-tag-sort-1000-ue5-assetsmonth-with-this-free-content-browser.md
+
 ---
 
 ## Tag Reference
