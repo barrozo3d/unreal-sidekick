@@ -1194,6 +1194,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/dash-193---new-ue5-asset-marketplace.md
 
+
+### UE5 WORLD BUILDING FOR BEGINNERS – FULL DASH DEMO LEVEL
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=bxeocONsu1Y
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/ue5-world-building-for-beginners-full-dash-demo-level.md
+
 ---
 
 ## Tag Reference
