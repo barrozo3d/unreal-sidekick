@@ -1444,6 +1444,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/this-plugin-makes-unreal-engine-5-even-more-amazing---dash-for-world-building.md
 
+
+### Realistic Architecture Environment in UE5 - Dash Workflow
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=_9b_dabCpVE
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/realistic-architecture-environment-in-ue5---dash-workflow.md
+
 ---
 
 ## Tag Reference
