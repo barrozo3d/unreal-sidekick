@@ -1424,6 +1424,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/no-nodes-procedural-environment-in-unreal-engine-5---dash-tutorial.md
 
+
+### Dash 1.6.0 Release - Improved Content Library and AI Asset Tagging!
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=li914x1WPis
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/dash-160-release---improved-content-library-and-ai-asset-tagging.md
+
 ---
 
 ## Tag Reference
