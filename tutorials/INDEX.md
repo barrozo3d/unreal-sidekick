@@ -1164,6 +1164,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-to-create-a-cinematic-archviz-render-with-ue5-dash.md
 
+
+### DASH 1.10 - PROCEDURAL SCATTER PRESETS IN UE5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=EN6X-d6DIb0
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/dash-110---procedural-scatter-presets-in-ue5.md
+
 ---
 
 ## Tag Reference
