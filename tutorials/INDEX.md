@@ -1254,6 +1254,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/centralized-content-browser-for-ue5---free-plugin.md
 
+
+### 2000 FREE HIGH-QUALITY ASSETS FOR ANY UNREAL ENGINE PROJECT
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=HXyU7Z_Hz_U
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/2000-free-high-quality-assets-for-any-unreal-engine-project.md
+
 ---
 
 ## Tag Reference
