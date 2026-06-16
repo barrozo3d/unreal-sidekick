@@ -1394,6 +1394,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-to-create-a-training-environment-in-unreal-engine-5---dash-workflow.md
 
+
+### How to Re-Create The Walking Dead in Unreal Engine 5 - Dash Workflow
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=5aTwhjR5JJE
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-to-re-create-the-walking-dead-in-unreal-engine-5---dash-workflow.md
+
 ---
 
 ## Tag Reference
