@@ -1544,6 +1544,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/surface-scatter-beginner-guide-to-your-ue5-co-pilot-dash.md
 
+
+### Beginner Guide to UE5 Co-Pilot DASH Camera Settings
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=00kSXM3b788
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/beginner-guide-to-ue5-co-pilot-dash-camera-settings.md
+
 ---
 
 ## Tag Reference
