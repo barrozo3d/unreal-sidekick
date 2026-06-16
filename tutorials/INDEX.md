@@ -794,6 +794,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/dune-cinematography-breakdown-how-to-get-the-dune-look.md
 
+
+### Unreal Engine for Filmmakers - Create Cinematic 3D Worlds for Free [Course in Description!]
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=IUkD87VSmyg
+- **Author:** Boundless Entertainment
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-for-filmmakers---create-cinematic-3d-worlds-for-free-course-in-des.md
+
 ---
 
 ## Tag Reference
