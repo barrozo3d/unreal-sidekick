@@ -874,6 +874,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-black-eye-cameras-dynamic-dialog-intro.md
 
+
+### Unreal Engine Black Eye Cameras for Gameplay: Top Down
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=MFrmcgQHGJk
+- **Author:** Black Eye Technologies
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-black-eye-cameras-for-gameplay-top-down.md
+
 ---
 
 ## Tag Reference
