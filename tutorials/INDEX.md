@@ -1034,6 +1034,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-black-eye-cameras-version-11-new-features-cross-camera.md
 
+
+### Unreal Engine Black Eye Cameras: Version 1.1 New Features: Multi_Subject LookAt Weights
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=WBgBhPjzzbI
+- **Author:** Black Eye Technologies
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-black-eye-cameras-version-11-new-features-multi-subject-lookat-wei.md
+
 ---
 
 ## Tag Reference
