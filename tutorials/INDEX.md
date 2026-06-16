@@ -1179,9 +1179,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=bmxYrlidcCM
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.11
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.11` `#presets` `#drawable-presets` `#content-browser` `#asset-management` `#world-building` `#beginner`
+- **Summary:** Dash 1.11 release — 18 new procedural presets, Drawable Presets (Ctrl+drag to draw surface/path presets into the level), custom drawable preset creation, fast/slow asset compute modes for own-asset content browser, and type filters (Materials/Meshes/Decals). Assets computed in one project are instantly shared across all open projects.
 - **File:** tutorials/dash-111---unreal-engine-world-building-just-got-easier.md
 
 
@@ -1369,9 +1370,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=RA3yGbCvxIU
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.8
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.8` `#terrain` `#road-tool` `#scatter` `#proximity-masking` `#ai-tagging` `#blend-material` `#physics-tools` `#world-building` `#intermediate`
+- **Summary:** Dash 1.8 comprehensive workflow by Tamash — new UI bar, AI assistant (ChatGPT4 + drag image), road tool with terrain projection + road marking presets, dual proximity masking, Image Board, physics drop/paint, AI asset tagging, decal scatter, and Blend Material tool (wetness/snow/displacement). Three scenes: forest road, street corner detail, medieval environment.
 - **File:** tutorials/getting-started-with-dash---easy-world-building-in-ue5.md
 
 
@@ -1609,9 +1611,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=lCicNo8MGNA
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-early
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-early` `#scatter` `#displacement` `#water` `#placement-tool` `#camera` `#proximity-masking` `#environment-art` `#layering` `#beginner`
+- **Summary:** Early Dash environment tutorial by Josh Powers — sculpted puddle with Megascans displacement (blue channel), layered foliage scatter (same asset at different scales), water plane, placement tool for hero moose focal point, cinematic camera with aperture DOF, surface scatter for background trees, curve proximity mask to restrict shrubs to background curtain zone.
 - **File:** tutorials/new-ue5-plugin---easy-environment-creation.md
 
 
@@ -1649,9 +1652,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=YfHdlxH22cM
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-early
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-early` `#hdri` `#terrain` `#scatter` `#camera` `#proximity-masking` `#environment-art` `#layering` `#lut` `#beginner`
+- **Summary:** Early Dash environment walkthrough by Josh Powers — Polyhaven HDRI, terrain with mid-turbulence for natural foliage irregularity, layered scatter (min/max scale + fall-off + break-up), camera-first discipline, proximity mask exclusion zone around hero swing/tree using UE modeling mesh, hero detail pass near camera only, Blender-rigged swing prop, LUT color grading.
 - **File:** tutorials/quick-environment-creation-w-unreal-engine-5.md
 
 
@@ -1709,9 +1713,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=NVSEN3ND6VU
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-early
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-early` `#terrain` `#scatter` `#world-building` `#content-library` `#decals` `#mesh-cards` `#beginner`
+- **Summary:** First official Dash introduction video by Josh Powers — terrain generation, Megascans content library, water plane, interactive placement, surface scatter with fall-off/break-up, curve proximity masking, lighting/color grading presets by keyword, decal placement and scatter, Megascans atlas mesh-card scatter from opacity map. All without touching UE5 panels.
 - **File:** tutorials/introducing-dash-for-unreal-engine-5.md
 
 ---
