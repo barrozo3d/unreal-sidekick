@@ -544,6 +544,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-to-render-chaos-cloth-simulations-with-motion-blur-the-right-way.md
 
+
+### 5 VFX Techniques You've Been Taught that are Actually Wrong
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=rUZxS3IwZhQ
+- **Author:** Boundless Entertainment
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/5-vfx-techniques-youve-been-taught-that-are-actually-wrong.md
+
 ---
 
 ## Tag Reference
