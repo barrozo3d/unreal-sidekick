@@ -1574,6 +1574,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/beginner-guide-to-road-tool-in-ue5-co-pilot-dash.md
 
+
+### New UE5 Plugin - Easy Environment Creation
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=lCicNo8MGNA
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/new-ue5-plugin---easy-environment-creation.md
+
 ---
 
 ## Tag Reference
