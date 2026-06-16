@@ -1284,6 +1284,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/best-free-unreal-engine-5-asset-management-plugin-in-2025.md
 
+
+### DASH 1.9 - MANAGING ASSETS IN UE5 JUST GOT A LOT EASIER
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=tOpExldNzoA
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/dash-19---managing-assets-in-ue5-just-got-a-lot-easier.md
+
 ---
 
 ## Tag Reference
