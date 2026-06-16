@@ -884,6 +884,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-black-eye-cameras-for-gameplay-top-down.md
 
+
+### Unreal Engine Black Eye Cameras: Car camera INTRO
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=Wh-QAH49C70
+- **Author:** Black Eye Technologies
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-black-eye-cameras-car-camera-intro.md
+
 ---
 
 ## Tag Reference
