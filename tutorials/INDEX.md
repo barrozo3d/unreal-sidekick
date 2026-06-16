@@ -504,6 +504,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/i-built-the-camera-tracking-tool-i-always-wished-unreal-had.md
 
+
+### Unreal Engine's Secret Weapon for Cinematic Lighting
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=Zy5A6bDz9xw
+- **Author:** Boundless Entertainment
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engines-secret-weapon-for-cinematic-lighting.md
+
 ---
 
 ## Tag Reference
