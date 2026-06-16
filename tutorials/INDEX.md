@@ -1184,6 +1184,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/creating-a-massive-procedural-game-world-in-ue5-with-dash.md
 
+
+### DASH 1.9.3 - NEW UE5 ASSET MARKETPLACE
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=YHmNyyI998k
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/dash-193---new-ue5-asset-marketplace.md
+
 ---
 
 ## Tag Reference
