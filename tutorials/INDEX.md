@@ -1,4 +1,4 @@
-# Unreal Sidekick — Tutorial & Documentation Index
+﻿# Unreal Sidekick â€” Tutorial & Documentation Index
 
 This is the skill's growing knowledge base. Every ingested tutorial, article, and Epic documentation section is listed here.
 
@@ -31,7 +31,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Pages:** 37
 - **UE Version:** UE 5.7
 - **Tags:** `#niagara` `#vfx` `#particles` `#gpu-particles` `#fluids` `#rendering` `#blueprints` `#audio` `#epic-docs` `#intermediate` `#advanced` `#ue5-7`
-- **Summary:** UE 5.7 Niagara VFX system reference — Getting Started, key concepts, emitter/system architecture, Fluids, GPU Raytracing Collisions, Niagara Script Editor, Debugger, optimization. 37 pages.
+- **Summary:** UE 5.7 Niagara VFX system reference â€” Getting Started, key concepts, emitter/system architecture, Fluids, GPU Raytracing Collisions, Niagara Script Editor, Debugger, optimization. 37 pages.
 - **File:** tutorials/creating-visual-effects-in-niagara-for-unreal-engine.md
 
 
@@ -41,7 +41,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Pages:** 170
 - **UE Version:** UE 5.7
 - **Tags:** `#rendering` `#lumen` `#nanite` `#virtual-shadow-maps` `#path-tracing` `#substrate` `#materials` `#textures` `#post-process` `#lighting` `#tsr` `#rdg` `#performance` `#neural` `#ml-deformer` `#mrq` `#epic-docs` `#advanced` `#ue5-7`
-- **Summary:** Full UE 5.7 rendering pipeline reference — Lumen GI/Reflections, Nanite, Virtual Shadow Maps, Substrate Materials, Path Tracer + NFOR denoiser for MRQ, RDG programming, GPUDump debugging, neural post-processing, and ML Deformer. 170 pages.
+- **Summary:** Full UE 5.7 rendering pipeline reference â€” Lumen GI/Reflections, Nanite, Virtual Shadow Maps, Substrate Materials, Path Tracer + NFOR denoiser for MRQ, RDG programming, GPUDump debugging, neural post-processing, and ML Deformer. 170 pages.
 - **File:** tutorials/designing-visuals-rendering-and-graphics-with-unreal-engine.md
 
 
@@ -51,7 +51,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Pages:** 162
 - **UE Version:** UE 5.7
 - **Tags:** `#animation` `#skeletal-mesh` `#animation-blueprints` `#sequencer` `#cinematics` `#mrq` `#movie-render-graph` `#control-rig` `#ik-rig` `#motion-matching` `#live-link` `#blend-spaces` `#montages` `#state-machines` `#deformer-graph` `#ml-deformer` `#locomotion` `#epic-docs` `#advanced` `#ue5-7`
-- **Summary:** Full UE 5.7 animation reference — Skeletal Mesh Animation System, Animation Blueprints, Sequencer cinematics, MRQ/Movie Render Graph, Control Rig, IK Rig/Retargeter, Motion Matching, Live Link, ML Deformer, Deformer Graph, Paper 2D. 162 pages.
+- **Summary:** Full UE 5.7 animation reference â€” Skeletal Mesh Animation System, Animation Blueprints, Sequencer cinematics, MRQ/Movie Render Graph, Control Rig, IK Rig/Retargeter, Motion Matching, Live Link, ML Deformer, Deformer Graph, Paper 2D. 162 pages.
 - **File:** tutorials/animating-characters-and-objects-in-unreal-engine.md
 
 
@@ -61,7 +61,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Pages:** 78
 - **UE Version:** UE 5.7
 - **Tags:** `#basics` `#editor` `#actors` `#components` `#blueprints` `#levels` `#assets` `#content-browser` `#plugins` `#projects` `#templates` `#packaging` `#gameplay-framework` `#ue-terminology` `#epic-docs` `#beginner` `#ue5-7`
-- **Summary:** Foundational UE 5.7 reference — installation, terminology (Actor/Component/Blueprint/GameMode/World), all core editors overview, Content Browser, Levels, Assets, Actors, gameplay framework classes, packaging. 78 pages.
+- **Summary:** Foundational UE 5.7 reference â€” installation, terminology (Actor/Component/Blueprint/GameMode/World), all core editors overview, Content Browser, Levels, Assets, Actors, gameplay framework classes, packaging. 78 pages.
 - **File:** tutorials/understanding-the-basics-of-unreal-engine.md
 
 
@@ -71,7 +71,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Pages:** 18
 - **UE Version:** UE 5.7
 - **Tags:** `#pcg` `#procedural-generation` `#environment` `#geometry` `#blueprints` `#gpu` `#hlsl` `#biome` `#world-partition` `#intermediate` `#advanced` `#ue5-7`
-- **Summary:** Full PCG v2 reference — PCG Graph system, Point data flow, GPU Processing (Beta), Shape Grammar for rule-based placement, PCG Editor Mode, Biome system, PCG Volume Entities (PVE), Runtime Generation, World Partition integration with hierarchical generation. Custom HLSL node examples included.
+- **Summary:** Full PCG v2 reference â€” PCG Graph system, Point data flow, GPU Processing (Beta), Shape Grammar for rule-based placement, PCG Editor Mode, Biome system, PCG Volume Entities (PVE), Runtime Generation, World Partition integration with hierarchical generation. Custom HLSL node examples included.
 - **File:** tutorials/procedural-content-generation-framework-in-unreal-engine.md
 
 
@@ -81,7 +81,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Pages:** 68
 - **UE Version:** UE 5.7
 - **Tags:** `#chaos` `#physics` `#destruction` `#cloth` `#ragdoll` `#vehicles` `#fluids` `#collision` `#animation` `#niagara` `#networked-physics` `#intermediate` `#advanced` `#ue5-7`
-- **Summary:** Full UE 5.7 physics reference — Chaos Destruction (fracture, fields, anchor constraints), Rigid Body Dynamics (constraints, joints, welding), Chaos Cloth + ML Cloth, Ragdoll, Chaos Vehicles, Physics Fields, Networked Physics (3 replication modes), Chaos Visual Debugger (CVD), Hair/Fluid/Flesh simulations. Blueprint and Python examples.
+- **Summary:** Full UE 5.7 physics reference â€” Chaos Destruction (fracture, fields, anchor constraints), Rigid Body Dynamics (constraints, joints, welding), Chaos Cloth + ML Cloth, Ragdoll, Chaos Vehicles, Physics Fields, Networked Physics (3 replication modes), Chaos Visual Debugger (CVD), Hair/Fluid/Flesh simulations. Blueprint and Python examples.
 - **File:** tutorials/physics-in-unreal-engine.md
 
 
@@ -91,7 +91,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Pages:** 35
 - **UE Version:** UE 5.7
 - **Tags:** `#blueprints` `#visual-scripting` `#blueprint-types` `#event-graph` `#variables` `#functions` `#macros` `#interfaces` `#cpp` `#beginner` `#intermediate` `#ue5-7`
-- **Summary:** Complete Blueprint Visual Scripting reference — all Blueprint types (Level/Actor/Widget/Anim/Data/Interface), core graph types (Event/Construction/Function/Macro), variable types and replication, key node categories, communication patterns (Direct Reference/Cast/Interface/Dispatcher/GameState), performance tips, Blueprint-to-C++ integration guidance.
+- **Summary:** Complete Blueprint Visual Scripting reference â€” all Blueprint types (Level/Actor/Widget/Anim/Data/Interface), core graph types (Event/Construction/Function/Macro), variable types and replication, key node categories, communication patterns (Direct Reference/Cast/Interface/Dispatcher/GameState), performance tips, Blueprint-to-C++ integration guidance.
 - **File:** tutorials/blueprints-visual-scripting-in-unreal-engine.md
 
 
@@ -101,7 +101,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Pages:** 1
 - **UE Version:** UE 5.7
 - **Tags:** `#world-partition` `#large-worlds` `#streaming` `#data-layers` `#hlod` `#one-file-per-actor` `#environment` `#pcg` `#intermediate` `#advanced` `#ue5-7`
-- **Summary:** World Partition automatic streaming system — grid cells, distance-based streaming sources (Player Controller + custom components), Data Layers (runtime toggle for event-driven streaming), One File Per Actor (source-control-friendly actor storage), HLOD (automatic distant proxies), Level Instancing, level conversion commandlet with all flags documented.
+- **Summary:** World Partition automatic streaming system â€” grid cells, distance-based streaming sources (Player Controller + custom components), Data Layers (runtime toggle for event-driven streaming), One File Per Actor (source-control-friendly actor storage), HLOD (automatic distant proxies), Level Instancing, level conversion commandlet with all flags documented.
 - **File:** tutorials/world-partition-in-unreal-engine.md
 
 
@@ -111,7 +111,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Pages:** 22
 - **UE Version:** UE 5.7
 - **Tags:** `#ndisplay` `#icvfx` `#led-wall` `#virtual-production` `#switchboard` `#live-link` `#multi-display` `#rendering` `#clustering` `#synchronization` `#advanced` `#ue5-7`
-- **Summary:** Full nDisplay multi-display clustering reference — primary/secondary node architecture, 3D Config Editor (Components/Cluster/Output Mapping panels), Switchboard + SwitchboardListener deployment, ICVFX inner frustum workflow, Multi-GPU support, Failover policy, projection policies API, Output Remapping, synchronization/barrier timeouts, default ports (41001–41004). 22 pages.
+- **Summary:** Full nDisplay multi-display clustering reference â€” primary/secondary node architecture, 3D Config Editor (Components/Cluster/Output Mapping panels), Switchboard + SwitchboardListener deployment, ICVFX inner frustum workflow, Multi-GPU support, Failover policy, projection policies API, Output Remapping, synchronization/barrier timeouts, default ports (41001â€“41004). 22 pages.
 - **File:** tutorials/ndisplay-overview-for-unreal-engine.md
 
 
@@ -121,7 +121,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Pages:** 20
 - **UE Version:** UE 5.7
 - **Tags:** `#metahuman` `#character` `#lod` `#groom` `#hair` `#animation` `#control-rig` `#sequencer` `#live-link` `#ik-retargeting` `#performance` `#materials` `#intermediate` `#advanced` `#ue5-7`
-- **Summary:** Full MetaHuman UE reference — Blueprint structure (BP_MetaHumanName), MetaHuman Component (UE5.5+ correctives + LOD thresholds), LODSync Component (synchronized 8-LOD head + 4-LOD body), platform specs table (PC/Mac/iOS/Android), hair Groom LODs, Hair Art Directability via Dataflow graph, all animation methods (custom FBX, Sequencer+Control Rig, IK Retargeting, runtime retargeting, Live Link, facial rig), baked materials (MI_Face_Skin_Baked), key CVars, required plugins. 20 pages.
+- **Summary:** Full MetaHuman UE reference â€” Blueprint structure (BP_MetaHumanName), MetaHuman Component (UE5.5+ correctives + LOD thresholds), LODSync Component (synchronized 8-LOD head + 4-LOD body), platform specs table (PC/Mac/iOS/Android), hair Groom LODs, Hair Art Directability via Dataflow graph, all animation methods (custom FBX, Sequencer+Control Rig, IK Retargeting, runtime retargeting, Live Link, facial rig), baked materials (MI_Face_Skin_Baked), key CVars, required plugins. 20 pages.
 - **File:** tutorials/metahumans-in-unreal-engine.md
 
 
@@ -131,7 +131,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Pages:** 1
 - **UE Version:** UE 5.6
 - **Tags:** `#release-notes` `#rendering` `#animation` `#nanite` `#lumen` `#substrate` `#motion-design` `#virtual-production` `#ue5-6`
-- **Summary:** UE 5.6 release notes — Movie Render Graph production ready, Substrate Materials production ready, Modular Control Rig production ready, MegaLights improvements, PCG node additions, nDisplay/ICVFX improvements, Optimized MetaHumans refinements. (Crawled content sparse — notes synthesized from release knowledge.)
+- **Summary:** UE 5.6 release notes â€” Movie Render Graph production ready, Substrate Materials production ready, Modular Control Rig production ready, MegaLights improvements, PCG node additions, nDisplay/ICVFX improvements, Optimized MetaHumans refinements. (Crawled content sparse â€” notes synthesized from release knowledge.)
 - **File:** tutorials/unreal-engine-57-release-notes.md
 
 
@@ -141,7 +141,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Pages:** 3
 - **UE Version:** UE 5.5
 - **Tags:** `#release-notes` `#animation` `#sequencer` `#control-rig` `#metahuman` `#lumen` `#path-tracer` `#megalights` `#physics` `#ml-deformer` `#mutable` `#ue5-5`
-- **Summary:** UE 5.5 — Dynamic Sequencer (runtime bindings, Time Warp), Animation Layers (non-destructive), Modular Control Rig (Beta), Skeletal Editor (production ready), Optimized MetaHumans (Cinematic/High/Medium/Low pipelines; MetaHuman Component introduced), MegaLights (Experimental), Path Tracer (Production Ready + Spatio-Temporal denoiser), Lumen HWRT improvements, Choosers (production ready), ML Deformer mask painting. 3 pages with full content.
+- **Summary:** UE 5.5 â€” Dynamic Sequencer (runtime bindings, Time Warp), Animation Layers (non-destructive), Modular Control Rig (Beta), Skeletal Editor (production ready), Optimized MetaHumans (Cinematic/High/Medium/Low pipelines; MetaHuman Component introduced), MegaLights (Experimental), Path Tracer (Production Ready + Spatio-Temporal denoiser), Lumen HWRT improvements, Choosers (production ready), ML Deformer mask painting. 3 pages with full content.
 - **File:** tutorials/unreal-engine-55-release-notes.md
 
 
@@ -151,7 +151,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Pages:** 1
 - **UE Version:** UE 5.4
 - **Tags:** `#release-notes` `#motion-design` `#pcg` `#rendering` `#animation` `#niagara` `#nanite` `#lumen` `#ue5-4`
-- **Summary:** UE 5.4 — Motion Design module (first-class; cloners/effectors), PCG v2 (vector fields, hierarchical subgraphs, runtime updates), Nanite Displacement & Tessellation (Experimental), Movie Render Graph (Early Access), Modular Control Rig (Experimental), TSR improvements. (Crawled content sparse — notes synthesized from release knowledge.)
+- **Summary:** UE 5.4 â€” Motion Design module (first-class; cloners/effectors), PCG v2 (vector fields, hierarchical subgraphs, runtime updates), Nanite Displacement & Tessellation (Experimental), Movie Render Graph (Early Access), Modular Control Rig (Experimental), TSR improvements. (Crawled content sparse â€” notes synthesized from release knowledge.)
 - **File:** tutorials/unreal-engine-5-4-release-notes.md
 
 
@@ -161,7 +161,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** William Faucher
 - **UE Version:** UE 5.0
 - **Tags:** `#lighting` `#lumen` `#virtual-shadow-maps` `#rect-light` `#volumetric-fog` `#emissive` `#indirect-lighting` `#beginner` `#youtube` `#ue5`
-- **Summary:** 44-minute beginner lighting masterclass — all light types, source radius for soft shadows, VSM vs HWRT shadows, albedo impact on GI bounce, Lumen project setup (DX12/HWRT/VSM), reference sphere technique (albedo 0.04/0.18/0.85), emissive + volumetric god rays, daylight/overcast workflows.
+- **Summary:** 44-minute beginner lighting masterclass â€” all light types, source radius for soft shadows, VSM vs HWRT shadows, albedo impact on GI bounce, Lumen project setup (DX12/HWRT/VSM), reference sphere technique (albedo 0.04/0.18/0.85), emissive + volumetric god rays, daylight/overcast workflows.
 - **File:** tutorials/lighting-in-unreal-engine-5-for-beginners.md
 
 
@@ -171,7 +171,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** William Faucher
 - **UE Version:** UE 5.1
 - **Tags:** `#lumen` `#global-illumination` `#hardware-ray-tracing` `#surface-cache` `#reflections` `#emissive` `#intermediate` `#youtube` `#ue5`
-- **Summary:** Lumen internals — screen traces → distance fields → surface cache, critical constraint: separate wall/floor/ceiling meshes required, HWRT reflections simultaneously needs Reflection Quality=4, emissive best practice (large+dim + actual light actor), limitations (landscape, translucency, WPO, subsurface).
+- **Summary:** Lumen internals â€” screen traces â†’ distance fields â†’ surface cache, critical constraint: separate wall/floor/ceiling meshes required, HWRT reflections simultaneously needs Reflection Quality=4, emissive best practice (large+dim + actual light actor), limitations (landscape, translucency, WPO, subsurface).
 - **File:** tutorials/lumen-explained---important-tips-for-ue5.md
 
 
@@ -181,7 +181,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** William Faucher
 - **UE Version:** UE 5.0
 - **Tags:** `#lumen` `#global-illumination` `#project-settings` `#nanite` `#beginner` `#youtube` `#ue5`
-- **Summary:** Early UE5.0 Lumen overview — project settings (DX12, HWRT toggle, VSM), indirect lighting controls (Final Gather Quality, Diffuse Color Boost), Nanite LOD troubleshooting for black meshes in Lumen surface cache.
+- **Summary:** Early UE5.0 Lumen overview â€” project settings (DX12, HWRT toggle, VSM), indirect lighting controls (Final Gather Quality, Diffuse Color Boost), Nanite LOD troubleshooting for black meshes in Lumen surface cache.
 - **File:** tutorials/things-to-know-about-lumen-unreal-engine-5.md
 
 
@@ -191,7 +191,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** William Faucher
 - **UE Version:** UE 4 & 5
 - **Tags:** `#lighting` `#skylight` `#hdri` `#cubemap` `#distance-field-ao` `#ambient-occlusion` `#realtime-capture` `#beginner` `#youtube` `#ue5`
-- **Summary:** Skylight deep dive — SLS Captured Scene vs SLS Specified Cubemap, HDRI cubemap setup, Real Time Capture for dynamic skies, Distance Field Ambient Occlusion (DFAO) as non-RTX AO alternative, chrome ball reference technique for visualizing skylight contribution.
+- **Summary:** Skylight deep dive â€” SLS Captured Scene vs SLS Specified Cubemap, HDRI cubemap setup, Real Time Capture for dynamic skies, Distance Field Ambient Occlusion (DFAO) as non-RTX AO alternative, chrome ball reference technique for visualizing skylight contribution.
 - **File:** tutorials/demystifying-the-skylight-unreal-engine-4-5.md
 
 
@@ -211,7 +211,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** William Faucher
 - **UE Version:** UE 4.26 & UE5
 - **Tags:** `#lighting` `#volumetric-clouds` `#cloud-masking` `#sky` `#environment` `#intermediate` `#youtube` `#ue5`
-- **Summary:** Hidden Cloud Mask Generator Blueprint workflow (Show Engine Content required) — place Cloud Mask Object Blueprints to position clouds, Cloud Mask Generator renders masks, apply BILOE material profile for realistic cumulus. Also covers how to delete clouds: remove mask objects + tick "Render Clouds" on generator.
+- **Summary:** Hidden Cloud Mask Generator Blueprint workflow (Show Engine Content required) â€” place Cloud Mask Object Blueprints to position clouds, Cloud Mask Generator renders masks, apply BILOE material profile for realistic cumulus. Also covers how to delete clouds: remove mask objects + tick "Render Clouds" on generator.
 - **File:** tutorials/volumetric-cloud-secrets-unreal-engine-4-5-works-in-ue5.md
 
 
@@ -221,7 +221,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** William Faucher
 - **UE Version:** UE 5.3
 - **Tags:** `#lighting` `#interiors` `#lumen` `#hardware-ray-tracing` `#path-tracing` `#light-bleeding` `#diffuse-color-boost` `#intermediate` `#youtube` `#ue5-3`
-- **Summary:** Interior lighting with Lumen + HWRT + Path Tracer as ground-truth validator — Cast Ray Tracing Shadows on Rect Lights for soft penumbras, cube blockers under level for sky bleeding fix, PPV Lumen Diffuse Color Boost=2 to lift shadows, practical prop + light actor pairing.
+- **Summary:** Interior lighting with Lumen + HWRT + Path Tracer as ground-truth validator â€” Cast Ray Tracing Shadows on Rect Lights for soft penumbras, cube blockers under level for sky bleeding fix, PPV Lumen Diffuse Color Boost=2 to lift shadows, practical prop + light actor pairing.
 - **File:** tutorials/lighting-interiors-in-unreal-engine-5.md
 
 
@@ -231,7 +231,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** William Faucher
 - **UE Version:** UE 4.27
 - **Tags:** `#lighting` `#night-lighting` `#exterior` `#moonlight` `#volumetric-fog` `#skylight` `#lighting-channels` `#intermediate` `#youtube` `#ue4`
-- **Summary:** Full night exterior workflow — film reference (real moonlight = 0.25–1 lux, all cinematic moon is faked with blue artificial key light), layered build: directional moon → volumetric fog (80% of mood) → skylight shadow lift → warm practical lanterns → fill/rim lights for silhouettes, Lighting Channels to isolate rim lights (UE4 only).
+- **Summary:** Full night exterior workflow â€” film reference (real moonlight = 0.25â€“1 lux, all cinematic moon is faked with blue artificial key light), layered build: directional moon â†’ volumetric fog (80% of mood) â†’ skylight shadow lift â†’ warm practical lanterns â†’ fill/rim lights for silhouettes, Lighting Channels to isolate rim lights (UE4 only).
 - **File:** tutorials/lighting-a-night-time-exterior-in-unreal.md
 
 
@@ -241,7 +241,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** William Faucher
 - **UE Version:** UE 4.27
 - **Tags:** `#lighting` `#rtxgi` `#global-illumination` `#irradiance-probes` `#dynamic-gi` `#nvidia` `#intermediate` `#youtube` `#ue4`
-- **Summary:** Nvidia RTXGI (DDGI) for UE4 — irradiance-probe-based fully dynamic GI, 2× perf vs legacy UE4 RTGI, no lightmap UVs. Install: manual Nvidia download → engine plugins folder. Setup: DDGI Volume + two console vars. Probe density tuning (8×8×8 → 16×16×16), Probe Max Ray Distance for large outdoor scenes.
+- **Summary:** Nvidia RTXGI (DDGI) for UE4 â€” irradiance-probe-based fully dynamic GI, 2Ã— perf vs legacy UE4 RTGI, no lightmap UVs. Install: manual Nvidia download â†’ engine plugins folder. Setup: DDGI Volume + two console vars. Probe density tuning (8Ã—8Ã—8 â†’ 16Ã—16Ã—16), Probe Max Ray Distance for large outdoor scenes.
 - **File:** tutorials/how-to-improve-your-lighting-w-rtxgi.md
 
 
@@ -251,7 +251,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** William Faucher
 - **UE Version:** UE 4.27
 - **Tags:** `#rendering` `#path-tracing` `#ground-truth` `#mrq` `#denoising` `#samples` `#glass` `#subsurface-scattering` `#intermediate` `#youtube` `#ue4`
-- **Summary:** UE4.27 Path Tracer deep-dive — ground truth renderer, PPV settings (Samples Per Pixel, Max Bounces), denoiser is non-temporal (causes flicker → turn off, denoise in DaVinci post instead), new material support (subsurface, frosted glass, caustics), Sky Atmosphere workaround, MRQ: samples controlled via Anti-Aliasing tab not PPV. Recommended: 16×16 samples, no denoiser.
+- **Summary:** UE4.27 Path Tracer deep-dive â€” ground truth renderer, PPV settings (Samples Per Pixel, Max Bounces), denoiser is non-temporal (causes flicker â†’ turn off, denoise in DaVinci post instead), new material support (subsurface, frosted glass, caustics), Sky Atmosphere workaround, MRQ: samples controlled via Anti-Aliasing tab not PPV. Recommended: 16Ã—16 samples, no denoiser.
 - **File:** tutorials/path-tracer-explained---unreal-engines-underrated-tool.md
 
 
@@ -261,7 +261,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** William Faucher
 - **UE Version:** UE 5.0
 - **Tags:** `#nanite` `#geometry` `#lod` `#cluster-culling` `#performance` `#static-mesh` `#beginner` `#youtube` `#ue5`
-- **Summary:** Nanite overview — cluster culling (~128 triangles/cluster, per-pixel LOD), enable via import checkbox or Static Mesh Editor, no lightmap UVs required, good candidates (high-poly statics, occluders), bad candidates (tree leaves), landscape overhangs now possible. Debug: `nanite stats list`, Nanite Cluster View Mode.
+- **Summary:** Nanite overview â€” cluster culling (~128 triangles/cluster, per-pixel LOD), enable via import checkbox or Static Mesh Editor, no lightmap UVs required, good candidates (high-poly statics, occluders), bad candidates (tree leaves), landscape overhangs now possible. Debug: `nanite stats list`, Nanite Cluster View Mode.
 - **File:** tutorials/nanite-everything-you-should-know-unreal-engine-5.md
 
 
@@ -271,7 +271,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** William Faucher
 - **UE Version:** UE 5.5
 - **Tags:** `#rendering` `#mrq` `#temporal-aa` `#spatial-aa` `#motion-blur` `#niagara` `#game-overrides` `#tsr` `#william-faucher` `#intermediate` `#ue5-5`
-- **Summary:** 2025 MRQ guide — use Game Overrides tab (not manual console vars), pick temporal OR spatial samples (never both), motion blur needs temporal, no motion blur needs spatial + PPV=0, 9–15 temporal = standard, Niagara ghosting fix: double framerate + import at half speed.
+- **Summary:** 2025 MRQ guide â€” use Game Overrides tab (not manual console vars), pick temporal OR spatial samples (never both), motion blur needs temporal, no motion blur needs spatial + PPV=0, 9â€“15 temporal = standard, Niagara ghosting fix: double framerate + import at half speed.
 - **File:** tutorials/the-2025-guide-to-rendering-in-unreal-engine-5.md
 
 
@@ -281,7 +281,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** William Faucher
 - **UE Version:** UE 5.0
 - **Tags:** `#rendering` `#shadows` `#nanite` `#hwrt` `#ray-tracing` `#bug-fix` `#william-faucher` `#intermediate` `#ue5`
-- **Summary:** Nanite + HWRT shadow splotch bug — root cause: HWRT traces Nanite fallback mesh (low-res proxy), not actual geometry. 3 fixes: disable Ray Traced Shadows on light, `r.RayTracing.Shadows.EnableTwoSidedGeometry 0`, or Nanite Fallback Relative Error = 0.
+- **Summary:** Nanite + HWRT shadow splotch bug â€” root cause: HWRT traces Nanite fallback mesh (low-res proxy), not actual geometry. 3 fixes: disable Ray Traced Shadows on light, `r.RayTracing.Shadows.EnableTwoSidedGeometry 0`, or Nanite Fallback Relative Error = 0.
 - **File:** tutorials/fixing-the-ugly-shadow-issues-in-unreal-engine-5.md
 
 
@@ -291,7 +291,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** William Faucher
 - **UE Version:** UE 5.0
 - **Tags:** `#lumen` `#reflections` `#translucency` `#nanite` `#path-tracing` `#quixel` `#william-faucher` `#beginner` `#ue5`
-- **Summary:** UE5.0 migration gotchas — Lumen works on GTX 1070–1080 (no RTX needed for software Lumen), glass refraction fix (PPV → Translucency → Ray Tracing), Nanite + Path Tracer traces fallback mesh (same splotch bug), Quixel Bridge install (Epic Launcher Library → Vault, no longer built-in).
+- **Summary:** UE5.0 migration gotchas â€” Lumen works on GTX 1070â€“1080 (no RTX needed for software Lumen), glass refraction fix (PPV â†’ Translucency â†’ Ray Tracing), Nanite + Path Tracer traces fallback mesh (same splotch bug), Quixel Bridge install (Epic Launcher Library â†’ Vault, no longer built-in).
 - **File:** tutorials/fixing-common-ue5-issues-changes-in-50.md
 
 
@@ -301,7 +301,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** William Faucher
 - **UE Version:** UE 5.2
 - **Tags:** `#rendering` `#dlss` `#nvidia` `#upscaling` `#frame-generation` `#rtx` `#performance` `#william-faucher` `#intermediate` `#ue5-2`
-- **Summary:** DLSS 3.0 breakdown — DLSS (upscaling, any DLSS GPU) vs Frame Generation (ML-interpolated frames, RTX 40 series only). Quality modes table (DLAA=100% to Ultra=33.33%). Frame Gen requires ≥30fps baseline. Frame Gen doesn't work in MRQ — use AA=None + 16+ temporal samples for renders.
+- **Summary:** DLSS 3.0 breakdown â€” DLSS (upscaling, any DLSS GPU) vs Frame Generation (ML-interpolated frames, RTX 40 series only). Quality modes table (DLAA=100% to Ultra=33.33%). Frame Gen requires â‰¥30fps baseline. Frame Gen doesn't work in MRQ â€” use AA=None + 16+ temporal samples for renders.
 - **File:** tutorials/double-your-framerate-in-ue5-for-free-sort-of---nvidia-dlss-30.md
 
 
@@ -311,7 +311,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** William Faucher
 - **UE Version:** UE 4.26
 - **Tags:** `#rendering` `#mrq` `#movie-render-queue` `#anti-aliasing` `#exr` `#spatial-samples` `#william-faucher` `#intermediate` `#ue4`
-- **Summary:** MRQ introduction — why MRQ beats Sequencer (AA=None + 64 spatial samples = no noise/motion-blur issues vs. TAA default). Setup: enable Movie Render Pipeline + Additional Render Passes plugins. High Resolution Tiling: 4× resolution but no screen-space effects.
+- **Summary:** MRQ introduction â€” why MRQ beats Sequencer (AA=None + 64 spatial samples = no noise/motion-blur issues vs. TAA default). Setup: enable Movie Render Pipeline + Additional Render Passes plugins. High Resolution Tiling: 4Ã— resolution but no screen-space effects.
 - **File:** tutorials/improve-your-renders-with-unreal-movie-render-queue-part-1---goodbye-sequencer-4.md
 
 
@@ -321,7 +321,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** William Faucher
 - **UE Version:** UE 4.26
 - **Tags:** `#rendering` `#mrq` `#cryptomatte` `#object-id` `#depth-of-field` `#z-depth` `#render-presets` `#william-faucher` `#intermediate` `#ue4`
-- **Summary:** MRQ Part 2 — 3 critical limitations: Object ID+subsampling=very slow, Object ID has no DOF (use Stencil Layers instead), no 32-bit Z-depth from MRQ. 2 features: Render Presets (save full config for reuse), Batch Render Queue (queue all shots to render overnight unattended).
+- **Summary:** MRQ Part 2 â€” 3 critical limitations: Object ID+subsampling=very slow, Object ID has no DOF (use Stencil Layers instead), no 32-bit Z-depth from MRQ. 2 features: Render Presets (save full config for reuse), Batch Render Queue (queue all shots to render overnight unattended).
 - **File:** tutorials/improve-your-renders-with-movie-render-queue-part-2---five-things-you-need-to-kn.md
 
 
@@ -331,7 +331,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** William Faucher
 - **UE Version:** UE 4.26
 - **Tags:** `#rendering` `#mrq` `#render-passes` `#z-depth` `#scene-depth` `#post-process-materials` `#nuke` `#william-faucher` `#beginner` `#ue4`
-- **Summary:** Render passes in MRQ are hidden under Deferred Rendering → Additional Post Process Materials (not in a visible passes list). Must know material names: "Scene Depth World Units" = Z-depth, "World Normal" = normals. Z-depth works for re-focus in Nuke but edge quality at motion-blurred areas is problematic.
+- **Summary:** Render passes in MRQ are hidden under Deferred Rendering â†’ Additional Post Process Materials (not in a visible passes list). Must know material names: "Scene Depth World Units" = Z-depth, "World Normal" = normals. Z-depth works for re-focus in Nuke but edge quality at motion-blurred areas is problematic.
 - **File:** tutorials/how-to-render-passes-with-the-movie-render-queue-unreal-engine-426.md
 
 
@@ -341,7 +341,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** William Faucher
 - **UE Version:** UE 4.26
 - **Tags:** `#rendering` `#mrq` `#render-layers` `#stencil-layers` `#compositing` `#nuke` `#depth-of-field` `#motion-blur` `#alpha` `#william-faucher` `#intermediate` `#ue4`
-- **Summary:** Stencil Render Layers — superior to Cryptomatte because they support DOF AND motion blur in masks. Setup: MRQ → Deferred Rendering → Create Layer → assign actors via Layers panel. Critical: Disable Tone Curve + Disable Auto Exposure + Screen Percentage=100. Nuke: Shuffle nodes + Merge Plus (not Over). +100% render time per layer.
+- **Summary:** Stencil Render Layers â€” superior to Cryptomatte because they support DOF AND motion blur in masks. Setup: MRQ â†’ Deferred Rendering â†’ Create Layer â†’ assign actors via Layers panel. Critical: Disable Tone Curve + Disable Auto Exposure + Screen Percentage=100. Nuke: Shuffle nodes + Merge Plus (not Over). +100% render time per layer.
 - **File:** tutorials/why-you-should-be-using-stencil-render-layers---unreal-engine-426.md
 
 
@@ -351,7 +351,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** William Faucher
 - **UE Version:** UE 4.26
 - **Tags:** `#rendering` `#mrq` `#cryptomatte` `#object-id` `#matte` `#compositing` `#exr` `#nuke` `#william-faucher` `#beginner` `#ue4`
-- **Summary:** Cryptomatte setup in UE4.26 (first version to support it) — enable Movie Render Pipeline Additional Render Passes plugin, MRQ → Add Object IDs Limited + EXR Sequence with Multi-Layer enabled. View in Photoshop with free EXRIO plugin. Limitation: no DOF support in masks — use Stencil Layers for DOF-accurate compositing.
+- **Summary:** Cryptomatte setup in UE4.26 (first version to support it) â€” enable Movie Render Pipeline Additional Render Passes plugin, MRQ â†’ Add Object IDs Limited + EXR Sequence with Multi-Layer enabled. View in Photoshop with free EXRIO plugin. Limitation: no DOF support in masks â€” use Stencil Layers for DOF-accurate compositing.
 - **File:** tutorials/how-to-render-cryptomatte-in-unreal-new-in-426.md
 
 
@@ -361,7 +361,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** William Faucher
 - **UE Version:** UE 4 & 5
 - **Tags:** `#rendering` `#mrq` `#sequencer` `#first-frame` `#warm-up-frames` `#temporal-aa` `#william-faucher` `#beginner` `#ue4` `#ue5`
-- **Summary:** Classic "broken first frame" fix — temporal AA (TSR/TAA) needs warm-up history frames or frame 0 shows camera in wrong position. Fix: MRQ → Anti-Aliasing → Engine Warm Up Frame Count = 16–32. William: "it's literally just a slider." Keep 5-frame handles at start too.
+- **Summary:** Classic "broken first frame" fix â€” temporal AA (TSR/TAA) needs warm-up history frames or frame 0 shows camera in wrong position. Fix: MRQ â†’ Anti-Aliasing â†’ Engine Warm Up Frame Count = 16â€“32. William: "it's literally just a slider." Keep 5-frame handles at start too.
 - **File:** tutorials/fix-the-broken-first-frame-in-sequencer-movie-render-queue---unreal-engine.md
 
 
@@ -371,7 +371,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** William Faucher
 - **UE Version:** UE 4.26
 - **Tags:** `#lighting` `#baked-lighting` `#gpu-lightmass` `#lightmap-uv` `#rtx` `#ray-tracing` `#virtual-texturing` `#hdri` `#william-faucher` `#intermediate` `#ue4`
-- **Summary:** GPU Lightmass baking setup — requires RTX GPU + ray tracing + virtual texturing. Two UV channels per mesh required (channel 1 = lightmap, no overlapping). Uncheck Compressed Lightmaps in World Settings for smooth gradients (+4× memory). "Bake What You See" mode for fast camera-area-only test bakes. Disable AO in PPV, keep material albedo 0.4+ for good bounce.
+- **Summary:** GPU Lightmass baking setup â€” requires RTX GPU + ray tracing + virtual texturing. Two UV channels per mesh required (channel 1 = lightmap, no overlapping). Uncheck Compressed Lightmaps in World Settings for smooth gradients (+4Ã— memory). "Bake What You See" mode for fast camera-area-only test bakes. Disable AO in PPV, keep material albedo 0.4+ for good bounce.
 - **File:** tutorials/bake-lighting-faster-with-gpu-lightmass---unreal-engine-426.md
 
 
@@ -381,7 +381,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** William Faucher
 - **UE Version:** UE 5.x
 - **Tags:** `#rendering` `#color-grading` `#davinci-resolve` `#aces` `#ocio` `#tone-curve` `#linear-srgb` `#color-science` `#mrq` `#william-faucher` `#intermediate` `#ue5`
-- **Summary:** Updated 2026 color pipeline — simpler than older workflow. OCIO config is now built-in: type `ocio://default` in config path (no download needed!). Render linear sRGB (Tone Curve OFF). In Resolve: ACES transform node. With Tone Curve ON: perfect viewport match but limited grading. Set Blue Correction + Expand Gamut to 0 in PPV.
+- **Summary:** Updated 2026 color pipeline â€” simpler than older workflow. OCIO config is now built-in: type `ocio://default` in config path (no download needed!). Render linear sRGB (Tone Curve OFF). In Resolve: ACES transform node. With Tone Curve ON: perfect viewport match but limited grading. Set Blue Correction + Expand Gamut to 0 in PPV.
 - **File:** tutorials/the-2026-unreal-engine-to-davinci-resolve-guide---aces-srgb.md
 
 
@@ -391,7 +391,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** William Faucher
 - **UE Version:** UE 4 & 5
 - **Tags:** `#rendering` `#color-grading` `#davinci-resolve` `#aces` `#ocio` `#color-science` `#mrq` `#vignette` `#film-grain` `#chromatic-aberration` `#william-faucher` `#intermediate` `#ue4` `#ue5`
-- **Summary:** Original ACES workflow (older, more manual) — download ACES 1.2 config from aces-dev GitHub, set up OCIO in UE, MRQ Color Output → OCIO config. In Resolve: right-click → ACES Input Transform: ACEScg (ACES) or sRGB Linear (no-ACES). Full grade walkthrough: vignette, chromatic aberration with highlight mask, film grain. See 2026 Guide for simplified version.
+- **Summary:** Original ACES workflow (older, more manual) â€” download ACES 1.2 config from aces-dev GitHub, set up OCIO in UE, MRQ Color Output â†’ OCIO config. In Resolve: right-click â†’ ACES Input Transform: ACEScg (ACES) or sRGB Linear (no-ACES). Full grade walkthrough: vignette, chromatic aberration with highlight mask, film grain. See 2026 Guide for simplified version.
 - **File:** tutorials/unreal-to-davinci-resolve-workflow---aces-srgb.md
 
 
@@ -401,7 +401,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** William Faucher
 - **UE Version:** UE 5.0
 - **Tags:** `#rendering` `#compositing` `#nuke` `#unreal-reader` `#mrq` `#stencil-layers` `#render-passes` `#camera-data` `#pipeline` `#william-faucher` `#advanced` `#ue5`
-- **Summary:** Foundry's UnrealReader (built into Nuke 13.2) — live TCP/IP bridge to MRQ. Setup: copy Nuke Server plugin to UE Engine/Plugins, enable plugin, Window → Nuke Server → Start. In Nuke: UnrealReader node → connect. Disable Tone Curve in Advanced tab for linear image. Access stencil layers, render passes, and export live UE camera to Nuke 3D space. Write to disk: filename must include `####.exr`.
+- **Summary:** Foundry's UnrealReader (built into Nuke 13.2) â€” live TCP/IP bridge to MRQ. Setup: copy Nuke Server plugin to UE Engine/Plugins, enable plugin, Window â†’ Nuke Server â†’ Start. In Nuke: UnrealReader node â†’ connect. Disable Tone Curve in Advanced tab for linear image. Access stencil layers, render passes, and export live UE camera to Nuke 3D space. Write to disk: filename must include `####.exr`.
 - **File:** tutorials/intro-to-unrealreader---nuke-132.md
 
 
@@ -411,7 +411,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** William Faucher
 - **UE Version:** UE 4 & 5
 - **Tags:** `#cinematics` `#camera` `#frame-rate` `#motion-blur` `#depth-of-field` `#film-back` `#focal-length` `#aspect-ratio` `#color-grading` `#william-faucher` `#beginner` `#intermediate` `#ue4` `#ue5`
-- **Summary:** 5 fundamentals for cinematic renders: 24fps (not 60fps) + 180° shutter rule for organic motion blur, full-frame film back (36×24mm), long focal lengths 85–200mm (not 35mm default), 2.35:1 aspect ratio for cinema scope feel, and mandatory post-production color grading in Resolve. Rendering is only 50% of the job.
+- **Summary:** 5 fundamentals for cinematic renders: 24fps (not 60fps) + 180Â° shutter rule for organic motion blur, full-frame film back (36Ã—24mm), long focal lengths 85â€“200mm (not 35mm default), 2.35:1 aspect ratio for cinema scope feel, and mandatory post-production color grading in Resolve. Rendering is only 50% of the job.
 - **File:** tutorials/how-to-make-unreal-look-more-cinematic.md
 
 
@@ -421,7 +421,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** William Faucher
 - **UE Version:** UE 5.0
 - **Tags:** `#rendering` `#path-tracing` `#photogrammetry` `#3d-scanning` `#compositing` `#davinci-resolve` `#mrq` `#workflow` `#william-faucher` `#intermediate` `#ue5`
-- **Summary:** Full production breakdown: photogrammetry (RealityCapture + cross-polarized flash) → Substance Painter → UE5 (composition first!) → Path Tracer render (MRQ: Path Tracing tab, 16×16 samples, denoiser OFF, tone curve OFF) → DaVinci Resolve denoising (Fusion page noise reduction, free) + color grade. 3 lighting variations: day/overcast/night.
+- **Summary:** Full production breakdown: photogrammetry (RealityCapture + cross-polarized flash) â†’ Substance Painter â†’ UE5 (composition first!) â†’ Path Tracer render (MRQ: Path Tracing tab, 16Ã—16 samples, denoiser OFF, tone curve OFF) â†’ DaVinci Resolve denoising (Fusion page noise reduction, free) + color grade. 3 lighting variations: day/overcast/night.
 - **File:** tutorials/how-i-made-this-shot-in-unreal-engine-5.md
 
 
@@ -431,7 +431,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** William Faucher
 - **UE Version:** UE 4 & 5
 - **Tags:** `#camera` `#camera-shake` `#sequencer` `#blueprints` `#cinematics` `#animation` `#procedural` `#william-faucher` `#beginner` `#ue4` `#ue5`
-- **Summary:** Procedural camera shake — create CameraShakeBase Blueprint, configure Procedural Shake Component amplitude/frequency per channel, add to Sequencer camera via + Track → Camera Shake. Stack two shakes (low-freq+medium-amp for sway + high-freq+low-amp for micro-vibration) for realistic handheld feel.
+- **Summary:** Procedural camera shake â€” create CameraShakeBase Blueprint, configure Procedural Shake Component amplitude/frequency per channel, add to Sequencer camera via + Track â†’ Camera Shake. Stack two shakes (low-freq+medium-amp for sway + high-freq+low-amp for micro-vibration) for realistic handheld feel.
 - **File:** tutorials/how-to-add-camera-shake-in-unreal-engine.md
 
 
@@ -441,7 +441,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Procedural Minds
 - **UE Version:** UE 5.x
 - **Tags:** `#materials` `#textures` `#rgb-mask` `#blueprints` `#animation` `#combat` `#indie` `#devlog` `#intermediate` `#youtube` `#ue5`
-- **Summary:** Indie devlog (project "Swords Included") with two core UE techniques: (1) entire stylized environment textured with a single RGB mask — R/G/B channels each encode a brush stroke pattern, a master material samples each channel as a separate mask and multiplies by color parameters per Material Instance; (2) Blueprint combo system (light 0.75s / heavy 1.5s accumulating cooldowns) with animation early-exit notify enabling snappy attack chaining without dash cancels.
+- **Summary:** Indie devlog (project "Swords Included") with two core UE techniques: (1) entire stylized environment textured with a single RGB mask â€” R/G/B channels each encode a brush stroke pattern, a master material samples each channel as a separate mask and multiplies by color parameters per Material Instance; (2) Blueprint combo system (light 0.75s / heavy 1.5s accumulating cooldowns) with animation early-exit notify enabling snappy attack chaining without dash cancels.
 - **File:** tutorials/i-textured-the-entire-environment-using-a-single-texture.md
 
 
@@ -451,7 +451,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Karim Yasser
 - **UE Version:** UE 5.0+
 - **Tags:** `#lumen` `#global-illumination` `#hardware-ray-tracing` `#project-settings` `#post-process` `#rendering` `#lighting` `#intermediate` `#youtube` `#ue5`
-- **Summary:** AAA professional's Lumen guide — HWRT vs SWRT selection based on project type and platform target, Post Process Volume quality knobs beyond the commonly cited three (Final Gather Quality, Scene Lighting Sensitivity, Ray Lighting Mode: Surface Cache vs Hit Lighting for Reflections). Covers three scene types: warm outdoor, nighttime urban, golden-hour canal.
+- **Summary:** AAA professional's Lumen guide â€” HWRT vs SWRT selection based on project type and platform target, Post Process Volume quality knobs beyond the commonly cited three (Final Gather Quality, Scene Lighting Sensitivity, Ray Lighting Mode: Surface Cache vs Hit Lighting for Reflections). Covers three scene types: warm outdoor, nighttime urban, golden-hour canal.
 - **File:** tutorials/how-i-use-lumen-in-aaa-projects-unreal-engine-5.md
 
 
@@ -461,7 +461,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Karim Yasser
 - **UE Version:** UE 5.5+ (MegaLights present)
 - **Tags:** `#lighting` `#interiors` `#lumen` `#hardware-ray-tracing` `#post-process` `#volumetric-fog` `#megalights` `#console-commands` `#intermediate` `#advanced` `#youtube` `#ue5`
-- **Summary:** Full interior lighting workflow from scratch for a moody restaurant scene — clean slate from baked lighting, night skylight base, single exterior Spotlight as moon source with volumetric god rays, fill lights, PPV color grade. Key value: `r.Lumen.ScreenProbes.Radiosity.HemisphereFromResolution 32` (fixes Lumen flicker; default 4), `r.VolumetricFog.GridPixelSize 4` + `r.VolumetricFog.GridSizeZ 512` (improve fog quality). Also covers Source Radius vs. Soft Source Radius distinction for specular control.
+- **Summary:** Full interior lighting workflow from scratch for a moody restaurant scene â€” clean slate from baked lighting, night skylight base, single exterior Spotlight as moon source with volumetric god rays, fill lights, PPV color grade. Key value: `r.Lumen.ScreenProbes.Radiosity.HemisphereFromResolution 32` (fixes Lumen flicker; default 4), `r.VolumetricFog.GridPixelSize 4` + `r.VolumetricFog.GridSizeZ 512` (improve fog quality). Also covers Source Radius vs. Soft Source Radius distinction for specular control.
 - **File:** tutorials/it-took-me-7-years-to-get-interior-lighting-that-easy-in-unreal-engine-5.md
 
 
@@ -471,7 +471,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Karim Yasser
 - **UE Version:** UE 5.x
 - **Tags:** `#lighting` `#skylight` `#hdri` `#lumen` `#reflections` `#ambient-lighting` `#pbr` `#distance-field-ao` `#beginner` `#intermediate` `#youtube` `#ue5`
-- **Summary:** Full Skylight reference using a chrome sphere as a live diagnostic tool — SLS Captured Scene vs SLS Specified Cubemap vs Real-Time Capture, Sky Distance Threshold black-skylight bug (sky mesh smaller than threshold = no capture), "Is Sky" material flag required for real-time capture to work, cubemap rotation and resolution (512 sweet spot), Lower Hemisphere Solid Color (keep ON for interiors), Intensity Scale=1 for PBL. With Lumen: DFAO is automatic. Debug with Detail Lighting view mode.
+- **Summary:** Full Skylight reference using a chrome sphere as a live diagnostic tool â€” SLS Captured Scene vs SLS Specified Cubemap vs Real-Time Capture, Sky Distance Threshold black-skylight bug (sky mesh smaller than threshold = no capture), "Is Sky" material flag required for real-time capture to work, cubemap rotation and resolution (512 sweet spot), Lower Hemisphere Solid Color (keep ON for interiors), Intensity Scale=1 for PBL. With Lumen: DFAO is automatic. Debug with Detail Lighting view mode.
 - **File:** tutorials/the-perfect-sky-light-in-unreal-engine-5.md
 
 
@@ -479,9 +479,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=771myWapQ_s
 - **Author:** World Of VFX
-- **UE Version:** UE5 (version unspecified; ~5.2–5.3 era)
+- **UE Version:** UE5 (version unspecified; ~5.2â€“5.3 era)
 - **Tags:** `#vfx` `#compositing` `#rendering` `#lighting` `#materials` `#beginner` `#youtube` `#ue5`
-- **Summary:** Uses the Media Plate Beta plugin to stream green screen footage onto a plane actor in a UE5 scene and key out the background via the built-in chroma key material (Main Element). The composited actor casts shadows and receives Lumen lighting from the scene — no external compositor needed. ~9 min, plugin-only workflow.
+- **Summary:** Uses the Media Plate Beta plugin to stream green screen footage onto a plane actor in a UE5 scene and key out the background via the built-in chroma key material (Main Element). The composited actor casts shadows and receives Lumen lighting from the scene â€” no external compositor needed. ~9 min, plugin-only workflow.
 - **File:** tutorials/how-to-remove-green-screen-composite-in-unreal-engine-5-using-media-plate-realis.md
 
 
@@ -842,7 +842,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** blackeye-v2
 - **UE Version:** UE 5.3+
 - **Tags:** `#blackeye-v2` `#camera` `#gameplay` `#cinematics` `#blueprints` `#sequencer` `#intermediate` `#advanced`
-- **Summary:** 43-minute complete v2 system walkthrough — Camera Manager setup, orbit camera, trigger-volume-based camera switching (aim/tight spaces/cross-camera), Save-in-Play real-time iteration, Blend Lists, Black Eye Panel composition tools, Modifiers/Blueprints, Dead Zones, Dynamic Zoom, and Adaptive Cutscenes in Sequencer.
+- **Summary:** 43-minute complete v2 system walkthrough â€” Camera Manager setup, orbit camera, trigger-volume-based camera switching (aim/tight spaces/cross-camera), Save-in-Play real-time iteration, Blend Lists, Black Eye Panel composition tools, Modifiers/Blueprints, Dead Zones, Dynamic Zoom, and Adaptive Cutscenes in Sequencer.
 - **File:** tutorials/unreal-engine-black-eye-cameras-v2-start-here-tutorial.md
 
 
@@ -853,7 +853,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** blackeye-v2
 - **UE Version:** UE 5.3+
 - **Tags:** `#blackeye-v2` `#camera` `#gameplay` `#teaser`
-- **Summary:** 47-second music-only teaser for Black Eye v2 gameplay camera release. No instructional content — see the START HERE Tutorial for full coverage.
+- **Summary:** 47-second music-only teaser for Black Eye v2 gameplay camera release. No instructional content â€” see the START HERE Tutorial for full coverage.
 - **File:** tutorials/unreal-engine-black-eye-cameras-v2-gameplay-cameras-are-here.md
 
 
@@ -864,7 +864,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** blackeye-v1
 - **UE Version:** UE 5.x
 - **Tags:** `#blackeye-v1` `#camera` `#testimonial`
-- **Summary:** 3-minute user testimonial reel — artists praise Black Eye for speed (hours → minutes), workflow integration, and shot quality improvement over manual keyframing. No instructional content.
+- **Summary:** 3-minute user testimonial reel â€” artists praise Black Eye for speed (hours â†’ minutes), workflow integration, and shot quality improvement over manual keyframing. No instructional content.
 - **File:** tutorials/unreal-engine-black-eye-cameras-behind-the-lens.md
 
 
@@ -875,7 +875,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** blackeye-v2
 - **UE Version:** UE 5.3+
 - **Tags:** `#blackeye-v2` `#camera` `#dialogue` `#cinematics` `#gameplay` `#beginner`
-- **Summary:** 1-minute intro to Black Eye's Dynamic Dialog system — cameras track head/chest bones of multiple characters and auto-compute framing for any dialogue configuration (variable line count, participant count, character size) without manual keyframing.
+- **Summary:** 1-minute intro to Black Eye's Dynamic Dialog system â€” cameras track head/chest bones of multiple characters and auto-compute framing for any dialogue configuration (variable line count, participant count, character size) without manual keyframing.
 - **File:** tutorials/unreal-engine-black-eye-cameras-dynamic-dialog-intro.md
 
 
@@ -886,7 +886,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** blackeye-v2
 - **UE Version:** UE 5.3+
 - **Tags:** `#blackeye-v2` `#camera` `#gameplay` `#top-down` `#beginner`
-- **Summary:** 3.5-minute tutorial upgrading Epic's top-down template camera with Black Eye velocity look-ahead — composition leads in the direction of movement scaled by speed and springs back to center when the character slows. Iterated live via Save-in-Play.
+- **Summary:** 3.5-minute tutorial upgrading Epic's top-down template camera with Black Eye velocity look-ahead â€” composition leads in the direction of movement scaled by speed and springs back to center when the character slows. Iterated live via Save-in-Play.
 - **File:** tutorials/unreal-engine-black-eye-cameras-for-gameplay-top-down.md
 
 
@@ -897,7 +897,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** blackeye-v2
 - **UE Version:** UE 5.3+
 - **Tags:** `#blackeye-v2` `#camera` `#gameplay` `#cinematics` `#vehicles` `#beginner`
-- **Summary:** 1.5-minute teaser for the full car camera tutorial. Previews rotational damping (camera feels car physics), variable pivot points (front-of-car at speed → whole car when slowing), and cinematic sweeping flybys with few Sequencer keyframes. See Car Cameras full tutorial for implementation.
+- **Summary:** 1.5-minute teaser for the full car camera tutorial. Previews rotational damping (camera feels car physics), variable pivot points (front-of-car at speed â†’ whole car when slowing), and cinematic sweeping flybys with few Sequencer keyframes. See Car Cameras full tutorial for implementation.
 - **File:** tutorials/unreal-engine-black-eye-cameras-car-camera-intro.md
 
 
@@ -952,7 +952,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** blackeye-v1.2
 - **UE Version:** UE 5.x
 - **Tags:** `#blackeye-v1` `#camera` `#esports` `#live-events` `#mocap` `#intermediate`
-- **Summary:** 1-minute preview of the v1.2 Shot List module — a single camera with multiple sub-cameras in priority order; raycasts from each to the subject and auto-cuts to the first unoccluded option with a minimum shot time. Game-changer for eSports, replays, and live events.
+- **Summary:** 1-minute preview of the v1.2 Shot List module â€” a single camera with multiple sub-cameras in priority order; raycasts from each to the subject and auto-cuts to the first unoccluded option with a minimum shot time. Game-changer for eSports, replays, and live events.
 - **File:** tutorials/unreal-engine-black-eye-cameras-v12-preview-shot-list-module.md
 
 
@@ -1040,7 +1040,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** blackeye-v1.1.1
 - **UE Version:** UE 5.x
 - **Tags:** `#blackeye-v1` `#camera` `#cinematics` `#sequencer` `#intermediate`
-- **Summary:** 4.5-minute tutorial for v1.1.1 keyable weights: keyframe each subject's weight (0–1) on multi-subject Follow and LookAt in Sequencer. Ramp between subjects on a single camera — red car → yellow truck → plane + car — without cuts. Debug blue boxes visualize active subjects. Dynamic FOV adjusts framing automatically.
+- **Summary:** 4.5-minute tutorial for v1.1.1 keyable weights: keyframe each subject's weight (0â€“1) on multi-subject Follow and LookAt in Sequencer. Ramp between subjects on a single camera â€” red car â†’ yellow truck â†’ plane + car â€” without cuts. Debug blue boxes visualize active subjects. Dynamic FOV adjusts framing automatically.
 - **File:** tutorials/unreal-engine-black-eye-cameras-version-111-keyable-weights-in-sequencer.md
 
 
@@ -1073,7 +1073,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** blackeye-v1.1
 - **UE Version:** UE 5.x
 - **Tags:** `#blackeye-v1` `#camera` `#sequencer` `#beginner`
-- **Summary:** 1.5-minute tutorial for Camera Bake (v1.1): link a Black Eye camera to a destination CineCameraActor in Sequencer → Bake → generates dense keyframes on every channel. For DCC round-trips, layered rendering, or handing off to standard camera pipelines.
+- **Summary:** 1.5-minute tutorial for Camera Bake (v1.1): link a Black Eye camera to a destination CineCameraActor in Sequencer â†’ Bake â†’ generates dense keyframes on every channel. For DCC round-trips, layered rendering, or handing off to standard camera pipelines.
 - **File:** tutorials/unreal-engine-black-eye-cameras-bake-down-cam-anims.md
 
 
@@ -1095,7 +1095,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** blackeye-v1
 - **UE Version:** UE 5.x
 - **Tags:** `#blackeye-v1` `#camera` `#animation` `#beginner`
-- **Summary:** 1-minute concept demo: Black Eye bone-based cameras (LookAt head + Follow) remain valid when you swap character animations (walk→run). No camera updates needed. Camera always finds the head bone regardless of which animation is playing.
+- **Summary:** 1-minute concept demo: Black Eye bone-based cameras (LookAt head + Follow) remain valid when you swap character animations (walkâ†’run). No camera updates needed. Camera always finds the head bone regardless of which animation is playing.
 - **File:** tutorials/unreal-engine-black-eye-cameras-change-anims-the-cameras-are-fine.md
 
 
@@ -1106,7 +1106,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** blackeye-v1
 - **UE Version:** UE 5.x
 - **Tags:** `#blackeye-v1` `#camera` `#cinematics` `#beginner`
-- **Summary:** 2.5-minute workflow tip: drag a Black Eye camera anywhere in the scene without keyframes — it always re-composes and tracks. Prototype by exploring angles live. Also shows attaching Follow to a world object (cube) as a creative dolly rig while keeping LookAt on characters.
+- **Summary:** 2.5-minute workflow tip: drag a Black Eye camera anywhere in the scene without keyframes â€” it always re-composes and tracks. Prototype by exploring angles live. Also shows attaching Follow to a world object (cube) as a creative dolly rig while keeping LookAt on characters.
 - **File:** tutorials/unreal-engine-black-eye-cameras-rapid-shot-prototyping.md
 
 
@@ -1182,7 +1182,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** dash-1.11
 - **UE Version:** UE 5.x
 - **Tags:** `#dash-1.11` `#presets` `#drawable-presets` `#content-browser` `#asset-management` `#world-building` `#beginner`
-- **Summary:** Dash 1.11 release — 18 new procedural presets, Drawable Presets (Ctrl+drag to draw surface/path presets into the level), custom drawable preset creation, fast/slow asset compute modes for own-asset content browser, and type filters (Materials/Meshes/Decals). Assets computed in one project are instantly shared across all open projects.
+- **Summary:** Dash 1.11 release â€” 18 new procedural presets, Drawable Presets (Ctrl+drag to draw surface/path presets into the level), custom drawable preset creation, fast/slow asset compute modes for own-asset content browser, and type filters (Materials/Meshes/Decals). Assets computed in one project are instantly shared across all open projects.
 - **File:** tutorials/dash-111---unreal-engine-world-building-just-got-easier.md
 
 
@@ -1203,7 +1203,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** dash-1.10
 - **UE Version:** UE 5.x
 - **Tags:** `#dash-1.10` `#presets` `#compound-presets` `#path-scatter` `#physics-paint` `#decal-scatter` `#blueprint-scatter` `#world-building` `#intermediate`
-- **Summary:** Dash 1.10 preset system overhaul — single-tool presets (global/project scope), compound presets (multi-tool with editable reference table), dedicated Preset Library in Content Browser, built-in Quaternius free presets. New: PathScatter supports Decal and Blueprint Actor scatter; Physics Paint gained min/max scale range.
+- **Summary:** Dash 1.10 preset system overhaul â€” single-tool presets (global/project scope), compound presets (multi-tool with editable reference table), dedicated Preset Library in Content Browser, built-in Quaternius free presets. New: PathScatter supports Decal and Blueprint Actor scatter; Physics Paint gained min/max scale range.
 - **File:** tutorials/dash-110---procedural-scatter-presets-in-ue5.md
 
 
@@ -1227,7 +1227,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **File:** tutorials/dash-193---new-ue5-asset-marketplace.md
 
 
-### UE5 WORLD BUILDING FOR BEGINNERS – FULL DASH DEMO LEVEL
+### UE5 WORLD BUILDING FOR BEGINNERS â€“ FULL DASH DEMO LEVEL
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=bxeocONsu1Y
 - **Author:** Polygonflow Dash
@@ -1247,7 +1247,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **File:** tutorials/dash-192---new-ue5-tools-amazon-3d-library-integration.md
 
 
-### Unreal Engine 5.6 Physics Tools – Asset Placement & Piles Tutorial
+### Unreal Engine 5.6 Physics Tools â€“ Asset Placement & Piles Tutorial
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=qxXQsMCMWfw
 - **Author:** Polygonflow Dash
@@ -1284,7 +1284,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** dash-1.6
 - **UE Version:** UE 5.x
 - **Tags:** `#dash-1.6` `#content-library` `#asset-management` `#cross-project` `#ai-tagging` `#polyhaven` `#beginner`
-- **Summary:** Dash 1.6 cross-project asset access — Compute assets in source project once → available in every future UE5 project via Preferences → Search for External Projects. AI tagging optional for property-based search. Original files stay in source project; UE mirrors file structure on use. Recommended: one master asset project or category-specific projects.
+- **Summary:** Dash 1.6 cross-project asset access â€” Compute assets in source project once â†’ available in every future UE5 project via Preferences â†’ Search for External Projects. AI tagging optional for property-based search. Original files stay in source project; UE mirrors file structure on use. Recommended: one master asset project or category-specific projects.
 - **File:** tutorials/centralized-content-browser-for-ue5---free-plugin.md
 
 
@@ -1295,7 +1295,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** dash-1.5
 - **UE Version:** UE 5.x
 - **Tags:** `#dash-1.5` `#content-library` `#polyhaven` `#ies-lights` `#ai-tagging` `#asset-management` `#beginner`
-- **Summary:** Showcase of the free Dash Content Browser's Poly Haven tab (2000+ meshes/materials/HDRIs with auto-PBR on drop + AI tag search) and IES photometric light library. No separate downloads — drag assets directly from Dash into any UE project. AI tags enable color/type/property search beyond filenames.
+- **Summary:** Showcase of the free Dash Content Browser's Poly Haven tab (2000+ meshes/materials/HDRIs with auto-PBR on drop + AI tag search) and IES photometric light library. No separate downloads â€” drag assets directly from Dash into any UE project. AI tags enable color/type/property search beyond filenames.
 - **File:** tutorials/2000-free-high-quality-assets-for-any-unreal-engine-project.md
 
 
@@ -1306,7 +1306,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** dash-1.5
 - **UE Version:** UE 5.x
 - **Tags:** `#dash-1.5` `#ai-tagging` `#content-library` `#asset-management` `#beginner`
-- **Summary:** 2.5-minute demo of Dash Project Library AI tagging — select folder → Compute → AI assigns property-based tags from thumbnails. Right-click assets for size/triangle count/tags. Search by property (`food`, `orange`, `blueprint`) with + (include) and - (exclude) Boolean operators. Free tier feature.
+- **Summary:** 2.5-minute demo of Dash Project Library AI tagging â€” select folder â†’ Compute â†’ AI assigns property-based tags from thumbnails. Right-click assets for size/triangle count/tags. Search by property (`food`, `orange`, `blueprint`) with + (include) and - (exclude) Boolean operators. Free tier feature.
 - **File:** tutorials/auto-tag-sort-1000-ue5-assetsmonth-with-this-free-content-browser.md
 
 
@@ -1317,7 +1317,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** dash-1.9
 - **UE Version:** UE 5.x
 - **Tags:** `#dash-1.9` `#asset-management` `#content-library` `#polyhaven` `#ai-tagging` `#collections` `#fab` `#megascans` `#ies-lights` `#beginner`
-- **Summary:** Comprehensive Dash Content Browser guide by Tomáš — Poly Haven (2000 assets + auto-PBR), Fab tab, Quixel Bridge/Megascans Atlas tab (standalone Bridge required as of March 2025), IES library, Project Library AI tagging with Batch Edit, cross-project access, Unified View with Boolean search operators, and Collections system (personal + team-shared with notifications).
+- **Summary:** Comprehensive Dash Content Browser guide by TomÃ¡Å¡ â€” Poly Haven (2000 assets + auto-PBR), Fab tab, Quixel Bridge/Megascans Atlas tab (standalone Bridge required as of March 2025), IES library, Project Library AI tagging with Batch Edit, cross-project access, Unified View with Boolean search operators, and Collections system (personal + team-shared with notifications).
 - **File:** tutorials/best-free-unreal-engine-5-asset-management-plugin-in-2025.md
 
 
@@ -1358,7 +1358,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** dash-1.4
 - **UE Version:** UE 5.x
 - **Tags:** `#dash-1.4` `#vine` `#procedural` `#materials` `#megascans` `#beginner`
-- **Summary:** 4-minute Vine Tool tutorial — Draw Vines (freehand curve on surface) or Create Vines (Ctrl+drag onto mesh + surface assignment). Branch settings: Growth Iterations, Size, Radius, Sides, Smoothness. Replace default leaves with Megascans leaf atlases (Ctrl+drag → Place Over Left), adjust bark/leaf materials via Edit Material (Hue/Saturation/Brightness/Tiling).
+- **Summary:** 4-minute Vine Tool tutorial â€” Draw Vines (freehand curve on surface) or Create Vines (Ctrl+drag onto mesh + surface assignment). Branch settings: Growth Iterations, Size, Radius, Sides, Smoothness. Replace default leaves with Megascans leaf atlases (Ctrl+drag â†’ Place Over Left), adjust bark/leaf materials via Edit Material (Hue/Saturation/Brightness/Tiling).
 - **File:** tutorials/how-to-create-vines-procedurally-in-unreal-engine-5.md
 
 
@@ -1369,7 +1369,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** dash-1.8
 - **UE Version:** UE 5.x
 - **Tags:** `#dash-1.8` `#blend-material` `#materials` `#road` `#nanite` `#displacement` `#wetness` `#snow` `#rain` `#intermediate`
-- **Summary:** Dash Blend Material workflow on a road — requires baking road to static mesh → enable Nanite + Displacement → Ctrl+drag 3 Megascans materials → Apply Blend Material → per-layer tiling/wetness/displacement/snow/dirt/rain. Demonstrates simpler Edit Material snow/rain/wetness on individual objects too.
+- **Summary:** Dash Blend Material workflow on a road â€” requires baking road to static mesh â†’ enable Nanite + Displacement â†’ Ctrl+drag 3 Megascans materials â†’ Apply Blend Material â†’ per-layer tiling/wetness/displacement/snow/dirt/rain. Demonstrates simpler Edit Material snow/rain/wetness on individual objects too.
 - **File:** tutorials/creating-a-blend-material-in-unreal-engine-5-just-got-easier.md
 
 
@@ -1380,7 +1380,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** dash-1.8
 - **UE Version:** UE 5.x
 - **Tags:** `#dash-1.8` `#terrain` `#road-tool` `#scatter` `#proximity-masking` `#ai-tagging` `#blend-material` `#physics-tools` `#world-building` `#intermediate`
-- **Summary:** Dash 1.8 comprehensive workflow by Tamash — new UI bar, AI assistant (ChatGPT4 + drag image), road tool with terrain projection + road marking presets, dual proximity masking, Image Board, physics drop/paint, AI asset tagging, decal scatter, and Blend Material tool (wetness/snow/displacement). Three scenes: forest road, street corner detail, medieval environment.
+- **Summary:** Dash 1.8 comprehensive workflow by Tamash â€” new UI bar, AI assistant (ChatGPT4 + drag image), road tool with terrain projection + road marking presets, dual proximity masking, Image Board, physics drop/paint, AI asset tagging, decal scatter, and Blend Material tool (wetness/snow/displacement). Three scenes: forest road, street corner detail, medieval environment.
 - **File:** tutorials/getting-started-with-dash---easy-world-building-in-ue5.md
 
 
@@ -1451,7 +1451,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** dash-1.6
 - **UE Version:** UE 5.x
 - **Tags:** `#dash-1.6` `#architecture` `#archviz` `#scatter` `#radial-scatter` `#cable-tool` `#physics` `#ai-tagging` `#terrain` `#lighting` `#intermediate`
-- **Summary:** 18-minute full archviz workflow by Tomáš — concrete material drag-drop, AI tagging, Radial Scatter for spiral staircase (count=18, radius=0), foliage wall with Proximity Mask exclusion, Physics Paint for debris, Quick Pipe Tool for cables, Terrain + Poly Haven texture, cross-project tree access (Dash 1.6), rect/IES lights, Cable Tool string lights, camera post-process polish.
+- **Summary:** 18-minute full archviz workflow by TomÃ¡Å¡ â€” concrete material drag-drop, AI tagging, Radial Scatter for spiral staircase (count=18, radius=0), foliage wall with Proximity Mask exclusion, Physics Paint for debris, Quick Pipe Tool for cables, Terrain + Poly Haven texture, cross-project tree access (Dash 1.6), rect/IES lights, Cable Tool string lights, camera post-process polish.
 - **File:** tutorials/architecture-scenes-made-easy-in-unreal-engine-5---dash-tutorial.md
 
 
@@ -1502,7 +1502,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** dash-1.4
 - **UE Version:** UE 5.x
 - **Tags:** `#dash-1.4` `#decals` `#scatter` `#placement-tool` `#environment-art` `#detail` `#beginner`
-- **Summary:** Dash decal workflow guide by Jonathan — single decal drag-and-drop with auto surface alignment + modifier keys; OR Shift-select multiple decals + Ctrl+drag → Scatter Here for area scatter with full density/scale/rotation/masking controls. Use case: stains, cracks, grunge, footprints for surface variation.
+- **Summary:** Dash decal workflow guide by Jonathan â€” single decal drag-and-drop with auto surface alignment + modifier keys; OR Shift-select multiple decals + Ctrl+drag â†’ Scatter Here for area scatter with full density/scale/rotation/masking controls. Use case: stains, cracks, grunge, footprints for surface variation.
 - **File:** tutorials/how-to-scatter-decals-in-ue5---world-building-plugin.md
 
 
@@ -1513,7 +1513,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** dash-1.4
 - **UE Version:** UE 5.x
 - **Tags:** `#dash-1.4` `#cable-tool` `#procedural` `#world-building` `#environment-art` `#beginner`
-- **Summary:** Dash Cable Tool guide by Jonathan — three modes (Objects/Curve/Mixed); Objects mode: select anchors → cables auto-generate between them; params: Divisions (smoothness), Gradius/Radius (thickness), Gravity Min/Max (droop variation). Use case: utility wiring, hanging cables, rope bridges.
+- **Summary:** Dash Cable Tool guide by Jonathan â€” three modes (Objects/Curve/Mixed); Objects mode: select anchors â†’ cables auto-generate between them; params: Divisions (smoothness), Gradius/Radius (thickness), Gravity Min/Max (droop variation). Use case: utility wiring, hanging cables, rope bridges.
 - **File:** tutorials/how-to-create-procedural-cables-in-ue5---world-building-plugin.md
 
 
@@ -1534,7 +1534,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** dash-1.4
 - **UE Version:** UE 5.x
 - **Tags:** `#dash-1.4` `#materials` `#megascans` `#polyhaven` `#displacement` `#nanite` `#snow` `#dirt` `#water` `#beginner`
-- **Summary:** Jonathan (Community Director) covers the Dash 1.4 Material Edit tool — Albedo Hue/Saturation/Brightness/Contrast, Roughness, Normal Map Intensity, Texture Tiling, Nanite displacement (Actor Switch Nanite command), Dirt layer (intensity/hue/saturation/tiling), Snow layer (sharpness/slope/roughness/normal/tiling), Dash Water Material (depth/distortion/tiling/underlying hue+saturation). All procedural/non-destructive.
+- **Summary:** Jonathan (Community Director) covers the Dash 1.4 Material Edit tool â€” Albedo Hue/Saturation/Brightness/Contrast, Roughness, Normal Map Intensity, Texture Tiling, Nanite displacement (Actor Switch Nanite command), Dirt layer (intensity/hue/saturation/tiling), Snow layer (sharpness/slope/roughness/normal/tiling), Dash Water Material (depth/distortion/tiling/underlying hue+saturation). All procedural/non-destructive.
 - **File:** tutorials/how-to-edit-megascans-and-poly-haven-materials-easily---ue5-plugin.md
 
 
@@ -1565,7 +1565,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** dash-1.4
 - **UE Version:** UE 5.x
 - **Tags:** `#dash-1.4` `#scatter` `#path-scatter` `#curves` `#environment-art` `#world-building` `#beginner`
-- **Summary:** Dash 1.4 Path Scatter complete guide by Jonathan — draw curve (Ctrl+MMB=vertex density), assign curve+mesh to PathScatter, density, min/max scale, offset/gap/jitter, forward/side/vertical XYZ offset, align-to-curve + step size, random rotation per axis, stagger, snap-to-terrain, multi-curve/mesh support. Demo combines Surface Scatter (trees/ground cover) + Path Scatter (rocky boundary) for rapid environment building.
+- **Summary:** Dash 1.4 Path Scatter complete guide by Jonathan â€” draw curve (Ctrl+MMB=vertex density), assign curve+mesh to PathScatter, density, min/max scale, offset/gap/jitter, forward/side/vertical XYZ offset, align-to-curve + step size, random rotation per axis, stagger, snap-to-terrain, multi-curve/mesh support. Demo combines Surface Scatter (trees/ground cover) + Path Scatter (rocky boundary) for rapid environment building.
 - **File:** tutorials/path-scatter-beginner-guide-to-your-ue5-co-pilot-dash.md
 
 
@@ -1586,7 +1586,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** dash-1.4
 - **UE Version:** UE 5.x
 - **Tags:** `#dash-1.4` `#scatter` `#surface-scatter` `#proximity-masking` `#vertex-color-masking` `#texture-masking` `#feature-masking` `#environment-art` `#intermediate`
-- **Summary:** Dash 1.4 Surface Scatter deep dive by Jonathan — density/scale/noise, Feature Masking (angle/height/raycast mesh), Proximity (distance/invert/curve), Object Masking (precise/bounding-box cube trick), Vertex Color Masking (live non-destructive), Texture Masking (any UE texture), border break-up, fall-off. Pro tip: transparent cube + object masking = moveable portable scatter zone.
+- **Summary:** Dash 1.4 Surface Scatter deep dive by Jonathan â€” density/scale/noise, Feature Masking (angle/height/raycast mesh), Proximity (distance/invert/curve), Object Masking (precise/bounding-box cube trick), Vertex Color Masking (live non-destructive), Texture Masking (any UE texture), border break-up, fall-off. Pro tip: transparent cube + object masking = moveable portable scatter zone.
 - **File:** tutorials/surface-scatter-beginner-guide-to-your-ue5-co-pilot-dash.md
 
 
@@ -1597,7 +1597,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** dash-1.3
 - **UE Version:** UE 5.x
 - **Tags:** `#dash-1.3` `#camera` `#dof` `#color-grading` `#post-process` `#cinematics` `#beginner`
-- **Summary:** Dash 1.3 Camera Tool guide by Jonathan — type `camera` → CineCameraActor + settings panel; Focal Length (zoom), Aperture (DOF range; lower number = shallower), Focus Distance (target Z), Post-Process FX (color grade/bloom/vignette/film grain/chromatic aberration), LUT preset cycling.
+- **Summary:** Dash 1.3 Camera Tool guide by Jonathan â€” type `camera` â†’ CineCameraActor + settings panel; Focal Length (zoom), Aperture (DOF range; lower number = shallower), Focus Distance (target Z), Post-Process FX (color grade/bloom/vignette/film grain/chromatic aberration), LUT preset cycling.
 - **File:** tutorials/beginner-guide-to-ue5-co-pilot-dash-camera-settings.md
 
 
@@ -1608,7 +1608,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** dash-1.3
 - **UE Version:** UE 5.x
 - **Tags:** `#dash-1.3` `#merge-actors` `#physics` `#pivot` `#scatter` `#megascans` `#sketchfab` `#beginner`
-- **Summary:** Josh Powers demonstrates Dash 1.3's two new utility commands — Merge Actors (type `merge actors` to consolidate multi-mesh Sketchfab GLTF imports into one static mesh) and Pivot Adjustment (`pivot center/top/bottom` repositions pivot to bounding box instantly) — combined with Physics Drop for debris scatter in a WWI battle scene.
+- **Summary:** Josh Powers demonstrates Dash 1.3's two new utility commands â€” Merge Actors (type `merge actors` to consolidate multi-mesh Sketchfab GLTF imports into one static mesh) and Pivot Adjustment (`pivot center/top/bottom` repositions pivot to bounding box instantly) â€” combined with Physics Drop for debris scatter in a WWI battle scene.
 - **File:** tutorials/create-realistic-scatter-using-merge-actors-with-dash.md
 
 
@@ -1619,7 +1619,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** dash-1.3
 - **UE Version:** UE 5.x
 - **Tags:** `#dash-1.3` `#road-tool` `#curves` `#terrain-projection` `#world-building` `#beginner`
-- **Summary:** Dash 1.3 Road Tool intro by Jonathan — draw terrain-conforming curve → add to Road Tool → density 0.9 + width + smoothness → project onto terrain via Surface → Sync value to prevent Z-fighting. Fully non-destructive; live-updates when curve or terrain changes.
+- **Summary:** Dash 1.3 Road Tool intro by Jonathan â€” draw terrain-conforming curve â†’ add to Road Tool â†’ density 0.9 + width + smoothness â†’ project onto terrain via Surface â†’ Sync value to prevent Z-fighting. Fully non-destructive; live-updates when curve or terrain changes.
 - **File:** tutorials/beginner-guide-to-road-tool-in-ue5-co-pilot-dash.md
 
 
@@ -1630,7 +1630,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** dash-early
 - **UE Version:** UE 5.x
 - **Tags:** `#dash-early` `#scatter` `#displacement` `#water` `#placement-tool` `#camera` `#proximity-masking` `#environment-art` `#layering` `#beginner`
-- **Summary:** Early Dash environment tutorial by Josh Powers — sculpted puddle with Megascans displacement (blue channel), layered foliage scatter (same asset at different scales), water plane, placement tool for hero moose focal point, cinematic camera with aperture DOF, surface scatter for background trees, curve proximity mask to restrict shrubs to background curtain zone.
+- **Summary:** Early Dash environment tutorial by Josh Powers â€” sculpted puddle with Megascans displacement (blue channel), layered foliage scatter (same asset at different scales), water plane, placement tool for hero moose focal point, cinematic camera with aperture DOF, surface scatter for background trees, curve proximity mask to restrict shrubs to background curtain zone.
 - **File:** tutorials/new-ue5-plugin---easy-environment-creation.md
 
 
@@ -1641,7 +1641,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** dash-1.4
 - **UE Version:** UE 5.x
 - **Tags:** `#dash-1.4` `#content-library` `#placement-tool` `#scatter` `#beginner`
-- **Summary:** 2.5-minute Dash Content Library beginner intro by Jonathan — open with B icon, browse/search Megascans assets, full placement modifier key system (LMB=move, Ctrl+LMB=scale, Shift+LMB=rotate, Ctrl+Shift+LMB=scale-along-normal, Ctrl+RMB=width/height, Shift+RMB=off-normal rotate), Ctrl+drag = Surface Scatter or Physics entry point.
+- **Summary:** 2.5-minute Dash Content Library beginner intro by Jonathan â€” open with B icon, browse/search Megascans assets, full placement modifier key system (LMB=move, Ctrl+LMB=scale, Shift+LMB=rotate, Ctrl+Shift+LMB=scale-along-normal, Ctrl+RMB=width/height, Shift+RMB=off-normal rotate), Ctrl+drag = Surface Scatter or Physics entry point.
 - **File:** tutorials/beginner-content-library-tutorial-for-ue5.md
 
 
@@ -1652,7 +1652,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** dash-early
 - **UE Version:** UE 5.x
 - **Tags:** `#dash-early` `#terrain` `#world-building` `#beginner`
-- **Summary:** 2.5-minute Dash terrain beginner guide by Jonathan — type `create terrain`, all parameters explained: UV Scale, Curved (edge warp), Sink (overall height), Subdivision (poly density), Turbulence (mid noise), Height (large hills, turbulence-driven), Mid-Turbulence (fine detail), Seed (randomize variant). Slider speed: default=slow, Ctrl=faster, Alt=fastest. Apply material from Content Library.
+- **Summary:** 2.5-minute Dash terrain beginner guide by Jonathan â€” type `create terrain`, all parameters explained: UV Scale, Curved (edge warp), Sink (overall height), Subdivision (poly density), Turbulence (mid noise), Height (large hills, turbulence-driven), Mid-Turbulence (fine detail), Seed (randomize variant). Slider speed: default=slow, Ctrl=faster, Alt=fastest. Apply material from Content Library.
 - **File:** tutorials/beginner-terrain-tool-tutorial-for-ue5.md
 
 
@@ -1663,7 +1663,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** dash-early
 - **UE Version:** UE 5.x
 - **Tags:** `#dash-early` `#water` `#terrain` `#world-building` `#beginner`
-- **Summary:** 1.75-minute water tool beginner guide by Jonathan — type `plane` → scale mesh (R key) → type `water` → Set Water Material; Dash applies pre-built water material; inline material properties for adjustment. Part of the beginner series.
+- **Summary:** 1.75-minute water tool beginner guide by Jonathan â€” type `plane` â†’ scale mesh (R key) â†’ type `water` â†’ Set Water Material; Dash applies pre-built water material; inline material properties for adjustment. Part of the beginner series.
 - **File:** tutorials/beginner-water-tool-tutorial-for-ue5.md
 
 
@@ -1674,7 +1674,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** dash-early
 - **UE Version:** UE 5.x
 - **Tags:** `#dash-early` `#hdri` `#terrain` `#scatter` `#camera` `#proximity-masking` `#environment-art` `#layering` `#lut` `#beginner`
-- **Summary:** Early Dash environment walkthrough by Josh Powers — Polyhaven HDRI, terrain with mid-turbulence for natural foliage irregularity, layered scatter (min/max scale + fall-off + break-up), camera-first discipline, proximity mask exclusion zone around hero swing/tree using UE modeling mesh, hero detail pass near camera only, Blender-rigged swing prop, LUT color grading.
+- **Summary:** Early Dash environment walkthrough by Josh Powers â€” Polyhaven HDRI, terrain with mid-turbulence for natural foliage irregularity, layered scatter (min/max scale + fall-off + break-up), camera-first discipline, proximity mask exclusion zone around hero swing/tree using UE modeling mesh, hero detail pass near camera only, Blender-rigged swing prop, LUT color grading.
 - **File:** tutorials/quick-environment-creation-w-unreal-engine-5.md
 
 
@@ -1725,7 +1725,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** dash-early
 - **UE Version:** UE 5.x
 - **Tags:** `#dash-early` `#physics` `#placement` `#scatter` `#nanite` `#megascans` `#beginner`
-- **Summary:** Josh Powers introduces the Dash Physics Tool — drop any mesh (including Nanite assets) to surfaces with realistic randomization. Toolbar: Start/Stop, Reset (selected), Ctrl+Reset (all), Duplicate, Select (last batch), Switch (isolate dynamic/static), Simple/Complex collision. Ctrl+drag from Content Library → Physics Drop shortcut. Can operate on top of live Scatter instances with seed adjustment.
+- **Summary:** Josh Powers introduces the Dash Physics Tool â€” drop any mesh (including Nanite assets) to surfaces with realistic randomization. Toolbar: Start/Stop, Reset (selected), Ctrl+Reset (all), Duplicate, Select (last batch), Switch (isolate dynamic/static), Simple/Complex collision. Ctrl+drag from Content Library â†’ Physics Drop shortcut. Can operate on top of live Scatter instances with seed adjustment.
 - **File:** tutorials/new-physics-tool-for-unreal-engine-5.md
 
 
@@ -1736,7 +1736,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Plugin Version:** dash-early
 - **UE Version:** UE 5.x
 - **Tags:** `#dash-early` `#terrain` `#scatter` `#world-building` `#content-library` `#decals` `#mesh-cards` `#beginner`
-- **Summary:** First official Dash introduction video by Josh Powers — terrain generation, Megascans content library, water plane, interactive placement, surface scatter with fall-off/break-up, curve proximity masking, lighting/color grading presets by keyword, decal placement and scatter, Megascans atlas mesh-card scatter from opacity map. All without touching UE5 panels.
+- **Summary:** First official Dash introduction video by Josh Powers â€” terrain generation, Megascans content library, water plane, interactive placement, surface scatter with fall-off/break-up, curve proximity masking, lighting/color grading presets by keyword, decal placement and scatter, Megascans atlas mesh-card scatter from opacity map. All without touching UE5 panels.
 - **File:** tutorials/introducing-dash-for-unreal-engine-5.md
 
 ---
@@ -1763,3 +1763,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 
 ### By Source Type
 `#youtube` `#epic-docs` `#epic-community` `#article`
+
+
+
+

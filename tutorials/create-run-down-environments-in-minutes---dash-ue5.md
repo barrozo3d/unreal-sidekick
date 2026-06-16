@@ -1,12 +1,13 @@
----
+﻿---
 title: Create Run-down Environments in Minutes - Dash & UE5
 source: YouTube
 url: https://www.youtube.com/watch?v=NNBDLTPsktc
 author: Polygonflow Dash
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: dash-early
+ue_version: "UE 5.x"
+tags: [dash-early, environment, scatter, proximity-masking, decals, mesh-cards, post-process, color-grading, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/create-run-down-environments-in-minutes---dash-ue5/
 frame_count: 5
 ---
@@ -53,27 +54,40 @@ frame_count: 5
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Post-apocalyptic interior detailing pass using Dash — corner-locked grass scatter with Proximity Mask + Falloff, Megascans leaf Mesh Cards from opacity map, decal scatter, ivy wall scatter, and named color-grade LUT presets from Dash's grading library.
 
 ### Summary
-[PENDING EXTRACTION]
+6-minute tutorial by Josh Powers polishing a Last of Us–inspired interior from blockout to final render using Dash. Key techniques: corner-locked grass via Proximity Mask on prop actors with Falloff for organic border fade; Mesh Cards generated from a Megascans leaf opacity map for natural leaf clustering; scatter of more props and decals; ivy on exterior wall; Dash Camera with post-process panel (DOF, vignette, chromatic aberration, sharpness console var exposed in UI); and named LUT presets from Dash's color grading library (`type: last of us` or `cycle grading` to step through all presets).
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Corner grass** — Ctrl+drag grass asset → Scatter; select grass + corner props → click Proximity icon; adjust Distance to expand coverage toward props; increase Falloff for smooth organic border fade
+2. **Moveable proximity guide mesh** — drop small static mesh → add to grass scatter's Proximity Mask → scatter updates live as guide mesh moves
+3. **Leaf Mesh Cards** — select floor mesh → type `create scatter mesh cards` in Dash prompt → Create Cards → pick Megascans leaf opacity map → Dash generates one mesh card per leaf → scatters over floor; tune density + breakup
+4. **Fill scatter** — add more Megascans debris, objects from Content Browser; scatter to fill visual interest without excessive noise
+5. **Ivy + decals** — scatter ivy on exterior wall; add grunge/crack decals to surfaces
+6. **Camera + post-process** — type `new camera` → move to composition → click post-process icon → tune DOF, vignette, chromatic aberration, sharpness
+7. **Color grade** — type `last of us color grading` to apply named preset; OR type `cycle grading` to step through all presets (Blade Runner, Children of Men, traditional, etc.)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Proximity Mask → Distance** — expands scatter coverage toward masked actors (not away from them); use Invert for exclusion
+- **Proximity Falloff** — smooth scale fade at scatter boundary; increases organic feel at border edges
+- **Create Scatter Mesh Cards** — type `create scatter mesh cards` in Dash prompt; selects floor → picks opacity map → generates individual mesh cards from each leaf in atlas; density + breakup settings
+- **Color Grading Library** — type named preset or `cycle grading` to step through all available Dash LUT presets; applied per-camera
+- **Camera Sharpness** — normally console-var-only in UE5; exposed as slider in Dash camera post-process panel
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Dash early)
 
 ### Tags
-[PENDING EXTRACTION]
+`#dash-early` `#environment` `#scatter` `#proximity-masking` `#decals` `#mesh-cards` `#post-process` `#color-grading` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[surface-scatter-beginner-guide-to-your-ue5-co-pilot-dash]] — Proximity Mask + Falloff full reference
+- [[introducing-dash-for-unreal-engine-5]] — Mesh Cards from opacity atlas (first introduction)
+- [[beginner-guide-to-ue5-co-pilot-dash-camera-settings]] — Camera Tool + LUT color grading
+- [[how-to-scatter-decals-in-ue5---world-building-plugin]] — Decal scatter reference

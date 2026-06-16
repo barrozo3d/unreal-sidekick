@@ -1,12 +1,13 @@
----
+﻿---
 title: Dash 1.6.0 Release - Improved Content Library and AI Asset Tagging!
 source: YouTube
 url: https://www.youtube.com/watch?v=li914x1WPis
 author: Polygonflow Dash
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: dash-1.6
+ue_version: "UE 5.x"
+tags: [dash-1.6, content-library, ai-tagging, teaser, release-notes]
+extraction_status: complete
 frames_dir: tutorials/frames/dash-160-release---improved-content-library-and-ai-asset-tagging/
 frame_count: 4
 ---
@@ -33,27 +34,31 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Dash 1.6.0 release showcase — music-only highlight reel demonstrating improved Content Library with AI asset tagging and cross-project access. No narration or instructional steps recoverable from audio.
 
 ### Summary
-[PENDING EXTRACTION]
+2-minute release highlight video for Dash 1.6.0 (music only, no narration). Based on the title and release context, 1.6 introduced: improved Content Library with AI tagging (Compute-based vision AI assigns property tags), cross-project asset access (compute once in source project → browse in any UE project), and enhanced browsing workflows. For instructional content on these features, see the dedicated tutorials listed in Related Entries.
 
 ### Key Steps
-[PENDING EXTRACTION]
+N/A — release showcase only; no actionable steps from audio.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Dash 1.6 — AI Asset Tagging** — vision AI tags assets from thumbnails; property-based search beyond file names; see [[auto-tag-sort-1000-ue5-assetsmonth-with-this-free-content-browser]]
+- **Dash 1.6 — Cross-Project Access** — Compute in source project → accessible in all future UE projects; see [[centralized-content-browser-for-ue5---free-plugin]]
+- **Dash 1.6 — Improved Content Library** — enhanced browsing UI; multiple library tabs (Poly Haven, IES, Project Library); see [[best-free-unreal-engine-5-asset-management-plugin-in-2025]]
 
 ### Difficulty
-[PENDING EXTRACTION]
+N/A (release preview)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Dash 1.6)
 
 ### Tags
-[PENDING EXTRACTION]
+`#dash-1.6` `#content-library` `#ai-tagging` `#teaser` `#release-notes`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[centralized-content-browser-for-ue5---free-plugin]] — cross-project access (Dash 1.6 key feature)
+- [[auto-tag-sort-1000-ue5-assetsmonth-with-this-free-content-browser]] — AI tagging workflow
+- [[best-free-unreal-engine-5-asset-management-plugin-in-2025]] — comprehensive Content Browser overview
