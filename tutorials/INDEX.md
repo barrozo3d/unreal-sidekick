@@ -1294,6 +1294,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/dash-19---managing-assets-in-ue5-just-got-a-lot-easier.md
 
+
+### Working Fully Procedurally in Unreal Engine 5 - Custom Asset Tutorial
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=rdXL5PtsGnY
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/working-fully-procedurally-in-unreal-engine-5---custom-asset-tutorial.md
+
 ---
 
 ## Tag Reference
