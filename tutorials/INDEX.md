@@ -1474,6 +1474,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-to-create-procedural-cables-in-ue5---world-building-plugin.md
 
+
+### Dash for UE5 Helps You Organize Your Local 3D Assets with AI Tagging
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=fvlPj3hYgSI
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/dash-for-ue5-helps-you-organize-your-local-3d-assets-with-ai-tagging.md
+
 ---
 
 ## Tag Reference
