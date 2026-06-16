@@ -1044,6 +1044,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-black-eye-cameras-version-11-new-features-multi-subject-lookat-wei.md
 
+
+### Unreal Engine Black Eye Cameras: Bake down cam anims
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=D_CrTaBzEa4
+- **Author:** Black Eye Technologies
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-black-eye-cameras-bake-down-cam-anims.md
+
 ---
 
 ## Tag Reference
