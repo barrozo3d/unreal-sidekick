@@ -1644,6 +1644,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/tutorial-create-subtle-realistic-environments-in-ue5.md
 
+
+### Create Run-down Environments in Minutes - Dash & UE5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=NNBDLTPsktc
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/create-run-down-environments-in-minutes---dash-ue5.md
+
 ---
 
 ## Tag Reference
