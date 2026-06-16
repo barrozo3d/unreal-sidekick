@@ -764,6 +764,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-for-filmmakers---incredible-realtime-particle-simulations-for-free.md
 
+
+### Unreal Engine for Filmmakers - Cinematic Camera Settings & Setting up Virtual Camera
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=gFO0qhdLKec
+- **Author:** Boundless Entertainment
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-for-filmmakers---cinematic-camera-settings-setting-up-virtual-came.md
+
 ---
 
 ## Tag Reference
