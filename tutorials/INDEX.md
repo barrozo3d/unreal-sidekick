@@ -1514,6 +1514,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/new-ue5-plugin---adding-detail-to-your-game-with-dash.md
 
+
+### Path Scatter: Beginner Guide to Your UE5 Co-Pilot, DASH
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=i6GTbioHD4k
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/path-scatter-beginner-guide-to-your-ue5-co-pilot-dash.md
+
 ---
 
 ## Tag Reference
