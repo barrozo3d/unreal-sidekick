@@ -1,12 +1,13 @@
----
+﻿---
 title: DASH 1.9 - MANAGING ASSETS IN UE5 JUST GOT A LOT EASIER
 source: YouTube
 url: https://www.youtube.com/watch?v=tOpExldNzoA
 author: Polygonflow Dash
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: dash-1.9
+ue_version: "UE 5.x"
+tags: [dash-1.9, release-notes, content-library, collections, rvt, water, scatter, asset-management, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/dash-19---managing-assets-in-ue5-just-got-a-lot-easier/
 frame_count: 11
 ---
@@ -21,89 +22,52 @@ frame_count: 11
 
 ## Raw Data (for Claude Code extraction)
 
-
-### Intro [0:00]
-**Transcript:** Hey there, I'm Tomas from Polygonflow.  Today I'm happy to announce that Dash 1.9 has just been released and with this it becomes  even simpler to create words in Unreal Engine 5.  This update is focused on improving the Dash Content Browser, but it of course also comes  with a few new features.  Let's dive in and see what's new in the latest version.
-
-**Frame:** tutorials\frames\dash-19---managing-assets-in-ue5-just-got-a-lot-easier\frame_000.jpg
-
-### Asset Collections [0:22]
-**Transcript:** You can now organize your assets in any way you like with collections, a new way to find  and store the asset data inside the Dash Content Browser.  Simply drag and drop an asset into one or several collections to get started.  To remove an asset from the collection, you only need to drag it out from the collection  onto an empty area in the collection space.  Keep the collections for yourself or share them with your team to let everyone know the  best assets for the next project you will be working on.  Simply right click on the collection and create a shared version of it.  If a shared collection has been changed by someone else, you will get a notification  and a choice to load the change or override it.  This play the details of the asset with a simple double click to see the most relevant  asset information and edit the text only one window.
-
-**Frame:** tutorials\frames\dash-19---managing-assets-in-ue5-just-got-a-lot-easier\frame_001.jpg
-
-### Improved Search [1:17]
-**Transcript:** You can find objects with names that mean similar things.  If you have one asset named Apple and another one named Ginger, you will see both of them  if you search for food.  The more an asset matches your search, the higher it will be displayed in the search result.  You can now add and remove terms from the search with plus and minus operators.  For example searching for plants plus rocks will give you all the forest related assets,  but also include all your rocks.  Note that it is important to use the space and then the operator next to the second  word.
-
-**Frame:** tutorials\frames\dash-19---managing-assets-in-ue5-just-got-a-lot-easier\frame_002.jpg
-
-### Project Library Performance Boost [1:50]
-**Transcript:** We have listened to your feedback and the project library is now more efficient, easier  to use and to share with your team.  This is just the first stage of a long-term plan that will make the dash content browser  the only browser you need to manage your assets.  The tagging and compute process has been optimized and improved, so now especially for big  Android projects it should work much better and faster, so please try it and let us know  how it goes.
-
-**Frame:** tutorials\frames\dash-19---managing-assets-in-ue5-just-got-a-lot-easier\frame_003.jpg
-
-### Accessing Assets Across Projects [2:20]
-**Transcript:** As you might be used to from previous versions, in Dash 1.9 you can access all your tag  assets in the Dash content browser even if they are from other projects.  If you can't find them in the content browser, simply add the project's folder in the preferences  menu.  You can either add them manually or by using the automatic search.  Now if you have loop prints with meshes inside, you can have them searchable and usable from  the project library tab in the Dash content browser.  As of Dash 1.9 the default storage location for Dash Matadata in new Android projects  is directly within the unreprojected software, making it as easy as sharing your projects  for any team member to access all Dash content browser data.  As requested by many of you, Material Stagging is now an opt-out feature, meaning your materials  will be computed along with your meshes inside the Dash content browser.
-
-**Frame:** tutorials\frames\dash-19---managing-assets-in-ue5-just-got-a-lot-easier\frame_004.jpg
-
-### Advanced Water Tool [3:33]
-**Transcript:** With version 1.9 we are bringing some nice new shaders to Dash.  Some of these are highly requested by you guys.  Here's what's new, this is a revamped water shader.  Proquite some time or users requested the water shader that comes with some waves and  underwater effects.  Now it's all there, but going to the create tab, you will find advanced water shader.  This shader comes with a rain on water effect as well, playing with some properties to  get some nice waves.  In the tools panel, you can tweak the values of the properties to get the best result  for your project.  Another cool thing we added to our new water system is the ability to go underwater and  have the feeling of being actually under a body of water.  Likewise these settings can be tweaked as required from the tools panel.
-
-**Frame:** tutorials\frames\dash-19---managing-assets-in-ue5-just-got-a-lot-easier\frame_005.jpg
-
-### Falling Leaves Tool [4:24]
-**Transcript:** When creating a forest or an urban street, we usually want to add some leaves falling  in a certain direction.  All this is not possible over the single click.  In the Dash toolbar, go to the create menu and select create falling leaves.  Some beautiful leaves with all the settings necessary for early and this scenario will
-
-**Frame:** tutorials\frames\dash-19---managing-assets-in-ue5-just-got-a-lot-easier\frame_006.jpg
-
-### RVT Workflow [4:41]
-**Transcript:** appear in the scene.  With Dash 1.9, we are introducing our first runtime virtual texture workflow.  Here's how you can enable it.  Select your mesh or terrain.  Make sure it's baked and the static mesh.  Then go to the Dash search bar and run the RVD action.  Then you only need to enable and adjust the RVD settings on your mesh, placed on your  surface and see how the magic happens.  Make sure enable virtual texture support is checked in your project settings.  It works best on Dash terrains or UE landscapes.  If you want to use it on a flat surface like a plane, you need to select the plane and  an asset on the plane and then run the RVD command instead of just using the RVD on the  surface.  In our blend material workflow with RVD, when adjusting the weight parameter and adding  grass or another texture layer, select an asset in the scene and choose edit material  from the toolspan to apply the changes.  Here adjustments will become visible as you modify the blend material.  You can now pick interactively the variation on assets with multiple meshes, hold control
-
-**Frame:** tutorials\frames\dash-19---managing-assets-in-ue5-just-got-a-lot-easier\frame_007.jpg
-
-### Multi Asset Picker [5:42]
-**Transcript:** and dropping your asset into the scene and choose select asset.  A floating UE will appear to make it very easy to iterate on the available asset variations  and pick the one you're looking for.
-
-**Frame:** tutorials\frames\dash-19---managing-assets-in-ue5-just-got-a-lot-easier\frame_008.jpg
-
-### Quick Asset Search [5:57]
-**Transcript:** You can now search for assets directly from the dashboard to have one or more small  view so the search result.  Just type find rocks or find grass and a new mini version of the content browser will  open where you can see all your rocks or your grass assets.
-
-**Frame:** tutorials\frames\dash-19---managing-assets-in-ue5-just-got-a-lot-easier\frame_009.jpg
-
-### Outro [6:18]
-**Transcript:** And that's about it.  We also have some smaller updates so make sure to check out our documentation on our website.  We hope you enjoyed the new features and if you like you can try Dash for free.  For more content like this follow our YouTube channel and join our Discord server.  Thank you for watching, see you in the next one.
-
-**Frame:** tutorials\frames\dash-19---managing-assets-in-ue5-just-got-a-lot-easier\frame_010.jpg
-
+[...raw data omitted — see ingested file...]
 
 ---
 
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Dash 1.9 base release overview by Tomáš — focused on Content Browser improvements: Collections (personal + team-shared with notifications), semantic search with Boolean operators, Project Library performance optimization, cross-project access improvements (metadata stored in project by default, Blueprint support), Advanced Water Tool (waves + underwater + rain on water), Falling Leaves Tool, Runtime Virtual Texture (RVT) workflow, Multi Asset Picker, Quick Asset Search.
 
 ### Summary
-[PENDING EXTRACTION]
+7-minute release video for Dash 1.9. Content Browser focus: Collections allow assets to be organized and shared across teams with change notifications; semantic search surfaces assets by meaning (searching "food" finds Apple and Ginger assets); Project Library compute is faster for large projects; cross-project metadata now stored inside UE project folder by default for easier team sharing; Blueprints with internal meshes now searchable in Project Library; Material Staging is now opt-out by default (materials computed alongside meshes). New tools: Advanced Water (waves, rain on water, underwater effects), Falling Leaves (procedural), RVT workflow (runtime virtual texture blend on static meshes and landscapes), Multi Asset Picker (Ctrl+drag → Select Asset → variant picker), Quick Asset Search (type `find rocks` → mini Content Browser).
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Collections** — drag asset into collection tab → adds to that collection; drag out to empty area → removes; right-click → Create Shared Version → team members see it; shared collection changed notification → Load Change or Override
+2. **Semantic Search** — type concept word (e.g. `food`) → finds all semantically matching assets; use `+` to include additional terms, `-` to exclude (space before operator required); example: `plants +rocks` = forest assets + all rocks
+3. **Project Library Performance** — Compute is now significantly faster for large projects; tagging optimized; materials tagged alongside meshes by default (opt-out available)
+4. **Cross-Project with Blueprints** — Preferences → add project folder or use auto-search; Blueprint actors with internal meshes now searchable; metadata stored inside UE project folder by default for team sync
+5. **Advanced Water Tool** — go to Create menu → Advanced Water Shader → drag into scene → parameters: waves, rain on water, underwater effect; adjust from tool panel; can go underwater with camera
+6. **Falling Leaves Tool** — Create menu → Create Falling Leaves → procedural leaf effect with directional control
+7. **RVT Workflow** — select mesh/terrain → bake to static mesh → search `RVT` → run RVT action → enable + adjust RVT settings on mesh; enable Virtual Texture Support in Project Settings; works on Dash terrains and UE landscapes; for flat plane: select plane + asset on plane → run RVT; Blend Material + RVT: adjust weight → select asset → Edit Material to apply
+8. **Multi Asset Picker** — Ctrl+drag multi-mesh asset into scene → Select Asset → floating picker window shows all variants → click to pick
+9. **Quick Asset Search** — type `find rocks` or `find grass` in Dash bar → mini Content Browser opens with matching assets only
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Collections** — personal or shared; drag in/out; right-click → Create Shared → notification on change → Load/Override; double-click asset for detail + tag edit
+- **Semantic Search** — meaning-based (Apple + Ginger → food); Boolean: `+` (include), `-` (exclude); space before operator required
+- **Project Library** — Dash 1.9 optimized compute; Blueprint with meshes searchable; metadata in project folder by default; Material Staging = opt-out (computed by default now)
+- **Advanced Water Tool** — wave parameters; rain on water overlay; underwater effect with PPV; all in tool panel
+- **Falling Leaves** — procedural directional leaves; via Create menu
+- **RVT (Runtime Virtual Texture)** — type `RVT` in Dash search → baked static mesh required; enable Virtual Texture Support in Project Settings; blends textures at runtime on terrain/landscape; Blend Material + RVT: Edit Material after weight adjustment
+- **Multi Asset Picker** — Ctrl+drag → Select Asset option → floating UE widget for variant selection
+- **Quick Asset Search** — type `find [keyword]` → mini Content Browser opens with filtered results
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Dash 1.9)
 
 ### Tags
-[PENDING EXTRACTION]
+`#dash-1.9` `#release-notes` `#content-library` `#collections` `#rvt` `#water` `#scatter` `#asset-management` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[best-free-unreal-engine-5-asset-management-plugin-in-2025]] — Full Dash 1.9 Content Browser guide (Tomáš overview)
+- [[dash-192---new-ue5-tools-amazon-3d-library-integration]] — 1.9.2 follow-up release
+- [[dash-193---new-ue5-asset-marketplace]] — 1.9.3 Marketplace release
+- [[centralized-content-browser-for-ue5---free-plugin]] — Cross-project access (1.6 origin)

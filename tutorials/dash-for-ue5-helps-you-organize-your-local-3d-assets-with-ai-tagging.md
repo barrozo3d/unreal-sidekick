@@ -1,12 +1,13 @@
----
+﻿---
 title: Dash for UE5 Helps You Organize Your Local 3D Assets with AI Tagging
 source: YouTube
 url: https://www.youtube.com/watch?v=fvlPj3hYgSI
 author: Polygonflow Dash
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: dash-1.5
+ue_version: "UE 5.x"
+tags: [dash-1.5, ai-tagging, content-library, asset-management, scatter, physics, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/dash-for-ue5-helps-you-organize-your-local-3d-assets-with-ai-tagging/
 frame_count: 4
 ---
@@ -21,39 +22,44 @@ frame_count: 4
 
 ## Raw Data (for Claude Code extraction)
 
-
-### Full Content [0:00]
-**Transcript:** Hey everyone, Josh Powers for Polygon Flow. Like many of you, I tend to build my scenes with a mix of Megascans, custom built, marketplace, or Polyhaven assets. So today we'll be using Dash's brand new AI tagging framework to make all that content easy to search through, place, scatter, or throw around using physics. So let's get to it. Here I have some Decagon asset packs that I got from the Unreal Engine marketplace. So let's go ahead and open Dash and then click on the Content Browser icon. Looking at the top bar, you'll notice that we have access to Megascans, Polyhaven, which is a free and open source asset library, and now the custom assets icon. Let's click on that and on the left we can expand our folder view. This is essentially the same folder structure as the one you have in your Unreal Engine Content Browser. So now let's go ahead and set up the new AI tagging system so we can quickly search for assets through Dash's Content Library. The AI tagging process can be a bit slow, so instead of computing everything we have, let's just focus on one asset pack for now. I'll click on the folder, but if I wanted to do multiple at a time, I could just control and click on multiple...
-
-**Frame:** tutorials\frames\dash-for-ue5-helps-you-organize-your-local-3d-assets-with-ai-tagging\frame_000.jpg
-
+[...raw data omitted — see ingested file...]
 
 ---
 
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Josh Powers demonstrates Dash 1.5 AI tagging for custom/marketplace/Polyhaven assets — open Content Browser → custom assets icon → select project folder → Compute (AI tags assets from thumbnails) → search by keyword → drag to place/scatter/physics.
 
 ### Summary
-[PENDING EXTRACTION]
+3.5-minute walkthrough of the Dash AI tagging system applied to custom marketplace assets (Dekogon pack example). Shows how to organize a mixed library of Megascans, Polyhaven, and marketplace/custom assets through a single searchable interface. Workflow: open Dash Content Browser → custom assets tab → expand folder view (mirrors UE Content Browser structure) → select folder(s) → Compute to trigger AI tagging → search by property keyword → drag to place, scatter, or apply physics. Also demonstrates Ctrl+click for multi-folder Compute.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Open Content Browser** — click Content Browser icon on Dash toolbar → top bar shows Megascans / Polyhaven / Custom Assets icons
+2. **Custom Assets tab** — click Custom Assets icon → left panel shows folder tree mirroring your UE5 Content Browser structure
+3. **Select folder for Compute** — click folder (or Ctrl+click for multiple folders) → only that folder/selection will be tagged (saves time vs. computing entire library)
+4. **Run AI Compute** — click Compute button → AI assigns property/concept tags from asset thumbnails; process is slow for large folders
+5. **Search by keyword** — type any concept (`concrete`, `metal`, `broken`, `chair`, `plant`) → assets matching that concept appear regardless of filename
+6. **Use assets** — drag from search results to scene (placement), Ctrl+drag = scatter, or use physics drag to drop with physics simulation
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Custom Assets tab** — Dash Content Browser → mirrors UE folder structure; supports Megascans, FBX, marketplace packs, custom imports
+- **AI Compute** — per-folder; Ctrl+click = multi-folder; thumbnail-based AI tagging; results are persistent/cached
+- **Keyword search** — semantic concept search; works across mixed asset libraries
+- **Placement from Content Browser** — drag = place; Ctrl+drag = scatter; physics drag = physics drop
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Dash 1.5)
 
 ### Tags
-[PENDING EXTRACTION]
+`#dash-1.5` `#ai-tagging` `#content-library` `#asset-management` `#scatter` `#physics` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[auto-tag-sort-1000-ue5-assetsmonth-with-this-free-content-browser]] — Dedicated AI tagging tutorial (same feature, Tomáš narration)
+- [[best-free-unreal-engine-5-asset-management-plugin-in-2025]] — Full Dash 1.9 Content Browser with AI tagging + Collections
+- [[beginner-content-library-tutorial-for-ue5]] — Content Browser basics (1.4)

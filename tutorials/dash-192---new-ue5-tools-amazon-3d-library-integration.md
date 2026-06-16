@@ -1,12 +1,13 @@
----
+﻿---
 title: DASH 1.9.2 - NEW UE5 TOOLS + AMAZON 3D LIBRARY INTEGRATION
 source: YouTube
 url: https://www.youtube.com/watch?v=XNac5ylJ5LQ
 author: Polygonflow Dash
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: dash-1.9
+ue_version: "UE 5.x"
+tags: [dash-1.9, release-notes, mesh-pattern, content-library, rainfall, draw-spline, amazon-abo, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/dash-192---new-ue5-tools-amazon-3d-library-integration/
 frame_count: 8
 ---
@@ -21,74 +22,48 @@ frame_count: 8
 
 ## Raw Data (for Claude Code extraction)
 
-
-### Intro [0:00]
-**Transcript:** Hi everyone, in this video I will present the newest update to Dash, the Wordbuilding plugin for Unreal 5.  This 1.9.2 release includes new tools, thousands of high-end, completely free PBR assets, and much more, so let's jump in.
-
-**Frame:** tutorials\frames\dash-192---new-ue5-tools-amazon-3d-library-integration\frame_000.jpg
-
-### Mesh Pattern [0:19]
-**Transcript:** So, let's start with one of the most exciting additions, the mesh pattern tool.  This is a fully procedural tool that lets you create a tidal pattern out of any assets.  So, if you need floor, wall, or even a roof with repeating details, mesh pattern can generate that with full control and variety.  It also comes with several building presets, like bricks, basket weave, herringbone, floors, and hollow bricks.  And you can also adjust the material of the presets to better match your scene.  You get a lot of customization options, like scale, rotation, padding, and noise.  This works even with the proximity mask, which allows the pattern to adapt to the surrounding geometry.  But if the presets don't fit your needs, you can design your own.  For example, I can bring in four custom meshes and use them as repeating elements.  I add them as pattern objects, and I assign the floor plane as the surface object.  Then, when I move these meshes around, I can see that the entire pattern adjusts in real time.  If you're struggling to create your perfect pattern, you might need to add a reference area, which you can do from the bottom of the mesh pattern tool.  Notice how the tiles now shift al...
-
-**Frame:** tutorials\frames\dash-192---new-ue5-tools-amazon-3d-library-integration\frame_001.jpg
-
-### ABO 3D Library [2:53]
-**Transcript:** Next, we have integrated the Amazon Berkeley Objects library directly into the Dash Content Browser.  You don't have access to a huge collection of high-quality, re-roared 3D models, completely free, right inside Dash.  You can easily search or scroll through the presets in any unripe project, and then you drag and drop them into your scene,  Dash automatically handles the download and the important for you.  The library includes a wide variety of everyday objects, from kitchenware like mocks and plates, to furniture, lectures and tables, and even accessories like shoes and backpacks.  You can also adjust your materials with the material-edit tool, and of course scatter them or drop them with physics, directly from the Content Browser, just as you are used to.
-
-**Frame:** tutorials\frames\dash-192---new-ue5-tools-amazon-3d-library-integration\frame_002.jpg
-
-### Base Mesh Library [3:45]
-**Transcript:** We also integrated the base mesh library to the Dash Content Browser.  The library provides the wide range of clean, low-pody models that are ideal for blocking out scenes, testing ideas, or using as a foundation for more detailed work, all available for free.  Once inside your mansion, you can also use a mesh library to complete your own tasks, and you can also use some of the tools you can use to complete your work.  We also integrated the base mesh library to the Dash Content Browser.  Or using as a foundation for more detailed work, all available for free.  Once inside your unripe project, you can drag and drop any of these meshes straight into the scene.
-
-**Frame:** tutorials\frames\dash-192---new-ue5-tools-amazon-3d-library-integration\frame_003.jpg
-
-### Rain Fall [4:20]
-**Transcript:** Here I prepared a new scene using Megascans materials.  As with previous Dash versions, we can easily modify the Megascans materials, add effects like rains, snow, desolation, and more.  Of course, this also works with the assets from the previous mentioned ABO library and the polyhaven library.  But now, in addition to these rain effects, we of course want some falling rain as well.  Let's try the new Rainfall tool from the Ash 1.9.2.  With a single click, you can add a full procedure of rain effect to your scene, complete with parameters you can easily adjust to match your environment.  You can find this tool either by search, or in the create menu on the Dash bar.  Once dropped in, I can control a bunch of settings such as Rain Amount, Spoon Radius, The Angle, and much more.  If I want some real depth in my scene, I can even increase the Distant fog to make it really foggy.  This update also brings a Snowfall tool, giving you a beautiful procedural snow effect with full control over its look and behavior.
-
-**Frame:** tutorials\frames\dash-192---new-ue5-tools-amazon-3d-library-integration\frame_004.jpg
-
-### Snow Fall [5:23]
-**Transcript:** Better you want a light flurry or heavy blizzard.  Snowfall adepts to your scene with just a few tweaks.
-
-**Frame:** tutorials\frames\dash-192---new-ue5-tools-amazon-3d-library-integration\frame_005.jpg
-
-### Draw Spline [5:44]
-**Transcript:** We added the new Draws Pine tool to allow you to interactively draw and edit splines with tangents.  Very useful for those cases, very one detailed control of your splines.  When you draw, you can project the tangents just by pressing Shift and edit any previous point by just clicking on it.  Spline works perfectly as a mask, for example with Surface Gather. Let me show you.  First, I select a few assets from the Content Browser. From Dash 1.9.2, you should hold Ctrl to select multiple individual assets, or hold Shift to select all assets between your first and second selection.  You can also press Ctrl plus A to select all the visible assets.  While holding down Ctrl, I drag the assets above the ground and select the scatter here option.  Then in the pop up tool's panel, I add the spline to the proximity mesh section.  But I can also add the spline as a surface object to my mesh pattern, allowing me to create, for example, a procedural brick wall in just a few seconds.  In addition to the features we've covered, Dash 1.9.2 also includes several smaller features and bug fixes, like slider intensity control and path tracer support for the advanced water.
-
-**Frame:** tutorials\frames\dash-192---new-ue5-tools-amazon-3d-library-integration\frame_006.jpg
-
-### Outro [7:00]
-**Transcript:** Be sure to check the official documentation for the full details.  If you enjoyed this video, give this a try for free and see what you can create.  Thanks for watching and see you in the next one.
-
-**Frame:** tutorials\frames\dash-192---new-ue5-tools-amazon-3d-library-integration\frame_007.jpg
-
+[...raw data omitted — see ingested file...]
 
 ---
 
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Dash 1.9.2 release overview — major additions: Mesh Pattern Tool (fully procedural tiling patterns from any asset), Amazon Berkeley Objects (ABO) library integration, Base Mesh Library, Rainfall and Snowfall procedural weather tools, Draw Spline tool with tangent editing, multi-asset selection in Content Browser (Ctrl/Shift/Ctrl+A), Path Tracer support for advanced water, per-instance size in scatter table.
 
 ### Summary
-[PENDING EXTRACTION]
+7.5-minute release video for Dash 1.9.2. Key additions: (1) Mesh Pattern Tool — procedural tiling of any mesh with presets (bricks/basket weave/herringbone/floors/hollow bricks), full scale/rotation/padding/noise control, proximity mask support, reference area for alignment; custom patterns supported. (2) ABO Library — Amazon Berkeley Objects free library integrated directly into Dash Content Browser; thousands of photorealistic 3D scans (household items, furniture, accessories); drag to scene → auto-download + import; material edit and scatter fully supported. (3) Base Mesh Library — free low-poly blocking meshes for scene blocking and prototyping; drag to scene. (4) Rainfall Tool — procedural rain effect: Rain Amount, Spawn Radius, Angle, Distant Fog; found via search or Create menu. (5) Snowfall Tool — light flurry to blizzard control. (6) Draw Spline Tool — interactive spline drawing with tangent editing; Shift=project tangents; edit existing points by clicking; usable as proximity mask for scatter or as surface object for Mesh Pattern. (7) Content Browser multi-select: Ctrl=individual select, Shift=range select, Ctrl+A=select all visible.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Mesh Pattern Tool** — search `mesh pattern` in Dash bar → select presets (bricks/basket weave/herringbone/floors/hollow) → adjust material; OR bring custom meshes → assign as pattern objects → assign floor/surface as surface object → adjust positions for pattern in real time; add reference area for alignment in Bottom of tool panel; proximity mask = pattern adapts to surrounding geometry
+2. **ABO Library** — open Dash Content Browser → new ABO tab → browse/search → download by click → drag to scene → auto-import; supports material edit and scatter/physics drop
+3. **Base Mesh Library** — open Dash Content Browser → Base Mesh tab → drag low-poly mesh to scene; ideal for blocking and prototyping
+4. **Rainfall Tool** — search `rainfall` or Create menu → click to drop in scene → adjust: Rain Amount, Spawn Radius, Angle, Distant Fog; auto-procedural rain effect
+5. **Snowfall Tool** — search `snowfall` or Create menu → adjust flurry vs blizzard parameters
+6. **Draw Spline Tool** — type `draw spline` or find in toolbar → click to draw spline points; hold Shift to project tangents; click existing point to edit; use drawn spline as proximity mesh in scatter tool → scatter masks to spline shape; OR assign as surface object in Mesh Pattern for procedural brick wall
+7. **Content Browser Multi-Select** — Ctrl+click = individual assets; Shift+click = range between first and second; Ctrl+A = all visible → then Ctrl+drag to Scatter Here
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Mesh Pattern Tool** — fully procedural; presets: bricks, basket weave, herringbone, floors, hollow bricks; custom pattern objects; Surface Object field; proximity mask support; reference area; parameters: scale, rotation, padding, noise
+- **ABO Library (Amazon Berkeley Objects)** — free photorealistic scans: kitchenware, furniture, accessories, shoes, backpacks; integrated Dash tab; auto-download + import on drag; material edit and scatter/physics fully supported
+- **Base Mesh Library** — free low-poly models; ideal for blocking; drag and drop
+- **Rainfall Tool** — single-click procedural rain; params: Rain Amount, Spawn Radius, Angle, Distant Fog; found via search or Create menu
+- **Snowfall Tool** — procedural snow; light flurry to heavy blizzard; params tweakable
+- **Draw Spline Tool** — interactive spline with tangent handles; Shift=project tangents; edit any previous point by click; usable as: proximity mask in scatter, surface object in Mesh Pattern
+- **Content Browser multi-select** — Ctrl+click (individual), Shift+click (range), Ctrl+A (all visible) — then Ctrl+drag for Scatter Here
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Dash 1.9.2)
 
 ### Tags
-[PENDING EXTRACTION]
+`#dash-1.9` `#release-notes` `#mesh-pattern` `#content-library` `#rainfall` `#draw-spline` `#amazon-abo` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[best-free-unreal-engine-5-asset-management-plugin-in-2025]] — Full Dash 1.9 Content Browser overview
+- [[dash-19---managing-assets-in-ue5-just-got-a-lot-easier]] — 1.9 base release with Collections + RVT + Advanced Water
+- [[dash-193---new-ue5-asset-marketplace]] — 1.9.3 Dash Marketplace (Dekogon + ambientCG)
