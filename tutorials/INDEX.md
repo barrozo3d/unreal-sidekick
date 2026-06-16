@@ -744,6 +744,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-filmmaking-course---create-cinematic-3d-worlds.md
 
+
+### Unreal Engine Compositing Tutorial - UNREAL ENGINE FOR FILMMAKERS [Course Link in Description]
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=39nmue2lIdA
+- **Author:** Boundless Entertainment
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-compositing-tutorial---unreal-engine-for-filmmakers-course-link-in.md
+
 ---
 
 ## Tag Reference
