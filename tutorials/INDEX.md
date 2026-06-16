@@ -1304,6 +1304,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/working-fully-procedurally-in-unreal-engine-5---custom-asset-tutorial.md
 
+
+### DASH 1.8.5 - BIG UPDATE FOR UE5 WORLD BUILDING
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=lHZwUtS6hyE
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/dash-185---big-update-for-ue5-world-building.md
+
 ---
 
 ## Tag Reference
