@@ -1614,6 +1614,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/beginner-water-tool-tutorial-for-ue5.md
 
+
+### Quick Environment Creation w/ Unreal Engine 5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=YfHdlxH22cM
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/quick-environment-creation-w-unreal-engine-5.md
+
 ---
 
 ## Tag Reference
