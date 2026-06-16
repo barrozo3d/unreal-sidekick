@@ -1114,6 +1114,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-black-eye-cameras-november-release.md
 
+
+### Unreal Engine Black Eye Cameras: Multiple targets on a character
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=x18zbUJoI9U
+- **Author:** Black Eye Technologies
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-black-eye-cameras-multiple-targets-on-a-character.md
+
 ---
 
 ## Tag Reference
