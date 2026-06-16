@@ -604,6 +604,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-54-cinematic-previs-course.md
 
+
+### How Unreal Engine is Changing Filmmaking Forever
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=SstexNmLc68
+- **Author:** Boundless Entertainment
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-unreal-engine-is-changing-filmmaking-forever.md
+
 ---
 
 ## Tag Reference
