@@ -854,6 +854,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-black-eye-cameras-v2-gameplay-cameras-are-here.md
 
+
+### Unreal Engine Black Eye cameras: Behind the Lens
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=U5FGuo59IJc
+- **Author:** Black Eye Technologies
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-black-eye-cameras-behind-the-lens.md
+
 ---
 
 ## Tag Reference
