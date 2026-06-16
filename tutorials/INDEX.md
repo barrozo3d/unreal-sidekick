@@ -1054,6 +1054,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-black-eye-cameras-bake-down-cam-anims.md
 
+
+### Unreal Engine Black Eye Cameras: Overview Tutorial
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=JGnNpbWiT_0
+- **Author:** Black Eye Technologies
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-black-eye-cameras-overview-tutorial.md
+
 ---
 
 ## Tag Reference
