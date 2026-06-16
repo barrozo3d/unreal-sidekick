@@ -704,6 +704,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-for-filmmakers---cinematic-vfx-for-free---ue5-part-2.md
 
+
+### Unreal Engine for Filmmakers - Add Cinematic VFX to your Films for FREE - UE5 [PART 1]
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=Yl_VJqmll-E
+- **Author:** Boundless Entertainment
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-for-filmmakers---add-cinematic-vfx-to-your-films-for-free---ue5-pa.md
+
 ---
 
 ## Tag Reference
