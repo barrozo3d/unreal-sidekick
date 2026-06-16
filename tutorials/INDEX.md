@@ -564,6 +564,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unlock-thousands-of-free-assets-in-unreal-engine.md
 
+
+### No Cost Virtual Production is Here - And it's Changing Filmmaking
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=j3Kq0TIR2SI
+- **Author:** Boundless Entertainment
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/no-cost-virtual-production-is-here---and-its-changing-filmmaking.md
+
 ---
 
 ## Tag Reference
