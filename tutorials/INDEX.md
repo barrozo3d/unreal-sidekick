@@ -934,6 +934,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-black-eye-cameras-thats-a-cool-shot-1-pedestal-pan.md
 
+
+### Unreal Engine Black Eye Cameras: V1.2 Preview Shot List module
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=w2CBsFWMUys
+- **Author:** Black Eye Technologies
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-black-eye-cameras-v12-preview-shot-list-module.md
+
 ---
 
 ## Tag Reference
