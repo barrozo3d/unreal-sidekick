@@ -654,6 +654,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-57-filmmaking-course---unreal-engine-for-filmmakers-2026-update.md
 
+
+### Why Modern VFX DON'T Suck - Low Budget Virtual Production & Everything Everywhere All at Once
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=6w8cEVgikrg
+- **Author:** Boundless Entertainment
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/why-modern-vfx-dont-suck---low-budget-virtual-production-everything-everywhere-a.md
+
 ---
 
 ## Tag Reference
