@@ -1654,6 +1654,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/create-run-down-environments-in-minutes---dash-ue5.md
 
+
+### Simplify Environment Art Creation In Unreal Engine 5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=_7HfCCLiSec
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/simplify-environment-art-creation-in-unreal-engine-5.md
+
 ---
 
 ## Tag Reference
