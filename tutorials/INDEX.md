@@ -1274,6 +1274,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/auto-tag-sort-1000-ue5-assetsmonth-with-this-free-content-browser.md
 
+
+### BEST FREE UNREAL ENGINE 5 ASSET MANAGEMENT PLUGIN IN 2025
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=bsy4xZvhOqs
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/best-free-unreal-engine-5-asset-management-plugin-in-2025.md
+
 ---
 
 ## Tag Reference
