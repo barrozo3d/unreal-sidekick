@@ -4,9 +4,10 @@ source: YouTube
 url: https://www.youtube.com/watch?v=MFrmcgQHGJk
 author: Black Eye Technologies
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: blackeye-v2
+ue_version: "UE 5.3+"
+tags: [blackeye-v2, camera, gameplay, top-down, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-for-gameplay-top-down/
 frame_count: 4
 ---
@@ -33,27 +34,38 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Top-down gameplay camera with velocity-based look-ahead using Black Eye Cameras: camera composition leads in the direction of movement, scales with speed, and springs back to center when the character slows.
 
 ### Summary
-[PENDING EXTRACTION]
+3.5-minute tutorial showing how to upgrade Epic's built-in top-down template camera with Black Eye's velocity look-ahead system. Drop in a Black Eye camera, activate it, and the camera automatically shifts its framing so the character leads toward the center-ahead of the screen proportionally to movement speed. Demonstrates rapid iteration via Save-in-Play for dialing in the look-ahead feel and spring-back.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Open Epic's top-down template scene** — note the default camera lacks look-ahead; character can drift to screen edge.
+2. **Drop a Black Eye Orbit Camera into the scene** — set Auto-Activate on the player.
+3. **Enable velocity look-ahead** — in the camera settings, enable the look-ahead option; this offsets the composition target in the velocity direction.
+4. **Tune look-ahead scale** — controls how far ahead the composition leads at max speed vs. idle (center frame).
+5. **Spring-back** — when character decelerates, composition drifts back to center using dampening. Tune the return speed.
+6. **Iterate with Save-in-Play** — enable the Save-and-Play toggle; adjust look-ahead amount and spring feel while the game runs.
+7. **Experiment with extreme values** — e.g., push look-ahead far for high-speed feel; pull back for slower tactical games.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Velocity look-ahead** — Black Eye orbit camera setting; offsets composition target proportionally to velocity vector
+- **Look-ahead scale** — magnitude of the composition offset at full speed
+- **Return dampening** — spring speed when velocity drops (spring-back to centered composition)
+- **Save-and-Play** — live iteration while PIE is running
+- **Epic Top-Down Template** — `TopDown` map; uses a CameraActor spring arm by default; Black Eye replaces it
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.3+ (Black Eye v2; Epic top-down template shown)
 
 ### Tags
-[PENDING EXTRACTION]
+`#blackeye-v2` `#camera` `#gameplay` `#top-down` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unreal-engine-black-eye-cameras-v2-start-here-tutorial]] — full v2 system; gameplay camera section covers trigger-based camera switching
+- [[unreal-engine-black-eye-cameras-2-person-combat-side-camera-tutorial]] — another gameplay camera archetype (side camera)

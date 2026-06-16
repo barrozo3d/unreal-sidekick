@@ -4,9 +4,10 @@ source: YouTube
 url: https://www.youtube.com/watch?v=Wh-QAH49C70
 author: Black Eye Technologies
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: blackeye-v2
+ue_version: "UE 5.3+"
+tags: [blackeye-v2, camera, gameplay, cinematics, vehicles, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-car-camera-intro/
 frame_count: 4
 ---
@@ -33,27 +34,35 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Teaser/preview for Black Eye Cameras car camera tutorial: rotational damping, variable pivot points, speed-dependent composition framing, and cinematic sweeping flyby setups.
 
 ### Summary
-[PENDING EXTRACTION]
+1.5-minute promo for the full car camera tutorial. Previews four key features: rotational damping (camera feels the weight/physics of the car rather than being rigidly attached), variable pivot points (camera pivots shift as the car accelerates/decelerates — front of car at speed, whole car at rest), cinematic drone cameras, and Sequencer-based sweeping flybys using Black Eye's procedural composition with minimal keyframes. No technical steps shown — see [[unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics]] for full detail.
 
 ### Key Steps
-[PENDING EXTRACTION]
+N/A — preview only. Key concepts teased:
+- **Rotational damping** — dial for how much the camera physically "feels" the car's acceleration/braking
+- **Variable pivot point** — pivot position shifts from front-of-car (speed) to whole-car (slow)
+- **Dynamic framing with speed** — at speed: front of car in frame; slowing: full car visible
+- **Cinematic sweeping flybys** — procedural composition + few keyframes in Sequencer
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Rotational damping** — Black Eye camera param; controls physical lag in camera rotation relative to car
+- **Variable pivot point** — pivot target shifts with speed (front vs. center of vehicle)
+- **Black Eye procedural composition** — auto-frames based on subject + speed state
+- **Sequencer integration** — buttery smooth sweeping shots with handful of keyframes
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner (teaser; see full tutorial for intermediate content)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.3+ (Black Eye v2)
 
 ### Tags
-[PENDING EXTRACTION]
+`#blackeye-v2` `#camera` `#gameplay` `#cinematics` `#vehicles` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics]] — full car camera tutorial this video previews
+- [[unreal-engine-black-eye-cameras-v2-start-here-tutorial]] — complete v2 system overview

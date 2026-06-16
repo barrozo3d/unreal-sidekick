@@ -4,9 +4,10 @@ source: YouTube
 url: https://www.youtube.com/watch?v=SbFbNYrBO7s
 author: Black Eye Technologies
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: blackeye-v2
+ue_version: "UE 5.3+"
+tags: [blackeye-v2, camera, gameplay, teaser]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-v2-gameplay-cameras-are-here/
 frame_count: 4
 ---
@@ -33,27 +34,27 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Music-only teaser announcing the Black Eye Cameras v2 gameplay camera system release. No instructional content.
 
 ### Summary
-[PENDING EXTRACTION]
+47-second video consisting entirely of music with no spoken content or on-screen instruction. Functions as a release announcement / hype reel for Black Eye v2's new gameplay camera features. No actionable techniques demonstrated.
 
 ### Key Steps
-[PENDING EXTRACTION]
+N/A — teaser only. See [[unreal-engine-black-eye-cameras-v2-start-here-tutorial]] for full v2 coverage.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+N/A
 
 ### Difficulty
-[PENDING EXTRACTION]
+N/A (teaser)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.3+ (Black Eye v2)
 
 ### Tags
-[PENDING EXTRACTION]
+`#blackeye-v2` `#camera` `#gameplay` `#teaser`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unreal-engine-black-eye-cameras-v2-start-here-tutorial]] — full v2 overview replacing this teaser

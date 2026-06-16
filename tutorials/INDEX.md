@@ -839,9 +839,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=vs6yjL-l_FQ
 - **Author:** Black Eye Technologies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** blackeye-v2
+- **UE Version:** UE 5.3+
+- **Tags:** `#blackeye-v2` `#camera` `#gameplay` `#cinematics` `#blueprints` `#sequencer` `#intermediate` `#advanced`
+- **Summary:** 43-minute complete v2 system walkthrough — Camera Manager setup, orbit camera, trigger-volume-based camera switching (aim/tight spaces/cross-camera), Save-in-Play real-time iteration, Blend Lists, Black Eye Panel composition tools, Modifiers/Blueprints, Dead Zones, Dynamic Zoom, and Adaptive Cutscenes in Sequencer.
 - **File:** tutorials/unreal-engine-black-eye-cameras-v2-start-here-tutorial.md
 
 
@@ -849,9 +850,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=SbFbNYrBO7s
 - **Author:** Black Eye Technologies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** blackeye-v2
+- **UE Version:** UE 5.3+
+- **Tags:** `#blackeye-v2` `#camera` `#gameplay` `#teaser`
+- **Summary:** 47-second music-only teaser for Black Eye v2 gameplay camera release. No instructional content — see the START HERE Tutorial for full coverage.
 - **File:** tutorials/unreal-engine-black-eye-cameras-v2-gameplay-cameras-are-here.md
 
 
@@ -869,9 +871,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=vKG_qFXKcyY
 - **Author:** Black Eye Technologies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** blackeye-v2
+- **UE Version:** UE 5.3+
+- **Tags:** `#blackeye-v2` `#camera` `#dialogue` `#cinematics` `#gameplay` `#beginner`
+- **Summary:** 1-minute intro to Black Eye's Dynamic Dialog system — cameras track head/chest bones of multiple characters and auto-compute framing for any dialogue configuration (variable line count, participant count, character size) without manual keyframing.
 - **File:** tutorials/unreal-engine-black-eye-cameras-dynamic-dialog-intro.md
 
 
@@ -879,9 +882,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=MFrmcgQHGJk
 - **Author:** Black Eye Technologies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** blackeye-v2
+- **UE Version:** UE 5.3+
+- **Tags:** `#blackeye-v2` `#camera` `#gameplay` `#top-down` `#beginner`
+- **Summary:** 3.5-minute tutorial upgrading Epic's top-down template camera with Black Eye velocity look-ahead — composition leads in the direction of movement scaled by speed and springs back to center when the character slows. Iterated live via Save-in-Play.
 - **File:** tutorials/unreal-engine-black-eye-cameras-for-gameplay-top-down.md
 
 
@@ -889,9 +893,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=Wh-QAH49C70
 - **Author:** Black Eye Technologies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** blackeye-v2
+- **UE Version:** UE 5.3+
+- **Tags:** `#blackeye-v2` `#camera` `#gameplay` `#cinematics` `#vehicles` `#beginner`
+- **Summary:** 1.5-minute teaser for the full car camera tutorial. Previews rotational damping (camera feels car physics), variable pivot points (front-of-car at speed → whole car when slowing), and cinematic sweeping flybys with few Sequencer keyframes. See Car Cameras full tutorial for implementation.
 - **File:** tutorials/unreal-engine-black-eye-cameras-car-camera-intro.md
 
 

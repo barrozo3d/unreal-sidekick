@@ -4,9 +4,10 @@ source: YouTube
 url: https://www.youtube.com/watch?v=vKG_qFXKcyY
 author: Black Eye Technologies
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: blackeye-v2
+ue_version: "UE 5.3+"
+tags: [blackeye-v2, camera, dialogue, cinematics, gameplay, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-dynamic-dialog-intro/
 frame_count: 4
 ---
@@ -33,27 +34,34 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Black Eye Cameras Dynamic Dialog system: cameras track two characters' head and chest bones and auto-frame dialogue shots even when character counts, line counts, or sizes vary.
 
 ### Summary
-[PENDING EXTRACTION]
+1-minute intro to Black Eye's Dynamic Dialog camera mode. You set a desired shot/angle for a dialogue scene; Black Eye tracks the target bones (head, chest) of each participant and recalculates framing automatically regardless of how many lines are spoken, how many characters are present, or how their sizes differ. The white bounding box visible in the frame represents the camera's computed frame target.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Place a dialogue camera** — position it at the angle you want for the scene.
+2. **Assign bone targets** — set "look at" bones for each character (e.g., head + chest of character A; frame of character B shown as white bounding box).
+3. **Camera Manager handles framing** — Black Eye computes the correct framing automatically from the bone data, even if characters move, script changes, or characters are different sizes.
+4. **Grab and redirect** — you can re-grab the camera mid-scene and change the angle; Black Eye recalculates framing from the new position.
+5. **Variable dialogue support** — works with unknown dialogue lengths, variable participant counts, and multi-size characters without per-shot tweaking.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Dynamic Dialog camera mode** — Black Eye camera sub-mode; assigns per-character bone targets (head, chest)
+- **White bounding box** — on-screen frame preview showing the computed shot boundary
+- **Camera Manager** — routes framing math; no manual keyframing needed for bone tracking
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.3+ (Black Eye v2)
 
 ### Tags
-[PENDING EXTRACTION]
+`#blackeye-v2` `#camera` `#dialogue` `#cinematics` `#gameplay` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unreal-engine-black-eye-cameras-v2-start-here-tutorial]] — Cross Camera section covers two-subject tracking (same underlying system)
+- [[unreal-engine-black-eye-cameras-version-11-new-features-cross-camera]] — Cross Camera v1.1 feature that precedes Dynamic Dialog

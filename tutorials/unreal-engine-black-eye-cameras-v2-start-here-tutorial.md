@@ -4,9 +4,10 @@ source: YouTube
 url: https://www.youtube.com/watch?v=vs6yjL-l_FQ
 author: Black Eye Technologies
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: blackeye-v2
+ue_version: "UE 5.3+"
+tags: [blackeye-v2, camera, gameplay, cinematics, blueprints, sequencer, intermediate, advanced]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-v2-start-here-tutorial/
 frame_count: 24
 ---
@@ -148,27 +149,59 @@ frame_count: 24
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Black Eye Cameras v2 complete system overview: gameplay camera setup (orbit, trigger volumes, Camera Manager), Save-in-Play real-time iteration, Blend Lists, Black Eye Panel, and adaptive cinematic camera tools.
 
 ### Summary
-[PENDING EXTRACTION]
+Full walkthrough of Black Eye v2's new gameplay camera system. Covers installing the plugin from Fab, setting up the Camera Manager, creating trigger-volume-based camera behaviors (aim, tight spaces, cross-camera, top-down), and the "Save-in-Play" workflow for iterating on cameras while the game runs. Also covers the Black Eye Panel UI for composition editing, lens packs, Dead Zones, Modifiers/Blueprints integration, Dynamic Zoom, and Adaptive Cutscenes for Sequencer.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Install** — Acquire from Fab, add to project, enable plugin under Plugins, restart editor. Open Demo Level (`Engine/Plugins/Black Eye/demos/`).
+2. **Camera Manager** — Open Black Eye Panel → Manage tab → Create manager (project-wide or per-level). Required for all blend routing.
+3. **Orbit Camera setup** — Drop in Orbit Camera actor, set Auto-Activate on player, assign Look/Follow target (root bone recommended). Set Look Profile to match project input.
+4. **Save-in-Play** — Enable "Save and Play" toggle in Black Eye Panel. Edit camera properties live while game is running; changes persist after stopping PIE.
+5. **Trigger volume behaviors** — Duplicate the gameplay camera, rename (e.g., "High" / "TightSpace"), set unique tag, disable Auto-Activate, place trigger volume with matching tag. Camera Manager uses default blend automatically.
+6. **Aim camera** — Duplicate camera, set to Aim mode, configure world heading + pitch. Set orbit control mode (full / dampened / none). Blend in via trigger tag.
+7. **Cross Camera** — Looks at and follows two different subjects (player + cube / two characters). Exposes heading, distance, height controls. Supports Dynamic FOV (procedural Zolly). Ideal for dialogue.
+8. **Blend Lists** — Manage tab → Blend List. Define default blend (duration + easing). Add custom blends per camera-to-camera pair. Wild-card blends (e.g., always cut from security cam).
+9. **Black Eye Panel — Composition** — Full panel mode. Preview camera framing with bone tracking + lens packs. Drag composition target on-screen. White dots visualize pitch damping.
+10. **Modifiers + Blueprints** — Orbit cameras expose graph-based modifiers (FOV vs orbit height, recentering time vs player speed). Push any camera attribute from Blueprints via exposed node list.
+11. **Dead Zones** — Define an on-screen region where subject motion is ignored. Combine with Dwell Radius (follow only when root bone exits sphere) to decouple camera from character noise.
+12. **Dynamic Zoom** — Switch lens mode to "subject size" — camera zooms to keep subject at constant screen size regardless of distance.
+13. **Adaptive Cutscenes (Sequencer)** — Keyframe subject screen position (A→B) in Sequencer; Black Eye fills the intermediate camera motion using its procedural composition math. Works with variable characters/scales.
+14. **Orbit Collision** — Assign specific bone as collision look target (neck, spine). Tune Probe Size (sphere radius around camera). Compare to UE Spring Arm: Black Eye lets you assign the aim bone independently from collision direction.
+15. **Rig pivot** — Steady cam rig pivot emulation: camera rotates around a virtual rig point (like a cameraperson's hand on pole), not the sensor. Configurable weight + pivot offset.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Black Eye Camera Manager** — project-wide or level-scoped, controls all blend routing
+- **Orbit Camera actor** — primary gameplay camera; key params: orbit radius, input speed, auto-recentering time, recentering speed, probe size
+- **Cross Camera** — two-subject follow/look; params: heading, distance, height, dynamic FOV toggle
+- **Aim camera** — world heading + pitch, orbit mode (full / dampened spring / none)
+- **Trigger Volume** — tag-based. Camera tag = trigger tag → Camera Manager switches on entry/exit
+- **Blend List** — duration, blend type (linear/ease/custom curve), exponent, whole-time buffer; wild-card support
+- **Save and Play** — button in Black Eye Panel; edits during PIE are committed on stop
+- **Black Eye Panel** — `Window → Black Eye Camera`; tabs: Create Camera, Composition, Rig, Manage, Utilities
+- **Modifiers** — graph curves mapping one attribute to another (e.g., `orbit pitch → FOV`, `player speed → recentering time`)
+- **Dead Zone** — screen-space region; motion inside region ignored by look-at
+- **Dwell Radius** — world-space sphere around bone; follow only triggers when subject exits sphere
+- **Dynamic Zoom** — subject-size mode: maintains constant screen-space size via FOV adjustment
+- **Adaptive Cutscenes** — Sequencer keyframe on `subject screen position`; Black Eye interpolates procedurally between keyframes
+- **Plugin content path** — `Engine/Plugins/Black Eye/demos/` (requires "Show Plugin Content" enabled in Content Browser)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.3+ (Black Eye v2 minimum; UE5 UI confirmed in frames)
 
 ### Tags
-[PENDING EXTRACTION]
+`#blackeye-v2` `#camera` `#gameplay` `#cinematics` `#blueprints` `#sequencer` `#intermediate` `#advanced`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unreal-engine-black-eye-cameras-start-here-tutorial]] — v1 START HERE for comparison (v1 system, pre-gameplay cameras)
+- [[unreal-engine-black-eye-cameras-overview-tutorial]] — v1 overview, same plugin earlier version
+- [[unreal-engine-black-eye-cameras-dynamic-dialog-intro]] — Dynamic Dialog feature expanded
+- [[unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics]] — car camera detailed tutorial
+- [[unreal-engine-black-eye-cameras-for-gameplay-top-down]] — top-down velocity look-ahead
+- [[plugin-blackeye-versions]] — version compatibility reference
