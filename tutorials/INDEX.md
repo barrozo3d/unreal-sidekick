@@ -1634,6 +1634,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/environment-breakdown-underground-horror-in-ue5.md
 
+
+### Tutorial: Create Subtle Realistic Environments in UE5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=hInAtC725VQ
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/tutorial-create-subtle-realistic-environments-in-ue5.md
+
 ---
 
 ## Tag Reference
