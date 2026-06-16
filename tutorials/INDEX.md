@@ -1104,6 +1104,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-black-eye-cameras-2-person-combat-side-camera-tutorial.md
 
+
+### Unreal Engine Black Eye Cameras: November release
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=hcd3Ohyjr_E
+- **Author:** Black Eye Technologies
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-black-eye-cameras-november-release.md
+
 ---
 
 ## Tag Reference
