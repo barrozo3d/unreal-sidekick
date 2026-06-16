@@ -1214,6 +1214,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/dash-192---new-ue5-tools-amazon-3d-library-integration.md
 
+
+### Unreal Engine 5.6 Physics Tools – Asset Placement & Piles Tutorial
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=qxXQsMCMWfw
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-56-physics-tools-asset-placement-piles-tutorial.md
+
 ---
 
 ## Tag Reference
