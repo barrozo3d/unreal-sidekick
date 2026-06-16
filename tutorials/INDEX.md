@@ -644,6 +644,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro.md
 
+
+### Unreal Engine 5.7 Filmmaking Course - Unreal Engine for Filmmakers (2026 UPDATE!)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=RfTVeIwB2Dw
+- **Author:** Boundless Entertainment
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-57-filmmaking-course---unreal-engine-for-filmmakers-2026-update.md
+
 ---
 
 ## Tag Reference
