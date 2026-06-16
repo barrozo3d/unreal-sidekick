@@ -1124,6 +1124,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-black-eye-cameras-multiple-targets-on-a-character.md
 
+
+### Unreal Engine Black Eye Cameras: Multiple follow and look at modules
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=lzFH7Peyyk0
+- **Author:** Black Eye Technologies
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-black-eye-cameras-multiple-follow-and-look-at-modules.md
+
 ---
 
 ## Tag Reference
