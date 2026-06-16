@@ -474,6 +474,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Full Skylight reference using a chrome sphere as a live diagnostic tool — SLS Captured Scene vs SLS Specified Cubemap vs Real-Time Capture, Sky Distance Threshold black-skylight bug (sky mesh smaller than threshold = no capture), "Is Sky" material flag required for real-time capture to work, cubemap rotation and resolution (512 sweet spot), Lower Hemisphere Solid Color (keep ON for interiors), Intensity Scale=1 for PBL. With Lumen: DFAO is automatic. Debug with Detail Lighting view mode.
 - **File:** tutorials/the-perfect-sky-light-in-unreal-engine-5.md
 
+
+### How to Remove Green Screen & Composite in Unreal Engine 5 Using Media Plate (Realistic Shadows)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=771myWapQ_s
+- **Author:** World Of VFX
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-to-remove-green-screen-composite-in-unreal-engine-5-using-media-plate-realis.md
+
 ---
 
 ## Tag Reference
