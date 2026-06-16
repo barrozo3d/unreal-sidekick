@@ -1354,6 +1354,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/making-asset-importing-easy-in-ue5---dash-content-browser.md
 
+
+### DASH 1.7.0 - MASSIVE UE5 WORLD BUILDING TOOL
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=B6T_VQQK6OU
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/dash-170---massive-ue5-world-building-tool.md
+
 ---
 
 ## Tag Reference
