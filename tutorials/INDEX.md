@@ -1454,6 +1454,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/realistic-architecture-environment-in-ue5---dash-workflow.md
 
+
+### How to Scatter Decals in UE5 - World Building Plugin
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=IU8VFAXOa7w
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-to-scatter-decals-in-ue5---world-building-plugin.md
+
 ---
 
 ## Tag Reference
