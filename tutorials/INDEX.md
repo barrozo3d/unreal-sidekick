@@ -1324,6 +1324,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-to-create-vines-procedurally-in-unreal-engine-5.md
 
+
+### Creating a Blend Material in Unreal Engine 5 Just Got Easier
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=MoAk8c1ek7A
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/creating-a-blend-material-in-unreal-engine-5-just-got-easier.md
+
 ---
 
 ## Tag Reference
