@@ -1564,6 +1564,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/create-realistic-scatter-using-merge-actors-with-dash.md
 
+
+### Beginner Guide to Road Tool in UE5 Co-Pilot DASH
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=x6DR-CGi8dE
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/beginner-guide-to-road-tool-in-ue5-co-pilot-dash.md
+
 ---
 
 ## Tag Reference
