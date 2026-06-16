@@ -824,6 +824,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/roger-deakins-lighting-tutorial---blade-runner-2049.md
 
+
+### 3D TRACKED CAMERA FROM AFTER EFFECTS TO UNREAL ENGINE | TUTORIAL
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=v38O-9KTqx4
+- **Author:** Boundless Entertainment
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/3d-tracked-camera-from-after-effects-to-unreal-engine-tutorial.md
+
 ---
 
 ## Tag Reference
