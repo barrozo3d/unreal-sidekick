@@ -1144,6 +1144,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/new-ue5-asset-management-plugin---now-free-on-fab.md
 
+
+### DASH 1.11 - UNREAL ENGINE WORLD BUILDING JUST GOT EASIER
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=bmxYrlidcCM
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/dash-111---unreal-engine-world-building-just-got-easier.md
+
 ---
 
 ## Tag Reference
