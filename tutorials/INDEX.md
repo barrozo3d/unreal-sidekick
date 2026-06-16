@@ -694,6 +694,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/why-modern-vfx-suck-and-how-to-make-yours-not-suck.md
 
+
+### Unreal Engine for Filmmakers - Cinematic VFX for FREE - UE5 [PART 2]
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=5zJktaYwK-I
+- **Author:** Boundless Entertainment
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-for-filmmakers---cinematic-vfx-for-free---ue5-part-2.md
+
 ---
 
 ## Tag Reference
