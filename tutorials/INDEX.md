@@ -1234,6 +1234,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/procedural-world-building-for-ue5---pcg-alternative.md
 
+
+### Unreal Engine & Dash Medieval Environment Tutorial
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=_SKfQJ5pAAc
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-dash-medieval-environment-tutorial.md
+
 ---
 
 ## Tag Reference
