@@ -554,6 +554,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/5-vfx-techniques-youve-been-taught-that-are-actually-wrong.md
 
+
+### Unlock Thousands of Free Assets in Unreal Engine
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=YhJGuB5fCfU
+- **Author:** Boundless Entertainment
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unlock-thousands-of-free-assets-in-unreal-engine.md
+
 ---
 
 ## Tag Reference
