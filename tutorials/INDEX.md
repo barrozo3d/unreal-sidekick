@@ -514,6 +514,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engines-secret-weapon-for-cinematic-lighting.md
 
+
+### The Simplest Rendering Trick 90% of Unreal Artists Miss
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=YqPy2yM7X-s
+- **Author:** Boundless Entertainment
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/the-simplest-rendering-trick-90-of-unreal-artists-miss.md
+
 ---
 
 ## Tag Reference
