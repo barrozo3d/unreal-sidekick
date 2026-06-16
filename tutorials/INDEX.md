@@ -534,6 +534,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/the-ultimate-plugin-for-filmmaking-in-unreal-engine.md
 
+
+### How to Render Chaos Cloth Simulations with Motion Blur [The RIGHT Way]
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=f4izPHpbfZI
+- **Author:** Boundless Entertainment
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-to-render-chaos-cloth-simulations-with-motion-blur-the-right-way.md
+
 ---
 
 ## Tag Reference
