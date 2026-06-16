@@ -754,6 +754,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-compositing-tutorial---unreal-engine-for-filmmakers-course-link-in.md
 
+
+### Unreal Engine for Filmmakers - Incredible Realtime Particle Simulations for Free
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=gzdYccMYjak
+- **Author:** Boundless Entertainment
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-for-filmmakers---incredible-realtime-particle-simulations-for-free.md
+
 ---
 
 ## Tag Reference
