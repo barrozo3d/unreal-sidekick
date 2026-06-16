@@ -1674,6 +1674,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/new-physics-tool-for-unreal-engine-5.md
 
+
+### Introducing Dash for Unreal Engine 5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=NVSEN3ND6VU
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/introducing-dash-for-unreal-engine-5.md
+
 ---
 
 ## Tag Reference
