@@ -1624,6 +1624,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/quick-environment-creation-w-unreal-engine-5.md
 
+
+### Environment Breakdown: Underground Horror in UE5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=zxVE6uyBEHs
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/environment-breakdown-underground-horror-in-ue5.md
+
 ---
 
 ## Tag Reference
