@@ -1494,6 +1494,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-to-edit-megascans-and-poly-haven-materials-easily---ue5-plugin.md
 
+
+### What's new in Dash 1.5 - AI Content Tagging, Tool Presets, & More!
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=mYe43x2Dtg0
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/whats-new-in-dash-15---ai-content-tagging-tool-presets-more.md
+
 ---
 
 ## Tag Reference
