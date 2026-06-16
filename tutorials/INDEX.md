@@ -1334,6 +1334,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/creating-a-blend-material-in-unreal-engine-5-just-got-easier.md
 
+
+### GETTING STARTED WITH DASH - EASY WORLD BUILDING IN UE5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=RA3yGbCvxIU
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/getting-started-with-dash---easy-world-building-in-ue5.md
+
 ---
 
 ## Tag Reference
