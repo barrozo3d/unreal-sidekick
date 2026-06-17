@@ -2218,6 +2218,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-to-create-a-massive-zombie-horde-in-unreal-engine-55---niagara-crowd-simulat.md
 
+
+### Budget Mocap Tutorial - Quickmagic.AI and Metahuman Animator (Android/Frame Mancer) Unreal Engine 5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=i2W2rDsZXk4
+- **Author:** Charlie Driscoll - Unreal Engine Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/budget-mocap-tutorial---quickmagicai-and-metahuman-animator-androidframe-mancer-.md
+
 ---
 
 ## Tag Reference
