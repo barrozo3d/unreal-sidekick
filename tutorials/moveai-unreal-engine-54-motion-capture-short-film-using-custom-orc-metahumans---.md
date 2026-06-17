@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=v75dSep_kbE
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.4"
+tags: [mocap, metahuman, move-ai, custom-metahuman, orc, short-film, performance-capture, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/moveai-unreal-engine-54-motion-capture-short-film-using-custom-orc-metahumans---/
 frame_count: 4
 ---
@@ -33,27 +33,37 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Short film showcase in UE 5.4 using custom orc MetaHumans (created via professional Metapype character artist pipeline) driven by Move.AI multi-camera body capture and MetaHuman Animator face capture — nearly pure film content with minimal behind-the-scenes narration.
 
 ### Summary
-[PENDING EXTRACTION]
+"Encounter" is a very short (52-second) short film by Charlie Driscoll featuring two custom orc MetaHumans in an eerie forest location. The orcs are the professional-pipeline custom MetaHumans mentioned in several other videos (created via Metapype by a hired character artist). The film showcases the quality achievable with UE 5.4 + Move.AI + MetaHuman Animator in just ~52 seconds of output. The transcript contains almost entirely just the film dialogue/audio, making this a portfolio/showcase entry with minimal extractable technical steps. The film was referenced in later videos as the orc MetaHumans used across multiple projects.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Commission character artists to convert orc marketplace assets to MetaHuman format via Metapype pipeline.
+2. Capture orc character performances with Move.AI body mocap and MetaHuman Animator face capture.
+3. Retarget animations to custom orc MetaHuman skeletons in UE 5.4.
+4. Set up forest/ruins environment from Fab/Marketplace.
+5. Assemble scene in Sequencer; set up cameras; render.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Move.AI multi-cam body capture
+- MetaHuman Animator (face capture)
+- Level Sequencer (animation + camera assembly)
+- Custom orc MetaHumans (Metapype professional conversion pipeline)
+- UE 5.4 project setup
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+5.4
 
 ### Tags
-[PENDING EXTRACTION]
+mocap, metahuman, move-ai, custom-metahuman, orc, short-film, performance-capture, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `how-i-use-moveai-and-metahumans-to-achieve-aaa-character-animation-in-unreal-eng.md` — uses these same orc MetaHumans with Move.AI Pro in orc/knight scene
+- `orc-vs-knight-cgi-swordfight---ue5.md` — another short film featuring these orc MetaHumans
+- `moveai-and-unreal-engine-5-metahuman-short-film---gigantic-joe.md` — comparable short film using custom Sasquatch MetaHuman

@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=ukk4vw-bIpA
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [mocap, metahuman, move-ai, sword-fighting, two-actor-capture, animation-pack, fight-choreography, control-rig, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/motion-capture-sword-fighting-cinematic-in-unreal-engine-5---moveai-and-metahuma/
 frame_count: 5
 ---
@@ -53,27 +53,41 @@ frame_count: 5
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Two professional stunt performers captured simultaneously in Move.AI Pro multi-cam volume for choreographed sword fighting, with the main cleanup challenge being sword alignment to hand bones via Control Rig additive layer and wrist rotation correction — building reusable "Lego piece" sword-fight animation assets for future battle scenes.
 
 ### Summary
-[PENDING EXTRACTION]
+Charlie Driscoll captures two actors doing choreographed sword fighting using Move.AI Pro (multi-camera system). The key challenge motivating this video is the lack of quality paired sword-fight animations on the market — most available paired animations are limited (1-2 moves) and too tedious to stitch together. Using Move.AI Pro he captures continuous choreographed sequences with professional stunt performers, then assembles them in UE5 Sequencer over a ready-made cathedral environment with Polyphoria Medieval Armor clothing. The main cleanup work involves the hand tracking being inaccurate for wrist angles when holding swords — fixed by removing hand tracking entirely and manually correcting sword-to-wrist rotation in the Control Rig. The resulting animations are designed as a reusable animation pack/library for future medieval battle scenes.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Hire professional stunt performers; capture extended choreographed sword fighting sequences with Move.AI Pro multi-cam setup.
+2. Import FBX animations; retarget to MetaHuman skeletons; apply Polyphoria Medieval Armor clothing.
+3. Place MetaHumans in cathedral environment (Fab) in Sequencer; apply animations; attach sword static meshes to hand bones.
+4. Bake animations to MetaHuman Control Rig.
+5. Remove hand tracking data entirely (one hand holds sword, no hand animation needed); correct wrist/arm rotation so swords align properly during contact moments.
+6. Add additive animation layer; use Control Rig to manually correct sword alignment frame by frame at contact moments.
+7. Fly camera around live scene to find interesting shot angles; set up cameras in Sequencer.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Move.AI Pro multi-cam (two-actor simultaneous sword-fight capture)
+- MetaHuman Animator (face capture, referenced as part of full pipeline)
+- Level Sequencer (animation layering, camera cuts, sword attachment to hand bones)
+- MetaHuman Control Rig (bake + additive layer for sword alignment corrections)
+- Polyphoria Medieval Armor Pack (MetaHuman clothing)
+- Cathedral environment (Fab asset)
+- Static mesh swords (attached to hand bones in Sequencer)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+5.x
 
 ### Tags
-[PENDING EXTRACTION]
+mocap, metahuman, move-ai, sword-fighting, two-actor-capture, animation-pack, fight-choreography, control-rig, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `how-to-create-a-fight-scene-cinematic-in-unreal-engine-55.md` — similar fight scene using Reallusion animation pack instead of custom mocap
+- `how-i-use-moveai-and-metahumans-to-achieve-aaa-character-animation-in-unreal-eng.md` — two-actor simultaneous capture pipeline overview
+- `how-i-created-a-massive-crowd-of-metahumans-for-a-brutal-gladiator-film---unreal.md` — gladiator film that uses these sword-fight animation assets in background OverCrowd crowd

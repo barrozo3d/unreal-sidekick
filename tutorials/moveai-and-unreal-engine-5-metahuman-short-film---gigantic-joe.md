@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=I3GzRdnFEIw
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [mocap, metahuman, metahuman-animator, move-ai, short-film, custom-metahuman, scale, elevenlabs, performance-capture, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/moveai-and-unreal-engine-5-metahuman-short-film---gigantic-joe/
 frame_count: 2
 ---
@@ -38,27 +38,38 @@ frame_count: 2
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Three-character short film featuring a custom Sasquatch MetaHuman ("Gigantic Joe") scaled to giant size in Unreal Engine, using Move.AI + MetaHuman Animator performance capture and ElevenLabs voice morphing — showcasing how real-time engines enable creative shots (giant character scale, unusual framing) impractical in traditional filmmaking.
 
 ### Summary
-[PENDING EXTRACTION]
+"Gigantic Joe" is a short film by Charlie Driscoll featuring three characters: two humans (Marvin and a companion) and a giant Sasquatch MetaHuman (Gigantic Joe). The film explores scale as a creative device — something trivially achieved in UE5 by simply scaling up a MetaHuman actor — while using the full Move.AI Pro + MetaHuman Animator + ElevenLabs pipeline. The behind-the-scenes section is brief (1.5 min) but articulates Driscoll's philosophy: using UE5 to "puppet" characters with your own performance, and learning something new or exploring unique capabilities of the medium with each project. The custom Sasquatch MetaHuman required professional character artist work to convert to MetaHuman format.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Commission Sasquatch character artist (Upwork) to convert marketplace character to MetaHuman format via Metapype/professional pipeline.
+2. Scale Gigantic Joe MetaHuman up to giant size in UE5 (simple actor scale override in level).
+3. Capture all three character performances with Move.AI Pro body mocap and MetaHuman Animator face capture.
+4. Morph voices with ElevenLabs to match Marvin (pig), human companion, and Gigantic Joe character voices.
+5. Assemble scene in Sequencer; set up cameras emphasizing scale contrast between characters.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Move.AI Pro multi-cam body capture (three-character scene)
+- MetaHuman Animator (face capture, head rig)
+- Level Sequencer (multi-character animation + camera assembly)
+- MetaHuman actor scale (giant character effect)
+- ElevenLabs (voice morphing for character-appropriate voices)
+- Custom Sasquatch MetaHuman (converted via professional Metapype pipeline)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+5.x
 
 ### Tags
-[PENDING EXTRACTION]
+mocap, metahuman, metahuman-animator, move-ai, short-film, custom-metahuman, scale, elevenlabs, performance-capture, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `moveai-and-unreal-engine-5-metahuman-cinematic---hacker.md` — companion short film featuring Marvin character in sci-fi setting
+- `moveai-unreal-engine-54-motion-capture-short-film-using-custom-orc-metahumans---.md` — similar short with custom orc MetaHumans
+- `how-i-use-moveai-and-metahumans-to-achieve-aaa-character-animation-in-unreal-eng.md` — behind-the-scenes breakdown of the Move.AI + MetaHuman pipeline used here

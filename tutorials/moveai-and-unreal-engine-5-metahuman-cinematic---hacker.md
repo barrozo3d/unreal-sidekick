@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=pq5iEvcntwE
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [mocap, metahuman, metahuman-animator, move-ai, short-film, sci-fi, performance-capture, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/moveai-and-unreal-engine-5-metahuman-cinematic---hacker/
 frame_count: 4
 ---
@@ -33,27 +33,40 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Short cinematic film showcasing the Move.AI + MetaHuman Animator + ElevenLabs pipeline in a sci-fi hacker scenario; the transcript is almost entirely the film itself with no technical breakdown provided, indicating this is a showcase/portfolio piece rather than a tutorial.
 
 ### Summary
-[PENDING EXTRACTION]
+"Hacker" is a short cinematic by Charlie Driscoll featuring the character Marvin (a talking pig MetaHuman) in a sci-fi setting, asking a hacker character for help bypassing an orbital blockade in exchange for a rare crystal. The film demonstrates Move.AI multi-camera body capture, MetaHuman Animator face capture, and ElevenLabs voice morphing in a sci-fi environment. The video contains almost no behind-the-scenes narration — it is primarily the finished short film. It is referenced in later videos as an example of the pipeline's output quality and Driscoll's interest in continuing the Marvin character.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Write sci-fi heist/negotiation scene script.
+2. Capture all performances with Move.AI Pro body mocap and MetaHuman Animator face capture using head rig.
+3. Retarget animations to MetaHumans (Marvin pig character, hacker character).
+4. Build or use existing sci-fi environment asset.
+5. Set up cameras and assemble in Sequencer.
+6. Morph voices using ElevenLabs to match character types.
+7. Add sound design and export.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Move.AI Pro multi-cam body capture
+- MetaHuman Animator (face capture)
+- Level Sequencer (camera and animation assembly)
+- ElevenLabs (voice morphing)
+- Sci-fi environment asset (Fab/Marketplace)
+- Custom MetaHuman characters (Marvin the pig and hacker)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+5.x
 
 ### Tags
-[PENDING EXTRACTION]
+mocap, metahuman, metahuman-animator, move-ai, short-film, sci-fi, performance-capture, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `moveai-and-unreal-engine-5-metahuman-short-film---gigantic-joe.md` — similar short film showcase featuring Marvin character again
+- `how-i-made-this-aaa-cinematic-in-unreal-engine-5---moveai-and-metahuman-animator.md` — detailed breakdown of how these short films are made
+- `cinematic-motion-capture-with-move-one-and-metahuman-animator---unreal-engine-54.md` — full tutorial for the pipeline used in these short films
