@@ -2038,6 +2038,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Three pro cinematography frameworks for sci-fi corridor lighting: 60-30-10 color rule for character/BG separation, Volumetric Fog + Scattering Intensity to unify background palette, animated lights via Sequencer keyframes and Light Function materials. Source Radius/Length to simulate large diffusion panels. From Josh Toonen (Alien Covenant, Star Wars VFX).
 - **File:** tutorials/cinematic-lighting-masterclass-alien-in-unreal-5.md
 
+
+### Realistic and Physical Lighting in UE5: What is PBL ?
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=JoxgvwNFc8g
+- **Author:** arthur tasquin
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/realistic-and-physical-lighting-in-ue5-what-is-pbl.md
+
 ---
 
 ## Tag Reference
