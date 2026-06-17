@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=h5QzOjs8418
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.6"
+tags: [mocap, real-time-mocap, captury, captive-devices, metahuman-animator, overcrowd, markerless, performance-capture, unreal-fest, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/the-best-real-time-mocap-i-have-ever-seen---captury-captive-devices-and-metahuma/
 frame_count: 7
 ---
@@ -63,27 +63,40 @@ frame_count: 7
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Real-time markerless full-body + face performance capture streamed directly into Unreal Engine 5.6 using Captury CaptureLive (10 AI machine vision cameras, ~$50K system) for body and the Captive Devices Core HMC lightweight monocular facial rig ($30K) — no suits, no markers, no depth sensors — with raw uncleaned output applied to new UE 5.6 MetaHumans and rendered via Movie Render Queue, showcased at Unreal Fest.
 
 ### Summary
-[PENDING EXTRACTION]
+Charlie Driscoll reports from Unreal Fest where he demoed the Captury CaptureLive + Captive Devices Core HMC system — a fully markerless, real-time performance capture setup (body and face) streaming directly into Unreal Engine 5.6 onto MetaHumans. No suits, no markers, no depth sensors. The body system uses 10 AI machine-vision cameras; the face rig is a lightweight monocular camera head mount weighing almost nothing. Output is real-time on a large monitor providing immediate feedback to performers. Raw uncleaned animation is applied to UE 5.6 stock MetaHumans with Polyphoria clothing and rendered with Movie Render Queue. Also briefly shown: OverCrowd integration with the same performance data for crowd simulation, including VAT-to-blueprint-actor cloth physics transition. Cost breakdown: CaptureLive ~$50K total hardware + $24K software + $7K/year renewal; Core HMC ~$30K.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Set up Captury CaptureLive system (10 AI machine vision cameras, ~$50K total); configure for performer tracking in volume.
+2. Performer wears Captive Devices Core HMC lightweight facial rig (monocular 4K camera, dual LEDs, built-in timecode sync, 60fps, 6hr battery).
+3. System streams real-time body + face animation directly into Unreal Engine 5.6 onto MetaHumans — no processing delay.
+4. Use large monitor nearby for immediate performance feedback; iterate on expressions and emotional beats in real time.
+5. Raw data applied to UE 5.6 stock MetaHumans with Polyphoria custom clothing; render via Movie Render Queue.
+6. (Optional) Feed same performance capture data into OverCrowd for crowd simulation with VAT/cloth-physics blueprint actor swapping.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Captury CaptureLive (10 AI machine vision cameras; markerless body + finger tracking; real-time streaming to UE; ~$50K hardware + $24K software + $7K/year renewal)
+- Captive Devices Core HMC facial rig (monocular 4K global shutter camera, dual LEDs, timecode sync, 60fps, 6hr battery, integrated with MetaHuman Animator; ~$30K)
+- MetaHuman Animator (face animation, real-time offline version quality)
+- UE 5.6 stock MetaHumans (new 5.6 characters with cloth physics)
+- Movie Render Queue (final render output)
+- OverCrowd plugin (crowd simulation using same performance data; VAT → blueprint actor cloth physics swap demo)
+- Polyphoria clothing (MetaHuman costume)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced
 
 ### UE Version
-[PENDING EXTRACTION]
+5.6
 
 ### Tags
-[PENDING EXTRACTION]
+mocap, real-time-mocap, captury, captive-devices, metahuman-animator, overcrowd, markerless, performance-capture, unreal-fest, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `how-to-create-massive-crowds-and-battle-scenes-in-unreal-engine-5---niagara-and-.md` — OverCrowd tutorial referenced in this video's crowd sim demo
+- `how-i-use-moveai-and-metahumans-to-achieve-aaa-character-animation-in-unreal-eng.md` — Move.AI Pro pipeline for comparison (the non-real-time alternative)
+- `cinematic-motion-capture-with-move-one-and-metahuman-animator---unreal-engine-54.md` — budget version of the same performance capture goal
