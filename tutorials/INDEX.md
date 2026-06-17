@@ -2208,6 +2208,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-to-create-a-fight-scene-cinematic-in-unreal-engine-55.md
 
+
+### How to Create A Massive Zombie Horde in Unreal Engine 5.5 - Niagara Crowd Simulation, AnimToTexture
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=h6FEW4Kz_Kk
+- **Author:** Charlie Driscoll - Unreal Engine Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-to-create-a-massive-zombie-horde-in-unreal-engine-55---niagara-crowd-simulat.md
+
 ---
 
 ## Tag Reference
