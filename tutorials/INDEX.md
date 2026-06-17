@@ -2228,6 +2228,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/budget-mocap-tutorial---quickmagicai-and-metahuman-animator-androidframe-mancer-.md
 
+
+### Cheap AI Mocap that Actually Works - QuickMagic.Ai, Chaos Destruction, and Metahumans in UE5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=7xYyfWeAHiA
+- **Author:** Charlie Driscoll - Unreal Engine Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/cheap-ai-mocap-that-actually-works---quickmagicai-chaos-destruction-and-metahuma.md
+
 ---
 
 ## Tag Reference
