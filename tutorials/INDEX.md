@@ -1968,6 +1968,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/survive-the-vfx-war-battle-ready-skills-you-need-for-virtual-production-in-2026-.md
 
+
+### How to use the Movie Render Graph in Unreal Engine 5.8 - Simple Setup for Filmmakers.
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=ivE8Bg0EaBo
+- **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-to-use-the-movie-render-graph-in-unreal-engine-58---simple-setup-for-filmmak.md
+
 ---
 
 ## Tag Reference
