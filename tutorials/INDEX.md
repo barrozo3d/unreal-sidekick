@@ -2063,9 +2063,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=wys5jEhtpY0
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5
+- **Tags:** `#mocap` `#markerless-mocap` `#mimem-ai` `#metahuman` `#animation-retargeter` `#fbx-import` `#multi-camera` `#budget-mocap` `#overcrowd` `#head-rig` `#intermediate` `#ue5` `#youtube`
+- **Summary:** Multi-camera markerless mocap pipeline with Mimem.ai (5/mo 3-cam entry vs 00/mo 10-cam pro): browser recording or upload, no calibration, T-pose at frame 0, FBX export → UE5 import (new skeleton, T0 ref pose) → Animation Retargeter to MetaHuman. Compares Mimem vs Move Pro (k/yr). OverCrowd plugin overview.
 - **File:** tutorials/how-to-get-pro-motion-capture-for-metahumans-on-a-budget-in-unreal-engine-5.md
 
 

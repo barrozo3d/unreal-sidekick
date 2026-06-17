@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=wys5jEhtpY0
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [mocap, markerless-mocap, mimem-ai, metahuman, animation-retargeter, fbx-import, multi-camera, budget-mocap, overcrowd, head-rig, gopro, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-get-pro-motion-capture-for-metahumans-on-a-budget-in-unreal-engine-5/
 frame_count: 25
 ---
@@ -153,27 +153,38 @@ frame_count: 25
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Multi-camera markerless mocap pipeline using **Mimem.ai** (budget alternative to Move Pro): browser-based recording or video upload → FBX export → UE5 import with new skeleton + T0 ref pose → Animation Retargeter to MetaHuman. Compares entry ($25/month, 3 cameras) vs Pro ($200/month, up to 10 cameras/6 GoPros at 4K60).
 
 ### Summary
-[PENDING EXTRACTION]
+Charlie Driscoll reviews Mimem.ai as the missing link between single-camera and studio-grade multi-camera mocap. Entry tier ($25/mo): use 2 webcams + phone via browser, no calibration or sync required, 30fps, ~2.8 min of mocap processing/day (500 tokens, 1 token = 30 frames input). Pro tier ($200/mo): up to 10 cameras, demonstrated with 6 GoPro 10s at 4K 60fps (same hardware as Move Pro) for ~7 min/day processing. Multi-actor capture is beta (actors can't occlude each other). Head rig options: Rococo ($295) or facemotioncapture.com ($100). Workflow: record/upload → insert T-pose at frame 0 → export FBX → import to UE5 (new skeleton, T0 ref pose) → retarget to MetaHuman. Charlie's OverCrowd plugin (FAB) for large crowd/army scenes.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Sign up at mimem.ai → New Animation → choose browser recording or upload pre-recorded footage
+2. Browser recording: select cameras (external webcam + laptop webcam + phone via QR code over shared WiFi); position wide with 2+ cameras covering feet
+3. Record freely; no calibration or sync required; 30fps limit in browser (upload for higher fps)
+4. Stop → wait for phone upload → Review page: **tick "Insert T-Pose at keyframe 0"** (critical for retargeting) → name animation → submit
+5. Processing time ~13 min for 100 sec of footage; download FBX when complete
+6. **UE5 FBX Import**: drag into **new empty folder** → uncheck "Import Animations Only" → check **"Use T0 as Ref Pose"** → Generate New Skeleton (never reuse; variations between animations break retargeting)
+7. **Retarget** imported animation to MetaHuman skeleton using the Animation Retargeter
+8. **GoPro multi-cam tip**: use *Camera Tools for GoPro Heroes* app (toolsforgopro.com / iPad/PC) to remote-sync start/stop all cameras simultaneously
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Animation Retargeter** — maps Mimem skeleton to MetaHuman; requires T0 ref pose in FBX
+- **FBX Import settings** — new folder per animation, generate new skeleton, Use T0 as Ref Pose; do NOT use Import Animations Only
+- **MetaHuman** — retarget target; works with Mimem output
+- **OverCrowd plugin** (FAB by Charlie Driscoll) — crowd/army simulation with modular MetaHumans for cinematics and games; UE5.7 version imminent; pre-made crowds coming
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (MetaHuman + Animation Retargeter)
 
 ### Tags
-[PENDING EXTRACTION]
+mocap, markerless-mocap, mimem-ai, metahuman, animation-retargeter, fbx-import, multi-camera, budget-mocap, overcrowd, head-rig, gopro, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- Other Charlie Driscoll tutorials (Move.AI, QuickMagic, OverCrowd, Niagara crowds)
+- Animation/Cinematics docs (Animation Retargeter, MetaHuman, Sequencer)
