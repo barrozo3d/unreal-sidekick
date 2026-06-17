@@ -1938,6 +1938,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-to-transform-texture-coordinates-in-unreal-engine-materials-tutorial.md
 
+
+### Faster than AI and 7 times the fun! Speed up Animation and get exactly what you want with Rokoko
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=o_AE2kUsF3E
+- **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/faster-than-ai-and-7-times-the-fun-speed-up-animation-and-get-exactly-what-you-w.md
+
 ---
 
 ## Tag Reference
