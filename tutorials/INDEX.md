@@ -2288,6 +2288,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/moveai-and-unreal-engine-5-metahuman-short-film---gigantic-joe.md
 
+
+### How I Use Move.AI and Metahumans to Achieve AAA Character Animation in Unreal Engine 5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=-GQWj_20J0g
+- **Author:** Charlie Driscoll - Unreal Engine Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-i-use-moveai-and-metahumans-to-achieve-aaa-character-animation-in-unreal-eng.md
+
 ---
 
 ## Tag Reference
