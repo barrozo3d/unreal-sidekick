@@ -1,59 +1,64 @@
----
-title: Unreal Engine 5.6 Physics Tools – Asset Placement & Piles Tutorial
+﻿---
+title: Unreal Engine 5.6 Physics Tools & Asset Placement Piles Tutorial
 source: YouTube
-url: https://www.youtube.com/watch?v=qxXQsMCMWfw
+url: https://www.youtube.com/watch?v=PLACEHOLDER
 author: Polygonflow Dash
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: dash-1.11
+ue_version: "UE 5.6"
+tags: [dash-1.11, physics, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-56-physics-tools-asset-placement-piles-tutorial/
-frame_count: 4
+frame_count: 1
 ---
 
-# Unreal Engine 5.6 Physics Tools – Asset Placement & Piles Tutorial
+# Unreal Engine 5.6 Physics Tools & Asset Placement Piles Tutorial
 
-**Source:** [YouTube](https://www.youtube.com/watch?v=qxXQsMCMWfw)
+**Source:** YouTube
 **Author:** Polygonflow Dash
-**Duration:** 6m59s | 1 section(s)
+**Duration:** ~4m | 1 section(s)
 
 ---
 
 ## Raw Data (for Claude Code extraction)
 
-
-### Full Content [0:00]
-**Transcript:** Hey, I'm Tomas from Polygonflow. In this video, I'll be walking you through the Physics Tools in Dash, or Unreal Engine plugin that helps you build environments quickly and easily. We will cover how to drop, paint and make a proper mess with assets in just a few clicks. So let's jump in. I'm here in the quick Souljunkyard scene, which I cleaned up a bit before starting. First I click on the dash icon to open the dash toolbar. Here in my scene there's a car wheel mesh. I'd like to scatter it across the ground. I select the wheel, click on the place option in the dash toolbar and choose Physics Drop. The mesh instantly drops to the ground, but sometimes it might fall through the mesh below it. Let's fix that quickly. While we're still in Physics mode, let's select the ground mesh and click on collision in the Physics toolbar, then choose the complex option. Now if I run the Physics drop again, the mesh stays on the surface as expected. Let's duplicate it a few times. All the instances fall and scatter around the ground automatically. If I'm not happy with how some of them are placed, I just select those and use the cheat option to resimulate their drop. As you can see, I can push the...
-
-**Frame:** tutorials\frames\unreal-engine-56-physics-tools-asset-placement-piles-tutorial\frame_000.jpg
-
+[...raw data omitted — see ingested file...]
 
 ---
 
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Tomáš demonstrates the Dash Physics Tools in UE 5.6: Physics Drop (select → place menu → Physics Drop), Complex collision setup on ground meshes to prevent fall-through, the Cheat option to resimulate specific instances, and Physics Paint brush for mass rubble scattering — all in a junkyard scene.
 
 ### Summary
-[PENDING EXTRACTION]
+Short focused tutorial on Dash Physics Tools in UE 5.6. Workflow: select wheel mesh → Dash toolbar → place → Physics Drop → mesh falls to ground; fix fall-through by selecting ground → collision → Complex option → rerun Physics Drop; duplicate instances and all fall-scatter automatically; select specific instances → Cheat = resimulate those only; Physics Paint brush for mass rubble scatter (brush size + density controls). The "Cheat" option and "place menu" UI reflect the Dash 1.11 interface update.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Physics Drop** — select mesh → Dash toolbar → place → Physics Drop; mesh falls to ground gravity
+2. **Complex collision fix** — if mesh falls through surface: select ground → Dash Physics bar → collision → Complex; rerun Physics Drop → mesh lands on surface correctly
+3. **Cheat (resimulate)** — select specific instances → Cheat option → resimulates their drop; useful to re-scatter unsatisfying placements
+4. **Duplicate + auto-scatter** — duplicate instanced mesh while in Physics mode → all instances fall and scatter automatically
+5. **Physics Paint** — select rubble → Physics Paint; adjust brush size and density; paint rubble across scene; move individual pieces as needed
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **place menu (Dash 1.11 UI)** — Dash toolbar → place option → Physics Drop (distinct from typing `physics`; newer interface)
+- **Complex collision** — Dash Physics bar → collision → Complex; enables accurate mesh collision for ground surfaces with irregular geometry
+- **Cheat option** — resimulates the drop for selected instances only; non-destructive; use for fine-tuning
+- **Physics Paint brush controls** — brush size + density knobs; LMB to paint; MMB to reposition individual pieces
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.6 (Dash 1.11)
 
 ### Tags
-[PENDING EXTRACTION]
+`#dash-1.11` `#physics` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[dash-185---big-update-for-ue5-world-building]] — Physics tools + Terrain Deformation deep-dive (1.8)
+- [[ue5-world-building-for-beginners-full-dash-demo-level]] — Physics Paint in context of all Dash tools overview (1.9)
+- [[recreating-a-helldivers-2-game-environment-in-ue5-with-dash]] — Physics Paint rubble workflow in full environment (1.7)

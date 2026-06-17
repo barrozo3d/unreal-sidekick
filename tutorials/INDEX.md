@@ -1231,9 +1231,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=bxeocONsu1Y
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.9
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.9` `#scatter` `#physics` `#cable` `#mesh-pattern` `#quick-pipe` `#road-tool` `#vine` `#rvt` `#blend-material` `#fog-cards` `#water` `#falling-leaves` `#beginner`
+- **Summary:** Tomas tour of the downloadable Dash demo level: all scatter types (Surface/Path/Grid/Radial), Physics Paint, Cable, Mesh Pattern (ABO), Quick Pipe, Road Tool with scatter ring, Advanced Water, Vine Tool (3 methods), RVT blending, Blend Material (puddles/rain/snow), Fog Cards, Falling Leaves, Rainfall, Snowfall - comprehensive beginner reference (Dash 1.9).
 - **File:** tutorials/ue5-world-building-for-beginners-full-dash-demo-level.md
 
 
@@ -1251,9 +1252,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=qxXQsMCMWfw
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.11
+- **UE Version:** UE 5.6
+- **Tags:** `#dash-1.11` `#physics` `#beginner`
+- **Summary:** Tomas demonstrates Dash Physics Tools in UE 5.6: Physics Drop (place menu), Complex collision fix for fall-through prevention, Cheat option to resimulate specific instances, Physics Paint brush (brush size + density) for mass rubble scatter in a junkyard scene (Dash 1.11, UE 5.6).
 - **File:** tutorials/unreal-engine-56-physics-tools-asset-placement-piles-tutorial.md
 
 
@@ -1271,9 +1273,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=_SKfQJ5pAAc
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.7
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.7` `#game-environments` `#scatter` `#grid-scatter` `#path-scatter` `#physics` `#cable` `#fog-cards` `#cross-project` `#presets` `#uds` `#intermediate`
+- **Summary:** Tomas medieval Veldraham art challenge (Cosmos/Russian Village assets): Grid Scatter for modular tower (saved as preset), Dashboard image import for in-engine reference, cross-project AI-tagged assets, Physics Drop into containers + Physics Paint planks, multi-curve Path Scatter icicles, Cable Tool rooftop cables, animated Fog Cards, Easy Snow plugin (Dash 1.7).
 - **File:** tutorials/unreal-engine-dash-medieval-environment-tutorial.md
 
 
@@ -1335,9 +1338,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=rdXL5PtsGnY
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.8
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.8` `#procedural` `#path-scatter` `#quick-pipe` `#cable` `#surface-scatter` `#proximity-mask` `#splines` `#intermediate`
+- **Summary:** Tomas builds a fully procedural rope bridge from one spline: Path Scatter planks (1-per-point + parallel rows; proximity mask prevents post intersection), Quick Pipe for deck ropes (parallel), Cable Tool Curve Mode for handrails (height + gravity + parallel), Surface Scatter with Height Mask on posts (plants on lower zone), Path Scatter hanging vines (Remove Mask + posts). Alt+click adds curve points; all updates propagate (Dash 1.8).
 - **File:** tutorials/working-fully-procedurally-in-unreal-engine-5---custom-asset-tutorial.md
 
 
@@ -1542,9 +1546,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=mYe43x2Dtg0
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.5
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.5` `#ai-tagging` `#megascans` `#atlas` `#presets` `#camera` `#content-library` `#release-notes`
+- **Summary:** Official Dash 1.5 release trailer (garbled audio). Chapter headings confirm 5 new features: AI Content Tagging (concept search on project assets), Megascans Atlas Support (standalone Bridge folder + auto alpha-card scatter), Scattering Instances improvements, Tool Presets (save/recall), Aspect Ratio Presets for Dash Camera (Dash 1.5).
 - **File:** tutorials/whats-new-in-dash-15---ai-content-tagging-tool-presets-more.md
 
 

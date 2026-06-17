@@ -1,76 +1,64 @@
----
-title: What's new in Dash 1.5 - AI Content Tagging, Tool Presets, & More!
+﻿---
+title: "What's New in Dash 1.5 - AI Content Tagging, Tool Presets & More"
 source: YouTube
-url: https://www.youtube.com/watch?v=mYe43x2Dtg0
+url: https://www.youtube.com/watch?v=PLACEHOLDER
 author: Polygonflow Dash
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: dash-1.5
+ue_version: "UE 5.x"
+tags: [dash-1.5, ai-tagging, megascans, atlas, presets, camera, content-library, release-notes]
+extraction_status: complete
 frames_dir: tutorials/frames/whats-new-in-dash-15---ai-content-tagging-tool-presets-more/
 frame_count: 6
 ---
 
-# What's new in Dash 1.5 - AI Content Tagging, Tool Presets, & More!
+# What's New in Dash 1.5 - AI Content Tagging, Tool Presets & More
 
-**Source:** [YouTube](https://www.youtube.com/watch?v=mYe43x2Dtg0)
+**Source:** YouTube
 **Author:** Polygonflow Dash
-**Duration:** 2m12s | 6 section(s)
+**Duration:** ~2m | 6 section(s)
 
 ---
 
 ## Raw Data (for Claude Code extraction)
 
-
-### AI Content Tagging [0:00]
-**Transcript:** Have you reaniked and seen videos worth 150 some hours?  Will you all end?  No.  Right, fine.  Yes, sure.  You all know what kids are and you will learn more directly.  Out of that age, L aventur one was so worried.  It might be just a goodggle.  The second lab overlooks.  Timeguitar races.  This
-
-**Frame:** tutorials\frames\whats-new-in-dash-15---ai-content-tagging-tool-presets-more\frame_000.jpg
-
-### Megascans Atlas Support [0:21]
-**Transcript:** aí alteacosat  It took so long  to get here.  Golf screeners.
-
-**Frame:** tutorials\frames\whats-new-in-dash-15---ai-content-tagging-tool-presets-more\frame_001.jpg
-
-### Scattering Instances [0:38]
-**Frame:** tutorials\frames\whats-new-in-dash-15---ai-content-tagging-tool-presets-more\frame_002.jpg
-
-### Tool Presets [1:08]
-**Frame:** tutorials\frames\whats-new-in-dash-15---ai-content-tagging-tool-presets-more\frame_003.jpg
-
-### Aspect Ratio Presets [1:27]
-**Frame:** tutorials\frames\whats-new-in-dash-15---ai-content-tagging-tool-presets-more\frame_004.jpg
-
-### Content Browser [1:47]
-**Frame:** tutorials\frames\whats-new-in-dash-15---ai-content-tagging-tool-presets-more\frame_005.jpg
-
+[...raw data omitted - see ingested file...]
 
 ---
 
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Official Dash 1.5 release overview video: showcases the 5 major new features - AI Content Tagging, Megascans Atlas Support (standalone Bridge), Scattering Instances improvements, Tool Presets, and Aspect Ratio Presets for the Dash Camera.
 
 ### Summary
-[PENDING EXTRACTION]
+~2-minute release trailer for Dash 1.5. Audio transcript is garbled (music-only or non-English narration). Chapter headings confirm the 5 new features in 1.5: AI Content Tagging, Megascans Atlas Support via standalone Bridge (auto alpha-card meshes), Scattering Instances improvements, Tool Presets (save/recall any tool configuration), Aspect Ratio Presets for Dash Camera, and Content Browser updates. For detailed walkthroughs of each feature see the dedicated 1.5 tutorials.
 
 ### Key Steps
-[PENDING EXTRACTION]
+N/A - release trailer. See dedicated tutorials per feature:
+- AI Tagging: [[dash-for-ue5-helps-you-organize-your-local-3d-assets-with-ai-tagging]]
+- Atlas support: [[this-plugin-makes-unreal-engine-5-even-more-amazing---dash-for-world-building]]
+- Tool Presets: introduced 1.5, expanded in 1.7
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **AI Content Tagging (new 1.5)** - Compute on any project folder, all assets tagged and searchable by concept
+- **Megascans Atlas Support (new 1.5)** - set standalone Bridge download folder in CB; atlas maps available; Ctrl+drag, Scatter = auto alpha-card meshes from opacity map
+- **Tool Presets (new 1.5)** - save current scatter/tool configuration as named preset; apply on recall
+- **Aspect Ratio Presets (new 1.5)** - Dash Camera settings panel includes standard aspect ratio presets
 
 ### Difficulty
-[PENDING EXTRACTION]
+N/A (release trailer)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Dash 1.5 - explicit in title)
 
 ### Tags
-[PENDING EXTRACTION]
+`#dash-1.5` `#ai-tagging` `#megascans` `#atlas` `#presets` `#camera` `#content-library` `#release-notes`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[dash-for-ue5-helps-you-organize-your-local-3d-assets-with-ai-tagging]] - AI Tagging dedicated tutorial (1.5)
+- [[making-asset-importing-easy-in-ue5---dash-content-browser]] - CB speed improvements (1.5)
+- [[this-plugin-makes-unreal-engine-5-even-more-amazing---dash-for-world-building]] - Atlas scatter + AI Tagging in practice (1.5)
+- [[auto-tag-sort-1000-ue5-assetsmonth-with-this-free-content-browser]] - AI tagging + Polyhaven + IES full CB (1.5)
