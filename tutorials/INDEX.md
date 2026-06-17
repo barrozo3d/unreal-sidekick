@@ -2268,6 +2268,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-i-made-this-aaa-battle-scene-in-unreal-engine-5.md
 
+
+### Cinematic Motion Capture with Move One and Metahuman Animator - Unreal Engine 5.4  Beginner Tutorial
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=Fp3P0tSnY-Y
+- **Author:** Charlie Driscoll - Unreal Engine Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/cinematic-motion-capture-with-move-one-and-metahuman-animator---unreal-engine-54.md
+
 ---
 
 ## Tag Reference
