@@ -1778,6 +1778,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** First official Dash introduction video by Josh Powers â€” terrain generation, Megascans content library, water plane, interactive placement, surface scatter with fall-off/break-up, curve proximity masking, lighting/color grading presets by keyword, decal placement and scatter, Megascans atlas mesh-card scatter from opacity map. All without touching UE5 panels.
 - **File:** tutorials/introducing-dash-for-unreal-engine-5.md
 
+
+### Green Screen Edge Wrap SECRETS (and a LIE!) - Advanced DaVinci to Unreal Engine WORKFLOW
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=t7Q1UiBr8e8
+- **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/green-screen-edge-wrap-secrets-and-a-lie---advanced-davinci-to-unreal-engine-wor.md
+
 ---
 
 ## Tag Reference
