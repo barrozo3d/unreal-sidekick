@@ -2093,9 +2093,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=2t3c1KJbBe8
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5
+- **Tags:** `#production-breakdown` `#cinematics` `#metahuman` `#move-pro` `#overcrowd` `#niagara` `#sequencer` `#client-work` `#mocap` `#metahuman-animator` `#advanced` `#ue5` `#youtube`
+- **Summary:** Solo 1-month client project (Sharp Entertainment) — historical drama in UE5: pre-lit FAB environments, Polyphoria armor assets, Move Pro 6-cam body + iPhone face cap, MetaHuman Animator, 11 Labs voice morphing, FAB 2-actor sword fighting mocap pack, OverCrowd armies, Niagara waterfall for molten gold VFX.
 - **File:** tutorials/recreating-brutal-deaths-from-history-in-unreal-engine-5.md
 
 

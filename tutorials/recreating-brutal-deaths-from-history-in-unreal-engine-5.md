@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=2t3c1KJbBe8
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [production-breakdown, cinematics, metahuman, move-pro, overcrowd, niagara, sequencer, historical-drama, client-work, mocap, metahuman-animator, voice-ai, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/recreating-brutal-deaths-from-history-in-unreal-engine-5/
 frame_count: 9
 ---
@@ -73,27 +73,45 @@ frame_count: 9
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Full solo UE5 historical drama production pipeline for a real client (Sharp Entertainment "Die Like a Legend"): FAB environment + wardrobe assets → Move Pro 6-cam body mocap + iPhone face cap + MetaHuman Animator → 11 Labs voice morphing → OverCrowd crowds → Niagara waterfall VFX → Sequencer cinematography. One-month turnaround.
 
 ### Summary
-[PENDING EXTRACTION]
+Production breakdown of Charlie Driscoll's client project for Sharp Entertainment (Doomsday Preppers, 90 Day Fiance producers) — a proof-of-concept for "Die Like a Legend," an historical drama series recreating famous deaths in UE5. The project (Emperor Valerian vs. Persian King Shapur) was completed solo in one month. Key workflow decisions: source pre-lit FAB environments and modify lighting (sun angle + flickering point lights), use FAB wardrobe packs (Polyphoria Oriental Armor for Persians), Move Pro 6-cam 4K60 for body + Rococo head rig + iPhone for face, MetaHuman Animator for facial performance, 11 Labs to morph one performer's voice into multiple characters, pre-made FAB sword fighting mocap packs for action scenes, OverCrowd for crowd/army fills, Niagara waterfall + custom mesh crucible for molten gold VFX.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Pre-production**: source and evaluate FAB environments that are already well-lit (shortcuts production time); plan character lineup and voice strategy
+2. **Environment lighting**: take FAB environment → switch Directional Light to moonlight for edge lighting; add flickering Point Lights near practical lamp/torch actors; lean on sun angle for daytime exterior shots
+3. **Wardrobe**: FAB wardrobe packs — Polyphoria Medieval Oriental Armor (Persians); adapt period assets out of strict historical accuracy for visual quality
+4. **Body mocap**: Move Pro (6 GoPro 10s, 4K60fps); solo performer plays all characters (Valerian, Shapur, guards, mobs)
+5. **Face cap**: iPhone 13 + Rococo head rig → process in MetaHuman Animator
+6. **Voice**: 11 Labs voice morphing → one performer produces multiple character voices
+7. **Pre-made action animations**: use FAB 2-actor MetaHuman sword fighting animation pack (drag-drop onto two MetaHumans in Sequencer)
+8. **Crowds**: OverCrowd plugin for Persian warriors, Roman formations, angry mobs, background fighters
+9. **Molten gold VFX**: custom mesh crucible (Olympic meshes) + **Niagara waterfall effect** for molten gold stream pouring down throat + complementary lighting and smoke
+10. **Cinematography**: explore assembled scene freely in Sequencer; some of the best shots discovered by wandering the built environment
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Sequencer** — full scene assembly, animation, cinematography, 2-actor animation drop-in
+- **MetaHuman Animator** — facial performance capture from iPhone 13 + Rococo head rig
+- **OverCrowd plugin** (FAB) — crowd/army fills; used without advanced behavior features
+- **Niagara** — waterfall effect repurposed as molten gold stream
+- **Directional Light** — Ctrl+L sun angle control, moonlight for edge lighting
+- **Point Lights** — flickering practicals near torches/lamps (Light Function or keyframe-animated intensity)
+- **FAB assets** — pre-lit environments, Polyphoria armor packs, 2-actor sword fight mocap packs
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced (full production pipeline; client work; solo 1-month turnaround)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (MetaHuman Animator, OverCrowd, FAB marketplace)
 
 ### Tags
-[PENDING EXTRACTION]
+production-breakdown, cinematics, metahuman, move-pro, overcrowd, niagara, sequencer, historical-drama, client-work, mocap, metahuman-animator, voice-ai, 11-labs, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- Other Charlie Driscoll tutorials (Move.AI, OverCrowd, mocap pipeline)
+- Move Pro mocap tutorials
+- OverCrowd crowd simulation tutorials
+- Niagara VFX documentation
