@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=Fp3P0tSnY-Y
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.4"
+tags: [mocap, metahuman, metahuman-animator, move-one, move-ai, beginner-tutorial, animation-cleanup, performance-capture, elevenlabs, movie-render-queue, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/cinematic-motion-capture-with-move-one-and-metahuman-animator---unreal-engine-54/
 frame_count: 0
 ---
@@ -228,27 +228,58 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Comprehensive beginner-to-intermediate pipeline: record simultaneous body (Move One iPhone app) and face (MetaHuman Animator + Rokoko/DIY head rig) performance capture, retarget to MetaHuman in UE 5.4, clean up jitter with Butterworth filter in Curves Editor, build environment with Quixel Megascans, light cinematically, and export via Movie Render Queue to an image sequence assembled in Adobe Premiere.
 
 ### Summary
-[PENDING EXTRACTION]
+This is Charlie Driscoll's flagship 2-hour step-by-step tutorial covering the entire budget performance-capture filmmaking workflow in Unreal Engine 5.4. It walks through every stage: building or buying a mocap head rig, recording with Move One ($15/month) and MetaHuman Animator (free with iPhone), syncing face and body using a hand-clap/mouth-pop technique, retargeting the FBX to MetaHuman skeleton, LOD forcing, animation cleanup via low-pass Butterworth filter and hand pose library, voice morphing with ElevenLabs, building a Quixel Megascans environment, fire particle effects, Cine Camera setup (focus tracking with invisible sphere, 24mm lens, 2.39 crop), light flicker material, Movie Render Queue EXR export, and Premiere color grading. Intended for anyone without an expensive mocap suit.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Build or acquire a mocap helmet/head rig; mount iPhone (for MetaHuman Animator face capture) and record body capture on Move One iPad/iPhone app in a cleared 3m x 3m area.
+2. Sync recordings: print script on paper placed in capture area; perform clap + mouth pop for sync point. Record face capture simultaneously with body capture.
+3. Transfer Move One animation via Chrome Extension (FBX download); transfer MetaHuman Animator LiveLink archive via iTunes File Sharing.
+4. Create UE 5.4 project; enable MetaHuman plugin, Movie Render Queue, ray tracing in Project Settings; create blank level.
+5. Create MetaHuman in Quixel Bridge; import Move One FBX (skeleton blank); retarget animation to MetaHuman body skeleton via Animation Retargeter.
+6. Create Level Sequence; add MetaHuman as child of empty Actor for stability; add body animation track.
+7. Set up MetaHuman Animator: create Capture Source (LiveLink Archives) → Capture Manager → add to Queue → Import All → create MetaHuman Identity → process face animation.
+8. Sync face and body animations at clap/mouth-pop frame; force MetaHuman LOD to 0 in Detail Panel (LOD Sync → Forced LOD: 0).
+9. Import/morph dialogue audio with ElevenLabs; add audio track to Sequencer at 24 fps.
+10. Add clothing from Marketplace; adjust groom (hair/beard) physics in Blueprint editor.
+11. Build environment with Quixel Megascans (Quixel Bridge); add free fire Niagara particles; fix eye occlusion material bug (change emissive to base color, shading mode to Default Lit).
+12. Bake body animation to MetaHuman Control Rig; use Curves Editor to apply low-pass Butterworth filter to body/head controls to reduce jitter.
+13. Fix foot sliding via keyframe IK; fix hands using hand pose library (create poses in separate sequence, save to Pose Library, paste onto animation).
+14. Set up Cine Camera: 16x9 DSLR film back, 2.39 crop, focus method to Tracking (invisible sphere on head bone), 24mm–85mm lens depending on shot; keyframe camera transform in Sequencer.
+15. Add Post Processing Volume: bloom, exposure compensation; create light flicker Material (Time + Sin + Fraction nodes, Light Function domain) for fire point lights.
+16. Edit Camera Cuts track; export via Movie Render Queue: UHD resolution, EXR 16-bit, disable tone curve, game overrides; import image sequence into Premiere at 24fps.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Move One app (iPhone/iPad body capture, single camera, 60fps 1080p)
+- MetaHuman Animator (face capture from LiveLink Archives)
+- Quixel Bridge / Megascans (free environment assets)
+- Animation Retargeter (Move One FBX → MetaHuman skeleton)
+- Level Sequencer: Camera Cuts track, audio track, face/body animation tracks
+- MetaHuman Control Rig (bake + edit animation)
+- Curves Editor: low-pass Butterworth filter on body/head controls
+- Pose Library (hand cleanup workflow)
+- Cine Camera Actor: 16x9 DSLR film back, 2.39 crop, Tracking focus method
+- Post Processing Volume: bloom, exposure compensation
+- Light Function Material: Time → Multiply → Sign → Fraction → Emissive (fire flicker)
+- Niagara fire particles (free from Marketplace; disable distortion particle)
+- MetaHuman eye occlusion material fix (emissive → base color, shading → Default Lit)
+- Movie Render Queue: EXR 16-bit, disable tone curve, game overrides, UHD resolution
+- Adobe Premiere: image sequence import, 24fps interpret, ElevenLabs voice morph audio
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+5.4
 
 ### Tags
-[PENDING EXTRACTION]
+mocap, metahuman, metahuman-animator, move-one, move-ai, beginner-tutorial, animation-cleanup, performance-capture, elevenlabs, movie-render-queue, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `budget-mocap-tutorial---quickmagicai-and-metahuman-animator-androidframe-mancer-.md` — cheaper variant swapping Move One for QuickMagic AI and using Android instead of iPhone
+- `how-i-use-moveai-and-metahumans-to-achieve-aaa-character-animation-in-unreal-eng.md` — two-actor simultaneous capture using Move.AI Pro multi-cam
+- `cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un.md` — deep-dive companion on camera and render settings in UE 5.5

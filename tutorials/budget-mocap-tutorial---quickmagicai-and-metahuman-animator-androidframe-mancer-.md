@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=i2W2rDsZXk4
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [mocap, metahuman, metahuman-animator, quickmagic-ai, frame-mancer, budget-mocap, elevenlabs, android, performance-capture, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/budget-mocap-tutorial---quickmagicai-and-metahuman-animator-androidframe-mancer-/
 frame_count: 13
 ---
@@ -93,27 +93,46 @@ frame_count: 13
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Budget full-body and face performance capture using QuickMagic AI (single Android camera) combined with MetaHuman Animator via the $20 Frame Mancer plugin to generate depth maps from non-iPhone footage, then assembled into a cinematic short in Unreal Engine.
 
 ### Summary
-[PENDING EXTRACTION]
+Charlie Driscoll demonstrates the cheapest viable full-performance-capture pipeline for Unreal Engine filmmaking. He uses QuickMagic AI (~$2 in credits) for body mocap from a single Android camera, and the Frame Mancer plugin ($20) to enable MetaHuman Animator face capture with an Android phone instead of an iPhone. The tutorial covers retargeting animations to MetaHumans, camera setup with a 35mm VistaVision film back, lighting with complementary orange and blue sources, rain effects via two Fab assets, camera lens dirt masks, and additive animation tweaking on the face control board. ElevenLabs is used for AI voice morphing.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Film body performance with QuickMagic AI on an Android/any-camera device; upload footage to QuickMagic browser platform and process with full body + hands + moving camera settings.
+2. Film face capture footage on Android phone mounted in head rig; import into Unreal and use Frame Mancer plugin to extract frames and generate AI depth maps, creating a capture source for MetaHuman Animator.
+3. Import QuickMagic FBX animation into UE (skeleton set to None); retarget using Animation Retargeter to MetaHuman skeleton.
+4. Set up MetaHuman in scene, add to Level Sequence, apply body and face animations, sync both tracks.
+5. Set camera film back to 35mm VistaVision, crop to 16x9; attach invisible sphere to head bone for focus tracking; keyframe camera movement.
+6. Bake face animation to face control board; add additive track for non-destructive tweaks (eye opens, head orientation, eye line correction).
+7. Add lighting: directional light as moonlight (blue edge light), spotlights to accentuate fire, complementary orange/blue color scheme; delete skylight for darker shadows.
+8. Add rain via Easy Rain (drops) and Animated Rain Material (wet skin effect); apply camera dirt/lens water masks to each camera's dirt mask slot.
+9. Upload dialogue to ElevenLabs for AI voice morphing.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- MetaHuman Animator (face capture processing)
+- Animation Retargeter (QuickMagic FBX → MetaHuman skeleton)
+- Level Sequencer (animation and camera timeline)
+- Face Control Board + Additive Tracks (non-destructive face animation editing)
+- Cine Camera Actor: film back 35mm VistaVision, 16x9 crop, focus tracking to invisible sphere
+- Camera Dirt Mask slot (lens dirt/water effect)
+- Exponential Height Fog (nighttime atmosphere)
+- Spotlight and Directional Light (fire and moonlight simulation)
+- Niagara / particle effects (Easy Rain, Animated Rain Material from Fab)
+- Frame Mancer plugin ($20, UE Marketplace) — depth map generation for Android cameras
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+5.x
 
 ### Tags
-[PENDING EXTRACTION]
+mocap, metahuman, metahuman-animator, quickmagic-ai, frame-mancer, budget-mocap, elevenlabs, android, performance-capture, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `cheap-ai-mocap-that-actually-works---quickmagicai-chaos-destruction-and-metahuma.md` — companion video expanding QuickMagic AI use with a tracking shot and Chaos Destruction
+- `cinematic-motion-capture-with-move-one-and-metahuman-animator---unreal-engine-54.md` — full beginner tutorial covering a similar pipeline with Move One instead of QuickMagic
+- `how-i-made-this-aaa-cinematic-in-unreal-engine-5---moveai-and-metahuman-animator.md` — same core pipeline using higher-end Move.AI Pro

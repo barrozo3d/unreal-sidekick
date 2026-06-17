@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=aO_ceeiGHuw
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.5"
+tags: [cinematography, camera-settings, film-back, lens, aperture, depth-of-field, movie-render-queue, color-grading, camera-shake, sequencer, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un/
 frame_count: 0
 ---
@@ -164,27 +164,47 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Deep-dive walkthrough of every Cine Camera Actor setting in Unreal Engine 5.5 — film back, focal length, aperture, focus method, crop ratio, camera shake, post-processing, and export pipeline — applied to a two-character (man vs. troll) mocap scene, with multi-shot setup, per-shot sequences, and Adobe Premiere proxy/color-grading workflow.
 
 ### Summary
-[PENDING EXTRACTION]
+Charlie Driscoll uses a pre-built motion-captured scene (warrior vs. troll on a bridge) as a sandbox to teach cinematography fundamentals and their UE5 equivalents to complete beginners. Over ~128 minutes he covers: film back presets and their effect on field of view, focal lengths and prime lens conventions (24mm, 50mm, 85mm), aperture and depth of field, frame rate (24fps for film), camera lookat tracking with a sphere focus tracker, overscan, crop settings (4:3 vs 2.39:1 anamorphic), camera shake via Perlin noise Blueprint, post-processing effects (chromatic aberration, bloom, lens flare, exposure, dirt mask), the 180-degree rule for multi-camera coverage, per-shot Sequencer duplication workflow, EXR 16-bit export with disabled tone curve, Premiere proxy creation, and Lumetri basic color grading.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Attach invisible sphere to MetaHuman head bone in Sequencer (Attach Track → body → head); use as focus tracker for camera.
+2. Add Cine Camera via Sequencer's camera button; rename cameras (e.g. "troll_medium"); organize into Cameras folder.
+3. Set Focus Method to Tracking; select sphere actor; optionally enable Draw Debug Focus Plane to verify.
+4. Configure film back preset (e.g. 16x9 DSLR for full-frame equivalent); set crop (2.39 for widescreen cinematic look); set focal length to prime values (24mm wide, 50mm, 85mm telephoto).
+5. Set frame rate to 24fps in sequence settings.
+6. Enable Look At Tracking for automated follow; adjust Relative Offset for off-center framing; set smooth tracking speed.
+7. Create Camera Shake Blueprint (CameraShakeBase class); set Perlin Noise pattern; adjust rotation amplitude and frequency for handheld feel; assign to camera's Camera Shake slot with duration 0 (infinite).
+8. Add Post Processing: chromatic aberration, bloom, lens flare intensity; add dirt mask texture to camera's dirt mask slot; adjust exposure compensation per camera.
+9. Duplicate Sequence for each new shot (preserves character animations and lighting); adjust lights per shot for correct motivation.
+10. Add Camera Cuts track; assign camera to track; drag to full sequence length.
+11. Enable Movie Render Queue plugin; export draft as JPEG for editing, final as EXR 16-bit with disabled tone curve and game overrides at 4K.
+12. In Premiere: import EXR image sequence, interpret as 24fps; create proxies (half resolution ProRes) for smooth playback; edit multicam; apply Lumetri color grading (curves for contrast/shadows/highlights).
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Cine Camera Actor: film back presets, focal length, aperture (f-stop), focus method (Tracking/Manual), crop settings (2.39/1.77/4:3), Draw Debug Focus Plane, overscan, lens settings
+- Sequencer Camera Cuts track, Attach Track (sphere to head bone)
+- Camera Lookat Tracking: enable, relative offset, lag damping speed
+- Additive Layer on Camera Transform track (snap zoom, micro-adjustment)
+- CameraShakeBase Blueprint: Perlin Noise Camera Shake Pattern, rotation amplitude and frequency
+- Post Processing Volume and per-camera post process: chromatic aberration, bloom, lens flare, exposure compensation, dirt mask texture
+- Movie Render Queue: JPEG draft, EXR 16-bit final, disable tone curve (color output), game overrides (anti-aliasing, motion blur, warm-up frames), HQ render preset save
+- Adobe Premiere: image sequence import, interpret footage (24fps), proxy creation (ProRes), Lumetri color grading, multicam edit
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+5.5
 
 ### Tags
-[PENDING EXTRACTION]
+cinematography, camera-settings, film-back, lens, aperture, depth-of-field, movie-render-queue, color-grading, camera-shake, sequencer, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `cinematic-motion-capture-with-move-one-and-metahuman-animator---unreal-engine-54.md` — companion full pipeline tutorial covering mocap side; camera setup section overlaps
+- `how-i-made-this-aaa-cinematic-in-unreal-engine-5---moveai-and-metahuman-animator.md` — production breakdown applying many of these camera techniques
+- `how-to-create-a-fight-scene-cinematic-in-unreal-engine-55.md` — fight scene that applies this cinematography workflow in UE 5.5

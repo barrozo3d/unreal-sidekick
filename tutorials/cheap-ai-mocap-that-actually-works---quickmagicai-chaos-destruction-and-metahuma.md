@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=7xYyfWeAHiA
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [mocap, metahuman, quickmagic-ai, chaos-destruction, battle-scene, tracking-shot, animation-retargeting, sora, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/cheap-ai-mocap-that-actually-works---quickmagicai-chaos-destruction-and-metahuma/
 frame_count: 14
 ---
@@ -98,27 +98,41 @@ frame_count: 14
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+QuickMagic AI's unique "moving camera" mode enables unlimited-volume tracking shots — filmmaker and camera operator run ~50 meters together, generating continuous body animation from a single Android camera, which is then retargeted to MetaHumans in UE5 for a medieval battle scene with Chaos Destruction.
 
 ### Summary
-[PENDING EXTRACTION]
+Charlie Driscoll explores QuickMagic AI's standout feature: moving-camera tracking shots that capture full-body animation over large distances, overcoming the small-volume limitation of setups like Move.AI Pro. He films a 50-meter running sequence with a Samsung Note 23 Ultra, imports the FBX into UE5, retargets it to MetaHumans, and builds a medieval battle scene using a castle asset, Polyphoria clothing, and basic Chaos physics for environmental destruction. Background MetaHumans use stock animation packs (pirate mocap, Reallusion "Run for Your Life"). The video ends with a comparison against Sora AI-generated video of the same concept, offering a candid assessment of generative AI's current spatial limitations.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Film actor with moving camera (following from behind or front, camera pointing in same direction throughout); use neutral main lens to avoid wide-angle distortion; capture ~50m running take.
+2. Upload footage to QuickMagic browser platform; select UE4 mannequin skeleton, enable full body + hands + moving camera + T-pose + "on real floor" export options (~$1.86 in credits).
+3. Import FBX into UE5 (skeleton set to None); right-click animation → Retarget Animation → select target MetaHuman skeleton → Export Animation.
+4. Add retargeted animation to Level Sequence on MetaHuman; set up medieval environment (castle, Polyphoria armor, modular NPC packs).
+5. Add background MetaHumans with pirate mocap / Reallusion animation packs for crowd.
+6. Add Chaos Destruction to stone castle segments for background explosion effects; stagger activation in Sequencer.
+7. Set up cameras and shoot final tracking shot through the scene.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- QuickMagic AI: moving-camera mode, UE4 mannequin skeleton export, "on real floor" option
+- Animation Retargeter (QuickMagic FBX → MetaHuman skeleton)
+- Level Sequencer (animation layering and camera)
+- Chaos Physics / Chaos Destruction (stone destruction on castle)
+- MetaHuman Animator (face capture workflow, referenced but not detailed in this video)
+- Polyphoria Medieval Armor Pack + Modular Medieval NPC v2 (MetaHuman clothing)
+- Rokoko head rig (concurrent face/body capture feasibility test)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+5.x
 
 ### Tags
-[PENDING EXTRACTION]
+mocap, metahuman, quickmagic-ai, chaos-destruction, battle-scene, tracking-shot, animation-retargeting, sora, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `budget-mocap-tutorial---quickmagicai-and-metahuman-animator-androidframe-mancer-.md` — companion budget pipeline video using QuickMagic with face capture
+- `cinematic-motion-capture-with-move-one-and-metahuman-animator---unreal-engine-54.md` — full beginner tutorial for the complete pipeline (body + face) with Move One
+- `how-i-made-this-aaa-battle-scene-in-unreal-engine-5.md` — larger-scale naval battle scene using Move.AI Pro multi-cam setup
