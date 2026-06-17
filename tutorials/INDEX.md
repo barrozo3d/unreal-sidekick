@@ -1898,6 +1898,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/easiest-vfx-pipeline-ever-with-composite-mesh-actors-in-unreal-engine-57-composu.md
 
+
+### Green Screen Cards are DEAD! Camera Projections in Unreal Engine change EVERYTHING! (Composure EP2)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=VbLziZfiyD8
+- **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/green-screen-cards-are-dead-camera-projections-in-unreal-engine-change-everythin.md
+
 ---
 
 ## Tag Reference
