@@ -1808,6 +1808,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/green-screen-overscan-secrets-and-a-lie---your-ultimate-vfx-save-series-bonus.md
 
+
+### Make Films in Unreal : Everything you need to create your first short (Beginner) Start Here (ep1)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=PPRugNC7POA
+- **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta.md
+
 ---
 
 ## Tag Reference
