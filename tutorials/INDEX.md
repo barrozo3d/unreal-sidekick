@@ -1838,6 +1838,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/ue5-filmmaking-series-xꙩdus-animatic-to-teaser---real-time-micro-budget-movies.md
 
+
+### A.I. / Real-Time and Surviving Hollywood's VFX industry for 30 years
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=9-kRF6DFfPE
+- **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/ai-real-time-and-surviving-hollywoods-vfx-industry-for-30-years.md
+
 ---
 
 ## Tag Reference
