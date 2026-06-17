@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=5cpjK7kKASU
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: ["level blueprint", "Niagara", "particle system", "keyboard input", "sound effects", "virtual production", "live streaming", "Blueprints", "interactive effects", "explosions"]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-virtual-production-trigger-explosions-and-sound-effects-with-your-/
 frame_count: 5
 ---
@@ -53,27 +53,44 @@ frame_count: 5
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Using a Level Blueprint with Keyboard Event nodes to trigger Niagara particle system activations and Spawn Sound at Location nodes in real time — enabling interactive VFX and sound effects triggered by keyboard keys for live streaming or virtual production performances.
 
 ### Summary
-[PENDING EXTRACTION]
+Dean Yurke shows how to set up a Level Blueprint to trigger explosions (Niagara particle systems) and sound effects interactively via keyboard keys, useful for live streaming virtual production or real-time performance recording. The blueprint flow is: Keyboard Event (any key) → Activate node (targeting a Niagara Component in the level, with Reset = true to allow repeated firing) → Spawn Sound at Location (with a sound asset and world position). He notes that Context Sensitive must be disabled in the Blueprint search bar to find the Activate node. The tutorial is beginner-friendly and short (under 7 minutes).
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Place a Niagara particle system actor in the level (a pre-made explosion effect).
+2. Open the Level Blueprint: three-dot menu in the toolbar > Open Level Blueprint.
+3. Right-click in the blueprint graph; turn off Context Sensitive in the search dropdown.
+4. Search for and add a Keyboard Events node; select the desired key (e.g., key "4").
+5. Drag out from the execution pin; search for "Activate" (requires Context Sensitive off); add the Activate node.
+6. In the Activate node, drag the Target pin; search for "Get Niagara Component" — this creates a reference getter for the Niagara system.
+7. Go to the Outliner, find your Niagara particle system actor, and drag it onto the target pin in the Blueprint.
+8. Enable "Reset" on the Activate node so the effect can be triggered repeatedly.
+9. From the Activate node's execution output, add a Spawn Sound at Location node; assign a sound asset and a world location (vector).
+10. Compile and save the Blueprint; press Play in Editor to test keyboard triggers.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Level Blueprint (per-level Blueprint accessible from the toolbar three-dot menu)
+- Keyboard Events node (any key input)
+- Activate node (Niagara component activate, Reset = true)
+- Get Niagara Component reference (drag from Outliner into Blueprint)
+- Spawn Sound at Location node (sound asset + world location)
+- Niagara particle system actor (explosion effect)
+- Context Sensitive toggle in Blueprint search (must be OFF to find Activate node)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+5.x (no specific sub-version)
 
 ### Tags
-[PENDING EXTRACTION]
+level blueprint, Niagara, particle system, keyboard input, sound effects, virtual production, live streaming, Blueprints, interactive effects, explosions
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta.md` — beginner filmmaking pipeline; Blueprints and interactivity as a next step
+- `advanced-volumetric-fog-secrets-in-unreal-engine-57-full-course.md` — Niagara-based sparse volume textures / VDB fluids also mentioned as possible Niagara outputs
+- `unreal-engine-vfx-breakdown---ragdoll-opening-shot.md` — a production shot where interactive environment effects would complement the setup

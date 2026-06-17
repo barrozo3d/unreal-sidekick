@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=WenSYKg08Uc
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: ["sequencer", "animation curves", "custom filter", "Curves Editor", "quick tip", "workflow", "selection filter", "hotkey", "filmmaking"]
+extraction_status: complete
 frames_dir: tutorials/frames/where-are-my-animation-curves-this-mysterious-symbol-will-save-you-hours-of-frus/
 frame_count: 7
 ---
@@ -63,27 +63,38 @@ frame_count: 7
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Using the Sequencer Curves Editor's hidden "Create Custom Filter" button (the plus-circle icon that appears when text is entered in the search bar) to save named selection filters for frequently accessed actors — enabling one-click switching between curve sets for different objects without scrolling the Sequencer.
 
 ### Summary
-[PENDING EXTRACTION]
+A quick 4-minute tip for Unreal Engine Sequencer users who spend too much time hunting for animation curves. The Sequencer's search bar reveals a small plus-circle button when text is entered — this is the "Create Custom Filter" button, which saves the current search string as a named persistent filter toggle at the top of the Sequencer. Dean shows creating two filters (one for a camera, one for a directional light/sun) so he can toggle between their curve sets instantly with a single click, eliminating the need to scroll, search, or re-select objects in the Outliner. Each filter name can be shortened for space.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. In Sequencer, type the name of the actor you want to save a filter for into the search bar (e.g., the camera name — you can Ctrl+C the name from the search result and Ctrl+V it back in).
+2. Notice the small plus-circle button that appears when text is in the search bar — this is "Create Custom Filter."
+3. Click the plus-circle button; set a short Filter Label (e.g., "cam"); the Filter String is auto-populated from the search bar.
+4. Click "Create and Apply" — a small dot appears on the button confirming the filter is saved.
+5. Clear the search bar; the filter toggle button remains at the top of Sequencer.
+6. Repeat for each additional actor (e.g., "sun" for a directional light).
+7. To switch between them: click one filter button (selects that actor in Sequencer and Outliner) → open Sequencer Curves Editor → the curves for that actor are displayed. Click the other filter to switch.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Sequencer search bar
+- Custom Filter (Create Custom Filter button — plus-circle icon in Sequencer search bar)
+- Sequencer Curves Editor (open from Sequencer toolbar)
+- Outliner selection sync with Sequencer
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+5.x (no specific sub-version)
 
 ### Tags
-[PENDING EXTRACTION]
+sequencer, animation curves, custom filter, Curves Editor, quick tip, workflow, selection filter, hotkey, filmmaking
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta.md` — the beginner filmmaking tutorial where Sequencer curve editing is introduced
+- `motion-blending-bone-matching-for-unreal-engine---make-films-in-unreal-ep2-inter.md` — animation sequencer workflow that benefits from this curve navigation tip
+- `scale-unreal-engines-user-interface-squint-no-more-great-for-recording-ue5-tutor.md` — companion UE editor QoL quick tip from the same channel

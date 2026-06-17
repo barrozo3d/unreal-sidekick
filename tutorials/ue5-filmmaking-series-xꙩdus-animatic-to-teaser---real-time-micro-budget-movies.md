@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=-9-Aq3z-wI4
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: ["filmmaking", "animatic", "teaser", "micro-budget", "xodus", "virtual production", "AI video", "indie film", "real-time", "pipeline overview"]
+extraction_status: complete
 frames_dir: tutorials/frames/ue5-filmmaking-series-xꙩdus-animatic-to-teaser---real-time-micro-budget-movies/
 frame_count: 4
 ---
@@ -33,27 +33,33 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+A project update video (under 2 minutes) showing the transition of Dean Yurke's sci-fi film "xodus" from its UE5 animatic stage to a teaser cut, with a brief outline of the next phase: upgrading to final pixel quality, replacing digital characters with live action, and experimenting with video-to-video AI as an alternate pipeline.
 
 ### Summary
-[PENDING EXTRACTION]
+This is a brief project update / showcase video for Dean Yurke's feature film project "xodus," his 20-year-in-the-making sci-fi script now being produced as a real-time micro-budget virtual production in UE5. It shows the assembled animatic teaser (geometric placeholder environments, digital characters) and announces the roadmap: upgrading environments to final pixel quality, replacing digital doubles with live action captured via green/blue screen + Composure, and experimenting with video-to-video AI to accelerate look development. Credits Shem (music) and Joe (editing). Contains no technical tutorial content — it is a creative showcase and project roadmap.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. (Context) Animatic phase: rough geometry environments + digital characters in Sequencer, assembled into a teaser edit.
+2. (Roadmap) Phase 2: upgrade environments with higher-quality assets, replace digital characters with live action via blue screen + Composure pipeline.
+3. (Experiment) Try video-to-video AI on the animatic renders as an alternate look-development path; results to be shared on channel.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Unreal Engine 5 Sequencer (animatic assembly — general reference)
+- Composure / green screen pipeline (upcoming phase — referenced)
+- No specific UE nodes or settings covered (showcase/update video)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+5.x (no specific sub-version)
 
 ### Tags
-[PENDING EXTRACTION]
+filmmaking, animatic, teaser, micro-budget, xodus, virtual production, AI video, indie film, real-time, pipeline overview
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `ue5-filmmaking-series-xꙩdus-animatic-to-teaser---real-time-micro-budget-movies.md` — this is the project itself
+- `advanced-volumetric-fog-secrets-in-unreal-engine-57-full-course.md` — the fog upgrade applied to this same xodus animatic project
+- `ai-real-time-and-surviving-hollywoods-vfx-industry-for-30-years.md` — Dean's career discussion that describes how and why this project came to be
