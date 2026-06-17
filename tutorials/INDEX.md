@@ -1888,6 +1888,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-vfx-breakdown---ragdoll-opening-shot.md
 
+
+### EASIEST VFX pipeline EVER with Composite Mesh Actors in Unreal Engine 5.7 (Composure EP1)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=6he5ag3nLjs
+- **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/easiest-vfx-pipeline-ever-with-composite-mesh-actors-in-unreal-engine-57-composu.md
+
 ---
 
 ## Tag Reference
