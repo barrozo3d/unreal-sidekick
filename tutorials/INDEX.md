@@ -2088,6 +2088,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/can-ai-replace-metahumans-in-unreal-engine-cinematics.md
 
+
+### Recreating BRUTAL Deaths from History in Unreal Engine 5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=2t3c1KJbBe8
+- **Author:** Charlie Driscoll - Unreal Engine Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/recreating-brutal-deaths-from-history-in-unreal-engine-5.md
+
 ---
 
 ## Tag Reference
