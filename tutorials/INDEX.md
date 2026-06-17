@@ -1958,6 +1958,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-virtual-production-trigger-explosions-and-sound-effects-with-your-.md
 
+
+### Survive the VFX War: Battle-Ready skills you need for Virtual Production in 2026 (NCSU MADtech Q&A)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=1kcelYQLkP0
+- **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/survive-the-vfx-war-battle-ready-skills-you-need-for-virtual-production-in-2026-.md
+
 ---
 
 ## Tag Reference
