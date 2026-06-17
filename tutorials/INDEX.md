@@ -1988,6 +1988,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/create-spectacular-depth-of-field-in-unreal-engine-58-with-the-new-accumulation-.md
 
+
+### Where are my Animation Curves!? This MYSTERIOUS SYMBOL will save you HOURS of Frustration!
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=WenSYKg08Uc
+- **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/where-are-my-animation-curves-this-mysterious-symbol-will-save-you-hours-of-frus.md
+
 ---
 
 ## Tag Reference
