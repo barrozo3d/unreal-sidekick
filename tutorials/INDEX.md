@@ -2138,6 +2138,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-to-generate-custom-metahuman-bodies-with-ai---yvo3d-faceform-wrap-2dnax---un.md
 
+
+### How to Generate Custom Metahuman Creatures with AI - YVO3D, Faceform Wrap, Unreal Engine 5.6 -Part I
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=PEObW2odtXI
+- **Author:** Charlie Driscoll - Unreal Engine Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-to-generate-custom-metahuman-creatures-with-ai---yvo3d-faceform-wrap-unreal-.md
+
 ---
 
 ## Tag Reference
