@@ -747,9 +747,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=_K8qfjcYbmE
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** `#filmmaking` `#cinematics` `#rendering` `#compositing` `#beginner` `#course`
+- **Summary:** Announcement of first paid Boundless Entertainment course (Basic $99, Advanced $149 ~4.5hrs). Full UE filmmaking pipeline: scene building, advanced lighting, Niagara sims, compositing live-action in UE, MRQ rendering, AE + Fusion post-production. Based on learnings from short film 'Gemini'.
 - **File:** tutorials/unreal-engine-filmmaking-course---create-cinematic-3d-worlds.md
 
 
@@ -757,9 +757,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=39nmue2lIdA
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** `#compositing` `#fog-cards` `#media-player` `#sequencer` `#materials` `#intermediate`
+- **Summary:** Fog cards + video texture compositing: right-click > Media > Media Player (check Video Output Media Texture); place plane (scale 16x9); translucent material with RGB > Multiply (strength scalar) > Emissive + opacity scalar; Cast Shadow OFF; Sequencer Media Track > + > media player > Edit Section > assign Media Texture.
 - **File:** tutorials/unreal-engine-compositing-tutorial---unreal-engine-for-filmmakers-course-link-in.md
 
 
@@ -767,9 +767,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=gzdYccMYjak
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** `#niagara` `#particles` `#vfx` `#simulation` `#beginner`
+- **Summary:** Niagara introduction for filmmakers: capabilities (fire/smoke/water/crowds/flocking), UE5 programmability, particle-character interaction. Hands-on: Edit > Plugins > Niagara; place built-in Cascade fire + smoke systems from Content Browser onto buildings for quick environmental storytelling.
 - **File:** tutorials/unreal-engine-for-filmmakers---incredible-realtime-particle-simulations-for-free.md
 
 
@@ -777,9 +777,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=gFO0qhdLKec
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** `#camera` `#cinematography` `#lighting` `#fog` `#rendering` `#composition` `#beginner`
+- **Summary:** Cinematic camera setup: 47mm focal length for compressed depth; Filmback = 16x9 SLR for larger virtual sensor; Bloom=3, Chromatic Aberration=0.4-0.5; Exp Height Fog for atmospheric depth; 23.976 FPS + 180-degree shutter; composition: foreground/mid/background layering and leading lines.
 - **File:** tutorials/unreal-engine-for-filmmakers---cinematic-camera-settings-setting-up-virtual-came.md
 
 
@@ -787,9 +787,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=0ltfUCHwevY
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** `#fog` `#rendering` `#path-tracing` `#materials` `#post-process` `#intermediate`
+- **Summary:** Path Tracer-compatible depth fog workaround (Exp Height Fog breaks in PT). PPV + custom Post Process material: Material Domain=Post Process, Blendable Location=Before Tone Mapping, Scene Depth node for distance-based density. Parameters: Distance scalar, Density scalar, Fog Color vector. Works in both Lit and Path Tracing mode.
 - **File:** tutorials/unreal-engine-depth-fog-tutorial-path-traced.md
 
 

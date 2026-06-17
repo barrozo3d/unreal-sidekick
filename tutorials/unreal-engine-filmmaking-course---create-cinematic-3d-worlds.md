@@ -1,12 +1,13 @@
----
+﻿---
 title: Unreal Engine Filmmaking COURSE - Create Cinematic 3D Worlds
 source: YouTube
 url: https://www.youtube.com/watch?v=_K8qfjcYbmE
 author: Boundless Entertainment
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: none
+ue_version: "UE 5.x"
+tags: [filmmaking, cinematics, rendering, compositing, beginner, course]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-filmmaking-course---create-cinematic-3d-worlds/
 frame_count: 4
 ---
@@ -19,41 +20,36 @@ frame_count: 4
 
 ---
 
-## Raw Data (for Claude Code extraction)
-
-
-### Full Content [0:00]
-**Transcript:** Hey guys Sam here and today I have some really exciting news to share with everybody. So the Unreal Engine for Filmmakers course is finally here, it's finally done. I do apologize for the long wait, I know I've been teasing this for a long time but I really wanted to perfect this and make it perfect for you guys so I put a lot of time and effort into it. It's my first major course that I've done so I'm really excited to share it with you guys. So make sure you guys head over and check out the website boundless-resource.com. So I've decided to release two versions of this course, a basic version and a more advanced version. The basic version is going to start at $99 and the more advanced one is going to start at $149. So the advanced version of the course contains about 4.5 hours of course content. So that's going to work out to about $35 per hour of course content and this is really efficient course content that I've created for you guys. I cut out all the ohms and ohms and anything of just me clicking around on the screen. So you're getting information and action. The whole time throughout this course. So the main difference between the basic course and the advanced course is obvi...
-
-**Frame:** tutorials\frames\unreal-engine-filmmaking-course---create-cinematic-3d-worlds\frame_000.jpg
-
-
----
-
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Announcement of the first paid "Unreal Engine for Filmmakers" course on boundless-resource.com. Two tiers: Basic ($99) and Advanced ($149, ~4.5 hours). Full UE filmmaking pipeline course.
 
 ### Summary
-[PENDING EXTRACTION]
+6-minute course launch announcement. The "Unreal Engine for Filmmakers" course is the first major paid course from Boundless Entertainment. Two versions: Basic ($99) and Advanced ($149, ~4.5 hours, $35/hr of content). The advanced course covers the full filmmaking pipeline: scene planning and blocking → complex scene building in UE → advanced lighting → character animation → Niagara fluid and gas simulations → compositing live-action footage with CG inside UE → rendering with maximum cinematic quality (render passes, MRQ) → post-production compositing in AE and Blackmagic Fusion. The course represents Sam's learnings from producing the short film "Gemini" — all techniques used in production. Available at boundless-resource.com.
 
-### Key Steps
-[PENDING EXTRACTION]
-
-### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+### Course Content (Advanced - 4.5 hours)
+1. Scene planning and blocking
+2. Building complex scenes in UE from scratch
+3. Advanced lighting (Lumen + Path Tracer)
+4. Character animation
+5. Niagara fluid and gas simulations (fire, smoke, explosions)
+6. Compositing live-action footage with CG inside UE5
+7. Rendering at maximum quality: render passes, MRQ settings
+8. Post-production compositing: Adobe After Effects + Blackmagic Fusion
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner to Advanced (full pipeline course)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x
 
 ### Tags
-[PENDING EXTRACTION]
+`#filmmaking` `#cinematics` `#rendering` `#compositing` `#beginner` `#course`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[free-unreal-engine-53-beginner-course---create-cinematic-3d-worlds]] — free beginner prerequisite
+- [[unreal-engine-57-filmmaking-course---unreal-engine-for-filmmakers-2026-update]] — 2026 updated version
+- [[fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro]] — companion plugin for this course era
