@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=o_AE2kUsF3E
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: ["Rokoko", "mocap", "motion capture", "Smartsuit Pro II", "Smartgloves", "Coil Pro", "FBX import", "animation retargeting", "Composure", "3D compositing", "filmmaking", "virtual production"]
+extraction_status: complete
 frames_dir: tutorials/frames/faster-than-ai-and-7-times-the-fun-speed-up-animation-and-get-exactly-what-you-w/
 frame_count: 16
 ---
@@ -108,27 +108,43 @@ frame_count: 16
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+End-to-end Rokoko Smartsuit Pro II mocap workflow for indie filmmaking: record performance in Rokoko Studio with foot locking and cleanup, export FBX, import and retarget onto a custom character in Unreal Engine, then place the animated character into a Composure 3D scene.
 
 ### Summary
-[PENDING EXTRACTION]
+Dean Yurke reviews Rokoko's Smartsuit Pro II inertial mocap suit (provided as a sponsored review) and demonstrates his full pipeline for using it in a cinematic project. He shows setup of the suit, smart gloves, and Coil Pro EMF generator in Rokoko Studio, performing to a looping robot animation and recording the take. Post-processing in Rokoko Studio includes foot locking (manually editing foot-plant markers along the timeline to correct drift) and finalization. The FBX is then imported into Unreal Engine, retargeted onto a robot character using UE's animation retargeting tool, and placed in a pre-built Composure 3D compositing scene (camera projection of a real room). Key advantages over AI mocap tools: immediate real-time feedback, live preview of the captured animation with no upload wait, and precise iterative performance direction. He also mentions the separate Rokoko Studio Preview app for jitter smoothing and loop creation.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Assemble Rokoko Smartsuit Pro II; install Rokoko Studio; connect suit via Wi-Fi hotspot from the recording PC.
+2. In Rokoko Studio, create an Actor and drag the suit sensor onto it; add Smartgloves; add Coil Pro if available for better spatial accuracy.
+3. Set calibration delay (6 seconds) and perform a T-pose; confirm the character mirrors your movements.
+4. Record the performance take inside Rokoko Studio.
+5. In post-processing: enable foot locking, manually review and lock foot-plant frames along the timeline to eliminate drift; hit Finalize Post Process.
+6. Export the recorded animation as FBX.
+7. In Unreal Engine: right-click in Content Browser → Import to Current Folder → select the FBX; import animation and create physics asset/skeleton.
+8. Retarget animation: right-click the animation asset → Retarget Animations → select target skeletal mesh (e.g., robot character); export retargeted animation.
+9. Drag the retargeted animation into the Sequencer for the target character; adjust timing and slip the clip.
+10. Place the animated character in the Composure scene at the correct depth; adjust transforms to match the plate's camera projection.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- FBX Import (skeletal mesh animation import pipeline)
+- Animation Retargeting (right-click → Retarget Animations)
+- Sequencer (animation clip placement, slip/trim)
+- Composure / Composite Mesh Actor (camera projection scene)
+- Rokoko Studio (external: foot locking, post process, FBX export)
+- Rokoko Studio Preview (external: jitter cleanup, loop creation)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+5.x (no specific version referenced)
 
 ### Tags
-[PENDING EXTRACTION]
+Rokoko, mocap, motion capture, Smartsuit Pro II, Smartgloves, Coil Pro, FBX import, animation retargeting, Composure, 3D compositing, filmmaking, virtual production
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `easiest-vfx-pipeline-ever-with-composite-mesh-actors-in-unreal-engine-57-composu.md` — the Composure 3D scene this animation was placed into
+- `motion-blending-bone-matching-for-unreal-engine---make-films-in-unreal-ep2-inter.md` — animation blending and bone matching as a complement to mocap cleanup
+- `beat-yourself-up-with-unreal-ragdoll-physics-for-filmmaking-made-easy-or-hard-in.md` — alternative animation workflow (physics-driven) also using retargeting

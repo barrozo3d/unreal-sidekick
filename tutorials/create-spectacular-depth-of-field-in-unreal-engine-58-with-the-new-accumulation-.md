@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=H3OfTUhMmmc
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.8"
+tags: ["depth of field", "accumulation DOF", "bokeh", "cinematic camera", "anamorphic", "Movie Render Graph", "deferred renderer", "temporal sampling", "EXR", "filmmaking", "post process", "lens distortion"]
+extraction_status: complete
 frames_dir: tutorials/frames/create-spectacular-depth-of-field-in-unreal-engine-58-with-the-new-accumulation-/
 frame_count: 15
 ---
@@ -103,27 +103,45 @@ frame_count: 15
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Using the new experimental Accumulation Depth of Field plugin in UE 5.8 to replace the deferred renderer's broken bokeh (especially on hair/groom and transparent objects) with physically accurate, multi-sample accumulated bokeh, including custom lens kernels and anamorphic squeeze.
 
 ### Summary
-[PENDING EXTRACTION]
+Dean Yurke demonstrates UE 5.8's experimental Accumulation DOF plugin as a faster alternative to path tracing for high-quality shallow depth of field on close-up shots with complex hair, groom, and transparent geometry. He walks through enabling the plugin, attaching the Accumulation DOF Camera Component to a Cine Camera Actor, activating it via Real-Time Settings, and tuning sample counts (64–250x), DOF splat size, and custom bokeh textures (lens kernels). He also shows anamorphic squeeze using the camera's Squeeze Factor and Crop Settings, notes that Panini lens distortion CVARs still work with the new system, and covers the Movie Render Graph setup (temporal sampling, EXR/DWAA output, Auto Activate toggle) for overnight rendering — faster than path tracing but slower than standard deferred rendering.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Enable the plugin: Edit > Plugins > search "Accumulation Depth of Field" (Experimental) → enable and restart.
+2. Select the Cine Camera Actor in the scene; in Details → Add component → search "Accumulation Depth of Field Camera Component" → add it.
+3. Select the Accumulation DOF Camera Component (not the camera root) to see its settings.
+4. Enable in viewport: Real-Time Settings button → Accumulation Depth of Field → Use Camera Settings → turn on Accumulate → Accept.
+5. Adjust the Cine Camera's aperture (e.g., 0.5) and Post Process Exposure Compensation (manual metering mode) to compensate for the slightly softer result.
+6. Tune Accumulation DOF: Number Samples (32–250 — higher = nicer but slower); DOF Splat Size (higher = faster but edge artifacts).
+7. For custom bokeh: import a lens kernel image; drag it into the Camera Component's Bokeh Texture slot; adjust Bokeh Softness.
+8. For anamorphic: set Squeeze Factor (e.g., 2) on the camera's Lens Settings; compensate with Crop Settings (e.g., 1.77).
+9. Set up Movie Render Graph: add Sampling Method node (temporal samples = 5), Deferred Renderer with Temporal Super Resolution, disable Tone Curve, output EXR sequence with DWAA compression, disable extra Render Layers.
+10. In Accumulation DOF settings: ensure Auto Activate is ON if rendering with it; turn OFF to compare without.
+11. Bonus: Apply Panini lens distortion with CVAR `r.LensDistortion.Panini.D` (0–4) for non-rectilinear lens look.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Accumulation Depth of Field Plugin (Experimental, UE 5.8)
+- Accumulation DOF Camera Component (added to Cine Camera Actor)
+- Real-Time Settings: Accumulation DOF toggle
+- Cine Camera Actor: Lens Settings (Squeeze Factor, Crop Settings), Post Process (Metering Mode Manual, Exposure Compensation, Aperture)
+- Movie Render Graph: Sampling Method node, Deferred Renderer (TSR), EXR DWAA output, Tone Curve disable
+- CVAR: `r.LensDistortion.Panini.D`, `r.LensDistortion.Panini.S`
+- Hair / Groom systems (context — these are what break with standard deferred DOF)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+5.8
 
 ### Tags
-[PENDING EXTRACTION]
+depth of field, accumulation DOF, bokeh, cinematic camera, anamorphic, Movie Render Graph, deferred renderer, temporal sampling, EXR, filmmaking, post process, lens distortion
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `how-to-use-the-movie-render-graph-in-unreal-engine-58---simple-setup-for-filmmak.md` — full Movie Render Graph setup tutorial referenced in this video
+- `advanced-volumetric-fog-secrets-in-unreal-engine-57-full-course.md` — complementary cinematic rendering techniques (fog/atmosphere) for the same filmmaking pipeline
+- `make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta.md` — overview of the full filmmaking pipeline this DOF technique fits into

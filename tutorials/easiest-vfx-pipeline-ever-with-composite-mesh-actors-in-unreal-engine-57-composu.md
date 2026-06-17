@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=6he5ag3nLjs
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.7"
+tags: ["Composure", "composite mesh actor", "camera projection", "virtual production", "media profile", "live feed", "image sequence", "green screen", "blue screen", "3D compositing", "filmmaking"]
+extraction_status: complete
 frames_dir: tutorials/frames/easiest-vfx-pipeline-ever-with-composite-mesh-actors-in-unreal-engine-57-composu/
 frame_count: 10
 ---
@@ -33,27 +33,44 @@ frame_count: 10
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Using UE 5.7's Composure plugin with a Composite Actor and camera projection to place live or pre-recorded footage onto curved 3D mesh geometry inside an Unreal scene — replacing the old flat "green screen card" approach with a depth-aware, shadow-casting, fog-interactive projection surface.
 
 ### Summary
-[PENDING EXTRACTION]
+This is Composure Episode 1 from Dean Yurke's virtual production series. He introduces the Composure workflow in UE 5.7 where a camera feed (live USB or pre-recorded image sequence) is projected from the scene's cine camera onto a curved Composite Mesh Actor, rather than placed on a flat card. This lets the subject's projected image interact with the scene's depth of field, exponential height fog, and other volumetric effects since it sits at a real position in 3D space. For a locked-off camera, the setup is straightforward: place the Composite Mesh Actor where the subject stands, associate it with the scene camera via the Composite Actor, and the footage maps naturally. He also covers using a Media Profile for swappable live sources, demonstrates projecting onto arbitrary mesh shapes (including a wolf character), and notes that the second episode will cover green/blue screen extractions. This episode focuses on using a raw live feed without keying.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Ensure Composure plugin is enabled (Edit > Plugins > Composure).
+2. Open Window > Virtual Production > Composure; Place a Composite Actor in the scene.
+3. In the Composite Actor details, associate it with the scene camera (Camera Component selection).
+4. For live feeds: create a Media Profile (media source URL or USB device) and assign it to the plate layer's signal input.
+5. Go to the Plate Layer on the Composite Actor; set signal input to the active Media Profile.
+6. Place a Composite Mesh Actor in the scene at the location/scale where the subject stands.
+7. Drag the Composite Mesh Actor into the Composite Actor's plate layer composite mesh content slot; right-click → Apply Unlit Material.
+8. Look through the scene camera — the footage now projects onto the mesh geometry with correct perspective.
+9. To project onto custom shapes: select any scene object → right-click → Apply Unlit Material; assign it as the composite mesh content.
+10. For offline/pre-recorded workflows: swap the live Media Profile for an Image Media Source pointing to an EXR sequence folder.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Composure Plugin (Window > Virtual Production > Composure)
+- Composite Actor (Plate Layer, Shadow/Reflection Layer)
+- Composite Mesh Actor (curved default surface, or any custom mesh)
+- Media Profile (swappable live vs. recorded source)
+- Image Media Source / File Media Source
+- Unlit Alpha Material (applied to composite mesh geometry)
+- Cine Camera Actor (associated with Composite Actor for projection origin)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+5.7
 
 ### Tags
-[PENDING EXTRACTION]
+Composure, composite mesh actor, camera projection, virtual production, media profile, live feed, image sequence, green screen, blue screen, 3D compositing, filmmaking
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `green-screen-cards-are-dead-camera-projections-in-unreal-engine-change-everythin.md` — Episode 2: adds blue screen keying to this same Composure setup
+- `green-screen-integration-in-unreal-engine-57-virtual-production-got-even-better-.md` — Episode 3: lit composite mesh material improvements and DaVinci Fusion extraction pipeline
+- `green-screen-edge-wrap-secrets-and-a-lie---advanced-davinci-to-unreal-engine-wor.md` — advanced companion: edge wrap utility pass and camera tracking for moving shots
