@@ -2133,9 +2133,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=5j6wwCsWpD0
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.5
+- **Tags:** `#custom-metahuman` `#ai-character` `#yvo3d` `#faceform-wrap` `#2dnax` `#maya` `#metahuman-creator` `#body-generation` `#ai-pipeline` `#ue5`
+- **Summary:** Part 2 of Charlie Driscoll and community member Zen's AI MetaHuman pipeline, focusing on generating a custom body mesh to accompany the AI-generated head from Part 1 (creature tutorial). The core chal
 - **File:** tutorials/how-to-generate-custom-metahuman-bodies-with-ai---yvo3d-faceform-wrap-2dnax---un.md
 
 
@@ -2143,9 +2143,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=PEObW2odtXI
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.6
+- **Tags:** `#custom-metahuman` `#ai-character` `#yvo3d` `#faceform-wrap` `#metahuman-creator` `#creature` `#fantasy` `#ai-pipeline` `#metahuman-animator` `#ue5`
+- **Summary:** Part 1 of Charlie Driscoll and community member Zen's AI MetaHuman creature pipeline for Unreal Engine 5.6. The tutorial focuses on head generation only: use ChatGPT 4.0 with a specific prompt (includ
 - **File:** tutorials/how-to-generate-custom-metahuman-creatures-with-ai---yvo3d-faceform-wrap-unreal-.md
 
 
@@ -2153,9 +2153,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=h5QzOjs8418
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.6
+- **Tags:** `#mocap` `#real-time-mocap` `#captury` `#captive-devices` `#metahuman-animator` `#overcrowd` `#markerless` `#performance-capture` `#unreal-fest` `#ue5`
+- **Summary:** Charlie Driscoll reports from Unreal Fest where he demoed the Captury CaptureLive + Captive Devices Core HMC system — a fully markerless, real-time performance capture setup (body and face) streaming 
 - **File:** tutorials/the-best-real-time-mocap-i-have-ever-seen---captury-captive-devices-and-metahuma.md
 
 
@@ -2163,9 +2163,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=1BcKEd9UO9k
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.x
+- **Tags:** `#overcrowd` `#crowd-simulation` `#niagara` `#vat` `#metahuman` `#modular-characters` `#battle-scene` `#weapons-accessories` `#spline` `#neighbor-grid`
+- **Summary:** Charlie Driscoll presents a full walkthrough of OverCrowd (a crowd simulation plugin for UE5 he co-developed), covering both the basic Manny skeleton workflow and advanced modular MetaHuman army setup
 - **File:** tutorials/how-to-create-massive-crowds-and-battle-scenes-in-unreal-engine-5---niagara-and-.md
 
 
@@ -2173,9 +2173,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=y-6aiWvh_GY
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.x
+- **Tags:** `#overcrowd` `#crowd-simulation` `#metahuman` `#mocap` `#move-ai` `#gladiator` `#battle-scene` `#vat` `#elevenlabs` `#ue5`
+- **Summary:** Charlie Driscoll breaks down his gladiator-themed short film made in one week using Unreal Engine 5. The stadium crowd of thousands is powered by OverCrowd, a custom crowd simulation plugin he co-deve
 - **File:** tutorials/how-i-created-a-massive-crowd-of-metahumans-for-a-brutal-gladiator-film---unreal.md
 
 
@@ -2183,9 +2183,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=ukk4vw-bIpA
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.x
+- **Tags:** `#mocap` `#metahuman` `#move-ai` `#sword-fighting` `#two-actor-capture` `#animation-pack` `#fight-choreography` `#control-rig` `#ue5`
+- **Summary:** Charlie Driscoll captures two actors doing choreographed sword fighting using Move.AI Pro (multi-camera system). The key challenge motivating this video is the lack of quality paired sword-fight anima
 - **File:** tutorials/motion-capture-sword-fighting-cinematic-in-unreal-engine-5---moveai-and-metahuma.md
 
 
@@ -2193,9 +2193,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=aO_ceeiGHuw
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.5
+- **Tags:** `#cinematography` `#camera-settings` `#film-back` `#lens` `#aperture` `#depth-of-field` `#movie-render-queue` `#color-grading` `#camera-shake` `#sequencer`
+- **Summary:** Charlie Driscoll uses a pre-built motion-captured scene (warrior vs. troll on a bridge) as a sandbox to teach cinematography fundamentals and their UE5 equivalents to complete beginners. Over ~128 min
 - **File:** tutorials/cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un.md
 
 
@@ -2203,9 +2203,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=26c4TVIYZ8k
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.5
+- **Tags:** `#mocap` `#metahuman` `#metahuman-animator` `#move-ai` `#fight-scene` `#kung-fu` `#reallusion` `#animation-pack` `#dubbing` `#elevenlabs`
+- **Summary:** Charlie Driscoll creates a Kung Fu fight scene cinematic in UE 5.5 by building around Reallusion's paired hand-to-hand combat animation pack (~68 animations), which provides choreography "Lego pieces"
 - **File:** tutorials/how-to-create-a-fight-scene-cinematic-in-unreal-engine-55.md
 
 
@@ -2213,9 +2213,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=h6FEW4Kz_Kk
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.5
+- **Tags:** `#niagara` `#crowd-simulation` `#vat` `#anim-to-texture` `#zombies` `#particles` `#static-mesh` `#material-instance` `#ue5`
+- **Summary:** Charlie Driscoll's step-by-step tutorial for creating massive zombie hordes in UE 5.5.1 using the AnimToTexture plugin and a Niagara particle system. The technique converts skeletal mesh zombies into 
 - **File:** tutorials/how-to-create-a-massive-zombie-horde-in-unreal-engine-55---niagara-crowd-simulat.md
 
 
@@ -2223,9 +2223,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=i2W2rDsZXk4
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.x
+- **Tags:** `#mocap` `#metahuman` `#metahuman-animator` `#quickmagic-ai` `#frame-mancer` `#budget-mocap` `#elevenlabs` `#android` `#performance-capture` `#ue5`
+- **Summary:** Charlie Driscoll demonstrates the cheapest viable full-performance-capture pipeline for Unreal Engine filmmaking. He uses QuickMagic AI (~$2 in credits) for body mocap from a single Android camera, an
 - **File:** tutorials/budget-mocap-tutorial---quickmagicai-and-metahuman-animator-androidframe-mancer-.md
 
 
@@ -2233,9 +2233,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=7xYyfWeAHiA
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.x
+- **Tags:** `#mocap` `#metahuman` `#quickmagic-ai` `#chaos-destruction` `#battle-scene` `#tracking-shot` `#animation-retargeting` `#sora` `#ue5`
+- **Summary:** Charlie Driscoll explores QuickMagic AI's standout feature: moving-camera tracking shots that capture full-body animation over large distances, overcoming the small-volume limitation of setups like Mo
 - **File:** tutorials/cheap-ai-mocap-that-actually-works---quickmagicai-chaos-destruction-and-metahuma.md
 
 
@@ -2243,9 +2243,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=LpRGFkk3b0k
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.x
+- **Tags:** `#mocap` `#metahuman` `#metahuman-animator` `#move-ai` `#short-film` `#mafia` `#custom-metahuman` `#scan-store` `#hand-pose-library` `#ue5`
+- **Summary:** Charlie Driscoll presents a behind-the-scenes breakdown of a mafia-themed game teaser cinematic made in approximately 40 hours using Unreal Engine 5. Move.AI Pro ($7,000/year license) captures up to t
 - **File:** tutorials/how-i-made-this-aaa-cinematic-in-unreal-engine-5---moveai-and-metahuman-animator.md
 
 
@@ -2253,9 +2253,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=ova-8EAD8eg
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.x
+- **Tags:** `#previz` `#polycam` `#lidar-scan` `#metahuman` `#move-ai` `#mocap` `#pre-production` `#digital-set` `#short-film` `#ue5`
+- **Summary:** Charlie Driscoll's production company uses Unreal Engine 5 as a full previz tool for an Alzheimer's short film requiring complex camera movements, dance sequences, and memory transitions. The real hou
 - **File:** tutorials/how-to-create-the-ultimate-previz-with-polycam-metahumans-and-moveai-in-unreal-e.md
 
 
@@ -2263,9 +2263,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=P2eR9gGPZnA
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.x
+- **Tags:** `#mocap` `#metahuman` `#move-ai` `#naval-battle` `#battle-scene` `#ocean` `#vfx-particles` `#sequencer` `#elevenlabs` `#ue5`
+- **Summary:** Charlie Driscoll chronicles the creative process behind a 1588 Spanish Armada battle scene in Unreal Engine 5. Inspired by the Epic History YouTube channel, he builds the scene iteratively: placing an
 - **File:** tutorials/how-i-made-this-aaa-battle-scene-in-unreal-engine-5.md
 
 
@@ -2273,9 +2273,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=Fp3P0tSnY-Y
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.4
+- **Tags:** `#mocap` `#metahuman` `#metahuman-animator` `#move-one` `#move-ai` `#beginner-tutorial` `#animation-cleanup` `#performance-capture` `#elevenlabs` `#movie-render-queue`
+- **Summary:** This is Charlie Driscoll's flagship 2-hour step-by-step tutorial covering the entire budget performance-capture filmmaking workflow in Unreal Engine 5.4. It walks through every stage: building or buyi
 - **File:** tutorials/cinematic-motion-capture-with-move-one-and-metahuman-animator---unreal-engine-54.md
 
 
@@ -2283,9 +2283,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=I3GzRdnFEIw
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.x
+- **Tags:** `#mocap` `#metahuman` `#metahuman-animator` `#move-ai` `#short-film` `#custom-metahuman` `#scale` `#elevenlabs` `#performance-capture` `#ue5`
+- **Summary:** "Gigantic Joe" is a short film by Charlie Driscoll featuring three characters: two humans (Marvin and a companion) and a giant Sasquatch MetaHuman (Gigantic Joe). The film explores scale as a creative
 - **File:** tutorials/moveai-and-unreal-engine-5-metahuman-short-film---gigantic-joe.md
 
 
@@ -2293,9 +2293,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=-GQWj_20J0g
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.4
+- **Tags:** `#mocap` `#metahuman` `#metahuman-animator` `#move-ai` `#two-actor-capture` `#animation-cleanup` `#butterworth-filter` `#performance-capture` `#ue5`
+- **Summary:** Charlie Driscoll demonstrates his team's pipeline for capturing two actors simultaneously using Move.AI Pro and MetaHuman Animator. Six GoPro cameras in a ring cover ~100 sq ft; each actor wears a hea
 - **File:** tutorials/how-i-use-moveai-and-metahumans-to-achieve-aaa-character-animation-in-unreal-eng.md
 
 
@@ -2303,9 +2303,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=pq5iEvcntwE
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.x
+- **Tags:** `#mocap` `#metahuman` `#metahuman-animator` `#move-ai` `#short-film` `#sci-fi` `#performance-capture` `#ue5`
+- **Summary:** "Hacker" is a short cinematic by Charlie Driscoll featuring the character Marvin (a talking pig MetaHuman) in a sci-fi setting, asking a hacker character for help bypassing an orbital blockade in exch
 - **File:** tutorials/moveai-and-unreal-engine-5-metahuman-cinematic---hacker.md
 
 
@@ -2313,9 +2313,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=iRPYgNrF8BY
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.x
+- **Tags:** `#mocap` `#metahuman` `#move-ai` `#custom-metahuman` `#orc` `#sword-fighting` `#short-film` `#performance-capture` `#ue5`
+- **Summary:** "Orc vs. Knight CGI Swordfight" is a 67-second CGI short film by Charlie Driscoll showcasing two custom MetaHumans (orc and knight characters) engaged in a sword duel in an Unreal Engine 5 environment
 - **File:** tutorials/orc-vs-knight-cgi-swordfight---ue5.md
 
 
@@ -2323,9 +2323,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=v75dSep_kbE
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.4
+- **Tags:** `#mocap` `#metahuman` `#move-ai` `#custom-metahuman` `#orc` `#short-film` `#performance-capture` `#ue5`
+- **Summary:** "Encounter" is a very short (52-second) short film by Charlie Driscoll featuring two custom orc MetaHumans in an eerie forest location. The orcs are the professional-pipeline custom MetaHumans mention
 - **File:** tutorials/moveai-unreal-engine-54-motion-capture-short-film-using-custom-orc-metahumans---.md
 
 
@@ -2333,9 +2333,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=PYTu-rLyPro
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.x
+- **Tags:** `#mocap` `#metahuman` `#move-ai` `#short-film` `#historical` `#performance-capture` `#elevenlabs` `#ue5`
+- **Summary:** "William Wallace" is a very short (1m25s) period CGI short film by Charlie Driscoll recreating the iconic Braveheart "Freedom" speech with a custom William Wallace MetaHuman in a medieval Scottish bat
 - **File:** tutorials/william-wallace---moveai-and-metahuman-short-film-in-unreal-engine-5.md
 
 ---
