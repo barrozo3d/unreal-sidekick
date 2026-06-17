@@ -2188,6 +2188,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/motion-capture-sword-fighting-cinematic-in-unreal-engine-5---moveai-and-metahuma.md
 
+
+### Cinematography Deepdive for Beginners - Camera and Render Settings Tutorial - Unreal Engine 5.5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=aO_ceeiGHuw
+- **Author:** Charlie Driscoll - Unreal Engine Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un.md
+
 ---
 
 ## Tag Reference
