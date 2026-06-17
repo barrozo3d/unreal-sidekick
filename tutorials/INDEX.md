@@ -1798,6 +1798,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/burn-clip-names-onto-davinci-resolve-and-fusion-video-quick-fusion-tip.md
 
+
+### Green Screen OVERSCAN SECRETS (and a LIE!) - Your Ultimate VFX Save! (SERIES BONUS)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=qe2x-puqVl0
+- **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/green-screen-overscan-secrets-and-a-lie---your-ultimate-vfx-save-series-bonus.md
+
 ---
 
 ## Tag Reference
