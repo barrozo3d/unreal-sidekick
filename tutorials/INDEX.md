@@ -2033,9 +2033,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=iJmOO0NS0Mk
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5
+- **Tags:** `#lighting` `#cinematics` `#cinematic-lighting` `#volumetric-fog` `#exponential-height-fog` `#sequencer` `#light-function` `#color-theory` `#60-30-10` `#animated-lights` `#sci-fi` `#virtual-production` `#intermediate` `#ue5` `#youtube`
+- **Summary:** Three pro cinematography frameworks for sci-fi corridor lighting: 60-30-10 color rule for character/BG separation, Volumetric Fog + Scattering Intensity to unify background palette, animated lights via Sequencer keyframes and Light Function materials. Source Radius/Length to simulate large diffusion panels. From Josh Toonen (Alien Covenant, Star Wars VFX).
 - **File:** tutorials/cinematic-lighting-masterclass-alien-in-unreal-5.md
 
 ---

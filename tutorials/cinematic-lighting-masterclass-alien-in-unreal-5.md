@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=iJmOO0NS0Mk
 author: Josh Toonen
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [lighting, cinematics, cinematic-lighting, volumetric-fog, exponential-height-fog, sequencer, light-function, color-theory, 60-30-10, animated-lights, sci-fi, virtual-production, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/cinematic-lighting-masterclass-alien-in-unreal-5/
 frame_count: 5
 ---
@@ -53,27 +53,41 @@ frame_count: 5
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Three cinematic lighting frameworks applied inside UE5 for a sci-fi Alien short: (1) 60-30-10 color rule for depth/character separation, (2) Exponential Height Fog + Volumetric Scattering to unify background into one palette color, (3) animated lights via Sequencer keyframes and Light Function materials.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen (Star Wars: Rise of Skywalker, Alien Covenant VFX) teaches three pro cinematographer frameworks using UE5 as a virtual film set, applied to an Alien-inspired corridor. Framework 1: start with a dominant key light (red flare = monochromatic starting point), then split into 60-30-10 — 60% background, 30% midground, 10% foreground accent — separating character from background with contrasting hues (Spider-Verse lesson). Framework 2: Exponential Height Fog + Volumetric Fog + cranked Volumetric Scattering Intensity on one light unifies the entire background into a single color. Framework 3: animate lights via Sequencer Location/Rotation keyframes (search light pan) and Light Function materials (flicker/strobe), referencing Alien (1979) practical lighting. Also covers Source Radius / Source Length to simulate large diffusion panels.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Start with a single dominant key light (color sets mood); assess monochromatic simplicity
+2. **60-30-10 rule**: add two more lights — 60% background fill/ambient, 30% midground character rim, 10% foreground accent/opposing hue — creates depth and separates character from BG
+3. Use contrasting color between character key and background fill (Spider-Verse principle: always pop character from BG)
+4. Add **Exponential Height Fog** (Quick Add → Visual Effects; only one per scene) → enable **Volumetric Fog** in details
+5. On a background Point/Spot/Rect Light: crank **Volumetric Scattering Intensity** (e.g. 10–100) to flood the background with that light's color through the fog — instantly unifies background palette
+6. **Animate lights in Sequencer**: select light → Details → create keyframe for Location/Rotation → enable Auto Keyframe → scrub + reposition for search light pan, moving practicals, etc.
+7. **Light Function material** for flicker/strobe: create material (Blend Mode = Light Function), animate via time-driven texture or scalar param → assign to light Details → Light Function slot; add to Sequencer for shot-synced timing
+8. **Source Radius + Source Length** on Point/Spot lights: increase to simulate a large diffusion panel — creates soft, realistic wrap-around light with big reflections (matches on-set practicals); **Alt + MMB** to offset light pivot in viewport without moving the light origin
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Exponential Height Fog** — one per scene; Volumetric Fog checkbox required for per-light fog control
+- **Point/Spot/Rect Light** — Volumetric Scattering Intensity (flood color into fog), Source Radius, Source Length (simulate large soft-box / diffusion panel)
+- **Light Function Material** — Blend Mode: Light Function; drives flicker, strobe, gobo; can be animated with material parameters
+- **Sequencer** — keyframe light transform (Location/Rotation) + Intensity, Auto Keyframe mode
+- **Alt + MMB** — offset light pivot in viewport for precise placement relative to scene geometry
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (FAB references; modern Sequencer workflow)
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, cinematics, cinematic-lighting, volumetric-fog, exponential-height-fog, sequencer, light-function, color-theory, 60-30-10, animated-lights, sci-fi, virtual-production, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- Josh Toonen decals tutorial (same author — Make Films 10x Faster)
+- Karim Yasser PBL lighting tutorial (complementary global lighting approach)
+- Boundless Entertainment lighting / Dune breakdown tutorials
+- Dean Yurke volumetric fog masterclass
