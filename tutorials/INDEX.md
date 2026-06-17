@@ -2298,6 +2298,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-i-use-moveai-and-metahumans-to-achieve-aaa-character-animation-in-unreal-eng.md
 
+
+### Move.AI and Unreal Engine 5 Metahuman Cinematic - HACKER
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=pq5iEvcntwE
+- **Author:** Charlie Driscoll - Unreal Engine Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/moveai-and-unreal-engine-5-metahuman-cinematic---hacker.md
+
 ---
 
 ## Tag Reference
