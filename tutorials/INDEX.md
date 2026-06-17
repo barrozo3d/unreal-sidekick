@@ -2168,6 +2168,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-to-create-massive-crowds-and-battle-scenes-in-unreal-engine-5---niagara-and-.md
 
+
+### How I created a MASSIVE crowd of Metahumans for a BRUTAL Gladiator film - Unreal Engine 5, OverCrowd
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=y-6aiWvh_GY
+- **Author:** Charlie Driscoll - Unreal Engine Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-i-created-a-massive-crowd-of-metahumans-for-a-brutal-gladiator-film---unreal.md
+
 ---
 
 ## Tag Reference
