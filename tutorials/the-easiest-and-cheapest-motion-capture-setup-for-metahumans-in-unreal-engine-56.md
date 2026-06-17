@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=M799eoMK4tw
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.6"
+tags: [mocap, single-camera, metahuman, metahuman-animator, quickmagic, meshcapade, move-one, marionette, overcrowd, sequencer, cinematics, budget-mocap, ai-mocap, face-capture, ue5-6]
+extraction_status: complete
 frames_dir: tutorials/frames/the-easiest-and-cheapest-motion-capture-setup-for-metahumans-in-unreal-engine-56/
 frame_count: 18
 ---
@@ -118,27 +118,51 @@ frame_count: 18
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Single-camera full performance capture for MetaHumans in UE5.6 (no head rig): Android phone at 4K60 → 4 AI mocap tools for body (QuickMagic, Meshcapade, Move One, Marionette) + MetaHuman Animator Monocular Footage for face → retarget to MetaHuman → Sequencer assembly. Hybrid winner: QuickMagic (dialogue) + Meshcapade (movement).
 
 ### Summary
-[PENDING EXTRACTION]
+Charlie Driscoll compares 4 single-camera AI mocap systems head-to-head for a full 5-minute pirate short film "Cavern of the Damned" using only a Samsung Note S23 Ultra at 4K 60fps. Results: QuickMagic ($2.94/min, max 60s clips, best for subtle acting, upper-body mode available) wins for dialogue; Meshcapade ($10.80/min, 2-actor support, best spatial accuracy) wins for walking/complex blocking. Move One ($2.50–8/min) and Marionette ($150/yr flat, offline) are viable alternatives. Face via MetaHuman Animator (Monocular Footage, Head Movement Disabled). Action scenes use Charlie's FAB sword fighting mocap pack (Move Pro, 2 stunt actors, includes MetaHuman facial animations). OverCrowd spawns 5,000 zombies in cavern scene. Cinematography: per-shot Level Sequences with spawnable actors + spawnable Directional Light for independent sun angle per shot. Total hybrid mocap cost: $74 for 19 min of animation.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **MetaHuman setup (UE5.6)**: enable MetaHuman Creator Core Data under Engine install options + all MetaHuman plugins → use MetaHuman Creator inside UE → add FAB clothing (Polyphoria pirate outfits) → choose 8K textures → Assemble
+2. **Recording**: Samsung Note S23 Ultra (or Android phone), 4K 60fps, main 1X neutral lens (avoid wide lenses — distort movement at frame edges); record A-Pose + T-Pose at start only if using Marionette
+3. **QuickMagic body mocap**: upload clip (≤60s / ≤200MB; split longer takes) → QuickMagic web editor → select **UE5.6 mannequin skeleton** → optionally enable **Upper Body Only** (seated/dialogue scenes) → download FBX → UE: Content Browser → Import → Animations Only → UE5 mannequin skeleton → right-click animation → Retarget → MetaHuman
+4. **Meshcapade**: use for full-body walking/complex blocking, or two-actor scenes (single clip tracks both performers for same price)
+5. **MetaHuman Animator face capture**:
+   - Tools menu → **Live Link Hub** → Add Device → **Mono Video Ingest** → set Take Directory → select clips → Add to Queue → Start
+   - Content Browser → right-click → MetaHuman → **Create New MetaHuman Performance** → Input Type: **Monocular Footage** → Footage Capture Data: select clip → Visualization Mesh: search "Face" → select MetaHuman's Face Mesh → **Head Movement Mode: Disabled** (body handles neck; face only) → Process → Export Animation
+6. **Combine in Sequencer**: New Level Sequence → Add MetaHuman → Delete Control Rigs → Add body animation track (QuickMagic/Meshcapade) + face animation track (MetaHuman Animator export)
+7. **Per-shot cinematography**: each shot = its own Sequence; convert all actors + Directional Light to **Spawnable** → assets appear only when that shot opens; duplicate sequence as starting point for similar shots; convert directional light to spawnable for independent sun angle per shot
+8. **OverCrowd crowds**: load MetaHuman + wardrobe + animation (including paired sword fight animations) → spawn hundreds/thousands; paired animations spawn both duelists together automatically
+9. **Hybrid cost**: QuickMagic for dialogue, Meshcapade for movement → $74 total for 19 min animation (vs $53 all-QuickMagic or $197 all-Meshcapade)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **MetaHuman Creator** (integrated in UE5.6) — create/customize MetaHumans with FAB clothing, 8K textures
+- **MetaHuman Animator** — Monocular Footage mode; Live Link Hub → Mono Video Ingest; Head Movement Mode: Disabled
+- **Level Sequences + Spawnable actors** — per-shot isolation; spawnable Directional Light for independent sun angles
+- **OverCrowd plugin** (FAB) — crowd simulation with paired animations (sword fights spawn both actors together)
+- **Animation Retargeter** — QuickMagic FBX (UE5 mannequin) → MetaHuman skeleton
+
+### AI Mocap Cost Comparison (single camera, Android phone)
+| Tool | Cost | Clip limit | Strengths |
+|------|------|-----------|-----------|
+| QuickMagic | $2.94/min | 60s / 200MB | Fast, subtle acting, upper-body mode |
+| Meshcapade | $10.80/min | None | Best accuracy, 2-actor support |
+| Move One S1 | $2.50/min (~$50/mo) | — | Decent value |
+| Marionette | $150/yr flat | — | Offline, smooth, good for BG |
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+5.6 (MetaHuman Creator integrated; UE5.6 mannequin skeleton export option in QuickMagic)
 
 ### Tags
-[PENDING EXTRACTION]
+mocap, single-camera, metahuman, metahuman-animator, quickmagic, meshcapade, move-one, marionette, overcrowd, sequencer, cinematics, budget-mocap, ai-mocap, face-capture, spawnable-actors, ue5-6
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- Other Charlie Driscoll tutorials (Mimem.ai multi-cam, Move.AI, OverCrowd, fight scenes)
+- Animation/Cinematics docs (MetaHuman Animator, Level Sequences, Retargeter)
+- OverCrowd crowd simulation tutorials

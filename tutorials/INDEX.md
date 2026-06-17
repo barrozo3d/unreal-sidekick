@@ -2113,9 +2113,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=M799eoMK4tw
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5.6
+- **Tags:** `#mocap` `#single-camera` `#metahuman` `#metahuman-animator` `#quickmagic` `#meshcapade` `#overcrowd` `#sequencer` `#budget-mocap` `#ai-mocap` `#face-capture` `#spawnable-actors` `#intermediate` `#ue5-6` `#youtube`
+- **Summary:** 4-way single-camera AI mocap shootout (QuickMagic/Meshcapade/Move One/Marionette) for full pirate short film — Android phone only, no head rig. MetaHuman Animator Monocular Footage for face (Head Movement Disabled). Hybrid winner: QuickMagic (.94/min, dialogue) + Meshcapade (0.80/min, movement) = 4 total. Per-shot spawnable Sequencer setup, OverCrowd 5k zombies.
 - **File:** tutorials/the-easiest-and-cheapest-motion-capture-setup-for-metahumans-in-unreal-engine-56.md
 
 
