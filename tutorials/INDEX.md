@@ -2128,6 +2128,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/the-easiest-and-cheapest-motion-capture-setup-for-metahumans-in-unreal-engine-56.md
 
+
+### How to Generate Custom Metahuman Bodies with AI - YVO3D, Faceform Wrap, 2DNAX - Unreal Engine 5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=5j6wwCsWpD0
+- **Author:** Charlie Driscoll - Unreal Engine Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-to-generate-custom-metahuman-bodies-with-ai---yvo3d-faceform-wrap-2dnax---un.md
+
 ---
 
 ## Tag Reference
