@@ -2078,6 +2078,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/can-ai-replace-metahumans-in-unreal-engine-cinematics.md
 
+
+### Can AI Replace MetaHumans in Unreal Engine Cinematics?
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=NLVMJX-5ahc
+- **Author:** Charlie Driscoll - Unreal Engine Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/can-ai-replace-metahumans-in-unreal-engine-cinematics.md
+
 ---
 
 ## Tag Reference
