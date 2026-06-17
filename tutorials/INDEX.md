@@ -1908,6 +1908,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/green-screen-cards-are-dead-camera-projections-in-unreal-engine-change-everythin.md
 
+
+### Green Screen Integration in Unreal Engine 5.7 Virtual Production got even BETTER! (Composure EP3)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=zlZCKT-5pLU
+- **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/green-screen-integration-in-unreal-engine-57-virtual-production-got-even-better-.md
+
 ---
 
 ## Tag Reference
