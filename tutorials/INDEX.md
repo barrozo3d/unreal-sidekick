@@ -2318,6 +2318,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/orc-vs-knight-cgi-swordfight---ue5.md
 
+
+### Move.AI Unreal Engine 5.4 Motion Capture Short Film Using Custom Orc Metahumans - ENCOUNTER
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=v75dSep_kbE
+- **Author:** Charlie Driscoll - Unreal Engine Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/moveai-unreal-engine-54-motion-capture-short-film-using-custom-orc-metahumans---.md
+
 ---
 
 ## Tag Reference
