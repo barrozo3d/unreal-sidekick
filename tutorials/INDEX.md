@@ -489,9 +489,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=z9t4XIoNsHY
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** genesis
+- **UE Version:** UE 5.x
+- **Tags:** `#genesis` `#camera-tracking` `#vfx` `#compositing` `#distortion` `#intermediate`
+- **Summary:** Full Genesis walkthrough: mask subject in AE, automated 3D tracking + reconstruction, import scene (frame rate + sensor width), Set Scale Mode (two-point measurement), orientation setup, automatic Lens Component distortion compensation. Zero manual tracking work (Genesis plugin, UE 5.x).
 - **File:** tutorials/3d-tracking-natively-in-unreal-engine---full-tutorial.md
 
 
@@ -499,9 +500,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=uMJXtDJf6VQ
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** genesis
+- **UE Version:** UE 5.x
+- **Tags:** `#genesis` `#camera-tracking` `#vfx` `#beginner`
+- **Summary:** Genesis plugin announcement: first 3D camera tracking tool built into Unreal Engine. Features: sub-pixel match move, textured reconstructed mesh, distortion compensation, in-engine preview, scale/orientation tools, 100% automated. Zero manual tracking setup required.
 - **File:** tutorials/i-built-the-camera-tracking-tool-i-always-wished-unreal-had.md
 
 
@@ -509,9 +511,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=Zy5A6bDz9xw
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** lightforge-v2
+- **UE Version:** UE 5.x
+- **Tags:** `#lightforge-v2` `#lighting` `#materials` `#media` `#beginner`
+- **Summary:** Blade Runner water caustic gobo lighting: Method 1 manual (File Media Source + Media Player + Video Texture + Material Instance + Light Function); Method 2 LightForge 2.0 (choose media file, auto-creates all assets + persistent looping, Add New Light or Apply to Existing Light, 2 clicks) (LightForge 2.0, UE 5.x).
 - **File:** tutorials/unreal-engines-secret-weapon-for-cinematic-lighting.md
 
 
@@ -519,9 +522,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=YqPy2yM7X-s
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** lightforge-v2
+- **UE Version:** UE 5.x
+- **Tags:** `#lightforge-v2` `#rendering` `#camera` `#post-processing` `#filmmaking` `#beginner`
+- **Summary:** The single trick that makes CG renders look photographic: adding physical camera imperfections (chromatic aberration, vignette, film grain, lens distortion) via UE Post Process Volume or in editing software. Short tip video; transcript partially captured (UE 5.x).
 - **File:** tutorials/the-simplest-rendering-trick-90-of-unreal-artists-miss.md
 
 
@@ -529,9 +533,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=dF_W-9OBjus
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** lightforge-v1
+- **UE Version:** UE 5.x
+- **Tags:** `#lightforge-v1` `#filmmaking` `#rendering` `#camera` `#lighting` `#beginner`
+- **Summary:** LightForge announcement: UE is a game engine not designed for filmmakers; LightForge bridges that gap with streamlined camera settings, lighting presets, color grading, and cinematic render presets in a filmmaker-focused interface (LightForge v1, UE 5.x).
 - **File:** tutorials/the-ultimate-plugin-for-filmmaking-in-unreal-engine.md
 
 

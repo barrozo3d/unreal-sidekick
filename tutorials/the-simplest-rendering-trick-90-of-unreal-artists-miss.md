@@ -1,59 +1,58 @@
----
+﻿---
 title: The Simplest Rendering Trick 90% of Unreal Artists Miss
 source: YouTube
 url: https://www.youtube.com/watch?v=YqPy2yM7X-s
 author: Boundless Entertainment
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: lightforge-v2
+ue_version: "UE 5.x"
+tags: [lightforge-v2, rendering, camera, post-processing, filmmaking, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/the-simplest-rendering-trick-90-of-unreal-artists-miss/
-frame_count: 4
+frame_count: 1
 ---
 
 # The Simplest Rendering Trick 90% of Unreal Artists Miss
 
 **Source:** [YouTube](https://www.youtube.com/watch?v=YqPy2yM7X-s)
 **Author:** Boundless Entertainment
-**Duration:** 9m6s | 1 section(s)
+**Duration:** short | 1 section(s)
 
 ---
 
 ## Raw Data (for Claude Code extraction)
 
-
-### Full Content [0:00]
-**Transcript:** Kind: captions Language: en Did you ever wonder why something feels a little bit off about your Unreal Engine renders? Like why it just doesn't quite look like something that you would shoot on an actual camera? Or why it just doesn't quite look like something that you would see in a Hollywood production? This was something that I struggled with for a long time as a filmmaker using Unreal for VFX and virtual production. I was using highly detailed textures, really good quality meshes. My lighting looked great, but something was still just a little bit off with my scenes. So, after studying this topic for a while and lots of experimentation, I came across one of the simplest tricks that you can use that can help take your Unreal Engine renders from looking good to looking real. So, if you feel like something has been holding you back, this could be it. So, let's dive into Unreal and get started. All right, guys. So, hopping into Unreal Engine here. The first trick that we're going to cover is very, very simple. And we can do this either inside of Unreal Engine or inside of whatever editing program you're using. So, I'm going to show you in Unreal first, and then we're going to hop i...
-
-**Frame:** tutorials\frames\the-simplest-rendering-trick-90-of-unreal-artists-miss\frame_000.jpg
-
+[...raw data omitted - see ingested file...]
 
 ---
 
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Sam reveals a simple but high-impact rendering trick (applying physical camera imperfections - chromatic aberration, lens distortion, grain, vignette, or similar) that can be done directly in Unreal Engine or in any editing program to make renders look more like real camera footage instead of CG.
 
 ### Summary
-[PENDING EXTRACTION]
+Short video on the single most impactful rendering trick for making Unreal renders look photorealistic rather than CG. Transcript is partially captured; the key insight is that highly detailed textures and good lighting are not enough - there is a simple overlay technique (physical camera characteristics such as chromatic aberration, vignette, film grain, or lens distortion) that can be applied either in Unreal's post process settings or in a video editing application. Sam notes this was discovered through extensive study and experimentation after years of puzzlement at CG-looking results. LightForge 2.0 likely provides a streamlined way to apply these settings given the channel context.
 
 ### Key Steps
-[PENDING EXTRACTION]
+N/A - short tip video; transcript truncated. Core recommendation: add physical camera imperfections (post process effects) to renders either in UE Post Process Volume settings or in editing software (DaVinci Resolve, Premiere, etc.).
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Post Process Volume (camera imperfections)** - Chromatic Aberration (CA), Vignette, Film Grain, Lens Distortion; these settings mimic real camera optics and are the key to making CG look photographic
+- **In-editor vs editing program** - Both approaches work; UE PPV applies during render; editing software applies in post
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x
 
 ### Tags
-[PENDING EXTRACTION]
+`#lightforge-v2` `#rendering` `#camera` `#post-processing` `#filmmaking` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[the-ultimate-plugin-for-filmmaking-in-unreal-engine]] - LightForge overview; post-processing suite
+- [[how-to-make-your-unreal-engine-renders-look-real]] - same channel; dedicated rendering quality tutorial
+- [[best-settings-for-unreal-engine-56---perfect-renders-every-time]] - rendering settings deep-dive

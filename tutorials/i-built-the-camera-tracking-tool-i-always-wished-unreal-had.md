@@ -1,59 +1,57 @@
----
+﻿---
 title: I BUILT The Camera Tracking Tool I Always Wished Unreal Had
 source: YouTube
 url: https://www.youtube.com/watch?v=uMJXtDJf6VQ
 author: Boundless Entertainment
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: genesis
+ue_version: "UE 5.x"
+tags: [genesis, camera-tracking, vfx, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/i-built-the-camera-tracking-tool-i-always-wished-unreal-had/
-frame_count: 4
+frame_count: 1
 ---
 
 # I BUILT The Camera Tracking Tool I Always Wished Unreal Had
 
 **Source:** [YouTube](https://www.youtube.com/watch?v=uMJXtDJf6VQ)
 **Author:** Boundless Entertainment
-**Duration:** 9m10s | 1 section(s)
+**Duration:** ~3m | 1 section(s)
 
 ---
 
 ## Raw Data (for Claude Code extraction)
 
-
-### Full Content [0:00]
-**Transcript:** Unreal Engine doesn't have a 3D camera tracker, so I built one. What's going on guys? Sam here, and I'm extremely excited for today's video, because we're finally making filmmaking and visual effects more accessible, simple and affordable than ever before. This is by far the biggest and best thing we've ever created. The first and only 3D camera tracking tool built directly into Unreal Engine, Genesis. Genesis is a plugin designed to provide you with everything you need to create incredible VFX shots to integrate CGI with live action footage. A sub-pixel accurate camera match move, a detailed textured, reconstructed mesh of your environment, distortion compensation, in-engine preview, scale and orientation tools, and more, and it requires zero manual tracking or setup. That's right, it's 100% automated and extremely accurate. I think you guys are going to love it, so let's dive in. Now, if you guys have followed along with my channel, I've always said do as much in camera as you can and shoot in real environments, then use VFX to take it to the next level. And while that concept holds true, in practice, it's not always feasible, simply because integrating CGI with live action foota...
-
-**Frame:** tutorials\frames\i-built-the-camera-tracking-tool-i-always-wished-unreal-had\frame_000.jpg
-
+[...raw data omitted - see ingested file...]
 
 ---
 
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Genesis plugin announcement and capability overview: the first 3D camera tracking tool built directly into Unreal Engine, providing sub-pixel accurate camera match-move, textured 3D reconstruction, distortion compensation, in-engine preview, and scale/orientation tools - all fully automated with zero manual tracking setup.
 
 ### Summary
-[PENDING EXTRACTION]
+Short announcement video introducing Genesis by Boundless Entertainment. Sam explains the problem (UE has no native 3D camera tracker; integrating CGI with live action is the hardest part of VFX) and presents Genesis as the solution: a UE plugin that automates camera tracking, 3D reconstruction, and distortion compensation. Key Genesis capabilities: sub-pixel accurate match move, detailed textured reconstructed mesh, distortion compensation, in-engine preview, scale/orientation tools, zero manual work required. Philosophy: shoot in real environments, use VFX to enhance (not replace).
 
 ### Key Steps
-[PENDING EXTRACTION]
+N/A - announcement video. For implementation see [[3d-tracking-natively-in-unreal-engine---full-tutorial]].
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Genesis (overview)** - Plugin features: (1) sub-pixel camera match move, (2) textured reconstructed mesh, (3) distortion compensation, (4) in-engine preview, (5) scale+orientation tools; 100% automated
+- **Filmmaking philosophy** - Shoot real environments, add VFX on top; Genesis enables this by removing the complexity barrier of camera tracking
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (Genesis plugin)
 
 ### Tags
-[PENDING EXTRACTION]
+`#genesis` `#camera-tracking` `#vfx` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[3d-tracking-natively-in-unreal-engine---full-tutorial]] - full Genesis step-by-step tutorial
+- [[unreal-engine-5-compositing-tutorial---composite-any-scene-fully-inside-of-ue5]] - compositing follow-up

@@ -1,12 +1,13 @@
----
-title: Unreal Engine's Secret Weapon for Cinematic Lighting
+﻿---
+title: "Unreal Engine's Secret Weapon for Cinematic Lighting"
 source: YouTube
 url: https://www.youtube.com/watch?v=Zy5A6bDz9xw
 author: Boundless Entertainment
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: lightforge-v2
+ue_version: "UE 5.x"
+tags: [lightforge-v2, lighting, materials, media, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engines-secret-weapon-for-cinematic-lighting/
 frame_count: 5
 ---
@@ -15,65 +16,63 @@ frame_count: 5
 
 **Source:** [YouTube](https://www.youtube.com/watch?v=Zy5A6bDz9xw)
 **Author:** Boundless Entertainment
-**Duration:** 12m47s | 5 section(s)
+**Duration:** ~13m | 5 section(s)
 
 ---
 
 ## Raw Data (for Claude Code extraction)
 
-
-### Intro [0:00]
-**Transcript:** What's going on guys? Sam here and in today's video I'm going to show you how I got this blade runner water  caustic effect using two different methods. The first method is going to be the standard harder way of  doing things and the second is going to be a much simpler way and trust me it's way easier and a lot  more fun. So let's get into it. Now in the description of this video you're going to find a link to
-
-**Frame:** tutorials\frames\unreal-engines-secret-weapon-for-cinematic-lighting\frame_000.jpg
-
-### Method #1 [0:16]
-**Transcript:** download a few gobo textures or these textures that you're seeing on the lights right here. So that's  going to allow you to get started and try out some of these textures on your light. So it's fairly  easy to apply a texture to a light using the light function material in Unreal Engine. But when you're  using video it gets a little bit more complicated. So I'm going to show you that process right now.  All right so what we need to do to be able to actually create these is we need an image media  source or a file media source to actually bring in the media into Unreal Engine and then we need a  media player to play back that media and then finally we need a video texture asset which is the  texture that is going to be used in the material instance that is going to be applied to the light.  So I know that sounds a little complicated because it is a little bit complicated. So to get started  we can right click here and we're going to do a file media source. All right so we'll just right  click and search for file media source and we're going to call this FMS for file media source and  we'll call it underscore caustics. We need to use this file media source to tell Unreal Engine that...
-
-**Frame:** tutorials\frames\unreal-engines-secret-weapon-for-cinematic-lighting\frame_001.jpg
-
-### Method #2 [7:37]
-**Transcript:** and takes a long time. The easy way is we have created a plug-in called lightforge2.0. The plug-in  actually automates this entire process. So we're going to get rid of this spotlight. Open up  lightforge2.0. We're going to go in here to our gobo section and here we can either select a  spotlight or we can actually just create a new light automatically. So we're going to hit this  choose media file right here and I'm going to choose calm loop slow 04. I'm going to hit open  and you're going to see what that's going to do is actually create all of the textures and the  media players and the media playlists automatically and actually make sure that these textures loop  in your editor every time you open on Relangent. So you don't have to worry about it stopping when  you close the media player or anything like that. It's automatically going to loop. So what I'm  going to do is hit add new light right here and it's going to automatically add a light to my scene  right here and you can see it's already looping. So if we go down here and just set this to like  15,000 lumens you can see there we already have our texture setup with just like two clicks.  And if we then select our spotligh...
-
-**Frame:** tutorials\frames\unreal-engines-secret-weapon-for-cinematic-lighting\frame_002.jpg
-
-### Building Scene Lighting [10:14]
-**Transcript:** shadow mask right here and get rid of my blur. So all we did was take a spotlight up here and then  we brought our outer cone angle in bring up our inner cone angle to make that more intense and then  we just shot our light into the scene here move it back a little bit just really increase that  intensity there and you can see that now we're getting some nice lighting on our scene and if we  just increase the source radius a little bit that's going to soften up those shadows then all we  did was just duplicate that light and bring it down here moving into the background and then we  just kind of rotate it into place here and you can see that that is actually still it still has  our light function material applied to it. The other thing we could do is just have this spotlight  selected so just select that spotlight and then just create another gobo texture if we wanted  something totally different we could do that just hit choose media file find a different one  like this one for example it's going to do that and then hit apply to existing light and there we go  we have a totally different texture in our scene and then we go in here and control that one as well  individually. So the...
-
-**Frame:** tutorials\frames\unreal-engines-secret-weapon-for-cinematic-lighting\frame_003.jpg
-
-### Free Gobo Pack Download [11:57]
-**Transcript:** that's going to include a free pack of gobo textures for Unreal Engine plus the ultimate rendering  guide which is going to give you a full guide to all the best tips and tricks console commands and  everything you need to get cinematic quality renders without any bugs or issues. So obviously we  worked a bit with light forge 2.0 in this video. If you want to learn more about some of its other  features like the 30 plus lighting presets, the included Unreal Engine lots and color grading suite,  cinematic quality render presets and it's fully integrated interface designed specifically for  filmmaking in Unreal Engine. Just click the link in the description and that'll take you to a page  where you can view full demos, breakdowns and everything you need to know about the plugin.  I hope you guys found this video helpful. Let me know what you want to see next if you have any  questions and what you thought of this video and until next time good luck creating and I'll see  you in the next one.
-
-**Frame:** tutorials\frames\unreal-engines-secret-weapon-for-cinematic-lighting\frame_004.jpg
-
+[...raw data omitted - see ingested file...]
 
 ---
 
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Sam demonstrates two methods for applying animated gobo textures (video textures) to spotlights to recreate a Blade Runner-style water caustic lighting effect: the manual UE method (File Media Source + Media Player + Video Texture + Material Instance + Light Function) and the streamlined LightForge 2.0 Gobo section (two clicks to automate the entire setup with persistent looping).
 
 ### Summary
-[PENDING EXTRACTION]
+13-minute tutorial on animated light gobo textures for cinematic lighting effects. The challenge: applying video textures to lights in UE requires a complex asset chain that stops playing on editor restart. Method 1 (manual): right-click > File Media Source (FMS_caustics) > Media Player > Video Texture > Material Instance with Light Function material > assign to Spotlight Light Function slot; video won't auto-loop on restart. Method 2 (LightForge 2.0): Gobo section > choose media file > LightForge auto-creates FMS + Media Player + playlist + Video Texture + Material Instance > set to loop automatically in editor > Add New Light (creates spotlight with gobo applied) OR Apply to Existing Light; duplicate spotlight for multiple gobos; select spotlight + Choose Media File again to swap texture. LightForge also includes: 30+ lighting presets, UE LUTS, color grading suite, cinematic render presets, integrated filmmaking interface.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Manual Method (Method 1):**
+   a. Right-click Content Browser > File Media Source; name FMS_caustics
+   b. Set source file path to video file
+   c. Create Media Player asset; enable loop; link to FMS
+   d. Create Video Texture asset; link to Media Player
+   e. Create Material Instance from Light Function material base; apply Video Texture to it
+   f. Select Spotlight > Details > Light Function > assign Material Instance
+   g. Play Media Player to start the gobo animation (stops on restart)
+
+2. **LightForge 2.0 Method (Method 2):**
+   a. Open LightForge 2.0 panel > Gobo section
+   b. Click Choose Media File > select video file (e.g. calm_loop_slow_04)
+   c. LightForge auto-creates FMS + Media Player + playlist + Video Texture + Material Instance; sets up looping automatically (persists across editor restarts)
+   d. Click Add New Light > spotlight with gobo applied appears in scene
+   e. Set intensity (e.g. 15,000 lumens); adjust outer/inner cone angle, source radius for shadow softness
+   f. Duplicate spotlight; each copy retains gobo; select spotlight + Choose Media File for different texture > Apply to Existing Light to swap
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **File Media Source** - UE asset pointing to video file; defines the media for playback
+- **Media Player** - Plays back the media; enable Loop; links to FMS
+- **Video Texture** - Texture that displays Media Player output; used in materials
+- **Light Function Material** - Material type that can be applied to lights; applies texture as a gobo/mask projected by the light
+- **LightForge 2.0 Gobo** - Automates the entire FMS+MP+VT+MI chain; also sets up playlist for persistent looping; survives editor restarts unlike manual setup
+- **Outer/Inner cone angle** - Spotlight shaping; inner angle = hard edge, outer = falloff
+- **Source Radius** - Softens spotlight shadows; increase for softer gobo edges
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (LightForge 2.0)
 
 ### Tags
-[PENDING EXTRACTION]
+`#lightforge-v2` `#lighting` `#materials` `#media` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[the-ultimate-plugin-for-filmmaking-in-unreal-engine]] - LightForge full feature overview
+- [[unreal-engine-depth-fog-tutorial-path-traced]] - cinematic lighting technique (same channel)
+- [[roger-deakins-lighting-tutorial---blade-runner-2049]] - Blade Runner lighting recreation
