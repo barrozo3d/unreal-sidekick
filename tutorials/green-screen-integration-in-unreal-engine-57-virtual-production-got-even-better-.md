@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=zlZCKT-5pLU
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.7"
+tags: ["Composure", "composite mesh actor", "lit mass material", "green screen", "blue screen", "DaVinci Resolve", "Fusion", "delta keyer", "edge extension", "color space transform", "linear sRGB", "media texture", "sequencer", "virtual production", "3D compositing", "interactive lighting", "dither opacity mask"]
+extraction_status: complete
 frames_dir: tutorials/frames/green-screen-integration-in-unreal-engine-57-virtual-production-got-even-better-/
 frame_count: 22
 ---
@@ -138,27 +138,51 @@ frame_count: 22
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Composure Episode 3: upgrading the composite mesh workflow to use the Lit Mass Material so environment lights interactively illuminate the projected plate, fixing the dither edge cross-hatching with an improved opacity mask approach, and presenting an enhanced DaVinci Fusion extraction pipeline using the Delta Keyer with clean plate generation and edge extension.
 
 ### Summary
-[PENDING EXTRACTION]
+Dean Yurke presents three key improvements to the Composure virtual production workflow in UE 5.7. First, he refines the DaVinci Fusion extraction pipeline: using the Delta Keyer (with its built-in difference matte capability), creating a clean plate node to handle changing lighting on set, adding a garbage matte shape, performing edge extension via a second clean plate with a blur-fed input and the Grow Edges control, and outputting an un-pre-multiplied (edge-extended) EXR sequence for use with the Lit material. Second, he fixes the persistent cross-hatch dithering artifact: duplicate the engine's M_CompositeMeshLitMass material, modify the dither node's connection to use the correct temporal anti-aliasing dither method, which resolves the mesh normal artifact and produces smooth sub-pixel edges. Third, he enables interactive environment lighting on the composite mesh: disable the Plate Layer to see the lit material respond to scene lights, adjust Specular to 0 and Roughness to 1 for a matte appearance, add a multiply color parameter to darken/tint the plate, expose it to Sequencer, and animate the light brightness to match the flickering practical lights used on set.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. (DaVinci Fusion) Apply a Color Space Transform: set Input to camera-native color space (e.g., Blackmagic 4.6K Film Gen 3), Output to Linear sRGB.
+2. Add a Delta Keyer node; create a Clean Plate node (use footage with Grow Edges to generate a background estimate); feed it into the Delta Keyer's clean plate input.
+3. Draw a garbage matte shape around the subject; invert it; connect to Delta Keyer's garbage matte input; soften edge with Soft Texture.
+4. For edge extension: add a second Clean Plate node; route a blurred version of the alpha through it; use Color Curves to thicken the alpha; enable Grow Edges to extend subject-color pixels outward.
+5. Add a Channel Boolean to combine the extended clean plate foreground with the original delta key alpha; mix back to taste.
+6. Export as un-pre-multiplied (edge-extended) EXR sequence for use with the Lit material in Unreal.
+7. (Unreal Engine) Enable Composure plugin; create Composite Actor; associate with animatic camera.
+8. Add a Plate Layer; place a Composite Mesh Actor (e.g., a cylinder matching subject size); assign IMS → Media Player → Media Texture pipeline.
+9. Create a Media Track in Sequencer; associate Media Texture in its properties.
+10. Duplicate the engine's M_CompositeMeshLitMass material; open it; find the dither connection to Opacity Mask; modify to use the correct dithered temporal AA approach (this resolves cross-hatch artifacts).
+11. Assign the custom duplicated material to the composite mesh actor; apply the Lit Mass material (right-click mesh → Apply Lit Material).
+12. To enable environment lighting: turn off the Plate Layer temporarily; observe that scene lights now illuminate the lit composite mesh; adjust lights to match on-set lighting.
+13. Set Specular = 0 and Roughness = 1 in the custom material for matte appearance.
+14. Add a multiply node after the composite texture; set as a scalar parameter ("Multiply Color"); expose to Sequencer via Static Mesh Component → Material Parameters → Multiply Color.
+15. Animate the environment key light and the Multiply Color parameter to match practical lighting flicker from on-set lights.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Composure Plugin: Composite Actor, Plate Layer, Composite Mesh Actor
+- Lit Mass Material (M_CompositeMeshLitMass — duplicate and customize)
+- Dither Temporal AA node (opacity mask fix for smooth edges)
+- Image Media Source / Media Player / Media Texture pipeline
+- Sequencer: Media Track, Static Mesh Component Material Parameter track (Multiply Color)
+- Composite Actor modes: Composite Mesh vs. Texture (screen space) — trade-offs discussed
+- Point Light / Rect Light with animated brightness for interactive plate lighting
+- Material parameters: Specular = 0, Roughness = 1, Multiply Color scalar
+- DaVinci Fusion: Delta Keyer, Clean Plate node, Channel Boolean, Color Curves, Grow Edges, Color Space Transform (external)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+5.7
 
 ### Tags
-[PENDING EXTRACTION]
+Composure, composite mesh actor, lit mass material, green screen, blue screen, DaVinci Resolve, Fusion, delta keyer, edge extension, color space transform, linear sRGB, media texture, sequencer, virtual production, 3D compositing, interactive lighting, dither opacity mask
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `easiest-vfx-pipeline-ever-with-composite-mesh-actors-in-unreal-engine-57-composu.md` — Episode 1: foundational Composure camera projection setup
+- `green-screen-cards-are-dead-camera-projections-in-unreal-engine-change-everythin.md` — Episode 2: keying + camera tracking + fog-depth dither fix
+- `green-screen-edge-wrap-secrets-and-a-lie---advanced-davinci-to-unreal-engine-wor.md` — advanced companion: edge wrap utility pass and Scene Capture 2D technique

@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=t7Q1UiBr8e8
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: ["edge wrap", "light wrap", "green screen", "blue screen", "DaVinci Resolve", "Fusion", "chroma key", "color space transform", "linear sRGB", "camera tracking", "FBX import", "media texture", "Scene Capture 2D", "render target", "material parameters", "sequencer", "virtual production", "compositing"]
+extraction_status: complete
 frames_dir: tutorials/frames/green-screen-edge-wrap-secrets-and-a-lie---advanced-davinci-to-unreal-engine-wor/
 frame_count: 23
 ---
@@ -143,27 +143,52 @@ frame_count: 23
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+A comprehensive advanced workflow combining DaVinci Resolve Fusion green screen extraction (with linear sRGB color space transform and a multi-channel utility pass), a real-time edge/light wrap effect inside Unreal Engine using Scene Capture 2D + Render Target + custom material parameter, and a full bonus section on DaVinci 3D camera tracking and FBX import into UE for moving shots.
 
 ### Summary
-[PENDING EXTRACTION]
+At 99 minutes, this is Dean Yurke's most in-depth compositing tutorial. It covers three areas: (1) an updated DaVinci Fusion extraction pipeline with an added color space transform (source camera space → linear sRGB) so the extracted footage looks correct inside Unreal's linear color pipeline, plus a three-channel utility pass (RGB = different softness/blur levels of the alpha edge) for driving the edge wrap; (2) implementing edge/light wrap inside Unreal Engine using a Scene Capture 2D actor pointed at the background, sending its output to a Render Target that is fed into the plate's master material as a multiply/blend operation — the DOF of the Scene Capture drives the blur/glow width, and an edge wrap strength parameter is exposed into Sequencer for animated control; (3) a bonus deep-dive into DaVinci camera tracking, FBX export scale tuning, and importing moving camera shots into UE (File > Import Into Level, actor parenting for scale correction, Disable Depth Test for alignment). The "lie" in the title refers to the fact that edge wrap in UE is an approximation, not a perfect real-time match to post-comp edge wrap.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. In DaVinci Fusion: add a Color Space Transform node after your keyer; set Input to your camera's native space (e.g., Blackmagic Film Gen 3), Output to Linear sRGB — matches Unreal's internal color space.
+2. Build the extraction script: Noise Reduction → Green/Blue Screen Matte node → garbage matte shape → key refinement.
+3. Build the utility pass: from the extraction alpha, create three blurred/softened versions at different radii; use Channel Boolean nodes to pack them into R, G, B channels of a combined utility EXR sequence.
+4. Export extraction as linear sRGB EXR sequence; export utility pass as a separate EXR sequence (can be lower res for performance).
+5. In Unreal Engine: create Image Media Sources for both extraction and utility; create Media Player + Media Texture pairs for each; build or duplicate a master plane material feeding both textures.
+6. Set up a Scene Capture 2D actor in the scene positioned to match the camera view of the background environment.
+7. Create a Render Target asset; assign it as the Scene Capture 2D's output texture.
+8. In the plate material: multiply the Render Target texture by the utility pass alpha channel; expose an "Edge Wrap" scalar parameter; apply this on top of the extraction.
+9. Adjust Scene Capture 2D's depth of field (Focal Distance = 0 starts blur) to control edge glow softness.
+10. In Sequencer: add the plate mesh as a track; add Static Mesh Component → Material Parameters → Edge Wrap scalar; keyframe to animate edge wrap intensity per shot.
+11. (Bonus camera tracking) In DaVinci Fusion: track the plate footage with the 3D camera tracker; set a ground plane; scale the world in the Merge 3D node (e.g., ×50); export as FBX.
+12. Import FBX: File > Import Into Level; use a sub-level folder; UE imports camera + geometry hierarchy.
+13. Parent the FBX camera as child of a root actor; scale the root actor to compensate for size mismatch; translate/rotate to align camera to the scene plate.
+14. Use Disable Depth Test on the plate material for alignment; re-enable after positioning.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Image Media Source / Media Player / Media Texture (two pairs: extraction + utility)
+- Sequencer: Media Track, Material Parameter Track (scalar Edge Wrap parameter)
+- Scene Capture 2D actor (Render Target output, Depth of Field settings)
+- Render Target asset
+- Custom master plane material: extraction texture + utility pass multiply + edge wrap scalar parameter
+- Material parameter: Convert to Parameter → "Edge Wrap" scalar (exposed to Sequencer)
+- Disable Depth Test material flag (alignment aid)
+- File > Import Into Level (FBX camera with hierarchy)
+- Actor parenting + scale/rotate root actor for camera alignment
+- DaVinci Resolve Fusion: Color Space Transform, Channel Boolean, blur nodes, utility pass packing (external)
+- UltraKey / DeltaKey / other keyers in Fusion (external)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced
 
 ### UE Version
-[PENDING EXTRACTION]
+5.x (no specific sub-version stated)
 
 ### Tags
-[PENDING EXTRACTION]
+edge wrap, light wrap, green screen, blue screen, DaVinci Resolve, Fusion, chroma key, color space transform, linear sRGB, camera tracking, FBX import, media texture, Scene Capture 2D, render target, material parameters, sequencer, virtual production, compositing
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `green-screen-integration-in-unreal-engine-57-virtual-production-got-even-better-.md` — Composure EP3: lit material and improved DaVinci extraction techniques referenced here
+- `green-screen-cards-are-dead-camera-projections-in-unreal-engine-change-everythin.md` — Composure EP2: camera projection setup and fog/depth fix that this tutorial extends
+- `green-screen-overscan-secrets-and-a-lie---your-ultimate-vfx-save-series-bonus.md` — companion "secrets and a lie" bonus video in the same VFX series

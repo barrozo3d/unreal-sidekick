@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=VbLziZfiyD8
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.7"
+tags: ["Composure", "camera projection", "green screen", "blue screen", "chroma key", "composite mesh actor", "media profile", "image sequence", "EXR", "dithered opacity mask", "virtual production", "3D compositing", "camera tracking", "FBX import", "filmmaking"]
+extraction_status: complete
 frames_dir: tutorials/frames/green-screen-cards-are-dead-camera-projections-in-unreal-engine-change-everythin/
 frame_count: 16
 ---
@@ -108,27 +108,50 @@ frame_count: 16
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Composure Episode 2: combining blue screen chroma keying (live or pre-recorded) with camera projection onto curved Composite Mesh Actors in UE 5.7, including the dithered opacity mask fix for fog/depth integration and a detailed offline workflow for pre-extracted EXR sequences with camera-tracked moving shots.
 
 ### Summary
-[PENDING EXTRACTION]
+Dean Yurke builds on the Composure EP1 foundation to show how to key a blue screen subject and integrate them into a 3D Unreal environment via camera projection. He covers the practical blue screen lighting setup (budget RGB LED lights in blue mode for even screen illumination), live chroma keying inside Composure using its built-in key settings, recording a live composite to EXR for offline use, and the critical "fog problem" — standard translucent composite plates don't respect exponential height fog or VDB volumes. The fix: duplicate the Composure lit material and add a Dithered Temporal AA opacity mask to make the plate geometry maskable and depth-aware. For moving shots, he uses DaVinci Resolve Fusion's 3D camera tracker (exported as FBX), imports it into UE via File > Import Into Level, parents the tracked camera as a child of an actor for scale/position correction, and aligns the composite plate to match world space. A color grading pass on the Plate Layer allows matching plate color to the environment.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Set up blue screen with RGB LED lights in blue mode for even fill; avoid color spill from room edges.
+2. Create a new Media Profile for the live camera feed (Window > Virtual Production > Media Profile Editor).
+3. Add a Composite Actor (Window > Virtual Production > Composure); associate it with the scene camera.
+4. In Plate Layer: add a Composite Mesh Actor; assign it the Media Profile; right-click mesh → Apply Unlit Alpha Material.
+5. Use Composure's built-in keyer parameters (Red Gain, Alpha Threshold, etc.) to pull a basic live key.
+6. For offline workflow: record live composite to EXR via Composure's media capture (Ready → Start Capture).
+7. To allow fog/VDB interaction: duplicate the Composure base material, add Dithered Temporal AA nodes to both Opacity and Opacity Mask inputs; replace the material on the Composite Mesh Actor with the custom version.
+8. For moving shots: perform DaVinci Resolve Fusion camera track; set scale in Merge 3D; export as FBX.
+9. Import FBX: File > Import Into Level (not standard Import) → select a level sub-folder; this preserves hierarchy.
+10. Parent the tracked camera as a child actor onto a root actor; scale the root to match scene units; rotate/translate to align camera to the plate.
+11. Add color grade pass to the Plate Layer for plate-to-environment color matching.
+12. To handle depth: disable Depth Test on the plate material (Depth > Disable Depth Test) for alignment; re-enable or use the masked material for final render.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Composure Plugin: Composite Actor, Plate Layer, Composite Mesh Actor, built-in keyer (Red Gain, Alpha Threshold, etc.)
+- Media Profile system (swappable live/recorded sources)
+- Image Media Source / Media Player / Media Texture pipeline
+- Composure materials: Unlit Alpha Material, Lit Mass Material (M_CompositeMeshLitMass)
+- Custom material: Dithered Temporal AA on Opacity + Opacity Mask for fog depth integration
+- Exponential Height Fog / VDB (context — these fail with standard translucent composite plate)
+- Sequencer: Media Track for driving image sequence playback
+- File > Import Into Level (FBX camera track import preserving hierarchy)
+- Actor parenting + scale/rotate for camera alignment
+- Color Grade Pass (on Plate Layer)
+- DaVinci Resolve Fusion: 3D camera tracker, Merge 3D scale, FBX export (external)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced
 
 ### UE Version
-[PENDING EXTRACTION]
+5.7
 
 ### Tags
-[PENDING EXTRACTION]
+Composure, camera projection, green screen, blue screen, chroma key, composite mesh actor, media profile, image sequence, EXR, dithered opacity mask, virtual production, 3D compositing, camera tracking, FBX import, filmmaking
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `easiest-vfx-pipeline-ever-with-composite-mesh-actors-in-unreal-engine-57-composu.md` — Episode 1: basic Composure camera projection without keying
+- `green-screen-integration-in-unreal-engine-57-virtual-production-got-even-better-.md` — Episode 3: lit material improvements and better DaVinci Fusion extraction pipeline
+- `green-screen-edge-wrap-secrets-and-a-lie---advanced-davinci-to-unreal-engine-wor.md` — advanced companion: edge wrap utility pass and full camera tracking bonus section
