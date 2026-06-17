@@ -1918,6 +1918,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/green-screen-integration-in-unreal-engine-57-virtual-production-got-even-better-.md
 
+
+### Advanced Volumetric FOG SECRETS in Unreal Engine 5.7 [Full Course]
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=xbZNHZ-QGyg
+- **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/advanced-volumetric-fog-secrets-in-unreal-engine-57-full-course.md
+
 ---
 
 ## Tag Reference
