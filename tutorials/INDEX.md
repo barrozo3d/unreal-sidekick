@@ -1998,6 +1998,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/where-are-my-animation-curves-this-mysterious-symbol-will-save-you-hours-of-frus.md
 
+
+### Creating Cinematics in Unreal Engine with KitBash3D's Secrets of the Luminara
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=f2YLWIvs6F8
+- **Author:** The Gnomon Workshop
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/creating-cinematics-in-unreal-engine-with-kitbash3ds-secrets-of-the-luminara.md
+
 ---
 
 ## Tag Reference
