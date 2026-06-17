@@ -2118,6 +2118,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/the-easiest-and-cheapest-motion-capture-setup-for-metahumans-in-unreal-engine-56.md
 
+
+### The EASIEST and CHEAPEST Motion Capture Setup for Metahumans in Unreal Engine 5.6 (No Headrig)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=M799eoMK4tw
+- **Author:** Charlie Driscoll - Unreal Engine Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/the-easiest-and-cheapest-motion-capture-setup-for-metahumans-in-unreal-engine-56.md
+
 ---
 
 ## Tag Reference
