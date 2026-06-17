@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=akHCbIECFX8
 author: Aziel Arts
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.6"
+tags: [water, simulation, baked-simulation, river, buoyancy, water-advanced, environment, physics, ue5-6]
+extraction_status: complete
 frames_dir: tutorials/frames/witcher-4-baked-water-simulation-tutorial-in-unreal-engine-56/
 frame_count: 4
 ---
@@ -33,27 +33,37 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Baked river/water simulation in UE5.6 using the Water + Water Advanced + Buoyancy plugins — bakes a shallow-body fluid sim into an efficient looping playback while preserving buoyancy for floating objects and ripple interaction for characters.
 
 ### Summary
-[PENDING EXTRACTION]
+Aziel Arts demonstrates UE5.6's new baked water simulation system, inspired by Witcher 4's river visuals. The workflow uses UE's built-in Water plugin (water bodies: river, lake, ocean), the Water Advanced plugin (which provides the shallow-body simulation to bake), and the Buoyancy plugin (for floating objects). The simulation is baked into efficient playback — high fidelity at low runtime cost — while still supporting dynamic interactions: objects float correctly and characters create ripples when wading through the water.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Enable plugins**: Plugins menu → enable **Water** (river/lake/ocean water bodies), **Buoyancy** (floating object physics), **Water Advanced** (shallow-body simulation system) → Restart
+2. After restart, a message log pop-up confirms Water Advanced is active
+3. Add a **Water Body River** (or lake/ocean) actor to the scene from the Water plugin
+4. Use the **Water Advanced** shallow-body simulation to run and then bake the fluid simulation
+5. Baked simulation produces an efficient looped playback of the river
+6. **Buoyancy** continues to work on baked water — place buoyant actors on the river and they float correctly
+7. Characters walking through the baked river still generate surface ripples (interaction layer preserved post-bake)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Water plugin** — Water Body River / Lake / Ocean actors; foundation for all water in UE
+- **Water Advanced plugin** — shallow-body fluid simulation; provides the sim to bake
+- **Buoyancy plugin** — physics simulation for objects floating on water surface; compatible with baked water
+- **Baked simulation** — bakes live fluid sim to efficient looping animation while keeping interactive layers (buoyancy, ripples)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+5.6
 
 ### Tags
-[PENDING EXTRACTION]
+water, simulation, baked-simulation, river, buoyancy, water-advanced, water-plugin, environment, physics, shallow-water, ue5-6
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- Polygonflow Dash environment tutorials (water tool, terrain tool)
+- UE Basics documentation (environment, landscapes)

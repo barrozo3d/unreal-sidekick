@@ -2053,9 +2053,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=akHCbIECFX8
 - **Author:** Aziel Arts
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5.6
+- **Tags:** `#water` `#simulation` `#baked-simulation` `#river` `#buoyancy` `#water-advanced` `#environment` `#physics` `#intermediate` `#ue5-6` `#youtube`
+- **Summary:** Baked river simulation in UE5.6 using Water + Water Advanced + Buoyancy plugins. Bakes shallow-body fluid sim to efficient looped playback while preserving buoyancy for floating objects and character ripple interaction. Inspired by Witcher 4 river visuals.
 - **File:** tutorials/witcher-4-baked-water-simulation-tutorial-in-unreal-engine-56.md
 
 ---
