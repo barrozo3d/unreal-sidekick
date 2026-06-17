@@ -2238,6 +2238,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/cheap-ai-mocap-that-actually-works---quickmagicai-chaos-destruction-and-metahuma.md
 
+
+### How I made this AAA Cinematic in Unreal Engine 5 - Move.Ai and Metahuman Animator short film
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=LpRGFkk3b0k
+- **Author:** Charlie Driscoll - Unreal Engine Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-i-made-this-aaa-cinematic-in-unreal-engine-5---moveai-and-metahuman-animator.md
+
 ---
 
 ## Tag Reference
