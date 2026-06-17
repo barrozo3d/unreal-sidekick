@@ -2008,6 +2008,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/creating-cinematics-in-unreal-engine-with-kitbash3ds-secrets-of-the-luminara.md
 
+
+### Make Films 10x Faster in Unreal Engine
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=RBtlrRP2fvs
+- **Author:** Josh Toonen
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/make-films-10x-faster-in-unreal-engine.md
+
 ---
 
 ## Tag Reference
