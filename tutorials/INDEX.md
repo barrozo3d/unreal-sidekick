@@ -1868,6 +1868,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/beat-yourself-up-with-unreal-ragdoll-physics-for-filmmaking-made-easy-or-hard-in.md
 
+
+### Motion Blending / Bone Matching for Unreal Engine - Make Films in Unreal : (ep2) (Intermediate)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=JxHYt9vFQD8
+- **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/motion-blending-bone-matching-for-unreal-engine---make-films-in-unreal-ep2-inter.md
+
 ---
 
 ## Tag Reference
