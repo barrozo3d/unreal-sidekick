@@ -1,0 +1,3364 @@
+[master 335ac54] collect: 3D Tracking Natively in Unreal Engine - FULL TUTORIAL
+ 2 files changed, 99 insertions(+)
+ create mode 100644 tutorials/3d-tracking-natively-in-unreal-engine---full-tutorial.md
+[1/6] Fetching metadata...
+      3D Tracking Natively in Unreal Engine - FULL TUTORIAL
+      7 chapter(s), 14m28s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      162 segments -> 7 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 7 frame(s) to tutorials\frames\3d-tracking-natively-in-unreal-engine---full-tutorial...
+      7 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/3d-tracking-natively-in-unreal-engine---full-tutorial.md
+  Frames:        tutorials/frames/3d-tracking-natively-in-unreal-engine---full-tutorial/ (7 frames)
+============================================================
+
+[master ec91786] collect: I BUILT The Camera Tracking Tool I Always Wished Unreal Had
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/i-built-the-camera-tracking-tool-i-always-wished-unreal-had.md
+[1/6] Fetching metadata...
+      I BUILT The Camera Tracking Tool I Always Wished Unreal Had
+      0 chapter(s), 9m10s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      98 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\i-built-the-camera-tracking-tool-i-always-wished-unreal-had...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/i-built-the-camera-tracking-tool-i-always-wished-unreal-had.md
+  Frames:        tutorials/frames/i-built-the-camera-tracking-tool-i-always-wished-unreal-had/ (4 frames)
+============================================================
+
+[master 9da5475] collect: Unreal Engine's Secret Weapon for Cinematic Lighting
+ 2 files changed, 89 insertions(+)
+ create mode 100644 tutorials/unreal-engines-secret-weapon-for-cinematic-lighting.md
+[1/6] Fetching metadata...
+      Unreal Engine's Secret Weapon for Cinematic Lighting
+      5 chapter(s), 12m47s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      152 segments -> 5 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 5 frame(s) to tutorials\frames\unreal-engines-secret-weapon-for-cinematic-lighting...
+      5 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engines-secret-weapon-for-cinematic-lighting.md
+  Frames:        tutorials/frames/unreal-engines-secret-weapon-for-cinematic-lighting/ (5 frames)
+============================================================
+
+[master 9f741c0] collect: The Simplest Rendering Trick 90% of Unreal Artists Miss
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/the-simplest-rendering-trick-90-of-unreal-artists-miss.md
+[1/6] Fetching metadata...
+      The Simplest Rendering Trick 90% of Unreal Artists Miss
+      0 chapter(s), 9m6s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      Whisper failed (Command '['C:\\Python314\\python.exe', '-m', 'yt_dlp', '-x', '--audio-format', 'mp3', '--audio-quality', '0', '--no-playlist', '-o', 'C:\\Users\\KABUM\\AppData\\Local\\Temp\\tmpac2vc7q4\\audio.%(ext)s', 'https://www.youtube.com/watch?v=YqPy2yM7X-s']' returned non-zero exit status 1.), using yt-dlp captions
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\the-simplest-rendering-trick-90-of-unreal-artists-miss...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/the-simplest-rendering-trick-90-of-unreal-artists-miss.md
+  Frames:        tutorials/frames/the-simplest-rendering-trick-90-of-unreal-artists-miss/ (4 frames)
+============================================================
+
+[master 62fea69] collect: The Ultimate Plugin for Filmmaking in Unreal Engine
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/the-ultimate-plugin-for-filmmaking-in-unreal-engine.md
+[1/6] Fetching metadata...
+      The Ultimate Plugin for Filmmaking in Unreal Engine
+      0 chapter(s), 8m22s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      96 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\the-ultimate-plugin-for-filmmaking-in-unreal-engine...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/the-ultimate-plugin-for-filmmaking-in-unreal-engine.md
+  Frames:        tutorials/frames/the-ultimate-plugin-for-filmmaking-in-unreal-engine/ (4 frames)
+============================================================
+
+[master ae1459b] collect: How to Render Chaos Cloth Simulations with Motion Blur [The RIGHT Way]
+ 2 files changed, 114 insertions(+)
+ create mode 100644 tutorials/how-to-render-chaos-cloth-simulations-with-motion-blur-the-right-way.md
+[1/6] Fetching metadata...
+      How to Render Chaos Cloth Simulations with Motion Blur [The RIGHT Way]
+      10 chapter(s), 14m6s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      163 segments -> 10 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 10 frame(s) to tutorials\frames\how-to-render-chaos-cloth-simulations-with-motion-blur-the-right-way...
+      10 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/how-to-render-chaos-cloth-simulations-with-motion-blur-the-right-way.md
+  Frames:        tutorials/frames/how-to-render-chaos-cloth-simulations-with-motion-blur-the-right-way/ (10 frames)
+============================================================
+
+[master 7c4cfb4] collect: 5 VFX Techniques You've Been Taught that are Actually Wrong
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/5-vfx-techniques-youve-been-taught-that-are-actually-wrong.md
+[1/6] Fetching metadata...
+      5 VFX Techniques You've Been Taught that are Actually Wrong
+      0 chapter(s), 9m35s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      97 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\5-vfx-techniques-youve-been-taught-that-are-actually-wrong...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/5-vfx-techniques-youve-been-taught-that-are-actually-wrong.md
+  Frames:        tutorials/frames/5-vfx-techniques-youve-been-taught-that-are-actually-wrong/ (4 frames)
+============================================================
+
+[master f576b8a] collect: Unlock Thousands of Free Assets in Unreal Engine
+ 2 files changed, 94 insertions(+)
+ create mode 100644 tutorials/unlock-thousands-of-free-assets-in-unreal-engine.md
+[1/6] Fetching metadata...
+      Unlock Thousands of Free Assets in Unreal Engine
+      6 chapter(s), 7m44s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      95 segments -> 6 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 6 frame(s) to tutorials\frames\unlock-thousands-of-free-assets-in-unreal-engine...
+      6 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unlock-thousands-of-free-assets-in-unreal-engine.md
+  Frames:        tutorials/frames/unlock-thousands-of-free-assets-in-unreal-engine/ (6 frames)
+============================================================
+
+[master bc6eca1] collect: No Cost Virtual Production is Here - And it's Changing Filmmaking
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/no-cost-virtual-production-is-here---and-its-changing-filmmaking.md
+[1/6] Fetching metadata...
+      No Cost Virtual Production is Here - And it's Changing Filmmaking
+      0 chapter(s), 7m35s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      92 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\no-cost-virtual-production-is-here---and-its-changing-filmmaking...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/no-cost-virtual-production-is-here---and-its-changing-filmmaking.md
+  Frames:        tutorials/frames/no-cost-virtual-production-is-here---and-its-changing-filmmaking/ (4 frames)
+============================================================
+
+[master 57d727f] collect: These Simple Mistakes are RUINING your VFX
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/these-simple-mistakes-are-ruining-your-vfx.md
+[1/6] Fetching metadata...
+      These Simple Mistakes are RUINING your VFX
+      0 chapter(s), 9m23s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      148 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\these-simple-mistakes-are-ruining-your-vfx...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/these-simple-mistakes-are-ruining-your-vfx.md
+  Frames:        tutorials/frames/these-simple-mistakes-are-ruining-your-vfx/ (4 frames)
+============================================================
+
+[master 853f51e] collect: The 5 Secrets to Hollywood-Level Visual Effects With No Budget
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/the-5-secrets-to-hollywood-level-visual-effects-with-no-budget.md
+[1/6] Fetching metadata...
+      The 5 Secrets to Hollywood-Level Visual Effects With No Budget
+      0 chapter(s), 9m25s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      93 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\the-5-secrets-to-hollywood-level-visual-effects-with-no-budget...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/the-5-secrets-to-hollywood-level-visual-effects-with-no-budget.md
+  Frames:        tutorials/frames/the-5-secrets-to-hollywood-level-visual-effects-with-no-budget/ (4 frames)
+============================================================
+
+[master 80ecd58] collect: Unreal Engine 5.4 Cinematic PREVIS Course
+ 2 files changed, 67 insertions(+)
+ create mode 100644 tutorials/unreal-engine-54-cinematic-previs-course.md
+[1/6] Fetching metadata...
+      Unreal Engine 5.4 Cinematic PREVIS Course
+      0 chapter(s), 0m48s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      0 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\unreal-engine-54-cinematic-previs-course...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-54-cinematic-previs-course.md
+  Frames:        tutorials/frames/unreal-engine-54-cinematic-previs-course/ (4 frames)
+============================================================
+
+[master 23aad51] collect: How Unreal Engine is Changing Filmmaking Forever
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/how-unreal-engine-is-changing-filmmaking-forever.md
+[1/6] Fetching metadata...
+      How Unreal Engine is Changing Filmmaking Forever
+      0 chapter(s), 8m7s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      92 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\how-unreal-engine-is-changing-filmmaking-forever...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/how-unreal-engine-is-changing-filmmaking-forever.md
+  Frames:        tutorials/frames/how-unreal-engine-is-changing-filmmaking-forever/ (4 frames)
+============================================================
+
+[master 25731c7] collect: BEST SETTINGS for Unreal Engine 5.6 - PERFECT Renders Every Time
+ 2 files changed, 94 insertions(+)
+ create mode 100644 tutorials/best-settings-for-unreal-engine-56---perfect-renders-every-time.md
+[1/6] Fetching metadata...
+      BEST SETTINGS for Unreal Engine 5.6 - PERFECT Renders Every Time
+      6 chapter(s), 8m35s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      91 segments -> 6 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 6 frame(s) to tutorials\frames\best-settings-for-unreal-engine-56---perfect-renders-every-time...
+      6 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/best-settings-for-unreal-engine-56---perfect-renders-every-time.md
+  Frames:        tutorials/frames/best-settings-for-unreal-engine-56---perfect-renders-every-time/ (6 frames)
+============================================================
+
+[master 31ceef5] collect: How to Make Your Unreal Engine Renders Look REAL
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/how-to-make-your-unreal-engine-renders-look-real.md
+[1/6] Fetching metadata...
+      How to Make Your Unreal Engine Renders Look REAL
+      0 chapter(s), 32m15s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      332 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\how-to-make-your-unreal-engine-renders-look-real...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/how-to-make-your-unreal-engine-renders-look-real.md
+  Frames:        tutorials/frames/how-to-make-your-unreal-engine-renders-look-real/ (4 frames)
+============================================================
+
+[master d32d934] collect: FASTEST Way to Optimize Unreal Engine 5.6 for Cinematic Renders - Path Tracer Pro
+ 2 files changed, 119 insertions(+)
+ create mode 100644 tutorials/fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro.md
+[1/6] Fetching metadata...
+      FASTEST Way to Optimize Unreal Engine 5.6 for Cinematic Renders - Path Tracer Pro
+      11 chapter(s), 10m39s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      168 segments -> 11 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 11 frame(s) to tutorials\frames\fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro...
+      11 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro.md
+  Frames:        tutorials/frames/fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro/ (11 frames)
+============================================================
+
+[master 83a4227] collect: Unreal Engine 5.7 Filmmaking Course - Unreal Engine for Filmmakers (2026 UPDATE!)
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/unreal-engine-57-filmmaking-course---unreal-engine-for-filmmakers-2026-update.md
+[1/6] Fetching metadata...
+      Unreal Engine 5.7 Filmmaking Course - Unreal Engine for Filmmakers (2026 UPDATE!)
+      0 chapter(s), 0m51s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      7 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\unreal-engine-57-filmmaking-course---unreal-engine-for-filmmakers-2026-update...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-57-filmmaking-course---unreal-engine-for-filmmakers-2026-update.md
+  Frames:        tutorials/frames/unreal-engine-57-filmmaking-course---unreal-engine-for-filmmakers-2026-update/ (4 frames)
+============================================================
+
+[master ad85000] collect: Why Modern VFX DON'T Suck - Low Budget Virtual Production & Everything Everywhere All at Once
+ 2 files changed, 84 insertions(+)
+ create mode 100644 tutorials/why-modern-vfx-dont-suck---low-budget-virtual-production-everything-everywhere-a.md
+[1/6] Fetching metadata...
+      Why Modern VFX DON'T Suck - Low Budget Virtual Production & Everything Everywhere All at Once
+      4 chapter(s), 8m48s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      99 segments -> 4 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\why-modern-vfx-dont-suck---low-budget-virtual-production-everything-everywhere-a...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/why-modern-vfx-dont-suck---low-budget-virtual-production-everything-everywhere-a.md
+  Frames:        tutorials/frames/why-modern-vfx-dont-suck---low-budget-virtual-production-everything-everywhere-a/ (4 frames)
+============================================================
+
+[master 08b2ef6] collect: Unreal Engine 5 Compositing Tutorial - Composite Any Scene Fully Inside of UE5
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/unreal-engine-5-compositing-tutorial---composite-any-scene-fully-inside-of-ue5.md
+[1/6] Fetching metadata...
+      Unreal Engine 5 Compositing Tutorial - Composite Any Scene Fully Inside of UE5
+      0 chapter(s), 6m53s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      97 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\unreal-engine-5-compositing-tutorial---composite-any-scene-fully-inside-of-ue5...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-5-compositing-tutorial---composite-any-scene-fully-inside-of-ue5.md
+  Frames:        tutorials/frames/unreal-engine-5-compositing-tutorial---composite-any-scene-fully-inside-of-ue5/ (4 frames)
+============================================================
+
+[master 422770f] collect: Why Modern VFX Suck (And How to Make Yours Not Suck) PART 2 - Transformers vs Marvel
+ 2 files changed, 94 insertions(+)
+ create mode 100644 tutorials/why-modern-vfx-suck-and-how-to-make-yours-not-suck-part-2---transformers-vs-marv.md
+[1/6] Fetching metadata...
+      Why Modern VFX Suck (And How to Make Yours Not Suck) PART 2 - Transformers vs Marvel
+      6 chapter(s), 6m48s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      66 segments -> 6 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 6 frame(s) to tutorials\frames\why-modern-vfx-suck-and-how-to-make-yours-not-suck-part-2---transformers-vs-marv...
+      6 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/why-modern-vfx-suck-and-how-to-make-yours-not-suck-part-2---transformers-vs-marv.md
+  Frames:        tutorials/frames/why-modern-vfx-suck-and-how-to-make-yours-not-suck-part-2---transformers-vs-marv/ (6 frames)
+============================================================
+
+[master ec82093] collect: Why Modern VFX Suck (And How to Make Yours Not Suck)
+ 2 files changed, 94 insertions(+)
+ create mode 100644 tutorials/why-modern-vfx-suck-and-how-to-make-yours-not-suck.md
+[1/6] Fetching metadata...
+      Why Modern VFX Suck (And How to Make Yours Not Suck)
+      6 chapter(s), 7m49s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      78 segments -> 6 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 6 frame(s) to tutorials\frames\why-modern-vfx-suck-and-how-to-make-yours-not-suck...
+      6 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/why-modern-vfx-suck-and-how-to-make-yours-not-suck.md
+  Frames:        tutorials/frames/why-modern-vfx-suck-and-how-to-make-yours-not-suck/ (6 frames)
+============================================================
+
+[master 2b09fe3] collect: Unreal Engine for Filmmakers - Cinematic VFX for FREE - UE5 [PART 2]
+ 2 files changed, 89 insertions(+)
+ create mode 100644 tutorials/unreal-engine-for-filmmakers---cinematic-vfx-for-free---ue5-part-2.md
+[1/6] Fetching metadata...
+      Unreal Engine for Filmmakers - Cinematic VFX for FREE - UE5 [PART 2]
+      5 chapter(s), 19m24s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      386 segments -> 5 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 5 frame(s) to tutorials\frames\unreal-engine-for-filmmakers---cinematic-vfx-for-free---ue5-part-2...
+      5 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-for-filmmakers---cinematic-vfx-for-free---ue5-part-2.md
+  Frames:        tutorials/frames/unreal-engine-for-filmmakers---cinematic-vfx-for-free---ue5-part-2/ (5 frames)
+============================================================
+
+[master 1a324e7] collect: Unreal Engine for Filmmakers - Add Cinematic VFX to your Films for FREE - UE5 [PART 1]
+ 2 files changed, 104 insertions(+)
+ create mode 100644 tutorials/unreal-engine-for-filmmakers---add-cinematic-vfx-to-your-films-for-free---ue5-pa.md
+[1/6] Fetching metadata...
+      Unreal Engine for Filmmakers - Add Cinematic VFX to your Films for FREE - UE5 [PART 1]
+      8 chapter(s), 13m8s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      204 segments -> 8 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 8 frame(s) to tutorials\frames\unreal-engine-for-filmmakers---add-cinematic-vfx-to-your-films-for-free---ue5-pa...
+      8 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-for-filmmakers---add-cinematic-vfx-to-your-films-for-free---ue5-pa.md
+  Frames:        tutorials/frames/unreal-engine-for-filmmakers---add-cinematic-vfx-to-your-films-for-free---ue5-pa/ (8 frames)
+============================================================
+
+[master fa92c42] collect: Unreal Engine for Filmmakers - How to Make your Lighting CINEMATIC
+ 2 files changed, 109 insertions(+)
+ create mode 100644 tutorials/unreal-engine-for-filmmakers---how-to-make-your-lighting-cinematic.md
+[1/6] Fetching metadata...
+      Unreal Engine for Filmmakers - How to Make your Lighting CINEMATIC
+      9 chapter(s), 10m55s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      132 segments -> 9 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 9 frame(s) to tutorials\frames\unreal-engine-for-filmmakers---how-to-make-your-lighting-cinematic...
+      9 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-for-filmmakers---how-to-make-your-lighting-cinematic.md
+  Frames:        tutorials/frames/unreal-engine-for-filmmakers---how-to-make-your-lighting-cinematic/ (9 frames)
+============================================================
+
+[master 90f4179] collect: FREE Unreal Engine 5.3 Beginner Course - Create Cinematic 3D Worlds
+ 2 files changed, 94 insertions(+)
+ create mode 100644 tutorials/free-unreal-engine-53-beginner-course---create-cinematic-3d-worlds.md
+[1/6] Fetching metadata...
+      FREE Unreal Engine 5.3 Beginner Course - Create Cinematic 3D Worlds
+      6 chapter(s), 2m40s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      42 segments -> 6 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 6 frame(s) to tutorials\frames\free-unreal-engine-53-beginner-course---create-cinematic-3d-worlds...
+      6 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/free-unreal-engine-53-beginner-course---create-cinematic-3d-worlds.md
+  Frames:        tutorials/frames/free-unreal-engine-53-beginner-course---create-cinematic-3d-worlds/ (6 frames)
+============================================================
+
+[master 05da8ab] collect: Unreal Engine Filmmaking COURSE - Create Cinematic 3D Worlds
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/unreal-engine-filmmaking-course---create-cinematic-3d-worlds.md
+[1/6] Fetching metadata...
+      Unreal Engine Filmmaking COURSE - Create Cinematic 3D Worlds
+      0 chapter(s), 5m58s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      74 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\unreal-engine-filmmaking-course---create-cinematic-3d-worlds...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-filmmaking-course---create-cinematic-3d-worlds.md
+  Frames:        tutorials/frames/unreal-engine-filmmaking-course---create-cinematic-3d-worlds/ (4 frames)
+============================================================
+
+[master 2c618af] collect: Unreal Engine Compositing Tutorial - UNREAL ENGINE FOR FILMMAKERS [Course Link in Description]
+ 2 files changed, 104 insertions(+)
+ create mode 100644 tutorials/unreal-engine-compositing-tutorial---unreal-engine-for-filmmakers-course-link-in.md
+[1/6] Fetching metadata...
+      Unreal Engine Compositing Tutorial - UNREAL ENGINE FOR FILMMAKERS [Course Link in Description]
+      8 chapter(s), 8m46s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      109 segments -> 8 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 8 frame(s) to tutorials\frames\unreal-engine-compositing-tutorial---unreal-engine-for-filmmakers-course-link-in...
+      8 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-compositing-tutorial---unreal-engine-for-filmmakers-course-link-in.md
+  Frames:        tutorials/frames/unreal-engine-compositing-tutorial---unreal-engine-for-filmmakers-course-link-in/ (8 frames)
+============================================================
+
+[master 0eb15e4] collect: Unreal Engine for Filmmakers - Incredible Realtime Particle Simulations for Free
+ 2 files changed, 89 insertions(+)
+ create mode 100644 tutorials/unreal-engine-for-filmmakers---incredible-realtime-particle-simulations-for-free.md
+[1/6] Fetching metadata...
+      Unreal Engine for Filmmakers - Incredible Realtime Particle Simulations for Free
+      5 chapter(s), 10m1s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      90 segments -> 5 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 5 frame(s) to tutorials\frames\unreal-engine-for-filmmakers---incredible-realtime-particle-simulations-for-free...
+      5 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-for-filmmakers---incredible-realtime-particle-simulations-for-free.md
+  Frames:        tutorials/frames/unreal-engine-for-filmmakers---incredible-realtime-particle-simulations-for-free/ (5 frames)
+============================================================
+
+[master 2a49729] collect: Unreal Engine for Filmmakers - Cinematic Camera Settings & Setting up Virtual Camera
+ 2 files changed, 109 insertions(+)
+ create mode 100644 tutorials/unreal-engine-for-filmmakers---cinematic-camera-settings-setting-up-virtual-came.md
+[1/6] Fetching metadata...
+      Unreal Engine for Filmmakers - Cinematic Camera Settings & Setting up Virtual Camera
+      9 chapter(s), 14m44s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      61 segments -> 9 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 9 frame(s) to tutorials\frames\unreal-engine-for-filmmakers---cinematic-camera-settings-setting-up-virtual-came...
+      9 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-for-filmmakers---cinematic-camera-settings-setting-up-virtual-came.md
+  Frames:        tutorials/frames/unreal-engine-for-filmmakers---cinematic-camera-settings-setting-up-virtual-came/ (9 frames)
+============================================================
+
+[master de8150a] collect: Unreal Engine Depth Fog TUTORIAL [Path Traced]
+ 2 files changed, 94 insertions(+)
+ create mode 100644 tutorials/unreal-engine-depth-fog-tutorial-path-traced.md
+[1/6] Fetching metadata...
+      Unreal Engine Depth Fog TUTORIAL [Path Traced]
+      6 chapter(s), 9m6s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      68 segments -> 6 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 6 frame(s) to tutorials\frames\unreal-engine-depth-fog-tutorial-path-traced...
+      6 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-depth-fog-tutorial-path-traced.md
+  Frames:        tutorials/frames/unreal-engine-depth-fog-tutorial-path-traced/ (6 frames)
+============================================================
+
+[master 799622d] collect: DUNE Cinematography Breakdown | HOW TO GET THE DUNE LOOK
+ 2 files changed, 174 insertions(+)
+ create mode 100644 tutorials/dune-cinematography-breakdown-how-to-get-the-dune-look.md
+[1/6] Fetching metadata...
+      DUNE Cinematography Breakdown | HOW TO GET THE DUNE LOOK
+      22 chapter(s), 32m21s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      419 segments -> 22 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 22 frame(s) to tutorials\frames\dune-cinematography-breakdown-how-to-get-the-dune-look...
+      22 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/dune-cinematography-breakdown-how-to-get-the-dune-look.md
+  Frames:        tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/ (22 frames)
+============================================================
+
+[master 9abd3dd] collect: Unreal Engine for Filmmakers - Create Cinematic 3D Worlds for Free [Course in Description!]
+ 2 files changed, 119 insertions(+)
+ create mode 100644 tutorials/unreal-engine-for-filmmakers---create-cinematic-3d-worlds-for-free-course-in-des.md
+[1/6] Fetching metadata...
+      Unreal Engine for Filmmakers - Create Cinematic 3D Worlds for Free [Course in Description!]
+      11 chapter(s), 12m38s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      253 segments -> 11 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 11 frame(s) to tutorials\frames\unreal-engine-for-filmmakers---create-cinematic-3d-worlds-for-free-course-in-des...
+      11 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-for-filmmakers---create-cinematic-3d-worlds-for-free-course-in-des.md
+  Frames:        tutorials/frames/unreal-engine-for-filmmakers---create-cinematic-3d-worlds-for-free-course-in-des/ (11 frames)
+============================================================
+
+[master 50c96fa] collect: Easiest Way to Get CINEMATIC Renders in UNREAL ENGINE - Path Tracing
+ 2 files changed, 109 insertions(+)
+ create mode 100644 tutorials/easiest-way-to-get-cinematic-renders-in-unreal-engine---path-tracing.md
+[1/6] Fetching metadata...
+      Easiest Way to Get CINEMATIC Renders in UNREAL ENGINE - Path Tracing
+      9 chapter(s), 9m50s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      61 segments -> 9 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 9 frame(s) to tutorials\frames\easiest-way-to-get-cinematic-renders-in-unreal-engine---path-tracing...
+      9 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/easiest-way-to-get-cinematic-renders-in-unreal-engine---path-tracing.md
+  Frames:        tutorials/frames/easiest-way-to-get-cinematic-renders-in-unreal-engine---path-tracing/ (9 frames)
+============================================================
+
+[master d0ea84c] collect: Roger Deakins Lighting Tutorial - BLADE RUNNER 2049
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/roger-deakins-lighting-tutorial---blade-runner-2049.md
+[1/6] Fetching metadata...
+      Roger Deakins Lighting Tutorial - BLADE RUNNER 2049
+      0 chapter(s), 4m34s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      77 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\roger-deakins-lighting-tutorial---blade-runner-2049...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/roger-deakins-lighting-tutorial---blade-runner-2049.md
+  Frames:        tutorials/frames/roger-deakins-lighting-tutorial---blade-runner-2049/ (4 frames)
+============================================================
+
+[master 6e6253a] collect: 3D TRACKED CAMERA FROM AFTER EFFECTS TO UNREAL ENGINE | TUTORIAL
+ 2 files changed, 109 insertions(+)
+ create mode 100644 tutorials/3d-tracked-camera-from-after-effects-to-unreal-engine-tutorial.md
+[1/6] Fetching metadata...
+      3D TRACKED CAMERA FROM AFTER EFFECTS TO UNREAL ENGINE | TUTORIAL
+      9 chapter(s), 14m28s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      213 segments -> 9 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 9 frame(s) to tutorials\frames\3d-tracked-camera-from-after-effects-to-unreal-engine-tutorial...
+      9 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/3d-tracked-camera-from-after-effects-to-unreal-engine-tutorial.md
+  Frames:        tutorials/frames/3d-tracked-camera-from-after-effects-to-unreal-engine-tutorial/ (9 frames)
+============================================================
+
+[master f3ff40c] collect: Unreal Engine Black Eye Cameras v2: START HERE Tutorial
+ 2 files changed, 184 insertions(+)
+ create mode 100644 tutorials/unreal-engine-black-eye-cameras-v2-start-here-tutorial.md
+[1/6] Fetching metadata...
+      Unreal Engine Black Eye Cameras v2: START HERE Tutorial
+      24 chapter(s), 43m5s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      394 segments -> 24 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 24 frame(s) to tutorials\frames\unreal-engine-black-eye-cameras-v2-start-here-tutorial...
+      24 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-black-eye-cameras-v2-start-here-tutorial.md
+  Frames:        tutorials/frames/unreal-engine-black-eye-cameras-v2-start-here-tutorial/ (24 frames)
+============================================================
+
+[master 8b2fd23] collect: Unreal Engine Black Eye Cameras v2: Gameplay cameras are here
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/unreal-engine-black-eye-cameras-v2-gameplay-cameras-are-here.md
+[1/6] Fetching metadata...
+      Unreal Engine Black Eye Cameras v2: Gameplay cameras are here
+      0 chapter(s), 0m47s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      5 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\unreal-engine-black-eye-cameras-v2-gameplay-cameras-are-here...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-black-eye-cameras-v2-gameplay-cameras-are-here.md
+  Frames:        tutorials/frames/unreal-engine-black-eye-cameras-v2-gameplay-cameras-are-here/ (4 frames)
+============================================================
+
+[master e296323] collect: Unreal Engine Black Eye cameras: Behind the Lens
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/unreal-engine-black-eye-cameras-behind-the-lens.md
+[1/6] Fetching metadata...
+      Unreal Engine Black Eye cameras: Behind the Lens
+      0 chapter(s), 3m16s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      35 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\unreal-engine-black-eye-cameras-behind-the-lens...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-black-eye-cameras-behind-the-lens.md
+  Frames:        tutorials/frames/unreal-engine-black-eye-cameras-behind-the-lens/ (4 frames)
+============================================================
+
+[master e7b32b7] collect: Unreal Engine Black Eye cameras: Dynamic Dialog intro
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/unreal-engine-black-eye-cameras-dynamic-dialog-intro.md
+[1/6] Fetching metadata...
+      Unreal Engine Black Eye cameras: Dynamic Dialog intro
+      0 chapter(s), 1m6s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      23 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\unreal-engine-black-eye-cameras-dynamic-dialog-intro...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-black-eye-cameras-dynamic-dialog-intro.md
+  Frames:        tutorials/frames/unreal-engine-black-eye-cameras-dynamic-dialog-intro/ (4 frames)
+============================================================
+
+[master 03410ec] collect: Unreal Engine Black Eye Cameras for Gameplay: Top Down
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/unreal-engine-black-eye-cameras-for-gameplay-top-down.md
+[1/6] Fetching metadata...
+      Unreal Engine Black Eye Cameras for Gameplay: Top Down
+      0 chapter(s), 3m25s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      40 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\unreal-engine-black-eye-cameras-for-gameplay-top-down...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-black-eye-cameras-for-gameplay-top-down.md
+  Frames:        tutorials/frames/unreal-engine-black-eye-cameras-for-gameplay-top-down/ (4 frames)
+============================================================
+
+[master e80ac5f] collect: Unreal Engine Black Eye Cameras: Car camera INTRO
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/unreal-engine-black-eye-cameras-car-camera-intro.md
+[1/6] Fetching metadata...
+      Unreal Engine Black Eye Cameras: Car camera INTRO
+      0 chapter(s), 1m17s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      14 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\unreal-engine-black-eye-cameras-car-camera-intro...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-black-eye-cameras-car-camera-intro.md
+  Frames:        tutorials/frames/unreal-engine-black-eye-cameras-car-camera-intro/ (4 frames)
+============================================================
+
+[master 36563e0] collect: Unreal Engine Black Eye Cameras: Car Cameras! Gameplay and Cinematics.
+ 2 files changed, 104 insertions(+)
+ create mode 100644 tutorials/unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics.md
+[1/6] Fetching metadata...
+      Unreal Engine Black Eye Cameras: Car Cameras! Gameplay and Cinematics.
+      8 chapter(s), 24m45s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      237 segments -> 8 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 8 frame(s) to tutorials\frames\unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics...
+      8 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics.md
+  Frames:        tutorials/frames/unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics/ (8 frames)
+============================================================
+
+[master e4e79fb] collect: Unreal Engine Black Eye Cameras | START HERE Tutorial
+ 2 files changed, 139 insertions(+)
+ create mode 100644 tutorials/unreal-engine-black-eye-cameras-start-here-tutorial.md
+[1/6] Fetching metadata...
+      Unreal Engine Black Eye Cameras | START HERE Tutorial
+      15 chapter(s), 54m57s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      881 segments -> 15 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 15 frame(s) to tutorials\frames\unreal-engine-black-eye-cameras-start-here-tutorial...
+      15 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-black-eye-cameras-start-here-tutorial.md
+  Frames:        tutorials/frames/unreal-engine-black-eye-cameras-start-here-tutorial/ (15 frames)
+============================================================
+
+[master aa475a3] collect: Unreal Engine Black Eye Cameras: Speed of Thought
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/unreal-engine-black-eye-cameras-speed-of-thought.md
+[1/6] Fetching metadata...
+      Unreal Engine Black Eye Cameras: Speed of Thought
+      0 chapter(s), 1m32s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      1 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\unreal-engine-black-eye-cameras-speed-of-thought...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-black-eye-cameras-speed-of-thought.md
+  Frames:        tutorials/frames/unreal-engine-black-eye-cameras-speed-of-thought/ (4 frames)
+============================================================
+
+[master e3ebbe8] collect: Unreal Engine Black Eye Cameras: That's a Cool Shot #1 Pedestal Pan
+ 2 files changed, 91 insertions(+)
+ create mode 100644 tutorials/unreal-engine-black-eye-cameras-thats-a-cool-shot-1-pedestal-pan.md
+[1/6] Fetching metadata...
+      Unreal Engine Black Eye Cameras: That's a Cool Shot #1 Pedestal Pan
+      6 chapter(s), 5m38s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      86 segments -> 6 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 6 frame(s) to tutorials\frames\unreal-engine-black-eye-cameras-thats-a-cool-shot-1-pedestal-pan...
+      5 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-black-eye-cameras-thats-a-cool-shot-1-pedestal-pan.md
+  Frames:        tutorials/frames/unreal-engine-black-eye-cameras-thats-a-cool-shot-1-pedestal-pan/ (5 frames)
+============================================================
+
+[master 0ca25ca] collect: Unreal Engine Black Eye Cameras: V1.2 Preview Shot List module
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/unreal-engine-black-eye-cameras-v12-preview-shot-list-module.md
+[1/6] Fetching metadata...
+      Unreal Engine Black Eye Cameras: V1.2 Preview Shot List module
+      0 chapter(s), 1m12s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      23 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\unreal-engine-black-eye-cameras-v12-preview-shot-list-module...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-black-eye-cameras-v12-preview-shot-list-module.md
+  Frames:        tutorials/frames/unreal-engine-black-eye-cameras-v12-preview-shot-list-module/ (4 frames)
+============================================================
+
+[master 7a7690c] collect: Unreal Engine Black Eye Cameras: Your Cinematics, Reinvented
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/unreal-engine-black-eye-cameras-your-cinematics-reinvented.md
+[1/6] Fetching metadata...
+      Unreal Engine Black Eye Cameras: Your Cinematics, Reinvented
+      0 chapter(s), 1m2s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      1 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\unreal-engine-black-eye-cameras-your-cinematics-reinvented...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-black-eye-cameras-your-cinematics-reinvented.md
+  Frames:        tutorials/frames/unreal-engine-black-eye-cameras-your-cinematics-reinvented/ (4 frames)
+============================================================
+
+[master 4766bca] collect: Unreal Engine Black Eye Cameras: Look Around Tutorial
+ 2 files changed, 104 insertions(+)
+ create mode 100644 tutorials/unreal-engine-black-eye-cameras-look-around-tutorial.md
+[1/6] Fetching metadata...
+      Unreal Engine Black Eye Cameras: Look Around Tutorial
+      8 chapter(s), 2m52s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      36 segments -> 8 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 8 frame(s) to tutorials\frames\unreal-engine-black-eye-cameras-look-around-tutorial...
+      8 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-black-eye-cameras-look-around-tutorial.md
+  Frames:        tutorials/frames/unreal-engine-black-eye-cameras-look-around-tutorial/ (8 frames)
+============================================================
+
+[master c88362f] collect: Unreal Engine Black Eye Cameras: Cam Switcher Tutorial
+ 2 files changed, 92 insertions(+)
+ create mode 100644 tutorials/unreal-engine-black-eye-cameras-cam-switcher-tutorial.md
+[1/6] Fetching metadata...
+      Unreal Engine Black Eye Cameras: Cam Switcher Tutorial
+      6 chapter(s), 2m59s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      67 segments -> 6 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 6 frame(s) to tutorials\frames\unreal-engine-black-eye-cameras-cam-switcher-tutorial...
+      6 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-black-eye-cameras-cam-switcher-tutorial.md
+  Frames:        tutorials/frames/unreal-engine-black-eye-cameras-cam-switcher-tutorial/ (6 frames)
+============================================================
+
+[master ae55580] collect: Unreal Engine Black Eye Cameras: v1.1.7 Switcher + Pilot
+ 2 files changed, 78 insertions(+)
+ create mode 100644 tutorials/unreal-engine-black-eye-cameras-v117-switcher-pilot.md
+[1/6] Fetching metadata...
+      Unreal Engine Black Eye Cameras: v1.1.7 Switcher + Pilot
+      4 chapter(s), 0m55s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      1 segments -> 4 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\unreal-engine-black-eye-cameras-v117-switcher-pilot...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-black-eye-cameras-v117-switcher-pilot.md
+  Frames:        tutorials/frames/unreal-engine-black-eye-cameras-v117-switcher-pilot/ (4 frames)
+============================================================
+
+[master f57f47b] collect: Unreal Engine Black Eye Cameras: Unleash Your Army of Camera Operators
+ 2 files changed, 101 insertions(+)
+ create mode 100644 tutorials/unreal-engine-black-eye-cameras-unleash-your-army-of-camera-operators.md
+[1/6] Fetching metadata...
+      Unreal Engine Black Eye Cameras: Unleash Your Army of Camera Operators
+      8 chapter(s), 3m10s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      31 segments -> 8 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 8 frame(s) to tutorials\frames\unreal-engine-black-eye-cameras-unleash-your-army-of-camera-operators...
+      7 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-black-eye-cameras-unleash-your-army-of-camera-operators.md
+  Frames:        tutorials/frames/unreal-engine-black-eye-cameras-unleash-your-army-of-camera-operators/ (7 frames)
+============================================================
+
+[master f2150ac] collect: Unreal Engine Black Eye Cameras: Supercharge your workflow
+ 2 files changed, 67 insertions(+)
+ create mode 100644 tutorials/unreal-engine-black-eye-cameras-supercharge-your-workflow.md
+[1/6] Fetching metadata...
+      Unreal Engine Black Eye Cameras: Supercharge your workflow
+      0 chapter(s), 0m42s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      0 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\unreal-engine-black-eye-cameras-supercharge-your-workflow...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-black-eye-cameras-supercharge-your-workflow.md
+  Frames:        tutorials/frames/unreal-engine-black-eye-cameras-supercharge-your-workflow/ (4 frames)
+============================================================
+
+[master 1327dd4] collect: Unreal Engine Black Eye Cameras: Crazy Millennium Falcon shot with only 7 keyframes
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/unreal-engine-black-eye-cameras-crazy-millennium-falcon-shot-with-only-7-keyfram.md
+[1/6] Fetching metadata...
+      Unreal Engine Black Eye Cameras: Crazy Millennium Falcon shot with only 7 keyframes
+      0 chapter(s), 2m24s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      70 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\unreal-engine-black-eye-cameras-crazy-millennium-falcon-shot-with-only-7-keyfram...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-black-eye-cameras-crazy-millennium-falcon-shot-with-only-7-keyfram.md
+  Frames:        tutorials/frames/unreal-engine-black-eye-cameras-crazy-millennium-falcon-shot-with-only-7-keyfram/ (4 frames)
+============================================================
+
+[master fe4139d] collect: Unreal Engine Black Eye Cameras: Version 1.1.1: Keyable Weights in Sequencer
+ 2 files changed, 87 insertions(+)
+ create mode 100644 tutorials/unreal-engine-black-eye-cameras-version-111-keyable-weights-in-sequencer.md
+[1/6] Fetching metadata...
+      Unreal Engine Black Eye Cameras: Version 1.1.1: Keyable Weights in Sequencer
+      5 chapter(s), 4m31s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      50 segments -> 5 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 5 frame(s) to tutorials\frames\unreal-engine-black-eye-cameras-version-111-keyable-weights-in-sequencer...
+      5 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-black-eye-cameras-version-111-keyable-weights-in-sequencer.md
+  Frames:        tutorials/frames/unreal-engine-black-eye-cameras-version-111-keyable-weights-in-sequencer/ (5 frames)
+============================================================
+
+[master 5e70dc0] collect: Unreal Engine Black Eye Cameras: Version 1.1 New Features: Cross Camera
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/unreal-engine-black-eye-cameras-version-11-new-features-cross-camera.md
+[1/6] Fetching metadata...
+      Unreal Engine Black Eye Cameras: Version 1.1 New Features: Cross Camera
+      0 chapter(s), 4m46s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      114 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\unreal-engine-black-eye-cameras-version-11-new-features-cross-camera...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-black-eye-cameras-version-11-new-features-cross-camera.md
+  Frames:        tutorials/frames/unreal-engine-black-eye-cameras-version-11-new-features-cross-camera/ (4 frames)
+============================================================
+
+[master 7e0c506] collect: Unreal Engine Black Eye Cameras: Version 1.1 New Features: Multi_Subject LookAt Weights
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/unreal-engine-black-eye-cameras-version-11-new-features-multi-subject-lookat-wei.md
+[1/6] Fetching metadata...
+      Unreal Engine Black Eye Cameras: Version 1.1 New Features: Multi_Subject LookAt Weights
+      0 chapter(s), 1m25s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      33 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\unreal-engine-black-eye-cameras-version-11-new-features-multi-subject-lookat-wei...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-black-eye-cameras-version-11-new-features-multi-subject-lookat-wei.md
+  Frames:        tutorials/frames/unreal-engine-black-eye-cameras-version-11-new-features-multi-subject-lookat-wei/ (4 frames)
+============================================================
+
+[master f4d3496] collect: Unreal Engine Black Eye Cameras: Bake down cam anims
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/unreal-engine-black-eye-cameras-bake-down-cam-anims.md
+[1/6] Fetching metadata...
+      Unreal Engine Black Eye Cameras: Bake down cam anims
+      0 chapter(s), 1m22s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      30 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\unreal-engine-black-eye-cameras-bake-down-cam-anims...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-black-eye-cameras-bake-down-cam-anims.md
+  Frames:        tutorials/frames/unreal-engine-black-eye-cameras-bake-down-cam-anims/ (4 frames)
+============================================================
+
+[master 729c5b6] collect: Unreal Engine Black Eye Cameras: Overview Tutorial
+ 2 files changed, 119 insertions(+)
+ create mode 100644 tutorials/unreal-engine-black-eye-cameras-overview-tutorial.md
+[1/6] Fetching metadata...
+      Unreal Engine Black Eye Cameras: Overview Tutorial
+      11 chapter(s), 20m10s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      254 segments -> 11 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 11 frame(s) to tutorials\frames\unreal-engine-black-eye-cameras-overview-tutorial...
+      11 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-black-eye-cameras-overview-tutorial.md
+  Frames:        tutorials/frames/unreal-engine-black-eye-cameras-overview-tutorial/ (11 frames)
+============================================================
+
+[master 541243f] collect: Unreal Engine Black Eye Cameras: Change Anims (the cameras are fine)
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/unreal-engine-black-eye-cameras-change-anims-the-cameras-are-fine.md
+[1/6] Fetching metadata...
+      Unreal Engine Black Eye Cameras: Change Anims (the cameras are fine)
+      0 chapter(s), 1m9s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      27 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\unreal-engine-black-eye-cameras-change-anims-the-cameras-are-fine...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-black-eye-cameras-change-anims-the-cameras-are-fine.md
+  Frames:        tutorials/frames/unreal-engine-black-eye-cameras-change-anims-the-cameras-are-fine/ (4 frames)
+============================================================
+
+[master 5b59c32] collect: Unreal Engine | Black Eye Cameras: Rapid shot prototyping
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/unreal-engine-black-eye-cameras-rapid-shot-prototyping.md
+[1/6] Fetching metadata...
+      Unreal Engine | Black Eye Cameras: Rapid shot prototyping
+      0 chapter(s), 2m17s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      64 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\unreal-engine-black-eye-cameras-rapid-shot-prototyping...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-black-eye-cameras-rapid-shot-prototyping.md
+  Frames:        tutorials/frames/unreal-engine-black-eye-cameras-rapid-shot-prototyping/ (4 frames)
+============================================================
+
+[master 969fbcc] collect: Unreal Engine Black Eye Cameras: Follow Component: Dwell Radius
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/unreal-engine-black-eye-cameras-follow-component-dwell-radius.md
+[1/6] Fetching metadata...
+      Unreal Engine Black Eye Cameras: Follow Component: Dwell Radius
+      0 chapter(s), 1m6s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      21 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\unreal-engine-black-eye-cameras-follow-component-dwell-radius...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-black-eye-cameras-follow-component-dwell-radius.md
+  Frames:        tutorials/frames/unreal-engine-black-eye-cameras-follow-component-dwell-radius/ (4 frames)
+============================================================
+
+[master 85f1c99] collect: Unreal Engine | Black Eye Cameras: 2 person combat side camera tutorial
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/unreal-engine-black-eye-cameras-2-person-combat-side-camera-tutorial.md
+[1/6] Fetching metadata...
+      Unreal Engine | Black Eye Cameras: 2 person combat side camera tutorial
+      0 chapter(s), 4m10s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      83 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\unreal-engine-black-eye-cameras-2-person-combat-side-camera-tutorial...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-black-eye-cameras-2-person-combat-side-camera-tutorial.md
+  Frames:        tutorials/frames/unreal-engine-black-eye-cameras-2-person-combat-side-camera-tutorial/ (4 frames)
+============================================================
+
+[master 0d84212] collect: Unreal Engine Black Eye Cameras: November release
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/unreal-engine-black-eye-cameras-november-release.md
+[1/6] Fetching metadata...
+      Unreal Engine Black Eye Cameras: November release
+      0 chapter(s), 1m7s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      4 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\unreal-engine-black-eye-cameras-november-release...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-black-eye-cameras-november-release.md
+  Frames:        tutorials/frames/unreal-engine-black-eye-cameras-november-release/ (4 frames)
+============================================================
+
+[master e80ea80] collect: Unreal Engine Black Eye Cameras: Multiple targets on a character
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/unreal-engine-black-eye-cameras-multiple-targets-on-a-character.md
+[1/6] Fetching metadata...
+      Unreal Engine Black Eye Cameras: Multiple targets on a character
+      0 chapter(s), 0m32s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      1 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\unreal-engine-black-eye-cameras-multiple-targets-on-a-character...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-black-eye-cameras-multiple-targets-on-a-character.md
+  Frames:        tutorials/frames/unreal-engine-black-eye-cameras-multiple-targets-on-a-character/ (4 frames)
+============================================================
+
+[master 2cc8f7b] collect: Unreal Engine Black Eye Cameras: Multiple follow and look at modules
+ 2 files changed, 67 insertions(+)
+ create mode 100644 tutorials/unreal-engine-black-eye-cameras-multiple-follow-and-look-at-modules.md
+[1/6] Fetching metadata...
+      Unreal Engine Black Eye Cameras: Multiple follow and look at modules
+      0 chapter(s), 1m44s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      0 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\unreal-engine-black-eye-cameras-multiple-follow-and-look-at-modules...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-black-eye-cameras-multiple-follow-and-look-at-modules.md
+  Frames:        tutorials/frames/unreal-engine-black-eye-cameras-multiple-follow-and-look-at-modules/ (4 frames)
+============================================================
+
+[master 65e810c] collect: NEW UE5 ASSET MANAGEMENT PLUGIN - NOW FREE ON FAB
+ 2 files changed, 129 insertions(+)
+ create mode 100644 tutorials/new-ue5-asset-management-plugin---now-free-on-fab.md
+[1/6] Fetching metadata...
+      NEW UE5 ASSET MANAGEMENT PLUGIN - NOW FREE ON FAB
+      13 chapter(s), 5m44s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      43 segments -> 13 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 13 frame(s) to tutorials\frames\new-ue5-asset-management-plugin---now-free-on-fab...
+      13 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/new-ue5-asset-management-plugin---now-free-on-fab.md
+  Frames:        tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/ (13 frames)
+============================================================
+
+[master 5b75e9a] collect: DASH 1.11 - UNREAL ENGINE WORLD BUILDING JUST GOT EASIER
+ 2 files changed, 94 insertions(+)
+ create mode 100644 tutorials/dash-111---unreal-engine-world-building-just-got-easier.md
+[1/6] Fetching metadata...
+      DASH 1.11 - UNREAL ENGINE WORLD BUILDING JUST GOT EASIER
+      6 chapter(s), 8m1s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      83 segments -> 6 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 6 frame(s) to tutorials\frames\dash-111---unreal-engine-world-building-just-got-easier...
+      6 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/dash-111---unreal-engine-world-building-just-got-easier.md
+  Frames:        tutorials/frames/dash-111---unreal-engine-world-building-just-got-easier/ (6 frames)
+============================================================
+
+[master d854896] collect: How to Create a Cinematic Archviz Render with UE5 & Dash
+ 2 files changed, 104 insertions(+)
+ create mode 100644 tutorials/how-to-create-a-cinematic-archviz-render-with-ue5-dash.md
+[1/6] Fetching metadata...
+      How to Create a Cinematic Archviz Render with UE5 & Dash
+      8 chapter(s), 13m17s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      116 segments -> 8 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 8 frame(s) to tutorials\frames\how-to-create-a-cinematic-archviz-render-with-ue5-dash...
+      8 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/how-to-create-a-cinematic-archviz-render-with-ue5-dash.md
+  Frames:        tutorials/frames/how-to-create-a-cinematic-archviz-render-with-ue5-dash/ (8 frames)
+============================================================
+
+[master 786a558] collect: DASH 1.10 - PROCEDURAL SCATTER PRESETS IN UE5
+ 2 files changed, 109 insertions(+)
+ create mode 100644 tutorials/dash-110---procedural-scatter-presets-in-ue5.md
+[1/6] Fetching metadata...
+      DASH 1.10 - PROCEDURAL SCATTER PRESETS IN UE5
+      9 chapter(s), 10m7s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      104 segments -> 9 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 9 frame(s) to tutorials\frames\dash-110---procedural-scatter-presets-in-ue5...
+      9 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/dash-110---procedural-scatter-presets-in-ue5.md
+  Frames:        tutorials/frames/dash-110---procedural-scatter-presets-in-ue5/ (9 frames)
+============================================================
+
+[master d17afae] collect: Creating a Massive Procedural Game World in UE5 with Dash
+ 2 files changed, 94 insertions(+)
+ create mode 100644 tutorials/creating-a-massive-procedural-game-world-in-ue5-with-dash.md
+[1/6] Fetching metadata...
+      Creating a Massive Procedural Game World in UE5 with Dash
+      6 chapter(s), 12m45s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      118 segments -> 6 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 6 frame(s) to tutorials\frames\creating-a-massive-procedural-game-world-in-ue5-with-dash...
+      6 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/creating-a-massive-procedural-game-world-in-ue5-with-dash.md
+  Frames:        tutorials/frames/creating-a-massive-procedural-game-world-in-ue5-with-dash/ (6 frames)
+============================================================
+
+[master 3f7e6c7] collect: DASH 1.9.3 - NEW UE5 ASSET MARKETPLACE
+ 2 files changed, 99 insertions(+)
+ create mode 100644 tutorials/dash-193---new-ue5-asset-marketplace.md
+[1/6] Fetching metadata...
+      DASH 1.9.3 - NEW UE5 ASSET MARKETPLACE
+      7 chapter(s), 8m19s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      62 segments -> 7 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 7 frame(s) to tutorials\frames\dash-193---new-ue5-asset-marketplace...
+      7 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/dash-193---new-ue5-asset-marketplace.md
+  Frames:        tutorials/frames/dash-193---new-ue5-asset-marketplace/ (7 frames)
+============================================================
+
+[master b35c71f] collect: UE5 WORLD BUILDING FOR BEGINNERS – FULL DASH DEMO LEVEL
+ 2 files changed, 159 insertions(+)
+ create mode 100644 tutorials/ue5-world-building-for-beginners-full-dash-demo-level.md
+[1/6] Fetching metadata...
+      UE5 WORLD BUILDING FOR BEGINNERS – FULL DASH DEMO LEVEL
+      19 chapter(s), 22m55s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      168 segments -> 19 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 19 frame(s) to tutorials\frames\ue5-world-building-for-beginners-full-dash-demo-level...
+      19 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/ue5-world-building-for-beginners-full-dash-demo-level.md
+  Frames:        tutorials/frames/ue5-world-building-for-beginners-full-dash-demo-level/ (19 frames)
+============================================================
+
+[master f6271b2] collect: DASH 1.9.2 - NEW UE5 TOOLS + AMAZON 3D LIBRARY INTEGRATION
+ 2 files changed, 104 insertions(+)
+ create mode 100644 tutorials/dash-192---new-ue5-tools-amazon-3d-library-integration.md
+[1/6] Fetching metadata...
+      DASH 1.9.2 - NEW UE5 TOOLS + AMAZON 3D LIBRARY INTEGRATION
+      8 chapter(s), 7m37s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      56 segments -> 8 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 8 frame(s) to tutorials\frames\dash-192---new-ue5-tools-amazon-3d-library-integration...
+      8 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/dash-192---new-ue5-tools-amazon-3d-library-integration.md
+  Frames:        tutorials/frames/dash-192---new-ue5-tools-amazon-3d-library-integration/ (8 frames)
+============================================================
+
+[master c6b4a70] collect: Unreal Engine 5.6 Physics Tools – Asset Placement & Piles Tutorial
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/unreal-engine-56-physics-tools-asset-placement-piles-tutorial.md
+[1/6] Fetching metadata...
+      Unreal Engine 5.6 Physics Tools – Asset Placement & Piles Tutorial
+      0 chapter(s), 6m59s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      82 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\unreal-engine-56-physics-tools-asset-placement-piles-tutorial...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-56-physics-tools-asset-placement-piles-tutorial.md
+  Frames:        tutorials/frames/unreal-engine-56-physics-tools-asset-placement-piles-tutorial/ (4 frames)
+============================================================
+
+[master 0981418] collect: PROCEDURAL WORLD BUILDING FOR UE5 - PCG ALTERNATIVE
+ 2 files changed, 114 insertions(+)
+ create mode 100644 tutorials/procedural-world-building-for-ue5---pcg-alternative.md
+[1/6] Fetching metadata...
+      PROCEDURAL WORLD BUILDING FOR UE5 - PCG ALTERNATIVE
+      10 chapter(s), 29m24s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      234 segments -> 10 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 10 frame(s) to tutorials\frames\procedural-world-building-for-ue5---pcg-alternative...
+      10 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/procedural-world-building-for-ue5---pcg-alternative.md
+  Frames:        tutorials/frames/procedural-world-building-for-ue5---pcg-alternative/ (10 frames)
+============================================================
+
+[master 2475064] collect: Unreal Engine & Dash Medieval Environment Tutorial
+ 2 files changed, 124 insertions(+)
+ create mode 100644 tutorials/unreal-engine-dash-medieval-environment-tutorial.md
+[1/6] Fetching metadata...
+      Unreal Engine & Dash Medieval Environment Tutorial
+      12 chapter(s), 11m49s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      94 segments -> 12 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 12 frame(s) to tutorials\frames\unreal-engine-dash-medieval-environment-tutorial...
+      12 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/unreal-engine-dash-medieval-environment-tutorial.md
+  Frames:        tutorials/frames/unreal-engine-dash-medieval-environment-tutorial/ (12 frames)
+============================================================
+
+[master cb5e7b8] collect: CENTRALIZED CONTENT BROWSER FOR UE5 - FREE PLUGIN
+ 2 files changed, 89 insertions(+)
+ create mode 100644 tutorials/centralized-content-browser-for-ue5---free-plugin.md
+[1/6] Fetching metadata...
+      CENTRALIZED CONTENT BROWSER FOR UE5 - FREE PLUGIN
+      5 chapter(s), 4m50s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      52 segments -> 5 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 5 frame(s) to tutorials\frames\centralized-content-browser-for-ue5---free-plugin...
+      5 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/centralized-content-browser-for-ue5---free-plugin.md
+  Frames:        tutorials/frames/centralized-content-browser-for-ue5---free-plugin/ (5 frames)
+============================================================
+
+[master 76373eb] collect: 2000 FREE HIGH-QUALITY ASSETS FOR ANY UNREAL ENGINE PROJECT
+ 2 files changed, 99 insertions(+)
+ create mode 100644 tutorials/2000-free-high-quality-assets-for-any-unreal-engine-project.md
+[1/6] Fetching metadata...
+      2000 FREE HIGH-QUALITY ASSETS FOR ANY UNREAL ENGINE PROJECT
+      7 chapter(s), 4m25s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      26 segments -> 7 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 7 frame(s) to tutorials\frames\2000-free-high-quality-assets-for-any-unreal-engine-project...
+      7 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/2000-free-high-quality-assets-for-any-unreal-engine-project.md
+  Frames:        tutorials/frames/2000-free-high-quality-assets-for-any-unreal-engine-project/ (7 frames)
+============================================================
+
+[master fc7ee32] collect: Auto-Tag & Sort 1000 UE5 Assets/Month with This FREE Content Browser
+ 2 files changed, 94 insertions(+)
+ create mode 100644 tutorials/auto-tag-sort-1000-ue5-assetsmonth-with-this-free-content-browser.md
+[1/6] Fetching metadata...
+      Auto-Tag & Sort 1000 UE5 Assets/Month with This FREE Content Browser
+      6 chapter(s), 2m41s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      24 segments -> 6 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 6 frame(s) to tutorials\frames\auto-tag-sort-1000-ue5-assetsmonth-with-this-free-content-browser...
+      6 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/auto-tag-sort-1000-ue5-assetsmonth-with-this-free-content-browser.md
+  Frames:        tutorials/frames/auto-tag-sort-1000-ue5-assetsmonth-with-this-free-content-browser/ (6 frames)
+============================================================
+
+[master 98dddc4] collect: BEST FREE UNREAL ENGINE 5 ASSET MANAGEMENT PLUGIN IN 2025
+ 2 files changed, 109 insertions(+)
+ create mode 100644 tutorials/best-free-unreal-engine-5-asset-management-plugin-in-2025.md
+[1/6] Fetching metadata...
+      BEST FREE UNREAL ENGINE 5 ASSET MANAGEMENT PLUGIN IN 2025
+      9 chapter(s), 8m20s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      117 segments -> 9 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 9 frame(s) to tutorials\frames\best-free-unreal-engine-5-asset-management-plugin-in-2025...
+      9 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/best-free-unreal-engine-5-asset-management-plugin-in-2025.md
+  Frames:        tutorials/frames/best-free-unreal-engine-5-asset-management-plugin-in-2025/ (9 frames)
+============================================================
+
+[master 964d5f5] collect: DASH 1.9 - MANAGING ASSETS IN UE5 JUST GOT A LOT EASIER
+ 2 files changed, 119 insertions(+)
+ create mode 100644 tutorials/dash-19---managing-assets-in-ue5-just-got-a-lot-easier.md
+[1/6] Fetching metadata...
+      DASH 1.9 - MANAGING ASSETS IN UE5 JUST GOT A LOT EASIER
+      11 chapter(s), 6m52s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      94 segments -> 11 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 11 frame(s) to tutorials\frames\dash-19---managing-assets-in-ue5-just-got-a-lot-easier...
+      11 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/dash-19---managing-assets-in-ue5-just-got-a-lot-easier.md
+  Frames:        tutorials/frames/dash-19---managing-assets-in-ue5-just-got-a-lot-easier/ (11 frames)
+============================================================
+
+[master 4ef36a9] collect: Working Fully Procedurally in Unreal Engine 5 - Custom Asset Tutorial
+ 2 files changed, 109 insertions(+)
+ create mode 100644 tutorials/working-fully-procedurally-in-unreal-engine-5---custom-asset-tutorial.md
+[1/6] Fetching metadata...
+      Working Fully Procedurally in Unreal Engine 5 - Custom Asset Tutorial
+      9 chapter(s), 6m7s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      61 segments -> 9 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 9 frame(s) to tutorials\frames\working-fully-procedurally-in-unreal-engine-5---custom-asset-tutorial...
+      9 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/working-fully-procedurally-in-unreal-engine-5---custom-asset-tutorial.md
+  Frames:        tutorials/frames/working-fully-procedurally-in-unreal-engine-5---custom-asset-tutorial/ (9 frames)
+============================================================
+
+[master fc7e6c9] collect: DASH 1.8.5 - BIG UPDATE FOR UE5 WORLD BUILDING
+ 2 files changed, 109 insertions(+)
+ create mode 100644 tutorials/dash-185---big-update-for-ue5-world-building.md
+[1/6] Fetching metadata...
+      DASH 1.8.5 - BIG UPDATE FOR UE5 WORLD BUILDING
+      9 chapter(s), 8m6s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      80 segments -> 9 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 9 frame(s) to tutorials\frames\dash-185---big-update-for-ue5-world-building...
+      9 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/dash-185---big-update-for-ue5-world-building.md
+  Frames:        tutorials/frames/dash-185---big-update-for-ue5-world-building/ (9 frames)
+============================================================
+
+[master 53370d8] collect: How to Create Vines Procedurally in Unreal Engine 5
+ 2 files changed, 104 insertions(+)
+ create mode 100644 tutorials/how-to-create-vines-procedurally-in-unreal-engine-5.md
+[1/6] Fetching metadata...
+      How to Create Vines Procedurally in Unreal Engine 5
+      8 chapter(s), 4m22s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      46 segments -> 8 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 8 frame(s) to tutorials\frames\how-to-create-vines-procedurally-in-unreal-engine-5...
+      8 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/how-to-create-vines-procedurally-in-unreal-engine-5.md
+  Frames:        tutorials/frames/how-to-create-vines-procedurally-in-unreal-engine-5/ (8 frames)
+============================================================
+
+[master 32307e6] collect: Creating a Blend Material in Unreal Engine 5 Just Got Easier
+ 2 files changed, 109 insertions(+)
+ create mode 100644 tutorials/creating-a-blend-material-in-unreal-engine-5-just-got-easier.md
+[1/6] Fetching metadata...
+      Creating a Blend Material in Unreal Engine 5 Just Got Easier
+      9 chapter(s), 8m54s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      67 segments -> 9 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 9 frame(s) to tutorials\frames\creating-a-blend-material-in-unreal-engine-5-just-got-easier...
+      9 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/creating-a-blend-material-in-unreal-engine-5-just-got-easier.md
+  Frames:        tutorials/frames/creating-a-blend-material-in-unreal-engine-5-just-got-easier/ (9 frames)
+============================================================
+
+[master 7f299a2] collect: GETTING STARTED WITH DASH - EASY WORLD BUILDING IN UE5
+ 2 files changed, 159 insertions(+)
+ create mode 100644 tutorials/getting-started-with-dash---easy-world-building-in-ue5.md
+[1/6] Fetching metadata...
+      GETTING STARTED WITH DASH - EASY WORLD BUILDING IN UE5
+      19 chapter(s), 23m24s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      214 segments -> 19 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 19 frame(s) to tutorials\frames\getting-started-with-dash---easy-world-building-in-ue5...
+      19 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/getting-started-with-dash---easy-world-building-in-ue5.md
+  Frames:        tutorials/frames/getting-started-with-dash---easy-world-building-in-ue5/ (19 frames)
+============================================================
+
+[master a32c5ba] collect: Making Asset Importing Easy in UE5 - Dash Content Browser
+ 2 files changed, 99 insertions(+)
+ create mode 100644 tutorials/making-asset-importing-easy-in-ue5---dash-content-browser.md
+[1/6] Fetching metadata...
+      Making Asset Importing Easy in UE5 - Dash Content Browser
+      7 chapter(s), 2m52s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      38 segments -> 7 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 7 frame(s) to tutorials\frames\making-asset-importing-easy-in-ue5---dash-content-browser...
+      7 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/making-asset-importing-easy-in-ue5---dash-content-browser.md
+  Frames:        tutorials/frames/making-asset-importing-easy-in-ue5---dash-content-browser/ (7 frames)
+============================================================
+
+[master bbb0717] collect: DASH 1.7.0 - MASSIVE UE5 WORLD BUILDING TOOL
+ 2 files changed, 149 insertions(+)
+ create mode 100644 tutorials/dash-170---massive-ue5-world-building-tool.md
+[1/6] Fetching metadata...
+      DASH 1.7.0 - MASSIVE UE5 WORLD BUILDING TOOL
+      17 chapter(s), 5m41s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      60 segments -> 17 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 17 frame(s) to tutorials\frames\dash-170---massive-ue5-world-building-tool...
+      17 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/dash-170---massive-ue5-world-building-tool.md
+  Frames:        tutorials/frames/dash-170---massive-ue5-world-building-tool/ (17 frames)
+============================================================
+
+[master 4f11ac5] collect: Creating a Helldivers 2 Environment in 79 minutes - UE5 Tutorial
+ 2 files changed, 174 insertions(+)
+ create mode 100644 tutorials/creating-a-helldivers-2-environment-in-79-minutes---ue5-tutorial.md
+[1/6] Fetching metadata...
+      Creating a Helldivers 2 Environment in 79 minutes - UE5 Tutorial
+      22 chapter(s), 80m12s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      340 segments -> 22 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 22 frame(s) to tutorials\frames\creating-a-helldivers-2-environment-in-79-minutes---ue5-tutorial...
+      22 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/creating-a-helldivers-2-environment-in-79-minutes---ue5-tutorial.md
+  Frames:        tutorials/frames/creating-a-helldivers-2-environment-in-79-minutes---ue5-tutorial/ (22 frames)
+============================================================
+
+[master db070e0] collect: Recreating a Helldivers 2 Game Environment in UE5 with Dash
+ 2 files changed, 149 insertions(+)
+ create mode 100644 tutorials/recreating-a-helldivers-2-game-environment-in-ue5-with-dash.md
+[1/6] Fetching metadata...
+      Recreating a Helldivers 2 Game Environment in UE5 with Dash
+      17 chapter(s), 22m56s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      250 segments -> 17 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 17 frame(s) to tutorials\frames\recreating-a-helldivers-2-game-environment-in-ue5-with-dash...
+      17 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/recreating-a-helldivers-2-game-environment-in-ue5-with-dash.md
+  Frames:        tutorials/frames/recreating-a-helldivers-2-game-environment-in-ue5-with-dash/ (17 frames)
+============================================================
+
+[master 6f205eb] collect: How to create a training environment in Unreal Engine 5 - Dash Workflow
+ 2 files changed, 114 insertions(+)
+ create mode 100644 tutorials/how-to-create-a-training-environment-in-unreal-engine-5---dash-workflow.md
+[1/6] Fetching metadata...
+      How to create a training environment in Unreal Engine 5 - Dash Workflow
+      10 chapter(s), 14m1s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      147 segments -> 10 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 10 frame(s) to tutorials\frames\how-to-create-a-training-environment-in-unreal-engine-5---dash-workflow...
+      10 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/how-to-create-a-training-environment-in-unreal-engine-5---dash-workflow.md
+  Frames:        tutorials/frames/how-to-create-a-training-environment-in-unreal-engine-5---dash-workflow/ (10 frames)
+============================================================
+
+[master eaac38c] collect: How to Re-Create The Walking Dead in Unreal Engine 5 - Dash Workflow
+ 2 files changed, 104 insertions(+)
+ create mode 100644 tutorials/how-to-re-create-the-walking-dead-in-unreal-engine-5---dash-workflow.md
+[1/6] Fetching metadata...
+      How to Re-Create The Walking Dead in Unreal Engine 5 - Dash Workflow
+      8 chapter(s), 8m26s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      125 segments -> 8 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 8 frame(s) to tutorials\frames\how-to-re-create-the-walking-dead-in-unreal-engine-5---dash-workflow...
+      8 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/how-to-re-create-the-walking-dead-in-unreal-engine-5---dash-workflow.md
+  Frames:        tutorials/frames/how-to-re-create-the-walking-dead-in-unreal-engine-5---dash-workflow/ (8 frames)
+============================================================
+
+[master 6de438d] collect: Architecture Scenes Made Easy in Unreal Engine 5 - Dash Tutorial
+ 2 files changed, 149 insertions(+)
+ create mode 100644 tutorials/architecture-scenes-made-easy-in-unreal-engine-5---dash-tutorial.md
+[1/6] Fetching metadata...
+      Architecture Scenes Made Easy in Unreal Engine 5 - Dash Tutorial
+      17 chapter(s), 17m48s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      161 segments -> 17 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 17 frame(s) to tutorials\frames\architecture-scenes-made-easy-in-unreal-engine-5---dash-tutorial...
+      17 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/architecture-scenes-made-easy-in-unreal-engine-5---dash-tutorial.md
+  Frames:        tutorials/frames/architecture-scenes-made-easy-in-unreal-engine-5---dash-tutorial/ (17 frames)
+============================================================
+
+[master 8a8f63b] collect: No Nodes Procedural Environment in Unreal Engine 5 - Dash Tutorial
+ 2 files changed, 119 insertions(+)
+ create mode 100644 tutorials/no-nodes-procedural-environment-in-unreal-engine-5---dash-tutorial.md
+[1/6] Fetching metadata...
+      No Nodes Procedural Environment in Unreal Engine 5 - Dash Tutorial
+      11 chapter(s), 8m24s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      92 segments -> 11 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 11 frame(s) to tutorials\frames\no-nodes-procedural-environment-in-unreal-engine-5---dash-tutorial...
+      11 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/no-nodes-procedural-environment-in-unreal-engine-5---dash-tutorial.md
+  Frames:        tutorials/frames/no-nodes-procedural-environment-in-unreal-engine-5---dash-tutorial/ (11 frames)
+============================================================
+
+[master 8b6a948] collect: Dash 1.6.0 Release - Improved Content Library and AI Asset Tagging!
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/dash-160-release---improved-content-library-and-ai-asset-tagging.md
+[1/6] Fetching metadata...
+      Dash 1.6.0 Release - Improved Content Library and AI Asset Tagging!
+      0 chapter(s), 2m20s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      1 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\dash-160-release---improved-content-library-and-ai-asset-tagging...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/dash-160-release---improved-content-library-and-ai-asset-tagging.md
+  Frames:        tutorials/frames/dash-160-release---improved-content-library-and-ai-asset-tagging/ (4 frames)
+============================================================
+
+[master 00eb1bb] collect: This Plugin Makes Unreal Engine 5 Even More Amazing - Dash for World Building
+ 2 files changed, 109 insertions(+)
+ create mode 100644 tutorials/this-plugin-makes-unreal-engine-5-even-more-amazing---dash-for-world-building.md
+[1/6] Fetching metadata...
+      This Plugin Makes Unreal Engine 5 Even More Amazing - Dash for World Building
+      9 chapter(s), 6m36s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      95 segments -> 9 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 9 frame(s) to tutorials\frames\this-plugin-makes-unreal-engine-5-even-more-amazing---dash-for-world-building...
+      9 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/this-plugin-makes-unreal-engine-5-even-more-amazing---dash-for-world-building.md
+  Frames:        tutorials/frames/this-plugin-makes-unreal-engine-5-even-more-amazing---dash-for-world-building/ (9 frames)
+============================================================
+
+[master f524f9f] collect: Realistic Architecture Environment in UE5 - Dash Workflow
+ 2 files changed, 144 insertions(+)
+ create mode 100644 tutorials/realistic-architecture-environment-in-ue5---dash-workflow.md
+[1/6] Fetching metadata...
+      Realistic Architecture Environment in UE5 - Dash Workflow
+      16 chapter(s), 15m26s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      110 segments -> 16 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 16 frame(s) to tutorials\frames\realistic-architecture-environment-in-ue5---dash-workflow...
+      16 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/realistic-architecture-environment-in-ue5---dash-workflow.md
+  Frames:        tutorials/frames/realistic-architecture-environment-in-ue5---dash-workflow/ (16 frames)
+============================================================
+
+[master 0c394b8] collect: How to Scatter Decals in UE5 - World Building Plugin
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/how-to-scatter-decals-in-ue5---world-building-plugin.md
+[1/6] Fetching metadata...
+      How to Scatter Decals in UE5 - World Building Plugin
+      0 chapter(s), 5m1s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      44 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\how-to-scatter-decals-in-ue5---world-building-plugin...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/how-to-scatter-decals-in-ue5---world-building-plugin.md
+  Frames:        tutorials/frames/how-to-scatter-decals-in-ue5---world-building-plugin/ (4 frames)
+============================================================
+
+[master 2ebbfdc] collect: How to Create Procedural Cables in UE5 - World Building Plugin
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/how-to-create-procedural-cables-in-ue5---world-building-plugin.md
+[1/6] Fetching metadata...
+      How to Create Procedural Cables in UE5 - World Building Plugin
+      0 chapter(s), 5m49s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      75 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\how-to-create-procedural-cables-in-ue5---world-building-plugin...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/how-to-create-procedural-cables-in-ue5---world-building-plugin.md
+  Frames:        tutorials/frames/how-to-create-procedural-cables-in-ue5---world-building-plugin/ (4 frames)
+============================================================
+
+[master b65cd46] collect: Dash for UE5 Helps You Organize Your Local 3D Assets with AI Tagging
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/dash-for-ue5-helps-you-organize-your-local-3d-assets-with-ai-tagging.md
+[1/6] Fetching metadata...
+      Dash for UE5 Helps You Organize Your Local 3D Assets with AI Tagging
+      0 chapter(s), 3m20s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      47 segments -> 1 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\dash-for-ue5-helps-you-organize-your-local-3d-assets-with-ai-tagging...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/dash-for-ue5-helps-you-organize-your-local-3d-assets-with-ai-tagging.md
+  Frames:        tutorials/frames/dash-for-ue5-helps-you-organize-your-local-3d-assets-with-ai-tagging/ (4 frames)
+============================================================
+
+[master 4e66be1] collect: How to Edit Megascans and Poly Haven Materials Easily - UE5 Plugin
+ 2 files changed, 109 insertions(+)
+ create mode 100644 tutorials/how-to-edit-megascans-and-poly-haven-materials-easily---ue5-plugin.md
+[1/6] Fetching metadata...
+      How to Edit Megascans and Poly Haven Materials Easily - UE5 Plugin
+      9 chapter(s), 7m6s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      64 segments -> 9 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 9 frame(s) to tutorials\frames\how-to-edit-megascans-and-poly-haven-materials-easily---ue5-plugin...
+      9 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/how-to-edit-megascans-and-poly-haven-materials-easily---ue5-plugin.md
+  Frames:        tutorials/frames/how-to-edit-megascans-and-poly-haven-materials-easily---ue5-plugin/ (9 frames)
+============================================================
+
+[master 5607957] collect: What's new in Dash 1.5 - AI Content Tagging, Tool Presets, & More!
+ 2 files changed, 86 insertions(+)
+ create mode 100644 tutorials/whats-new-in-dash-15---ai-content-tagging-tool-presets-more.md
+[1/6] Fetching metadata...
+      What's new in Dash 1.5 - AI Content Tagging, Tool Presets, & More!
+      6 chapter(s), 2m12s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      15 segments -> 6 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 6 frame(s) to tutorials\frames\whats-new-in-dash-15---ai-content-tagging-tool-presets-more...
+      6 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/whats-new-in-dash-15---ai-content-tagging-tool-presets-more.md
+  Frames:        tutorials/frames/whats-new-in-dash-15---ai-content-tagging-tool-presets-more/ (6 frames)
+============================================================
+
+[master b7f9b6c] collect: New UE5 Plugin - Adding Detail to Your Game with DASH
+ 2 files changed, 114 insertions(+)
+ create mode 100644 tutorials/new-ue5-plugin---adding-detail-to-your-game-with-dash.md
+[1/6] Fetching metadata...
+      New UE5 Plugin - Adding Detail to Your Game with DASH
+      10 chapter(s), 8m58s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      125 segments -> 10 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 10 frame(s) to tutorials\frames\new-ue5-plugin---adding-detail-to-your-game-with-dash...
+      10 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/new-ue5-plugin---adding-detail-to-your-game-with-dash.md
+  Frames:        tutorials/frames/new-ue5-plugin---adding-detail-to-your-game-with-dash/ (10 frames)
+============================================================
+
+[master 1920deb] collect: Path Scatter: Beginner Guide to Your UE5 Co-Pilot, DASH
+ 2 files changed, 79 insertions(+)
+ create mode 100644 tutorials/path-scatter-beginner-guide-to-your-ue5-co-pilot-dash.md
+[1/6] Fetching metadata...
+      Path Scatter: Beginner Guide to Your UE5 Co-Pilot, DASH
+      3 chapter(s), 11m2s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      126 segments -> 3 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 3 frame(s) to tutorials\frames\path-scatter-beginner-guide-to-your-ue5-co-pilot-dash...
+      3 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/path-scatter-beginner-guide-to-your-ue5-co-pilot-dash.md
+  Frames:        tutorials/frames/path-scatter-beginner-guide-to-your-ue5-co-pilot-dash/ (3 frames)
+============================================================
+
+[master b6b0390] collect: Speed Up Your Archviz Workflow with Dash in UE5
+ 2 files changed, 144 insertions(+)
+ create mode 100644 tutorials/speed-up-your-archviz-workflow-with-dash-in-ue5.md
+[1/6] Fetching metadata...
+      Speed Up Your Archviz Workflow with Dash in UE5
+      16 chapter(s), 14m47s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      104 segments -> 16 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 16 frame(s) to tutorials\frames\speed-up-your-archviz-workflow-with-dash-in-ue5...
+      16 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/speed-up-your-archviz-workflow-with-dash-in-ue5.md
+  Frames:        tutorials/frames/speed-up-your-archviz-workflow-with-dash-in-ue5/ (16 frames)
+============================================================
+
+[master 60578da] collect: Surface Scatter: Beginner Guide to Your UE5 Co-Pilot, DASH
+ 2 files changed, 99 insertions(+)
+ create mode 100644 tutorials/surface-scatter-beginner-guide-to-your-ue5-co-pilot-dash.md
+[1/6] Fetching metadata...
+      Surface Scatter: Beginner Guide to Your UE5 Co-Pilot, DASH
+      7 chapter(s), 8m55s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      128 segments -> 7 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 7 frame(s) to tutorials\frames\surface-scatter-beginner-guide-to-your-ue5-co-pilot-dash...
+      7 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/surface-scatter-beginner-guide-to-your-ue5-co-pilot-dash.md
+  Frames:        tutorials/frames/surface-scatter-beginner-guide-to-your-ue5-co-pilot-dash/ (7 frames)
+============================================================
+
+[master 8753c30] collect: Beginner Guide to UE5 Co-Pilot DASH Camera Settings
+ 2 files changed, 69 insertions(+)
+ create mode 100644 tutorials/beginner-guide-to-ue5-co-pilot-dash-camera-settings.md
+[1/6] Fetching metadata...
+      Beginner Guide to UE5 Co-Pilot DASH Camera Settings
+      15 chapter(s), 3m54s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      Whisper failed (Command '['C:\\Python314\\python.exe', '-m', 'yt_dlp', '-x', '--audio-format', 'mp3', '--audio-quality', '0', '--no-playlist', '-o', 'C:\\Users\\KABUM\\AppData\\Local\\Temp\\tmpiaac29rc\\audio.%(ext)s', 'https://www.youtube.com/watch?v=00kSXM3b788']' returned non-zero exit status 1.), using yt-dlp captions
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 15 frame(s) to tutorials\frames\beginner-guide-to-ue5-co-pilot-dash-camera-settings...
+      15 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/beginner-guide-to-ue5-co-pilot-dash-camera-settings.md
+  Frames:        tutorials/frames/beginner-guide-to-ue5-co-pilot-dash-camera-settings/ (15 frames)
+============================================================
+
+[master 4395e95] collect: Create Realistic Scatter Using Merge Actors with Dash
+ 2 files changed, 94 insertions(+)
+ create mode 100644 tutorials/create-realistic-scatter-using-merge-actors-with-dash.md
+[1/6] Fetching metadata...
+      Create Realistic Scatter Using Merge Actors with Dash
+      6 chapter(s), 6m31s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      89 segments -> 6 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 6 frame(s) to tutorials\frames\create-realistic-scatter-using-merge-actors-with-dash...
+      6 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/create-realistic-scatter-using-merge-actors-with-dash.md
+  Frames:        tutorials/frames/create-realistic-scatter-using-merge-actors-with-dash/ (6 frames)
+============================================================
+
+[master d011841] collect: Beginner Guide to Road Tool in UE5 Co-Pilot DASH
+ 2 files changed, 84 insertions(+)
+ create mode 100644 tutorials/beginner-guide-to-road-tool-in-ue5-co-pilot-dash.md
+[1/6] Fetching metadata...
+      Beginner Guide to Road Tool in UE5 Co-Pilot DASH
+      4 chapter(s), 3m45s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      37 segments -> 4 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\beginner-guide-to-road-tool-in-ue5-co-pilot-dash...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/beginner-guide-to-road-tool-in-ue5-co-pilot-dash.md
+  Frames:        tutorials/frames/beginner-guide-to-road-tool-in-ue5-co-pilot-dash/ (4 frames)
+============================================================
+
+[master 6e5f468] collect: New UE5 Plugin - Easy Environment Creation
+ 2 files changed, 119 insertions(+)
+ create mode 100644 tutorials/new-ue5-plugin---easy-environment-creation.md
+[1/6] Fetching metadata...
+      New UE5 Plugin - Easy Environment Creation
+      11 chapter(s), 7m35s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      105 segments -> 11 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 11 frame(s) to tutorials\frames\new-ue5-plugin---easy-environment-creation...
+      11 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/new-ue5-plugin---easy-environment-creation.md
+  Frames:        tutorials/frames/new-ue5-plugin---easy-environment-creation/ (11 frames)
+============================================================
+
+[master ee7fd7f] collect: Beginner Content Library Tutorial for UE5
+ 2 files changed, 94 insertions(+)
+ create mode 100644 tutorials/beginner-content-library-tutorial-for-ue5.md
+[1/6] Fetching metadata...
+      Beginner Content Library Tutorial for UE5
+      6 chapter(s), 2m37s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      38 segments -> 6 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 6 frame(s) to tutorials\frames\beginner-content-library-tutorial-for-ue5...
+      6 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/beginner-content-library-tutorial-for-ue5.md
+  Frames:        tutorials/frames/beginner-content-library-tutorial-for-ue5/ (6 frames)
+============================================================
+
+[master 9d2233d] collect: Beginner Terrain Tool Tutorial for UE5
+ 2 files changed, 102 insertions(+)
+ create mode 100644 tutorials/beginner-terrain-tool-tutorial-for-ue5.md
+[1/6] Fetching metadata...
+      Beginner Terrain Tool Tutorial for UE5
+      8 chapter(s), 2m23s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      26 segments -> 8 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 8 frame(s) to tutorials\frames\beginner-terrain-tool-tutorial-for-ue5...
+      8 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/beginner-terrain-tool-tutorial-for-ue5.md
+  Frames:        tutorials/frames/beginner-terrain-tool-tutorial-for-ue5/ (8 frames)
+============================================================
+
+[master 4e83742] collect: Beginner Water Tool Tutorial for UE5
+ 2 files changed, 79 insertions(+)
+ create mode 100644 tutorials/beginner-water-tool-tutorial-for-ue5.md
+[1/6] Fetching metadata...
+      Beginner Water Tool Tutorial for UE5
+      3 chapter(s), 1m49s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      25 segments -> 3 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 3 frame(s) to tutorials\frames\beginner-water-tool-tutorial-for-ue5...
+      3 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/beginner-water-tool-tutorial-for-ue5.md
+  Frames:        tutorials/frames/beginner-water-tool-tutorial-for-ue5/ (3 frames)
+============================================================
+
+[master a8a3d26] collect: Quick Environment Creation w/ Unreal Engine 5
+ 2 files changed, 104 insertions(+)
+ create mode 100644 tutorials/quick-environment-creation-w-unreal-engine-5.md
+[1/6] Fetching metadata...
+      Quick Environment Creation w/ Unreal Engine 5
+      8 chapter(s), 8m48s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      120 segments -> 8 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 8 frame(s) to tutorials\frames\quick-environment-creation-w-unreal-engine-5...
+      8 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/quick-environment-creation-w-unreal-engine-5.md
+  Frames:        tutorials/frames/quick-environment-creation-w-unreal-engine-5/ (8 frames)
+============================================================
+
+[master 13931fe] collect: Environment Breakdown: Underground Horror in UE5
+ 2 files changed, 109 insertions(+)
+ create mode 100644 tutorials/environment-breakdown-underground-horror-in-ue5.md
+[1/6] Fetching metadata...
+      Environment Breakdown: Underground Horror in UE5
+      9 chapter(s), 8m33s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      118 segments -> 9 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 9 frame(s) to tutorials\frames\environment-breakdown-underground-horror-in-ue5...
+      9 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/environment-breakdown-underground-horror-in-ue5.md
+  Frames:        tutorials/frames/environment-breakdown-underground-horror-in-ue5/ (9 frames)
+============================================================
+
+[master 1aa3011] collect: Tutorial: Create Subtle Realistic Environments in UE5
+ 2 files changed, 104 insertions(+)
+ create mode 100644 tutorials/tutorial-create-subtle-realistic-environments-in-ue5.md
+[1/6] Fetching metadata...
+      Tutorial: Create Subtle Realistic Environments in UE5
+      8 chapter(s), 9m50s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      139 segments -> 8 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 8 frame(s) to tutorials\frames\tutorial-create-subtle-realistic-environments-in-ue5...
+      8 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/tutorial-create-subtle-realistic-environments-in-ue5.md
+  Frames:        tutorials/frames/tutorial-create-subtle-realistic-environments-in-ue5/ (8 frames)
+============================================================
+
+[master a4d0f8c] collect: Create Run-down Environments in Minutes - Dash & UE5
+ 2 files changed, 89 insertions(+)
+ create mode 100644 tutorials/create-run-down-environments-in-minutes---dash-ue5.md
+[1/6] Fetching metadata...
+      Create Run-down Environments in Minutes - Dash & UE5
+      5 chapter(s), 6m12s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      87 segments -> 5 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 5 frame(s) to tutorials\frames\create-run-down-environments-in-minutes---dash-ue5...
+      5 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/create-run-down-environments-in-minutes---dash-ue5.md
+  Frames:        tutorials/frames/create-run-down-environments-in-minutes---dash-ue5/ (5 frames)
+============================================================
+
+[master 6969161] collect: Simplify Environment Art Creation In Unreal Engine 5
+ 2 files changed, 84 insertions(+)
+ create mode 100644 tutorials/simplify-environment-art-creation-in-unreal-engine-5.md
+[1/6] Fetching metadata...
+      Simplify Environment Art Creation In Unreal Engine 5
+      4 chapter(s), 5m49s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      85 segments -> 4 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 4 frame(s) to tutorials\frames\simplify-environment-art-creation-in-unreal-engine-5...
+      4 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/simplify-environment-art-creation-in-unreal-engine-5.md
+  Frames:        tutorials/frames/simplify-environment-art-creation-in-unreal-engine-5/ (4 frames)
+============================================================
+
+[master b285635] collect: New Physics Tool for Unreal Engine 5
+ 2 files changed, 94 insertions(+)
+ create mode 100644 tutorials/new-physics-tool-for-unreal-engine-5.md
+[1/6] Fetching metadata...
+      New Physics Tool for Unreal Engine 5
+      6 chapter(s), 5m40s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      85 segments -> 6 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 6 frame(s) to tutorials\frames\new-physics-tool-for-unreal-engine-5...
+      6 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/new-physics-tool-for-unreal-engine-5.md
+  Frames:        tutorials/frames/new-physics-tool-for-unreal-engine-5/ (6 frames)
+============================================================
+
+[master 54cd5b7] collect: Introducing Dash for Unreal Engine 5
+ 2 files changed, 109 insertions(+)
+ create mode 100644 tutorials/introducing-dash-for-unreal-engine-5.md
+[1/6] Fetching metadata...
+      Introducing Dash for Unreal Engine 5
+      9 chapter(s), 12m1s
+[2/6] Downloading audio + transcribing with Whisper (base)...
+      167 segments -> 9 sections
+[3/6] Downloading video (lowest quality)...
+[4/6] Extracting 9 frame(s) to tutorials\frames\introducing-dash-for-unreal-engine-5...
+      9 frame(s) saved
+[5/6] Writing raw tutorial file...
+[6/6] Committing raw data to GitHub...
+
+============================================================
+  Collection complete. Claude Code: run extraction now.
+  Tutorial file: tutorials/introducing-dash-for-unreal-engine-5.md
+  Frames:        tutorials/frames/introducing-dash-for-unreal-engine-5/ (9 frames)
+============================================================
+
+Batch ingest: 120 videos total, 0 already done
+
+[1/120] [boundless] 3D Tracking Natively in Unreal Engine - FULL TUTORIAL
+
+============================================================
+Ingesting: 3D Tracking Natively in Unreal Engine - FULL TUTORIAL
+URL: https://www.youtube.com/watch?v=z9t4XIoNsHY
+Time: 10:15:17
+============================================================
+
+[2/120] [boundless] I BUILT The Camera Tracking Tool I Always Wished Unreal Had
+
+============================================================
+Ingesting: I BUILT The Camera Tracking Tool I Always Wished Unreal Had
+URL: https://www.youtube.com/watch?v=uMJXtDJf6VQ
+Time: 10:16:28
+============================================================
+
+[3/120] [boundless] Unreal Engine's Secret Weapon for Cinematic Lighting
+
+============================================================
+Ingesting: Unreal Engine's Secret Weapon for Cinematic Lighting
+URL: https://www.youtube.com/watch?v=Zy5A6bDz9xw
+Time: 10:17:36
+============================================================
+
+[4/120] [boundless] The Simplest Rendering Trick 90% of Unreal Artists Miss
+
+============================================================
+Ingesting: The Simplest Rendering Trick 90% of Unreal Artists Miss
+URL: https://www.youtube.com/watch?v=YqPy2yM7X-s
+Time: 10:18:52
+============================================================
+
+[5/120] [boundless] The Ultimate Plugin for Filmmaking in Unreal Engine
+
+============================================================
+Ingesting: The Ultimate Plugin for Filmmaking in Unreal Engine
+URL: https://www.youtube.com/watch?v=dF_W-9OBjus
+Time: 10:19:32
+============================================================
+
+[6/120] [boundless] How to Render Chaos Cloth Simulations with Motion Blur [The RIGHT Way]
+
+============================================================
+Ingesting: How to Render Chaos Cloth Simulations with Motion Blur [The RIGHT Way]
+URL: https://www.youtube.com/watch?v=f4izPHpbfZI
+Time: 10:20:29
+============================================================
+
+[7/120] [boundless] 5 VFX Techniques You've Been Taught that are Actually Wrong
+
+============================================================
+Ingesting: 5 VFX Techniques You've Been Taught that are Actually Wrong
+URL: https://www.youtube.com/watch?v=rUZxS3IwZhQ
+Time: 10:22:05
+============================================================
+
+[8/120] [boundless] Unlock Thousands of Free Assets in Unreal Engine
+
+============================================================
+Ingesting: Unlock Thousands of Free Assets in Unreal Engine
+URL: https://www.youtube.com/watch?v=YhJGuB5fCfU
+Time: 10:23:09
+============================================================
+
+[9/120] [boundless] No Cost Virtual Production is Here - And it's Changing Filmmaking
+
+============================================================
+Ingesting: No Cost Virtual Production is Here - And it's Changing Filmmaking
+URL: https://www.youtube.com/watch?v=j3Kq0TIR2SI
+Time: 10:23:55
+============================================================
+
+[10/120] [boundless] These Simple Mistakes are RUINING your VFX
+
+============================================================
+Ingesting: These Simple Mistakes are RUINING your VFX
+URL: https://www.youtube.com/watch?v=oGZJ4PcKqBE
+Time: 10:25:02
+============================================================
+
+[11/120] [boundless] The 5 Secrets to Hollywood-Level Visual Effects With No Budget
+
+============================================================
+Ingesting: The 5 Secrets to Hollywood-Level Visual Effects With No Budget
+URL: https://www.youtube.com/watch?v=oSux_qv3dzs
+Time: 10:25:57
+============================================================
+
+[12/120] [boundless] Unreal Engine 5.4 Cinematic PREVIS Course
+
+============================================================
+Ingesting: Unreal Engine 5.4 Cinematic PREVIS Course
+URL: https://www.youtube.com/watch?v=BW0oesmih9I
+Time: 10:27:16
+============================================================
+
+[13/120] [boundless] How Unreal Engine is Changing Filmmaking Forever
+
+============================================================
+Ingesting: How Unreal Engine is Changing Filmmaking Forever
+URL: https://www.youtube.com/watch?v=SstexNmLc68
+Time: 10:27:48
+============================================================
+
+[14/120] [boundless] BEST SETTINGS for Unreal Engine 5.6 - PERFECT Renders Every Time
+
+============================================================
+Ingesting: BEST SETTINGS for Unreal Engine 5.6 - PERFECT Renders Every Time
+URL: https://www.youtube.com/watch?v=dZmnDDSNUEY
+Time: 10:28:59
+============================================================
+
+[15/120] [boundless] How to Make Your Unreal Engine Renders Look REAL
+
+============================================================
+Ingesting: How to Make Your Unreal Engine Renders Look REAL
+URL: https://www.youtube.com/watch?v=o5ZInDwU73I
+Time: 10:31:09
+============================================================
+
+[16/120] [boundless] FASTEST Way to Optimize Unreal Engine 5.6 for Cinematic Renders - Path Tracer Pro
+
+============================================================
+Ingesting: FASTEST Way to Optimize Unreal Engine 5.6 for Cinematic Renders - Path Tracer Pro
+URL: https://www.youtube.com/watch?v=BCWThDhzImI
+Time: 10:33:52
+============================================================
+
+[17/120] [boundless] Unreal Engine 5.7 Filmmaking Course - Unreal Engine for Filmmakers (2026 UPDATE!)
+
+============================================================
+Ingesting: Unreal Engine 5.7 Filmmaking Course - Unreal Engine for Filmmakers (2026 UPDATE!)
+URL: https://www.youtube.com/watch?v=RfTVeIwB2Dw
+Time: 10:34:57
+============================================================
+
+[18/120] [boundless] Why Modern VFX DON'T Suck - Low Budget Virtual Production
+
+============================================================
+Ingesting: Why Modern VFX DON'T Suck - Low Budget Virtual Production
+URL: https://www.youtube.com/watch?v=6w8cEVgikrg
+Time: 10:35:17
+============================================================
+
+[19/120] [boundless] Unreal Engine 5 Compositing Tutorial - Composite Any Scene Fully Inside of UE5
+
+============================================================
+Ingesting: Unreal Engine 5 Compositing Tutorial - Composite Any Scene Fully Inside of UE5
+URL: https://www.youtube.com/watch?v=OvvtTYB46b8
+Time: 10:36:40
+============================================================
+
+[20/120] [boundless] Why Modern VFX Suck (And How to Make Yours Not Suck) PART 2
+
+============================================================
+Ingesting: Why Modern VFX Suck (And How to Make Yours Not Suck) PART 2
+URL: https://www.youtube.com/watch?v=zOcXC-imA5U
+Time: 10:37:23
+============================================================
+
+[21/120] [boundless] Why Modern VFX Suck (And How to Make Yours Not Suck)
+
+============================================================
+Ingesting: Why Modern VFX Suck (And How to Make Yours Not Suck)
+URL: https://www.youtube.com/watch?v=qPVS75PM5eU
+Time: 10:38:06
+============================================================
+
+[22/120] [boundless] Unreal Engine for Filmmakers - Cinematic VFX for FREE - UE5 [PART 2]
+
+============================================================
+Ingesting: Unreal Engine for Filmmakers - Cinematic VFX for FREE - UE5 [PART 2]
+URL: https://www.youtube.com/watch?v=5zJktaYwK-I
+Time: 10:39:03
+============================================================
+
+[23/120] [boundless] Unreal Engine for Filmmakers - Add Cinematic VFX to your Films for FREE - UE5 [PART 1]
+
+============================================================
+Ingesting: Unreal Engine for Filmmakers - Add Cinematic VFX to your Films for FREE - UE5 [PART 1]
+URL: https://www.youtube.com/watch?v=Yl_VJqmll-E
+Time: 10:40:48
+============================================================
+
+[24/120] [boundless] Unreal Engine for Filmmakers - How to Make your Lighting CINEMATIC
+
+============================================================
+Ingesting: Unreal Engine for Filmmakers - How to Make your Lighting CINEMATIC
+URL: https://www.youtube.com/watch?v=SMCTeoj9YaA
+Time: 10:42:52
+============================================================
+
+[25/120] [boundless] FREE Unreal Engine 5.3 Beginner Course - Create Cinematic 3D Worlds
+
+============================================================
+Ingesting: FREE Unreal Engine 5.3 Beginner Course - Create Cinematic 3D Worlds
+URL: https://www.youtube.com/watch?v=mGcyo5rh7l0
+Time: 10:43:51
+============================================================
+
+[26/120] [boundless] Unreal Engine Filmmaking COURSE - Create Cinematic 3D Worlds
+
+============================================================
+Ingesting: Unreal Engine Filmmaking COURSE - Create Cinematic 3D Worlds
+URL: https://www.youtube.com/watch?v=_K8qfjcYbmE
+Time: 10:44:25
+============================================================
+
+[27/120] [boundless] Unreal Engine Compositing Tutorial - UNREAL ENGINE FOR FILMMAKERS
+
+============================================================
+Ingesting: Unreal Engine Compositing Tutorial - UNREAL ENGINE FOR FILMMAKERS
+URL: https://www.youtube.com/watch?v=39nmue2lIdA
+Time: 10:45:07
+============================================================
+
+[28/120] [boundless] Unreal Engine for Filmmakers - Incredible Realtime Particle Simulations for Free
+
+============================================================
+Ingesting: Unreal Engine for Filmmakers - Incredible Realtime Particle Simulations for Free
+URL: https://www.youtube.com/watch?v=gzdYccMYjak
+Time: 10:46:32
+============================================================
+
+[29/120] [boundless] Unreal Engine for Filmmakers - Cinematic Camera Settings & Setting up Virtual Camera
+
+============================================================
+Ingesting: Unreal Engine for Filmmakers - Cinematic Camera Settings & Setting up Virtual Camera
+URL: https://www.youtube.com/watch?v=gFO0qhdLKec
+Time: 10:47:38
+============================================================
+
+[30/120] [boundless] Unreal Engine Depth Fog TUTORIAL [Path Traced]
+
+============================================================
+Ingesting: Unreal Engine Depth Fog TUTORIAL [Path Traced]
+URL: https://www.youtube.com/watch?v=0ltfUCHwevY
+Time: 10:48:50
+============================================================
+
+[31/120] [boundless] DUNE Cinematography Breakdown | HOW TO GET THE DUNE LOOK
+
+============================================================
+Ingesting: DUNE Cinematography Breakdown | HOW TO GET THE DUNE LOOK
+URL: https://www.youtube.com/watch?v=ibAyJjNbnpo
+Time: 10:49:44
+============================================================
+
+[32/120] [boundless] Unreal Engine for Filmmakers - Create Cinematic 3D Worlds for Free
+
+============================================================
+Ingesting: Unreal Engine for Filmmakers - Create Cinematic 3D Worlds for Free
+URL: https://www.youtube.com/watch?v=IUkD87VSmyg
+Time: 10:52:03
+============================================================
+
+[33/120] [boundless] Easiest Way to Get CINEMATIC Renders in UNREAL ENGINE - Path Tracing
+
+============================================================
+Ingesting: Easiest Way to Get CINEMATIC Renders in UNREAL ENGINE - Path Tracing
+URL: https://www.youtube.com/watch?v=g8aHQqbQfOU
+Time: 10:52:59
+============================================================
+
+[34/120] [boundless] Roger Deakins Lighting Tutorial - BLADE RUNNER 2049
+
+============================================================
+Ingesting: Roger Deakins Lighting Tutorial - BLADE RUNNER 2049
+URL: https://www.youtube.com/watch?v=S8nDuuIucCc
+Time: 10:53:47
+============================================================
+
+[35/120] [boundless] 3D TRACKED CAMERA FROM AFTER EFFECTS TO UNREAL ENGINE | TUTORIAL
+
+============================================================
+Ingesting: 3D TRACKED CAMERA FROM AFTER EFFECTS TO UNREAL ENGINE | TUTORIAL
+URL: https://www.youtube.com/watch?v=v38O-9KTqx4
+Time: 10:54:18
+============================================================
+
+[36/120] [blackeye] Unreal Engine Black Eye Cameras v2: START HERE Tutorial
+
+============================================================
+Ingesting: Unreal Engine Black Eye Cameras v2: START HERE Tutorial
+URL: https://www.youtube.com/watch?v=vs6yjL-l_FQ
+Time: 10:55:10
+============================================================
+
+[37/120] [blackeye] Unreal Engine Black Eye Cameras v2: Gameplay cameras are here
+
+============================================================
+Ingesting: Unreal Engine Black Eye Cameras v2: Gameplay cameras are here
+URL: https://www.youtube.com/watch?v=SbFbNYrBO7s
+Time: 10:57:21
+============================================================
+
+[38/120] [blackeye] Unreal Engine Black Eye cameras: Behind the Lens
+
+============================================================
+Ingesting: Unreal Engine Black Eye cameras: Behind the Lens
+URL: https://www.youtube.com/watch?v=U5FGuo59IJc
+Time: 10:57:39
+============================================================
+
+[39/120] [blackeye] Unreal Engine Black Eye cameras: Dynamic Dialog intro
+
+============================================================
+Ingesting: Unreal Engine Black Eye cameras: Dynamic Dialog intro
+URL: https://www.youtube.com/watch?v=vKG_qFXKcyY
+Time: 10:58:01
+============================================================
+
+[40/120] [blackeye] Unreal Engine Black Eye Cameras for Gameplay: Top Down
+
+============================================================
+Ingesting: Unreal Engine Black Eye Cameras for Gameplay: Top Down
+URL: https://www.youtube.com/watch?v=MFrmcgQHGJk
+Time: 10:58:25
+============================================================
+
+[41/120] [blackeye] Unreal Engine Black Eye Cameras: Car camera INTRO
+
+============================================================
+Ingesting: Unreal Engine Black Eye Cameras: Car camera INTRO
+URL: https://www.youtube.com/watch?v=Wh-QAH49C70
+Time: 10:58:48
+============================================================
+
+[42/120] [blackeye] Unreal Engine Black Eye Cameras: Car Cameras! Gameplay and Cinematics
+
+============================================================
+Ingesting: Unreal Engine Black Eye Cameras: Car Cameras! Gameplay and Cinematics
+URL: https://www.youtube.com/watch?v=4X16gnNVD1E
+Time: 10:59:08
+============================================================
+
+[43/120] [blackeye] Unreal Engine Black Eye Cameras | START HERE Tutorial
+
+============================================================
+Ingesting: Unreal Engine Black Eye Cameras | START HERE Tutorial
+URL: https://www.youtube.com/watch?v=3KxVyOQwTRo
+Time: 11:00:31
+============================================================
+
+[44/120] [blackeye] Unreal Engine Black Eye Cameras: Speed of Thought
+
+============================================================
+Ingesting: Unreal Engine Black Eye Cameras: Speed of Thought
+URL: https://www.youtube.com/watch?v=2MeieZV_A1E
+Time: 11:03:01
+============================================================
+
+[45/120] [blackeye] Unreal Engine Black Eye Cameras: That's a Cool Shot #1 Pedestal Pan
+
+============================================================
+Ingesting: Unreal Engine Black Eye Cameras: That's a Cool Shot #1 Pedestal Pan
+URL: https://www.youtube.com/watch?v=NOOpWzeC0Mg
+Time: 11:03:19
+============================================================
+
+[46/120] [blackeye] Unreal Engine Black Eye Cameras: V1.2 Preview Shot List module
+
+============================================================
+Ingesting: Unreal Engine Black Eye Cameras: V1.2 Preview Shot List module
+URL: https://www.youtube.com/watch?v=w2CBsFWMUys
+Time: 11:03:45
+============================================================
+
+[47/120] [blackeye] Unreal Engine Black Eye Cameras: Your Cinematics, Reinvented
+
+============================================================
+Ingesting: Unreal Engine Black Eye Cameras: Your Cinematics, Reinvented
+URL: https://www.youtube.com/watch?v=sda3K-M2j0g
+Time: 11:04:03
+============================================================
+
+[48/120] [blackeye] Unreal Engine Black Eye Cameras: Look Around Tutorial
+
+============================================================
+Ingesting: Unreal Engine Black Eye Cameras: Look Around Tutorial
+URL: https://www.youtube.com/watch?v=oZ_0JPrN-hE
+Time: 11:04:22
+============================================================
+
+[49/120] [blackeye] Unreal Engine Black Eye Cameras: Cam Switcher Tutorial
+
+============================================================
+Ingesting: Unreal Engine Black Eye Cameras: Cam Switcher Tutorial
+URL: https://www.youtube.com/watch?v=ub1_ET0LLJc
+Time: 11:04:45
+============================================================
+
+[50/120] [blackeye] Unreal Engine Black Eye Cameras: v1.1.7 Switcher + Pilot
+
+============================================================
+Ingesting: Unreal Engine Black Eye Cameras: v1.1.7 Switcher + Pilot
+URL: https://www.youtube.com/watch?v=ctm38XzfzIo
+Time: 11:05:08
+============================================================
+
+[51/120] [blackeye] Unreal Engine Black Eye Cameras: Unleash Your Army of Camera Operators
+
+============================================================
+Ingesting: Unreal Engine Black Eye Cameras: Unleash Your Army of Camera Operators
+URL: https://www.youtube.com/watch?v=rw5OmVtBri8
+Time: 11:05:28
+============================================================
+
+[52/120] [blackeye] Unreal Engine Black Eye Cameras: Supercharge your workflow
+
+============================================================
+Ingesting: Unreal Engine Black Eye Cameras: Supercharge your workflow
+URL: https://www.youtube.com/watch?v=WNkFghUIA7M
+Time: 11:05:48
+============================================================
+
+[53/120] [blackeye] Unreal Engine Black Eye Cameras: Crazy Millennium Falcon shot with only 7 keyframes
+
+============================================================
+Ingesting: Unreal Engine Black Eye Cameras: Crazy Millennium Falcon shot with only 7 keyframes
+URL: https://www.youtube.com/watch?v=7jNy5snGOJM
+Time: 11:06:06
+============================================================
+
+[54/120] [blackeye] Unreal Engine Black Eye Cameras: Version 1.1.1: Keyable Weights in Sequencer
+
+============================================================
+Ingesting: Unreal Engine Black Eye Cameras: Version 1.1.1: Keyable Weights in Sequencer
+URL: https://www.youtube.com/watch?v=94UWBG7hKDI
+Time: 11:06:27
+============================================================
+
+[55/120] [blackeye] Unreal Engine Black Eye Cameras: Version 1.1 New Features: Cross Camera
+
+============================================================
+Ingesting: Unreal Engine Black Eye Cameras: Version 1.1 New Features: Cross Camera
+URL: https://www.youtube.com/watch?v=uUxE0gaOvnQ
+Time: 11:06:51
+============================================================
+
+[56/120] [blackeye] Unreal Engine Black Eye Cameras: Version 1.1 New Features: Multi_Subject LookAt Weights
+
+============================================================
+Ingesting: Unreal Engine Black Eye Cameras: Version 1.1 New Features: Multi_Subject LookAt Weights
+URL: https://www.youtube.com/watch?v=WBgBhPjzzbI
+Time: 11:07:16
+============================================================
+
+[57/120] [blackeye] Unreal Engine Black Eye Cameras: Bake down cam anims
+
+============================================================
+Ingesting: Unreal Engine Black Eye Cameras: Bake down cam anims
+URL: https://www.youtube.com/watch?v=D_CrTaBzEa4
+Time: 11:07:34
+============================================================
+
+[58/120] [blackeye] Unreal Engine Black Eye Cameras: Overview Tutorial
+
+============================================================
+Ingesting: Unreal Engine Black Eye Cameras: Overview Tutorial
+URL: https://www.youtube.com/watch?v=JGnNpbWiT_0
+Time: 11:07:53
+============================================================
+
+[59/120] [blackeye] Unreal Engine Black Eye Cameras: Change Anims
+
+============================================================
+Ingesting: Unreal Engine Black Eye Cameras: Change Anims
+URL: https://www.youtube.com/watch?v=VADulk2Gao4
+Time: 11:08:48
+============================================================
+
+[60/120] [blackeye] Unreal Engine | Black Eye Cameras: Rapid shot prototyping
+
+============================================================
+Ingesting: Unreal Engine | Black Eye Cameras: Rapid shot prototyping
+URL: https://www.youtube.com/watch?v=jhNjKV70uzk
+Time: 11:09:05
+============================================================
+
+[61/120] [blackeye] Unreal Engine Black Eye Cameras: Follow Component: Dwell Radius
+
+============================================================
+Ingesting: Unreal Engine Black Eye Cameras: Follow Component: Dwell Radius
+URL: https://www.youtube.com/watch?v=oYYxZc2jO2c
+Time: 11:09:26
+============================================================
+
+[62/120] [blackeye] Unreal Engine | Black Eye Cameras: 2 person combat side camera tutorial
+
+============================================================
+Ingesting: Unreal Engine | Black Eye Cameras: 2 person combat side camera tutorial
+URL: https://www.youtube.com/watch?v=W4UZ4-vLxxw
+Time: 11:09:43
+============================================================
+
+[63/120] [blackeye] Unreal Engine Black Eye Cameras: November release
+
+============================================================
+Ingesting: Unreal Engine Black Eye Cameras: November release
+URL: https://www.youtube.com/watch?v=hcd3Ohyjr_E
+Time: 11:10:08
+============================================================
+
+[64/120] [blackeye] Unreal Engine Black Eye Cameras: Multiple targets on a character
+
+============================================================
+Ingesting: Unreal Engine Black Eye Cameras: Multiple targets on a character
+URL: https://www.youtube.com/watch?v=x18zbUJoI9U
+Time: 11:10:27
+============================================================
+
+[65/120] [blackeye] Unreal Engine Black Eye Cameras: Multiple follow and look at modules
+
+============================================================
+Ingesting: Unreal Engine Black Eye Cameras: Multiple follow and look at modules
+URL: https://www.youtube.com/watch?v=lzFH7Peyyk0
+Time: 11:10:43
+============================================================
+
+[66/120] [polygonflow] NEW UE5 ASSET MANAGEMENT PLUGIN - NOW FREE ON FAB
+
+============================================================
+Ingesting: NEW UE5 ASSET MANAGEMENT PLUGIN - NOW FREE ON FAB
+URL: https://www.youtube.com/watch?v=MwjUZJ7qkIk
+Time: 11:11:02
+============================================================
+
+[67/120] [polygonflow] DASH 1.11 - UNREAL ENGINE WORLD BUILDING JUST GOT EASIER
+
+============================================================
+Ingesting: DASH 1.11 - UNREAL ENGINE WORLD BUILDING JUST GOT EASIER
+URL: https://www.youtube.com/watch?v=bmxYrlidcCM
+Time: 11:11:37
+============================================================
+
+[68/120] [polygonflow] How to Create a Cinematic Archviz Render with UE5 & Dash
+
+============================================================
+Ingesting: How to Create a Cinematic Archviz Render with UE5 & Dash
+URL: https://www.youtube.com/watch?v=HL8NDvv1G44
+Time: 11:12:18
+============================================================
+
+[69/120] [polygonflow] DASH 1.10 - PROCEDURAL SCATTER PRESETS IN UE5
+
+============================================================
+Ingesting: DASH 1.10 - PROCEDURAL SCATTER PRESETS IN UE5
+URL: https://www.youtube.com/watch?v=EN6X-d6DIb0
+Time: 11:13:04
+============================================================
+
+[70/120] [polygonflow] Creating a Massive Procedural Game World in UE5 with Dash
+
+============================================================
+Ingesting: Creating a Massive Procedural Game World in UE5 with Dash
+URL: https://www.youtube.com/watch?v=GLOQdCQonOg
+Time: 11:13:42
+============================================================
+
+[71/120] [polygonflow] DASH 1.9.3 - NEW UE5 ASSET MARKETPLACE
+
+============================================================
+Ingesting: DASH 1.9.3 - NEW UE5 ASSET MARKETPLACE
+URL: https://www.youtube.com/watch?v=YHmNyyI998k
+Time: 11:14:30
+============================================================
+
+[72/120] [polygonflow] UE5 WORLD BUILDING FOR BEGINNERS - FULL DASH DEMO LEVEL
+
+============================================================
+Ingesting: UE5 WORLD BUILDING FOR BEGINNERS - FULL DASH DEMO LEVEL
+URL: https://www.youtube.com/watch?v=bxeocONsu1Y
+Time: 11:15:09
+============================================================
+
+[73/120] [polygonflow] DASH 1.9.2 - NEW UE5 TOOLS + AMAZON 3D LIBRARY INTEGRATION
+
+============================================================
+Ingesting: DASH 1.9.2 - NEW UE5 TOOLS + AMAZON 3D LIBRARY INTEGRATION
+URL: https://www.youtube.com/watch?v=XNac5ylJ5LQ
+Time: 11:16:15
+============================================================
+
+[74/120] [polygonflow] Unreal Engine 5.6 Physics Tools - Asset Placement & Piles Tutorial
+
+============================================================
+Ingesting: Unreal Engine 5.6 Physics Tools - Asset Placement & Piles Tutorial
+URL: https://www.youtube.com/watch?v=qxXQsMCMWfw
+Time: 11:16:51
+============================================================
+
+[75/120] [polygonflow] PROCEDURAL WORLD BUILDING FOR UE5 - PCG ALTERNATIVE
+
+============================================================
+Ingesting: PROCEDURAL WORLD BUILDING FOR UE5 - PCG ALTERNATIVE
+URL: https://www.youtube.com/watch?v=KsgW-19y4ts
+Time: 11:17:20
+============================================================
+
+[76/120] [polygonflow] Unreal Engine & Dash Medieval Environment Tutorial
+
+============================================================
+Ingesting: Unreal Engine & Dash Medieval Environment Tutorial
+URL: https://www.youtube.com/watch?v=_SKfQJ5pAAc
+Time: 11:18:42
+============================================================
+
+[77/120] [polygonflow] CENTRALIZED CONTENT BROWSER FOR UE5 - FREE PLUGIN
+
+============================================================
+Ingesting: CENTRALIZED CONTENT BROWSER FOR UE5 - FREE PLUGIN
+URL: https://www.youtube.com/watch?v=rjTv9jWfY4s
+Time: 11:20:52
+============================================================
+
+[78/120] [polygonflow] 2000 FREE HIGH-QUALITY ASSETS FOR ANY UNREAL ENGINE PROJECT
+
+============================================================
+Ingesting: 2000 FREE HIGH-QUALITY ASSETS FOR ANY UNREAL ENGINE PROJECT
+URL: https://www.youtube.com/watch?v=HXyU7Z_Hz_U
+Time: 11:21:20
+============================================================
+
+[79/120] [polygonflow] Auto-Tag & Sort 1000 UE5 Assets/Month with This FREE Content Browser
+
+============================================================
+Ingesting: Auto-Tag & Sort 1000 UE5 Assets/Month with This FREE Content Browser
+URL: https://www.youtube.com/watch?v=I58cCdLiVF4
+Time: 11:21:43
+============================================================
+
+[80/120] [polygonflow] BEST FREE UNREAL ENGINE 5 ASSET MANAGEMENT PLUGIN IN 2025
+
+============================================================
+Ingesting: BEST FREE UNREAL ENGINE 5 ASSET MANAGEMENT PLUGIN IN 2025
+URL: https://www.youtube.com/watch?v=bsy4xZvhOqs
+Time: 11:22:03
+============================================================
+
+[81/120] [polygonflow] DASH 1.9 - MANAGING ASSETS IN UE5 JUST GOT A LOT EASIER
+
+============================================================
+Ingesting: DASH 1.9 - MANAGING ASSETS IN UE5 JUST GOT A LOT EASIER
+URL: https://www.youtube.com/watch?v=tOpExldNzoA
+Time: 11:22:36
+============================================================
+
+[82/120] [polygonflow] Working Fully Procedurally in Unreal Engine 5 - Custom Asset Tutorial
+
+============================================================
+Ingesting: Working Fully Procedurally in Unreal Engine 5 - Custom Asset Tutorial
+URL: https://www.youtube.com/watch?v=rdXL5PtsGnY
+Time: 11:23:05
+============================================================
+
+[83/120] [polygonflow] DASH 1.8.5 - BIG UPDATE FOR UE5 WORLD BUILDING
+
+============================================================
+Ingesting: DASH 1.8.5 - BIG UPDATE FOR UE5 WORLD BUILDING
+URL: https://www.youtube.com/watch?v=lHZwUtS6hyE
+Time: 11:23:30
+============================================================
+
+[84/120] [polygonflow] How to Create Vines Procedurally in Unreal Engine 5
+
+============================================================
+Ingesting: How to Create Vines Procedurally in Unreal Engine 5
+URL: https://www.youtube.com/watch?v=Y_Ja4n3RSf0
+Time: 11:24:02
+============================================================
+
+[85/120] [polygonflow] Creating a Blend Material in Unreal Engine 5 Just Got Easier
+
+============================================================
+Ingesting: Creating a Blend Material in Unreal Engine 5 Just Got Easier
+URL: https://www.youtube.com/watch?v=MoAk8c1ek7A
+Time: 11:24:26
+============================================================
+
+[86/120] [polygonflow] GETTING STARTED WITH DASH - EASY WORLD BUILDING IN UE5
+
+============================================================
+Ingesting: GETTING STARTED WITH DASH - EASY WORLD BUILDING IN UE5
+URL: https://www.youtube.com/watch?v=RA3yGbCvxIU
+Time: 11:24:58
+============================================================
+
+[87/120] [polygonflow] Making Asset Importing Easy in UE5 - Dash Content Browser
+
+============================================================
+Ingesting: Making Asset Importing Easy in UE5 - Dash Content Browser
+URL: https://www.youtube.com/watch?v=s-UQxXkHt8k
+Time: 11:26:00
+============================================================
+
+[88/120] [polygonflow] DASH 1.7.0 - MASSIVE UE5 WORLD BUILDING TOOL
+
+============================================================
+Ingesting: DASH 1.7.0 - MASSIVE UE5 WORLD BUILDING TOOL
+URL: https://www.youtube.com/watch?v=B6T_VQQK6OU
+Time: 11:26:21
+============================================================
+
+[89/120] [polygonflow] Creating a Helldivers 2 Environment in 79 minutes - UE5 Tutorial
+
+============================================================
+Ingesting: Creating a Helldivers 2 Environment in 79 minutes - UE5 Tutorial
+URL: https://www.youtube.com/watch?v=kJhqc5_6usc
+Time: 11:26:48
+============================================================
+
+[90/120] [polygonflow] Recreating a Helldivers 2 Game Environment in UE5 with Dash
+
+============================================================
+Ingesting: Recreating a Helldivers 2 Game Environment in UE5 with Dash
+URL: https://www.youtube.com/watch?v=plpGMR46HnE
+Time: 11:29:31
+============================================================
+
+[91/120] [polygonflow] How to create a training environment in Unreal Engine 5 - Dash Workflow
+
+============================================================
+Ingesting: How to create a training environment in Unreal Engine 5 - Dash Workflow
+URL: https://www.youtube.com/watch?v=rBcGl_ScDKs
+Time: 11:30:37
+============================================================
+
+[92/120] [polygonflow] How to Re-Create The Walking Dead in Unreal Engine 5 - Dash Workflow
+
+============================================================
+Ingesting: How to Re-Create The Walking Dead in Unreal Engine 5 - Dash Workflow
+URL: https://www.youtube.com/watch?v=5aTwhjR5JJE
+Time: 11:31:26
+============================================================
+
+[93/120] [polygonflow] Architecture Scenes Made Easy in Unreal Engine 5 - Dash Tutorial
+
+============================================================
+Ingesting: Architecture Scenes Made Easy in Unreal Engine 5 - Dash Tutorial
+URL: https://www.youtube.com/watch?v=N7XLl348vG4
+Time: 11:32:14
+============================================================
+
+[94/120] [polygonflow] No Nodes Procedural Environment in Unreal Engine 5 - Dash Tutorial
+
+============================================================
+Ingesting: No Nodes Procedural Environment in Unreal Engine 5 - Dash Tutorial
+URL: https://www.youtube.com/watch?v=6U2jbJmqs4k
+Time: 11:33:08
+============================================================
+
+[95/120] [polygonflow] Dash 1.6.0 Release - Improved Content Library and AI Asset Tagging
+
+============================================================
+Ingesting: Dash 1.6.0 Release - Improved Content Library and AI Asset Tagging
+URL: https://www.youtube.com/watch?v=li914x1WPis
+Time: 11:33:46
+============================================================
+
+[96/120] [polygonflow] This Plugin Makes Unreal Engine 5 Even More Amazing - Dash for World Building
+
+============================================================
+Ingesting: This Plugin Makes Unreal Engine 5 Even More Amazing - Dash for World Building
+URL: https://www.youtube.com/watch?v=EezUW6MSqfE
+Time: 11:34:06
+============================================================
+
+[97/120] [polygonflow] Realistic Architecture Environment in UE5 - Dash Workflow
+
+============================================================
+Ingesting: Realistic Architecture Environment in UE5 - Dash Workflow
+URL: https://www.youtube.com/watch?v=_9b_dabCpVE
+Time: 11:34:38
+============================================================
+
+[98/120] [polygonflow] How to Scatter Decals in UE5 - World Building Plugin
+
+============================================================
+Ingesting: How to Scatter Decals in UE5 - World Building Plugin
+URL: https://www.youtube.com/watch?v=IU8VFAXOa7w
+Time: 11:35:22
+============================================================
+
+[99/120] [polygonflow] How to Create Procedural Cables in UE5 - World Building Plugin
+
+============================================================
+Ingesting: How to Create Procedural Cables in UE5 - World Building Plugin
+URL: https://www.youtube.com/watch?v=uNzCmzeEISU
+Time: 11:35:54
+============================================================
+
+[100/120] [polygonflow] Dash for UE5 Helps You Organize Your Local 3D Assets with AI Tagging
+
+============================================================
+Ingesting: Dash for UE5 Helps You Organize Your Local 3D Assets with AI Tagging
+URL: https://www.youtube.com/watch?v=fvlPj3hYgSI
+Time: 11:36:28
+============================================================
+
+[101/120] [polygonflow] How to Edit Megascans and Poly Haven Materials Easily - UE5 Plugin
+
+============================================================
+Ingesting: How to Edit Megascans and Poly Haven Materials Easily - UE5 Plugin
+URL: https://www.youtube.com/watch?v=7NKl90gt0w0
+Time: 11:36:53
+============================================================
+
+[102/120] [polygonflow] What's new in Dash 1.5 - AI Content Tagging, Tool Presets, & More
+
+============================================================
+Ingesting: What's new in Dash 1.5 - AI Content Tagging, Tool Presets, & More
+URL: https://www.youtube.com/watch?v=mYe43x2Dtg0
+Time: 11:37:29
+============================================================
+
+[103/120] [polygonflow] New UE5 Plugin - Adding Detail to Your Game with DASH
+
+============================================================
+Ingesting: New UE5 Plugin - Adding Detail to Your Game with DASH
+URL: https://www.youtube.com/watch?v=UO2ehs5OjEw
+Time: 11:37:51
+============================================================
+
+[104/120] [polygonflow] Path Scatter: Beginner Guide to Your UE5 Co-Pilot, DASH
+
+============================================================
+Ingesting: Path Scatter: Beginner Guide to Your UE5 Co-Pilot, DASH
+URL: https://www.youtube.com/watch?v=i6GTbioHD4k
+Time: 11:38:31
+============================================================
+
+[105/120] [polygonflow] Speed Up Your Archviz Workflow with Dash in UE5
+
+============================================================
+Ingesting: Speed Up Your Archviz Workflow with Dash in UE5
+URL: https://www.youtube.com/watch?v=cC0l3yZMt3M
+Time: 11:39:13
+============================================================
+
+[106/120] [polygonflow] Surface Scatter: Beginner Guide to Your UE5 Co-Pilot, DASH
+
+============================================================
+Ingesting: Surface Scatter: Beginner Guide to Your UE5 Co-Pilot, DASH
+URL: https://www.youtube.com/watch?v=D4IPvlypNkg
+Time: 11:40:13
+============================================================
+
+[107/120] [polygonflow] Beginner Guide to UE5 Co-Pilot DASH Camera Settings
+
+============================================================
+Ingesting: Beginner Guide to UE5 Co-Pilot DASH Camera Settings
+URL: https://www.youtube.com/watch?v=00kSXM3b788
+Time: 11:40:51
+============================================================
+
+[108/120] [polygonflow] Create Realistic Scatter Using Merge Actors with Dash
+
+============================================================
+Ingesting: Create Realistic Scatter Using Merge Actors with Dash
+URL: https://www.youtube.com/watch?v=P90HaXlYSNE
+Time: 11:41:13
+============================================================
+
+[109/120] [polygonflow] Beginner Guide to Road Tool in UE5 Co-Pilot DASH
+
+============================================================
+Ingesting: Beginner Guide to Road Tool in UE5 Co-Pilot DASH
+URL: https://www.youtube.com/watch?v=x6DR-CGi8dE
+Time: 11:41:51
+============================================================
+
+[110/120] [polygonflow] New UE5 Plugin - Easy Environment Creation
+
+============================================================
+Ingesting: New UE5 Plugin - Easy Environment Creation
+URL: https://www.youtube.com/watch?v=lCicNo8MGNA
+Time: 11:42:15
+============================================================
+
+[111/120] [polygonflow] Beginner Content Library Tutorial for UE5
+
+============================================================
+Ingesting: Beginner Content Library Tutorial for UE5
+URL: https://www.youtube.com/watch?v=J0x7Krbgja4
+Time: 11:42:48
+============================================================
+
+[112/120] [polygonflow] Beginner Terrain Tool Tutorial for UE5
+
+============================================================
+Ingesting: Beginner Terrain Tool Tutorial for UE5
+URL: https://www.youtube.com/watch?v=N8kCskb3V1k
+Time: 11:43:08
+============================================================
+
+[113/120] [polygonflow] Beginner Water Tool Tutorial for UE5
+
+============================================================
+Ingesting: Beginner Water Tool Tutorial for UE5
+URL: https://www.youtube.com/watch?v=oY4pVa6mPYM
+Time: 11:43:30
+============================================================
+
+[114/120] [polygonflow] Quick Environment Creation w/ Unreal Engine 5
+
+============================================================
+Ingesting: Quick Environment Creation w/ Unreal Engine 5
+URL: https://www.youtube.com/watch?v=YfHdlxH22cM
+Time: 11:43:48
+============================================================
+
+[115/120] [polygonflow] Environment Breakdown: Underground Horror in UE5
+
+============================================================
+Ingesting: Environment Breakdown: Underground Horror in UE5
+URL: https://www.youtube.com/watch?v=zxVE6uyBEHs
+Time: 11:44:31
+============================================================
+
+[116/120] [polygonflow] Tutorial: Create Subtle Realistic Environments in UE5
+
+============================================================
+Ingesting: Tutorial: Create Subtle Realistic Environments in UE5
+URL: https://www.youtube.com/watch?v=hInAtC725VQ
+Time: 11:45:25
+============================================================
+
+[117/120] [polygonflow] Create Run-down Environments in Minutes - Dash & UE5
+
+============================================================
+Ingesting: Create Run-down Environments in Minutes - Dash & UE5
+URL: https://www.youtube.com/watch?v=NNBDLTPsktc
+Time: 11:46:15
+============================================================
+
+[118/120] [polygonflow] Simplify Environment Art Creation In Unreal Engine 5
+
+============================================================
+Ingesting: Simplify Environment Art Creation In Unreal Engine 5
+URL: https://www.youtube.com/watch?v=_7HfCCLiSec
+Time: 11:46:44
+============================================================
+
+[119/120] [polygonflow] New Physics Tool for Unreal Engine 5
+
+============================================================
+Ingesting: New Physics Tool for Unreal Engine 5
+URL: https://www.youtube.com/watch?v=pWEnE86hZrM
+Time: 11:47:14
+============================================================
+
+[120/120] [polygonflow] Introducing Dash for Unreal Engine 5
+
+============================================================
+Ingesting: Introducing Dash for Unreal Engine 5
+URL: https://www.youtube.com/watch?v=NVSEN3ND6VU
+Time: 11:47:41
+============================================================
+
+
+Batch complete: 120 ok, 0 errors

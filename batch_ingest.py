@@ -150,10 +150,37 @@ POLYGONFLOW = [
     ("NVSEN3ND6VU", "Introducing Dash for Unreal Engine 5"),
 ]
 
+# ── DEAN YURKE (DaVinci / Unreal / Virtual Production) ───────────────────────
+DEANYURKE = [
+    ("t7Q1UiBr8e8", "Green Screen Edge Wrap SECRETS (and a LIE!) - Advanced DaVinci to Unreal Engine WORKFLOW"),
+    ("0YhVHCoHKkg", "Burn Clip Names onto DaVinci Resolve and FUSION Video (Quick Fusion Tip!)"),
+    ("qe2x-puqVl0", "Green Screen OVERSCAN SECRETS (and a LIE!) - Your Ultimate VFX Save! (SERIES BONUS)"),
+    ("PPRugNC7POA", "Make Films in Unreal : Everything you need to create your first short (Beginner) Start Here (ep1)"),
+    ("XeeIY_fvbq0", "Scale Unreal Engine's User Interface! SQUINT no more! Great for recording UE5 tutorials too!"),
+    ("-9-Aq3z-wI4", "UE5 Filmmaking Series | xdus | Animatic to Teaser - Real-Time Micro Budget Movies"),
+    ("9-kRF6DFfPE", "A.I. / Real-Time and Surviving Hollywood's VFX industry for 30 years"),
+    ("g9VndiQqON0", "How to get precision control in DaVinci Resolve - use Shift Drag!"),
+    ("ye0gjAx50oU", "Beat Yourself up with Unreal! RAGDOLL Physics for Filmmaking made Easy (or Hard) in UE5.6!"),
+    ("JxHYt9vFQD8", "Motion Blending / Bone Matching for Unreal Engine - Make Films in Unreal : (ep2) (Intermediate)"),
+    ("rzMRSDxg33Q", "Unreal Engine VFX Breakdown - Ragdoll Opening Shot"),
+    ("6he5ag3nLjs", "EASIEST VFX pipeline EVER with Composite Mesh Actors in Unreal Engine 5.7 (Composure EP1)"),
+    ("VbLziZfiyD8", "Green Screen Cards are DEAD! Camera Projections in Unreal Engine change EVERYTHING! (Composure EP2)"),
+    ("zlZCKT-5pLU", "Green Screen Integration in Unreal Engine 5.7 Virtual Production got even BETTER! (Composure EP3)"),
+    ("xbZNHZ-QGyg", "Advanced Volumetric FOG SECRETS in Unreal Engine 5.7 [Full Course]"),
+    ("Wb9hJqPcAwQ", "How to Transform TEXTURE COORDINATES in Unreal Engine Materials (Tutorial)"),
+    ("o_AE2kUsF3E", "Faster than AI and 7 times the fun! Speed up Animation and get exactly what you want with Rokoko"),
+    ("5cpjK7kKASU", "Unreal Engine Virtual Production: Trigger Explosions and Sound Effects with your Keyboard (Tutorial)"),
+    ("1kcelYQLkP0", "Survive the VFX War: Battle-Ready skills you need for Virtual Production in 2026 (NCSU MADtech Q&A)"),
+    ("ivE8Bg0EaBo", "How to use the Movie Render Graph in Unreal Engine 5.8 - Simple Setup for Filmmakers."),
+    ("H3OfTUhMmmc", "Create SPECTACULAR Depth of Field in Unreal Engine 5.8 with the new ACCUMULATION DOF"),
+    ("WenSYKg08Uc", "Where are my Animation Curves!? This MYSTERIOUS SYMBOL will save you HOURS of Frustration!"),
+]
+
 ALL_VIDEOS = (
     [("boundless",    vid_id, title) for vid_id, title in BOUNDLESS]
   + [("blackeye",    vid_id, title) for vid_id, title in BLACKEYE]
   + [("polygonflow", vid_id, title) for vid_id, title in POLYGONFLOW]
+  + [("deanyurke",   vid_id, title) for vid_id, title in DEANYURKE]
 )
 
 def load_log():

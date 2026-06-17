@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=f2YLWIvs6F8
 author: The Gnomon Workshop
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.4"
+tags: [cinematics, kitbash3d, sequencer, volumetric-lighting, god-rays, character-animation, asset-migration, blueprints, cargo-plugin, electric-dreams, environment, ue5, gnomon-workshop]
+extraction_status: complete
 frames_dir: tutorials/frames/creating-cinematics-in-unreal-engine-with-kitbash3ds-secrets-of-the-luminara/
 frame_count: 8
 ---
@@ -68,27 +68,43 @@ frame_count: 8
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+End-to-end cinematic shot workflow in UE5.4 using KitBash3D assets: project setup → Cargo plugin import → environment assembly via asset migration → volumetric god-ray lighting → character animation → Sequencer render.
 
 ### Summary
-[PENDING EXTRACTION]
+Mini-course by Koskyo Saki (Gnomon Workshop) walking through a full cinematic pipeline using KitBash3D's "Secrets of the Luminara" kit. Covers UE5.4 project creation with ray tracing, installing the KitBash3D Cargo plugin, migrating terrain from Epic's Electric Dreams sample, editing KitBash Blueprint Actors per-instance, building volumetric god-ray lighting with Rect Lights and Exponential Height Fog, migrating the Echo character + animations from the Slay sample, and compositing the final shot in Sequencer.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Create blank UE5.4 project with **Ray Tracing enabled**
+2. Download KitBash3D **Cargo** app → Settings → Add Unreal 5.4 → Install plugin (auto-injects into UE)
+3. Import KitBash3D assets via Cargo into the project
+4. Migrate terrain from **Electric Dreams Environment** sample (Content Browser → Blueprint Class filter → Select All → Right-click → Asset Actions → Migrate → target project's /Content folder)
+5. Place KitBash Blueprint Actors; double-click individual static meshes inside the BP for non-destructive per-instance edits (doesn't overwrite source Blueprint)
+6. **Volumetric god rays**: Add Exponential Height Fog → tick Volumetric Fog → Add Rect Light → Pilot from its POV → set Volumetric Scattering Intensity (100,000), large Attenuation Radius, narrow Barn Door angle, long Source Length → tick **Cast Volumetric Shadow** → reduce Intensity to taste → place European tree mesh as fake light blocker
+7. Migrate **Echo character** from Slay Animation Sample (Content/Slay/Character/Echo → Migrate)
+8. Migrate **Echo Animation Sequences** (Content/Slay/Sequences → filter Animation Sequence → filter "Echo" → Migrate; skip existing assets)
+9. Add character to scene with animation in Sequencer → render with Movie Render Queue
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Sequencer** — cinematic assembly and render
+- **Blueprint Actor** — KitBash3D assets arrive as BPs; per-instance mesh editing via viewport double-click
+- **Exponential Height Fog** — Volumetric Fog checkbox required for god rays
+- **Rect Light** — Pilot mode (right-click → Pilot) for light-POV placement; Cast Volumetric Shadow
+- **Content Migration** — cross-project asset transfer; handles dependency gathering automatically
+- **KitBash3D Cargo Plugin** — auto-installs into UE; requires UE closed during plugin install
+- **Fab / Epic Games Launcher** — asset acquisition (note: Epic migrating to Fab from mid-Oct 2024)
+- **Ray Tracing** — enabled at project creation
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner–Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+5.4.4 (UE5)
 
 ### Tags
-[PENDING EXTRACTION]
+cinematics, kitbash3d, sequencer, volumetric-lighting, god-rays, character-animation, asset-migration, blueprints, cargo-plugin, electric-dreams, environment, ue5, gnomon-workshop
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- Sequencer / cinematics tutorials (Black Eye Cameras v2, Dean Yurke series)
+- Volumetric lighting / Lumen entries in Rendering docs

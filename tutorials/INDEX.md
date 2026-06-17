@@ -1783,9 +1783,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=t7Q1UiBr8e8
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5.4
+- **Tags:** `#cinematics` `#kitbash3d` `#sequencer` `#volumetric-lighting` `#god-rays` `#character-animation` `#asset-migration` `#blueprints` `#cargo-plugin` `#environment` `#beginner` `#intermediate` `#ue5-4` `#youtube`
+- **Summary:** End-to-end cinematic pipeline with KitBash3D assets in UE5.4: project setup, Cargo plugin import, Electric Dreams terrain migration, Blueprint Actor editing, volumetric god-ray lighting (Rect Light + Exponential Height Fog), Echo character + animation migration from Slay sample, Sequencer assembly and render.
 - **File:** tutorials/green-screen-edge-wrap-secrets-and-a-lie---advanced-davinci-to-unreal-engine-wor.md
 
 
