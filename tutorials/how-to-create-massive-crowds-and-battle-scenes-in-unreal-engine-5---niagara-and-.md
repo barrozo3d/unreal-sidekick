@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=1BcKEd9UO9k
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [overcrowd, crowd-simulation, niagara, vat, metahuman, modular-characters, battle-scene, weapons-accessories, spline, neighbor-grid, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-create-massive-crowds-and-battle-scenes-in-unreal-engine-5---niagara-and-/
 frame_count: 47
 ---
@@ -263,27 +263,49 @@ frame_count: 47
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Comprehensive tutorial for OverCrowd plugin: create modular VAT wardrobe sets (body parts, clothing, weapons, shields, MetaHuman heads with facial animation) via the Wardrobe Editor, spawn static population boxes or spline-based crowds, then hook the crowd into the included Niagara emitter with a spline path and neighbor grid collision avoidance for dynamic army charge behavior — capable of 20,000+ characters with automatic LOD.
 
 ### Summary
-[PENDING EXTRACTION]
+Charlie Driscoll presents a full walkthrough of OverCrowd (a crowd simulation plugin for UE5 he co-developed), covering both the basic Manny skeleton workflow and advanced modular MetaHuman army setup. The tutorial begins with installing the plugin, enabling the Wardrobe Editor, and baking a single Manny animation into VATs. It then scales to modular characters: preparing Polyphoria Medieval Armor materials (pasting AnimToTexture nodes), generating LODs via scripted asset actions, creating VAT mesh pairings with body-part tags, adding MetaHuman heads with facial animations, converting static mesh weapons/shields to skeletal meshes and aligning them to hand bones, and setting up two wardrobes (weapon+shield vs weapon-only) for variety. The Niagara emitter section covers BP_NiagaraCrowdBase blueprint, spline path control, neighbor grid collision avoidance, animation index blending between run/idle, and recording the simulation to Sequencer via Niagara System Lifecycle Track.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Install OverCrowd plugin (extract to Engine/Plugins/Marketplace; enable in Edit → Plugins → search OverCrowd; restart).
+2. Open Wardrobe Editor (OverCrowd toolbar button); set up reference skeleton; add skeletal mesh wardrobe piece with body part sub-tag.
+3. For each skeletal mesh: right-click → Scripted Asset Actions → OverCrowd → Generate LODs; then Create VAT Mesh Pairing with appropriate body part tag (full body, torso, legs, hair/helmet, etc.).
+4. Open parent material of each clothing piece; copy AnimToTexture nodes from OverCrowd clipboard button; paste into material; connect Normal and World Position Offset; apply.
+5. Add animations to Wardrobe (idle, walk, run, cheer) with animation sub-tags; ensure animation indexes match across all wardrobes used with same Niagara emitter.
+6. For MetaHuman heads: open face material → paste AnimToTexture nodes → remove existing World Position Offset (neck mask) → connect new one; generate LODs and VAT mesh pairing.
+7. Add facial animation data asset to head wardrobe entry; assign face animations with corresponding tags (idle, run, cheer).
+8. For weapons/shields (static meshes): add MetaHuman to Sequencer in T-pose; add weapon static mesh to level; align with hand bone; reset origin in pose; create skeletal mesh; tag as weapon; generate LODs and VAT pairing; set binding bone to hand or forearm.
+9. Click Refresh in OverCrowd window to spawn initial Populate Scene Box crowd.
+10. Control animations per box by selecting population box in outliner and editing Default Animations array; use Lock Placements to preserve manual repositioning.
+11. For Niagara crowd: switch population box Placement Group to Niagara; place BP_NiagaraCrowdBase blueprint; configure spline for crowd direction; adjust grid size and cell count in Niagara emitter for neighbor grid collision avoidance.
+12. Set animation indexes in Niagara variables (matching wardrobe index numbers) to control run/idle blend.
+13. Add BP_NiagaraCrowdBase to Sequencer via Actor to Sequencer; add Niagara System Lifecycle Track; set to Desired Age; scrub to cache simulation.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- OverCrowd plugin (crowd simulation, Wardrobe Editor, VAT baking, LOD generation, PopulateSceneBox, spline spawning, lock placements)
+- AnimToTexture plugin (underlying VAT system — OverCrowd automates the workflow)
+- BP_NiagaraCrowdBase blueprint (included Niagara emitter with spline + neighbor grid)
+- Niagara neighbor grid (collision avoidance between crowd particles)
+- Niagara System Lifecycle Track in Sequencer (cache/record simulation)
+- MetaHuman heads integration with VAT facial animations
+- Polyphoria Medieval Armor Pack (modular clothing; materials need AnimToTexture nodes)
+- Weapons/shields: static mesh → skeletal mesh conversion workflow (align in sequencer T-pose, reset origin in pose, set binding bone)
+- Scripted Asset Actions (Generate LODs, Create VAT Mesh Pairing)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced
 
 ### UE Version
-[PENDING EXTRACTION]
+5.x
 
 ### Tags
-[PENDING EXTRACTION]
+overcrowd, crowd-simulation, niagara, vat, metahuman, modular-characters, battle-scene, weapons-accessories, spline, neighbor-grid, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `how-to-create-a-massive-zombie-horde-in-unreal-engine-55---niagara-crowd-simulat.md` — manual version of the same VAT + Niagara technique without OverCrowd
+- `how-i-created-a-massive-crowd-of-metahumans-for-a-brutal-gladiator-film---unreal.md` — production using OverCrowd for a gladiator stadium crowd
+- `how-i-made-this-aaa-battle-scene-in-unreal-engine-5.md` — naval battle scene production using MetaHumans (no crowd sim, but related context)

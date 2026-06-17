@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=26c4TVIYZ8k
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.5"
+tags: [mocap, metahuman, metahuman-animator, move-ai, fight-scene, kung-fu, reallusion, animation-pack, dubbing, elevenlabs, vdb, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-create-a-fight-scene-cinematic-in-unreal-engine-55/
 frame_count: 9
 ---
@@ -75,27 +75,49 @@ frame_count: 9
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Combines a Reallusion hand-to-hand combat animation pack (68 paired choreography animations, retargeted to MetaHumans) with Move.AI Pro body capture and MetaHuman Animator face capture for bridging/dialogue shots, then uses ElevenLabs dubbing to translate English performances into Chinese, with AI audio-to-lip-sync applied to blend the dubbed mouth movements.
 
 ### Summary
-[PENDING EXTRACTION]
+Charlie Driscoll creates a Kung Fu fight scene cinematic in UE 5.5 by building around Reallusion's paired hand-to-hand combat animation pack (~68 animations), which provides choreography "Lego pieces" requiring only bridging performances captured via Move.AI Pro. A destroyed temple with burning tree provides atmosphere; fire/ember/smoke particles and Easy Rain dress the scene. The English dialogue is dubbed to Chinese using ElevenLabs dubbing tool, with the resulting Chinese audio fed into an audio-to-lip-sync tool to generate new MetaHuman facial animation, whose keyframes are manually merged onto the original capture. Sound design uses Artlist.io with its Premiere plugin. VDB explosion assets add energy blast effects inspired by anime-style energy attacks.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Source paired hand-to-hand combat animation pack from Reallusion (68 animations); retarget to MetaHuman skeleton.
+2. Find environment (destroyed temple with burning tree from Fab); drop MetaHumans with suitable outfits into scene.
+3. Place combat animations in Sequencer; add fire/ember/smoke Niagara particles; add Easy Rain for dramatic ambiance.
+4. Capture bridging dialogue/performance shots with Move.AI Pro; apply MetaHuman Animator face capture.
+5. Use camera wipe/whip pan to hide transitions between choreographed and captured animation.
+6. Write script in English; capture English dialogue for MetaHuman Animator.
+7. Upload English audio to ElevenLabs dubbing tool; convert to Chinese (voice cloned to match original performance cadence).
+8. Feed Chinese audio into audio-to-lip-sync tool to generate facial animation; copy Chinese mouth keyframes onto original MetaHuman face animation track.
+9. Add VDB explosion assets for energy blast effects.
+10. Mix sound design using Artlist.io Premiere plugin (layers: SFX hits, music stems, ambient).
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Move.AI Pro multi-cam body capture
+- MetaHuman Animator (face capture)
+- Level Sequencer (combat animation choreography + bridging shots)
+- Animation Retargeter (Reallusion pack → MetaHuman skeleton)
+- Reallusion Kung Fu animation pack (~68 paired animations)
+- Easy Rain asset (rain atmosphere)
+- Niagara fire/ember/smoke particles
+- VDB explosion assets (energy blast effects)
+- ElevenLabs dubbing tool (English → Chinese with voice clone)
+- Audio-to-lip-sync tool (Chinese audio → facial animation)
+- Artlist.io + Premiere plugin (sound design)
+- MetaHuman Control Rig (hand cleanup)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+5.5
 
 ### Tags
-[PENDING EXTRACTION]
+mocap, metahuman, metahuman-animator, move-ai, fight-scene, kung-fu, reallusion, animation-pack, dubbing, elevenlabs, vdb, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `motion-capture-sword-fighting-cinematic-in-unreal-engine-5---moveai-and-metahuma.md` — sword fight using same concept (custom mocap replacing animation packs)
+- `how-i-made-this-aaa-cinematic-in-unreal-engine-5---moveai-and-metahuman-animator.md` — mafia cinematic using the same Move.AI + MetaHuman Animator pipeline
+- `cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un.md` — covers UE 5.5 camera and render settings used in this production

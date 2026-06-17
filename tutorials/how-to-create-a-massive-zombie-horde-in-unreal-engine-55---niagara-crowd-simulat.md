@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=h6FEW4Kz_Kk
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.5"
+tags: [niagara, crowd-simulation, vat, anim-to-texture, zombies, particles, static-mesh, material-instance, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-create-a-massive-zombie-horde-in-unreal-engine-55---niagara-crowd-simulat/
 frame_count: 28
 ---
@@ -168,27 +168,49 @@ frame_count: 28
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Thousands of animated zombies rendered in real time using a Niagara fountain emitter with static mesh particles whose animations are baked into vertex animation textures (VATs) via the AnimToTexture plugin and an open-source editor utility widget — enabling physics-driven crowd behavior (collision, directional force, sine-wave lateral variation) without skeletal mesh overhead.
 
 ### Summary
-[PENDING EXTRACTION]
+Charlie Driscoll's step-by-step tutorial for creating massive zombie hordes in UE 5.5.1 using the AnimToTexture plugin and a Niagara particle system. The technique converts skeletal mesh zombies into static mesh particles with animation stored in material instances (vertex animation textures). The tutorial covers installing the AnimToTexture plugin, downloading and running a free GitHub editor utility widget (Trash Praxis tool), modifying zombie materials to expose the required blueprint nodes, baking vertex animation textures, creating a Niagara fountain emitter with mesh render, adding linear force for movement, collision and restitution tuning, sine-wave lateral variation for natural-looking crowd movement, facing-direction alignment to velocity, and ease-in/out scale curves. Important warning: do NOT apply LOD when prompted on static mesh close (breaks UVs).
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Enable AnimToTexture plugin (Edit → Plugins → search AnimToTexture); restart.
+2. Download Trash Praxis' Editor Utility Widget from GitHub; drag .uasset into Content folder; right-click → Run Editor Utility Widget.
+3. Import zombie skeletal mesh and animation assets; retarget animations to zombie skeleton if needed.
+4. Open zombie's parent material; copy AnimToTexture blueprint nodes from widget clipboard; paste into material; connect to Normal and World Position Offset; make material instance.
+5. In Trash Praxis tool: add skeletal mesh, click Create Static Mesh; add retargeted animation asset; click Bake Vertex Animation Textures.
+6. IMPORTANT: when closing static mesh window, click NO if prompted to apply LOD (breaks UVs).
+7. Repeat steps 4-6 for each zombie variant (3-7 variations recommended for visual variety).
+8. Create Niagara system (fountain emitter); delete sprite renderer; add mesh renderer; populate meshes array with all zombie static meshes.
+9. Set spawn shape to box (e.g., 3000x3000); adjust lifetime (min/max random), scale (random 0.8-1.0), spawn rate.
+10. Add Linear Force (world space, ~80-150 units); disable drag; add Sine function to Y-axis for lateral drift variation; randomize period and scale.
+11. Under Mesh Renderer, set Facing Mode to Velocity; add Update Mesh Orientation (Orient to Vector, facing direction -90) to align zombies forward.
+12. In Collision: set Restitution to 0.1 (reduce bounce); reduce friction to 0.05 (reduce clumping).
+13. Add Scale Mesh Size curve (ease in 0-0.02, hold 1.0, ease out 0.95-1.0) to avoid pop-in/pop-out.
+14. Enable Cast Shadow on particle emitter actor.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- AnimToTexture plugin (UE built-in, enable via Edit → Plugins)
+- Trash Praxis Editor Utility Widget (GitHub, free) — VAT baking tool
+- Niagara System: Fountain emitter, Mesh Renderer, Static Mesh particles array
+- Niagara modules: Linear Force (world space), Collision (restitution 0.1, friction 0.05), Update Mesh Orientation (velocity facing), Scale Mesh Size (curve)
+- Niagara spawn shape: Box Plane (3000x3000)
+- Material setup: WorldPositionOffset + Normal driven by AnimToTexture nodes; Material Domain: Surface
+- Animation Retargeter (zombie animation packs → zombie skeletal mesh skeleton)
+- Zombie Pack (Undead Shop, Fab); 73 Zombie Animations pack (Gem Games, Fab)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced
 
 ### UE Version
-[PENDING EXTRACTION]
+5.5
 
 ### Tags
-[PENDING EXTRACTION]
+niagara, crowd-simulation, vat, anim-to-texture, zombies, particles, static-mesh, material-instance, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `how-to-create-massive-crowds-and-battle-scenes-in-unreal-engine-5---niagara-and-.md` — OverCrowd plugin tutorial that builds on this same VAT/Niagara approach with a full UI
+- `how-i-created-a-massive-crowd-of-metahumans-for-a-brutal-gladiator-film---unreal.md` — production that uses OverCrowd (the polished version of this technique)
+- `how-to-create-massive-crowds-and-battle-scenes-in-unreal-engine-5---niagara-and-.md` — comprehensive OverCrowd tutorial covering modular characters and spline-driven Niagara crowds
