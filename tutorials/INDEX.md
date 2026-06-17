@@ -2248,6 +2248,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-i-made-this-aaa-cinematic-in-unreal-engine-5---moveai-and-metahuman-animator.md
 
+
+### How to Create the ULTIMATE Previz with Polycam, Metahumans, and Move.AI in Unreal Engine 5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=ova-8EAD8eg
+- **Author:** Charlie Driscoll - Unreal Engine Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-to-create-the-ultimate-previz-with-polycam-metahumans-and-moveai-in-unreal-e.md
+
 ---
 
 ## Tag Reference
