@@ -1928,6 +1928,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/advanced-volumetric-fog-secrets-in-unreal-engine-57-full-course.md
 
+
+### How to Transform TEXTURE COORDINATES in Unreal Engine Materials (Tutorial)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=Wb9hJqPcAwQ
+- **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-to-transform-texture-coordinates-in-unreal-engine-materials-tutorial.md
+
 ---
 
 ## Tag Reference
