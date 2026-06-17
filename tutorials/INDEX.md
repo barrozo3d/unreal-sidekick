@@ -646,9 +646,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=BCWThDhzImI
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** lightforge-v1
+- **UE Version:** UE 5.2
+- **Tags:** `#lightforge-v1` `#rendering` `#path-tracing` `#nanite` `#project-settings` `#beginner`
+- **Summary:** Path Tracer Pro announcement (predecessor to LightForge). Core problem: Nanite meshes lose all detail in Path Tracing mode (incompatible LOD system); manual fix = Static Mesh Editor > Fallback Relative Error = 0 > Apply Changes (30-45 sec per mesh, editor locked). Path Tracer Pro batches this for entire scene in 2 clicks.
 - **File:** tutorials/fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro.md
 
 
@@ -656,9 +657,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=RfTVeIwB2Dw
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.7
+- **Tags:** `#filmmaking` `#cinematics` `#beginner` `#course`
+- **Summary:** 51-second promo teaser for the 2026-updated Boundless Entertainment 'Unreal Engine for Filmmakers' course (UE 5.7). Visual-only montage; no narration recovered. Covers full pipeline: scene building, lighting, animation, Niagara, compositing, MRQ rendering.
 - **File:** tutorials/unreal-engine-57-filmmaking-course---unreal-engine-for-filmmakers-2026-update.md
 
 
@@ -666,9 +667,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=6w8cEVgikrg
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** `#vfx` `#filmmaking` `#virtual-production` `#compositing` `#cinematography` `#beginner`
+- **Summary:** Part 3 (positive) of the VFX series. Case study: Everything Everywhere All at Once. Practical-first techniques: wheelbarrow + low shutter/framerate + leaf blower for organic movement; LED screens as DIY virtual production fill light. Also explains pro VP (LED volume + camera tracking + UE) and indie approximations.
 - **File:** tutorials/why-modern-vfx-dont-suck---low-budget-virtual-production-everything-everywhere-a.md
 
 
@@ -676,9 +677,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=OvvtTYB46b8
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** `#compositing` `#camera-tracking` `#image-plate` `#vfx` `#sequencer` `#intermediate`
+- **Summary:** Pre-Genesis compositing workflow: 3D track in AE > export camera FBX > import to UE5 > rotoscope actor in AE > export as alpha image sequence > load as Image Plate in Sequencer > build CG environment around plate > render composite in MRQ. Superseded by Genesis plugin.
 - **File:** tutorials/unreal-engine-5-compositing-tutorial---composite-any-scene-fully-inside-of-ue5.md
 
 
@@ -686,9 +687,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=zOcXC-imA5U
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** `#vfx` `#filmmaking` `#compositing` `#cinematography` `#beginner`
+- **Summary:** Part 2: Transformers (ILM, on-location, real bus/fire + CG robots only) vs. Marvel Black Widow (full blue screen, flat lighting, no practical grounding). ILM HDRI capture workflow: photograph 360deg from camera position for exact reflection matching. Key rule: anchor CG in practical reality; bad cinematography exposes every VFX seam.
 - **File:** tutorials/why-modern-vfx-suck-and-how-to-make-yours-not-suck-part-2---transformers-vs-marv.md
 
 

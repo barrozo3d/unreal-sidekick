@@ -1,12 +1,13 @@
----
+﻿---
 title: Why Modern VFX DON'T Suck - Low Budget Virtual Production & Everything Everywhere All at Once
 source: YouTube
 url: https://www.youtube.com/watch?v=6w8cEVgikrg
 author: Boundless Entertainment
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: none
+ue_version: "UE 5.x"
+tags: [vfx, filmmaking, virtual-production, compositing, cinematography, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/why-modern-vfx-dont-suck---low-budget-virtual-production-everything-everywhere-a/
 frame_count: 4
 ---
@@ -19,56 +20,40 @@ frame_count: 4
 
 ---
 
-## Raw Data (for Claude Code extraction)
-
-
-### Intro [0:00]
-**Transcript:** What's going on guys, Sam here for Balanced Entertainment and today I've got another installment  in my series on modern VFX and if you haven't seen the previous two episodes be sure to check  them out at the link below. So I spent a good portion of this series kind of sounding like an old man  criticizing all the new movies coming out and talking about the good old days when VFX were better  but as I said at the end of the last video I now want to talk about the other side of the coin.
-
-**Frame:** tutorials\frames\why-modern-vfx-dont-suck---low-budget-virtual-production-everything-everywhere-a\frame_000.jpg
-
-### Everything Everywhere All at Once [0:25]
-**Transcript:** So in this episode I want to focus on modern filmmakers and films that use VFX extremely well  and maximize the technology they have available to them in order to create something unique  and visually compelling while also maintaining realism. So the first example I'd like to talk about  is everything everywhere all at once. Now this film was pretty low budget for its scope and scale  and the VFX team and the directors had some really interesting ideas to bring their visions to life.  So take the multiverse jumping shots for example, some of these shots were actually done with  entirely practical effects. So the shot of the main character flying backwards in our office chair  was done by putting her in a wheelbarrow or something that could move easily,  turning the camera's shutter speed and frame rate way down and pushing her backwards on the  wheelbarrow. Some wind was then added via a leaf blower behind her and the actress was told to act  in slow motion so that it would appear the movement was happening at a normal speed.  When the frames were played back at 24 frames per second because they took fewer frames and had  longer exposure times, the resulting shot had the proper amo...
-
-**Frame:** tutorials\frames\why-modern-vfx-dont-suck---low-budget-virtual-production-everything-everywhere-a\frame_001.jpg
-
-### Virtual Production [2:32]
-**Transcript:** production? Well, essentially virtual production is a way of doing your VFX in camera. So instead of  shooting on a green screen and then compositing your environment and other assets into your shot  after the fact, the idea behind virtual production is to get it all done in camera and have to  add minimal VFX in post. So how it works is first there's a wall or room of modular LED panel set up  called an LED volume. This can range from a single wall or screen to a full on giant room with 360  degree LED walls and even a ceiling. There's a system of trackers set up around the studio and one  set up on the camera. These trackers are calibrated to the space and then they're able to track the  position and motion of the camera within the studio at all times. A computer system is then  hooked up to the LED volume which is also connected to the camera position trackers. The tracking  data is fed from the trackers into the computer and then into a real time 3D environment generator.  In many cases this is a game engine called Unreal Engine. Game engines are optimal for use in  situations like these because you can render scenes in real time which I'll explain the importance  of in a momen...
-
-**Frame:** tutorials\frames\why-modern-vfx-dont-suck---low-budget-virtual-production-everything-everywhere-a\frame_002.jpg
-
-### Practical Shooting Techniques [6:01]
-**Transcript:** of the budget for the average person. So how can you implement these techniques in your own films  on a budget? So going back to our case study for this video everything everywhere all at once.  If we take a look at some of the other multiverse jump shots that they created they couldn't be  done practically and required some VFX but they could implement practical shooting techniques in  conjunction with the concepts of virtual production to achieve the look that they wanted. So the  way that they did this is the shots were taken on a green screen but before they shot the scene one  of the directors had gathered what essentially amounted to hyperlapse footage so it was shot at a  low shutter speed on a gimbal which he collected while walking through random places that he wanted  the main character to warp through. So when it came time to shoot the scene instead of just using a  normal green screen setup they also placed two LED screens one on either side of the actress to cast  environmental lighting on her. So if you wanted to do this you could use TVs or even projection  screens potentially or even just shoot the projector directly on your subject depending on the  look that you'r...
-
-**Frame:** tutorials\frames\why-modern-vfx-dont-suck---low-budget-virtual-production-everything-everywhere-a\frame_003.jpg
-
-
----
-
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Part 3 of the modern VFX series (positive counterpart to Parts 1 and 2). Case study: Everything Everywhere All at Once — how creative practical-first thinking and DIY virtual production principles produce superior results to big-budget fully-digital approaches.
 
 ### Summary
-[PENDING EXTRACTION]
+8-minute positive counterpart to the "why VFX suck" series. Sam analyzes Everything Everywhere All at Once (low budget, acclaim) as a model for creative VFX filmmaking. Key multiverse-jump shot breakdown: actress in a wheelchair (not green screen) moving backwards + low shutter speed + low frame rate + leaf blower = natural motion blur and wind effect; played at 24fps produces the correct amount of motion for a "slow motion" appearance. For shots that couldn't be done practically: green screen + two LED screens as environmental fill light on either side of the actress — budget virtual production. Also explains professional virtual production (LED volume + camera tracking + Unreal Engine) and how indie filmmakers can approximate it. Shows that the right creative solution is often cheaper and more convincing than a large-budget CG approach.
 
-### Key Steps
-[PENDING EXTRACTION]
+### Key Techniques Covered
+1. **Practical camera speed manipulation** — low shutter speed + reduced frame rate + real movement = natural motion blur; playback at 24fps makes normal-speed movement appear faster/stylized; the film grain and blur are real, not added in post
+2. **Prop + environmental physics** — actress in a wheelbarrow pushed backwards + leaf blower = authentic hair/clothing movement + realistic interaction physics; far more convincing than keyed green screen + digital wind
+3. **DIY virtual production with LED screens** — place TVs or LED screens beside subject during green screen shoot; they cast environmental light that color-matches the background being composited; eliminates the "floating in a void" look of pure green screen
+4. **Professional virtual production** — LED volume (modular LED panels, 360-degree or partial); camera tracking (position sensors on camera + set); computer feeds real-time tracked position to UE engine; engine renders correct parallax/perspective to LED in real-time; result: environment in camera, no post compositing needed for background
+5. **Indie approximation of VP** — TVs, projection screens, or projector directly on subject; works for color/light matching even without true parallax-correct rendering
 
-### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+### UE Relevance
+- Virtual production uses Unreal Engine as the real-time background renderer on LED volumes
+- Genesis (Boundless's own plugin) provides the camera tracking layer for affordable virtual production setups
+- For post-composite workflow (without LED volume): see compositing tutorial series
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner (filmmaking philosophy + technique context, no UE steps)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x
 
 ### Tags
-[PENDING EXTRACTION]
+`#vfx` `#filmmaking` `#virtual-production` `#compositing` `#cinematography` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[why-modern-vfx-suck-and-how-to-make-yours-not-suck]] — Part 1 of the series (critiques)
+- [[why-modern-vfx-suck-and-how-to-make-yours-not-suck-part-2---transformers-vs-marv]] — Part 2: Transformers vs Marvel case studies
+- [[no-cost-virtual-production-is-here---and-its-changing-filmmaking]] — virtual production accessibility manifesto
+- [[the-5-secrets-to-hollywood-level-visual-effects-with-no-budget]] — 5 principles from low-budget winners
+- [[3d-tracking-natively-in-unreal-engine---full-tutorial]] — Genesis camera tracking for virtual production
