@@ -1978,6 +1978,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-to-use-the-movie-render-graph-in-unreal-engine-58---simple-setup-for-filmmak.md
 
+
+### Create SPECTACULAR Depth of Field in Unreal Engine 5.8 with the new ACCUMULATION DOF
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=H3OfTUhMmmc
+- **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/create-spectacular-depth-of-field-in-unreal-engine-58-with-the-new-accumulation-.md
+
 ---
 
 ## Tag Reference
