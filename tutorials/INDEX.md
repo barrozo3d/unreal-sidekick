@@ -594,9 +594,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=oSux_qv3dzs
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** `#vfx` `#filmmaking` `#cinematography` `#compositing` `#beginner`
+- **Summary:** 5 principles extracted from low-budget Oscar-winning VFX films (all under $20M): story as foundation, restraint, blend practical+digital, reference obsessively, front-load pre-production. Companion to the VFX mistakes series.
 - **File:** tutorials/the-5-secrets-to-hollywood-level-visual-effects-with-no-budget.md
 
 
@@ -604,9 +604,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=BW0oesmih9I
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.4
+- **Tags:** `#previs` `#cinematics` `#sequencer` `#filmmaking` `#beginner`
+- **Summary:** 48-second promo teaser for the Boundless Entertainment Cinematic Previs Course in UE 5.4. Demonstrates Sequencer-based blocking workflow for previsualization before committing to final Path Tracer renders.
 - **File:** tutorials/unreal-engine-54-cinematic-previs-course.md
 
 
@@ -614,9 +614,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=SstexNmLc68
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** `#previs` `#virtual-production` `#filmmaking` `#cinematics` `#beginner`
+- **Summary:** Editorial: UE5's most impactful use for indie filmmakers is not LED-wall virtual production (expensive) but real-time previs — free, accurate, and the same tool Greig Fraser used to previsualize Dune 2. Explains how to use Sequencer as a professional previs tool.
 - **File:** tutorials/how-unreal-engine-is-changing-filmmaking-forever.md
 
 
@@ -624,9 +624,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=dZmnDDSNUEY
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** lightforge-v1
+- **UE Version:** UE 5.6
+- **Tags:** `#lightforge-v1` `#rendering` `#path-tracing` `#lumen` `#mrq` `#project-settings` `#beginner`
+- **Summary:** LightForge v1 walkthrough: Edit > Plugins > LightForge; one-click Path Tracing enable, cinematic quality defaults (lighting/reflections/motion blur/DOF), and MRQ render presets. Timed demo: 3 clicks vs. 20-25 min manual setup.
 - **File:** tutorials/best-settings-for-unreal-engine-56---perfect-renders-every-time.md
 
 
@@ -634,9 +635,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=o5ZInDwU73I
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** lightforge-v1
+- **UE Version:** UE 5.x
+- **Tags:** `#lightforge-v1` `#rendering` `#path-tracing` `#color-grading` `#post-process` `#intermediate`
+- **Summary:** 32-min film emulation deep-dive: halation (warm bloom around highlights), film grain (PPV Lens), gate weave (AE noise expression), film breath (animated DOF drift), S-curve tone mapping (LightForge preset or OCIO LUT). Adds organic imperfections that make digital reads as photographed.
 - **File:** tutorials/how-to-make-your-unreal-engine-renders-look-real.md
 
 
