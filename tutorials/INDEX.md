@@ -2328,6 +2328,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/moveai-unreal-engine-54-motion-capture-short-film-using-custom-orc-metahumans---.md
 
+
+### William Wallace - Move.AI and Metahuman short film in Unreal Engine 5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=PYTu-rLyPro
+- **Author:** Charlie Driscoll - Unreal Engine Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/william-wallace---moveai-and-metahuman-short-film-in-unreal-engine-5.md
+
 ---
 
 ## Tag Reference
