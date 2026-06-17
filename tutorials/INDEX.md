@@ -1788,6 +1788,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/green-screen-edge-wrap-secrets-and-a-lie---advanced-davinci-to-unreal-engine-wor.md
 
+
+### Burn Clip Names onto DaVinci Resolve and FUSION Video (Quick Fusion Tip!)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=0YhVHCoHKkg
+- **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/burn-clip-names-onto-davinci-resolve-and-fusion-video-quick-fusion-tip.md
+
 ---
 
 ## Tag Reference
