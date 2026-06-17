@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=5j6wwCsWpD0
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.5"
+tags: [custom-metahuman, ai-character, yvo3d, faceform-wrap, 2dnax, maya, metahuman-creator, body-generation, ai-pipeline, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-generate-custom-metahuman-bodies-with-ai---yvo3d-faceform-wrap-2dnax---un/
 frame_count: 32
 ---
@@ -188,27 +188,49 @@ frame_count: 32
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Generate an AI body mesh in ChatGPT + YVO3D, wrap it to MetaHuman body topology in Faceform Wrap, import into MetaHuman Creator, then use Maya + 2DNAx (free for personal use) to fix the auto-rigging spaghetti-arm joint alignment bug — exporting a corrected DNA file that can be re-imported into MetaHuman Creator for a fully rigged custom AI body.
 
 ### Summary
-[PENDING EXTRACTION]
+Part 2 of Charlie Driscoll and community member Zen's AI MetaHuman pipeline, focusing on generating a custom body mesh to accompany the AI-generated head from Part 1 (creature tutorial). The core challenge is that AI-generated meshes cause joint misalignment in MetaHuman Creator's auto-rigger (spaghetti arms). The solution requires Maya (30-day free trial) and 2DNAx plugin (free for personal use) to rebuild the skeleton at correct joint positions and export a corrected DNA file. The tutorial covers: ChatGPT body generation prompt, YVO3D mesh generation, Blender export, Faceform Wrap body topology wrapping with combined head+body mesh, MetaHuman Creator import and blending to fix mesh errors, texture transfer from Wrap, Maya import via MetaHuman plugin, 2DNAx character rebuild, DNA export, UE 5.5/5.6 upgrade, and re-import to MetaHuman Creator.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Generate body reference image in ChatGPT using provided body prompt (paste head image + body modifiers); upload to YVO3D for 3D mesh generation with 4K textures.
+2. In Blender: import GLB; extract base color, metallic-roughness, and normal map textures (Shading tab → Image → Save As); export as OBJ.
+3. In Faceform Wrap: copy head wrap node graph; paste beside it; load combined MetaHuman head+body topology OBJ (provided in tutorial files); load AI body OBJ; align correspondence points on shoulders, pelvis, toes, neck.
+4. Run cartoon wrap; save output (right-click brush node → Save Output).
+5. In MetaHuman Creator: import wrapped combined OBJ (fit from mesh only → import); use Blend tab to fix foot/hand/joint issues by blending in standard MetaHuman body parts.
+6. Align head using Head tab → Conform → Scaling/Rotation/Translation → Adapt Neck → Align Neck to Body.
+7. Export body textures from Wrap: change UV number to body UVs in Transfer Texture node; save output; import base color and normal into Unreal.
+8. In MetaHuman Creator: enable texture overrides; add body texture slots (base color, normal, underwear mask); create full rig (note: rig will have spaghetti arms bug at this stage).
+9. In Maya: enable MetaHuman plugin (Windows → Settings Preferences → Plugin Manager); import character via MetaHuman menu → Character Assembler; confirm in target directory.
+10. In Maya: un-parent body LOD0 mesh and all head geometry from rig (Shift+P); delete rig, leaving geometry only.
+11. Disable MetaHuman plugin; enable 2DNAx plugin; use 2DNAx → Character Editor → Body Prepare (select Male DNA); switch to Editing Mode (adds head with face rig); verify joint positions.
+12. In 2DNAx → Character Editing: Export Character (select Male); Prepare for Export → Export Character → get DNA file.
+13. Upgrade DNA to UE 5.6: re-enable MetaHuman plugin in Maya; MetaHuman menu → Expression Editor → Upgrade MetaHuman DNA; select source DNA → give target name → Upgrade.
+14. Import fixed FBX meshes and updated DNA into Unreal; in MetaHuman Creator: Remove Rig → reset body and head → import body/head skeletal meshes → import DNA (Import Whole Rig).
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- YVO3D (AI 3D mesh generator, $10/500 credits, real 4K textures)
+- ChatGPT 4.0 (body generation prompt with head image reference)
+- Blender (texture extraction from GLB, OBJ export)
+- Faceform Wrap (RAP) — retopology wrapping; Indie license $570 / 30-day free trial
+- MetaHuman Creator: Blend tab, Head conform tab, Align Neck to Body, texture override slots, Create Full Rig, Remove Rig, Import Whole Rig (DNA)
+- Maya 2023/2024 (30-day free trial): MetaHuman plugin (Character Assembler), 2DNAx plugin (free for personal use, Body Prepare, Editing Mode, Export Character)
+- 2DNAx Helix Edit plugin for Maya (joint rebuild for AI-generated body meshes)
+- Unreal Engine 5.5 / 5.6 MetaHuman Creator DNA import
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced
 
 ### UE Version
-[PENDING EXTRACTION]
+5.5
 
 ### Tags
-[PENDING EXTRACTION]
+custom-metahuman, ai-character, yvo3d, faceform-wrap, 2dnax, maya, metahuman-creator, body-generation, ai-pipeline, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `how-to-generate-custom-metahuman-creatures-with-ai---yvo3d-faceform-wrap-unreal-.md` — Part 1 of this pipeline (head generation); this tutorial continues from it
+- `moveai-unreal-engine-54-motion-capture-short-film-using-custom-orc-metahumans---.md` — production using custom orc MetaHumans created via the professional version of this process
+- `how-i-created-a-massive-crowd-of-metahumans-for-a-brutal-gladiator-film---unreal.md` — production using custom MetaHumans in OverCrowd crowds

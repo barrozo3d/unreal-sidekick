@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=ova-8EAD8eg
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [previz, polycam, lidar-scan, metahuman, move-ai, mocap, pre-production, digital-set, short-film, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-create-the-ultimate-previz-with-polycam-metahumans-and-moveai-in-unreal-e/
 frame_count: 4
 ---
@@ -33,27 +33,40 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+LiDAR scan a real location with Polycam, import the resulting 3D mesh into Unreal Engine as a digital set, then populate it with MetaHumans driven by Move.AI performance capture to previz an entire short film before shooting the real version — covering every shot, camera movement, dance sequence, and transition.
 
 ### Summary
-[PENDING EXTRACTION]
+Charlie Driscoll's production company uses Unreal Engine 5 as a full previz tool for an Alzheimer's short film requiring complex camera movements, dance sequences, and memory transitions. The real house location is LiDAR scanned with Polycam and imported into UE5 as a digital set. Driscoll acts all roles himself using Move.AI performance capture and MetaHuman Animator, building a complete digital version of the film before principal photography. The video argues this elaborate previz process — which could seem like overkill — actually made the final live-action film substantially better by revealing shot problems, timing issues, and creative solutions impossible to anticipate from a traditional shot list or storyboard.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. LiDAR scan real location using Polycam app (smartphone LiDAR); export as 3D mesh.
+2. Import Polycam mesh into UE5 as digital set representing the actual shooting location.
+3. Act all roles using Move.AI body capture and MetaHuman Animator face capture; retarget animations to MetaHumans.
+4. Block out every shot in Sequencer: camera movements, dance sequences, memory transitions.
+5. Iterate on edit in Sequencer until complete digital film is locked.
+6. Use digital previz as shot list and creative reference for live-action principal photography.
+7. Compare digital previz version against final live-action film to validate process.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Polycam (LiDAR scanning app for iOS/Android; mesh export for UE)
+- Move.AI body motion capture (multi-cam or single-cam, unspecified in transcript)
+- MetaHuman Animator (face capture)
+- Level Sequencer (full film blocking: cameras, character animation, transitions)
+- MetaHumans (character placeholders for all roles)
+- Cine Camera Actor (previz camera work)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+5.x
 
 ### Tags
-[PENDING EXTRACTION]
+previz, polycam, lidar-scan, metahuman, move-ai, mocap, pre-production, digital-set, short-film, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `cinematic-motion-capture-with-move-one-and-metahuman-animator---unreal-engine-54.md` — full pipeline tutorial for the mocap and MetaHuman workflow used in this previz
+- `how-i-made-this-aaa-cinematic-in-unreal-engine-5---moveai-and-metahuman-animator.md` — references this video as an example of previz work
+- `how-i-use-moveai-and-metahumans-to-achieve-aaa-character-animation-in-unreal-eng.md` — earlier pipeline overview of Move.AI + MetaHuman workflow

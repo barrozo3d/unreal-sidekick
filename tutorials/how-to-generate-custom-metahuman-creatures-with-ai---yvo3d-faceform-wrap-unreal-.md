@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=PEObW2odtXI
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.6"
+tags: [custom-metahuman, ai-character, yvo3d, faceform-wrap, metahuman-creator, creature, fantasy, ai-pipeline, metahuman-animator, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-generate-custom-metahuman-creatures-with-ai---yvo3d-faceform-wrap-unreal-/
 frame_count: 25
 ---
@@ -153,27 +153,51 @@ frame_count: 25
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Generate a fantasy/sci-fi creature head image in ChatGPT 4.0, convert to 3D mesh with YVO3D ($10/generation), extract textures in Blender, use Faceform Wrap (RAP) to retopologize the AI mesh onto MetaHuman head topology with correspondence-point placement, then import into MetaHuman Creator UE 5.6 to create a fully rigged custom creature MetaHuman that works with MetaHuman Animator.
 
 ### Summary
-[PENDING EXTRACTION]
+Part 1 of Charlie Driscoll and community member Zen's AI MetaHuman creature pipeline for Unreal Engine 5.6. The tutorial focuses on head generation only: use ChatGPT 4.0 with a specific prompt (included in description) to generate a creature portrait with neutral expression and flat lighting, upload to YVO3D for 3D mesh generation with 4K textures (~$2 per generation), extract textures in Blender (base color, metallic roughness, normal), then perform wrap retopology in Faceform Wrap (RAP) using x-symmetry and ~50-100 correspondence points to map MetaHuman head topology onto the AI mesh. The wrapped mesh and textures are imported into MetaHuman Creator UE 5.6 via Conform from Template, material overrides are set, eyes can be swapped, and the resulting MetaHuman is fully compatible with MetaHuman Animator for performance capture.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Generate creature portrait in ChatGPT 4.0 using the provided prompt (neutral expression, mouth closed, flat lighting, facing camera); iterate until desired look is achieved.
+2. Upload image to YVO3D; select polycount (~100K polygons recommended); enable real 4K textures; generate 3D mesh (~10 min, ~$2); download GLB.
+3. In Blender: import GLB; go to Shading tab; locate and save three texture maps (base color, metallic roughness, normal) via Image → Save As.
+4. Export mesh as OBJ from Blender (File → Export → OBJ).
+5. In Faceform Wrap (RAP): create two Load Geometry nodes — one for MetaHuman head topology OBJ (provided in tutorial files, set rotation -90), one for AI creature OBJ.
+6. Enable X-symmetry; place ~50-100 correspondence points on both meshes (eyes corners, mouth corners, nose, ears, horns/protrusions, forehead).
+7. Add Cartoon Wrap node; connect both geometries; run wrap (result shows MetaHuman topology conforming to creature shape).
+8. Add Brush node; connect wrap output; use Relax brush to clean up mesh artifacts.
+9. Add Transfer Texture node; connect wrapped geometry; set resolution to 4096x4096; add Extrapolate Image node; right-click → Save Output for base color and normal textures.
+10. In UE 5.6: enable MetaHuman plugins (restart if needed); right-click content browser → Create MetaHuman Character; name character.
+11. Head tab → Conform → From Template; select wrapped OBJ; Conform.
+12. Use Blend tab to fix any deformations (lips, eyes, nose); Teeth tab to verify mouth.
+13. Body tab → show compatibility mode bodies (Project Settings → Plugins → MetaHuman Character → Show Compatibility Mode Bodies); select appropriate body type.
+14. Materials tab: enable texture overrides; add face texture slots; import wrapped base color and normal; adjust in Unreal (increase normal map intensity, change roughness for wet/slimy look).
+15. Swap eye materials if desired (custom eye materials from modular packs).
+16. Create Full Rig; download MetaHuman to project via MetaHuman Creator.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- ChatGPT 4.0 (character image generation with provided prompt)
+- YVO3D (AI 3D mesh generator; $10/500 credits; real 4K textures)
+- Blender (texture extraction from GLB: base color, metallic roughness, normal; OBJ export)
+- Faceform Wrap (RAP) — retopology tool; Indie $570 / 30-day free trial; correspondence point wrapping, Cartoon Wrap, Brush (Relax mode), Transfer Texture, Extrapolate Image
+- MetaHuman Creator UE 5.6: Conform from Template, Blend tab, Teeth tab, Body tab (compatibility mode bodies), Materials tab (texture override), Create Full Rig
+- MetaHuman Animator (face capture, fully compatible with resulting character)
+- Polyphoria Medieval Armor Pack (for body clothing in demo)
+- UE 5.6 MetaHuman plugins (enable in project)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced
 
 ### UE Version
-[PENDING EXTRACTION]
+5.6
 
 ### Tags
-[PENDING EXTRACTION]
+custom-metahuman, ai-character, yvo3d, faceform-wrap, metahuman-creator, creature, fantasy, ai-pipeline, metahuman-animator, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `how-to-generate-custom-metahuman-bodies-with-ai---yvo3d-faceform-wrap-2dnax---un.md` — Part 2 of this pipeline (body generation + Maya/2DNAx fix)
+- `moveai-unreal-engine-54-motion-capture-short-film-using-custom-orc-metahumans---.md` — production using custom orc MetaHumans (created with professional version of this process)
+- `how-i-created-a-massive-crowd-of-metahumans-for-a-brutal-gladiator-film---unreal.md` — uses custom MetaHumans from 3D Scan Store in gladiator crowds
