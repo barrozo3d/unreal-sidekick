@@ -2178,6 +2178,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-i-created-a-massive-crowd-of-metahumans-for-a-brutal-gladiator-film---unreal.md
 
+
+### Motion Capture Sword Fighting Cinematic in Unreal Engine 5 - Move.AI and Metahumans
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=ukk4vw-bIpA
+- **Author:** Charlie Driscoll - Unreal Engine Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/motion-capture-sword-fighting-cinematic-in-unreal-engine-5---moveai-and-metahuma.md
+
 ---
 
 ## Tag Reference
