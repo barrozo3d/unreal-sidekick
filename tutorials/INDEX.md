@@ -1858,6 +1858,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-to-get-precision-control-in-davinci-resolve---use-shift-drag.md
 
+
+### 🥊Beat Yourself up with Unreal! RAGDOLL Physics for Filmmaking made Easy (or Hard) in UE5.6!🥊
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=ye0gjAx50oU
+- **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/beat-yourself-up-with-unreal-ragdoll-physics-for-filmmaking-made-easy-or-hard-in.md
+
 ---
 
 ## Tag Reference
