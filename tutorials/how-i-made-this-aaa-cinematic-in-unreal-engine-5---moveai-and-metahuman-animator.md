@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=LpRGFkk3b0k
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [mocap, metahuman, metahuman-animator, move-ai, short-film, mafia, custom-metahuman, scan-store, hand-pose-library, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/how-i-made-this-aaa-cinematic-in-unreal-engine-5---moveai-and-metahuman-animator/
 frame_count: 8
 ---
@@ -68,27 +68,43 @@ frame_count: 8
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Full production breakdown of a 40-hour mafia-themed game teaser cinematic made with Move.AI Pro multi-cam (6 GoPro 10s at 120fps) for body capture, MetaHuman Animator for face capture, 3D Scan Store custom MetaHuman heads for photorealistic characters, and hand pose library cleanup — demonstrating AAA-quality results achievable by a small team.
 
 ### Summary
-[PENDING EXTRACTION]
+Charlie Driscoll presents a behind-the-scenes breakdown of a mafia-themed game teaser cinematic made in approximately 40 hours using Unreal Engine 5. Move.AI Pro ($7,000/year license) captures up to two actors simultaneously with 6 GoPro 10 cameras at 120fps; MetaHuman Animator provides free face capture via iPhone 12+ in a Rokoko head rig. 3D Scan Store heads with high-resolution skin maps make characters less "MetaHuman-y." A contract artist handles custom MetaHuman work (injuries, teeth) in Substance Painter. The bulk of production time goes to scene setup and cinematography. Animation cleanup uses a hand pose library. Stairs and complex environments remain a known limitation addressed with Mixamo stock animations.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Use Move.AI Pro (6 GoPro 10s, 120fps) to capture 1-hour acting session (multiple takes of all scenes).
+2. Upload footage to Move.AI cloud platform; process each clip (1-2 hours per clip); download FBX per actor.
+3. Process face animations in MetaHuman Animator; sync body/face using hand-clap mouth-pop technique.
+4. Commission character artist (Upwork) to add injuries/teeth to 3D Scan Store MetaHuman heads in Substance Painter.
+5. Import and retarget animations to MetaHumans in Sequencer; perform minimal cleanup (hand pose library for hands).
+6. For stairs/complex movement: use single-camera solution (Radical Motion) or Mixamo stock animations as fallback.
+7. Build environment scenes; set up cameras; perform animation cleanup on curves as needed.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Move.AI Pro multi-cam (6 GoPro 10s, 120fps, 2-actor simultaneous capture, $7,000/year)
+- MetaHuman Animator (face capture, iPhone 12+ required, Rokoko head rig $300)
+- Level Sequencer (multi-actor animation, camera cuts)
+- Hand Pose Library (accumulated hand pose corrections)
+- 3D Scan Store head integration with MetaHuman (high-res skin textures)
+- Substance Painter (custom MetaHuman material work, outsourced)
+- Radical Motion (single-camera mocap, tested as fallback for stairs — results poor)
+- Mixamo (fallback for stair/complex movement)
+- ElevenLabs (voice morphing)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+5.x
 
 ### Tags
-[PENDING EXTRACTION]
+mocap, metahuman, metahuman-animator, move-ai, short-film, mafia, custom-metahuman, scan-store, hand-pose-library, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `how-i-use-moveai-and-metahumans-to-achieve-aaa-character-animation-in-unreal-eng.md` — earlier two-actor Move.AI pipeline overview with orc/knight scene
+- `cinematic-motion-capture-with-move-one-and-metahuman-animator---unreal-engine-54.md` — budget version of this same pipeline using Move One instead of Pro
+- `moveai-unreal-engine-54-motion-capture-short-film-using-custom-orc-metahumans---.md` — orc MetaHuman short film using custom characters in UE 5.4

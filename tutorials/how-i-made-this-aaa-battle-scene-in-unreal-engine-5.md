@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=P2eR9gGPZnA
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [mocap, metahuman, move-ai, naval-battle, battle-scene, ocean, vfx-particles, sequencer, elevenlabs, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/how-i-made-this-aaa-battle-scene-in-unreal-engine-5/
 frame_count: 14
 ---
@@ -98,27 +98,47 @@ frame_count: 14
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Historic naval battle scene built by combining duplicated Spanish galleon assets on Waterline Pro ocean, MetaHuman crew with Move.AI mocap (including a climbing-rigging animation), particle effects for cannon fire and ocean spray, and ElevenLabs narration — all assembled by exploring camera angles in real time in Unreal Engine.
 
 ### Summary
-[PENDING EXTRACTION]
+Charlie Driscoll chronicles the creative process behind a 1588 Spanish Armada battle scene in Unreal Engine 5. Inspired by the Epic History YouTube channel, he builds the scene iteratively: placing and keyframe-animating galleon ships on a Waterline Pro ocean, adding ~10 MetaHuman crew with Polyphoria medieval armor, using pirate mocap packs plus one custom Move.AI climbing-rigging animation, then layering cannon muzzle flash particles (staggered in Sequencer for broadside effect), ocean spray splashes, bird spline assets, and a shipwreck scene with swimming/drowning animations. Shots are discovered organically by flying the camera around the live scene. ElevenLabs produces the voiced narration.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Import Spanish galleon from Marketplace; duplicate multiple times; add Waterline Pro ocean asset.
+2. Keyframe ship positions (sway and bob) in Sequencer; fly camera around to find shots.
+3. Add ~10 MetaHumans; apply Polyphoria Medieval Armor pack by dragging into skeletal mesh slots; space around ship deck.
+4. Add MetaHumans to Sequencer; attach all MetaHumans to ship actor so they move relative to ship.
+5. Assign pirate mocap animations to most crew; capture one custom Move.AI climbing animation using a ladder prop in mocap volume; clean up via additive layer on Control Rig.
+6. Duplicate and place artillery muzzle flash particle effects on all cannon positions; stagger activation in Sequencer for broadside effect.
+7. Add smaller English galleon models; duplicate artillery particles onto English ships; add cannonball splash particles.
+8. Set up shipwreck shot: place shipwreck asset (matches galleon style), use Waterline Pro waterline cutting through camera; add swimming/drowning animations to MetaHumans below surface.
+9. Add point light to fire on shipwreck deck; set up creeping/crawling animation MetaHuman.
+10. Record narration; morph with ElevenLabs; add to Sequencer audio track.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Waterline Pro (ocean asset with waterline camera effect)
+- Level Sequencer: ship keyframe animation (transform), particle activation tracks, MetaHuman attached to ship Actor
+- Move.AI multi-cam body mocap (6 GoPros)
+- MetaHuman Animator (face capture, Rokoko head rig)
+- Pirate mocap pack, scared animation pack, Dramatic Deaths animation pack (swimming/falls)
+- Control Rig additive layer (rigging cleanup for climbing animation)
+- Niagara particles: artillery muzzle flash, ocean spray splashes, cannonball splashes
+- Bird spline asset (background atmosphere)
+- Polyphoria Medieval Armor Pack (MetaHuman clothing)
+- ElevenLabs (narration voice morphing)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+5.x
 
 ### Tags
-[PENDING EXTRACTION]
+mocap, metahuman, move-ai, naval-battle, battle-scene, ocean, vfx-particles, sequencer, elevenlabs, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `how-i-use-moveai-and-metahumans-to-achieve-aaa-character-animation-in-unreal-eng.md` — Move.AI pipeline overview with two simultaneous actors
+- `cinematic-motion-capture-with-move-one-and-metahuman-animator---unreal-engine-54.md` — full beginner tutorial for the underlying mocap pipeline
+- `how-i-made-this-aaa-cinematic-in-unreal-engine-5---moveai-and-metahuman-animator.md` — similar production breakdown with interior mafia-themed cinematic

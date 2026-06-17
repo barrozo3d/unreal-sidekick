@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=-GQWj_20J0g
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.4"
+tags: [mocap, metahuman, metahuman-animator, move-ai, two-actor-capture, animation-cleanup, butterworth-filter, performance-capture, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/how-i-use-moveai-and-metahumans-to-achieve-aaa-character-animation-in-unreal-eng/
 frame_count: 10
 ---
@@ -78,27 +78,44 @@ frame_count: 10
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Two-actor simultaneous performance capture using Move.AI Pro (6 GoPros in a ring, ~100 sq ft volume) with MetaHuman Animator face capture via head rigs — both actors perform the scene in one take, animations imported into UE 5.4, retargeted to custom MetaHumans, and jitter reduced via low-pass Butterworth filter on the Control Rig curves.
 
 ### Summary
-[PENDING EXTRACTION]
+Charlie Driscoll demonstrates his team's pipeline for capturing two actors simultaneously using Move.AI Pro and MetaHuman Animator. Six GoPro cameras in a ring cover ~100 sq ft; each actor wears a head rig with an iPhone for face capture. After a single performance take, footage is uploaded to Move.AI cloud, processed, and downloaded as per-actor FBXs. These are imported into UE 5.4, retargeted to custom MetaHumans (including a Polyphoria orc converted to MetaHuman via Metapype), synced in Sequencer, then smoothed using a Butterworth low-pass filter baked through the Control Rig. The resulting "play" can be explored in real time by flying camera through the scene. Honest assessment of cost ($7,000/year for MovePro) versus quality trade-offs.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Set up 6 GoPro cameras in a ring covering ~100 sq ft capture volume; each actor wears head rig with iPhone for MetaHuman Animator face capture.
+2. Perform scene in one take; upload all camera footage to Move.AI cloud for processing (few hours).
+3. Preview and download per-actor FBX animation files.
+4. Import FBXs into UE; use UE 5.4 built-in retargeting to map animations to MetaHuman skeletons.
+5. Transfer face capture from iPhone to PC via LiveLink archives; import into Unreal; create MetaHuman Identity; process face performance.
+6. Sync face + body animations in Sequencer using clap/mouth-pop sync marker.
+7. Bake body animation to MetaHuman Control Rig; open Curves Editor; apply low-pass Butterworth filter to head/arm/body controls to reduce high-frequency jitters.
+8. Fly camera in real time to discover shot angles; set up cameras in Sequencer.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Move.AI Pro multi-cam (6 GoPros, ~100 sq ft volume, $7,000/year, 2-actor simultaneous)
+- MetaHuman Animator (face capture, LiveLink Archive import)
+- UE 5.4 Animation Retargeter (Move.AI FBX → MetaHuman skeleton)
+- Level Sequencer (face + body sync, camera animation)
+- MetaHuman Control Rig (bake + edit)
+- Curves Editor: low-pass Butterworth filter (head/arm/body controls)
+- Polyphoria Medieval Armor Pack + Orc character (converted to MetaHuman via Metapype pipeline)
+- Easy Fog by William Fauci (environment atmosphere)
+- Directional Light (cross-key lighting setup)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+5.4
 
 ### Tags
-[PENDING EXTRACTION]
+mocap, metahuman, metahuman-animator, move-ai, two-actor-capture, animation-cleanup, butterworth-filter, performance-capture, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `cinematic-motion-capture-with-move-one-and-metahuman-animator---unreal-engine-54.md` — full beginner tutorial for budget version of this pipeline using Move One
+- `how-i-made-this-aaa-cinematic-in-unreal-engine-5---moveai-and-metahuman-animator.md` — production breakdown of mafia cinematic using the same Move.AI Pro setup
+- `motion-capture-sword-fighting-cinematic-in-unreal-engine-5---moveai-and-metahuma.md` — two-actor sword fight using this same two-person capture approach
