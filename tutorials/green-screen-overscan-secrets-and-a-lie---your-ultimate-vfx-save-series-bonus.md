@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=qe2x-puqVl0
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: ["overscan", "cine camera", "sensor width", "blueprint", "Movie Render Queue", "EXR", "linear sRGB", "DaVinci Resolve", "lens distortion", "camera shake", "filmmaking", "virtual production", "color space transform"]
+extraction_status: complete
 frames_dir: tutorials/frames/green-screen-overscan-secrets-and-a-lie---your-ultimate-vfx-save-series-bonus/
 frame_count: 14
 ---
@@ -98,27 +98,43 @@ frame_count: 14
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Using Unreal Engine's Overscan feature (and a Blueprint workaround for DaVinci Resolve compatibility) to render extra pixel data outside the visible frame, enabling post-production reframing, lens distortion, and camera shake without image quality loss.
 
 ### Summary
-[PENDING EXTRACTION]
+This bonus video in Dean Yurke's VFX series explains overscan — rendering extra pixel data beyond the visible frame boundary — and its benefits for digital filmmaking. He covers the built-in Overscan percentage setting on a Cine Camera Actor (combined with Crop Overscan to maintain normal framing during editing), a critical issue where DaVinci Resolve's Media Pool discards the overscan data window and only shows the display window, and a Blueprint fix: scaling the camera's Sensor Width and Sensor Height by the desired overscan factor (e.g., ×1.5 for 50% overscan) so the display and data windows match, making the overscan usable in the edit page. The workflow also covers rendering oversized EXRs with linear sRGB (tone curve disabled) in Movie Render Queue at scaled resolution, importing into DaVinci Resolve with timeline mismatch set to "Scale Entire Image to Fit," applying a Color Space Transform in the Color Page, and then adding lens distortion and camera shake effects that now have extra pixel room. A secondary benefit: overscan pushes Lumen/rendering artifacts to the outside of the visible area.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Select a Cine Camera Actor; in Details, find Overscan; set to a percentage (e.g., 0.2 = 20%).
+2. Enable Crop Overscan to maintain normal visible framing in the viewport and Sequencer.
+3. To fix DaVinci Resolve Media Pool compatibility: create a Blueprint that reads the camera's Sensor Width and Sensor Height and multiplies them by the overscan factor (e.g., 1.5); the built-in Overscan parameter creates a display/data window mismatch that the Media Pool rejects — this approach avoids that.
+4. In Movie Render Queue: multiply your output resolution by the overscan factor (e.g., 1920×1.5 = 2880); set output to EXR DWAA; disable Tone Curve for linear sRGB output.
+5. Render and verify oversized frames on disk.
+6. In DaVinci Resolve: go to Timeline Settings → Mismatch Resolution → "Scale Entire Image to Fit" (keeps all pixel data).
+7. In Media Storage settings, ensure Frame Display Mode is set to Sequence (not Individual Files).
+8. In the Color Page: add a Color Space Transform node; set Input Color Space to Linear, Input Gamma to sRGB (or your camera's native space); apply Saturation Compensation gamut mapping for clean colors.
+9. After the Color Space Transform: apply a lens distortion node and/or camera shake node — the overscan data fills the edges revealed by these effects.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Cine Camera Actor: Overscan (percentage), Crop Overscan (boolean)
+- Cine Camera Actor: Sensor Width, Sensor Height (scaled via Blueprint as workaround)
+- Blueprint: reads and multiplies sensor dimensions by overscan factor
+- Movie Render Queue: EXR DWAA output, Disable Tone Curve (Color Output), scaled resolution
+- DaVinci Resolve: Timeline Mismatch → Scale Entire Image to Fit; Color Space Transform (external)
+- DaVinci Resolve: Lens Distortion node, Camera Shake node in Color Page (external)
+- Lumen rendering artifacts (context: overscan pushes edge artifacts outside visible frame)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+5.x (no specific sub-version)
 
 ### Tags
-[PENDING EXTRACTION]
+overscan, cine camera, sensor width, blueprint, Movie Render Queue, EXR, linear sRGB, DaVinci Resolve, lens distortion, camera shake, filmmaking, virtual production, color space transform
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `how-to-use-the-movie-render-graph-in-unreal-engine-58---simple-setup-for-filmmak.md` — Movie Render Graph/Queue setup and EXR/linear sRGB output pipeline
+- `green-screen-edge-wrap-secrets-and-a-lie---advanced-davinci-to-unreal-engine-wor.md` — companion "secrets and a lie" VFX series video with full color space transform workflow
+- `create-spectacular-depth-of-field-in-unreal-engine-58-with-the-new-accumulation-.md` — other rendering/output considerations for filmmaking in UE

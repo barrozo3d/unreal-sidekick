@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=ivE8Bg0EaBo
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.8"
+tags: ["Movie Render Graph", "Movie Render Queue", "EXR", "DWAA", "linear sRGB", "tone curve", "temporal sampling", "multi-camera", "deferred renderer", "filmmaking", "rendering", "shutter timing", "frame open", "DaVinci Resolve"]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-use-the-movie-render-graph-in-unreal-engine-58---simple-setup-for-filmmak/
 frame_count: 11
 ---
@@ -83,27 +83,45 @@ frame_count: 11
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Migrating from the legacy Movie Render Queue to the new node-based Movie Render Graph in UE 5.8 to fix a multi-camera rendering bug, with a minimal filmmaker-friendly graph setup outputting EXR DWAA sequences in linear sRGB with correct shutter timing for video textures.
 
 ### Summary
-[PENDING EXTRACTION]
+Dean Yurke explains why he moved to the Movie Render Graph: a bug in the legacy Movie Render Queue in UE 5.7/5.8 silently skips rendering frames for the second and subsequent cameras in a multi-camera sequence — the frames appear to be rendering in the UI but are absent on disk. The Movie Render Graph fixes this. He walks through creating a new graph asset, replacing the default JPEG output with an EXR Sequence node (DWAA compression, camera name as filename prefix), configuring the output directory and resolution, disabling the tone curve in the Deferred Renderer panel for linear sRGB output, adding a Sampling Method node for temporal samples, and adding a Camera Settings node to change shutter timing from the default Frame Center to Frame Open (critical when using video textures in Composure to prevent double-image artifacts). He verifies the fix with a successful multi-camera render.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Open Movie Render Queue → click the down arrow next to the preset → Movie Render Graph → Create New Asset; save the new graph asset.
+2. In the graph, locate the default JPEG Sequence output node; delete it.
+3. Drag a pin from the master settings node and search for EXR Sequence; connect it to the output.
+4. In the EXR Sequence node: set File Name Format to `{camera_name}_{frame_number}` (remove layer name token); set Compression to DWAA.
+5. In Global Output Settings: set Output Directory to your render folder; set Output Resolution; set Output Frame Rate to 24fps; enable Zero Padded Frame Numbers.
+6. Click the Deferred Renderer node; find and enable Disable Tone Curve — this renders in linear sRGB.
+7. Drag a pin from the main chain; search for and add a Sampling Method node; set Temporal Sample Count (e.g., 8); connect it into the chain.
+8. Drag a pin; search for and add a Camera Settings node; change Shutter Timing from Frame Center to Frame Open (prevents double-image on video textures).
+9. Save the graph; hit Render; verify all cameras produce frames on disk.
+10. Use DJV (free donation software) to play back EXR frame sequences for review.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Movie Render Graph (UE 5.7/5.8 — node-based replacement for Movie Render Queue)
+- Graph nodes: EXR Sequence, Deferred Renderer, Sampling Method, Camera Settings, Global Output Settings
+- EXR Sequence node: DWAA compression, filename format tokens ({camera_name}, {frame_number})
+- Deferred Renderer node: Disable Tone Curve (linear sRGB output)
+- Sampling Method node: Temporal Sample Count
+- Camera Settings node: Shutter Timing (Frame Center → Frame Open)
+- Multi-camera Sequencer rendering bug (fixed by switching to Movie Render Graph)
+- DJV (external free EXR playback software)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+5.8 (also relevant to 5.7)
 
 ### Tags
-[PENDING EXTRACTION]
+Movie Render Graph, Movie Render Queue, EXR, DWAA, linear sRGB, tone curve, temporal sampling, multi-camera, deferred renderer, filmmaking, rendering, shutter timing, frame open, DaVinci Resolve
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `create-spectacular-depth-of-field-in-unreal-engine-58-with-the-new-accumulation-.md` — uses Movie Render Graph for Accumulation DOF rendering; references this tutorial
+- `green-screen-overscan-secrets-and-a-lie---your-ultimate-vfx-save-series-bonus.md` — also covers Movie Render Queue EXR/linear sRGB output pipeline
+- `make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta.md` — beginner overview covering the rendering step this tutorial details

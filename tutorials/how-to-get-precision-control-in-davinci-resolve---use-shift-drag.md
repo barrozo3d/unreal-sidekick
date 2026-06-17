@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=g9VndiQqON0
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "N/A"
+tags: ["DaVinci Resolve", "precision control", "shift drag", "audio volume", "inspector", "quick tip", "keyboard shortcut"]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-get-precision-control-in-davinci-resolve---use-shift-drag/
 frame_count: 3
 ---
@@ -43,27 +43,32 @@ frame_count: 3
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Holding Shift while dragging sliders or controls in DaVinci Resolve to activate fine/precision control mode, applicable to the timeline audio volume bar and all Inspector parameter sliders.
 
 ### Summary
-[PENDING EXTRACTION]
+This is a 38-second micro-tip. Dean Yurke shares that holding Shift while dragging any draggable control in DaVinci Resolve (audio volume bar in the timeline, parameter sliders in the Inspector) activates a precision/fine-control mode that slows mouse movement relative to value change, making it easy to dial in exact values without overshooting.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. In DaVinci Resolve, to adjust the audio volume bar on a clip in the Edit page timeline: hold Shift and drag the volume bar — movement is much finer than standard drag.
+2. To adjust any parameter in the Inspector (transforms, effects, etc.): hold Shift and drag the slider for precision control.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- DaVinci Resolve: Edit page timeline audio volume control (external)
+- DaVinci Resolve: Inspector sliders (external)
+- No Unreal Engine systems involved
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+N/A (DaVinci Resolve only)
 
 ### Tags
-[PENDING EXTRACTION]
+DaVinci Resolve, precision control, shift drag, audio volume, inspector, quick tip, keyboard shortcut
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `burn-clip-names-onto-davinci-resolve-and-fusion-video-quick-fusion-tip.md` — another DaVinci quick tip from the same channel
+- `green-screen-edge-wrap-secrets-and-a-lie---advanced-davinci-to-unreal-engine-wor.md` — advanced DaVinci Resolve Fusion workflow video from the same series
+- `green-screen-overscan-secrets-and-a-lie---your-ultimate-vfx-save-series-bonus.md` — DaVinci Resolve Color Page workflow also from this channel

@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=Wb9hJqPcAwQ
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: ["materials", "texture coordinates", "UV", "texture transform", "translation", "rotation", "scale", "material instance", "material parameters", "sequencer", "animated materials", "custom rotator", "Scale UVs by Center", "lerp", "append vector"]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-transform-texture-coordinates-in-unreal-engine-materials-tutorial/
 frame_count: 10
 ---
@@ -78,27 +78,44 @@ frame_count: 10
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Building a material graph in Unreal Engine that uses Texture Coordinate → Append Vector (translate U/V) → Custom Rotator (rotate) → Scale UVs by Center (scale X/Y) as a transform chain with scalar parameters exposed to Sequencer for animated texture animation on any mesh.
 
 ### Summary
-[PENDING EXTRACTION]
+Dean Yurke walks through how to set up a full UV transform material node chain for independent control over texture translation, rotation, and scale in Unreal Engine's material editor. He uses scalar parameters (TransU, TransV, Rotate, ScaleU, ScaleV) chained via an Append Vector for translation (Add node), a Custom Rotator, and a Scale UVs by Center node — all feeding into the Texture Sample's UV input. Each parameter is exposed so they can be animated in Sequencer via Static Mesh Component > Material Parameter tracks. He also covers the Wrap vs. Clamp texture sample setting (Clamp = single instance, no tiling), how operator order matters (translate before rotate), and combining this node group into a third-party master material using a Linear Interpolate (Lerp) node for additive overlay compositing.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Create a material (master material); import a texture; drag into material graph; connect RGB to Base Color and Emissive.
+2. Pull a noodle from the Texture Sample's UVs pin; search for and add a Texture Coordinate node.
+3. From Texture Coordinate, add an Add node for translation: create an Append Vector feeding two scalar parameters (TransU and TransV); convert each to parameters.
+4. For clamped (non-tiling) textures: in the Texture Sample node, change Sample Source from Wrap to Clamp.
+5. From the Add output, add a Custom Rotator node; create a scalar parameter "Rotate" and feed it into the Rotation Angle input.
+6. From Custom Rotator output, add a Scale UVs by Center node; for independent U/V scale, create another Append Vector with two scalar parameters (ScaleU and ScaleV); default both to 1 (not 0).
+7. Feed Scale UVs by Center output into the Texture Sample UVs input.
+8. Convert all scalar constants to parameters: right-click → Convert to Parameter; name them (TransU, TransV, Rotate, ScaleU, ScaleV).
+9. Create a Material Instance (right-click master material → Create Material Instance); assign to the geometry.
+10. In Sequencer: add the mesh actor; add a Static Mesh Component track → Material Parameters track; add each parameter; set keyframes to animate.
+11. (Advanced) To combine with an existing material: select the node group, Ctrl+C, paste into the target master material; use a Lerp node to blend the new texture's RGB into the existing Base Color using the new texture's alpha as the mask.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Material Editor: Texture Coordinate node, Add, Append Vector, Custom Rotator, Scale UVs by Center (UE5+ node)
+- Material parameters: scalar parameters (TransU, TransV, Rotate, ScaleU, ScaleV)
+- Texture Sample: Sample Source (Wrap vs. Clamp)
+- Material Instance (right-click master material → Create Material Instance)
+- Sequencer: Static Mesh Component → Material Parameters track (scalar keyframing)
+- Lerp (Linear Interpolate) node for material compositing
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+5.x (Scale UVs by Center is noted as new in UE5)
 
 ### Tags
-[PENDING EXTRACTION]
+materials, texture coordinates, UV, texture transform, translation, rotation, scale, material instance, material parameters, sequencer, animated materials, custom rotator, Scale UVs by Center, lerp, append vector
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `advanced-volumetric-fog-secrets-in-unreal-engine-57-full-course.md` — also uses material creation (Volume Domain material, fog card material) for cinematic effects
+- `easiest-vfx-pipeline-ever-with-composite-mesh-actors-in-unreal-engine-57-composu.md` — materials on composite mesh actors (Unlit Alpha material) in the Composure pipeline
+- `make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta.md` — beginner overview of UE filmmaking pipeline that material knowledge supports
