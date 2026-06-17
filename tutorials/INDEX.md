@@ -2278,6 +2278,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/cinematic-motion-capture-with-move-one-and-metahuman-animator---unreal-engine-54.md
 
+
+### Move.AI and Unreal Engine 5 Metahuman Short Film - GIGANTIC JOE
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=I3GzRdnFEIw
+- **Author:** Charlie Driscoll - Unreal Engine Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/moveai-and-unreal-engine-5-metahuman-short-film---gigantic-joe.md
+
 ---
 
 ## Tag Reference
