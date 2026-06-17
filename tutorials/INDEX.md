@@ -1828,6 +1828,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/scale-unreal-engines-user-interface-squint-no-more-great-for-recording-ue5-tutor.md
 
+
+### UE5 Filmmaking Series | xꙨdus | Animatic to Teaser - Real-Time Micro Budget Movies
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=-9-Aq3z-wI4
+- **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/ue5-filmmaking-series-xꙩdus-animatic-to-teaser---real-time-micro-budget-movies.md
+
 ---
 
 ## Tag Reference
