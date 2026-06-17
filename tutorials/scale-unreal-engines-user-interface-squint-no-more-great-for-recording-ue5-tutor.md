@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=XeeIY_fvbq0
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: ["UI scaling", "Widget Reflector", "application scale", "demo mode", "hotkey", "quick tip", "4K monitor", "tutorial recording"]
+extraction_status: complete
 frames_dir: tutorials/frames/scale-unreal-engines-user-interface-squint-no-more-great-for-recording-ue5-tutor/
 frame_count: 5
 ---
@@ -53,27 +53,35 @@ frame_count: 5
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Using the Widget Reflector's Application Scale slider (Ctrl+Shift+W) in Unreal Engine to globally scale all UI menus and icons for high-DPI monitors or tutorial recording, plus enabling Demo Mode (mouse click and hotkey visualizer overlay).
 
 ### Summary
-[PENDING EXTRACTION]
+A 90-second quick tip showing how to make the Unreal Engine editor UI larger. The Widget Reflector (Ctrl+Shift+W, or Tools > Debug > Widget Reflector) contains an Application Scale slider that scales all UE editor menus, icons, and panels uniformly — useful for 4K monitors where the default UI is tiny, or for recording tutorial videos. He also shows Demo Mode in the Widget Reflector: enabling "Mouse Click" and "Key" toggles shows a visual indicator of mouse clicks and keyboard hotkey presses in the corner of the screen, which is helpful for screen-recorded tutorials.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Press Ctrl+Shift+W to open Widget Reflector (or via Tools > Debug > Widget Reflector).
+2. Find the Application Scale slider; drag it to increase all editor UI elements (menus, icons, panels).
+3. Dock the Widget Reflector window for quick access during demos.
+4. In the Widget Reflector, enable Demo Mode: turn on Mouse Click (shows click indicator dot) and Key (shows hotkey presses in corner) for tutorial/screen-recording use.
+5. Press G to toggle Unreal's game mode overlay icons for a cleaner recording view.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Widget Reflector (Ctrl+Shift+W / Tools > Debug > Widget Reflector)
+- Application Scale slider (global editor UI scale)
+- Demo Mode: Mouse Click visualizer, Key (hotkey) visualizer
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+5.x (no specific sub-version)
 
 ### Tags
-[PENDING EXTRACTION]
+UI scaling, Widget Reflector, application scale, demo mode, hotkey, quick tip, 4K monitor, tutorial recording
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta.md` — beginner UE filmmaking series where readable UI is important
+- `how-to-use-the-movie-render-graph-in-unreal-engine-58---simple-setup-for-filmmak.md` — another beginner-friendly UE setup tutorial
+- `where-are-my-animation-curves-this-mysterious-symbol-will-save-you-hours-of-frus.md` — another UE editor QoL/usability quick tip

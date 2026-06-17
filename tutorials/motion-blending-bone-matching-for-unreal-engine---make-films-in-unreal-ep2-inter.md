@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=JxHYt9vFQD8
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: ["animation blending", "bone matching", "Mixamo", "FBX import", "root motion", "sequencer", "control rig", "layered control rig", "filmmaking", "character animation", "animation retargeting"]
+extraction_status: complete
 frames_dir: tutorials/frames/motion-blending-bone-matching-for-unreal-engine---make-films-in-unreal-ep2-inter/
 frame_count: 8
 ---
@@ -68,27 +68,43 @@ frame_count: 8
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Using Sequencer's "Match this bone in the previous clip" feature to solve the root-motion animation blending problem — where standalone (non-in-place) Mixamo animations jump back to world origin when blended — by matching specific bones (hips, feet) at the blend boundary, plus adding a Layered Control Rig for custom overrides on top.
 
 ### Summary
-[PENDING EXTRACTION]
+Episode 2 of Dean Yurke's "Make Films in Unreal" series, addressing a viewer question (from Brock) about blending Mixamo animations that have root motion baked in (translation built into the animation rather than in-place cycles). When these animations are overlapped in Sequencer, characters jump back to their root position because both clips start at world origin. The solution: right-click the animation clip in Sequencer → Match this bone in the previous clip, selecting a shared bone (e.g., hips, or pelvis) plus enabling Match X/Y Translation. This locks the second clip's start position to where the chosen bone ended in the previous clip. He also demonstrates matching feet bones for specific scenarios, and introduces adding a Layered Control Rig (FK Control Rig in additive mode) on top of the animation stack for bone-level manual overrides.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Download Mixamo animations with root motion (no "In Place" option enabled); export as FBX at 24fps with skin.
+2. Import FBX into UE via right-click > Import to Current Folder; on the second import, choose Import Animation Only and select the existing skeleton to avoid duplicate skeletons.
+3. Create a Level Sequence at 24fps; drag the character in; add the idle animation at frame 0 via the Animation track.
+4. Add the walk animation (with root motion) to the same track further down the timeline.
+5. Overlap the walk animation over the idle to create a blend region.
+6. If the character jumps: right-click the animation clip > Properties; ensure Match X and Y Translation are enabled.
+7. Right-click the animation clip > "Match this bone in the previous clip"; select the relevant bone (e.g., Hips or Pelvis).
+8. Optionally: match a foot bone (e.g., Left Foot, Right Foot) for foot-matching blends using the same right-click approach.
+9. Adjust the overlap amount and slip the clips to find the best blend point.
+10. To add custom animation on top: click Plus on the character's Sequencer track > Control Rig; enable Layered; select FK Control Rig; keyframe individual bone rotations/positions as additive overrides.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Sequencer: animation track, clip overlap/blend, right-click Properties
+- Bone matching: "Match this bone in the previous clip" (right-click context menu on animation clip)
+- Match X/Y Translation, Match Z Translation options on animation clip properties
+- Layered Control Rig (FK Control Rig in additive/layered mode)
+- Mixamo (external — free Mixamo.com FBX animation source)
+- FBX Import: Import Animation Only with existing skeleton selection
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+5.x (no specific sub-version)
 
 ### Tags
-[PENDING EXTRACTION]
+animation blending, bone matching, Mixamo, FBX import, root motion, sequencer, control rig, layered control rig, filmmaking, character animation, animation retargeting
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta.md` — Episode 1: the foundational sequencer animation setup this tutorial extends
+- `beat-yourself-up-with-unreal-ragdoll-physics-for-filmmaking-made-easy-or-hard-in.md` — also uses Layered Control Rig for post-simulation animation refinement
+- `faster-than-ai-and-7-times-the-fun-speed-up-animation-and-get-exactly-what-you-w.md` — mocap pipeline that feeds animations into the same Sequencer workflow

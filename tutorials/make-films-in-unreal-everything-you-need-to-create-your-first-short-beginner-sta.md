@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=PPRugNC7POA
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: ["filmmaking", "beginner", "sequencer", "cine camera", "depth of field", "FBX animation", "animation blending", "Movie Render Queue", "EXR", "DaVinci Resolve", "color space transform", "virtual production", "level sequence", "Mixamo"]
+extraction_status: complete
 frames_dir: tutorials/frames/make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta/
 frame_count: 17
 ---
@@ -113,27 +113,46 @@ frame_count: 17
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+A complete beginner walkthrough of the Unreal Engine cinematic filmmaking pipeline: blank project setup → Sequencer with characters, FBX animation blending, and object keyframing → Cine Camera Actors with depth of field → Movie Render Queue (EXR DWAA) → DaVinci Resolve color space transform for final output.
 
 ### Summary
-[PENDING EXTRACTION]
+Episode 1 of Dean Yurke's "Make Films in Unreal" series, aimed at beginners who have some UE familiarity but have never made a film. He covers creating a blank project, adding the Third Person Template for Manny/Quinn characters, creating a Level Sequence at 24fps (starting at frame 1001 for VFX convention), adding FBX walk animations from the template library, blending animations by overlapping clips in Sequencer, keyframing character and object transforms, animating a door opening with curve editing, creating Cine Camera Actors from viewport framing, setting up depth of field with Draw Debug Focus Plane, building a multi-camera Camera Cuts track, and rendering with Movie Render Queue to EXR DWAA sequences with linear sRGB output. The final step is bringing the frames into DaVinci Resolve and applying a Color Space Transform (linear to sRGB) to restore normal appearance.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Create a blank project with Starter Content; add Third Person Template via Plus > Add Feature/Content Pack.
+2. Drag Manny and Quinn skeletal meshes into the viewport; save the level into a Levels sub-folder.
+3. Right-click > Cinematics > Create Level Sequence; set frame rate to 24fps; start at frame 1001 for VFX convention.
+4. Drag a character into Sequencer; add an animation (Plus button) — e.g., MM_Walk; move the clip to the start frame.
+5. Keyframe character transform at start frame; move to end frame; translate the character forward; save key.
+6. To blend two animations: overlap two animation clips in the track — Sequencer blends them automatically.
+7. Drag a prop/door into Sequencer; expand Transform > Rotation; save keys before and after the action, edit curves in the Curves Editor.
+8. To create a camera: frame the shot in the viewport; click the three dots in the top right > Create Camera Here > Cine Camera Actor; rename it (e.g., CM_Wide).
+9. In the Camera's Details: set Min/Max F-Stop to 0.2 for very shallow depth of field; enable Draw Debug Focus Plane in Focus Settings; set Focus Distance by clicking in the scene.
+10. In Sequencer: Camera Cuts track auto-adds the camera; add more cameras by duplicating and repositioning; drag cut points to adjust cuts.
+11. Open Movie Render Queue (clapperboard icon in Sequencer toolbar); change JPEG output to EXR Sequence; compression = DWAA; enable Anti-Aliasing (Temporal Count ~8); disable Multilayer; set output directory; render local.
+12. In DaVinci Resolve: import EXR sequences; in Color Page, add a Color Space Transform node: Input = sRGB, Input Gamma = Linear.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Blank project + Third Person Template (Manny, Quinn, starter animations)
+- Level Sequence (Sequencer): animation tracks, transform tracks, Camera Cuts track
+- Cine Camera Actor: Aperture/F-Stop, Focus Settings (Draw Debug Focus Plane, Focus Distance)
+- Animation blending (clip overlap in Sequencer)
+- Curves Editor (animation curve editing)
+- Movie Render Queue: EXR Sequence (DWAA), Anti-Aliasing (temporal samples), Deferred Renderer
+- DaVinci Resolve: Color Space Transform node — sRGB / Linear (external)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+5.x (no specific sub-version)
 
 ### Tags
-[PENDING EXTRACTION]
+filmmaking, beginner, sequencer, cine camera, depth of field, FBX animation, animation blending, Movie Render Queue, EXR, DaVinci Resolve, color space transform, virtual production, level sequence, Mixamo
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `motion-blending-bone-matching-for-unreal-engine---make-films-in-unreal-ep2-inter.md` — Episode 2: advanced animation blending and bone matching for root-motion animations
+- `how-to-use-the-movie-render-graph-in-unreal-engine-58---simple-setup-for-filmmak.md` — upgrade from MRQ to Movie Render Graph for multi-camera bug fix
+- `easiest-vfx-pipeline-ever-with-composite-mesh-actors-in-unreal-engine-57-composu.md` — the next step: adding live action plates to the Unreal filmmaking pipeline

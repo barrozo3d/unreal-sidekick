@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=1kcelYQLkP0
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: ["career advice", "VFX industry", "virtual production", "AI in VFX", "compositing", "Nuke", "Substance Painter", "show reel", "Hollywood", "LED volume", "indie filmmaking", "generalist skills", "visual storytelling"]
+extraction_status: complete
 frames_dir: tutorials/frames/survive-the-vfx-war-battle-ready-skills-you-need-for-virtual-production-in-2026-/
 frame_count: 26
 ---
@@ -158,27 +158,37 @@ frame_count: 26
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+A Q&A guest lecture (North Carolina State University MADtech program) covering career strategy, software priorities, AI's impact, virtual production workflows, and design/visual storytelling principles for aspiring VFX and Unreal Engine artists in 2026.
 
 ### Summary
-[PENDING EXTRACTION]
+This is a 60-minute industry Q&A/career talk from Dean Yurke's guest lecture at NC State's MADtech program. He covers: what employers actually value (show reel quality and attitude over degrees); top three software priorities outside UE (Nuke/compositing for cross-discipline communication, 3D modeling with clean topology/UVs for real-time LED volume optimization, Substance Painter for asset repurposing/kitbashing); the role of generative AI (currently limited but important to learn for texturing, tracking, extraction workflows; valuable for compositing patchwork of AI takes); his Composure virtual production pipeline (blue screen → camera track → extraction → Unreal → render → DaVinci Resolve); the design principles he recommends (Neil Blevins' "Art of Soulburn" channel for composition, big/medium/small theory, tangents); career path from Star Wars to working on Mandalorian/Loki/Hawkeye and the discovery of UE5; and the importance of presenting work in context using rough comps. No hands-on UE tutorial content.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. (Career) Focus your show reel on a specific discipline target; quality of work and attitude matter more than degree.
+2. (Workflow) Outside of Unreal, prioritize: (1) Nuke/compositing for cross-discipline context work; (2) 3D modeling with efficient topology for real-time LED volumes; (3) Substance Painter for asset repurposing.
+3. (AI) Learn generative AI tools even if results are imperfect — compositing skills will be key for assembling AI-generated takes.
+4. (Virtual Production workflow) Film blue screen > camera track in DaVinci Fusion > do extraction > bring into Unreal via Composure > rebalance lighting > render.
+5. (Visual storytelling) Study Neil Blevins' "Art of Soulburn" YouTube channel for cinematic composition principles (big/medium/small, tangents, lighting).
+6. (Collaboration) Present work in context — rough slap comps help supervisors see the shot, not just the raw element; take notes professionally.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Composure / blue screen virtual production pipeline (mentioned in context)
+- Unreal Engine 5 general real-time rendering (mentioned vs. LED volume work)
+- No specific UE nodes or settings covered (career/discussion video)
+- Neil Blevins "Art of Soulburn" YouTube channel (external design resource)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+5.x (general discussion)
 
 ### Tags
-[PENDING EXTRACTION]
+career advice, VFX industry, virtual production, AI in VFX, compositing, Nuke, Substance Painter, show reel, Hollywood, LED volume, indie filmmaking, generalist skills, visual storytelling
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `ai-real-time-and-surviving-hollywoods-vfx-industry-for-30-years.md` — companion career interview with deeper personal history
+- `make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta.md` — practical entry point for the virtual production pipeline Dean describes
+- `ue5-filmmaking-series-xꙩdus-animatic-to-teaser---real-time-micro-budget-movies.md` — the actual micro-budget sci-fi film project and pipeline being discussed
