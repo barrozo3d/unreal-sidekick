@@ -2308,6 +2308,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/moveai-and-unreal-engine-5-metahuman-cinematic---hacker.md
 
+
+### Orc vs. Knight CGI Swordfight - UE5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=iRPYgNrF8BY
+- **Author:** Charlie Driscoll - Unreal Engine Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/orc-vs-knight-cgi-swordfight---ue5.md
+
 ---
 
 ## Tag Reference
