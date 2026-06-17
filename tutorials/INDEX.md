@@ -797,9 +797,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=ibAyJjNbnpo
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** `#cinematography` `#lighting` `#vfx` `#compositing` `#atmospherics` `#beginner`
+- **Summary:** 32-min Dune (2021) trailer breakdown by Greig Fraser. Key techniques: fill air with dust/haze always; large soft overhead lighting (space lights + diffusion); shoot-from-shadow-side; top-down overhead for moody shape; shallow DOF anamorphic oval bokeh; leading lines; muted palette + selective blue accent grade; harder light on CG elements for texture detail.
 - **File:** tutorials/dune-cinematography-breakdown-how-to-get-the-dune-look.md
 
 
@@ -807,9 +807,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=IUkD87VSmyg
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** `#filmmaking` `#megascans` `#lighting` `#rendering` `#beginner` `#channel-intro`
+- **Summary:** Earliest Boundless channel video. UE overview for filmmakers: free tool (Epic Games account), Quixel Bridge/Megascans (15,000+ photorealistic assets free), FBX import from Blender for custom geometry, basic Directional Light + Sky Light + Point Light lighting setup, virtual production context (Mandalorian).
 - **File:** tutorials/unreal-engine-for-filmmakers---create-cinematic-3d-worlds-for-free-course-in-des.md
 
 
@@ -817,9 +817,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=g8aHQqbQfOU
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 4.27
+- **Tags:** `#rendering` `#path-tracing` `#mrq` `#fog` `#project-settings` `#beginner`
+- **Summary:** UE 4.27 Path Tracing setup: Project Settings > Ray Tracing + DirectX 12 > restart; viewport > Lit > Path Tracing; PPV Samples=500 + MaxBounces=6-8; Exp Height Fog incompatible; MRQ: add Anti Aliasing + Path Tracer passes; spatial x temporal samples. Foundational tutorial; superseded by LightForge one-click setup.
 - **File:** tutorials/easiest-way-to-get-cinematic-renders-in-unreal-engine---path-tracing.md
 
 
@@ -827,9 +827,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=S8nDuuIucCc
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** `#cinematography` `#lighting` `#filmmaking` `#beginner`
+- **Summary:** 4.5-min Roger Deakins philosophy for Blade Runner 2049: 1-3 motivated light sources per scene (practicals, windows, water reflections, holograms); let darkness work; no unmotivated fill; the lighting builds the world and serves story. Orange/amber neon vs. cool steel blue contrast. Companion to Dune breakdown.
 - **File:** tutorials/roger-deakins-lighting-tutorial---blade-runner-2049.md
 
 
@@ -837,9 +837,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=v38O-9KTqx4
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** none
+- **UE Version:** UE 4
+- **Tags:** `#compositing` `#camera` `#vfx` `#after-effects` `#sequencer` `#beginner`
+- **Summary:** Pre-Genesis AE→Blender→UE4 camera tracking pipeline. AE 3D Camera Tracker → AE-to-Blend addon pastes keyframes into Blender → match focal length + orientation → Blender for UE addon exports camera as UE4 Sequencer track via console import. Final composite in AE: UE render + mask + Extract + Video Copilot atmosphere, shot in log.
 - **File:** tutorials/3d-tracked-camera-from-after-effects-to-unreal-engine-tutorial.md
 
 
