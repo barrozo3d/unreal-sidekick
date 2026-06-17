@@ -1818,6 +1818,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta.md
 
+
+### Scale Unreal Engine's User Interface! SQUINT no more! Great for recording UE5 tutorials too!
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=XeeIY_fvbq0
+- **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/scale-unreal-engines-user-interface-squint-no-more-great-for-recording-ue5-tutor.md
+
 ---
 
 ## Tag Reference
