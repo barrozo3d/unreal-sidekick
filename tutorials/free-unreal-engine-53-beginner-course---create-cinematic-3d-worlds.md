@@ -1,12 +1,13 @@
----
+﻿---
 title: FREE Unreal Engine 5.3 Beginner Course - Create Cinematic 3D Worlds
 source: YouTube
 url: https://www.youtube.com/watch?v=mGcyo5rh7l0
 author: Boundless Entertainment
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: none
+ue_version: "UE 5.3"
+tags: [filmmaking, cinematics, landscape, lighting, megascans, beginner, course]
+extraction_status: complete
 frames_dir: tutorials/frames/free-unreal-engine-53-beginner-course---create-cinematic-3d-worlds/
 frame_count: 6
 ---
@@ -19,66 +20,36 @@ frame_count: 6
 
 ---
 
-## Raw Data (for Claude Code extraction)
-
-
-### Intro [0:00]
-**Transcript:** What's going on guys, Sam here and today I'm excited to announce another big development in the channel.  So I've just released a free beginner course for Unreal Engine 5.  It's up and ready to go on my website, boundless-resource.com.
-
-**Frame:** tutorials\frames\free-unreal-engine-53-beginner-course---create-cinematic-3d-worlds\frame_000.jpg
-
-### Course Overview [0:14]
-**Transcript:** So in the course I go over everything from installing Unreal, setting up a project,  basic navigation and learning the user interface, all the way through using Quixel Bridge,  creating a landscape and building a basic scene with lighting, atmosphere and a camera.
-
-**Frame:** tutorials\frames\free-unreal-engine-53-beginner-course---create-cinematic-3d-worlds\frame_001.jpg
-
-### Course Benefits [0:28]
-**Transcript:** The course is designed to give a total beginner all the training necessary to tackle navigating the user interface  and creating a scene in Unreal Engine.  It also gives you all the knowledge you're going to need to be able to complete the Unreal Engine for filmmakers' advanced course,  which is also on the website, boundless-resource.com.  So that course came out about two weeks prior to the release of this video.  And it goes into detail about how to make a complex scene in Unreal  and it's also going to give you the skills and experience necessary to tackle just about any scene inside of Unreal Engine.  So if you haven't already, I recommend checking that out.
-
-**Frame:** tutorials\frames\free-unreal-engine-53-beginner-course---create-cinematic-3d-worlds\frame_002.jpg
-
-### Promo Code [0:57]
-**Transcript:** So to kind of get you guys into that more advanced course,  I'm going to include a 15% off promo code at the end of this free beginner course.  And that's going to be valid for any product on the website.  So currently we just have the basic and advanced courses for Unreal Engine,  the Unreal Engine for filmmakers' courses.  However, I'm going to be coming out with a lot of new courses.  But I would recommend once you complete this free beginner course,  move on to that advanced course and work your way through that.  And at that point, you're going to be pretty familiar with Unreal  and you're going to be able to tackle a lot of really advanced scenes inside of Unreal Engine.  So I hope this promo code kind of helps you guys out and helps you move to that next level  after this free beginner course.  So this beginner course is about two hours of training total.  And I'm offering it to you guys for free as a thank you for all your support.  But also because I just feel that this information should be available to everybody.  So to enroll in the course,
-
-**Frame:** tutorials\frames\free-unreal-engine-53-beginner-course---create-cinematic-3d-worlds\frame_003.jpg
-
-### How to Enroll [1:50]
-**Transcript:** just click the link in the description and head over to boundless-resource.com.  And you can just scroll down, read the description, check out the video there.  And you can also check out the course syllabus, which is included at the bottom of the page.  So you can see all the different lessons that I'm going to be going through in the course.  You can just go ahead and click and roll.  You're going to have to make an account on the website.  And then once you sign up for that, you have access to the whole course for free.  And you're going to be all set to start learning.
-
-**Frame:** tutorials\frames\free-unreal-engine-53-beginner-course---create-cinematic-3d-worlds\frame_004.jpg
-
-### Outro [2:17]
-**Transcript:** So I really hope you guys find this course helpful.  I think it's going to unlock a lot of doors for many of you, just like it did for me and my filmmaking experience.  So head on over to boundless-resource.com, check it out and enroll.  And I can't wait to see you guys in the course.
-
-**Frame:** tutorials\frames\free-unreal-engine-53-beginner-course---create-cinematic-3d-worlds\frame_005.jpg
-
-
----
-
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Short announcement video for Boundless Entertainment's free UE 5.3 beginner course on boundless-resource.com. Course covers full beginner pipeline: UE install, UI navigation, Quixel Bridge assets, landscape creation, and a complete cinematic scene with lighting + camera.
 
 ### Summary
-[PENDING EXTRACTION]
+2m40s course announcement. Free ~2-hour beginner course now live at boundless-resource.com. Designed for total beginners with no UE experience. Content: installing Unreal Engine, setting up a project, UI navigation, Quixel Bridge for free Megascans assets, creating a landscape, building a basic scene with lighting + atmosphere + camera. Acts as prerequisite for the paid "Unreal Engine for Filmmakers" advanced course (on the same site). Includes 15% off promo code for the advanced course at the end of the free course. Enroll by signing up for a free account at boundless-resource.com.
 
-### Key Steps
-[PENDING EXTRACTION]
-
-### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+### Course Modules (from transcript)
+1. Installing Unreal Engine
+2. Project setup
+3. Basic navigation + learning the UE interface
+4. Quixel Bridge — accessing free Megascans assets
+5. Creating a landscape
+6. Building a basic scene: lighting, atmosphere, camera
+(Total: ~2 hours of video content, free)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner (absolute beginner orientation)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.3
 
 ### Tags
-[PENDING EXTRACTION]
+`#filmmaking` `#cinematics` `#landscape` `#lighting` `#megascans` `#beginner` `#course`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unlock-thousands-of-free-assets-in-unreal-engine]] — 2025 Megascans via Fab (Quixel Bridge replacement)
+- [[unreal-engine-filmmaking-course---create-cinematic-3d-worlds]] — related filmmaking course
+- [[unreal-engine-57-filmmaking-course---unreal-engine-for-filmmakers-2026-update]] — updated 2026 version
+- [[unreal-engine-54-cinematic-previs-course]] — previs course (next step after beginner)

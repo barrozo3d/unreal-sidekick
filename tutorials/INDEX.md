@@ -697,9 +697,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=qPVS75PM5eU
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** `#vfx` `#filmmaking` `#compositing` `#cinematography` `#beginner`
+- **Summary:** Part 1: modern VFX suck from lazy filmmaking (CGI as crutch). Sam's Gemini short film approach: shoot on real location, composite only buildings/city; fog blends the practical-to-digital boundary. Key insight: matching CG to real footage raises the quality bar because any inaccuracy is immediately visible.
 - **File:** tutorials/why-modern-vfx-suck-and-how-to-make-yours-not-suck.md
 
 
@@ -707,9 +707,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=5zJktaYwK-I
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** `#niagara` `#vfx` `#simulation` `#rendering` `#lighting` `#intermediate`
+- **Summary:** Niagara Fluid Sim Part 2: Emitter Summary panel parameter tuning (vorticity confinement for turbulence; smoke density via Set Fluid Source Attributes; World Space Size for scaling); manual directional light assignment workaround for Niagara lighting (2 directional light slots in actor details, no point/spot or Lumen support).
 - **File:** tutorials/unreal-engine-for-filmmakers---cinematic-vfx-for-free---ue5-part-2.md
 
 
@@ -717,9 +717,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=Yl_VJqmll-E
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** `#niagara` `#vfx` `#simulation` `#particles` `#intermediate`
+- **Summary:** Niagara Fluid Sim Part 1: enable Niagara Fluids plugin (Edit > Plugins > Niagara Fluids); create Grid 3D Gas system from Simple Particle Source template; voxel resolution (Resolution Max Axis = 250); enable mesh collision via Actor Tags; two-emitter architecture: particle source emitter + gas controls emitter.
 - **File:** tutorials/unreal-engine-for-filmmakers---add-cinematic-vfx-to-your-films-for-free---ue5-pa.md
 
 
@@ -727,9 +727,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=SMCTeoj9YaA
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** `#lighting` `#lumen` `#fog` `#atmospherics` `#cinematography` `#intermediate`
+- **Summary:** Night scene cinematographic lighting: HDRI night sky (low intensity); Directional Light as moon key; shoot-from-shadow-side rule (camera faces light for rim edges); Source Angle=2.5 for soft shadows; Indirect Lighting Intensity = Lumen bounce; Exponential Height Fog > Volumetric Fog ON; Light Shaft Occlusion ON = god rays when camera faces light + dark background.
 - **File:** tutorials/unreal-engine-for-filmmakers---how-to-make-your-lighting-cinematic.md
 
 
@@ -737,9 +737,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=mGcyo5rh7l0
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.3
+- **Tags:** `#filmmaking` `#cinematics` `#landscape` `#lighting` `#megascans` `#beginner` `#course`
+- **Summary:** Announcement of free ~2hr beginner UE 5.3 course at boundless-resource.com. Covers: install, project setup, UI navigation, Quixel Bridge, landscape creation, basic scene with lighting + atmosphere + camera. Prerequisite for the paid advanced filmmakers course; includes 15% off promo at course end.
 - **File:** tutorials/free-unreal-engine-53-beginner-course---create-cinematic-3d-worlds.md
 
 
