@@ -2043,9 +2043,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=JoxgvwNFc8g
 - **Author:** arthur tasquin
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5
+- **Tags:** `#lighting` `#pbl` `#light-units` `#candela` `#lumen` `#lux` `#exposure` `#plugin` `#pbl-database` `#theory` `#sub-levels` `#beginner` `#intermediate` `#ue5` `#youtube`
+- **Summary:** Theory-first PBL intro: the 4 essential lighting units (Candela/Lumen/Lux/cd/m² mapped to UE light types), real-world light meter sampling, and the PBL Database FAB plugin for daily reference. Also covers sub-levels + Level Sequences for multi-scenario projects. Part 1 of 2 by Arthur Tasquin (VFX background).
 - **File:** tutorials/realistic-and-physical-lighting-in-ue5-what-is-pbl.md
 
 ---

@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=JoxgvwNFc8g
 author: arthur tasquin
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [lighting, physically-based-lighting, pbl, light-units, candela, lumen, lux, exposure, plugin, pbl-database, theory, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/realistic-and-physical-lighting-in-ue5-what-is-pbl/
 frame_count: 6
 ---
@@ -58,27 +58,41 @@ frame_count: 6
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Theory-first PBL introduction: understanding the four essential lighting units (Candela, Lumen, Lux, cd/m²) and how they map to UE5 light types, building a real-world reference database with a physical light meter, and using the **PBL Database** plugin (FAB) as a daily lighting workflow tool.
 
 ### Summary
-[PENDING EXTRACTION]
+Arthur Tasquin (real-time artist, VFX background) presents the conceptual foundation of Physically Based Lighting for UE5 — Part 1 of a 2-part series. He explains why arbitrary lighting values create inconsistency across a scene and how PBL solves this by tying values to real-world units. Covers the 4 essential units (Candela for point/spot/rect lights, Lumen for emissive, Lux for directional light, cd/m² for sky/screen luminance), the difference between incident and reflective light meters, and how he spent a year sampling real-world lighting data with a physical light meter to build a public database. This became his **PBL Database** plugin on FAB — filterable by tags, category (artificial/natural), location, and scenario. The video ends with a teaser for Part 2 (practical implementation). Also mentions sub-levels + dedicated Level Sequences as a workflow for managing multiple lighting scenarios in one project.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Understand the 4 PBL units**:
+   - **Candela (cd)** — luminous intensity; used for Point, Spot, and Rect Lights in UE
+   - **Lumen (lm)** — luminous flux; used for emissive materials in UE
+   - **Lux (lx)** — illuminance (light falling on a surface); used for Directional Light in UE
+   - **Candela per meter² (cd/m²)** — luminance (light emitted/reflected from a surface); used for Sky Light and screen/display sources
+2. Use an **incident light meter (lux meter)** to sample real-world scene illuminance; place sensor toward light source to capture lux value for that lighting scenario
+3. Use a **reflective/spot meter** to sample surface luminance; aim at source (sky, emissive panel) to get cd/m² value
+4. Reference the **PBL Database plugin** (available on FAB) — filter by scenario tags, artificial/natural, location → get reference values for your target lighting setup
+5. Set UE5 light intensities to match real-world values from the database for consistent, physically plausible results
+6. For multiple lighting scenarios in one project: use **sub-levels** (one per scenario) + **dedicated Level Sequences** per scenario, load/unload sub-levels via Blueprints or Sequencer
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Light Units in UE**: Point/Spot/Rect = Candela; Directional = Lux; Sky Light = cd/m²; Emissive = Lumen
+- **Sub-levels** — isolate lighting scenarios per level; load/unload for scenario switching
+- **Level Sequences** — dedicated sequence per lighting scenario
+- **PBL Database plugin** (FAB, by Arthur Tasquin) — real-world lighting reference database with tag/category filters; simplifies PBL workflow
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner–Intermediate (theory-focused)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (FAB plugin availability; modern light unit UI)
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, physically-based-lighting, pbl, light-units, candela, lumen, lux, exposure, plugin, pbl-database, theory, sub-levels, lighting-scenarios, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- Karim Yasser PBL lighting practical tutorial (complementary Part 2-style walkthrough)
+- Rendering docs — lighting units, exposure, Sky Light
+- Dean Yurke volumetric fog / post process tutorials
