@@ -1878,6 +1878,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/motion-blending-bone-matching-for-unreal-engine---make-films-in-unreal-ep2-inter.md
 
+
+### Unreal Engine VFX Breakdown - Ragdoll Opening Shot
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=rzMRSDxg33Q
+- **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-vfx-breakdown---ragdoll-opening-shot.md
+
 ---
 
 ## Tag Reference
