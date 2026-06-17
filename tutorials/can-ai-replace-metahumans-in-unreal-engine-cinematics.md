@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=NLVMJX-5ahc
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [ai-video, kling, metahuman, mocap, overcrowd, compositing, character-replacement, nano-banana, quickmagic-ai, metahuman-animator, wardrobe, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/can-ai-replace-metahumans-in-unreal-engine-cinematics/
 frame_count: 9
 ---
@@ -73,27 +73,41 @@ frame_count: 9
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Hybrid UE5 + Kling 01 AI video pipeline: mocap-driven MetaHuman as body placeholder → render from UE → Kling 01 replaces character face/wardrobe using Kling Elements (identity LoRA from reference photos) + NanoBanana outfit reference images. Wide-shot hack: dual-render (18mm wide + 300mm tight) → Kling tight version → composite back over wide.
 
 ### Summary
-[PENDING EXTRACTION]
+Charlie Driscoll stress-tests Kling 01 generative video model as a MetaHuman visual replacement tool. Core idea: UE5 handles camera freedom, blocking, environment, and mocap animation — Kling 01 handles character stylization (face + wardrobe). Kling Elements feature creates a character identity from 3–5 reference photos (mini-LoRA). NanoBanana generates consistent front/back outfit reference images. Key findings: best for replacing one or two things per pass; UE handles environment. LipSync unreliable. Wide-shot limitation solved with dual-render composite hack. No motion blur export helps AI track fast objects. OverCrowd + ActorCore for crowd backgrounds. Kling Motion Control (2.6 model) for talking-head puppet animation.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Capture mocap**: QuickMagic AI → body; MetaHuman Animator → face; retarget to MetaHuman in UE5
+2. **Build UE shot**: MetaHuman as placeholder; set camera, environment, lighting; OverCrowd + ActorCore for crowds
+3. **Generate outfit reference**: NanoBanana (or similar) → front + back view of desired costume from single reference image
+4. **Create Kling Element**: upload 3–5 reference photos of actor → Kling Elements → consistent character identity across shots
+5. **Render with no motion blur**: disabling motion blur helps AI track fast-moving objects (swords, weapons)
+6. **Run through Kling 01**: strict prompt — "replace [description] with [character element] wearing [outfit element], keep everything else exactly the same"
+7. **Wide-shot hack**: render same move twice — (a) 18mm wide full composition, (b) 300mm tight with character filling frame → run (b) through Kling → Premiere: scale (b) down, composite over (a) with soft feathered mask
+8. **Layered passes**: separate Kling passes per complex element (building, structure, weather); composite results
+9. **Kling Motion Control** (v2.6): feed reference video (animation source) + reference image (character look) → talking head or motion-puppeted output
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **MetaHuman** — body/motion placeholder for AI replacement pipeline
+- **MetaHuman Animator** — facial mocap processing
+- **OverCrowd plugin** (FAB, Charlie Driscoll) + **ActorCore** (Reallusion) — crowd/army fill
+- **Render settings** — disable motion blur for AI-trackable output
+- **DMX sample / Electric Dreams** — stress-test environments used
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced (experimental; requires Kling, NanoBanana, compositing in Premiere)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (MetaHuman Animator, OverCrowd, FAB)
 
 ### Tags
-[PENDING EXTRACTION]
+ai-video, kling, metahuman, mocap, overcrowd, compositing, character-replacement, nano-banana, quickmagic-ai, metahuman-animator, wardrobe, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- Other Charlie Driscoll tutorials (QuickMagic AI, Move.AI, OverCrowd crowds, Mimem.ai)
+- MetaHuman Animator facial capture tutorials
+- OverCrowd crowd simulation tutorials

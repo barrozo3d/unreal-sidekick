@@ -2073,9 +2073,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=NLVMJX-5ahc
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5
+- **Tags:** `#ai-video` `#kling` `#metahuman` `#mocap` `#overcrowd` `#compositing` `#character-replacement` `#nano-banana` `#quickmagic-ai` `#metahuman-animator` `#advanced` `#ue5` `#youtube`
+- **Summary:** Hybrid UE5 + Kling 01 AI pipeline: mocap-driven MetaHuman placeholder → render (no motion blur) → Kling replaces face/wardrobe via Elements (identity LoRA) + NanoBanana outfit refs. Wide-shot hack: dual-render 18mm+300mm composite. OverCrowd for crowds. Kling Motion Control 2.6 for talking heads.
 - **File:** tutorials/can-ai-replace-metahumans-in-unreal-engine-cinematics.md
 
 
