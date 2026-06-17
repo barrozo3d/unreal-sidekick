@@ -2048,6 +2048,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Theory-first PBL intro: the 4 essential lighting units (Candela/Lumen/Lux/cd/m² mapped to UE light types), real-world light meter sampling, and the PBL Database FAB plugin for daily reference. Also covers sub-levels + Level Sequences for multi-scenario projects. Part 1 of 2 by Arthur Tasquin (VFX background).
 - **File:** tutorials/realistic-and-physical-lighting-in-ue5-what-is-pbl.md
 
+
+### Witcher 4 Baked Water Simulation Tutorial in Unreal Engine 5.6
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=akHCbIECFX8
+- **Author:** Aziel Arts
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/witcher-4-baked-water-simulation-tutorial-in-unreal-engine-56.md
+
 ---
 
 ## Tag Reference
