@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=xbZNHZ-QGyg
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.7"
+tags: ["volumetric fog", "VDB", "sparse volume textures", "heterogeneous volumes", "exponential height fog", "local fog volume", "fog cards", "media texture", "Lumen", "ray tracing", "CVARs", "sequencer", "filmmaking", "cinematics"]
+extraction_status: complete
 frames_dir: tutorials/frames/advanced-volumetric-fog-secrets-in-unreal-engine-57-full-course/
 frame_count: 18
 ---
@@ -118,27 +118,46 @@ frame_count: 18
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+A full-course walkthrough of five methods for adding cinematic volumetric fog in Unreal Engine 5.7: Exponential Height Fog, Local Fog Volumes, Volume Materials, Sparse Volume Textures (VDBs/Heterogeneous Volumes), and animated Fog Cards using Media Textures.
 
 ### Summary
-[PENDING EXTRACTION]
+Dean Yurke covers his complete toolbox for volumetric fog in UE 5.7, motivated by upgrading his sci-fi animatic from a basic block-out to final quality. He walks through each method in sequence — from the global Exponential Height Fog with ray-traced shadow CVARs and Lumen GI tuning, to Local Fog Volumes for area-based color and density control, to applying a Volume Domain material on geometry, to the star technique of Sparse Volume Textures (VDB files imported as Heterogeneous Volumes with the default sparse volume material), and finally to animated Fog Cards using a File Media Source and Media Player. The tutorial also covers Sequencer Console Variable tracks for persisting CVARs across sessions and per-shot render control.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Add a Directional Light, then add an Exponential Height Fog actor and enable Volumetric Fog in its settings.
+2. Adjust View Distance (raise to 100k–200k for large scenes) and Fog Density / Height Falloff to taste.
+3. For ray-traced light shafts: enable Cast Raytraced Shadows on the Directional Light and set CVAR `r.VolumetricFog.InjectRaytracedLights 1`; fix culling with the raytrace culling CVAR.
+4. Fix Lumen GI disappearing in large scenes: raise Lumen Scene View Distance to 80k or switch GI to Hit Lighting mode.
+5. Add Light Shaft Occlusion and Light Shaft Bloom on the Directional Light for cheap God Rays faking.
+6. For Local Fog Volumes: Place > Local Fog Volume, scale the sphere, tweak Radial Fog Density and height falloffs, colorize, and duplicate for multi-zone atmosphere.
+7. For Fog Materials: create a material, set Blend Mode to Additive and Material Domain to Volume; set Extinction to ~0.005 and apply to any geometry.
+8. For VDBs: import a VDB file as a Sparse Volume Texture (density only), copy the engine's default SparseVolumeMaterial into the project, make a material instance, assign to a Heterogeneous Volume actor; raise `r.HeterogeneousVolumes.MaxTraceDistance` for large scenes.
+9. For Fog Cards: create a File Media Source pointing to a mist video/EXR, create a Media Player + Media Texture, build a material using the Media Texture with additive blending and transparency, apply to a plane in the scene, drive playback via a Media Track in Sequencer.
+10. Persist CVARs using Sequencer: Add > Console Variable Track, right-click > Properties, add each CVAR string into the list; disable the track to toggle CVARs off without deleting them.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Exponential Height Fog actor (Volumetric Fog checkbox, View Distance, Fog Density, Height Falloff)
+- Local Fog Volume actor (Radial Fog Density, Height Falloff, Scattering Distribution, Color)
+- Volume Domain Material (Blend Mode: Additive, Material Domain: Volume, Extinction parameter)
+- Sparse Volume Textures / Heterogeneous Volumes (VDB import, SparseVolumeMaterial engine copy)
+- Directional Light: Cast Raytraced Shadows, Light Shaft Occlusion, Light Shaft Bloom
+- Lumen GI: Scene View Distance, Global Illumination mode (Surface Cache vs Hit Lighting)
+- CVARs: `r.VolumetricFog.InjectRaytracedLights`, `r.RayTracing.Culling.*`, `r.HeterogeneousVolumes.MaxTraceDistance`
+- Sequencer Console Variable Track
+- Media Source / Media Player / Media Texture pipeline for animated Fog Cards
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+5.7.2
 
 ### Tags
-[PENDING EXTRACTION]
+volumetric fog, VDB, sparse volume textures, heterogeneous volumes, exponential height fog, local fog volume, fog cards, media texture, Lumen, ray tracing, CVARs, sequencer, filmmaking, cinematics
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `easiest-vfx-pipeline-ever-with-composite-mesh-actors-in-unreal-engine-57-composu.md` — also uses Media Textures and Sequencer in a filmmaking pipeline
+- `create-spectacular-depth-of-field-in-unreal-engine-58-with-the-new-accumulation-.md` — cinematic rendering techniques; Movie Render Graph setup
+- `how-to-use-the-movie-render-graph-in-unreal-engine-58---simple-setup-for-filmmak.md` — rendering the final frames of volumetric-heavy shots

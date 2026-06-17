@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=0YhVHCoHKkg
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "N/A"
+tags: ["DaVinci Resolve", "Fusion", "data burn-in", "text node", "expression", "compositing", "metadata", "clip name", "quick tip"]
+extraction_status: complete
 frames_dir: tutorials/frames/burn-clip-names-onto-davinci-resolve-and-fusion-video-quick-fusion-tip/
 frame_count: 5
 ---
@@ -53,27 +53,36 @@ frame_count: 5
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Using Fusion expressions in DaVinci Resolve to dynamically burn clip/node names from MediaIn nodes onto video composites as on-screen text overlays, enabling multi-element burn-in labels inside a Fusion composition.
 
 ### Summary
-[PENDING EXTRACTION]
+This is a quick tip (under 4 minutes) for DaVinci Resolve Fusion users, not an Unreal Engine tutorial. Dean Yurke demonstrates how to use Fusion's expression system on a Text node to pull the ClipName metadata from any MediaIn node and display it as a dynamic burn-in label. The method works for each MediaIn independently, so a multi-layer comp can show a different clip name over each element. He also notes that the standard DaVinci Resolve workspace Data Burn-In tool reads metadata automatically but does not work inside a Fusion composition, making this expression approach necessary.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. In a Fusion composition, add a Text node and connect its output to a Merge node (over the target MediaIn layer).
+2. Click inside the Text node's text input field; right-click → Make Expression.
+3. Delete the default expression text and type: `MediaIn1.ClipName.value` (substituting the actual node name, e.g. `MediaIn2`, `MediaIn3`).
+4. Press Enter — the Text node will now display the clip name of the referenced MediaIn node.
+5. Position and style the Text node as usual.
+6. Repeat for each additional MediaIn layer, referencing the correct node name in the expression.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- DaVinci Resolve Fusion: Text node, expression editor, MediaIn node metadata (ClipName.value)
+- DaVinci Resolve Workspace: Data Burn-In tool (for non-Fusion timelines)
+- No Unreal Engine systems involved
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+N/A (DaVinci Resolve / Fusion only)
 
 ### Tags
-[PENDING EXTRACTION]
+DaVinci Resolve, Fusion, data burn-in, text node, expression, compositing, metadata, clip name, quick tip
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `green-screen-edge-wrap-secrets-and-a-lie---advanced-davinci-to-unreal-engine-wor.md` — advanced DaVinci Resolve Fusion workflow for green screen extraction
+- `green-screen-integration-in-unreal-engine-57-virtual-production-got-even-better-.md` — DaVinci Fusion extraction pipeline feeding into Unreal Composure
+- `how-to-get-precision-control-in-davinci-resolve---use-shift-drag.md` — another DaVinci Resolve quick tip from the same channel

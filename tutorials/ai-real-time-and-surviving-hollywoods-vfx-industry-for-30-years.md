@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=9-kRF6DFfPE
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: ["career advice", "VFX industry", "Hollywood", "virtual production", "compositing", "AI in VFX", "indie filmmaking", "Unreal Engine history", "real-time rendering"]
+extraction_status: complete
 frames_dir: tutorials/frames/ai-real-time-and-surviving-hollywoods-vfx-industry-for-30-years/
 frame_count: 16
 ---
@@ -108,27 +108,36 @@ frame_count: 16
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+An informal career interview / talk with Dean Yurke covering 30+ years in Hollywood VFX, the transition from optical compositing to CG and real-time engines, and practical advice on specialization vs. generalization for aspiring VFX artists.
 
 ### Summary
-[PENDING EXTRACTION]
+This is a career and industry discussion video, not a technical tutorial. Dean Yurke recounts his journey from Bournemouth University in 1987, through Softimage and Inferno compositing at Pialis Camera, animating on Star Wars Episode I at ILM, later building an indie feature film, and ultimately discovering Unreal Engine 5 as a solo virtual production tool. He shares lessons on why compositing is a universally valuable skill, how to learn new software through self-directed projects and documentation, and his views on AI's role in the VFX industry — noting AI excels at copying familiar references but struggles with novel creative work. The video contains no hands-on UE content.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. (Career insight) Specialize to get a job; generalize to sustain a career — compositing bridges all departments.
+2. Pick a small personal project and learn software by Google/YouTube-driven self-study; document every solved problem.
+3. Ask questions once, write down the answer — build a personal knowledge base (Google Docs, notes).
+4. Understand the full pipeline so you can save fellow artists time by showing work in context (even a rough composite).
+5. Be open to moving between departments — work ebbs and flows across environments, effects, comp, etc.
+6. For solo virtual production: extract blue/green screen footage, put it on a card in Unreal, match environment lights to the plate, iterate in real time.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Unreal Engine 5 (general — Nanite, Lumen mentioned as game-changers vs. UE4)
+- Compositing-in-3D approach: live action on cards, real-time environment lighting match
+- No specific UE nodes or settings covered (discussion video)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+5.x (general discussion, no specific version)
 
 ### Tags
-[PENDING EXTRACTION]
+career advice, VFX industry, Hollywood, virtual production, compositing, AI in VFX, indie filmmaking, Unreal Engine history, real-time rendering
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `survive-the-vfx-war-battle-ready-skills-you-need-for-virtual-production-in-2026-.md` — companion industry/skills discussion
+- `make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta.md` — beginner entry point for the virtual production pipeline Dean describes
+- `ue5-filmmaking-series-xꙩdus-animatic-to-teaser---real-time-micro-budget-movies.md` — the actual micro-budget sci-fi film project Dean references

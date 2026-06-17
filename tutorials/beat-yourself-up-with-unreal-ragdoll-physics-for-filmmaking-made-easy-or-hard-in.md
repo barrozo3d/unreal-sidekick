@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=ye0gjAx50oU
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.6"
+tags: ["ragdoll", "physics asset", "physics simulation", "skeletal mesh", "take recorder", "animation retargeting", "control rig", "layered control rig", "sequencer", "filmmaking", "character physics", "angular limits"]
+extraction_status: complete
 frames_dir: tutorials/frames/beat-yourself-up-with-unreal-ragdoll-physics-for-filmmaking-made-easy-or-hard-in/
 frame_count: 21
 ---
@@ -133,27 +133,48 @@ frame_count: 21
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Two-method guide to creating ragdoll physics simulations for filmmaking in UE 5.6: Method 1 uses Mannequin (Manny) with its built-in physics asset, Take Recorder baking, and animation retargeting onto a custom character; Method 2 covers building a custom Physics Asset from scratch with proper body shapes, angular limits, and self-collision.
 
 ### Summary
-[PENDING EXTRACTION]
+Dean Yurke shows how to incorporate ragdoll physics into cinematic sequences in UE 5.6.1. The preferred Method 1 leverages the Third Person Template's Manny character (which has a production-ready Physics Asset) — you animate Manny in Sequencer, keyframe Simulate Physics on/off at the desired moment, use Take Recorder to bake the physics simulation to animation at up to 240fps sub-frame accuracy, optionally refine with a Layered Control Rig, then retarget the baked animation onto any custom FBX character. Method 2 covers the full Physics Asset creation workflow: creating body colliders per bone, setting angular limits (free → limited with swing/twist axes) per joint to mimic human range of motion, configuring angular motor dampening and target orientation for springiness/stiffness, and setting up self-collision relationships between body parts. A practical tip fixes static mesh simulation transform fighting in Sequencer using Trim Selection + Keep State.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Add Third Person Template to project; drag Manny skeletal mesh into the level.
+2. Create a Level Sequence at 24fps; drag Manny in (delete the default Control Rig for now).
+3. Add an animation clip to Manny; at the desired impact frame, keyframe Simulate Physics = OFF before, then ON at the trigger frame.
+4. Place collision objects (cubes/cylinders) in the scene; ensure they have physics enabled with Simulate Physics toggled via Sequencer keyframes.
+5. For static meshes in Sequencer: right-click the transform track → Trim Selection Right; set Properties → When Finished: Keep State to prevent transform fighting during simulation.
+6. Open Take Recorder (Window > Cinematics > Take Recorder); add the character and objects as sources; add the Level Sequence as a source with the trigger at frame 0.
+7. In Take Recorder settings, set sub-frame count to 240fps for smooth physics; ensure a clean scene for real-time recording accuracy.
+8. Press Simulate mode first, THEN hit Take Recorder record — it will play the sequence and capture physics frames.
+9. After recording, open the take in Content Browser (Cinematics/Takes); optionally add a Layered Control Rig to fine-tune joints on top of the baked animation.
+10. Bake the layered animation: right-click character → Bake Animation Sequence; enable Record In World Space; export to a new animation asset.
+11. Retarget the baked animation: right-click the animation asset → Retarget Animations → select target skeletal mesh; export the retargeted animation.
+12. (Method 2) For custom Physics Assets: right-click skeletal mesh → Create Physics Asset; adjust body capsules to fit bones; for each constraint, change angular limits from Free to Limited; set Swing 1/2 and Twist limits per joint axis; use Alt+LMB to rotate the angular limit gizmo; set Angular Motor Damping and Target Orientation for joint stiffness; configure self-collision by selecting bone pairs and enabling collision between them.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Third Person Template (Manny skeletal mesh + built-in Physics Asset)
+- Sequencer: Simulate Physics keyframe track, Media/Transform tracks
+- Take Recorder (Window > Cinematics > Take Recorder): sub-frame rate up to 240fps, source from actor, level sequence trigger
+- Layered Control Rig (additive mode on top of baked physics animation)
+- Animation Retargeting (right-click animation → Retarget Animations)
+- Bake Animation Sequence (right-click character in Sequencer → Bake Animation Sequence, Record in World Space)
+- Physics Asset Editor: body creation, capsule/sphere/box fitting, angular limits (Free/Limited), Swing/Twist axes, Angular Motor (Target Velocity dampening, Target Orientation)
+- Self-collision: Enable/Disable Collision between selected body pairs in Physics Asset Editor
+- Sequencer: Trim Selection Right, When Finished: Keep State (for static mesh transform fix)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+5.6.1
 
 ### Tags
-[PENDING EXTRACTION]
+ragdoll, physics asset, physics simulation, skeletal mesh, take recorder, animation retargeting, control rig, layered control rig, sequencer, filmmaking, character physics, angular limits
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `motion-blending-bone-matching-for-unreal-engine---make-films-in-unreal-ep2-inter.md` — companion tutorial on animation blending for cinematic character work
+- `faster-than-ai-and-7-times-the-fun-speed-up-animation-and-get-exactly-what-you-w.md` — Rokoko mocap pipeline feeding animation into UE, also uses retargeting
+- `unreal-engine-vfx-breakdown---ragdoll-opening-shot.md` — the VFX breakdown showing the ragdoll result from this workflow in production
