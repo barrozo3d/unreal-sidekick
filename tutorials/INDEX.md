@@ -1948,6 +1948,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/faster-than-ai-and-7-times-the-fun-speed-up-animation-and-get-exactly-what-you-w.md
 
+
+### Unreal Engine Virtual Production: Trigger Explosions and Sound Effects with your Keyboard (Tutorial)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=5cpjK7kKASU
+- **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-virtual-production-trigger-explosions-and-sound-effects-with-your-.md
+
 ---
 
 ## Tag Reference
