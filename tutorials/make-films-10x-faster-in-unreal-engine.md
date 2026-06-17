@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=RBtlrRP2fvs
 author: Josh Toonen
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [decals, materials, environment, virtual-production, sequencer, cinematics, quixel, fab, caustics, flipbook, character-attachment, animation, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/make-films-10x-faster-in-unreal-engine/
 frame_count: 6
 ---
@@ -58,27 +58,37 @@ frame_count: 6
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Decals as the primary speed-up tool for UE cinematic environments — three escalating levels: free Quixel/FAB decals → custom Photoshop alpha decals → animated decals (caustics, flipbooks) attached to characters and keyed in Sequencer.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen (virtual production veteran — Star Trek Discovery, Avatar: The Last Airbender) teaches a progressive 3-level decal workflow to drastically speed up environment building and VFX in UE. Level 1: drag-and-drop free Quixel decals from FAB (grunge, damage, cracks). Level 3: create custom decals in Photoshop using alpha/transparency. Level 5: parent decals to characters in the Outliner and keyframe visibility in Sequencer (e.g. lightsaber burn mark). Level 7: animate decals with tiling Panner-driven caustics material (Blade Runner 2049 reference). Level 10: drive decal animation from video footage / texture atlases via the Flipbook material function, timed in Sequencer (spell casting effect from War of Being virtual production).
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Free decals**: Ctrl+Space → FAB → filter Quixel + free + Decals category → drag onto any surface; best categories: damage, grunge, cracks
+2. **Custom Photoshop decal**: find/paint image with transparent BG → use Object Select to isolate → export PNG with alpha → import to UE → create Material with Blend Mode: Deferred Decal → Texture Sample RGB → Base Color; Alpha → Opacity Mask
+3. **Attach decal to character**: drag decal actor onto character in Outliner to parent it → scale/rotate to fit → add Sequencer track → keyframe visibility to match action timing
+4. **Animated caustics**: create tiling caustic texture (Nuke or PS) → Material Graph: Texture Sample + **Panner** (UV animation speed) → multiply by color → plug into Emissive on Deferred Decal material; set material to Translucent + Deferred Decal
+5. **Flipbook decal**: right-click Material Graph → search "Flip Book" material function → connect sprite sheet texture atlas → set playback rate → export from Nuke/After Effects as sprite sheet → keyframe start frame in Sequencer to sync spell/impact animation
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Deferred Decal** — material Blend Mode that projects texture onto any underlying surface
+- **FAB / Quixel Bridge** — free high-quality decal library accessible via Content Browser (Ctrl+Space)
+- **Material Graph nodes**: Panner (UV animation), Flipbook material function, Multiply, Texture Sample, Emissive/Base Color/Opacity Mask inputs
+- **Sequencer** — keyframe decal visibility, material parameter animation, flipbook start frame
+- **Outliner parenting** — drag-drop decal actor onto character to attach/follow skeleton
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner → Advanced (leveled 1/3/5/7/10 structure)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (FAB integration indicates UE 5.4+)
 
 ### Tags
-[PENDING EXTRACTION]
+decals, materials, environment, virtual-production, sequencer, cinematics, quixel, fab, caustics, flipbook, character-attachment, animation, panner, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- Materials / rendering doc entries (Panner, material functions)
+- Sequencer animation tutorials (keyframing, cinematics)
+- Boundless Entertainment Lighting / VFX tutorials

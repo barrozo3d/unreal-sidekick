@@ -2013,9 +2013,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=RBtlrRP2fvs
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5.x
+- **Tags:** `#decals` `#materials` `#environment` `#virtual-production` `#sequencer` `#cinematics` `#quixel` `#fab` `#caustics` `#flipbook` `#character-attachment` `#animation` `#beginner` `#advanced` `#ue5` `#youtube`
+- **Summary:** Progressive decal workflow: free Quixel/FAB decals → custom Photoshop alpha decals → animated caustics (Panner) and flipbook decals parented to characters and timed in Sequencer. From Star Trek Discovery / Avatar: The Last Airbender virtual production veteran Josh Toonen.
 - **File:** tutorials/make-films-10x-faster-in-unreal-engine.md
 
 ---

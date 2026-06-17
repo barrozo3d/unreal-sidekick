@@ -150,6 +150,35 @@ POLYGONFLOW = [
     ("NVSEN3ND6VU", "Introducing Dash for Unreal Engine 5"),
 ]
 
+# ── CHARLIE DRISCOLL FILM (Mocap / OverCrowd / MetaHumans / AI Animation) ────
+CHARLIEDRISCOLL = [
+    ("wys5jEhtpY0", "How to Get PRO Motion Capture for MetaHumans on a Budget in Unreal Engine 5"),
+    ("NLVMJX-5ahc", "Can AI Replace MetaHumans in Unreal Engine Cinematics?"),
+    ("2t3c1KJbBe8", "Recreating BRUTAL Deaths from History in Unreal Engine 5"),
+    ("M799eoMK4tw", "The EASIEST and CHEAPEST Motion Capture Setup for Metahumans in Unreal Engine 5.6 (No Headrig)"),
+    ("5j6wwCsWpD0", "How to Generate Custom Metahuman Bodies with AI - YVO3D, Faceform Wrap, 2DNAX - Unreal Engine 5"),
+    ("PEObW2odtXI", "How to Generate Custom Metahuman Creatures with AI - YVO3D, Faceform Wrap, Unreal Engine 5.6 - Part I"),
+    ("h5QzOjs8418", "The best real-time mocap I have ever seen - Captury, Captive Devices, and Metahuman Animator - UE5"),
+    ("1BcKEd9UO9k", "How to Create MASSIVE Crowds and Battle Scenes in Unreal Engine 5 - Niagara and OverCrowd"),
+    ("y-6aiWvh_GY", "How I created a MASSIVE crowd of Metahumans for a BRUTAL Gladiator film - Unreal Engine 5, OverCrowd"),
+    ("ukk4vw-bIpA", "Motion Capture Sword Fighting Cinematic in Unreal Engine 5 - Move.AI and Metahumans"),
+    ("aO_ceeiGHuw", "Cinematography Deepdive for Beginners - Camera and Render Settings Tutorial - Unreal Engine 5.5"),
+    ("26c4TVIYZ8k", "How to create a fight scene cinematic in Unreal Engine 5.5"),
+    ("h6FEW4Kz_Kk", "How to Create A Massive Zombie Horde in Unreal Engine 5.5 - Niagara Crowd Simulation, AnimToTexture"),
+    ("i2W2rDsZXk4", "Budget Mocap Tutorial - Quickmagic.AI and Metahuman Animator (Android/Frame Mancer) Unreal Engine 5"),
+    ("7xYyfWeAHiA", "Cheap AI Mocap that Actually Works - QuickMagic.Ai, Chaos Destruction, and Metahumans in UE5"),
+    ("LpRGFkk3b0k", "How I made this AAA Cinematic in Unreal Engine 5 - Move.Ai and Metahuman Animator short film"),
+    ("ova-8EAD8eg", "How to Create the ULTIMATE Previz with Polycam, Metahumans, and Move.AI in Unreal Engine 5"),
+    ("P2eR9gGPZnA", "How I made this AAA battle scene in Unreal Engine 5"),
+    ("Fp3P0tSnY-Y", "Cinematic Motion Capture with Move One and Metahuman Animator - Unreal Engine 5.4 Beginner Tutorial"),
+    ("I3GzRdnFEIw", "Move.AI and Unreal Engine 5 Metahuman Short Film - GIGANTIC JOE"),
+    ("-GQWj_20J0g", "How I Use Move.AI and Metahumans to Achieve AAA Character Animation in Unreal Engine 5"),
+    ("pq5iEvcntwE", "Move.AI and Unreal Engine 5 Metahuman Cinematic - HACKER"),
+    ("iRPYgNrF8BY", "Orc vs. Knight CGI Swordfight - UE5"),
+    ("v75dSep_kbE", "Move.AI Unreal Engine 5.4 Motion Capture Short Film Using Custom Orc Metahumans - ENCOUNTER"),
+    ("PYTu-rLyPro", "William Wallace - Move.AI and Metahuman short film in Unreal Engine 5"),
+]
+
 # ── DEAN YURKE (DaVinci / Unreal / Virtual Production) ───────────────────────
 DEANYURKE = [
     ("t7Q1UiBr8e8", "Green Screen Edge Wrap SECRETS (and a LIE!) - Advanced DaVinci to Unreal Engine WORKFLOW"),
@@ -177,10 +206,11 @@ DEANYURKE = [
 ]
 
 ALL_VIDEOS = (
-    [("boundless",    vid_id, title) for vid_id, title in BOUNDLESS]
-  + [("blackeye",    vid_id, title) for vid_id, title in BLACKEYE]
-  + [("polygonflow", vid_id, title) for vid_id, title in POLYGONFLOW]
-  + [("deanyurke",   vid_id, title) for vid_id, title in DEANYURKE]
+    [("boundless",        vid_id, title) for vid_id, title in BOUNDLESS]
+  + [("blackeye",         vid_id, title) for vid_id, title in BLACKEYE]
+  + [("polygonflow",      vid_id, title) for vid_id, title in POLYGONFLOW]
+  + [("charliedriscoll",  vid_id, title) for vid_id, title in CHARLIEDRISCOLL]
+  + [("deanyurke",        vid_id, title) for vid_id, title in DEANYURKE]
 )
 
 def load_log():
