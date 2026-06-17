@@ -2258,6 +2258,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-to-create-the-ultimate-previz-with-polycam-metahumans-and-moveai-in-unreal-e.md
 
+
+### How I made this AAA battle scene in Unreal Engine 5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=P2eR9gGPZnA
+- **Author:** Charlie Driscoll - Unreal Engine Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-i-made-this-aaa-battle-scene-in-unreal-engine-5.md
+
 ---
 
 ## Tag Reference
