@@ -1169,9 +1169,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=MwjUZJ7qkIk
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.9
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.9` `#content-library` `#ai-tagging` `#polyhaven` `#megascans` `#abo` `#collections` `#beginner`
+- **Summary:** Overview of the free Dash Content Browser tier on Fab: Polyhaven, Megascans, ABO, ambientCG, IES, Base Mesh libraries + AI tagging (1,000 assets/month free), Collections, cross-project access; free either via Fab plugin or free license within standard Dash (Dash 1.9).
 - **File:** tutorials/new-ue5-asset-management-plugin---now-free-on-fab.md
 
 
@@ -1190,9 +1191,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=HL8NDvv1G44
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.9
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.9` `#archviz` `#scatter` `#surface-scatter` `#vine` `#abo` `#path-tracing` `#intermediate`
+- **Summary:** Tomas cinematic archviz: Blender FBX (Smoothing=Face), Surface Scatter gravel (proximity inversion), Vine Tool, ABO interior furniture, HDRI via Light Studio Blueprint (Use HDRI + Skylight Cube Map), Path Tracer/MRQ (Dash 1.9).
 - **File:** tutorials/how-to-create-a-cinematic-archviz-render-with-ue5-dash.md
 
 
@@ -1211,9 +1213,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=GLOQdCQonOg
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.7
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.7` `#procedural` `#scatter` `#surface-scatter` `#property-references` `#compound-tool` `#curve-masking` `#intermediate`
+- **Summary:** Tomas procedural game world: Feature Masking + Curve Masking Keep Inside for biome separation, Property References (link params globally), Compound Tool (bundle tools into container + expose params), Freeze/Unfreeze scatter (Dash 1.7, UE 5.x).
 - **File:** tutorials/creating-a-massive-procedural-game-world-in-ue5-with-dash.md
 
 
@@ -1221,9 +1224,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=YHmNyyI998k
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.9
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.9` `#marketplace` `#content-library` `#dekogon` `#release-notes`
+- **Summary:** Dash Marketplace launch: Dekogon, Sierra Division, ambientCG packs available; per-instance size control in scatter; Mesh Convex Hull Tool introduced (Dash 1.9.3).
 - **File:** tutorials/dash-193---new-ue5-asset-marketplace.md
 
 
@@ -1242,9 +1246,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=XNac5ylJ5LQ
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.9
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.9` `#scatter` `#mesh-pattern` `#abo` `#rainfall` `#splines` `#release-notes`
+- **Summary:** Dash 1.9.2: Mesh Pattern Tool (presets + custom + proximity mask), ABO library, Base Mesh Library, Rainfall/Snowfall tools, Draw Spline (Shift=project tangents), Ctrl/Shift/Ctrl+A multi-select in CB.
 - **File:** tutorials/dash-192---new-ue5-tools-amazon-3d-library-integration.md
 
 
@@ -1263,9 +1268,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=KsgW-19y4ts
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.7
+- **UE Version:** UE 5.4
+- **Tags:** `#dash-1.7` `#procedural` `#scatter` `#radial-scatter` `#path-scatter` `#grid-scatter` `#reference-tool` `#compound-tool` `#presets` `#intermediate`
+- **Summary:** 29-min overview of all Dash 1.7 scatter tools: Surface/Path/Grid/Radial/Decal Scatter; Reference Tool (Convert to Reference, link params, global slider); Compound Tool (bundle tools, expose params, save preset); Radial Scatter (concentric rings, tower mode min/max=0+ring height, square shaping) (Dash 1.7, UE 5.4).
 - **File:** tutorials/procedural-world-building-for-ue5---pcg-alternative.md
 
 
@@ -1328,9 +1334,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=tOpExldNzoA
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.9
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.9` `#collections` `#content-library` `#water` `#falling-leaves` `#rvt` `#release-notes`
+- **Summary:** Dash 1.9: Collections (group assets by project/style), semantic search (+/- operators), Advanced Water Tool (waves/rain/underwater), Falling Leaves, RVT workflow, Quick Asset Search, Multi Asset Picker; Project Library perf improvements (Dash 1.9).
 - **File:** tutorials/dash-19---managing-assets-in-ue5-just-got-a-lot-easier.md
 
 
@@ -1349,9 +1356,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=lHZwUtS6hyE
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.8
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.8` `#scatter` `#terrain` `#blend-material` `#sofi` `#data-tables` `#fab` `#release-notes`
+- **Summary:** Dash 1.8.5: Fab tab in CB, SOFI AI assistant, Terrain Deformation curves, Incremental Spin, Data Tables, Proximity Width, Texture Repetition Breakup; revamped UI bar; Tomas builds junkyard scene (Dash 1.8).
 - **File:** tutorials/dash-185---big-update-for-ue5-world-building.md
 
 
@@ -1392,9 +1400,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=s-UQxXkHt8k
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.5
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.5` `#content-library` `#import` `#beginner`
+- **Summary:** Tomas comparison demo: classic 6+ minute asset import workflow vs Dash 1-second import; Ctrl+scroll = resolution picker in CB; Dash 1.5 CB speed improvements.
 - **File:** tutorials/making-asset-importing-easy-in-ue5---dash-content-browser.md
 
 
@@ -1402,9 +1411,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=B6T_VQQK6OU
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.7
+- **UE Version:** UE 5.4
+- **Tags:** `#dash-1.7` `#release-notes` `#scatter` `#vine` `#blend-material` `#fog-cards` `#compound-tool` `#property-references`
+- **Summary:** Adnan overview of 15 Dash 1.7 features: Property References, Compound Tool, Vine Tool, Image-to-Grading, Fog Cards 2.0, Blend Material, Landscape Layer Masking, Instance Color Variation 2.0, Volume Scatter, Curve Masking Keep Inside, Border Masking, Mesh Borders to Curve, Tool Presets, Radial Scatter; UE 5.4 support (Dash 1.7).
 - **File:** tutorials/dash-170---massive-ue5-world-building-tool.md
 
 
@@ -1412,9 +1422,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=kJhqc5_6usc
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.7
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.7` `#game-environments` `#terrain` `#scatter` `#grid-scatter` `#path-scatter` `#physics` `#vine` `#fog-cards` `#image-to-grading` `#uds` `#intermediate`
+- **Summary:** Tomas 79-minute Helldivers 2 environment: terrain + Megascans, Grid Scatter rocks, dual-mask path (ProxMask 1=curve+invert, ProxMask 2=curve+narrow), Bake Instances, Vine Tool, UDS night, Image-to-Grading, Fog Cards, Path Tracer (Dash 1.7).
 - **File:** tutorials/creating-a-helldivers-2-environment-in-79-minutes---ue5-tutorial.md
 
 
@@ -1422,9 +1433,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=plpGMR46HnE
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.7
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.7` `#game-environments` `#terrain` `#scatter` `#surface-scatter` `#path-scatter` `#grid-scatter` `#physics` `#vine` `#fog-cards` `#image-to-grading` `#uds` `#intermediate`
+- **Summary:** Tomas builds a playable Helldivers 2-inspired level: Terrain, Curve+Path Scatter inward-facing cliffs, AI Tagging (Kitbash pack), Grid Scatter containers (pivot center), triple Proximity Mask road-edge rocks, Physics Paint rubble, Bake+Convert to Foliage, Vine Tool (1.7), UDS night, Image-to-Grading (new 1.7), Fog Cards (Dash 1.7).
 - **File:** tutorials/recreating-a-helldivers-2-game-environment-in-ue5-with-dash.md
 
 
@@ -1432,9 +1444,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=rBcGl_ScDKs
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.6
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.6` `#game-environments` `#terrain` `#scatter` `#path-scatter` `#grid-scatter` `#decal-scatter` `#cable` `#cross-project` `#intermediate`
+- **Summary:** Jonathan MOUT site: Terrain-to-Static-Mesh, Road Tool (border sink + terrain conforming), Surface Scatter Object Mask=road, Path Scatter sandbags (Z Direction Override + Width for dual-row + Random Remove Mask), Cable Tool utility poles (hidden sphere insulators), Grid Scatter tires, Decal Scatter buildings (height+depth limits), cross-project fence (Dash 1.6).
 - **File:** tutorials/how-to-create-a-training-environment-in-unreal-engine-5---dash-workflow.md
 
 
@@ -1442,9 +1455,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=5aTwhjR5JJE
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.4
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.4` `#scatter` `#grid-scatter` `#decal-scatter` `#cable` `#physics` `#intermediate`
+- **Summary:** Galen Walking Dead environment: Decal Scatter on hidden plane guide, Grid Scatter ceiling tiles + Random Remove for exposed metal, Physics Tool (fracture+convex+Dynamic), Quick Pipe (minimize control points), Cable Tool (Connection Rate + Cut Rate + Min/Max Gravity + Noise) (Dash 1.4).
 - **File:** tutorials/how-to-re-create-the-walking-dead-in-unreal-engine-5---dash-workflow.md
 
 
@@ -1463,9 +1477,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=6U2jbJmqs4k
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.4
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.4` `#procedural` `#scatter` `#path-scatter` `#grid-scatter` `#splines` `#physics` `#intermediate`
+- **Summary:** Galen spline-driven canyon: all scatter anchored to one spline; Path Scatter (per-point/exact count density, parallel curves, pivot offset); Surface Scatter + spline Proximity Mask (inverted); Grid Scatter 3D (Height Division for Z stacking, remove-below-origin); Physics Tool rockslide (Dash 1.4).
 - **File:** tutorials/no-nodes-procedural-environment-in-unreal-engine-5---dash-tutorial.md
 
 
@@ -1473,9 +1488,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=li914x1WPis
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.6
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.6` `#release-notes` `#teaser`
+- **Summary:** Dash 1.6 release teaser: music-only video showcasing improved Content Browser and AI Asset Tagging improvements. No narration. See dedicated 1.6 tutorials for feature details.
 - **File:** tutorials/dash-160-release---improved-content-library-and-ai-asset-tagging.md
 
 
@@ -1483,9 +1499,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=EezUW6MSqfE
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.5
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.5` `#scatter` `#surface-scatter` `#ai-tagging` `#megascans` `#atlas` `#path-tracing` `#intermediate`
+- **Summary:** Josh Powers William Faucher-inspired forest floor: new AI Tagging finds Sketchfab models by concept (type gun), Surface Scatter layered at multiple scales, Standalone Bridge folder (three-dots CB) to Atlas Map auto-scatter (alpha cards from opacity map), Path Tracer render (Dash 1.5).
 - **File:** tutorials/this-plugin-makes-unreal-engine-5-even-more-amazing---dash-for-world-building.md
 
 
@@ -1493,9 +1510,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=_9b_dabCpVE
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.5
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.5` `#archviz` `#scatter` `#grid-scatter` `#path-scatter` `#physics` `#ai-tagging` `#terrain` `#materials` `#path-tracing` `#intermediate`
+- **Summary:** Thomas Schneider archviz: Polyhaven HDRI, AI Tagging for marketplace assets (concept search), Terrain Tool, Grid Scatter stone walls, Physics Paint brush for rocks, Path Scatter garden path, dual Proximity Mask for road-edge rocks, Surface Scatter Height Mask for wall-top foliage, background tree plane, Path Tracer (Dash 1.5).
 - **File:** tutorials/realistic-architecture-environment-in-ue5---dash-workflow.md
 
 
@@ -1525,9 +1543,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=fvlPj3hYgSI
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.5
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.5` `#ai-tagging` `#content-library` `#megascans` `#beginner`
+- **Summary:** Josh Powers dedicated AI tagging tutorial: select project folder, Compute, search by concept (trees/orange/chairs+orange); Dekogon pack demo; tags custom and marketplace assets; 1,000 free tags/month tier (Dash 1.5).
 - **File:** tutorials/dash-for-ue5-helps-you-organize-your-local-3d-assets-with-ai-tagging.md
 
 
@@ -1557,9 +1576,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=UO2ehs5OjEw
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.4
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.4` `#game-environments` `#scatter` `#decal-scatter` `#physics` `#cable` `#polyhaven` `#intermediate`
+- **Summary:** Josh Powers dystopian game environment: Polyhaven integration (brand new), Decal Scatter multi-select (Shift+click, Ctrl+drag, Scatter Here), Surface Scatter with Proximity Mask (inverted tree base), Convert to Foliage (non-undoable), Physics Tool prop piles, Cable Tool with static mesh anchors (Dash 1.4).
 - **File:** tutorials/new-ue5-plugin---adding-detail-to-your-game-with-dash.md
 
 
@@ -1578,9 +1598,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=cC0l3yZMt3M
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-1.4
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-1.4` `#archviz` `#polyhaven` `#physics` `#camera` `#materials` `#decals` `#path-tracing` `#intermediate`
+- **Summary:** Tomas Nod kitchen archviz: Polyhaven HDRI drag-to-scene (brand new, 1.4), Megascans materials with tweaks, Physics Tool (Complex collision) for natural fruit pile, Dash Camera (focal length + PPV panel), Megascans decals, Level Sequence (25 FPS + linear keys), Path Tracer MRQ (4K, denoiser OFF) (Dash 1.4).
 - **File:** tutorials/speed-up-your-archviz-workflow-with-dash-in-ue5.md
 
 
@@ -1687,9 +1708,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=zxVE6uyBEHs
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-early
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-early` `#scatter` `#materials` `#cable` `#atlas` `#proximity-mask` `#intermediate`
+- **Summary:** Josh Powers underground horror hallway: type pipe for cable thickness, Scatter Mesh Cards with opacity map, proximity pebble scatter along walls, Material Adjustment Tool for puddle hue variant (Dash early).
 - **File:** tutorials/environment-breakdown-underground-horror-in-ue5.md
 
 
@@ -1697,9 +1719,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=hInAtC725VQ
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-early
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-early` `#scatter` `#surface-scatter` `#decals` `#atlas` `#water` `#materials` `#color-grading` `#intermediate`
+- **Summary:** Josh Powers creek bed from empty level: type plane for creek agent; UE5 Modeling Tools (concrete wall UV+displacement); Surface Scatter rocks; type water for instant water material; Atlas Map scatter with proximity mask for wall-top strip; decals; lens icon for DOF; type cycle grading for presets (Dash early).
 - **File:** tutorials/tutorial-create-subtle-realistic-environments-in-ue5.md
 
 
@@ -1707,9 +1730,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=NNBDLTPsktc
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-early
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-early` `#scatter` `#surface-scatter` `#materials` `#color-grading` `#camera` `#intermediate`
+- **Summary:** Josh Powers run-down environment: Scatter Mesh Cards (atlas mesh card instancing), Color Grading Library, Camera Sharpness slider; mood-driven workflow starting from reference image (Dash early, UE 5.x).
 - **File:** tutorials/create-run-down-environments-in-minutes---dash-ue5.md
 
 
@@ -1717,9 +1741,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=_7HfCCLiSec
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Plugin Version:** dash-early
+- **UE Version:** UE 5.x
+- **Tags:** `#dash-early` `#scatter` `#surface-scatter` `#decals` `#proximity-mask` `#intermediate`
+- **Summary:** Josh Powers: Surface Scatter ferns with proximity mask (stay near specific hero props), Dash decal workflow (CB drag to wall, auto-projected; LMB=move, Ctrl+LMB=scale, Shift+LMB=rotate, Ctrl+RMB=directional scale). Last-of-Us inspired scene (Dash early).
 - **File:** tutorials/simplify-environment-art-creation-in-unreal-engine-5.md
 
 
