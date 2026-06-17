@@ -2148,6 +2148,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-to-generate-custom-metahuman-creatures-with-ai---yvo3d-faceform-wrap-unreal-.md
 
+
+### The best real-time mocap I have ever seen - Captury, Captive Devices, and Metahuman Animator - UE5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=h5QzOjs8418
+- **Author:** Charlie Driscoll - Unreal Engine Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/the-best-real-time-mocap-i-have-ever-seen---captury-captive-devices-and-metahuma.md
+
 ---
 
 ## Tag Reference
