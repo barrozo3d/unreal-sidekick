@@ -2028,6 +2028,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Full PBL re-light using only global actors (no fill lights): sky dome + sun disk, Directional Light (golden hour 2000-3000K, Ctrl+L), EV100 exposure curve for interior/exterior, Local Exposure shadow contrast 0.6, volumetric fog, cloud gobo via Light Function, color grading per channel, Lumen Surface Cache tuning with albedo boost.
 - **File:** tutorials/if-i-have-40-mins-to-light-an-environment-in-unreal-engine-5---ill-do-this.md
 
+
+### Cinematic Lighting Masterclass (Alien in Unreal 5)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=iJmOO0NS0Mk
+- **Author:** Josh Toonen
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/cinematic-lighting-masterclass-alien-in-unreal-5.md
+
 ---
 
 ## Tag Reference
