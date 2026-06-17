@@ -1783,9 +1783,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=t7Q1UiBr8e8
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
-- **UE Version:** UE5.4
-- **Tags:** `#cinematics` `#kitbash3d` `#sequencer` `#volumetric-lighting` `#god-rays` `#character-animation` `#asset-migration` `#blueprints` `#cargo-plugin` `#environment` `#beginner` `#intermediate` `#ue5-4` `#youtube`
-- **Summary:** End-to-end cinematic pipeline with KitBash3D assets in UE5.4: project setup, Cargo plugin import, Electric Dreams terrain migration, Blueprint Actor editing, volumetric god-ray lighting (Rect Light + Exponential Height Fog), Echo character + animation migration from Slay sample, Sequencer assembly and render.
+- **UE Version:** 5.x
+- **Tags:** `#edge-wrap` `#light-wrap` `#green-screen` `#davinci-resolve` `#fusion` `#chroma-key` `#scene-capture-2d` `#render-target` `#compositing` `#virtual-production`
+- **Summary:** At 99 minutes, Dean Yurke's most in-depth compositing tutorial. Covers DaVinci Fusion extraction with linear sRGB color space transform + multi-channel utility pass, real-time edge/light wrap inside UE via Scene Capture 2D + Render Target + custom material, and DaVinci camera tracking + FBX import for moving shots.
 - **File:** tutorials/green-screen-edge-wrap-secrets-and-a-lie---advanced-davinci-to-unreal-engine-wor.md
 
 
@@ -1793,9 +1793,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=0YhVHCoHKkg
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** N/A
+- **Tags:** `#DaVinci` `#Resolve` `#Fusion` `#data` `#burn-in` `#text` `#node` `#expression` `#compositing` `#metadata`
+- **Summary:** This is a quick tip (under 4 minutes) for DaVinci Resolve Fusion users, not an Unreal Engine tutorial. Dean Yurke demonstrates how to use Fusion's expression system on a Text node to pull the ClipName
 - **File:** tutorials/burn-clip-names-onto-davinci-resolve-and-fusion-video-quick-fusion-tip.md
 
 
@@ -1803,9 +1803,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=qe2x-puqVl0
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.x
+- **Tags:** `#overscan` `#cine` `#camera` `#sensor` `#width` `#blueprint` `#Movie` `#Render` `#Queue` `#EXR`
+- **Summary:** This bonus video in Dean Yurke's VFX series explains overscan — rendering extra pixel data beyond the visible frame boundary — and its benefits for digital filmmaking. He covers the built-in Overscan 
 - **File:** tutorials/green-screen-overscan-secrets-and-a-lie---your-ultimate-vfx-save-series-bonus.md
 
 
@@ -1813,9 +1813,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=PPRugNC7POA
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.x
+- **Tags:** `#filmmaking` `#beginner` `#sequencer` `#cine` `#camera` `#depth` `#of` `#field` `#FBX` `#animation`
+- **Summary:** Episode 1 of Dean Yurke's "Make Films in Unreal" series, aimed at beginners who have some UE familiarity but have never made a film. He covers creating a blank project, adding the Third Person Templat
 - **File:** tutorials/make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta.md
 
 
@@ -1823,9 +1823,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=XeeIY_fvbq0
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.x
+- **Tags:** `#UI` `#scaling` `#Widget` `#Reflector` `#application` `#scale` `#demo` `#mode` `#hotkey` `#quick`
+- **Summary:** A 90-second quick tip showing how to make the Unreal Engine editor UI larger. The Widget Reflector (Ctrl+Shift+W, or Tools > Debug > Widget Reflector) contains an Application Scale slider that scales 
 - **File:** tutorials/scale-unreal-engines-user-interface-squint-no-more-great-for-recording-ue5-tutor.md
 
 
@@ -1833,9 +1833,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=-9-Aq3z-wI4
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.x
+- **Tags:** `#filmmaking` `#animatic` `#teaser` `#micro-budget` `#xodus` `#virtual` `#production` `#AI` `#video` `#indie`
+- **Summary:** This is a brief project update / showcase video for Dean Yurke's feature film project "xodus," his 20-year-in-the-making sci-fi script now being produced as a real-time micro-budget virtual production
 - **File:** tutorials/ue5-filmmaking-series-xꙩdus-animatic-to-teaser---real-time-micro-budget-movies.md
 
 
@@ -1843,9 +1843,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=9-kRF6DFfPE
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.x
+- **Tags:** `#career` `#advice` `#VFX` `#industry` `#Hollywood` `#virtual` `#production` `#compositing` `#AI` `#in`
+- **Summary:** This is a career and industry discussion video, not a technical tutorial. Dean Yurke recounts his journey from Bournemouth University in 1987, through Softimage and Inferno compositing at Pialis Camer
 - **File:** tutorials/ai-real-time-and-surviving-hollywoods-vfx-industry-for-30-years.md
 
 
@@ -1853,9 +1853,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=g9VndiQqON0
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** N/A
+- **Tags:** `#DaVinci` `#Resolve` `#precision` `#control` `#shift` `#drag` `#audio` `#volume` `#inspector` `#quick`
+- **Summary:** This is a 38-second micro-tip. Dean Yurke shares that holding Shift while dragging any draggable control in DaVinci Resolve (audio volume bar in the timeline, parameter sliders in the Inspector) activ
 - **File:** tutorials/how-to-get-precision-control-in-davinci-resolve---use-shift-drag.md
 
 
@@ -1863,9 +1863,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=ye0gjAx50oU
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.6
+- **Tags:** `#ragdoll` `#physics` `#asset` `#physics` `#simulation` `#skeletal` `#mesh` `#take` `#recorder` `#animation`
+- **Summary:** Dean Yurke shows how to incorporate ragdoll physics into cinematic sequences in UE 5.6.1. The preferred Method 1 leverages the Third Person Template's Manny character (which has a production-ready Phy
 - **File:** tutorials/beat-yourself-up-with-unreal-ragdoll-physics-for-filmmaking-made-easy-or-hard-in.md
 
 
@@ -1873,9 +1873,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=JxHYt9vFQD8
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.x
+- **Tags:** `#animation` `#blending` `#bone` `#matching` `#Mixamo` `#FBX` `#import` `#root` `#motion` `#sequencer`
+- **Summary:** Episode 2 of Dean Yurke's "Make Films in Unreal" series, addressing a viewer question (from Brock) about blending Mixamo animations that have root motion baked in (translation built into the animation
 - **File:** tutorials/motion-blending-bone-matching-for-unreal-engine---make-films-in-unreal-ep2-inter.md
 
 
@@ -1883,9 +1883,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=rzMRSDxg33Q
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.x
+- **Tags:** `#VFX` `#breakdown` `#ragdoll` `#green` `#screen` `#blue` `#screen` `#camera` `#tracking` `#media`
+- **Summary:** This is a VFX breakdown / making-of video (not a step-by-step tutorial) showing Dean Yurke's full virtual production pipeline applied to a specific opening shot where he walks on a beam and falls via 
 - **File:** tutorials/unreal-engine-vfx-breakdown---ragdoll-opening-shot.md
 
 
@@ -1893,9 +1893,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=6he5ag3nLjs
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.7
+- **Tags:** `#Composure` `#composite` `#mesh` `#actor` `#camera` `#projection` `#virtual` `#production` `#media` `#profile`
+- **Summary:** This is Composure Episode 1 from Dean Yurke's virtual production series. He introduces the Composure workflow in UE 5.7 where a camera feed (live USB or pre-recorded image sequence) is projected from 
 - **File:** tutorials/easiest-vfx-pipeline-ever-with-composite-mesh-actors-in-unreal-engine-57-composu.md
 
 
@@ -1903,9 +1903,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=VbLziZfiyD8
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.7
+- **Tags:** `#Composure` `#camera` `#projection` `#green` `#screen` `#blue` `#screen` `#chroma` `#key` `#composite`
+- **Summary:** Dean Yurke builds on the Composure EP1 foundation to show how to key a blue screen subject and integrate them into a 3D Unreal environment via camera projection. He covers the practical blue screen li
 - **File:** tutorials/green-screen-cards-are-dead-camera-projections-in-unreal-engine-change-everythin.md
 
 
@@ -1913,9 +1913,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=zlZCKT-5pLU
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.7
+- **Tags:** `#Composure` `#composite` `#mesh` `#actor` `#lit` `#mass` `#material` `#green` `#screen` `#blue`
+- **Summary:** Dean Yurke presents three key improvements to the Composure virtual production workflow in UE 5.7. First, he refines the DaVinci Fusion extraction pipeline: using the Delta Keyer (with its built-in di
 - **File:** tutorials/green-screen-integration-in-unreal-engine-57-virtual-production-got-even-better-.md
 
 
@@ -1923,9 +1923,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=xbZNHZ-QGyg
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.7
+- **Tags:** `#volumetric` `#fog` `#VDB` `#sparse` `#volume` `#textures` `#heterogeneous` `#volumes` `#exponential` `#height`
+- **Summary:** Dean Yurke covers his complete toolbox for volumetric fog in UE 5.7, motivated by upgrading his sci-fi animatic from a basic block-out to final quality. He walks through each method in sequence — from
 - **File:** tutorials/advanced-volumetric-fog-secrets-in-unreal-engine-57-full-course.md
 
 
@@ -1933,9 +1933,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=Wb9hJqPcAwQ
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.x
+- **Tags:** `#materials` `#texture` `#coordinates` `#UV` `#texture` `#transform` `#translation` `#rotation` `#scale` `#material`
+- **Summary:** Dean Yurke walks through how to set up a full UV transform material node chain for independent control over texture translation, rotation, and scale in Unreal Engine's material editor. He uses scalar 
 - **File:** tutorials/how-to-transform-texture-coordinates-in-unreal-engine-materials-tutorial.md
 
 
@@ -1943,9 +1943,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=o_AE2kUsF3E
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.x
+- **Tags:** `#Rokoko` `#mocap` `#motion` `#capture` `#Smartsuit` `#Pro` `#II` `#Smartgloves` `#Coil` `#Pro`
+- **Summary:** Dean Yurke reviews Rokoko's Smartsuit Pro II inertial mocap suit (provided as a sponsored review) and demonstrates his full pipeline for using it in a cinematic project. He shows setup of the suit, sm
 - **File:** tutorials/faster-than-ai-and-7-times-the-fun-speed-up-animation-and-get-exactly-what-you-w.md
 
 
@@ -1953,9 +1953,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=5cpjK7kKASU
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.x
+- **Tags:** `#level` `#blueprint` `#Niagara` `#particle` `#system` `#keyboard` `#input` `#sound` `#effects` `#virtual`
+- **Summary:** Dean Yurke shows how to set up a Level Blueprint to trigger explosions (Niagara particle systems) and sound effects interactively via keyboard keys, useful for live streaming virtual production or rea
 - **File:** tutorials/unreal-engine-virtual-production-trigger-explosions-and-sound-effects-with-your-.md
 
 
@@ -1963,9 +1963,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=1kcelYQLkP0
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.x
+- **Tags:** `#career` `#advice` `#VFX` `#industry` `#virtual` `#production` `#AI` `#in` `#VFX` `#compositing`
+- **Summary:** This is a 60-minute industry Q&A/career talk from Dean Yurke's guest lecture at NC State's MADtech program. He covers: what employers actually value (show reel quality and attitude over degrees); top 
 - **File:** tutorials/survive-the-vfx-war-battle-ready-skills-you-need-for-virtual-production-in-2026-.md
 
 
@@ -1973,9 +1973,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=ivE8Bg0EaBo
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.8
+- **Tags:** `#Movie` `#Render` `#Graph` `#Movie` `#Render` `#Queue` `#EXR` `#DWAA` `#linear` `#sRGB`
+- **Summary:** Dean Yurke explains why he moved to the Movie Render Graph: a bug in the legacy Movie Render Queue in UE 5.7/5.8 silently skips rendering frames for the second and subsequent cameras in a multi-camera
 - **File:** tutorials/how-to-use-the-movie-render-graph-in-unreal-engine-58---simple-setup-for-filmmak.md
 
 
@@ -1983,9 +1983,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=H3OfTUhMmmc
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.8
+- **Tags:** `#depth` `#of` `#field` `#accumulation` `#DOF` `#bokeh` `#cinematic` `#camera` `#anamorphic` `#Movie`
+- **Summary:** Dean Yurke demonstrates UE 5.8's experimental Accumulation DOF plugin as a faster alternative to path tracing for high-quality shallow depth of field on close-up shots with complex hair, groom, and tr
 - **File:** tutorials/create-spectacular-depth-of-field-in-unreal-engine-58-with-the-new-accumulation-.md
 
 
@@ -1993,9 +1993,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=WenSYKg08Uc
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.x
+- **Tags:** `#sequencer` `#animation` `#curves` `#custom` `#filter` `#Curves` `#Editor` `#quick` `#tip` `#workflow`
+- **Summary:** A quick 4-minute tip for Unreal Engine Sequencer users who spend too much time hunting for animation curves. The Sequencer's search bar reveals a small plus-circle button when text is entered — this i
 - **File:** tutorials/where-are-my-animation-curves-this-mysterious-symbol-will-save-you-hours-of-frus.md
 
 
@@ -2003,9 +2003,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=f2YLWIvs6F8
 - **Author:** The Gnomon Workshop
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.4
+- **Tags:** `#cinematics` `#kitbash3d` `#sequencer` `#volumetric-lighting` `#god-rays` `#character-animation` `#asset-migration` `#blueprints` `#cargo-plugin` `#electric-dreams`
+- **Summary:** Mini-course by Koskyo Saki (Gnomon Workshop) walking through a full cinematic pipeline using KitBash3D's "Secrets of the Luminara" kit. Covers UE5.4 project creation with ray tracing, installing the K
 - **File:** tutorials/creating-cinematics-in-unreal-engine-with-kitbash3ds-secrets-of-the-luminara.md
 
 

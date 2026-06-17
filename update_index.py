@@ -6,19 +6,14 @@ index_path = 'tutorials/INDEX.md'
 raw = open(index_path, 'rb').read()
 content = raw.decode('utf-8-sig')
 
-already_done = {
-    'how-to-get-pro-motion-capture-for-metahumans-on-a-budget-in-unreal-engine-5',
-    'can-ai-replace-metahumans-in-unreal-engine-cinematics',
-    'recreating-brutal-deaths-from-history-in-unreal-engine-5',
-    'the-easiest-and-cheapest-motion-capture-setup-for-metahumans-in-unreal-engine-56',
-}
+already_done = set()
 
 updated = 0
 not_found = []
 
 for fpath in sorted(glob.glob('tutorials/*.md')):
     tut = open(fpath, encoding='utf-8', errors='ignore').read()
-    if 'Charlie Driscoll' not in tut:
+    if 'Dean Yurke' not in tut and 'deanyurke' not in fpath:
         continue
     if 'extraction_status: complete' not in tut:
         continue
