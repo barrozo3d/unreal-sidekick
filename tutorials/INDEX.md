@@ -2058,6 +2058,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Baked river simulation in UE5.6 using Water + Water Advanced + Buoyancy plugins. Bakes shallow-body fluid sim to efficient looped playback while preserving buoyancy for floating objects and character ripple interaction. Inspired by Witcher 4 river visuals.
 - **File:** tutorials/witcher-4-baked-water-simulation-tutorial-in-unreal-engine-56.md
 
+
+### How to Get PRO Motion Capture for MetaHumans on a Budget in Unreal Engine 5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=wys5jEhtpY0
+- **Author:** Charlie Driscoll - Unreal Engine Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-to-get-pro-motion-capture-for-metahumans-on-a-budget-in-unreal-engine-5.md
+
 ---
 
 ## Tag Reference
