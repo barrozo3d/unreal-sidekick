@@ -2158,6 +2158,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/the-best-real-time-mocap-i-have-ever-seen---captury-captive-devices-and-metahuma.md
 
+
+### How to Create MASSIVE Crowds and Battle Scenes in Unreal Engine 5 - Niagara and OverCrowd
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=1BcKEd9UO9k
+- **Author:** Charlie Driscoll - Unreal Engine Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-to-create-massive-crowds-and-battle-scenes-in-unreal-engine-5---niagara-and-.md
+
 ---
 
 ## Tag Reference
