@@ -544,9 +544,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=f4izPHpbfZI
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** `#simulation` `#cloth` `#rendering` `#mrq` `#sequencer` `#take-recorder` `#intermediate`
+- **Summary:** Cache Chaos Cloth simulation via Take Recorder + Chaos Cache Manager before rendering with MRQ temporal subsampling. Critical bug: delete and re-add Chaos Cache track in Sequencer post-recording or UE re-simulates during render and overwrites the cache.
 - **File:** tutorials/how-to-render-chaos-cloth-simulations-with-motion-blur-the-right-way.md
 
 
@@ -554,9 +554,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=rUZxS3IwZhQ
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** `#vfx` `#filmmaking` `#cinematography` `#compositing` `#beginner`
+- **Summary:** Part 2 of VFX philosophy series. Critiques 5 commonly-taught-but-wrong techniques: camera shake overuse, incorrect motion blur (shutter angle), gratuitous color grading, shallow DOF as default, and decorative lens flares. Each breaks storytelling immersion.
 - **File:** tutorials/5-vfx-techniques-youve-been-taught-that-are-actually-wrong.md
 
 
@@ -564,9 +564,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=YhJGuB5fCfU
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** `#megascans` `#fab` `#assets` `#content-library` `#workflow` `#beginner`
+- **Summary:** 2025 workflow for free Quixel Megascans via the Fab plugin (Quixel Bridge is discontinued). Steps: install Fab plugin from Epic Launcher > Window > Fab > Quixel tab; add environments and individual assets; migrate via Asset Actions > Migrate.
 - **File:** tutorials/unlock-thousands-of-free-assets-in-unreal-engine.md
 
 
@@ -574,9 +574,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=j3Kq0TIR2SI
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** `#virtual-production` `#filmmaking` `#cinematics` `#beginner`
+- **Summary:** Inspirational manifesto: free tools (UE5 + Genesis + LightForge + Megascans) have eliminated the cost barrier to professional virtual production. No specific technical steps — channel mission statement for indie filmmakers.
 - **File:** tutorials/no-cost-virtual-production-is-here---and-its-changing-filmmaking.md
 
 
@@ -584,9 +584,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=oGZJ4PcKqBE
 - **Author:** Boundless Entertainment
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** `#vfx` `#filmmaking` `#compositing` `#cinematography` `#beginner`
+- **Summary:** Part 1 of VFX philosophy series. Root mistake: using CGI as a storytelling crutch instead of a tool. Introduces the restraint test: if removing an effect loses nothing, it was decoration. Foundation for Part 2 (5 specific wrong techniques).
 - **File:** tutorials/these-simple-mistakes-are-ruining-your-vfx.md
 
 

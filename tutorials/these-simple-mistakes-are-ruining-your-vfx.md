@@ -1,59 +1,59 @@
----
-title: These Simple Mistakes are RUINING your VFX
+﻿---
+title: These Simple Mistakes Are RUINING Your VFX
 source: YouTube
 url: https://www.youtube.com/watch?v=oGZJ4PcKqBE
 author: Boundless Entertainment
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: none
+ue_version: "UE 5.x"
+tags: [vfx, filmmaking, compositing, cinematography, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/these-simple-mistakes-are-ruining-your-vfx/
-frame_count: 4
+frame_count: 5
 ---
 
-# These Simple Mistakes are RUINING your VFX
+# These Simple Mistakes Are RUINING Your VFX
 
 **Source:** [YouTube](https://www.youtube.com/watch?v=oGZJ4PcKqBE)
 **Author:** Boundless Entertainment
-**Duration:** 9m23s | 1 section(s)
-
----
-
-## Raw Data (for Claude Code extraction)
-
-
-### Full Content [0:00]
-**Transcript:** What's going on guys Sam here and in today's video I want to address some of the most common mistakes I see visual effects artists making. Now these aren't just beginner mistakes, these are mistakes I see from pretty much every level of visual effects artists from total beginners all the way up through artists working Hollywood. So today we're going to be diving into part one of the most commonly accepted and even promoted tropes in visual effects which are actually really bad for your work. Now the problems I'm talking about here really stem from how we look at visual effects, CGI and animation. CGI started out as purely a storytelling tool for accomplishing shots that could not be done in camera and enhancing the film. It was initially kept dark and out of focus and only used when absolutely necessary in order to hide its imperfections while limiting scrutiny from the audience. But now CGI has evolved into an essential pillar of the filmmaking process, often functioning as a crutch to fill in gaps in the story, fixed mistakes in the shooting process or simply to save time and budget. It's become the centerpiece for many films and therefore I contend that it sort of become its own...
-
-**Frame:** tutorials\frames\these-simple-mistakes-are-ruining-your-vfx\frame_000.jpg
-
+**Duration:** ~10m | 5 section(s)
 
 ---
 
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Part 1 of VFX philosophy series. Identifies the root mindset mistake underlying most bad VFX: using CGI as a storytelling crutch rather than a storytelling tool, leading to a set of commonly-promoted techniques that signal "effort" without serving the narrative.
 
 ### Summary
-[PENDING EXTRACTION]
+10-minute critique establishing the philosophical framework for the VFX mistakes series. Sam argues that CGI started as a tool for achieving impossible storytelling moments but became a crutch — used to signal production value rather than serve story. The result: a generation of tutorial-taught VFX techniques that are visually impressive in isolation but narratively hollow. Part 2 covers five specific techniques that stem from this mistake (see 5-vfx-techniques-youve-been-taught-that-are-actually-wrong). This video is the foundation for understanding why Boundless Entertainment's tutorials emphasize intent and restraint over technical complexity.
 
-### Key Steps
-[PENDING EXTRACTION]
+### Key Arguments
+1. **CGI as crutch vs. tool** — great VFX is invisible; bad VFX announces itself; tutorials teach how to do the effect, not when or why
+2. **The "look at this" trap** — shots designed to showcase the VFX rather than serve the character or story; audiences disengage even if they can't articulate why
+3. **Over-production from tutorials** — YouTube/social media VFX tutorials incentivize visual complexity (more views) over narrative service (harder to demonstrate)
+4. **The restraint principle** — removing a VFX element and asking "does the scene lose anything?" is the test; if no = the element was decoration
+5. **Intent-first workflow** — start with "what do I need the audience to feel/see?" then choose tools; not "what cool effect can I add?"
 
-### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+### UE Relevance
+- Applies directly to UE5 filmmaking decisions: Path Tracer vs Deferred (render only what the story needs)
+- LightForge lighting choices: add gobo/dramatic light only when it serves the scene mood
+- Genesis match move: use only when compositing is invisible, not to show off the tracking
+- Niagara particles: add only when environment-building serves story world
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner (philosophy, no technical steps)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x
 
 ### Tags
-[PENDING EXTRACTION]
+`#vfx` `#filmmaking` `#compositing` `#cinematography` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[5-vfx-techniques-youve-been-taught-that-are-actually-wrong]] — Part 2: specific wrong techniques
+- [[why-modern-vfx-suck-and-how-to-make-yours-not-suck]] — extended VFX quality analysis
+- [[why-modern-vfx-suck-and-how-to-make-yours-not-suck-part-2---transformers-vs-marv]] — Part 2 comparison
+- [[the-5-secrets-to-hollywood-level-visual-effects-with-no-budget]] — positive counterpart (what to do)

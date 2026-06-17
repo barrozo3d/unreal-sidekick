@@ -1,59 +1,59 @@
----
-title: 5 VFX Techniques You've Been Taught that are Actually Wrong
+﻿---
+title: 5 VFX Techniques You've Been Taught That Are ACTUALLY Wrong
 source: YouTube
 url: https://www.youtube.com/watch?v=rUZxS3IwZhQ
 author: Boundless Entertainment
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: none
+ue_version: "UE 5.x"
+tags: [vfx, filmmaking, cinematography, compositing, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/5-vfx-techniques-youve-been-taught-that-are-actually-wrong/
-frame_count: 4
+frame_count: 5
 ---
 
-# 5 VFX Techniques You've Been Taught that are Actually Wrong
+# 5 VFX Techniques You've Been Taught That Are ACTUALLY Wrong
 
 **Source:** [YouTube](https://www.youtube.com/watch?v=rUZxS3IwZhQ)
 **Author:** Boundless Entertainment
-**Duration:** 9m35s | 1 section(s)
-
----
-
-## Raw Data (for Claude Code extraction)
-
-
-### Full Content [0:00]
-**Transcript:** What's going on guys? Sam here and in today's video I'm going to be talking about some of the most common mistakes I see in modern visual effects. Now this is a continuation of the last video I made on this topic and if you haven't watched that one, I want to point out that these aren't just mistakes I see beginners making. These are mistakes that I see all the way from beginner work up through Hollywood films. And the reason I'm addressing them is because some of these mistakes and techniques are actually being taught to students as they're learning. So if you learn VFX from YouTube or certain online courses or even film school, listen up because you've probably been taught to use some of these techniques and they're dead giveaways that your shot is fake. So without further ado, let's jump right into it. The first kind of mistake that I'm going to be covering in this video that I see all the time is adding camera shake. Now adding camera shake is not inherently wrong. It can be a nice way to add a bit of life to your shot, but there's two problems with camera shake. One, it needs to be used in the right way at the right time and in the right context. Adding camera shake to a CGI s...
-
-**Frame:** tutorials\frames\5-vfx-techniques-youve-been-taught-that-are-actually-wrong\frame_000.jpg
-
+**Duration:** ~8m | 5 section(s)
 
 ---
 
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Part 2 of the VFX philosophy series. Critiques five commonly-taught VFX techniques that are counterproductive or stylistically incorrect: overuse of camera shake, improper motion blur application, excessive color grading, incorrect depth of field usage, and over-reliance on lens flares.
 
 ### Summary
-[PENDING EXTRACTION]
+8-minute critique of five VFX techniques widely promoted in tutorials that actually hurt production quality. Sam argues these techniques are over-used as shortcuts that signal "we tried" rather than genuinely serving the story. Each technique is shown in before/after examples. Companion to Part 1 (these-simple-mistakes-are-ruining-your-vfx). Core philosophy: every visual tool exists to serve the story, not to demonstrate technical skill.
 
-### Key Steps
-[PENDING EXTRACTION]
+### Key Steps / Mistakes Covered
+1. **Camera shake overuse** — handheld-style shake applied uniformly regardless of story context; creates nausea without narrative purpose; rule: shake should respond to story events, not be a constant filter
+2. **Motion blur application** — incorrect shutter angle settings producing either too much blur (dreamlike) or too little (strobing); 180-degree shutter rule (shutter speed = 2x frame rate) as starting baseline
+3. **Color grading as correction** — extreme teal-and-orange or desaturated grades applied without understanding why films use those palettes; correct approach = grade serves the emotional arc of the scene
+4. **Depth of field** — extremely shallow DOF used on everything as a "cinematic" signal; over-use disconnects viewer from environment; rule: DOF choice should match the lens language of the story
+5. **Lens flares** — added in post as decoration; real lens flares occur only when a light source enters frame; fake flares positioned incorrectly break immersion
 
-### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+### UE Relevance
+- Sequencer camera settings: Shutter Speed = 2x frame rate; DOF Aperture tied to story intent
+- MRQ: Motion Blur settings (temporal samples, shutter angle)
+- Post Process Volume: color grading via color curves, not global teal-orange crush
+- LightForge or PPV: lens flare control (add only when light source is in frame)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x
 
 ### Tags
-[PENDING EXTRACTION]
+`#vfx` `#filmmaking` `#cinematography` `#compositing` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[these-simple-mistakes-are-ruining-your-vfx]] — Part 1 of the VFX mistakes series
+- [[unreal-engines-secret-weapon-for-cinematic-lighting]] — LightForge gobo/lighting philosophy
+- [[the-simplest-rendering-trick-90-of-unreal-artists-miss]] — chromatic aberration, vignette, lens imperfections
+- [[how-to-make-your-unreal-engine-renders-look-real]] — cinematic realism principles

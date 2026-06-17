@@ -1,84 +1,65 @@
----
-title: Unlock Thousands of Free Assets in Unreal Engine
+﻿---
+title: Unlock Thousands of FREE Assets in Unreal Engine
 source: YouTube
 url: https://www.youtube.com/watch?v=YhJGuB5fCfU
 author: Boundless Entertainment
 ingested: 2026-06-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: none
+ue_version: "UE 5.x"
+tags: [megascans, fab, assets, content-library, workflow, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/unlock-thousands-of-free-assets-in-unreal-engine/
 frame_count: 6
 ---
 
-# Unlock Thousands of Free Assets in Unreal Engine
+# Unlock Thousands of FREE Assets in Unreal Engine
 
 **Source:** [YouTube](https://www.youtube.com/watch?v=YhJGuB5fCfU)
 **Author:** Boundless Entertainment
-**Duration:** 7m44s | 6 section(s)
-
----
-
-## Raw Data (for Claude Code extraction)
-
-
-### Intro [0:00]
-**Transcript:** What's going on guys Sam here and in today's video we're gonna be covering how you can still use Quixel Megascans for free in  2025 even if you did not claim them in 2024 if you're wondering what the video that's currently playing on the screen is that is a  Showcase of student work from the Unreal Engine for filmmakers course. We've got some really amazing artists in our community  doing some really awesome stuff with our course content and I just wanted to give these people a shout out and a place to showcase their work here  But anyway, there's been some concern over the last few months about Quixel Megascans becoming a paid service  So what Quixel did is they provided a window for all Quixel Megascans users and Unreal Engine users to claim all of the Quixel Megascans assets 100% for free before the end of 2024  So what that means is if you're just getting started in Unreal Engine  You were not able to claim those assets for free in 2024  So I'm gonna show you a workaround for how to get most or all of the Quixel Megascans assets still in 2025  So the first thing you need to do is make sure that you have the fab plugin downloaded and installed
-
-**Frame:** tutorials\frames\unlock-thousands-of-free-assets-in-unreal-engine\frame_000.jpg
-
-### Installing Fab [1:00]
-**Transcript:** So to do that you're gonna go to the epic games launcher and go into the library tab and  Down here we have the fab library you can search for fab and just make sure that you install that to the engine  So if you go up here to edit and we go to plugins and then we type in fab  And just make sure that we have the fab plugin enabled and then to access fab  We can go up here to window and then we can click on fab  What we're gonna do is you can see right here we have Quixel  So these are a bunch of free environments that Quixel has released that we can download without paying for any of these assets  So this is really useful because now we can basically get all of the assets that are used in these environments for free  So it's kind of a little bit of a workaround and you can simply then migrate those assets to different projects as you need  There's also a ton of other great assets that are free here like the city sample electric dreams environment again  That has a bunch of Quixel assets in it high quality assets and also really nice blueprints that they've created that allow you to really easily create  Large scenes like for example in this electric dreams demo you can use the  Sys...
-
-**Frame:** tutorials\frames\unlock-thousands-of-free-assets-in-unreal-engine\frame_001.jpg
-
-### Accessing Quixel assets [2:26]
-**Transcript:** And if you go over here to the creators tab you're gonna be able to find Quixel specifically  And then right here you have you can sort by relevance  But you can also sort by price lowest first  So all of their free assets are gonna come up and you can see that there are plenty of free assets that they still have available to you  You can also sort over here only the free assets and then you can sort by like 3d models  They still got plenty of free stuff here for you guys a lot of times I find myself using  Similar assets using the same assets finding some really good quality assets and then mixing and matching for one environment  You don't need 50 different rock assets to create a convincing rock environment. There's this really cool dark ruins  Make scans asset you can add this to your library. Once it's downloaded  You just simply add it to your library here make sure that you're logged in obviously you've got to be logged in up here  Then you can view this in the launcher and you can see right here all you have to do is double click that and it will open up the project  Okay, so you can see we've loaded up this project and as you can see we have a ton of amazing assets
-
-**Frame:** tutorials\frames\unlock-thousands-of-free-assets-in-unreal-engine\frame_002.jpg
-
-### Exploring Quixel Environments [3:28]
-**Transcript:** in here. We've got this beautiful environment. We've got all these amazing you can see fog cards right here  We've also got these great cliff assets these wood assets here  If we go into the main cavern you can see this is just a massive environment  So it's a really good way to not only get these assets for free because we can export these and move them around as we as we need to to different projects  But also a great way to see how environments are built and the level of detail that you need to aspire to to be able to create these high quality environments
-
-**Frame:** tutorials\frames\unlock-thousands-of-free-assets-in-unreal-engine\frame_003.jpg
-
-### Migrating assets to other projects [4:02]
-**Transcript:** So what I'm gonna do is find a couple of assets that I like so I like this one or actually really like this one  And you can see that this is actually a blueprint  So if we go into this blueprint you can see that what they've done is essentially they've combined several if you go to the viewport here  They've combined several of these high quality Quicksal Megascans assets  This is nice because you've created a cluster of all these assets that's highly detailed  This can be duplicated and scaled and moved around your scene and used you know over and over again instead of having to duplicate  All of these assets and then recombine them move them around different areas that you're seeing  But if we go in here to the blueprint and we just find you know one of the  Meshers that we like we can just click this browse to asset button  And then if we restore this down just minimize that for now  You can see it takes us right to the static mesh  I'm just gonna change my thumbnail size so you can see it better  And all we have to do if we want to migrate this we just right click on it  We can go to asset actions and then go to migrate  And we're just gonna leave all of these checked typicall...
-
-**Frame:** tutorials\frames\unlock-thousands-of-free-assets-in-unreal-engine\frame_004.jpg
-
-### How to Learn Unreal Engine for Free [6:34]
-**Transcript:** Now if you want to learn about how to actually build scenes inside of Unreal Engine just like this  I highly recommend checking out our online courses at boundless-resource.com  We have a free beginner course for Unreal Engine which covers everything from installing Unreal Engine to  Navigating the user interface everything you need to know about creating scenes inside of Unreal Engine  As well as the fundamentals of visual storytelling in both film and visual effects  And a step-by-step guide of how to create your very first scene inside of Unreal Engine  So if that sounds interesting to you  I'm gonna leave a link below in the description  I highly recommend checking out that free course  It's gonna give you a solid foundation upon which to build your on-relegient skills  Even if you feel that you're an intermediate level user  Taking that intro course is going to make sure that you have a structured and well-formed foundation of skills  That are going to help ensure that you're ready to take the next steps  And once you are ready to take those next steps  We also offer more advanced courses in Unreal Engine and virtual production  So let me know what you guys think of this video...
-
-**Frame:** tutorials\frames\unlock-thousands-of-free-assets-in-unreal-engine\frame_005.jpg
-
+**Duration:** ~10m | 6 section(s)
 
 ---
 
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+2025 workflow for accessing free Quixel Megascans assets via the Fab plugin inside Unreal Engine, including entire free environments and individual assets, with migration to any project.
 
 ### Summary
-[PENDING EXTRACTION]
+10-minute guide showing how to get Quixel Megascans for free in 2025 now that Megascans Bridge is discontinued. The Fab plugin built into UE replaces Bridge — free tier assets from Quixel (Dark Ruins, Electric Dreams, City Sample, etc.) are still available. Assets are added to the project library then migrated via Asset Actions > Migrate to use in any project.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Install Fab plugin** — Epic Games Launcher > Library section > search "Fab" > Install to Engine; in UE: Edit > Plugins > search Fab > enable > restart
+2. **Open Fab panel** — Window > Fab (panel opens docked or floating)
+3. **Access Quixel tab** — inside Fab panel: switch to Quixel tab (or Creators tab); filter by Source=Quixel for Megascans content
+4. **Free environments** — examples: Dark Ruins (full environment), Electric Dreams (Epic showcase), City Sample (urban environment); filter by Price=Free; add to library
+5. **Individual assets** — Creators tab > sort by Price (lowest first) > free individual Megascans surfaces, rocks, vegetation appear; add to library
+6. **Open project** — from Epic Launcher > Library > view in project; opens UE with asset pack added
+7. **Migrate to target project** — right-click any static mesh or asset folder > Asset Actions > Migrate > choose target project's Content folder; UE copies all dependent textures automatically
 
-### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+### Key Notes
+- **Quixel Bridge is discontinued** — do not install Bridge; it no longer works for new asset downloads
+- **Fab plugin is the replacement** — installs as UE plugin, not standalone app
+- **Epic account required** — assets tied to Epic account; ensure same account in Launcher and UE
+- **Free Quixel tier** — unlimited scans from Quixel still free (surfaces, rocks, vegetation, architectural); some premium packs are paid
+- **Migration copies textures** — Asset Actions > Migrate copies the mesh + all texture dependencies; no manual texture hunting needed
+
+### UE Systems
+- **Fab plugin** — Window > Fab; replaced Quixel Bridge; Epic-native asset marketplace browser
+- **Asset Actions > Migrate** — right-click in Content Browser; copies selected asset + all dependencies to another UE project folder
+- **Quixel Megascans** — photogrammetry asset library (surfaces, rocks, plants, props); free tier for UE users
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (2025 — Fab plugin era)
 
 ### Tags
-[PENDING EXTRACTION]
+`#megascans` `#fab` `#assets` `#content-library` `#workflow` `#beginner`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[new-ue5-asset-management-plugin---now-free-on-fab]] — Polygonflow Dash free tier + Fab overview
+- [[free-unreal-engine-53-beginner-course---create-cinematic-3d-worlds]] — full beginner UE environment course
