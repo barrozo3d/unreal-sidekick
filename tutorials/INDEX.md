@@ -1848,6 +1848,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/ai-real-time-and-surviving-hollywoods-vfx-industry-for-30-years.md
 
+
+### How to get precision control in DaVinci Resolve - use Shift Drag!
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=g9VndiQqON0
+- **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-to-get-precision-control-in-davinci-resolve---use-shift-drag.md
+
 ---
 
 ## Tag Reference
