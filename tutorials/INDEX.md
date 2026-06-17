@@ -2018,6 +2018,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Progressive decal workflow: free Quixel/FAB decals → custom Photoshop alpha decals → animated caustics (Panner) and flipbook decals parented to characters and timed in Sequencer. From Star Trek Discovery / Avatar: The Last Airbender virtual production veteran Josh Toonen.
 - **File:** tutorials/make-films-10x-faster-in-unreal-engine.md
 
+
+### If I Have 40 Mins to Light an Environment in Unreal Engine 5 - I’ll Do This
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=64JnVJBgoos
+- **Author:** Karim Yasser
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/if-i-have-40-mins-to-light-an-environment-in-unreal-engine-5---ill-do-this.md
+
 ---
 
 ## Tag Reference
