@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=64JnVJBgoos
 author: Karim Yasser
 ingested: 2026-06-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [lighting, physically-based-lighting, pbl, directional-light, sky-light, exponential-height-fog, volumetric-fog, post-process, color-grading, lumen, tone-mapping, exposure, ev100, local-exposure, environment, game-ready, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/if-i-have-40-mins-to-light-an-environment-in-unreal-engine-5---ill-do-this/
 frame_count: 19
 ---
@@ -123,27 +123,45 @@ frame_count: 19
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Physically-based lighting (PBL) full re-light using only global actors — Directional Light, Sky Light, Exponential Height Fog + Volumetric Fog, and Post Process Volume (EV100 curve, Local Exposure, Color Grading, Lumen). No fill lights.
 
 ### Summary
-[PENDING EXTRACTION]
+Karim Yasser walks through a complete PBL lighting workflow for a game-ready UE5 environment using only global lighting actors (no fill lights). Covers the theory of luminance vs illuminance, EV100 exposure curves for interior/exterior transitions, contrast ratio measurement with an 18% gray proxy cube, sky dome setup from FAB with inverted normals and sun disk material, Sky Light threshold sizing, Directional Light golden-hour setup (Ctrl+L, 2000–3000K color temperature, source angle), Local Exposure shadow/highlight contrast, Exponential Height Fog with Volumetric Fog, fake cloud gobo via Light Function material, color grading per shadow/midtone/highlight channel, and Lumen Surface Cache tuning with albedo boost. Intended as a base global lighting layer before adding local fill/accent lights.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Scene prep**: remove all light actors, sky sphere, post process volumes, reflection captures via Outliner search; World Settings → Force No Pre-computed Lighting → Build → Build Lighting Only (clears baked data)
+2. **Sky dome**: add inverted-normals sky sphere mesh from FAB, scale to 15,000+ (must exceed Sky Light capture threshold); assign sky dome material instance
+3. **Sky Light**: add Sky Light actor; real-time capture; intensity ~1; ensure sky sphere scale > Sky Light threshold to avoid black reflections
+4. **Post Process Volume**: enable Infinite Extent Unbound; go to Exposure → set Exposure Compensation Bias to 0; enable HDRI Adaptation (auto exposure via histogram)
+5. **EV100 curve**: add Exposure Compensation Curve; set exterior EV100 (~4), interior shadow EV100 (~-3 to -4.8) to smooth interior/exterior transition without losing highlights
+6. **Directional Light**: Ctrl+L to drag sun angle; Color Temperature 2000–3000K (golden hour orange); Source Angle 4–5° for soft virtual shadows
+7. **Local Exposure**: Post Process → Local Exposure → Shadow Contrast 0.6 (Epic minimum), Highlight Contrast as needed; avoids need for fill lights in shadow areas
+8. **Exponential Height Fog**: Fog Density 0.04–0.06; slight warm/cool tint; enable Volumetric Fog; adjust Extinction Scale; Scattering Distribution improved by adding sun disk to sky material
+9. **Sun disk material**: open sky dome material instance; add Sun Disk + Sun Glow nodes; adjust radius (small), color (orange/red), softness; sync with Directional Light rotation
+10. **Cloud gobo**: assign Light Function Material (cloud shadow pattern) to Directional Light → Light → Light Function → light breaks up flat shadow cast
+11. **Color grading**: Post Process → Color Grading; Shadows: saturation ~0.07, add subtle blue/teal offset; Midtones: contrast 1.05, gain +10%; Global: -5–10% saturation, +7% contrast
+12. **Lumen**: keep Global Illumination = Lumen, Surface Cache (hardware RT for higher quality); albedo boost 2–4 in Lumen scene view if indirect lighting too dark; Film Grain + Bloom final polish
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Directional Light** — Ctrl+L shortcut (drag sun), Temperature (K), Source Angle (shadow softness), Light Function Material (cloud gobo), Light Shaft Occlusion (0.5)
+- **Sky Light** — Real-Time Capture, Intensity, scale threshold must exceed sky sphere scale
+- **Exponential Height Fog** — Fog Density, Volumetric Fog checkbox, Extinction Scale, Scattering Distribution, Albedo color tint
+- **Post Process Volume** — Infinite Extent Unbound, EV100 / Exposure Compensation Curve, Auto Exposure (HDRI), Local Exposure (Shadow Contrast min 0.6 / Highlight Contrast), Color Grading (Shadows/Midtones/Highlights/Global channels), Bloom, Film Grain
+- **Lumen** — Surface Cache mode (faster/game-ready), Hardware RT (quality), Albedo Boost (Scene View Mode → Lumen Scene for tuning)
+- **World Settings** — Force No Pre-computed Lighting + Build Lighting to clear baked data
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (FAB integration; Lumen Surface Cache = UE5.0+)
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, physically-based-lighting, pbl, directional-light, sky-light, exponential-height-fog, volumetric-fog, post-process, color-grading, lumen, tone-mapping, exposure, ev100, local-exposure, environment, game-ready, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- Rendering docs (Lumen, Volumetric Fog, Post Process)
+- Boundless Entertainment lighting tutorials (Dune look, cinematic lighting secrets)
+- Dean Yurke volumetric fog tutorial

@@ -2023,9 +2023,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=64JnVJBgoos
 - **Author:** Karim Yasser
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5
+- **Tags:** `#lighting` `#pbl` `#directional-light` `#sky-light` `#volumetric-fog` `#post-process` `#color-grading` `#lumen` `#ev100` `#local-exposure` `#environment` `#game-ready` `#intermediate` `#ue5` `#youtube`
+- **Summary:** Full PBL re-light using only global actors (no fill lights): sky dome + sun disk, Directional Light (golden hour 2000-3000K, Ctrl+L), EV100 exposure curve for interior/exterior, Local Exposure shadow contrast 0.6, volumetric fog, cloud gobo via Light Function, color grading per channel, Lumen Surface Cache tuning with albedo boost.
 - **File:** tutorials/if-i-have-40-mins-to-light-an-environment-in-unreal-engine-5---ill-do-this.md
 
 ---
