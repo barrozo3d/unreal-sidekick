@@ -2924,6 +2924,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/metahuman-realtime-animator-best-practices-unreal-engine-animation-hub.md
 
+
+### Live Link Hub Tips | Unreal Engine Animation Hub
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=JdaXti950vg
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/live-link-hub-tips-unreal-engine-animation-hub.md
+
 ---
 
 ## Tag Reference
