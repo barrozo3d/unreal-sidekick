@@ -2654,6 +2654,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/the-1-skill-you-need-for-lighting-in-ue5.md
 
+
+### Master Cinematic Fog & Volumetric God Rays in UE5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=Kjg6kCW2BtY
+- **Author:** Josh Toonen
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/master-cinematic-fog-volumetric-god-rays-in-ue5.md
+
 ---
 
 ## Tag Reference
