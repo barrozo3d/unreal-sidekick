@@ -2528,6 +2528,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/this-free-plugin-changes-filmmaking-forever-unreal-5.md
 
+
+### Unreal 5 Animation Made Easy! [FREE DOWNLOAD]
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=OLwLqjBtSKk
+- **Author:** Josh Toonen
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-5-animation-made-easy-free-download.md
+
 ---
 
 ## Tag Reference
