@@ -2674,6 +2674,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-masterclass-animate-environments-the-easy-way.md
 
+
+### How UE5 Created the Most Realistic Game Ever - Unrecord Trailer Breakdown
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=VIY1fzRahJY
+- **Author:** Josh Toonen
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-ue5-created-the-most-realistic-game-ever---unrecord-trailer-breakdown.md
+
 ---
 
 ## Tag Reference
