@@ -2834,6 +2834,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/ue5-curve-editor-secrets-buffer-curves-smart-snap-keyframe-tricks.md
 
+
+### NON-DESTRUCTIVE Animation in UE5! Layered Control Rigs Explained
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=A8U_8iPc5hA
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/non-destructive-animation-in-ue5-layered-control-rigs-explained.md
+
 ---
 
 ## Tag Reference
