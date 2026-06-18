@@ -2824,6 +2824,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/ue5-animation-layers-non-destructive-camera-shake-character-tweaks.md
 
+
+### UE5 Curve Editor SECRETS: Buffer Curves & Smart Snap Keyframe Tricks
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=9g0K4GOACis
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/ue5-curve-editor-secrets-buffer-curves-smart-snap-keyframe-tricks.md
+
 ---
 
 ## Tag Reference
