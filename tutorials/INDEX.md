@@ -2944,6 +2944,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/movie-render-graph-intro-unreal-engine-animation-hub.md
 
+
+### Advanced Groom Dataflow Setup in UE 5.7 | Unreal Fest Stockholm 2025
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=cER2jT8oxKY
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/advanced-groom-dataflow-setup-in-ue-57-unreal-fest-stockholm-2025.md
+
 ---
 
 ## Tag Reference
