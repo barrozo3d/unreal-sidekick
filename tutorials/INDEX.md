@@ -2744,6 +2744,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/slow-motion-secrets-how-to-time-warp-animation-in-unreal-engine.md
 
+
+### Introduction to Substrate Materials | Unreal Engine 5.7
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=d1ncs8M6Lkg
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/introduction-to-substrate-materials-unreal-engine-57.md
+
 ---
 
 ## Tag Reference
