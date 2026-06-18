@@ -2558,6 +2558,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-i-made-a-godzilla-cinematic-in-unreal-engine-5.md
 
+
+### How Unreal 5.4 Changes Filmmaking
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=NiOgmvMBcxk
+- **Author:** Josh Toonen
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-unreal-54-changes-filmmaking.md
+
 ---
 
 ## Tag Reference
