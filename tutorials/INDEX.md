@@ -2498,6 +2498,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-to-make-blade-runner-in-unreal-5-step-by-step.md
 
+
+### How to Animate Spider-Man in Unreal Engine 5 (for Beginners)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=CneRhBFaLjM
+- **Author:** Josh Toonen
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-to-animate-spider-man-in-unreal-engine-5-for-beginners.md
+
 ---
 
 ## Tag Reference
