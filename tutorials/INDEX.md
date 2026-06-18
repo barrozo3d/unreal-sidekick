@@ -2508,6 +2508,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-to-animate-spider-man-in-unreal-engine-5-for-beginners.md
 
+
+### Improve Your VFX with Lens Flares (Anamorphic Tutorial)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=hFM_jGd46as
+- **Author:** Josh Toonen
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/improve-your-vfx-with-lens-flares-anamorphic-tutorial.md
+
 ---
 
 ## Tag Reference
