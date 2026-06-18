@@ -2724,6 +2724,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/realistic-and-physical-lighting-in-ue5-what-is-pbl.md
 
+
+### Realistic and Physical Lighting in UE5: The PBL Workflow
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=GsE0mDtxtiQ
+- **Author:** arthur tasquin
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/realistic-and-physical-lighting-in-ue5-the-pbl-workflow.md
+
 ---
 
 ## Tag Reference
