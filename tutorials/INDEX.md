@@ -2568,6 +2568,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-unreal-54-changes-filmmaking.md
 
+
+### How to ACTUALLY Improve Your Films + VFX (Dune in Unreal 5)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=Qun6BB6Q2tg
+- **Author:** Josh Toonen
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-to-actually-improve-your-films-vfx-dune-in-unreal-5.md
+
 ---
 
 ## Tag Reference
