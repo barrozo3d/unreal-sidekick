@@ -2854,6 +2854,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/baking-animation-in-ue5-control-rig-to-animation-sequence-back.md
 
+
+### Stylized Animation Control Rig Characters in Unreal Engine 5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=WMKvwVIuFS4
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/stylized-animation-control-rig-characters-in-unreal-engine-5.md
+
 ---
 
 ## Tag Reference
