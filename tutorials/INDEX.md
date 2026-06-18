@@ -2764,6 +2764,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/ue5-constraints-are-easy-parent-constraint-workflow-for-animators.md
 
+
+### NEW UE5 Motion Trails 2.0: Heat Map & Camera Space Stabilization
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=erHPJ8eoXyY
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/new-ue5-motion-trails-20-heat-map-camera-space-stabilization.md
+
 ---
 
 ## Tag Reference
