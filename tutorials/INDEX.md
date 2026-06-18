@@ -2518,6 +2518,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/improve-your-vfx-with-lens-flares-anamorphic-tutorial.md
 
+
+### This Free Plugin Changes Filmmaking Forever [Unreal 5]
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=LUoUVC5tXCo
+- **Author:** Josh Toonen
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/this-free-plugin-changes-filmmaking-forever-unreal-5.md
+
 ---
 
 ## Tag Reference
