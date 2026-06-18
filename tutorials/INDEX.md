@@ -2664,6 +2664,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/master-cinematic-fog-volumetric-god-rays-in-ue5.md
 
+
+### Unreal Engine Masterclass: Animate Environments The Easy Way
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=4-_mXW1Vwuo
+- **Author:** Josh Toonen
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-masterclass-animate-environments-the-easy-way.md
+
 ---
 
 ## Tag Reference
