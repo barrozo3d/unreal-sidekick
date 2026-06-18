@@ -2844,6 +2844,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/non-destructive-animation-in-ue5-layered-control-rigs-explained.md
 
+
+### Baking Animation in UE5: Control Rig to Animation Sequence & Back!
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=mDEliLixziU
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/baking-animation-in-ue5-control-rig-to-animation-sequence-back.md
+
 ---
 
 ## Tag Reference
