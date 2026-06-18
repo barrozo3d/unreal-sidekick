@@ -2478,6 +2478,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/control-rig-in-unreal-engine.md
 
+
+### lipsync-in-unreal-engine
+- **Source:** Epic Documentation
+- **URL:** https://dev.epicgames.com/documentation/en-us/unreal-engine/lipsync-in-unreal-engine
+- **Pages:** 1
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/lipsync-in-unreal-engine.md
+
 ---
 
 ## Tag Reference
