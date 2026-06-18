@@ -2418,6 +2418,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/lip-sync-in-unreal-engine.md
 
+
+### color-management-in-unreal-engine
+- **Source:** Epic Documentation
+- **URL:** https://dev.epicgames.com/documentation/en-us/unreal-engine/color-management-in-unreal-engine
+- **Pages:** 1
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/color-management-in-unreal-engine.md
+
 ---
 
 ## Tag Reference
