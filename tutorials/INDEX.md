@@ -2794,6 +2794,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/pose-library-additive-mode-layer-animation-poses-in-unreal-engine.md
 
+
+### Mastering the UE5 Tweener Tool: Push Pull & Overshoot Animation
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=oUPOBsCrWwE
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/mastering-the-ue5-tweener-tool-push-pull-overshoot-animation.md
+
 ---
 
 ## Tag Reference
