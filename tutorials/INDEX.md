@@ -2784,6 +2784,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/dynamic-space-switching-in-ue5-pro-ik-hand-constraint-techniques.md
 
+
+### Pose Library ADDITIVE MODE: Layer Animation Poses in Unreal Engine
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=YSrYqx19_Y0
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/pose-library-additive-mode-layer-animation-poses-in-unreal-engine.md
+
 ---
 
 ## Tag Reference
