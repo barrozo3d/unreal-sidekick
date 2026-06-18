@@ -34,7 +34,9 @@ Current Aperture → overrides lens aperture for current shot
 Current Focal Length → overrides lens focal length for current shot
 ```
 
-## Movie Render Queue (MRQ)
+## Movie Render Queue / Movie Render Graph
+
+> **UE 5.8:** Use **Movie Render Graph (MRG)** — node-based, fully production-ready. MRQ (linear queue) still works but MRG is preferred for new projects. See `recipes/cinematics-pipeline.md` Stage 7 and `recipes/mrq-multipass-exr.md` for MRG setup. The settings below apply to both MRQ and MRG.
 
 ### Render Settings
 | Setting | Recommendation for Cinematics |
