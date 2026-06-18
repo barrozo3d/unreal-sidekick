@@ -2964,6 +2964,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/large-scale-animated-foliage-in-the-witcher-4-unreal-engine-5-tech-demo-unreal-f.md
 
+
+### How to Create Grooms for MetaHumans | Unreal Fest Bali 2025
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=WqWpwVaewEU
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-to-create-grooms-for-metahumans-unreal-fest-bali-2025.md
+
 ---
 
 ## Tag Reference
