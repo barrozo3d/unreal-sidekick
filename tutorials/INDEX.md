@@ -2368,6 +2368,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-this-unreal-engine-5-film-won-an-oscar.md
 
+
+### Recreate the LEGO MOVIE Style in Unreal Engine 5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=TufXrvN5Ei0
+- **Author:** Josh Toonen
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/recreate-the-lego-movie-style-in-unreal-engine-5.md
+
 ---
 
 ## Tag Reference
