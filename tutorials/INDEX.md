@@ -2774,6 +2774,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/new-ue5-motion-trails-20-heat-map-camera-space-stabilization.md
 
+
+### DYNAMIC Space Switching in UE5: Pro IK Hand Constraint Techniques
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=9AavXj11Iw4
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/dynamic-space-switching-in-ue5-pro-ik-hand-constraint-techniques.md
+
 ---
 
 ## Tag Reference
