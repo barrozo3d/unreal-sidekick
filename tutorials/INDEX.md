@@ -2578,6 +2578,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-to-actually-improve-your-films-vfx-dune-in-unreal-5.md
 
+
+### How I Remade Dune in 24 Hours using VFX
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=-syj6kFf6e4
+- **Author:** Josh Toonen
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-i-remade-dune-in-24-hours-using-vfx.md
+
 ---
 
 ## Tag Reference
