@@ -2408,6 +2408,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-58-release-notes.md
 
+
+### lip-sync-in-unreal-engine
+- **Source:** Epic Documentation
+- **URL:** https://dev.epicgames.com/documentation/en-us/unreal-engine/lip-sync-in-unreal-engine
+- **Pages:** 1
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/lip-sync-in-unreal-engine.md
+
 ---
 
 ## Tag Reference
