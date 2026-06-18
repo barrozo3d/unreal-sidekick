@@ -2548,6 +2548,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/create-muzzle-flash-gun-fx-for-unreal-5-cinematics.md
 
+
+### How I Made a Godzilla Cinematic in Unreal Engine 5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=Og9za5-VCag
+- **Author:** Josh Toonen
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-i-made-a-godzilla-cinematic-in-unreal-engine-5.md
+
 ---
 
 ## Tag Reference
