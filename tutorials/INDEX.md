@@ -2954,6 +2954,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/advanced-groom-dataflow-setup-in-ue-57-unreal-fest-stockholm-2025.md
 
+
+### Large Scale Animated Foliage in The Witcher 4 Unreal Engine 5 Tech Demo | Unreal Fest Stockholm 2025
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=EdNkm0ezP0o
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/large-scale-animated-foliage-in-the-witcher-4-unreal-engine-5-tech-demo-unreal-f.md
+
 ---
 
 ## Tag Reference
