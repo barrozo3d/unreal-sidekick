@@ -187,6 +187,20 @@ Compat.MAX_GPUSKIN_BONES=75    ; mobile GPU max
 
 ---
 
+## UE 5.8 Additions `[5.8]`
+
+| Feature | Status | Notes |
+|---------|--------|-------|
+| **MetaHuman Crowd** | Experimental | New plugin — optimized instanced MetaHumans at scale (tens → thousands); seamless LOD transitions; complement OverCrowd with this for ultra-large backgrounds |
+| **Mesh to MetaHuman** | Improved | Single workflow converts arbitrary topology meshes to fully-rigged MetaHumans automatically (previously needed YVO3D + Faceform Wrap for custom body types) |
+| **Unbaked Textures** | Production | Full control over MetaHuman textures without performance loss — override any texture layer directly |
+| **MetaHuman Animator: Audio-Driven** | Production | Pass audio file only (no face capture session) → Animator generates facial curves; ideal with 11 Labs voice + no iPhone setup |
+| **MetaHuman Animator: Monocular Body** | Production | Single-camera body capture directly in MetaHuman Animator; lower barrier than Move.AI for quick takes |
+| **Batch Processing API** | Improved | Process large volumes of performance capture data end-to-end via API |
+| **MetaHuman Animator: Linux/macOS** | New | Platform support expanded beyond Windows |
+
+---
+
 ## Notes: What Nanite/Lumen Does/Doesn't Work With
 - **Lumen GI**: works with MetaHumans ✓
 - **Nanite**: does NOT work with skeletal meshes ✗ (MetaHumans are skeletal)
