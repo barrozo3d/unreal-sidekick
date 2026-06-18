@@ -2348,6 +2348,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-i-remade-the-backrooms-using-vfx.md
 
+
+### every filmmaker should know this VFX workflow
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=g4DIDafH4lM
+- **Author:** Josh Toonen
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/every-filmmaker-should-know-this-vfx-workflow.md
+
 ---
 
 ## Tag Reference
