@@ -2388,6 +2388,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-i-made-this-lego-horizon-animation-in-unreal-engine-5.md
 
+
+### Give me 14 minutes and you'll make cinematic renders
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=BG_zYneV3mo
+- **Author:** Josh Toonen
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/give-me-14-minutes-and-youll-make-cinematic-renders.md
+
 ---
 
 ## Tag Reference
