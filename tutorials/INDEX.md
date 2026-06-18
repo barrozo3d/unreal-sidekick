@@ -2458,6 +2458,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/motion-capture-isnt-just-for-hollywood-any-more.md
 
+
+### Ragdoll Physics are Insanely Easy in Unreal 5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=7ENEextL1n8
+- **Author:** Josh Toonen
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/ragdoll-physics-are-insanely-easy-in-unreal-5.md
+
 ---
 
 ## Tag Reference
