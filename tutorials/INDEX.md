@@ -2468,6 +2468,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/ragdoll-physics-are-insanely-easy-in-unreal-5.md
 
+
+### Control Rig in Unreal Engine
+- **Source:** Epic Documentation
+- **URL:** https://dev.epicgames.com/documentation/en-us/unreal-engine/control-rig-in-unreal-engine
+- **Pages:** 93
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/control-rig-in-unreal-engine.md
+
 ---
 
 ## Tag Reference
