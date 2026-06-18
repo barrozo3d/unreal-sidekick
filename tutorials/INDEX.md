@@ -2694,6 +2694,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/create-a-lightsaber-battle-in-unreal-5-in-10-minutes.md
 
+
+### Learning Unreal 5 in One Year (Progression + Lessons)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=9rRiExTYrpE
+- **Author:** Josh Toonen
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/learning-unreal-5-in-one-year-progression-lessons.md
+
 ---
 
 ## Tag Reference
