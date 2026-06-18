@@ -2864,6 +2864,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/stylized-animation-control-rig-characters-in-unreal-engine-5.md
 
+
+### Advanced UE5 Cinematic Workflow: Camera Rigs & Custom Viewports
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=E7C1xbpEA_Q
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/advanced-ue5-cinematic-workflow-camera-rigs-custom-viewports.md
+
 ---
 
 ## Tag Reference
