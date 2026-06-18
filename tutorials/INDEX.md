@@ -2914,6 +2914,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-5-animation-cinematic-production-overview.md
 
+
+### MetaHuman Realtime Animator Best Practices | Unreal Engine Animation Hub
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=PgzSGQnWVcU
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/metahuman-realtime-animator-best-practices-unreal-engine-animation-hub.md
+
 ---
 
 ## Tag Reference
