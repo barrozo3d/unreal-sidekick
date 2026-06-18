@@ -2399,54 +2399,59 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **File:** tutorials/give-me-14-minutes-and-youll-make-cinematic-renders.md
 
 
-### unreal-engine-5.8-release-notes
+### Unreal Engine 5.8 Release Notes (Epic Documentation)
 - **Source:** Epic Documentation
 - **URL:** https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-engine-5.8-release-notes
-- **Pages:** 1
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Pages:** 1 (ToC only - dynamic page; full content in `references/release-notes-ue58.md`)
+- **UE Version:** 5.8
+- **Tags:** ue5-8, rendering, cinematics, animation, metahuman, audio, metasounds, lumen, nanite
+- **Summary:** UE 5.8 is the last planned major UE5 release. Key promotions: MegaLights to production-ready, Movie Render Graph fully production-ready, Accumulation DOF production-ready, Control Rig Dynamics 5x faster and production-ready. New experimental features: Animation Mixer (layer animations in Sequencer), MetaHuman Crowd, MCP Server Plugin (AI <> UE editor). Audio additions: Audio Subtitles Beta, MetaSound Pages, WASAPI. MetaHuman Animator gains audio-driven mode.
 - **File:** tutorials/unreal-engine-58-release-notes.md
+- **Also see:** `references/release-notes-ue58.md` (synthesized full reference)
 
 
-### lip-sync-in-unreal-engine
+### Lip Sync in Unreal Engine (Epic Documentation)
 - **Source:** Epic Documentation
 - **URL:** https://dev.epicgames.com/documentation/en-us/unreal-engine/lip-sync-in-unreal-engine
-- **Pages:** 1
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Pages:** 1 (sparse - dynamic page; full reference in `references/lip-sync.md`)
+- **UE Version:** UE 5.0+
+- **Tags:** lip-sync, metahuman, audio, animation, blueprint
+- **Summary:** Epic documentation hub for lip sync in Unreal Engine. Covers OVR Lipsync plugin (Meta plugin for phoneme-driven MetaHuman jaw animation), MetaHuman Animator audio-driven mode (UE5.8+), and integration with Sequencer audio tracks. Full practical workflow including 11 Labs integration in `references/lip-sync.md`.
 - **File:** tutorials/lip-sync-in-unreal-engine.md
+- **Also see:** `references/lip-sync.md` (complete practical reference)
 
 
-### color-management-in-unreal-engine
+### Color Management in Unreal Engine (Epic Documentation)
 - **Source:** Epic Documentation
 - **URL:** https://dev.epicgames.com/documentation/en-us/unreal-engine/color-management-in-unreal-engine
-- **Pages:** 1
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Pages:** 1 (sparse - dynamic page; full reference in `references/color-pipeline.md`)
+- **UE Version:** UE 5.0+
+- **Tags:** color-grading, ocio, rendering, cinematics, davinci, post-process
+- **Summary:** Epic documentation hub for UE color management. Covers OCIO (Open Color IO) integration for shared color transforms between UE and DaVinci Resolve, Post Process Volume color grading parameters, LUT import workflow, ACES/sRGB pipelines, and EXR export settings for compositing. Full workflow in `references/color-pipeline.md`.
 - **File:** tutorials/color-management-in-unreal-engine.md
+- **Also see:** `references/color-pipeline.md` (complete practical reference)
 
 
-### Level Streaming in Unreal Engine
+### Level Streaming in Unreal Engine (Epic Documentation)
 - **Source:** Epic Documentation
 - **URL:** https://dev.epicgames.com/documentation/en-us/unreal-engine/level-streaming-in-unreal-engine
 - **Pages:** 15
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 4.0+ (World Partition streaming UE5.0+)
+- **Tags:** level-streaming, narrative, blueprint, pipeline
+- **Summary:** Comprehensive Epic docs on Level Streaming - async-loading and unloading sub-levels at runtime for multi-scene narrative projects. Covers Sub-Level Streaming setup (Load Stream Level / Unload Stream Level Blueprint nodes), World Partition cell-based streaming, Sequencer Level Visibility track, and streaming for cinematics via World Partition Streaming Source. Essential for multi-scene film projects. Practical patterns in `references/narrative-blueprints.md`.
 - **File:** tutorials/level-streaming-in-unreal-engine.md
+- **Also see:** `references/narrative-blueprints.md` (practical streaming + cinematic trigger patterns)
 
 
-### MetaSounds in Unreal Engine
+### MetaSounds in Unreal Engine (Epic Documentation)
 - **Source:** Epic Documentation
 - **URL:** https://dev.epicgames.com/documentation/en-us/unreal-engine/metasounds-in-unreal-engine
 - **Pages:** 19
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.0+
+- **Tags:** audio, metasounds, soundscape, blueprint, narrative, cinematics
+- **Summary:** 19-page Epic documentation on MetaSounds - UE5's node-based procedural audio DSP engine. Covers MetaSound Source vs Patch vs Preset architecture, sample-accurate trigger system, Wave Player node, output formats, Presets, graph composition, and Blueprint integration via Execute Trigger Parameter. Includes Sequencer audio track integration, procedural music patterns, and dialogue trigger workflows. UE5.8 additions: MetaSound Pages, Audio Subtitles, Control Bus tracks, WASAPI.
 - **File:** tutorials/metasounds-in-unreal-engine.md
+- **Also see:** `references/audio-metasounds.md` (quick reference + cinematic patterns)
 
 
 ### Motion Capture isn't just for Hollywood any more...
@@ -2469,24 +2474,15 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **File:** tutorials/ragdoll-physics-are-insanely-easy-in-unreal-5.md
 
 
-### Control Rig in Unreal Engine
+### Control Rig in Unreal Engine (Epic Documentation)
 - **Source:** Epic Documentation
 - **URL:** https://dev.epicgames.com/documentation/en-us/unreal-engine/control-rig-in-unreal-engine
 - **Pages:** 93
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 4.26+ (Modular CR prod-ready UE5.6+)
+- **Tags:** animation, rigging, control-rig, mocap, metahuman, blueprint, cinematics
+- **Summary:** 93-page comprehensive Epic docs on Control Rig - UE5's node-based procedural rigging system. Covers Control Rig types (Full CR vs Modular CR vs FK), Modular Control Rig module library (IK/FK/Spine/Head/Leg/Arm), mocap cleanup workflow with additive Animation Layers, retargeting via IK Retargeter, and Control Rig in Sequencer. UE5.8 additions: Control Rig Dynamics (cosmetic physics, 5x faster), Control Rig Physics Beta, Direct Mesh Controls, RigMapper, Foot Definition, Skeletal Editor blendshape tools.
 - **File:** tutorials/control-rig-in-unreal-engine.md
-
-
-### lipsync-in-unreal-engine
-- **Source:** Epic Documentation
-- **URL:** https://dev.epicgames.com/documentation/en-us/unreal-engine/lipsync-in-unreal-engine
-- **Pages:** 1
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
-- **File:** tutorials/lipsync-in-unreal-engine.md
+- **Also see:** `references/control-rig-animation.md` (quick reference + mocap cleanup patterns)
 
 
 ### How to Make Blade Runner in Unreal 5 (Step-by-step)
@@ -2637,6 +2633,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Tags:** [PENDING]
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-to-make-a-samurai-film-in-unreal-5.md
+
+
+### The Fastest Way to Learn Lighting in UE5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=dT4Vl3PGe08
+- **Author:** Josh Toonen
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/the-fastest-way-to-learn-lighting-in-ue5.md
 
 ---
 
