@@ -2488,6 +2488,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/lipsync-in-unreal-engine.md
 
+
+### How to Make Blade Runner in Unreal 5 (Step-by-step)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=ncjHJQPyzto
+- **Author:** Josh Toonen
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-to-make-blade-runner-in-unreal-5-step-by-step.md
+
 ---
 
 ## Tag Reference
