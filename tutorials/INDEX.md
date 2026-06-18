@@ -2734,6 +2734,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/realistic-and-physical-lighting-in-ue5-the-pbl-workflow.md
 
+
+### Slow Motion SECRETS! How to Time Warp Animation in Unreal Engine
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=d-_hv7IXjkM
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/slow-motion-secrets-how-to-time-warp-animation-in-unreal-engine.md
+
 ---
 
 ## Tag Reference
