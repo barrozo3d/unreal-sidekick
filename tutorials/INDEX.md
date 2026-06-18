@@ -2684,6 +2684,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-ue5-created-the-most-realistic-game-ever---unrecord-trailer-breakdown.md
 
+
+### Create a Lightsaber Battle in Unreal 5 (in 10 minutes!)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=MWFpt3ZQ0zE
+- **Author:** Josh Toonen
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/create-a-lightsaber-battle-in-unreal-5-in-10-minutes.md
+
 ---
 
 ## Tag Reference
