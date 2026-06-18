@@ -2904,6 +2904,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe.md
 
+
+### Unreal Engine 5: Animation Cinematic Production Overview
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=ywtvn1uncZo
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-5-animation-cinematic-production-overview.md
+
 ---
 
 ## Tag Reference
