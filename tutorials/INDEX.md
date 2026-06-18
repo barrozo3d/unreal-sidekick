@@ -2894,6 +2894,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/metahumans-for-mocap-unreal-engine-animation-hub.md
 
+
+### Everything You Wanted to Know About Substrate(But Are Too Afraid to Ask)| Unreal Fest Stockholm 2025
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=SqPaL8HS_Lw
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe.md
+
 ---
 
 ## Tag Reference
