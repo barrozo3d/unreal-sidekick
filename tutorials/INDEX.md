@@ -2644,6 +2644,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/the-fastest-way-to-learn-lighting-in-ue5.md
 
+
+### The #1 Skill You NEED For Lighting in UE5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=jAz4Lb93gwY
+- **Author:** Josh Toonen
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/the-1-skill-you-need-for-lighting-in-ue5.md
+
 ---
 
 ## Tag Reference
