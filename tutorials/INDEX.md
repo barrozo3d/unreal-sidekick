@@ -2874,6 +2874,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/advanced-ue5-cinematic-workflow-camera-rigs-custom-viewports.md
 
+
+### Level Management: Sub-Levels, Spawnables, Possessibles in UE5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=yOcgYMcxr3Q
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/level-management-sub-levels-spawnables-possessibles-in-ue5.md
+
 ---
 
 ## Tag Reference
