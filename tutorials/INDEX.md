@@ -2398,6 +2398,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/give-me-14-minutes-and-youll-make-cinematic-renders.md
 
+
+### unreal-engine-5.8-release-notes
+- **Source:** Epic Documentation
+- **URL:** https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-engine-5.8-release-notes
+- **Pages:** 1
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-58-release-notes.md
+
 ---
 
 ## Tag Reference
