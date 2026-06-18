@@ -288,7 +288,7 @@ ue5-0, ue5-1, ue5-2, ue5-3, ue5-4, ue5-5, ue5-6, ue5-7, ue5-8
 3. If **more than 14 days ago**:
    a. Fetch `https://www.unrealengine.com/en-US/release-notes`
    b. Check if any version appears that is NOT in the Known Versions table
-   c. If new version found: fetch its release notes and create `references/release-notes-ueX-X.md`
+   c. If new version found: fetch its release notes and create `references/release-notes-ueXX.md` (e.g. `release-notes-ue59.md` for 5.9)
    d. Update `version-tracker.md` — add new version row, update `last_checked`
    e. Commit and push: `git commit -m "update: UE [version] release notes ingested"`
 4. If no new version: just update `last_checked`
