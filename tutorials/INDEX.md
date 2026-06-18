@@ -2358,6 +2358,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/every-filmmaker-should-know-this-vfx-workflow.md
 
+
+### How this Unreal Engine 5 film won an Oscar
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=eOQM1Tbyw0Y
+- **Author:** Josh Toonen
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-this-unreal-engine-5-film-won-an-oscar.md
+
 ---
 
 ## Tag Reference
