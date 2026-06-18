@@ -2598,6 +2598,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-5-hotkeys-every-filmmaker-must-use.md
 
+
+### Unreal 5 Secrets Every Filmmaker Must Know
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=0Yc6qJSWet4
+- **Author:** Josh Toonen
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-5-secrets-every-filmmaker-must-know.md
+
 ---
 
 ## Tag Reference
