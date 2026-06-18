@@ -2884,6 +2884,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/level-management-sub-levels-spawnables-possessibles-in-ue5.md
 
+
+### MetaHumans for Mocap | Unreal Engine Animation Hub
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=myxrzJiLc6I
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/metahumans-for-mocap-unreal-engine-animation-hub.md
+
 ---
 
 ## Tag Reference
