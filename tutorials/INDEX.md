@@ -2814,6 +2814,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/ue5-curve-editor-20-new-lattice-tool-curve-scaling-hacks-ue-56.md
 
+
+### UE5 Animation Layers: Non-Destructive Camera Shake & Character Tweaks
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=NDrc3ap2ZAA
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/ue5-animation-layers-non-destructive-camera-shake-character-tweaks.md
+
 ---
 
 ## Tag Reference
