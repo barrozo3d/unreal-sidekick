@@ -2448,6 +2448,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/metasounds-in-unreal-engine.md
 
+
+### Motion Capture isn't just for Hollywood any more...
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=hoCoa8gMP-M
+- **Author:** Josh Toonen
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/motion-capture-isnt-just-for-hollywood-any-more.md
+
 ---
 
 ## Tag Reference
