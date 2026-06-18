@@ -2588,6 +2588,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-i-remade-dune-in-24-hours-using-vfx.md
 
+
+### Unreal 5 Hotkeys Every Filmmaker Must Use
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=HU7qHi6bn9A
+- **Author:** Josh Toonen
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-5-hotkeys-every-filmmaker-must-use.md
+
 ---
 
 ## Tag Reference
