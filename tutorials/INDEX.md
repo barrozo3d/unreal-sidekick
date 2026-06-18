@@ -2754,6 +2754,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/introduction-to-substrate-materials-unreal-engine-57.md
 
+
+### UE5 Constraints Are EASY! Parent Constraint Workflow for Animators
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=LHK3J5m_43c
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/ue5-constraints-are-easy-parent-constraint-workflow-for-animators.md
+
 ---
 
 ## Tag Reference
