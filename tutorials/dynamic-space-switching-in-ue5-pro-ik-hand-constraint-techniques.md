@@ -1,12 +1,12 @@
----
+﻿---
 title: DYNAMIC Space Switching in UE5: Pro IK Hand Constraint Techniques
 source: YouTube
 url: https://www.youtube.com/watch?v=9AavXj11Iw4
 author: Unreal Engine
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: ["animation", "control-rig", "rigging", "intermediate"]
+extraction_status: complete
 frames_dir: tutorials/frames/dynamic-space-switching-in-ue5-pro-ik-hand-constraint-techniques/
 frame_count: 4
 ---
@@ -33,27 +33,38 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Dynamic Space Switching for IK hands in UE5 — changing the IK parent space between body parts (world, root, spine, chest) on a per-key basis directly in the viewport.
 
 ### Summary
-[PENDING EXTRACTION]
+Demonstrates UE5's built-in space switching system for IK controls in Control Rig. Shows how to switch an IK hand from world-locked to body-relative space mid-animation — essential for contact/holding shots — using the control's space switch property in the Anim Outliner. Covers the difference between world-space IK and body-space IK and when each is appropriate.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. In Animation Mode, select an IK hand control in the viewport
+2. In the **Anim Outliner**, find the control → look for the `Space` property or right-click → **Switch Space**
+3. Available spaces typically include: `World`, `Root`, `Pelvis`, `Spine`, `Chest`, `Parent`
+4. Key the current space at the frame before switching (to preserve position)
+5. Advance one frame, switch to the new space → key to lock
+6. The control will now move with the new parent space from that frame forward
+7. **Tip:** when a character grabs an object, switch IK hand space to the object's bone/socket so the hand sticks automatically
+8. Combine with Parent Constraints for prop-holding shots
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+`Space Switching` property (IK Control in Control Rig) → parent space selector: World / Root / Pelvis / Spine / Chest
+`Anim Outliner` → shows space property per control; key directly here
+`IK Hand Control` → stays locked in chosen space; great for contact moments
+`FK Hand Control` → body-relative by default; use when hand does not need to stay fixed in world
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+animation, control-rig, rigging, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `references/control-rig-animation.md` — full IK/FK and Control Rig reference
+- `tutorials/ue5-constraints-are-easy-parent-constraint-workflow-for-animators.md` — Parent Constraints for prop attachment

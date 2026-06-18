@@ -2719,9 +2719,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=JoxgvwNFc8g
 - **Author:** arthur tasquin
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5
+- **Tags:** lighting, rendering, intermediate
+- **Summary:** Arthur Tasquin, a real-time artist from the VFX industry, introduces PBL: using real-world light intensities in CG lighting for consistency and coherence. Covers the 4 lighting units mapped to UE light types, how to sample data with a light meter, multi-scenario projects using Sub-Levels + Level Sequences, and his PBL Database FAB plugin. Part 1 of 2.
 - **File:** tutorials/realistic-and-physical-lighting-in-ue5-what-is-pbl.md
 
 
@@ -2729,9 +2729,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=GsE0mDtxtiQ
 - **Author:** arthur tasquin
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5
+- **Tags:** lighting, rendering, intermediate
+- **Summary:** Part 2 of Arthur Tasquin's PBL series. Translates theory into a working UE5 lighting workflow: pulling real-world values from the PBL Database plugin, applying them to different scenario types (interior, exterior, artificial, natural), setting camera exposure via EV values, and identifying where strict PBL values must be overridden for cinematic goals.
 - **File:** tutorials/realistic-and-physical-lighting-in-ue5-the-pbl-workflow.md
 
 
@@ -2739,9 +2739,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=d-_hv7IXjkM
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5
+- **Tags:** animation, sequencer, cinematics, intermediate
+- **Summary:** Covers how to add slow-motion to pre-existing animation in Sequencer without re-animating. Demonstrates the Time Warp track on a control rig sub-sequence to retime specific hit/impact moments, and Rate Scale on animation clips for constant slow-down. Includes camera/chromatic aberration integration for stylized slo-mo.
 - **File:** tutorials/slow-motion-secrets-how-to-time-warp-animation-in-unreal-engine.md
 
 
@@ -2749,9 +2749,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=d1ncs8M6Lkg
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.7
+- **Tags:** materials, shaders, substrate, rendering, intermediate
+- **Summary:** Official Epic overview of Substrate in UE 5.7 (now enabled by default). Covers the Substrate Slab node structure (F0/F90 reflectivity, roughness, fuzz/glint advanced features), two GBuffer format options (high-fidelity vs. performance), and how Substrate gives artists more layering control than the traditional material system.
 - **File:** tutorials/introduction-to-substrate-materials-unreal-engine-57.md
 
 
@@ -2759,9 +2759,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=LHK3J5m_43c
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5
+- **Tags:** animation, control-rig, rigging, sequencer, intermediate
+- **Summary:** Practical guide to UE5's constraint system for animators. Demonstrates Parent Constraints in a door-opening shot: attaching hands to the door object so both move together, avoiding the rotation-socket distortion that occurs when attaching the door to the hands. Much simpler than Maya constraints — set up directly in Sequencer with keyable weights.
 - **File:** tutorials/ue5-constraints-are-easy-parent-constraint-workflow-for-animators.md
 
 
@@ -2769,9 +2769,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=erHPJ8eoXyY
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.6
+- **Tags:** animation, sequencer, intermediate
+- **Summary:** Official UE tutorial on the new Motion Trails system added in 5.6. Covers the Heat Map mode which color-codes trail speed (useful for spotting pops/holds), and Camera Space Stabilization which keeps trails relative to the camera for cleaner arc evaluation even on moving cameras. Part of the ACOM Animation Sample project tutorial series.
 - **File:** tutorials/new-ue5-motion-trails-20-heat-map-camera-space-stabilization.md
 
 
@@ -2779,9 +2779,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=9AavXj11Iw4
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5
+- **Tags:** animation, control-rig, rigging, intermediate
+- **Summary:** Demonstrates UE5's built-in space switching system for IK controls in Control Rig. Shows how to switch an IK hand from world-locked to body-relative space mid-animation — essential for contact/holding shots — using the control's space switch property in the Anim Outliner. Covers the difference between world-space IK and body-space IK and when each is appropriate.
 - **File:** tutorials/dynamic-space-switching-in-ue5-pro-ik-hand-constraint-techniques.md
 
 
@@ -2789,9 +2789,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=YSrYqx19_Y0
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5
+- **Tags:** animation, control-rig, intermediate
+- **Summary:** Official UE guide to the Pose Library tool available in Animation Mode. Covers creating pose assets from selected controls (e.g. fist shape for right hand), using the blend slider to apply poses partially, the Additive Mode which adds a pose delta on top of existing keyframe data, and using saved poses as one-click selection sets for complex rig controls.
 - **File:** tutorials/pose-library-additive-mode-layer-animation-poses-in-unreal-engine.md
 
 
@@ -2799,9 +2799,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=oUPOBsCrWwE
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5
+- **Tags:** animation, sequencer, intermediate
+- **Summary:** Covers each mode of UE5's Tween Tool for animators: Push (extend toward next key), Pull (snap toward previous key), Overshoot (exaggerate beyond next key), Average (blend to 50% midpoint), and Ease variants. Demonstrated on a throwing animation to add anticipation and follow-through without re-keying. Each mode is accessible in the Animation toolbar.
 - **File:** tutorials/mastering-the-ue5-tweener-tool-push-pull-overshoot-animation.md
 
 
@@ -2809,9 +2809,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=VD_cfVvMs6Y
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.6
+- **Tags:** animation, sequencer, intermediate, ue5-6
+- **Summary:** Tutorial on the Curve Editor enhancements in UE 5.6, particularly the new Lattice Tool which lets you draw a bounding region around multiple keys and warp them together (compress timing, add easing, reshape arcs non-destructively). Also covers curve scaling shortcuts for scaling value ranges and timing widths of selected key groups.
 - **File:** tutorials/ue5-curve-editor-20-new-lattice-tool-curve-scaling-hacks-ue-56.md
 
 
@@ -2819,9 +2819,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=NDrc3ap2ZAA
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5
+- **Tags:** animation, sequencer, cinematics, camera, intermediate
+- **Summary:** Covers UE5's Animation Layers in Sequencer for both characters and camera rigs. Demonstrates adding a camera shake layer on top of a Control Rig camera animation without touching the original keyframe data — layers blend additively and can be weighted/muted independently. Same workflow applies to characters for secondary motion, LOD adjustments, and micro-corrections.
 - **File:** tutorials/ue5-animation-layers-non-destructive-camera-shake-character-tweaks.md
 
 
@@ -2829,9 +2829,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=9g0K4GOACis
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5
+- **Tags:** animation, sequencer, intermediate
+- **Summary:** Reveals two powerful but underused Curve Editor features: Buffer Curves, which lets you save the current state of selected curves as a ghost reference and swap back and forth for A/B comparison; and Smart Snap, which intelligently snaps keys to nearby frames, handles, or curve intersections. Also covers a technique for adding a Camera Cut Track to a sub-sequence for quick camera navigation when...
 - **File:** tutorials/ue5-curve-editor-secrets-buffer-curves-smart-snap-keyframe-tricks.md
 
 
@@ -2839,9 +2839,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=A8U_8iPc5hA
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5
+- **Tags:** animation, control-rig, sequencer, intermediate
+- **Summary:** Shows how to add a secondary Control Rig layer in Sequencer on top of an existing baked animation. The layer rig evaluates additively — you can tweak wrist rotation, fix foot sliding, or add secondary motion without touching the source animation data. Also notes a 2D sprite laser blast technique: hand-drawn 2D animation on a billboard lit mesh actor.
 - **File:** tutorials/non-destructive-animation-in-ue5-layered-control-rigs-explained.md
 
 
@@ -2849,9 +2849,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=mDEliLixziU
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5
+- **Tags:** animation, control-rig, sequencer, pipeline, intermediate
+- **Summary:** Explains the difference between animating with a live Control Rig (interactive, editable) vs. a baked Animation Sequence (performant, portable) in Sequencer. Covers the bake workflow (Control Rig → Animation Sequence via right-click Bake To Animation Sequence), the reverse (re-link an Animation Sequence back to a Control Rig for editing), and production tradeoffs. Part of the ACOM Animation Sam...
 - **File:** tutorials/baking-animation-in-ue5-control-rig-to-animation-sequence-back.md
 
 
@@ -2859,9 +2859,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=WMKvwVIuFS4
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5
+- **Tags:** animation, control-rig, rigging, intermediate
+- **Summary:** Third video in the ACOM Animation Hub series. Focuses on the character Beta from the ACOM sample — a stylized non-MetaHuman robot character with a full Modular Control Rig. Shows how to open a character's Control Rig via the Content Browser, inspect IK/FK controls, switch to Animation Mode in Sequencer, and start posing/keyframing. Discusses FK vs IK tradeoffs for stylized characters.
 - **File:** tutorials/stylized-animation-control-rig-characters-in-unreal-engine-5.md
 
 
@@ -2869,9 +2869,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=E7C1xbpEA_Q
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5
+- **Tags:** sequencer, cinematics, camera, pipeline, intermediate
+- **Summary:** Second video in the ACOM Animation Hub series. Covers the master Level Sequence → sub-sequences hierarchy (all are just Level Sequences; naming is organizational), setting up a Camera Rig Skeletal Mesh with its own Control Rig track for physically-driven camera moves, and configuring custom viewport layouts (e.g. 2-panel: camera view left, perspective right) for efficient animation editing.
 - **File:** tutorials/advanced-ue5-cinematic-workflow-camera-rigs-custom-viewports.md
 
 
@@ -2879,9 +2879,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=yOcgYMcxr3Q
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5
+- **Tags:** sequencer, cinematics, narrative, pipeline, intermediate
+- **Summary:** First video in the ACOM Animation Hub series (world/level overview). Covers the Levels panel (Window > Levels) and using Sub-Levels to isolate lighting, geometry, and assets per zone — toggle entire level chunks on/off. Then explains Sequencer's Spawnables (spawned by Sequencer; exist only during playback; portable between levels) vs. Possessibles (already in level; Sequencer takes control; lev...
 - **File:** tutorials/level-management-sub-levels-spawnables-possessibles-in-ue5.md
 
 
@@ -2889,9 +2889,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=myxrzJiLc6I
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5
+- **Tags:** metahuman, animation, mocap, blueprint, intermediate
+- **Summary:** Animation Hub tutorial on adapting a MetaHuman for use with Mocap Manager live capture. The standard MetaHuman Blueprint cannot be used directly — a new Blueprint inheriting from `CaptureCharacter` must be created, and the Skeletal Mesh components (body, head, groom, clothing) manually copied over. The resulting actor can then receive Live Link data from Mocap Manager for real-time face and bod...
 - **File:** tutorials/metahumans-for-mocap-unreal-engine-animation-hub.md
 
 
@@ -2899,9 +2899,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=SqPaL8HS_Lw
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.7
+- **Tags:** materials, shaders, substrate, rendering, advanced
+- **Summary:** 43-minute technical session by Nathaniel Morgan (Principal Technical Artist, Epic) covering everything about Substrate: why it replaces the legacy shading model system, the Slab node architecture, two GBuffer memory formats (8-byte performance vs. 16-byte fidelity), material layering via the operator stack, Substrate's path tracing integration, and migration guides. Production-ready as of UE 5....
 - **File:** tutorials/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe.md
 
 
@@ -2909,9 +2909,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=ywtvn1uncZo
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5
+- **Tags:** animation, sequencer, cinematics, pipeline, beginner
+- **Summary:** First video in Sir Wade's UE5 Animation tutorial series using the ACOM (Agora Studio) animation sample project available on FAB. Overview of the full project: welcome level, stylized characters (Beta + Gamma robots), the master Level Sequence structure, how shots are organized as sub-sequences, and what tools will be covered in subsequent videos. Entry point for the entire series.
 - **File:** tutorials/unreal-engine-5-animation-cinematic-production-overview.md
 
 
@@ -2919,9 +2919,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=PgzSGQnWVcU
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5
+- **Tags:** metahuman, animation, mocap, intermediate
+- **Summary:** Practical best practices for using MetaHuman Animator with a webcam source via Live Link. Covers enabling the MetaHuman Live Link plugin, configuring the source (`Add Source → MetaHuman Video`), optimal camera settings (720p/90fps preferred over 1080p/60fps for facial capture quality), lighting environment requirements, and recording workflow. Uses a Logitech Brio as the test camera.
 - **File:** tutorials/metahuman-realtime-animator-best-practices-unreal-engine-animation-hub.md
 
 
@@ -2929,9 +2929,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=JdaXti950vg
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5
+- **Tags:** animation, mocap, pipeline, intermediate
+- **Summary:** Covers Live Link Hub as a centralized routing app for professional mocap setups. Demonstrates adding multiple sources (Captury body, OptiTrack, iLinked face) simultaneously, routing streams to multiple UE editor instances on the same subnet, recording all streams together, and managing which clients receive which data. Enables team-based mocap sessions where multiple animators work on different...
 - **File:** tutorials/live-link-hub-tips-unreal-engine-animation-hub.md
 
 
@@ -2939,9 +2939,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=0c8-8NSarDI
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.8
+- **Tags:** rendering, movie-render-graph, sequencer, cinematics, intermediate
+- **Summary:** Practical intro to Movie Render Graph from the Animation Hub series, using the ACOM sample project. Shows right-clicking a Level Sequence to create an MRG asset, the node graph interface (Render Globals → Output → Layers), configuring warm-up settings and game overrides, setting up per-layer render passes (beauty, cryptomatte, depth), and triggering a render. MRG is fully production-ready from ...
 - **File:** tutorials/movie-render-graph-intro-unreal-engine-animation-hub.md
 
 
@@ -2949,9 +2949,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=cER2jT8oxKY
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.7
+- **Tags:** metahuman, rigging, advanced, ue5-7
+- **Summary:** Unreal Fest Stockholm 2025 talk by Michael Fro (Epic Physics Engineer) on the new Groom Dataflow framework in UE 5.7. The old pipeline required all groom setup in DCC (Maya/Houdini) then static import. Dataflow brings a node-based procedural graph inside UE for modifying guides, adding procedural deformations (wind, physics simulation), and blending groom behaviors — without going back to DCC. ...
 - **File:** tutorials/advanced-groom-dataflow-setup-in-ue-57-unreal-fest-stockholm-2025.md
 
 
@@ -2959,9 +2959,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=EdNkm0ezP0o
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.7
+- **Tags:** nanite, pcg, rendering, pipeline, advanced, ue5-7
+- **Summary:** Unreal Fest Stockholm 2025 talk by Kevin (Epic) with CD Projekt's Tyce and Vignesh on the Witcher 4 UE5 tech demo foliage pipeline. Covers early experiments, the final solution combining Nanite foliage with a custom vertex animation shader for wind, PCG procedural placement of dense vegetation, and the engine features shipped in UE 5.7 as a result of this collaboration. Running at PS5 60fps wit...
 - **File:** tutorials/large-scale-animated-foliage-in-the-witcher-4-unreal-engine-5-tech-demo-unreal-f.md
 
 
@@ -2969,9 +2969,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=WqWpwVaewEU
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5
+- **Tags:** metahuman, rigging, advanced
+- **Summary:** 30-minute Unreal Fest Bali 2025 session by Hugo Lignac (Epic Groom Team) on creating production-quality grooms for MetaHumans. Covers the foundational guide-driven system, procedural node graph for applying clumping/noise/curl modifiers, the artistic vs. technical balance in hair design, and how MetaHuman Creator's groom presets work under the hood. Targets studios aiming for film/linear qualit...
 - **File:** tutorials/how-to-create-grooms-for-metahumans-unreal-fest-bali-2025.md
 
 ---

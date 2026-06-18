@@ -1,12 +1,12 @@
----
+﻿---
 title: UE5 Constraints Are EASY! Parent Constraint Workflow for Animators
 source: YouTube
 url: https://www.youtube.com/watch?v=LHK3J5m_43c
 author: Unreal Engine
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: ["animation", "control-rig", "rigging", "sequencer", "intermediate"]
+extraction_status: complete
 frames_dir: tutorials/frames/ue5-constraints-are-easy-parent-constraint-workflow-for-animators/
 frame_count: 4
 ---
@@ -33,27 +33,38 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Parent Constraint workflow in UE5 Sequencer — attaching character IK controls to props (or vice versa) for contact-hold animation without socket-based distortion.
 
 ### Summary
-[PENDING EXTRACTION]
+Practical guide to UE5's constraint system for animators. Demonstrates Parent Constraints in a door-opening shot: attaching hands to the door object so both move together, avoiding the rotation-socket distortion that occurs when attaching the door to the hands. Much simpler than Maya constraints — set up directly in Sequencer with keyable weights.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. In Sequencer, select the character's Control Rig track → open the animation in **Animation Mode**
+2. Select the IK hand control that needs to follow a prop
+3. In the `Constraints` panel (Anim Outliner or right-click control) → **Add Parent Constraint**
+4. Pick the target object (e.g. the door skeletal mesh) as the constraint parent
+5. The hand will now follow the door's transform — key the **Constraint Weight** at 0 before contact, ramp to 1 at contact frame
+6. Animate the door separately (or via the prop's own animation track)
+7. To release: key Constraint Weight back to 0 at the frame the hand leaves the prop
+8. **Tip:** attach hands TO the prop, not prop to hands — avoids joint-socket extraction artifacts on rotation
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+`Parent Constraint` (Control Rig / Sequencer) → attaches one control's transform to another object
+`Constraint Weight` track → keyable 0–1 blend to activate/deactivate constraint
+`Anim Outliner` → constraint management UI in Animation Mode
+Best practice: attach character IK to prop (not prop to character) to avoid socket distortion on rotation
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+animation, control-rig, rigging, sequencer, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `references/control-rig-animation.md` — Control Rig IK, FK, and layering
+- `tutorials/dynamic-space-switching-in-ue5-pro-ik-hand-constraint-techniques.md` — space switching for IK hands

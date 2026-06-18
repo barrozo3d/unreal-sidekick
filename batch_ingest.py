@@ -205,6 +205,40 @@ DEANYURKE = [
     ("WenSYKg08Uc", "Where are my Animation Curves!? This MYSTERIOUS SYMBOL will save you HOURS of Frustration!"),
 ]
 
+# ── ARTHUR TASQUIN (Physical Based Lighting) ─────────────────────────────────
+ARTHURTASQUIN = [
+    ("JoxgvwNFc8g", "Realistic and Physical Lighting in UE5: What is PBL ?"),
+    ("GsE0mDtxtiQ", "Realistic and Physical Lighting in UE5: The PBL Workflow"),
+]
+
+# ── OFFICIAL UNREAL ENGINE CHANNEL ───────────────────────────────────────────
+UNREALOFFICIAL = [
+    ("d-_hv7IXjkM", "Slow Motion SECRETS! How to Time Warp Animation in Unreal Engine"),
+    ("d1ncs8M6Lkg", "Introduction to Substrate Materials | Unreal Engine 5.7"),
+    ("LHK3J5m_43c", "UE5 Constraints Are EASY! Parent Constraint Workflow for Animators"),
+    ("erHPJ8eoXyY", "NEW UE5 Motion Trails 2.0: Heat Map & Camera Space Stabilization"),
+    ("9AavXj11Iw4", "DYNAMIC Space Switching in UE5: Pro IK Hand Constraint Techniques"),
+    ("YSrYqx19_Y0", "Pose Library ADDITIVE MODE: Layer Animation Poses in Unreal Engine"),
+    ("oUPOBsCrWwE", "Mastering the UE5 Tweener Tool: Push Pull & Overshoot Animation"),
+    ("VD_cfVvMs6Y", "UE5 Curve Editor 2.0 New Lattice Tool & Curve Scaling HACKS (UE 5.6)"),
+    ("NDrc3ap2ZAA", "UE5 Animation Layers: Non-Destructive Camera Shake & Character Tweaks"),
+    ("9g0K4GOACis", "UE5 Curve Editor SECRETS: Buffer Curves & Smart Snap Keyframe Tricks"),
+    ("A8U_8iPc5hA", "NON-DESTRUCTIVE Animation in UE5! Layered Control Rigs Explained"),
+    ("mDEliLixziU", "Baking Animation in UE5: Control Rig to Animation Sequence & Back!"),
+    ("WMKvwVIuFS4", "Stylized Animation Control Rig Characters in Unreal Engine 5"),
+    ("E7C1xbpEA_Q", "Advanced UE5 Cinematic Workflow: Camera Rigs & Custom Viewports"),
+    ("yOcgYMcxr3Q", "Level Management: Sub-Levels, Spawnables, Possessibles in UE5"),
+    ("myxrzJiLc6I", "MetaHumans for Mocap | Unreal Engine Animation Hub"),
+    ("SqPaL8HS_Lw", "Everything You Wanted to Know About Substrate (But Are Too Afraid to Ask) | Unreal Fest Stockholm 2025"),
+    ("ywtvn1uncZo", "Unreal Engine 5: Animation Cinematic Production Overview"),
+    ("PgzSGQnWVcU", "MetaHuman Realtime Animator Best Practices | Unreal Engine Animation Hub"),
+    ("JdaXti950vg", "Live Link Hub Tips | Unreal Engine Animation Hub"),
+    ("0c8-8NSarDI", "Movie Render Graph Intro | Unreal Engine Animation Hub"),
+    ("cER2jT8oxKY", "Advanced Groom Dataflow Setup in UE 5.7 | Unreal Fest Stockholm 2025"),
+    ("EdNkm0ezP0o", "Large Scale Animated Foliage in The Witcher 4 UE5 Tech Demo | Unreal Fest Stockholm 2025"),
+    ("WqWpwVaewEU", "How to Create Grooms for MetaHumans | Unreal Fest Bali 2025"),
+]
+
 # ── JOSH TOONEN (@JoshToonen) — UE tutorials/breakdowns ──────────────────────
 JOSHTOONEN = [
     ("N4hq0WUaPmk", "How I Remade the BACKROOMS using VFX"),
@@ -247,6 +281,8 @@ ALL_VIDEOS = (
   + [("charliedriscoll",  vid_id, title) for vid_id, title in CHARLIEDRISCOLL]
   + [("deanyurke",        vid_id, title) for vid_id, title in DEANYURKE]
   + [("joshtoonen",       vid_id, title) for vid_id, title in JOSHTOONEN]
+  + [("arthurtasquin",    vid_id, title) for vid_id, title in ARTHURTASQUIN]
+  + [("unrealofficial",   vid_id, title) for vid_id, title in UNREALOFFICIAL]
 )
 
 def load_log():

@@ -1,12 +1,12 @@
----
+﻿---
 title: Advanced UE5 Cinematic Workflow: Camera Rigs & Custom Viewports
 source: YouTube
 url: https://www.youtube.com/watch?v=E7C1xbpEA_Q
 author: Unreal Engine
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: ["sequencer", "cinematics", "camera", "pipeline", "intermediate"]
+extraction_status: complete
 frames_dir: tutorials/frames/advanced-ue5-cinematic-workflow-camera-rigs-custom-viewports/
 frame_count: 4
 ---
@@ -33,27 +33,41 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Advanced Sequencer cinematic workflow — sub-sequences structure, camera rig skeletal mesh + Control Rig setup, and custom multi-panel viewport layouts for simultaneous camera + perspective editing.
 
 ### Summary
-[PENDING EXTRACTION]
+Second video in the ACOM Animation Hub series. Covers the master Level Sequence → sub-sequences hierarchy (all are just Level Sequences; naming is organizational), setting up a Camera Rig Skeletal Mesh with its own Control Rig track for physically-driven camera moves, and configuring custom viewport layouts (e.g. 2-panel: camera view left, perspective right) for efficient animation editing.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. In Sequencer, inspect the master Level Sequence → Shot Track → each shot is a sub-sequence Level Sequence
+2. Double-click a shot to enter it; `breadcrumb` path shown at top of Sequencer
+3. Inside a shot, find the **Camera Rig** skeletal mesh track — it's a separate Skeletal Mesh Actor
+4. The Camera Rig has its own **Control Rig sub-sequence** for animating the camera physically
+5. The actual **Cine Camera Actor** is a child of the Camera Rig — inherits its transform
+6. To set up custom viewport: `Viewport → Layout` dropdown → choose a split layout (2×1, 1+2, etc.)
+7. In one viewport: press `G` → Pilot the Camera for the camera POV
+8. In the other: keep as Perspective for working around the scene
+9. Lock the camera viewport to a specific shot camera using the camera selector dropdown
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+`Shot Track` (master Level Sequence) → contains sub-sequences as individual shots
+`Sub-sequence` → just a Level Sequence nested inside another; same asset type
+`Camera Rig Skeletal Mesh` → physically-simulated camera crane/dolly; driven by Control Rig
+`Cine Camera Actor` → parented to Camera Rig; inherits physical motion
+`Viewport → Layout` → split into multiple panels; one camera view + one perspective
+`Breadcrumb Trail` (Sequencer top bar) → shows nesting depth; click to navigate up
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+sequencer, cinematics, camera, pipeline, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `references/sequencer-cinematics.md` — Sequencer structure and camera workflow
+- `tutorials/level-management-sub-levels-spawnables-possessibles-in-ue5.md` — level organization for cinematics

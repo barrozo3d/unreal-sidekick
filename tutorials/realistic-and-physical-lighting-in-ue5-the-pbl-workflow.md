@@ -1,12 +1,12 @@
----
+﻿---
 title: Realistic and Physical Lighting in UE5: The PBL Workflow
 source: YouTube
 url: https://www.youtube.com/watch?v=GsE0mDtxtiQ
 author: arthur tasquin
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: ["lighting", "rendering", "intermediate"]
+extraction_status: complete
 frames_dir: tutorials/frames/realistic-and-physical-lighting-in-ue5-the-pbl-workflow/
 frame_count: 10
 ---
@@ -33,27 +33,39 @@ frame_count: 10
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Applying Physically-Based Lighting in UE5 practice — using PBL Database plugin values in real lighting scenarios, cinematic exposure workflow, and where PBL succeeds vs. falls short.
 
 ### Summary
-[PENDING EXTRACTION]
+Part 2 of Arthur Tasquin's PBL series. Translates theory into a working UE5 lighting workflow: pulling real-world values from the PBL Database plugin, applying them to different scenario types (interior, exterior, artificial, natural), setting camera exposure via EV values, and identifying where strict PBL values must be overridden for cinematic goals.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Open the **PBL Database** plugin panel; select matching scenario tags (interior, natural, evening, etc.)
+2. Read the recommended Lux/Lumen/Candela values for the scenario and enter them into the corresponding UE light
+3. Set `Directional Light` intensity using Lux values (real overcast ≈ 10,000 lx; golden hour ≈ 30,000 lx)
+4. Set camera `Exposure → Manual` mode, target EV matching real-world scenario (indoor ≈ EV 8–10)
+5. Iterate: compare render to reference photograph; adjust only exposure compensation, not light values, first
+6. Where PBL falls short (e.g. deep interiors with no bounce), intentionally deviate — document the deviation
+7. Use Sub-Level workflow from Part 1 to switch between scenario presets for lighting studies
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+`PBL Database Plugin` (FAB) → real-world light value reference organized by scenario
+`Directional Light → Intensity (Lux)` → solar illuminance values
+`Post Process Volume → Exposure → Manual EV100` → match real-world exposure
+`Rect Light / Area Light → Intensity (Lumen)` → practical light sources
+`Auto Exposure` → disable during PBL workflow; use Manual EV100
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, rendering, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/realistic-and-physical-lighting-in-ue5-what-is-pbl.md` — Part 1: theory and units
+- `references/rendering-pipeline.md` — exposure, post-process, Lumen
+- `references/color-pipeline.md` — color grading after PBL render

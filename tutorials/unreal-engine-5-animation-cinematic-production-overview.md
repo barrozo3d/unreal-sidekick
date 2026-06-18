@@ -1,12 +1,12 @@
----
+﻿---
 title: Unreal Engine 5: Animation Cinematic Production Overview
 source: YouTube
 url: https://www.youtube.com/watch?v=ywtvn1uncZo
 author: Unreal Engine
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: ["animation", "sequencer", "cinematics", "pipeline", "beginner"]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-5-animation-cinematic-production-overview/
 frame_count: 4
 ---
@@ -33,27 +33,40 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+High-level overview of cinematic animation production in UE5 using the ACOM Animation Sample Project — project structure, Level Sequences, sub-sequences, and the animation editing workflow.
 
 ### Summary
-[PENDING EXTRACTION]
+First video in Sir Wade's UE5 Animation tutorial series using the ACOM (Agora Studio) animation sample project available on FAB. Overview of the full project: welcome level, stylized characters (Beta + Gamma robots), the master Level Sequence structure, how shots are organized as sub-sequences, and what tools will be covered in subsequent videos. Entry point for the entire series.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Download the **ACOM Animation Sample Project** from Fab (free)
+2. Open project → `Welcome Level` shows idle characters; hit Play to preview
+3. Open **Level Sequences** (Content Browser → Episodes → IntroBeta) to find the main cinematic sequence
+4. Inspect the **Master Sequence** → contains a Shot Track with individual shot sub-sequences
+5. Open a shot sub-sequence → see character tracks, camera tracks, Control Rig sub-sequences
+6. Switch to **Animation Mode** (Sequencer toolbar toggle) to enable interactive posing
+7. Character details: stylized robot by Agora Studio; uses Modular Control Rig + UE physics for secondary motion
+8. Following videos in series cover: animation data (baking), curve editor, constraints, motion trails, layers
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+`ACOM Animation Sample Project` (Fab, free) → full cinematic production project by Agora Studio
+`Master Level Sequence` → contains Shot Track → individual shot sub-sequences
+`Animation Mode` (Sequencer toolbar) → enables interactive Control Rig posing
+`Modular Control Rig` → character rig used for Beta/Gamma robots
+`ACOM Project structure`: Episodes → IntroBeta → master sequence → shot sub-sequences
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+animation, sequencer, cinematics, pipeline, beginner
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `references/sequencer-cinematics.md` — Sequencer and Level Sequence reference
+- `tutorials/advanced-ue5-cinematic-workflow-camera-rigs-custom-viewports.md` — sub-sequences deep dive
+- `tutorials/level-management-sub-levels-spawnables-possessibles-in-ue5.md` — level structure

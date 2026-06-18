@@ -1,12 +1,12 @@
----
+﻿---
 title: Live Link Hub Tips | Unreal Engine Animation Hub
 source: YouTube
 url: https://www.youtube.com/watch?v=JdaXti950vg
 author: Unreal Engine
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: ["animation", "mocap", "pipeline", "intermediate"]
+extraction_status: complete
 frames_dir: tutorials/frames/live-link-hub-tips-unreal-engine-animation-hub/
 frame_count: 4
 ---
@@ -33,27 +33,41 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Live Link Hub standalone app — routing multiple mocap streams (body + face + props) from different systems to multiple UE editor workstations simultaneously over a subnet.
 
 ### Summary
-[PENDING EXTRACTION]
+Covers Live Link Hub as a centralized routing app for professional mocap setups. Demonstrates adding multiple sources (Captury body, OptiTrack, iLinked face) simultaneously, routing streams to multiple UE editor instances on the same subnet, recording all streams together, and managing which clients receive which data. Enables team-based mocap sessions where multiple animators work on different characters from the same live data.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Enable **Live Link Hub Plugin** in UE (`Edit → Plugins → Live Link Hub`)
+2. Launch Hub: `Tools → Live Link Hub` (standalone window; can run on a dedicated machine)
+3. In Live Link Hub: `Add Source` → choose your mocap system (Captury, OptiTrack, iLinked, MetaHuman Video, etc.)
+4. Sources appear in the left panel; subject list populates automatically
+5. **Clients** panel (right) shows all UE editor instances on the same subnet — verify correct workstation is listed
+6. Assign subjects to clients (optional; default: all subjects broadcast to all clients)
+7. Hit **Record All** to capture all streams simultaneously to a single session
+8. In each UE editor, open Live Link window → subjects from Hub appear automatically (no local source setup needed)
+9. Useful for multi-character scenes: different team members animate different characters from same live data
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+`Live Link Hub` (standalone app) → centralized Live Link routing; Tools → Live Link Hub
+`Add Source` → Captury Body, OptiTrack, iLinked Face, MetaHuman Video, etc.
+`Clients Panel` → shows all UE editor instances on subnet; assign subjects per client
+`Record All` → simultaneous multi-source recording
+`Subnet discovery` → automatic; all editors on same network segment see Live Link Hub
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+animation, mocap, pipeline, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/metahumans-for-mocap-unreal-engine-animation-hub.md` — CaptureCharacter setup
+- `tutorials/metahuman-realtime-animator-best-practices-unreal-engine-animation-hub.md` — webcam face capture
+- `references/metahuman-reference.md` — MetaHuman animation pipeline

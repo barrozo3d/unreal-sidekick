@@ -1,12 +1,12 @@
----
+﻿---
 title: Movie Render Graph Intro | Unreal Engine Animation Hub
 source: YouTube
 url: https://www.youtube.com/watch?v=0c8-8NSarDI
 author: Unreal Engine
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.8"
+tags: ["rendering", "movie-render-graph", "sequencer", "cinematics", "intermediate"]
+extraction_status: complete
 frames_dir: tutorials/frames/movie-render-graph-intro-unreal-engine-animation-hub/
 frame_count: 4
 ---
@@ -33,27 +33,42 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Movie Render Graph (MRG) node-based render pipeline intro — setting up render globals, defining shot layers, and configuring output — the preferred replacement for legacy Movie Render Queue.
 
 ### Summary
-[PENDING EXTRACTION]
+Practical intro to Movie Render Graph from the Animation Hub series, using the ACOM sample project. Shows right-clicking a Level Sequence to create an MRG asset, the node graph interface (Render Globals → Output → Layers), configuring warm-up settings and game overrides, setting up per-layer render passes (beauty, cryptomatte, depth), and triggering a render. MRG is fully production-ready from UE 5.8.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. In Content Browser, right-click a Level Sequence → `Cinematic → Movie Render Graph` → name and save the asset
+2. Double-click the MRG asset to open the node graph
+3. The graph has: `Render Globals` node (warm-up, resolution, frame range) → connected to output layers
+4. Configure `Render Globals`: set `Warm Up Frame Count` (30–60 for physics/Niagara), `Resolution`, `Output Directory`
+5. Add a **Render Layer** node for the Beauty pass; connect to an **EXR Output** or **PNG Output** node
+6. Add additional Render Layer nodes for compositing passes: `Cryptomatte`, `Depth`, `Motion Vectors`
+7. Set `Game Overrides` node: disable LOD bias, enable high-quality shadows, disable streaming textures
+8. Right-click the graph → **Render** or queue multiple sequences
+9. Monitor output in `Output Log` → renders save to specified directory
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+`Movie Render Graph` (Content Browser → Cinematic → Movie Render Graph) → node-based render pipeline
+`Render Globals` node → warm-up, resolution, frame rate, output path
+`Render Layer` node → per-pass render configuration (beauty, depth, cryptomatte)
+`Game Overrides` node → disables streaming, enables high-quality settings for render
+`EXR Output` / `PNG Output` nodes → file format selection per layer
+Fully production-ready from UE 5.8; replaces linear Movie Render Queue
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.8
 
 ### Tags
-[PENDING EXTRACTION]
+rendering, movie-render-graph, sequencer, cinematics, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `references/sequencer-cinematics.md` — MRQ/MRG settings reference
+- `recipes/mrq-multipass-exr.md` — multi-pass EXR setup
+- `recipes/cinematics-pipeline.md` — full pipeline Stage 7: render

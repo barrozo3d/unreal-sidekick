@@ -1,12 +1,12 @@
----
+﻿---
 title: Slow Motion SECRETS! How to Time Warp Animation in Unreal Engine
 source: YouTube
 url: https://www.youtube.com/watch?v=d-_hv7IXjkM
 author: Unreal Engine
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: ["animation", "sequencer", "cinematics", "intermediate"]
+extraction_status: complete
 frames_dir: tutorials/frames/slow-motion-secrets-how-to-time-warp-animation-in-unreal-engine/
 frame_count: 4
 ---
@@ -33,27 +33,37 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Time-warping animation in Sequencer — using the `Time Warp` track and `Rate Scale` to create non-destructive slow motion moments on existing animation clips.
 
 ### Summary
-[PENDING EXTRACTION]
+Covers how to add slow-motion to pre-existing animation in Sequencer without re-animating. Demonstrates the Time Warp track on a control rig sub-sequence to retime specific hit/impact moments, and Rate Scale on animation clips for constant slow-down. Includes camera/chromatic aberration integration for stylized slo-mo.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Open the Level Sequence containing the shot; locate the control rig sub-sequence
+2. Right-click the animation/control rig track → **Add Time Warp Track**
+3. Keyframe the Time Warp value: `1.0` = normal, `0.25` = 25% speed (slow motion)
+4. Add easing keys around the slow-mo section to smoothly ramp in and out
+5. Alternatively, select an animation clip in Sequencer → right-click → **Edit Section** → adjust `Rate Scale` (0.25 = 4x slower)
+6. For camera: add chromatic aberration via Post Process Volume → `Lens → Chromatic Aberration Intensity` keyframed to peak at slo-mo moment
+7. Preview in Sequencer (Shift+Space) to verify timing; adjust Time Warp keys as needed
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+`Time Warp Track` (Sequencer) → non-destructive retiming of animation sections
+`Rate Scale` (animation clip property) → constant speed multiplier for entire clip
+`Post Process Volume → Chromatic Aberration` → slo-mo visual enhancement
+`Control Rig Sub-Sequence` → where Time Warp is most commonly applied
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+animation, sequencer, cinematics, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `references/sequencer-cinematics.md` — Sequencer track types and timeline workflow
+- `references/control-rig-animation.md` — Control Rig sub-sequence structure

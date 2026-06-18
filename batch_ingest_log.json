@@ -1186,5 +1186,161 @@
     "channel": "joshtoonen",
     "status": "ok",
     "timestamp": "2026-06-18T14:35:32.264763"
+  },
+  "JoxgvwNFc8g": {
+    "title": "Realistic and Physical Lighting in UE5: What is PBL ?",
+    "channel": "arthurtasquin",
+    "status": "ok",
+    "timestamp": "2026-06-18T17:47:40.875483"
+  },
+  "GsE0mDtxtiQ": {
+    "title": "Realistic and Physical Lighting in UE5: The PBL Workflow",
+    "channel": "arthurtasquin",
+    "status": "ok",
+    "timestamp": "2026-06-18T17:48:14.946023"
+  },
+  "d-_hv7IXjkM": {
+    "title": "Slow Motion SECRETS! How to Time Warp Animation in Unreal Engine",
+    "channel": "unrealofficial",
+    "status": "ok",
+    "timestamp": "2026-06-18T17:48:58.543531"
+  },
+  "d1ncs8M6Lkg": {
+    "title": "Introduction to Substrate Materials | Unreal Engine 5.7",
+    "channel": "unrealofficial",
+    "status": "ok",
+    "timestamp": "2026-06-18T17:51:36.598516"
+  },
+  "LHK3J5m_43c": {
+    "title": "UE5 Constraints Are EASY! Parent Constraint Workflow for Animators",
+    "channel": "unrealofficial",
+    "status": "ok",
+    "timestamp": "2026-06-18T17:53:43.170156"
+  },
+  "erHPJ8eoXyY": {
+    "title": "NEW UE5 Motion Trails 2.0: Heat Map & Camera Space Stabilization",
+    "channel": "unrealofficial",
+    "status": "ok",
+    "timestamp": "2026-06-18T17:54:23.809426"
+  },
+  "9AavXj11Iw4": {
+    "title": "DYNAMIC Space Switching in UE5: Pro IK Hand Constraint Techniques",
+    "channel": "unrealofficial",
+    "status": "ok",
+    "timestamp": "2026-06-18T17:54:55.385998"
+  },
+  "YSrYqx19_Y0": {
+    "title": "Pose Library ADDITIVE MODE: Layer Animation Poses in Unreal Engine",
+    "channel": "unrealofficial",
+    "status": "ok",
+    "timestamp": "2026-06-18T17:55:33.481414"
+  },
+  "oUPOBsCrWwE": {
+    "title": "Mastering the UE5 Tweener Tool: Push Pull & Overshoot Animation",
+    "channel": "unrealofficial",
+    "status": "ok",
+    "timestamp": "2026-06-18T17:56:32.172102"
+  },
+  "VD_cfVvMs6Y": {
+    "title": "UE5 Curve Editor 2.0 New Lattice Tool & Curve Scaling HACKS (UE 5.6)",
+    "channel": "unrealofficial",
+    "status": "ok",
+    "timestamp": "2026-06-18T17:57:45.586481"
+  },
+  "NDrc3ap2ZAA": {
+    "title": "UE5 Animation Layers: Non-Destructive Camera Shake & Character Tweaks",
+    "channel": "unrealofficial",
+    "status": "ok",
+    "timestamp": "2026-06-18T17:58:39.914838"
+  },
+  "9g0K4GOACis": {
+    "title": "UE5 Curve Editor SECRETS: Buffer Curves & Smart Snap Keyframe Tricks",
+    "channel": "unrealofficial",
+    "status": "ok",
+    "timestamp": "2026-06-18T18:00:19.056118"
+  },
+  "A8U_8iPc5hA": {
+    "title": "NON-DESTRUCTIVE Animation in UE5! Layered Control Rigs Explained",
+    "channel": "unrealofficial",
+    "status": "ok",
+    "timestamp": "2026-06-18T18:01:09.151474"
+  },
+  "mDEliLixziU": {
+    "title": "Baking Animation in UE5: Control Rig to Animation Sequence & Back!",
+    "channel": "unrealofficial",
+    "status": "ok",
+    "timestamp": "2026-06-18T18:02:00.104109"
+  },
+  "WMKvwVIuFS4": {
+    "title": "Stylized Animation Control Rig Characters in Unreal Engine 5",
+    "channel": "unrealofficial",
+    "status": "ok",
+    "timestamp": "2026-06-18T18:03:09.701295"
+  },
+  "E7C1xbpEA_Q": {
+    "title": "Advanced UE5 Cinematic Workflow: Camera Rigs & Custom Viewports",
+    "channel": "unrealofficial",
+    "status": "ok",
+    "timestamp": "2026-06-18T18:03:58.795686"
+  },
+  "yOcgYMcxr3Q": {
+    "title": "Level Management: Sub-Levels, Spawnables, Possessibles in UE5",
+    "channel": "unrealofficial",
+    "status": "ok",
+    "timestamp": "2026-06-18T18:05:22.138012"
+  },
+  "myxrzJiLc6I": {
+    "title": "MetaHumans for Mocap | Unreal Engine Animation Hub",
+    "channel": "unrealofficial",
+    "status": "ok",
+    "timestamp": "2026-06-18T18:05:50.173017"
+  },
+  "SqPaL8HS_Lw": {
+    "title": "Everything You Wanted to Know About Substrate (But Are Too Afraid to Ask) | Unreal Fest Stockholm 2025",
+    "channel": "unrealofficial",
+    "status": "ok",
+    "timestamp": "2026-06-18T18:07:32.273739"
+  },
+  "ywtvn1uncZo": {
+    "title": "Unreal Engine 5: Animation Cinematic Production Overview",
+    "channel": "unrealofficial",
+    "status": "ok",
+    "timestamp": "2026-06-18T18:08:11.942744"
+  },
+  "PgzSGQnWVcU": {
+    "title": "MetaHuman Realtime Animator Best Practices | Unreal Engine Animation Hub",
+    "channel": "unrealofficial",
+    "status": "ok",
+    "timestamp": "2026-06-18T18:10:20.865160"
+  },
+  "JdaXti950vg": {
+    "title": "Live Link Hub Tips | Unreal Engine Animation Hub",
+    "channel": "unrealofficial",
+    "status": "ok",
+    "timestamp": "2026-06-18T18:10:47.449176"
+  },
+  "0c8-8NSarDI": {
+    "title": "Movie Render Graph Intro | Unreal Engine Animation Hub",
+    "channel": "unrealofficial",
+    "status": "ok",
+    "timestamp": "2026-06-18T18:11:22.800052"
+  },
+  "cER2jT8oxKY": {
+    "title": "Advanced Groom Dataflow Setup in UE 5.7 | Unreal Fest Stockholm 2025",
+    "channel": "unrealofficial",
+    "status": "ok",
+    "timestamp": "2026-06-18T18:12:59.520779"
+  },
+  "EdNkm0ezP0o": {
+    "title": "Large Scale Animated Foliage in The Witcher 4 UE5 Tech Demo | Unreal Fest Stockholm 2025",
+    "channel": "unrealofficial",
+    "status": "ok",
+    "timestamp": "2026-06-18T18:14:39.306031"
+  },
+  "WqWpwVaewEU": {
+    "title": "How to Create Grooms for MetaHumans | Unreal Fest Bali 2025",
+    "channel": "unrealofficial",
+    "status": "ok",
+    "timestamp": "2026-06-18T18:15:59.093100"
   }
 }

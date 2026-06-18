@@ -1,12 +1,12 @@
----
+﻿---
 title: Introduction to Substrate Materials | Unreal Engine 5.7
 source: YouTube
 url: https://www.youtube.com/watch?v=d1ncs8M6Lkg
 author: Unreal Engine
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.7"
+tags: ["materials", "shaders", "substrate", "rendering", "intermediate"]
+extraction_status: complete
 frames_dir: tutorials/frames/introduction-to-substrate-materials-unreal-engine-57/
 frame_count: 4
 ---
@@ -33,27 +33,41 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Introduction to Substrate material framework — enabled by default from UE 5.7; `Substrate Slab` node replaces legacy material shading models for layered, physically-accurate surface rendering.
 
 ### Summary
-[PENDING EXTRACTION]
+Official Epic overview of Substrate in UE 5.7 (now enabled by default). Covers the Substrate Slab node structure (F0/F90 reflectivity, roughness, fuzz/glint advanced features), two GBuffer format options (high-fidelity vs. performance), and how Substrate gives artists more layering control than the traditional material system.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Substrate is enabled by default in UE 5.7+ — no manual activation needed (check `Project Settings → Rendering → Substrate`)
+2. In Material Editor, use the **`Substrate Slab`** node as the primary material expression
+3. Configure `F0` (facing reflectivity) and `F90` (glancing angle reflectivity) for PBR accuracy
+4. Set `Roughness` input for microsurface detail
+5. Enable `Fuzz` layer for velvet/fabric surfaces; enable `Glint` for sparkle (car paint, glitter)
+6. Layer multiple Slab nodes using **`Substrate Layer`** blend nodes
+7. Choose GBuffer format in `Project Settings → Rendering → Substrate → GBuffer Format`: `8-Byte` (performance) or `16-Byte` (maximum fidelity)
+8. Path Tracing is fully supported with Substrate — no special setup needed
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+`Substrate Slab` node — primary material primitive replacing old shading models
+`F0 / F90` inputs → physically accurate reflectivity at facing and glancing angles
+`Fuzz` input → microfiber/velvet surface layer
+`Glint` input → sparkle highlights (car paint, metallic flake)
+`Substrate Layer` node → blend/stack multiple Slab layers
+`Project Settings → Rendering → Substrate → GBuffer Format` → 8-Byte (perf) or 16-Byte (fidelity)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.7
 
 ### Tags
-[PENDING EXTRACTION]
+materials, shaders, substrate, rendering, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `references/materials-shaders.md` — broader material system reference
+- `tutorials/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe.md` — deep dive Unreal Fest talk
+- `references/rendering-pipeline.md` — Path Tracing compatibility

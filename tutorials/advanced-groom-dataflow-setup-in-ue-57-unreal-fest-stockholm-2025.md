@@ -1,12 +1,12 @@
----
+﻿---
 title: Advanced Groom Dataflow Setup in UE 5.7 | Unreal Fest Stockholm 2025
 source: YouTube
 url: https://www.youtube.com/watch?v=cER2jT8oxKY
 author: Unreal Engine
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.7"
+tags: ["metahuman", "rigging", "advanced", "ue5-7"]
+extraction_status: complete
 frames_dir: tutorials/frames/advanced-groom-dataflow-setup-in-ue-57-unreal-fest-stockholm-2025/
 frame_count: 4
 ---
@@ -33,27 +33,41 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Groom Dataflow framework (UE 5.7) — a node-based procedural system for setting up, deforming, and customizing grooms (hair/fur) inside Unreal Engine, replacing the static import-only pipeline.
 
 ### Summary
-[PENDING EXTRACTION]
+Unreal Fest Stockholm 2025 talk by Michael Fro (Epic Physics Engineer) on the new Groom Dataflow framework in UE 5.7. The old pipeline required all groom setup in DCC (Maya/Houdini) then static import. Dataflow brings a node-based procedural graph inside UE for modifying guides, adding procedural deformations (wind, physics simulation), and blending groom behaviors — without going back to DCC. Covers motivation, Dataflow framework basics, groom integration nodes, and a practical example.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Import your base groom asset as before (USD/Alembic .abc); this is still the starting point
+2. Open the groom asset → find the new **Dataflow** tab in the groom editor (UE 5.7+)
+3. The Dataflow graph uses nodes to modify the imported groom procedurally
+4. Add **Guide Deformation** nodes for dynamic modifications (physics simulation, wind response)
+5. Connect groom guides through `Groom Physics` node for real-time strand simulation
+6. Add **Blend Shape** nodes to mix between styled and simulated states (e.g. 70% style / 30% physics)
+7. The Dataflow graph is re-evaluated at runtime — no baking needed for simulation
+8. Use **Groom Binding** asset to bind groom to skeletal mesh (required for character movement)
+9. Preview in the groom editor with live physics: adjust stiffness, damping, collision radius
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+`Groom Asset → Dataflow Tab` (UE 5.7+) → node-based procedural groom modification inside engine
+`Guide Deformation Node` → applies physical simulation/wind deformation to guides
+`Groom Physics Node` → real-time strand simulation parameters (stiffness, damping)
+`Blend Shape Node` → mix styled groom with simulated state
+`Groom Binding Asset` → binds groom guides to skeletal mesh bones for character animation
+Import format: USD Alembic (.abc) from Maya/Houdini still required as base groom
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.7
 
 ### Tags
-[PENDING EXTRACTION]
+metahuman, rigging, advanced, ue5-7
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/how-to-create-grooms-for-metahumans-unreal-fest-bali-2025.md` — strand-based groom creation for MetaHumans
+- `references/metahuman-reference.md` — MetaHuman hair and groom setup

@@ -1,12 +1,12 @@
----
+﻿---
 title: Stylized Animation Control Rig Characters in Unreal Engine 5
 source: YouTube
 url: https://www.youtube.com/watch?v=WMKvwVIuFS4
 author: Unreal Engine
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: ["animation", "control-rig", "rigging", "intermediate"]
+extraction_status: complete
 frames_dir: tutorials/frames/stylized-animation-control-rig-characters-in-unreal-engine-5/
 frame_count: 4
 ---
@@ -33,27 +33,41 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Exploring and animating a Control Rig character (non-MetaHuman) in UE5 — opening the character asset, inspecting the Modular Control Rig setup, and beginning keyframe animation in Animation Mode.
 
 ### Summary
-[PENDING EXTRACTION]
+Third video in the ACOM Animation Hub series. Focuses on the character Beta from the ACOM sample — a stylized non-MetaHuman robot character with a full Modular Control Rig. Shows how to open a character's Control Rig via the Content Browser, inspect IK/FK controls, switch to Animation Mode in Sequencer, and start posing/keyframing. Discusses FK vs IK tradeoffs for stylized characters.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Find the character asset in the Content Browser: `Assets/Characters/[CharacterName]`
+2. Double-click to open the **Skeletal Mesh** editor → inspect the rig hierarchy
+3. Drag the character into a **Level Sequence** in Sequencer
+4. On the character track, click **+ Sub-Sequence → Control Rig** to add an animation sub-sequence
+5. Select **Modular Control Rig** (or the character's specific full-body rig)
+6. Enter **Animation Mode** (Sequencer toolbar) to enable interactive posing
+7. Select controls in the viewport or the **Anim Outliner** panel
+8. Use `G` key to toggle between FK (rotate-only) and IK (position-based) control modes
+9. Set keys with `S` (all controls) or `Ctrl+S` (selected controls only)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+`Content Browser → Assets/Characters` → character skeletal mesh location
+`Modular Control Rig` → pre-built IK/FK module library; drag controls in viewport
+`Anim Outliner` (Animation Mode) → hierarchical list of all rig controls
+`G key` → FK/IK toggle for limb controls
+`S` → set keys for all visible controls; `Ctrl+S` → selected only
+`Animation Mode` (Sequencer toolbar) → activates posing tools
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+animation, control-rig, rigging, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `references/control-rig-animation.md` — Modular Control Rig and IK reference
+- `tutorials/baking-animation-in-ue5-control-rig-to-animation-sequence-back.md` — baking the finished animation

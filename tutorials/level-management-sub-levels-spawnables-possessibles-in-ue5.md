@@ -1,12 +1,12 @@
----
+﻿---
 title: Level Management: Sub-Levels, Spawnables, Possessibles in UE5
 source: YouTube
 url: https://www.youtube.com/watch?v=yOcgYMcxr3Q
 author: Unreal Engine
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: ["sequencer", "cinematics", "narrative", "pipeline", "intermediate"]
+extraction_status: complete
 frames_dir: tutorials/frames/level-management-sub-levels-spawnables-possessibles-in-ue5/
 frame_count: 4
 ---
@@ -33,27 +33,40 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Level organization for cinematic productions — Sub-Levels in the Levels panel for modular asset/lighting management, and Spawnables vs. Possessibles in Sequencer for actor lifecycle control.
 
 ### Summary
-[PENDING EXTRACTION]
+First video in the ACOM Animation Hub series (world/level overview). Covers the Levels panel (Window > Levels) and using Sub-Levels to isolate lighting, geometry, and assets per zone — toggle entire level chunks on/off. Then explains Sequencer's Spawnables (spawned by Sequencer; exist only during playback; portable between levels) vs. Possessibles (already in level; Sequencer takes control; level-specific). Critical distinction for cinematic production flexibility.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Open **Window → Levels** to see the sub-level hierarchy for the persistent world
+2. Each sub-level contains isolated content (lighting, environment geometry, props) — toggle visibility/loading per sub-level
+3. To control sub-levels from Sequencer: add a **Level Visibility Track** → reference specific sub-levels by name
+4. **Spawnables**: in Sequencer, click the actor's track header `+` → `Convert to Spawnable` → now the actor is managed by Sequencer (spawns/despawns with the sequence)
+5. **Possessibles**: default mode — Sequencer takes control of an actor that already exists in the level
+6. Use **Spawnables** for characters/cameras that move between shots or sequences (portable)
+7. Use **Possessibles** for environment actors that are permanently placed in the level
+8. **Level Streaming Volumes** or Blueprint can auto-load/unload sub-levels based on player/camera position
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+`Window → Levels` panel → sub-level manager; toggle load/visibility per sub-level
+`Level Visibility Track` (Sequencer) → load/unload sub-levels at specific frames
+`Spawnable` (Sequencer) → actor created and destroyed by Sequencer; portable; green 'S' icon
+`Possessible` (Sequencer) → pre-placed level actor; Sequencer controls properties only; yellow 'P' icon
+`World Composition` / `World Partition` → alternative streaming for open-world projects
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+sequencer, cinematics, narrative, pipeline, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `references/narrative-blueprints.md` — level streaming and Blueprint-triggered cinematics
+- `references/sequencer-cinematics.md` — Sequencer track types and sub-sequences
+- `tutorials/advanced-ue5-cinematic-workflow-camera-rigs-custom-viewports.md` — sub-sequences structure

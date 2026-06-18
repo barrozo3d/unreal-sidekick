@@ -1,12 +1,12 @@
----
+﻿---
 title: MetaHumans for Mocap | Unreal Engine Animation Hub
 source: YouTube
 url: https://www.youtube.com/watch?v=myxrzJiLc6I
 author: Unreal Engine
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: ["metahuman", "animation", "mocap", "blueprint", "intermediate"]
+extraction_status: complete
 frames_dir: tutorials/frames/metahumans-for-mocap-unreal-engine-animation-hub/
 frame_count: 4
 ---
@@ -33,27 +33,41 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Setting up a MetaHuman for Mocap Manager — creating a `CaptureCharacter`-derived Blueprint that inherits the MetaHuman's skeletal mesh components, enabling real-time mocap streaming.
 
 ### Summary
-[PENDING EXTRACTION]
+Animation Hub tutorial on adapting a MetaHuman for use with Mocap Manager live capture. The standard MetaHuman Blueprint cannot be used directly — a new Blueprint inheriting from `CaptureCharacter` must be created, and the Skeletal Mesh components (body, head, groom, clothing) manually copied over. The resulting actor can then receive Live Link data from Mocap Manager for real-time face and body capture.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Open your MetaHuman Blueprint in the editor
+2. Create a **New Blueprint Class** → parent class: `CaptureCharacter` (search for it in the class picker)
+3. Name the new BP (e.g. `CaptureCharacter_MH_[CharacterName]`)
+4. Open both the original MetaHuman BP and the new CaptureCharacter BP side-by-side
+5. From the MetaHuman BP: **copy** the `Body` Skeletal Mesh component → paste into the new BP's component hierarchy
+6. Copy all remaining Skeletal Mesh components (face, torso accessories, groom) → paste into new BP
+7. Verify all mesh assets are correctly assigned in the Details panel of each component
+8. Set the **LOD Sync** and **Animation Blueprint** references to match the original MetaHuman
+9. Place the new `CaptureCharacter` BP in the level → point Live Link source at it for mocap streaming
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+`CaptureCharacter` class → base class for MetaHumans used with Mocap Manager; enables Live Link body/face
+`Blueprint Class → Reparent` or new → inherit from CaptureCharacter
+Skeletal Mesh components (Body, Face, Torso, Groom) → must be manually copied from original MetaHuman BP
+`Live Link` → connects Mocap Manager capture data to the CaptureCharacter BP
+`LOD Sync` → synchronize LOD levels across all MetaHuman mesh components
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+metahuman, animation, mocap, blueprint, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `references/metahuman-reference.md` — MetaHuman setup, LOD, animation
+- `tutorials/metahuman-realtime-animator-best-practices-unreal-engine-animation-hub.md` — webcam MetaHuman Animator
+- `tutorials/live-link-hub-tips-unreal-engine-animation-hub.md` — Live Link Hub setup

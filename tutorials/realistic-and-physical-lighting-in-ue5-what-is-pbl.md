@@ -1,12 +1,12 @@
----
+﻿---
 title: Realistic and Physical Lighting in UE5: What is PBL ?
 source: YouTube
 url: https://www.youtube.com/watch?v=JoxgvwNFc8g
 author: arthur tasquin
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: ["lighting", "rendering", "intermediate"]
+extraction_status: complete
 frames_dir: tutorials/frames/realistic-and-physical-lighting-in-ue5-what-is-pbl/
 frame_count: 6
 ---
@@ -58,27 +58,41 @@ frame_count: 6
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Physically-Based Lighting (PBL) theory for digital artists — understanding the 4 essential lighting units (Candela, Lumen, Lux, cd/m²) and building a real-world reference database for accurate UE5 light values.
 
 ### Summary
-[PENDING EXTRACTION]
+Arthur Tasquin, a real-time artist from the VFX industry, introduces PBL: using real-world light intensities in CG lighting for consistency and coherence. Covers the 4 lighting units mapped to UE light types, how to sample data with a light meter, multi-scenario projects using Sub-Levels + Level Sequences, and his PBL Database FAB plugin. Part 1 of 2.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Learn the 4 PBL units: **Candela** (light source intensity → Point/Spot lights), **Lumen** (total light output → area lights), **Lux** (illuminance on a surface → Sun/Sky), **cd/m²** (luminance → displays/emissive)
+2. Use an incident light meter (Lux meter) to sample real-world illuminance values; point at subject, read value
+3. Build a reference database of light scenarios (indoor, outdoor, artificial, natural) sorted by unit, location, category
+4. Install the **PBL Database** plugin (FAB) for in-editor access to sampled reference values with tag-based filtering
+5. Set up **Sub-Levels** (Window > Levels) for each lighting scenario to isolate lighting assets
+6. Create dedicated **Level Sequences** per scenario to contain all animated lighting properties
+7. Match UE camera **Exposure Compensation** to real-world EV values for consistent renders
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+`Point Light` → Intensity in Candela
+`Rect Light` / `Area Light` → Intensity in Lumen
+`Directional Light` → Lux (illuminance)
+`Emissive Materials` → Nits (cd/m²)
+`Sub-levels` (Window > Levels) → lighting scenario isolation
+`Level Sequence` → per-scenario lighting animation container
+PBL Database plugin (FAB) → real-world reference values with tag filter
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, rendering, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `references/rendering-pipeline.md` — Lumen, exposure, camera settings
+- `tutorials/realistic-and-physical-lighting-in-ue5-the-pbl-workflow.md` — Part 2: practical application
+- `references/sequencer-cinematics.md` — Level Sequences for scenario management

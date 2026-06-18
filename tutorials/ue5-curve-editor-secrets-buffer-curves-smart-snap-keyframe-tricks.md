@@ -1,12 +1,12 @@
----
+﻿---
 title: UE5 Curve Editor SECRETS: Buffer Curves & Smart Snap Keyframe Tricks
 source: YouTube
 url: https://www.youtube.com/watch?v=9g0K4GOACis
 author: Unreal Engine
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: ["animation", "sequencer", "intermediate"]
+extraction_status: complete
 frames_dir: tutorials/frames/ue5-curve-editor-secrets-buffer-curves-smart-snap-keyframe-tricks/
 frame_count: 4
 ---
@@ -33,27 +33,37 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Curve Editor workflow secrets — Buffer Curves (save/restore curve states as comparison reference) and Smart Snap (frame-accurate key placement with intelligent snapping).
 
 ### Summary
-[PENDING EXTRACTION]
+Reveals two powerful but underused Curve Editor features: Buffer Curves, which lets you save the current state of selected curves as a ghost reference and swap back and forth for A/B comparison; and Smart Snap, which intelligently snaps keys to nearby frames, handles, or curve intersections. Also covers a technique for adding a Camera Cut Track to a sub-sequence for quick camera navigation when editing deeply nested shots.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. In the Curve Editor, select the curves/keys you want to save as reference
+2. **Buffer Curves**: right-click → **Buffer Curves** (or the Buffer button in toolbar) → curve state saved as ghost
+3. After editing, compare by right-click → **Swap Buffer** — toggles between current and saved state
+4. Use Buffer Curves for A/B: save a good timing, experiment, swap back if experiment fails
+5. **Smart Snap**: enable the snap icon in Curve Editor toolbar → when dragging keys, they snap to nearby frames or curve intersections
+6. Smart Snap respects the sequence frame rate; avoids sub-frame keys accidentally
+7. **Camera Cut Track trick**: when editing a nested sub-sequence without a camera, add a Camera Cut Track pointing to the parent camera → enables quick camera view toggle inside the sub-sequence
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+`Buffer Curves` (Curve Editor right-click) → save/restore curve state for A/B comparison; Swap Buffer toggles
+`Smart Snap` (Curve Editor toolbar) → intelligent key snapping to frames/handles/intersections
+`Camera Cut Track` in sub-sequence → enables camera view access when navigating nested sequences
+`Curve Editor` → accessible via bottom panel in Animation Mode
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+animation, sequencer, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/ue5-curve-editor-20-new-lattice-tool-curve-scaling-hacks-ue-56.md` — Lattice Tool and curve scaling
+- `references/sequencer-cinematics.md` — Sequencer sub-sequence workflow

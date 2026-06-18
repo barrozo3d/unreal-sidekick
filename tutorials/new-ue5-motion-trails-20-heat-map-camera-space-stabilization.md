@@ -1,12 +1,12 @@
----
+﻿---
 title: NEW UE5 Motion Trails 2.0: Heat Map & Camera Space Stabilization
 source: YouTube
 url: https://www.youtube.com/watch?v=erHPJ8eoXyY
 author: Unreal Engine
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.6"
+tags: ["animation", "sequencer", "intermediate"]
+extraction_status: complete
 frames_dir: tutorials/frames/new-ue5-motion-trails-20-heat-map-camera-space-stabilization/
 frame_count: 4
 ---
@@ -33,27 +33,37 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Motion Trails 2.0 (introduced UE 5.6) — Heat Map visualization and Camera Space Stabilization modes for evaluating animation arc quality and viewport stability.
 
 ### Summary
-[PENDING EXTRACTION]
+Official UE tutorial on the new Motion Trails system added in 5.6. Covers the Heat Map mode which color-codes trail speed (useful for spotting pops/holds), and Camera Space Stabilization which keeps trails relative to the camera for cleaner arc evaluation even on moving cameras. Part of the ACOM Animation Sample project tutorial series.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. With a character/control selected in Sequencer, open **Motion Trails**: `Viewport → Show → Advanced → Motion Trails`
+2. Select the controls to visualize (IK hands, feet, head) and enable Motion Trails for them
+3. Switch to **Heat Map mode** in the Motion Trails settings panel — trail colors indicate speed (cool = slow, hot = fast)
+4. Use Heat Map to spot timing issues: sudden color jumps = pops; extended cool regions = unintended holds
+5. Enable **Camera Space Stabilization** — trails are now evaluated relative to the active camera rather than world space
+6. Camera Space mode makes arc evaluation meaningful even on camera-moving shots
+7. Adjust keyframes based on Heat Map feedback; re-evaluate trail to verify fix
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+`Motion Trails` (Viewport Show flags) → visualize bone/control arcs over time
+`Heat Map Mode` → color-codes trail by velocity; cold=slow, hot=fast; use to spot pops/holds
+`Camera Space Stabilization` → evaluates trails relative to camera (5.6+), improves arc review on moving shots
+`ACOM Animation Sample Project` (Fab) → reference project for this tutorial series
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.6
 
 ### Tags
-[PENDING EXTRACTION]
+animation, sequencer, intermediate, ue5-6
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `references/control-rig-animation.md` — Control Rig animation tools
+- `references/sequencer-cinematics.md` — Sequencer workflow

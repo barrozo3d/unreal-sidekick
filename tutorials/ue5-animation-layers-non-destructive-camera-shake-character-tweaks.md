@@ -1,12 +1,12 @@
----
+﻿---
 title: UE5 Animation Layers: Non-Destructive Camera Shake & Character Tweaks
 source: YouTube
 url: https://www.youtube.com/watch?v=NDrc3ap2ZAA
 author: Unreal Engine
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: ["animation", "sequencer", "cinematics", "camera", "intermediate"]
+extraction_status: complete
 frames_dir: tutorials/frames/ue5-animation-layers-non-destructive-camera-shake-character-tweaks/
 frame_count: 4
 ---
@@ -33,27 +33,40 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Sequencer Animation Layers — adding non-destructive additive animation tracks on top of existing character or camera rig animation without altering the base performance.
 
 ### Summary
-[PENDING EXTRACTION]
+Covers UE5's Animation Layers in Sequencer for both characters and camera rigs. Demonstrates adding a camera shake layer on top of a Control Rig camera animation without touching the original keyframe data — layers blend additively and can be weighted/muted independently. Same workflow applies to characters for secondary motion, LOD adjustments, and micro-corrections.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. In Sequencer, find the character or camera Control Rig sub-sequence
+2. Click **+ Track → Animation Layer** to add a new layer above the base animation
+3. The new layer is empty and additive by default — it adds on top without replacing
+4. Animate the layer's controls (e.g. camera position jitter, shoulder sway)
+5. Adjust the **Layer Weight** in the track header (0 = off, 1 = full)
+6. Key the Layer Weight to fade layers in/out per shot
+7. **Camera Shake** use case: add a camera layer → animate small random translation/rotation offsets → result blends with the main camera move
+8. **Character micro-correction** use case: add a layer → fix a specific joint overlap without re-animating the full performance
+9. Layers can be muted/soloed in the track header for comparison
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+`Animation Layer Track` (Sequencer) → additive non-destructive animation on top of base sequence
+`Layer Weight` → 0–1 keyable blend; mute/solo in track header
+`Camera Rig` in Sequencer → skeletal mesh camera rig with its own Control Rig + animation layer
+Works on both character Control Rig and camera rig sub-sequences
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+animation, sequencer, cinematics, camera, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `references/sequencer-cinematics.md` — Sequencer track types
+- `references/control-rig-animation.md` — Control Rig additive layers
+- `tutorials/non-destructive-animation-in-ue5-layered-control-rigs-explained.md` — layered control rigs

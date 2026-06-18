@@ -1,12 +1,12 @@
----
+﻿---
 title: MetaHuman Realtime Animator Best Practices | Unreal Engine Animation Hub
 source: YouTube
 url: https://www.youtube.com/watch?v=PgzSGQnWVcU
 author: Unreal Engine
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: ["metahuman", "animation", "mocap", "intermediate"]
+extraction_status: complete
 frames_dir: tutorials/frames/metahuman-realtime-animator-best-practices-unreal-engine-animation-hub/
 frame_count: 4
 ---
@@ -33,27 +33,43 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Webcam-based MetaHuman Animator facial capture — setting up a USB webcam via Live Link for real-time performance capture with best practices for frame rate, resolution, and environment.
 
 ### Summary
-[PENDING EXTRACTION]
+Practical best practices for using MetaHuman Animator with a webcam source via Live Link. Covers enabling the MetaHuman Live Link plugin, configuring the source (`Add Source → MetaHuman Video`), optimal camera settings (720p/90fps preferred over 1080p/60fps for facial capture quality), lighting environment requirements, and recording workflow. Uses a Logitech Brio as the test camera.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Enable plugins: `Edit → Plugins → MetaHuman Live Link` (+ Face AR Streaming, Live Link)
+2. Open **Live Link** window (`Window → Live Link`)
+3. `Add Source → MetaHuman Video` → select your webcam from the device list
+4. Set camera resolution: **720p @ 90fps** preferred over 1080p @ 60fps (better fine facial motion fidelity)
+5. Position webcam at eye level, ~50–60cm from face; even frontal lighting with no harsh shadows
+6. In the Sequencer MetaHuman track: `Add → Live Link Control Rig → Live Link Face` (or ARKit)
+7. Preview the live capture in the MetaHuman face; adjust `Strength` per blend shape as needed
+8. Hit **Record** in Live Link Sequencer integration to bake the performance to an Animation Sequence
+9. Review and clean up the captured curves in the Curve Editor
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+`MetaHuman Live Link Plugin` → enables webcam/iPhone face capture via Live Link
+`Live Link Window → Add Source → MetaHuman Video` → webcam source setup
+Optimal settings: 720p @ 90fps (Logitech Brio or equivalent USB webcam)
+`Live Link Face Track` (Sequencer) → real-time MetaHuman face control from Live Link stream
+`Record` in Live Link Recorder → bakes to Animation Sequence
+Lighting: even, frontal; avoid harsh shadows or backlight for accurate blend shape detection
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+metahuman, animation, mocap, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `references/metahuman-reference.md` — MetaHuman setup and animation methods
+- `tutorials/metahumans-for-mocap-unreal-engine-animation-hub.md` — CaptureCharacter setup for Mocap Manager
+- `tutorials/live-link-hub-tips-unreal-engine-animation-hub.md` — Live Link Hub multi-source management
+- `references/lip-sync.md` — audio-driven facial animation

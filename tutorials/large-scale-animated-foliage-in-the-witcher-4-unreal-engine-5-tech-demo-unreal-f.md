@@ -1,12 +1,12 @@
----
+﻿---
 title: Large Scale Animated Foliage in The Witcher 4 Unreal Engine 5 Tech Demo | Unreal Fest Stockholm 2025
 source: YouTube
 url: https://www.youtube.com/watch?v=EdNkm0ezP0o
 author: Unreal Engine
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.7"
+tags: ["nanite", "pcg", "rendering", "pipeline", "advanced", "ue5-7"]
+extraction_status: complete
 frames_dir: tutorials/frames/large-scale-animated-foliage-in-the-witcher-4-unreal-engine-5-tech-demo-unreal-f/
 frame_count: 4
 ---
@@ -33,27 +33,40 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Large-scale animated foliage techniques from the Witcher 4 UE5 tech demo — vertex animation shaders, Nanite foliage with wind, PCG procedural placement, and performance optimization for console (PS5 @ 60fps).
 
 ### Summary
-[PENDING EXTRACTION]
+Unreal Fest Stockholm 2025 talk by Kevin (Epic) with CD Projekt's Tyce and Vignesh on the Witcher 4 UE5 tech demo foliage pipeline. Covers early experiments, the final solution combining Nanite foliage with a custom vertex animation shader for wind, PCG procedural placement of dense vegetation, and the engine features shipped in UE 5.7 as a result of this collaboration. Running at PS5 60fps with full Lumen/Nanite/TSR.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Nanite Foliage**: enable Nanite on Static Mesh foliage assets for unlimited polygon count without impostor LODs
+2. **Wind animation with Nanite**: use **World Position Offset (WPO)** material with vertex animation shader — Nanite now supports WPO deformation (enabled per-asset, has performance cost)
+3. **PCG placement**: use PCG Graph to scatter foliage based on terrain masks, slope, biome rules — replace manual painting
+4. Set PCG density parameters driven by distance from camera for streaming LOD behavior
+5. **Foliage physics blending**: blend between physics simulation (near) and vertex animation (far) using distance fade
+6. **Wind direction system**: global wind parameter collection drives all foliage WPO shaders from one central control
+7. Performance: profile `Stat GPU` → vegetation WPO cost; tune WPO `Maximum World Position Offset Displacement` per foliage type
+8. Shipped UE 5.7 feature: Nanite WPO improvements specifically from this demo
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+`Nanite → Enable WPO` (per Static Mesh) → Nanite-compatible vertex animation for wind deformation
+`World Position Offset (WPO)` material → drives wind sway; controlled by global wind parameter collection
+`PCG Graph` → procedural placement of foliage using terrain masks, slope, biome rules
+`Stat GPU` → profile WPO vertex animation performance cost
+`MPC_Wind` (Material Parameter Collection) → centralized wind direction/speed for all foliage shaders
+New in UE 5.7: Nanite WPO enhancements from Witcher 4 collaboration
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.7
 
 ### Tags
-[PENDING EXTRACTION]
+nanite, pcg, rendering, pipeline, advanced, ue5-7
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `references/rendering-pipeline.md` — Nanite and Lumen reference
+- `references/materials-shaders.md` — WPO material expressions

@@ -1,12 +1,12 @@
----
+﻿---
 title: Everything You Wanted to Know About Substrate(But Are Too Afraid to Ask)| Unreal Fest Stockholm 2025
 source: YouTube
 url: https://www.youtube.com/watch?v=SqPaL8HS_Lw
 author: Unreal Engine
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.7"
+tags: ["materials", "shaders", "substrate", "rendering", "advanced"]
+extraction_status: complete
 frames_dir: tutorials/frames/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe/
 frame_count: 4
 ---
@@ -33,27 +33,43 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Deep-dive Substrate system talk (Unreal Fest Stockholm 2025) — architecture, GBuffer formats, layering system, path tracing support, migration from legacy shading models, and practical usage patterns for games, linear, and CG-viz.
 
 ### Summary
-[PENDING EXTRACTION]
+43-minute technical session by Nathaniel Morgan (Principal Technical Artist, Epic) covering everything about Substrate: why it replaces the legacy shading model system, the Slab node architecture, two GBuffer memory formats (8-byte performance vs. 16-byte fidelity), material layering via the operator stack, Substrate's path tracing integration, and migration guides. Production-ready as of UE 5.7 and enabled by default.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Substrate enabled by default in 5.7 — check `Project Settings → Rendering → Substrate → Enable Substrate`
+2. Choose **GBuffer Format**: `Substrate 8-Byte` (performance; mobile/console) or `Substrate 16-Byte` (fidelity; PC/linear)
+3. Core unit: **Substrate Slab** node → configure F0, F90, Roughness, Diffuse Albedo, Normal
+4. Add optional **Fuzz Layer** for cloth/velvet; **Glint** for car paint sparkle; **SSS** for skin
+5. Use **Substrate Layer Blend** nodes to stack multiple Slab nodes (by weight or mask)
+6. **Thin Film Interference** node → iridescent surfaces (soap bubbles, oil slicks, beetle wings)
+7. Legacy material output nodes (`DefaultLit`, `Unlit`, etc.) auto-migrate — existing materials should work
+8. Substrate materials work in both rasterization and **Path Tracing** without any special nodes
+9. For advanced SSS (subsurface scattering) skin: use the `Subsurface` Slab parameter instead of the legacy SSS shading model
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+`Substrate Slab` node → physically-accurate surface primitive (F0, F90, Roughness, Albedo, Normal, Fuzz, Glint, SSS, Anisotropy)
+`Substrate Layer Blend` → stack multiple Slabs with mask or weight
+`Thin Film Interference` node → iridescent surface effect
+`Project Settings → Rendering → Substrate → GBuffer Format` → 8-Byte (performance) or 16-Byte (fidelity)
+Path Tracing → fully compatible; no extra nodes required
+Legacy materials → auto-migrate; no manual rework for basic surfaces
+Principal engineers: Sebastian Haleir + Charles de Rousier
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.7
 
 ### Tags
-[PENDING EXTRACTION]
+materials, shaders, substrate, rendering, advanced
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/introduction-to-substrate-materials-unreal-engine-57.md` — beginner intro to Substrate
+- `references/materials-shaders.md` — full materials reference
+- `references/rendering-pipeline.md` — Path Tracing integration
