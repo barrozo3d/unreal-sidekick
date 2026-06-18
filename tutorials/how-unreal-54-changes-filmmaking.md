@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=NiOgmvMBcxk
 author: Josh Toonen
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.4"
+tags: [nanite, rendering, materials, animation, sequencer, movie-render-graph, ue5-4, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/how-unreal-54-changes-filmmaking/
 frame_count: 8
 ---
@@ -68,27 +68,35 @@ frame_count: 8
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Overview of four UE 5.4 features that transform filmmaking: Motion Design plugin (2D/3D animation with cloners and effectors), Nanite Tessellation/Displacement, one-click animation retargeting, and the new Movie Render Graph system.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen highlights the four most impactful UE 5.4 additions for filmmakers. The Motion Design plugin brings Adobe After Effects-style cloners and effectors to 3D, enabling procedural motion graphics directly in UE5. Nanite Tessellation adds real-time geometric displacement to any mesh via a simple material setting. One-click retargeting transfers any animation to any character instantly. The Movie Render Graph replaces the old linear MRQ settings with a node-based graph for flexible multi-output pipelines. Together these features significantly reduce production complexity.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Motion Design plugin**: Edit → Plugins → search "Motion Design" → Enable; restart; a Motion Design tab appears. Use the 2D and 3D text tools, import SVG logos, use the Cloner tool to instance 3D shapes, and apply Effectors for procedural animation. Material Designer lets you layer materials like Photoshop layers.
+2. **Nanite Tessellation**: Enable the Nanite Displaced Mesh plugin (Edit → Plugins); edit DefaultEngine.ini to add renderer settings (r.Nanite.Tessellation=1 under [/Script/Engine.RendererSettings]); right-click mesh → Enable Nanite; in the mesh's material, enable Tessellation in the Details panel; connect a displacement map to the Displacement input.
+3. **One-click retargeting (5.4)**: Right-click any animation asset in Content Browser → Retarget to Skeleton → select target character skeleton; UE 5.4 auto-maps bone chains and transfers immediately.
+4. **Movie Render Graph**: In MRQ, click the arrow next to the render settings → Replace with Graph; in the graph editor, left panel has Outputs+ (add EXR, PNG, etc.) and Variables for reusable parameters; connect nodes to build custom multi-output pipelines.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Motion Design plugin**: Enable in Plugins; Motion Design tab; Cloner tool (instances meshes in patterns); Effector tool (drives position/rotation/scale procedurally); Material Designer (layer-based material authoring)
+- **Nanite Tessellation**: Plugin: "Nanite Displaced Mesh"; DefaultEngine.ini → [/Script/Engine.RendererSettings] → r.Nanite.Tessellation=1; mesh → Enable Nanite; material → Tessellation enabled; Displacement input connected
+- **One-click retarget (5.4)**: Right-click animation → Retarget Animation Assets → Duplicate and Retarget → select target skeleton; bone chains auto-mapped
+- **Movie Render Graph**: MRQ settings → Replace with Graph; Outputs+ node for multiple format outputs; Variables for reusable parameters; graph-based pipeline configuration
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.4
 
 ### Tags
-[PENDING EXTRACTION]
+nanite, rendering, materials, animation, sequencer, movie-render-graph, ue5-4, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unreal-engine-masterclass-animate-environments-the-easy-way]] — MRQ TSR settings and camera shake fix
+- [[how-i-remade-dune-in-24-hours-using-vfx]] — Nanite in production for environment detailing
+- [[motion-capture-isnt-just-for-hollywood-any-more]] — retargeting workflow context for the 5.4 one-click feature

@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=VIY1fzRahJY
 author: Josh Toonen
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [rendering, lumen, post-process, camera, lighting, materials, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/how-ue5-created-the-most-realistic-game-ever---unrecord-trailer-breakdown/
 frame_count: 7
 ---
@@ -63,27 +63,39 @@ frame_count: 7
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Technical breakdown of the Unrecord gameplay trailer's photorealism techniques: fisheye post-process material, auto exposure dynamic range simulation, Unreal Remote iPhone tracking for handheld camera roll, IES light profiles for flashlight realism, Lumen reflections on puddles, and photogrammetry ground rubble.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen analyzes the Unrecord body-cam shooter trailer — which went viral for looking indistinguishable from real footage — breaking down exactly which UE5 tools create each realism element. Viewers learn that fisheye lens distortion requires a custom post-process material, that auto exposure in UE5 simulates real camera sensor clipping, that camera roll (not typical in games) comes from the Unreal Remote iPhone app, and that IES light profiles produce the uneven, ring-pattern flashlight realism. Lumen handles puddle reflections while photogrammetry assets ground the geometry. The breakdown serves as a checklist for adding camera-realism to any UE5 scene.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Fisheye lens distortion**: Create a new Material; set Material Domain = Post Process; build a UV distortion node graph for fisheye effect (radial warp); assign in Post Process Volume → Post Process Materials array.
+2. **Auto exposure dynamic range**: Use the default UE5 auto exposure (Min/Max Brightness in PPV); when the character moves from bright outdoor areas to dark interiors, the camera will clip — this mimics a real camera's limited dynamic range and reads as authentic.
+3. **Camera roll for body cam**: Use the Unreal Remote app (free on iPhone); app feeds live tracking data (including Z rotation = roll) to UE5 as camera animation; adds organic non-centered hand position and random roll.
+4. **IES light profile flashlight**: Add a Spot Light; in Details → Light → IES Texture → import a real flashlight IES profile (downloadable from manufacturer websites); the IES profile shapes the light into an uneven cone with rings, matching real flashlight optics.
+5. **Lumen reflections**: Low-roughness surfaces (puddles, wet ground — Roughness < 0.1) show clear Lumen reflections; high-roughness surfaces (brick, concrete, dust — Roughness 0.7+) show almost no reflection. This contrast is critical for visual realism.
+6. **Photogrammetry rubble**: Ground rubble assets are photogrammetry scans (not Quixel procedural); high-density photogrammetry provides resolution and detail that PBR tiling cannot match at close range.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Fisheye post-process material**: Material Domain = Post Process; UV distortion graph with radial warp; assigned in PPV → Post Process Materials
+- **Auto Exposure**: Post Process Volume → Lens → Exposure → Min Brightness / Max Brightness; default auto exposure simulates camera sensor dynamic range; intentional over/under-exposure = realism
+- **Unreal Remote app**: Free iPhone app; connects to UE5 via WiFi; provides 6DOF tracking data as camera animation input
+- **IES Texture**: Spot Light Details → Light Profile → IES Texture; import manufacturer IES files; creates uneven, physically-accurate light distribution pattern
+- **Lumen**: Default in UE5; handles real-time reflections; quality on low-roughness surfaces (puddles); matte on high-roughness surfaces (dust/concrete)
+- **Photogrammetry assets**: Third-party scanned assets (not Quixel kits); higher polygon count and texture resolution for ground-level closeup detail
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x
 
 ### Tags
-[PENDING EXTRACTION]
+rendering, lumen, post-process, camera, lighting, materials, beginner
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unreal-5-secrets-every-filmmaker-must-know]] — post-process lens imperfections (chromatic aberration, lens diffusion, vignette)
+- [[the-fastest-way-to-learn-lighting-in-ue5]] — IES profiles mentioned as part of practical light motivation
+- [[how-to-actually-improve-your-films-vfx-dune-in-unreal-5]] — invisible lights and reflective materials for nighttime scenes

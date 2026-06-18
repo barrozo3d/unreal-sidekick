@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=N4hq0WUaPmk
 author: Josh Toonen
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [cinematics, rendering, post-process, lighting, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/how-i-remade-the-backrooms-using-vfx/
 frame_count: 6
 ---
@@ -58,27 +58,40 @@ frame_count: 6
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Building a found-footage horror short film set using the Backrooms aesthetic in UE5, combining environment modeling with Take Recorder gameplay capture and a custom VHS post-process material for real-time preview.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen shows how he recreated the Backrooms viral horror aesthetic entirely inside Unreal Engine 5 using free tools. Viewers learn to capture gameplay footage with Take Recorder, build a believable liminal-space environment in Modeling Mode, and apply volumetric fog plus a VHS post-process material for the signature degraded-camera look. The end result is a polished found-footage short film created without any traditional animation workflow.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Start a Third Person template project (Ctrl+Space to open Content Browser, Add → Feature or Content Pack → Third Person).
+2. Open Take Recorder (Windows → Cinematics → Take Recorder) and record your character's gameplay walk-through for raw animation data.
+3. Switch to Modeling Mode (toolbar selector) to build the environment — use PolyModel tools to extrude and modify geometry for corridors and rooms.
+4. Add an Exponential Height Fog actor (Quick Add → Visual Effects → Exponential Height Fog); enable Volumetric Fog; set Fog Density to 0.1 for a thin, liminal haze.
+5. Add a Post Process Volume; set it to Infinite Extent (Unbound); apply a custom VHS effect post-process material in the Post Process Materials array for the degraded-camera look.
+6. Use the recorded Take animation in a Level Sequence (right-click → Cinematics → Level Sequence) and add a Camera Cut track with a Cine Camera actor.
+7. Render via Movie Render Queue (MRQ) enabling Apple ProRes if needed.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Take Recorder**: Windows → Cinematics → Take Recorder; records gameplay as Sequencer animation
+- **Exponential Height Fog**: Volumetric Fog = true; Fog Density = 0.1; Start Distance controls where fog begins
+- **Post Process Volume**: Infinite Extent (Unbound) = true; Post Process Materials array = VHS effect material; Bloom enabled; Chromatic Aberration enabled
+- **Modeling Mode**: PolyModel tools for corridor geometry creation
+- **Level Sequence**: 24 fps; Camera Cut track; animation track from Take Recorder output
+- **Content Browser shortcut**: Ctrl+Space to open
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x
 
 ### Tags
-[PENDING EXTRACTION]
+cinematics, rendering, post-process, lighting, beginner
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[how-to-make-blade-runner-in-unreal-5-step-by-step]] — companion beginner project using same Third Person template + fog + post process workflow
+- [[unreal-5-secrets-every-filmmaker-must-know]] — chromatic aberration and lens diffusion best practices for post-process materials
+- [[master-cinematic-fog-volumetric-god-rays-in-ue5]] — deep dive on Exponential Height Fog and volumetric systems

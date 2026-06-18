@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=OLwLqjBtSKk
 author: Josh Toonen
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [animation, control-rig, rigging, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-5-animation-made-easy-free-download/
 frame_count: 2
 ---
@@ -33,27 +33,32 @@ frame_count: 2
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Short promotional overview of the OneClick Control Rig plugin for UE5, demonstrating how any character can be auto-rigged from Mixamo and animated in Sequencer with a free downloadable project file.
 
 ### Summary
-[PENDING EXTRACTION]
+This brief (3-minute) video is a promotional companion to the full OneClick Control Rig tutorial, showing the end result of the workflow with a free project file download. Viewers see a finished animated sequence created with the OneClick Control Rig pipeline and are directed to download the starter project. Minimal new technical content beyond what is covered in the full tutorial.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Download the free project file linked in the video description.
+2. Open the project in UE5 to see a working example of the OneClick Control Rig pipeline.
+3. Study the Sequencer setup: character with Mixamo animations baked to Control Rig, motion-blended clips, and camera animation.
+4. Use this as a starting template for your own character animation projects.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **OneClick Control Rig plugin**: Pre-configured in the downloadable project; character already auto-rigged
+- **Sequencer**: Animation tracks with motion-blended Mixamo clips; camera cut track included
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x
 
 ### Tags
-[PENDING EXTRACTION]
+animation, control-rig, rigging, beginner
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[this-free-plugin-changes-filmmaking-forever-unreal-5]] — full tutorial this video promotes; covers complete Blender → Mixamo → UE5 pipeline
+- [[how-to-animate-spider-man-in-unreal-engine-5-for-beginners]] — deeper Control Rig editing: additive tracks and Pose Library

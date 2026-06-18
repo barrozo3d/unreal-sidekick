@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=HU7qHi6bn9A
 author: Josh Toonen
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [sequencer, cinematics, camera, animation, pipeline, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-5-hotkeys-every-filmmaker-must-use/
 frame_count: 14
 ---
@@ -98,27 +98,42 @@ frame_count: 14
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Comprehensive reference of 20+ Sequencer hotkeys and workflow patterns for UE5 filmmakers: playback controls, camera management, actor grouping, additive tracks, time dilation, spawnable vs possessable cameras, and the stage actor pattern.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen systematically covers the essential Sequencer hotkeys and workflow patterns that professional UE5 filmmakers use daily, demonstrating each with practical context. Viewers learn playback shortcuts, camera piloting, the stage actor pattern for organizing characters and cameras under a shared parent, additive animation offsets, the Time Dilation track for bullet-time effects, and how to create custom hotkeys. By the end, viewers have a complete reference for efficient Sequencer filmmaking without constant menu-hunting.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Playback**: D = snap to frame, J = reverse, K = pause, L = play/fast forward.
+2. **Actor management**: Ctrl+A = add all selected actors to Sequencer; stage actor pattern = create empty actor, parent characters and cameras to it for consistent relative positioning.
+3. **Camera hotkeys**: Shift+P = pilot camera; Shift+C = view through camera cut; create custom hotkey Ctrl+Shift+Alt+C for "Create Camera Here" (Edit → Editor Preferences → Keyboard Shortcuts).
+4. **Spawnable vs Possessable cameras**: Right-click camera track → Convert to Spawnable (spawned per-sequence, self-contained for sharing) or Convert to Possessable (references existing world actor).
+5. **Animation workflow**: Auto-keyframe icon (red dot) to enable; Ctrl+F = search Sequencer; Ctrl+G = group selected; V = hide/collapse track; Shift+V = expand all tracks.
+6. **Additive tracks**: FK Control Rig vs IK Control Rig layer; additive tracks for quick pose offsets without disturbing base animation; Ctrl+M = transform keyframes menu (scale, shift timing).
+7. **Time Dilation track**: Sequencer → World → Add Track → Time Dilation; keyframe dilation value (0.1 = slow motion, 2.0 = 2× speed); affects entire scene globally.
+8. **Preview render without MRQ**: Add a Level Sequence actor to the scene → press Play to preview; faster iteration loop than MRQ.
+9. **Skeletal mesh component material parameters**: In Sequencer, expand character track → Add Skeletal Mesh Component track → Add Material Parameter track for animating material properties.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Hotkeys**: D=snap frame; J=reverse; K=pause; L=play; Ctrl+A=add actor; Shift+P=pilot; Shift+C=camera cut; V=collapse; Shift+V=expand all; Ctrl+F=search; Ctrl+G=group; Ctrl+M=transform keys
+- **Stage actor pattern**: Empty Actor as root; characters + cameras parented under it; move root to reposition entire shot
+- **Spawnable camera**: Right-click camera track → Convert to Spawnable; camera lives in the sequence file, not the world
+- **Time Dilation track**: Sequencer → + Track → World Settings → Time Dilation; value < 1 = slow motion; value > 1 = speed up
+- **Custom hotkey**: Edit → Editor Preferences → Keyboard Shortcuts → search action → assign key combination
+- **Preview render**: Add Level Sequence asset as actor in scene → press Play in editor
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x
 
 ### Tags
-[PENDING EXTRACTION]
+sequencer, cinematics, camera, animation, pipeline, beginner
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[motion-capture-isnt-just-for-hollywood-any-more]] — MRQ and Sequencer camera workflow
+- [[how-to-animate-spider-man-in-unreal-engine-5-for-beginners]] — additive tracks and animation workflow in Sequencer
+- [[how-to-make-a-samurai-film-in-unreal-5]] — stage actor pattern in production use

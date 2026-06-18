@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=Qun6BB6Q2tg
 author: Josh Toonen
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [lighting, cinematics, camera, sequencer, vfx, compositing, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-actually-improve-your-films-vfx-dune-in-unreal-5/
 frame_count: 9
 ---
@@ -73,27 +73,37 @@ frame_count: 9
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Three cinematic shortcuts to elevate UE5 VFX quality: backlighting key lights for contrast and lens flares, invisible lights with low-roughness materials for nighttime reflections, adding Sequencer camera shake noise tracks, and compositing real lens flares in post.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen shares three practical shortcuts for improving VFX quality demonstrated through a Dune cinematic recreation. Viewers learn that placing the key light behind actors (rather than in front) creates separation, drama, and organic lens flares. Invisible point lights combined with low-roughness materials create believable nighttime reflections from otherwise unlit surfaces. Sequencer's camera shake noise tracks add cinematic instability, and real-world lens flare footage composited in post adds the final touch of photoreal authenticity.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Backlight key placement**: Position your key/sun light behind the actors (cross the 180-degree line), pointing toward the camera — this creates strong rim/separation lighting and generates natural-looking lens flares in the Cine Camera.
+2. **Invisible lights for reflections**: Add Point Lights in the scene with Visibility = hidden in game; reduce the material roughness of reflective surfaces (ground, windows) below 0.15 to catch the invisible light; this creates realistic glowing reflections at night without visible practical light sources.
+3. **Camera must move**: In Sequencer, add a Translation Noise track and a Rotation Noise track to the Cine Camera actor; set small amplitudes (0.5–2.0 for translation, 0.2–1.0 for rotation) to simulate handheld cinematography.
+4. **Explosion from image sequences**: Import explosion PNG sequences as a Flipbook or Texture 2D Array; apply to a card mesh with a Depth Fade material node so the explosion blends into the ground naturally.
+5. **Compositing lens flares**: Record or purchase real lens flare footage; composite over the final render using Merge Plus (additive) in Nuke or After Effects.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Backlight key**: Directional Light or Spot Light positioned behind actors; Source Angle = small for crisp backlight; Lens Flare = enabled on Cine Camera
+- **Invisible lights**: Point Light; Visible = false (hidden in game); Cast Shadows = false; target material Roughness below 0.15
+- **Camera shake in Sequencer**: Cine Camera actor → Add Track → Transform → Translation Noise; Rotation Noise; Amplitude: Translation = 0.5–2.0, Rotation = 0.2–1.0
+- **Explosion image sequence**: PNG frames → Texture 2D Array or Flipbook; Depth Fade node in material (Fade Distance = 1000) for ground blend
+- **Animated explosion light**: Point Light keyframed intensity 0 → 50000 → 0 over explosion duration; parented near explosion card
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, cinematics, camera, sequencer, vfx, compositing, beginner
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[the-fastest-way-to-learn-lighting-in-ue5]] — lighting framework and key light direction theory
+- [[the-1-skill-you-need-for-lighting-in-ue5]] — upstage lighting and backlight motivation
+- [[give-me-14-minutes-and-youll-make-cinematic-renders]] — animated lights with Perlin noise intensity

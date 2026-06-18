@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=56RMmZlDVw4
 author: Josh Toonen
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [cinematics, pipeline, rendering, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/the-future-of-filmmaking-in-unreal-5-virtual-production/
 frame_count: 4
 ---
@@ -33,27 +33,36 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Overview of virtual production on LED volumes using Unreal Engine 5, covering how real-time rendering on physical LED walls replaces green screen for immersive in-camera VFX, demonstrated through a horror short film production.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen provides an overview of LED volume virtual production, explaining how UE5's real-time rendering drives physical LED wall stages where actors perform in front of an interactive, real-light-emitting environment. Viewers learn the fundamental concept of in-camera VFX (ICVFX), how the LED wall replaces green screen and adds practical interactive lighting on actors, and the implications for small indie filmmakers who might access VP stages. Content is conceptual and inspirational with limited technical depth.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Understand LED volume concept: UE5 renders the environment in real time onto a curved LED wall; actors perform in front of the wall; cameras capture both actor and environment in-camera.
+2. The LED wall emits real colored light onto actors — interactive lighting that matches the virtual environment without additional practical lights.
+3. UE5 nDisplay plugin drives the LED wall rendering: manages frustum tracking (inner frustum = what the camera sees; outer frustum = rest of the LED wall for fill light).
+4. Camera tracking data (from optical or mechanical tracking systems) feeds into UE5 nDisplay to correct the perspective of the inner frustum in real time.
+5. For indie access: seek VP stage rental facilities that offer day rates, or look for VP education programs at film schools.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **nDisplay plugin**: Drives LED volume rendering; manages inner/outer frustum; requires camera tracking input
+- **Inner frustum**: Region of LED wall rendered with correct perspective for the tracked camera
+- **Outer frustum**: Surrounding LED wall area rendered for ambient fill light onto set
+- **Camera tracking**: Mechanical or optical tracking system feeds position/rotation to UE5 nDisplay for perspective correction
+- **Interactive lighting**: LED wall light output replaces traditional practical lights; actors receive colored interactive illumination from the virtual environment
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x
 
 ### Tags
-[PENDING EXTRACTION]
+cinematics, pipeline, rendering, beginner
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[how-this-unreal-engine-5-film-won-an-oscar]] — UE5 as a complete film production platform
+- [[how-ue5-created-the-most-realistic-game-ever---unrecord-trailer-breakdown]] — real-time rendering capabilities that enable VP quality

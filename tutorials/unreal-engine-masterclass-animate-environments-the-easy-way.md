@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=4-_mXW1Vwuo
 author: Josh Toonen
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [cinematics, animation, niagara, sequencer, mrq, tsr, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-masterclass-animate-environments-the-easy-way/
 frame_count: 10
 ---
@@ -78,27 +78,41 @@ frame_count: 10
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Eight environment animation techniques for static UE5 scenes: empty actor ship animation, character retargeting via Mixamo, Ultra Dynamic Sky cloud movement, Niagara sprite sheet smoke, bird flock particles, Niagara user parameters for modular control, Blueprint camera shake with MRQ compensation, and TSR anti-aliasing render settings.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen delivers eight practical techniques to add life and movement to any UE5 environment scene for filmmaking. Starting from a completely static scene, viewers learn to animate hard-surface ships via empty actor parents, retarget characters through the Blender→Mixamo pipeline, animate clouds with Ultra Dynamic Sky's simulation system, build Niagara smoke using sprite sheets for performance-friendly particles, expose Niagara user parameters for scene-wide modular control, create a Blueprint camera shake class, and configure MRQ with TSR anti-aliasing while compensating for the camera shake temporal sampling problem.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Animate ships**: Select ship meshes → change to Movable → create Empty Actor parent → parent all ship sub-meshes → add Transform track in Sequencer → keyframe position/rotation for flight path.
+2. **Character retargeting**: Export character FBX from UE5 → import to Blender → remove rig (select armature → X → Delete) → upload to Mixamo → auto-rig → import back to UE5 as new Skeletal Mesh → use IK Retargeter to transfer animations OR use Mixamo rig directly.
+3. **Ultra Dynamic Sky clouds**: Set Cloud Movement Speed = 1; set Randomize Cloud Formation on Start = false (so render always starts from the same cloud position); use right-click → K shortcut to keep simulation state changes.
+4. **Niagara sprite sheets**: In a Niagara sprite emitter, add Sub-Image UV module; set a 4×4 grid (16 images total); particles randomly pick one image per spawn for visual variety with a single texture.
+5. **Niagara user parameters**: Niagara System editor → User Parameters section → + float variable (name: "Lifetime"); in Initialize Particle module, link Lifetime = User.Lifetime; set default = 16; in scene instances, the Lifetime override appears in Details panel.
+6. **Blueprint camera shake**: Content Browser → New Blueprint Class → Default Camera Shake Base → name it VP_Camera_Shake_Medium; open → Perlin Noise Camera Shake Pattern → configure Location (X/Y/Z amplitude, frequency) and Rotation settings.
+7. **MRQ TSR anti-aliasing**: MRQ settings → Anti-Aliasing → Method = Temporal Super Resolution; Temporal Sample Count = 8–16; camera shake fix: in the Blueprint Camera Shake class, increase Camera Shake Update Interval to compensate for faster temporal sampling.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Empty Actor animation**: Create Empty Actor; parent sub-meshes; set all to Movable; Sequencer Transform track; keyframe position/rotation for movement
+- **IK Retargeter**: For character retargeting; source = Mixamo skeleton, target = existing custom skeleton
+- **Ultra Dynamic Sky**: Cloud Movement = 1; Randomize Cloud Formation on Start = false; press K (right-click → Keep Simulation Changes) to persist cloud position after Stop
+- **Niagara Sub-Image UV**: Module in Sprite Renderer or Particle Spawn; Grid X = 4, Grid Y = 4; Random Row = true for variety
+- **Niagara User Parameters**: Section in Niagara editor header; + float variable; linked to any module parameter; exposed in scene instance Details panel
+- **Default Camera Shake Base Blueprint**: New Blueprint Class → DefaultCameraShakeBase; Perlin Noise Camera Shake Pattern; Location: Amplitude (X/Y/Z), Frequency; Rotation: Pitch/Yaw/Roll Amplitude, Frequency
+- **MRQ TSR settings**: Anti-Aliasing Override → Temporal Sample Count = 8–16; Camera Shake Update Interval = increase to match sample count
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x
 
 ### Tags
-[PENDING EXTRACTION]
+cinematics, animation, niagara, sequencer, mrq, tsr, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[how-to-create-cinematic-environments-in-unreal-engine-5]] — 9 environment animation techniques including cloth sim and landscape grass
+- [[create-muzzle-flash-gun-fx-for-unreal-5-cinematics]] — Niagara user parameters and system construction in detail
+- [[unreal-5-hotkeys-every-filmmaker-must-use]] — Sequencer workflow and camera management hotkeys

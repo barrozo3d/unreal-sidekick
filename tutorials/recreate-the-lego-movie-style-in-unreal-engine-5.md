@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=TufXrvN5Ei0
 author: Josh Toonen
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [lighting, rendering, cinematics, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/recreate-the-lego-movie-style-in-unreal-engine-5/
 frame_count: 10
 ---
@@ -78,27 +78,38 @@ frame_count: 10
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Recreating the LEGO Movie's distinctive lighting aesthetic in UE5 by using "hot dog" rim lighting, eliminating true black from shadows, and managing plastic surface reflections to keep character faces readable.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen breaks down the LEGO Horizon Adventures music video lighting approach, showing how the LEGO Movie's signature look relies on specific lighting rules rather than complex shaders. Viewers learn the "hot dog" technique of placing rim lights on both sides of a character, why LEGO scenes replace black shadows with colored light, and how to prevent reflective plastic surfaces from washing out facial detail. Animated lights parented to character hips and layered fog cards complete the dynamic, cinematic feel.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Apply "hot dog" lighting: place two rim lights on opposite sides of the character (left and right), both pointing inward — this wraps light around the form and eliminates flat, unlit areas.
+2. Remove all true black from the scene: shadows should be dark-colored light (deep blue, purple) rather than pure black — add a low-intensity fill light or colored ambient to shadow regions.
+3. Manage reflective LEGO surface challenge: ensure key lights do not hit the character's face directly from the camera direction — shift them to side/back positions to prevent specular wash on the face.
+4. Parent animated lights to the character's hip bone or root so they move with the character and maintain consistent lighting regardless of position in the scene.
+5. Add multiple fog card layers at different depths (translucent material planes with fog textures) to create atmospheric depth between background elements.
+6. Adjust Post Process Volume color grading to push saturation and prevent neutral gray from appearing in any shadow region.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Hot dog lighting**: Two Point/Spot Lights positioned on left and right sides of character, both facing inward; intensity balanced to wrap light around form
+- **Shadow color fill**: Low-intensity colored point light (blue/purple) in shadow regions; no pure black allowed
+- **Light parenting**: Light actor dragged onto character's skeletal mesh in Outliner, attached to hip bone, set to Movable
+- **Fog cards**: Translucent material planes with fog/smoke textures placed at varying depths; two-sided = true
+- **Post Process Volume**: Color Grading → Saturation boosted; Shadows color pushed away from neutral black
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, rendering, cinematics, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[how-i-made-this-lego-horizon-animation-in-unreal-engine-5]] — full production breakdown of the same LEGO project this lighting tutorial references
+- [[the-fastest-way-to-learn-lighting-in-ue5]] — foundational lighting framework covering direction, size, color, and intensity
+- [[the-1-skill-you-need-for-lighting-in-ue5]] — upstage lighting and light rig actor workflow

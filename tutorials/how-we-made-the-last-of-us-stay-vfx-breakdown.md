@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=_3PQ19-LMRg
 author: Josh Toonen
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [compositing, vfx, cinematics, pipeline, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/how-we-made-the-last-of-us-stay-vfx-breakdown/
 frame_count: 16
 ---
@@ -108,27 +108,43 @@ frame_count: 16
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Invisible VFX compositing for micro-budget short films — matte paintings, CGI character replacement with frame-by-frame 3D animation matching, camera tracking, particle systems, and sky/location replacement to create photorealistic post-apocalyptic environments.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen breaks down the VFX for his viral Last of Us fan film "Stay" — over 90% of shots contain visual effects, mostly invisible. Covers full-CG zombie head replacement (frame-by-frame 3D animation matching to live actor), layered matte painting for destruction and fungus, camera tracking workflow, atmospheric particle systems, sky replacement with matching light, and complete location replacement (Wisconsin coast → Santa Monica Pier). Primarily a Nuke/DaVinci Resolve/After Effects pipeline; UE5 bootcamp mentioned at end but not used in the project itself.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Plan on-set tracking**: place sufficient tracking markers on walls/surfaces before shooting — flat surfaces are nearly impossible to track without them
+2. **Camera track**: use Nuke or After Effects 3D camera solver to match on-set move for DMP placement
+3. **Matte painting**: find reference photos with matching light direction; layer cracked plaster, fungus overgrowth, destruction on top of plate
+4. **CGI character sculpt**: commission or sculpt 3D character (ZBrush); rig for compositing
+5. **Frame-by-frame animation matching**: manually animate 3D head rotation/position frame-by-frame to match live actor — no auto-solve; teeth must align perfectly
+6. **Hair and detail passes**: add CG hair passes around the CGI element to make lighting feel believable
+7. **Particle effects**: use particle system (After Effects/Nuke) to add fungus spores, dust, debris for atmosphere
+8. **Sky replacement**: composite gradient sky matching color temperature; add lens flares that interact with on-screen characters
+9. **Location replacement**: stitch multiple reference photos, match sky, add animated birds/elements to avoid still-photo look
+10. **Story-first review**: cut any effect that feels "too hyper-real" — less is more for invisible VFX
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+*Note: This breakdown uses Nuke, DaVinci Resolve, and After Effects — not Unreal Engine. Josh Toonen promotes his UE5 filmmaking bootcamp (unrealforvfx.com) in this video but UE5 was not used in "Stay."*
+
+Relevant to UE pipeline users:
+- Particle system logic (fungus/dust atmospherics) translates directly to Niagara GPU Sprite emitters in UE
+- Camera tracking principles apply when matching UE camera moves to live-action plates in Composure
+- Tracking marker placement lesson applies to Composure/lens calibration green-screen shoots
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced
 
 ### UE Version
-[PENDING EXTRACTION]
+N/A — compositing pipeline (Nuke / DaVinci Resolve / After Effects)
 
 ### Tags
-[PENDING EXTRACTION]
+compositing, vfx, cinematics, pipeline, advanced
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/INDEX.md` — see "every filmmaker should know this VFX workflow" and "How I Remade the BACKROOMS using VFX" (Josh Toonen) for complementary compositing techniques
+- `references/color-pipeline.md` — DaVinci Resolve handoff and OCIO color management
+- `recipes/cinematics-pipeline.md` — Stage 8: DaVinci composite integrates with this workflow

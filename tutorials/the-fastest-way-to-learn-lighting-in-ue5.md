@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=dT4Vl3PGe08
 author: Josh Toonen
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [lighting, hdri, rendering, cinematics, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/the-fastest-way-to-learn-lighting-in-ue5/
 frame_count: 9
 ---
@@ -73,27 +73,40 @@ frame_count: 9
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+A 4-factor lighting framework (direction, size, color, intensity) for mastering UE5 lighting: exterior vs interior setups, shadow-traced key light positioning, Source Angle vs Source Soft Angle for shadow crispness, nighttime hidden overhead light, and tracer fire from extended Point Light source length.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen presents a systematic framework for learning UE5 lighting built on four variables: direction, size, color, and intensity. Viewers learn how to choose key light direction by tracing from shadows, control shadow softness with Source Angle and Source Soft Angle settings, set up exterior vs HDRI-based interior lighting, use a hidden overhead light trick for convincing nighttime scenes, and replicate the look of tracer fire using a Point Light with extended Source Length. The framework is designed to make lighting intuitive rather than trial-and-error.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **4-factor framework**: Every lighting decision is controlled by (1) Direction, (2) Size, (3) Color, (4) Intensity — adjust one at a time to isolate effects.
+2. **Key light direction from shadows**: Study the shadow direction in reference images; trace where shadows point to find where the key light should go (opposite direction).
+3. **Exterior setup**: Add a Directional Light + Skylight + Sky Atmosphere (enable "Atmosphere Sun Light" on the Directional Light); adjust Directional Light rotation for time-of-day.
+4. **HDRI exterior alternative**: Download HDR from polyhaven.com; create a sphere mesh, flip normals (inverted sphere), apply an Unlit material with the HDRI texture; set the sphere to Movable.
+5. **Light size and shadow quality**: Directional Light → Source Angle (sharp / small sun = crisp shadows); Source Soft Angle (overcast / large sky = soft shadows); larger values = softer shadows.
+6. **Nighttime hidden overhead light**: Add a Directional Light pointing straight down with low intensity (0.1–0.5 lux); this provides a hint of top-light so characters don't disappear; use only on surfaces with Roughness below 0.2 to keep it invisible.
+7. **Tracer fire Point Light**: Add a Point Light; extend Source Length to 200–500 units to convert it from a sphere to a tube shape; this creates the elongated specular highlight of a tracer or muzzle flash effect.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Directional Light**: Source Angle (shadow crispness — sunny day = 0.5, overcast = 5.0); Source Soft Angle; Atmosphere Sun Light = true (for Sky Atmosphere integration)
+- **Sky Atmosphere**: Automatic sky color based on sun angle; requires Directional Light with Atmosphere Sun Light = true
+- **Skylight**: Captures environment for ambient fill; Real Time Capture = true in dynamic scenes
+- **HDRI sphere**: Static Mesh sphere; negative Scale X = -1 (inverted normals); Unlit material with HDRI texture; rotate to match desired light direction
+- **Hidden overhead night light**: Directional Light; Rotation = pointing straight down; Intensity = 0.1–0.5 lux; targets only low-roughness surfaces for specular catch
+- **Tracer Point Light**: Point Light; Source Length = 200–500 (converts sphere to tube); IES profile optional
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, hdri, rendering, cinematics, beginner
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[the-1-skill-you-need-for-lighting-in-ue5]] — upstage key light positioning and light rig actor
+- [[unreal-5-secrets-every-filmmaker-must-know]] — 1–3 light setups and animated shadow rigs
+- [[recreate-the-lego-movie-style-in-unreal-engine-5]] — hot dog lighting technique building on these fundamentals

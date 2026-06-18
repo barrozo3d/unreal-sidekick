@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=Cp7sWfiHcJg
 author: Josh Toonen
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [cinematics, sequencer, geometry, animation, materials, lighting, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-create-cinematic-environments-in-unreal-engine-5/
 frame_count: 10
 ---
@@ -78,27 +78,39 @@ frame_count: 10
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Nine environment animation techniques for the War of Being cinematic in UE5: 3-stage blockout workflow, cloud cards, floating rock animation via empty actor, level sub-layers in Sequencer, landscape sculpting, landscape grass, and cloth simulation on flags using Skeletal Mesh + Clothing Data.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen demonstrates nine practical techniques used in the War of Being cinematic to make a static environment feel alive in UE5. Viewers learn the professional 3-stage environment workflow (blockout cameras before detailing), cloud card materials, how to animate floating rocks via a parent empty actor with looping rotation, organize the scene with sub-levels controlled by Sequencer's Level Visibility track, sculpt landscape terrain, use landscape grass nodes for automatic foliage placement, and set up cloth simulation on flag meshes using UE5's built-in Clothing Data system — all without external plugins.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **3-stage workflow**: (1) Blockout rough geometry; (2) block camera angles in Sequencer before adding detail; (3) build only what the camera sees.
+2. **Cloud cards**: Create plane meshes with a translucent material (Blend Mode = Translucent); use a noise texture as Opacity with Two-Sided = true; set a fake fog material for atmospheric blending.
+3. **Floating rocks (looping)**: Select rock meshes, create empty actor parent, parent rocks to it; add Transform track in Sequencer; keyframe rotation at frame 0 and at sequence end (same rotation value); set Pre-Infinity and Post-Infinity = Linear for endless looping rotation.
+4. **Level sub-layers**: Create separate levels for effects, geometry, and lighting (File → New Level → Empty Level; World Settings → Persistent Level); use Sequencer Level Visibility track to toggle per-level visibility per shot.
+5. **Landscape sculpt**: Modes → Landscape → Sculpt; click to raise, Shift+click to lower; use the Smooth brush after sculpting.
+6. **Landscape grass**: In the Landscape Material, add a Landscape Grass Output node; assign a Grass Type asset with a static mesh; UE5 auto-populates the landscape with the foliage.
+7. **Cloth simulation on flags**: (a) Model the flag as a standard mesh in your DCC; (b) export as Skeletal Mesh FBX with a simple bone chain; (c) import to UE5 as Skeletal Mesh; (d) right-click in Content Browser → Create Clothing Data; (e) open the Skeletal Mesh, go to Clothing tab → Apply Clothing Data; (f) use Cloth Paint tool to paint influence: white = fully simulated, black = pinned.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Cloud card material**: Plane mesh; Blend Mode = Translucent; Opacity = noise texture; Two-Sided = true; no lighting (Unlit or Lit with emissive)
+- **Looping rotation**: Parent empty actor; Sequencer Transform track; keyframe rotation 0° at start and end; Pre/Post Infinity = Linear
+- **Level Visibility track**: Sequencer → + Track → Level Visibility; assign sub-level; keyframe visible/hidden per shot
+- **Landscape Grass**: Landscape Material → Landscape Grass Output node → assign Grass Type asset; grass density and scale set in Grass Type asset
+- **Clothing Data**: Right-click Skeletal Mesh → Create Clothing Data; Skeletal Mesh Editor → Clothing tab → Apply Clothing Data; Cloth Paint = white (simulated) / black (pinned)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x
 
 ### Tags
-[PENDING EXTRACTION]
+cinematics, sequencer, geometry, animation, materials, lighting, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[unreal-engine-masterclass-animate-environments-the-easy-way]] — 8 animation techniques including ship animation and Niagara user parameters
+- [[how-to-make-a-samurai-film-in-unreal-5]] — War of Being production context and stage actor pattern
+- [[master-cinematic-fog-volumetric-god-rays-in-ue5]] — fog and volumetric lighting to enhance environment depth

@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=7ENEextL1n8
 author: Josh Toonen
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [animation, niagara, sequencer, cinematics, camera, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/ragdoll-physics-are-insanely-easy-in-unreal-5/
 frame_count: 12
 ---
@@ -88,27 +88,38 @@ frame_count: 12
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Setting up ragdoll physics for cinematic death sequences in UE5: Physics Asset constraint tuning, Sequencer Simulate Physics keyframe, invisible expanding sphere for explosion force, Niagara system lifecycle track, and Cine Camera auto-focus tracking.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen shows how to create believable ragdoll physics for cinematic shots in UE5 without any coding. Viewers learn to configure the Physics Asset Editor's rigid bodies and angular constraints, trigger ragdoll at a precise frame via a Sequencer keyframe, drive the body's motion with an invisible expanding sphere collision, and sync a Niagara explosion effect to the physics event. Camera auto-focus tracking keeps the ragdolling character sharp throughout the shot.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Open the character's Physics Asset (double-click in Content Browser → Physics Asset Editor); review purple rigid bodies and yellow constraints.
+2. Select constraints and adjust angular limits: Swing 1 Limit, Swing 2 Limit (lateral swing range), and Twist Limit (rotation range) to match realistic body motion.
+3. In Sequencer, select the character's skeletal mesh component → Details → Physics → Simulate Physics; right-click the property and add a keyframe with Simulate Physics = false before the impact frame and = true at the impact frame.
+4. Create an invisible expanding sphere actor (scale 0 → large over a few frames using Sequencer transform track) in the explosion area to generate collision impulse that launches the ragdoll.
+5. Add a Niagara System track in Sequencer (right-click timeline → Add Track → Niagara System) and keyframe the explosion Niagara system to fire at the same frame as the Simulate Physics keyframe.
+6. Set Cine Camera Focus Method to Tracking and assign the ragdolling character as the actor to track; set Look-At Tracking interpolation value to 16 for smooth follow.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Physics Asset Editor**: Rigid bodies (purple) = collision shapes; Constraints (yellow) = joint limits; Swing 1/2 Limits = lateral range (degrees); Twist Limit = rotational range
+- **Sequencer Simulate Physics keyframe**: Select skeletal mesh component → Details → Physics → Simulate Physics; right-click property → Add Key; keyframe off before impact, on at impact
+- **Invisible sphere**: Static Mesh sphere actor; Visibility = hidden in game; scale keyframed 0 → large in Sequencer; collision set to Block All
+- **Niagara System track**: Sequencer → Add Track → Niagara System Life Cycle Track; keyframe activation at impact frame
+- **Cine Camera auto-focus**: Focus Method = Tracking; Actor to Track = ragdoll character; Interpolation = 16
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x
 
 ### Tags
-[PENDING EXTRACTION]
+animation, niagara, sequencer, cinematics, camera, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[create-muzzle-flash-gun-fx-for-unreal-5-cinematics]] — Niagara system setup and lifecycle keyframing in Sequencer
+- [[how-to-actually-improve-your-films-vfx-dune-in-unreal-5]] — explosion image sequences and animated lights
+- [[unreal-5-hotkeys-every-filmmaker-must-use]] — Sequencer workflow and camera control hotkeys

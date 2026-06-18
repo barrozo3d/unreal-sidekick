@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=jAz4Lb93gwY
 author: Josh Toonen
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [lighting, cinematics, rendering, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/the-1-skill-you-need-for-lighting-in-ue5/
 frame_count: 11
 ---
@@ -83,27 +83,41 @@ frame_count: 11
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Building a reusable light rig actor in UE5 for efficient character lighting: parenting lights to an empty actor, using temperature for warm/cool contrast, Source Radius for shadow softness, Source Length for tube lights, Rectangle Light for large soft sources, and upstage (behind-the-eye-line) lighting for cinematic Rembrandt-style character illumination.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen teaches the single most important skill for cinematic character lighting in UE5: understanding how to place light relative to the camera-character axis and building a reusable light rig actor. Viewers learn to parent multiple lights to an empty actor (the rig) so they can test directions by rotating the rig without repositioning individual lights, use color temperature for warm/cool contrast instead of just brightness, tune Source Radius for shadow softness, extend Source Length for tube light aesthetics, and apply upstage lighting (key light behind the 180-degree line, similar to Rembrandt) for dramatic cinematic character illumination.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Create a light rig actor: Quick Add → Empty Actor → name it "LightRig"; set Mobility = Movable.
+2. Add all character lights as children of the rig actor: drag each light onto the rig in the Outliner.
+3. Rotate the rig 360° to test all possible key light directions — find the angle that creates the most interesting shadow pattern on the character's face.
+4. Use Temperature rather than Color for warm/cool control: enable "Use Temperature" on the light; warm fire = 2000–2500 K; cool moonlight = 6500–9000 K.
+5. Adjust Source Radius for shadow softness: small radius (1–5) = crisp hard shadows; large radius (50–100) = soft diffuse shadows; choose based on light source size in the story.
+6. Extend Source Length to convert a Point Light into a tube light: Source Length = 50–200; affects the shape of specular highlights on shiny surfaces.
+7. Try upstage lighting: position the key light behind the actor (past the 180-degree line between camera and subject) so it creates a Rembrandt triangle on the near cheek and a strong rim on the back; this is the most cinematic single-light position.
+8. Use a Rectangle Light for large area sources (windows, bounce cards): Rectangle Width and Height control the physical size; larger = softer shadows.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Light Rig Actor**: Empty Actor; Mobility = Movable; all character lights parented; rotate rig to test directions without moving scene lights
+- **Temperature**: Enable "Use Temperature" checkbox on any light type; 2000–2500 K = warm firelight; 4000 K = natural daylight; 6500–9000 K = cool night
+- **Source Radius (Point/Spot Light)**: 1–5 = sharp shadows; 50–100 = very soft shadows; matches physical light source size
+- **Source Length (Point Light)**: Extends Point Light into a tube/capsule shape; changes specular highlight shape on reflective surfaces
+- **Rectangle Light**: Width and Height properties set physical dimensions; larger dimensions = softer shadows; good for windows and bounce panels
+- **Upstage lighting**: Key light positioned behind the 180-degree eye line (between camera look direction and character); creates Rembrandt triangle on near cheek; physically motivated by fire, window, or practical behind the subject
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, cinematics, rendering, beginner
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[the-fastest-way-to-learn-lighting-in-ue5]] — 4-factor framework for direction, size, color, intensity
+- [[unreal-5-secrets-every-filmmaker-must-know]] — 1–3 light setups and animated shadow rigs
+- [[how-to-actually-improve-your-films-vfx-dune-in-unreal-5]] — backlight key placement and invisible lights for reflections

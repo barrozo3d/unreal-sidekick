@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=LUoUVC5tXCo
 author: Josh Toonen
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [animation, control-rig, rigging, sequencer, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/this-free-plugin-changes-filmmaking-forever-unreal-5/
 frame_count: 4
 ---
@@ -48,27 +48,38 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Complete OneClick Control Rig workflow: preparing a character in Blender (remove armature), uploading to Mixamo for auto-rigging, importing back to UE5, and blending multiple animations in Sequencer using motion blend.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen introduces the OneClick Control Rig plugin as the foundational tool for UE5 filmmaking with custom characters. Viewers learn the full pipeline from preparing a 3D character in Blender (removing the existing armature and scaling to real-world height) through Mixamo's marker-based auto-rigging and back into UE5 with a fully functional Control Rig. The tutorial covers blending multiple Mixamo animations together in Sequencer using motion blend, demonstrated with a rifle kneel-to-stand transition.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. In Blender, open the character file; select the armature → X → Delete; the mesh should remain without any rig.
+2. Scale the character to real-world height using Blender's ruler tool (N panel → View → Ruler); match height to ~1.75m for average male.
+3. Multiply the export scale by 10 units before exporting FBX from Blender (export scale = 10 to match UE5's unit scale), or export as OBJ at default scale.
+4. Upload to Mixamo.com: click Upload Character → place the 7 auto-rig markers (chin, left/right wrists, left/right elbows, left/right knees, groin) → proceed to get the rigged FBX.
+5. Download the Mixamo-rigged character as FBX; also download desired animation packs (e.g., rifle pack).
+6. In UE5, import the rigged character FBX (Skeletal Mesh, create new skeleton); then install the OneClick Control Rig plugin (Edit → Plugins).
+7. In Sequencer, add the character and animation tracks; right-click animation clips to use Motion Blend → match bone = hips to seamlessly chain rifle kneel → stand → idle animations.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Blender prep**: Remove armature (select armature → X → Delete); ruler tool (N panel) for real-world height check; FBX export scale = 10
+- **Mixamo markers**: 7 points: chin, L/R wrists, L/R elbows, L/R knees, groin; Mixamo processes and returns rigged FBX
+- **OneClick Control Rig plugin**: Edit → Plugins → "OneClick Control Rig" → Enable; right-click skeletal mesh → Create OneClick Control Rig
+- **Motion blend in Sequencer**: Right-click animation clip → Motion Blend Options → Match Previous Clip → Bone = pelvis/hips
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x
 
 ### Tags
-[PENDING EXTRACTION]
+animation, control-rig, rigging, sequencer, beginner
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[how-to-animate-spider-man-in-unreal-engine-5-for-beginners]] — next-level Control Rig editing: additive tracks, Pose Library, bone attachment
+- [[unreal-5-animation-made-easy-free-download]] — short companion promo for the same OneClick Control Rig plugin
+- [[how-to-make-blade-runner-in-unreal-5-step-by-step]] — beginner pipeline that uses Mixamo rigging as a core step

@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=eOQM1Tbyw0Y
 author: Josh Toonen
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [cinematics, rendering, pipeline, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/how-this-unreal-engine-5-film-won-an-oscar/
 frame_count: 4
 ---
@@ -33,27 +33,35 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Conceptual breakdown of "Wars Over," an Oscar-winning short film made entirely in Unreal Engine 5, examining the production pipeline and creative decisions that enabled a Hollywood-quality result from a small team.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen reviews the key creative and technical decisions behind the Academy Award-winning UE5 short film "Wars Over," demonstrating that photorealistic filmmaking is achievable without a large studio. The video is primarily inspirational and conceptual rather than a step-by-step tutorial, discussing how UE5's real-time rendering eliminated traditional rendering bottlenecks. Viewers gain an understanding of what a complete UE5 film pipeline looks like at an award-winning level.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Understand the production pipeline: concept → previz in UE5 → animation → lighting → rendering — all within a single UE5 project.
+2. Leverage UE5's real-time rendering to iterate on lighting and camera angles instantly rather than waiting for offline renders.
+3. Use Lumen for global illumination and Nanite for high-detail environment geometry without manual LOD management.
+4. Treat UE5 as a complete film production studio: design, animate, light, and render all in one application.
+5. Study the film's visual language — tight compositions, motivated lighting, and restrained VFX all contribute to the Oscar-quality result.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Lumen**: Real-time global illumination enabling cinematic lighting quality
+- **Nanite**: Virtualized geometry for photorealistic environment detail
+- **Movie Render Queue**: High-quality final frame rendering pipeline
+- **Sequencer**: Timeline-based animation and camera management
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x
 
 ### Tags
-[PENDING EXTRACTION]
+cinematics, rendering, pipeline, beginner
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[how-i-made-a-godzilla-cinematic-in-unreal-engine-5]] — practical full-pipeline breakdown of a UE5 cinematic short
+- [[the-future-of-filmmaking-in-unreal-5-virtual-production]] — related overview of UE5 as a production platform

@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=CneRhBFaLjM
 author: Josh Toonen
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [animation, control-rig, sequencer, rigging, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-animate-spider-man-in-unreal-engine-5-for-beginners/
 frame_count: 12
 ---
@@ -88,27 +88,40 @@ frame_count: 12
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Editing and enhancing Mixamo animations in UE5 using the OneClick Control Rig plugin: baking animation to Control Rig, adding additive offset tracks, using the Pose Library to save and mirror poses, and attaching prop weapons to skeleton bones.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen demonstrates how to take a basic Mixamo animation and elevate it with Control Rig editing tools in UE5. Viewers learn to bake any animation to a Control Rig for full per-bone editing capability, use additive tracks to add hero poses on top of base animation without disrupting the underlying clip, save poses to the Pose Library and mirror them for symmetric shots, and attach a weapon mesh to a skeleton bone so it follows hand animation automatically. The result is a Spider-Man cinematic with polished web-shooter poses and sword props.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Install the OneClick Control Rig plugin (Edit → Plugins → search "OneClick Control Rig" → Enable; restart).
+2. Import your Mixamo-rigged character and animations (see [[this-free-plugin-changes-filmmaking-forever-unreal-5]]).
+3. In Sequencer, right-click the animation clip → Bake to Control Rig → select your Control Rig; this converts the animation to editable Control Rig curves.
+4. Add additive offset layers: in Sequencer's Curve Graph Editor → Add Track → Additive; keyframe pose adjustments on top of baked animation without overwriting the base clip.
+5. Enable Arc Ball Rotate for intuitive control manipulation: Edit → Editor Preferences → search "arc ball rotate" → Enable Arc Ball Rotate = true.
+6. Open Pose Library (Animation → Pose Library); save the web-shooter hand pose; enable Mirror Settings to create the mirrored version for the opposite hand in one click.
+7. Attach weapon/prop mesh to bone: place the prop in the scene, set to Movable, drag it onto the character's skeletal mesh in the Outliner, select "Attach to Bone" → right hand bone, then zero out the transform offset.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **OneClick Control Rig plugin**: Edit → Plugins → "OneClick Control Rig" → Enable; auto-generates control rig from skeleton
+- **Bake to Control Rig**: Right-click animation clip in Sequencer → Bake to Control Rig; enables full Control Rig curve editing
+- **Additive track**: Sequencer Curve Graph Editor → Add Track → Additive; does not offset entire sequence, only the delta
+- **Arc Ball Rotate**: Edit → Editor Preferences → Viewport → Enable Arc Ball Rotate = true
+- **Pose Library**: Window → Pose Library (or Animation menu); Mirror Settings for left/right symmetry
+- **Bone attachment**: Outliner → drag prop onto skeletal mesh → Attach to Socket/Bone; bone = right_hand or equivalent; transform reset to zero
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x
 
 ### Tags
-[PENDING EXTRACTION]
+animation, control-rig, sequencer, rigging, beginner
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[this-free-plugin-changes-filmmaking-forever-unreal-5]] — OneClick Control Rig setup and Mixamo prep workflow
+- [[motion-capture-isnt-just-for-hollywood-any-more]] — baking mocap animation to Control Rig for cleanup
+- [[how-i-made-this-lego-horizon-animation-in-unreal-engine-5]] — advanced additive tracks and Control Rig in production

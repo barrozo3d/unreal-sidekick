@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=Og9za5-VCag
 author: Josh Toonen
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [cinematics, lighting, niagara, vfx, compositing, camera, control-rig, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/how-i-made-a-godzilla-cinematic-in-unreal-engine-5/
 frame_count: 11
 ---
@@ -83,27 +83,42 @@ frame_count: 11
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Production breakdown of a Godzilla cinematic in UE5: custom Control Rig for creature, Tokyo city dressing, night lighting with practical sources, matte painting background integration, fog cards for depth, Niagara rain, and Nuke compositing with world depth pass.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen breaks down how he created a Godzilla cinematic entirely in UE5 and Nuke, covering each production challenge from building a believable Tokyo nightscape to integrating a custom Godzilla control rig with the environment. Viewers learn night lighting with practical sources (street lights, car headlights, explosion animated lights), DMP/matte painting as background images, fog card depth enhancement, Niagara rain particles, and the complete compositing workflow in Nuke using camera FBX export and image planes. The breakdown demonstrates how to combine a hero CG creature with a full-scale environment for a believable blockbuster look.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Build the Tokyo city environment using a Turbo Squid or marketplace city asset pack; dress the scene with street lights, car headlights, and background building lit windows.
+2. Rig Godzilla's creature with a custom Control Rig in the Control Rig Editor; add controls for spine, neck, head, and tail for shot-specific animation.
+3. Set up night lighting: spotlights for street lamps, low-intensity point lights for car headlights, and animated point lights attached to explosion FX for dynamic flicker.
+4. Add matte painting background images (DMP technique): create large card meshes behind the cityscape, apply 2D matte painting textures, match light direction to the key light in-scene.
+5. Place fog cards (translucent planes with depth fade material) between building layers to add atmospheric depth and separate foreground/midground/background.
+6. Create Niagara rain system: particles with downward velocity, heavy spawn rate, fine sprite sprites with rain streak texture.
+7. Export camera from Sequencer as FBX (right-click camera → Export); import to Nuke; use image plane nodes at matching depths for background plates.
+8. Render a World Depth pass from MRQ; use in Nuke for ZDefocus depth-of-field and layer separation.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Custom Control Rig**: Control Rig Editor; manual control placement for creature spine/neck/head/tail
+- **Night lighting**: Spotlights (street lamps); Point Lights (car headlights, intensity 500–2000 lux); animated Point Lights parented to explosion Niagara with Perlin noise intensity
+- **Matte painting cards**: Large plane mesh; Unlit material with DMP texture; Two-Sided = true; positioned behind city geometry
+- **Fog cards**: Translucent plane + Depth Fade material node (Fade Distance = 1000–5000) for atmospheric blending at card edges
+- **Niagara rain**: Sprite emitter; Velocity = (0, 0, -2000); Spawn Rate = high; elongated vertical sprite texture
+- **Camera FBX export**: Sequencer → right-click camera actor → Export → FBX
+- **MRQ World Depth pass**: EXR multi-channel; World Depth channel for Nuke ZDefocus
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (+ Nuke)
 
 ### Tags
-[PENDING EXTRACTION]
+cinematics, lighting, niagara, vfx, compositing, camera, control-rig, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[every-filmmaker-should-know-this-vfx-workflow]] — foundational Nuke pipeline: image planes, camera FBX, cryptomatte
+- [[improve-your-vfx-with-lens-flares-anamorphic-tutorial]] — ZDefocus world depth pass and anamorphic lens in Nuke
+- [[create-muzzle-flash-gun-fx-for-unreal-5-cinematics]] — Niagara system construction for other VFX needs

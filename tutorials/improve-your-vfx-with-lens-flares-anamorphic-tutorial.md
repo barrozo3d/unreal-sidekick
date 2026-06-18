@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=hFM_jGd46as
 author: Josh Toonen
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [compositing, post-process, camera, cinematics, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/improve-your-vfx-with-lens-flares-anamorphic-tutorial/
 frame_count: 13
 ---
@@ -93,27 +93,39 @@ frame_count: 13
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Creating an anamorphic lens look in Nuke compositing using UE5's world depth pass with ZDefocus (custom bokeh kernel), automatic lens flares via convolve node, and real-life lens flare footage blended with Merge Plus.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen explains how to use Nuke to add the anamorphic widescreen lens aesthetic to UE5 renders using the world depth pass for accurate depth-of-field. Viewers learn to disable DOF in UE5 first (to preserve a clean depth pass), build a ZDefocus node with a custom anamorphic bokeh kernel for horizontal-stretch lens blur, use Nuke's convolve node to automatically generate lens flares from bright areas without manual tracking, and composite real-life lens flare footage using a Merge Plus operation. The result is a photorealistic anamorphic lens look that mimics a cinema prime lens.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. In UE5, disable Depth of Field in the Post Process Volume (Camera → Depth of Field → Focus Method = None) before rendering, so the depth pass contains clean linear depth values.
+2. Render the shot from MRQ with a World Depth (Z Depth) pass enabled in the EXR output channels.
+3. In Nuke, create a ZDefocus node; connect the World Depth pass to the Z input channel.
+4. In ZDefocus settings: set Focal Point = red channel of the depth pass (pick the in-focus subject depth); set Filter Type = Image; load a custom anamorphic bokeh kernel texture (horizontally elongated ellipse) for the characteristic oval out-of-focus discs.
+5. Add a convolve node after ZDefocus: the convolve node automatically generates lens flare patterns from image highlights without any tracking — connect the same bokeh kernel texture to create matching anamorphic flares.
+6. Blend real-life lens flare footage (filmed separately) on top using a Merge node set to Plus operation for additive lens flare blending.
+7. Use image plane nodes in a 3D scene if adding background plates at different depths with parallax.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **UE5 DOF disable**: Post Process Volume → Camera → Depth of Field → Focus Method = None (before rendering depth pass)
+- **MRQ World Depth pass**: EXR multi-channel output → enable Z/World Depth channel
+- **Nuke ZDefocus**: Z input = World Depth EXR channel; Focal Point = red channel of depth at subject; Filter Type = Image; custom anamorphic bokeh kernel = horizontally elongated texture
+- **Nuke convolve node**: Takes image highlight regions and generates automatic lens flares from them; kernel = same anamorphic texture as ZDefocus bokeh
+- **Merge Plus**: Additive blend of real lens flare footage (or convolve output) over the main composite; operation = Plus
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x (+ Nuke compositing)
 
 ### Tags
-[PENDING EXTRACTION]
+compositing, post-process, camera, cinematics, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[every-filmmaker-should-know-this-vfx-workflow]] — foundational Nuke compositing pipeline with UE5 passes
+- [[how-i-made-a-godzilla-cinematic-in-unreal-engine-5]] — world depth pass and image planes in full production use
+- [[unreal-5-secrets-every-filmmaker-must-know]] — lens diffusion and chromatic aberration compositing imperfections

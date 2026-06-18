@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=g4DIDafH4lM
 author: Josh Toonen
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [compositing, cinematics, camera, sequencer, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/every-filmmaker-should-know-this-vfx-workflow/
 frame_count: 10
 ---
@@ -78,27 +78,38 @@ frame_count: 10
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+A 4-step compositing workflow integrating UE5 renders with stock footage in Nuke, using image planes, camera export via FBX, cryptomattes (object ID pass), and world position passes for seamless live-action/CG blending.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen explains his complete compositing pipeline for layering UE5 renders with real-world footage and stock clips inside Nuke. Viewers learn to export a camera from Sequencer as FBX, rebuild it as a 3D image plane in Nuke, use cryptomatte passes for clean object masking, and apply color grade nodes and lens diffusion templates for a polished film look. The end result is a professional compositing methodology reusable across any UE5 film project.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Render your UE5 shot through Movie Render Queue, outputting EXR sequences with Object ID (cryptomatte) and World Position passes enabled in the render settings.
+2. Export your camera from Sequencer as FBX: right-click the camera actor in Sequencer → Export.
+3. In Nuke, import the FBX camera and set up a 3D scene with an image plane node — project your background plate onto the plane at the correct depth.
+4. Use the Cryptomatte node (connect to the Object ID EXR pass) to create a clean matte for your UE5 character/object without hand-rotoscoping.
+5. Connect the World Position pass to a P-MAT node to derive accurate depth mattes for separating foreground from background elements.
+6. Add stock footage layers as additional image planes in Nuke's 3D space, positioned at matching depths using the world position data.
+7. Apply a color grade node (press G in Nuke to add) and use a pre-built lens diffusion template to match the cinematic look across all layers.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Movie Render Queue**: Enable Object ID pass (cryptomatte); enable World Position pass; output EXR sequences
+- **Sequencer camera export**: Right-click camera actor → Export → FBX file
+- **Nuke nodes**: Image Plane (3D scene), Cryptomatte (object masking), P-MAT (world position depth matte), Color Grade (G key shortcut), Merge Plus (for lens flares)
+- **Lens diffusion template**: Pre-built Nuke template with fall-off parameter for global lens look
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x
 
 ### Tags
-[PENDING EXTRACTION]
+compositing, cinematics, camera, sequencer, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[improve-your-vfx-with-lens-flares-anamorphic-tutorial]] — Nuke ZDefocus and anamorphic lens workflow using the same world depth pass
+- [[how-i-made-a-godzilla-cinematic-in-unreal-engine-5]] — practical application of this compositing pipeline on a full cinematic shot
+- [[unreal-5-secrets-every-filmmaker-must-know]] — chromatic aberration and lens diffusion compositing imperfections

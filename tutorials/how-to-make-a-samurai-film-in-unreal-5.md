@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=ixnoglWzwBw
 author: Josh Toonen
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [cinematics, mocap, animation, sequencer, pipeline, control-rig, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-make-a-samurai-film-in-unreal-5/
 frame_count: 9
 ---
@@ -73,27 +73,38 @@ frame_count: 9
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Production breakdown of the War of Being samurai film: Rococo mocap cleanup, retargeting to samurai character rig, Control Rig final pass, stage actor pattern for consistent shot compositions, and GitHub-based team collaboration via separate sub-levels.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen breaks down the production workflow for his War of Being samurai film, focusing on the practical pipeline for getting clean mocap data onto a samurai character and collaborating with a team. Viewers learn the Rococo mocap cleanup process, how to retarget the Rococo skeleton to a custom samurai rig, use Control Rig for final animation polish, apply the stage actor pattern to manage consistent character and camera relationships across shots, and use GitHub with separate sub-levels to enable multiple team members to work in parallel without conflicts.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Capture mocap data with Rococo suits; clean up artifacts in Rococo Studio before exporting FBX.
+2. Import Rococo FBX animation into UE5; create an IK Rig for the Rococo source skeleton and a separate IK Rig for the samurai target skeleton in the IK Retargeting editor.
+3. Map bone chains between the two IK Rigs; run the retarget to produce a new animation asset on the samurai skeleton.
+4. Apply Control Rig to the samurai skeleton (bake retargeted animation to Control Rig); use Control Rig editor for per-bone performance cleanup and hero pose adjustments.
+5. Apply the stage actor pattern: create an empty actor, parent the samurai character and all cameras for that shot to it; reposition the root actor to change composition without breaking relative relationships.
+6. Set up GitHub collaboration: each team member works in a separate sub-level (see [[how-to-create-cinematic-environments-in-unreal-engine-5]]); push updates at end of each day; pull main level to see combined result.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Rococo FBX export**: Standard skeleton FBX; exported after cleanup in Rococo Studio
+- **IK Retargeter**: IK Rig for Rococo source skeleton + IK Rig for samurai target; bone chain mapping; retarget produces new animation asset
+- **Control Rig bake**: Right-click animation in Sequencer → Bake to Control Rig; per-bone curve editing
+- **Stage actor pattern**: Empty Actor root; characters + cameras parented as children; Movable; reposition root to change entire shot layout
+- **GitHub + sub-levels**: Each team member assigned a sub-level (effects/geometry/lighting); committed independently; pulled into master level for review
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x
 
 ### Tags
-[PENDING EXTRACTION]
+cinematics, mocap, animation, sequencer, pipeline, control-rig, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[motion-capture-isnt-just-for-hollywood-any-more]] — detailed Rococo mocap pipeline used in this production
+- [[how-to-create-cinematic-environments-in-unreal-engine-5]] — sub-level organization and cloth simulation for the War of Being environment
+- [[unreal-5-hotkeys-every-filmmaker-must-use]] — stage actor pattern and Sequencer workflow

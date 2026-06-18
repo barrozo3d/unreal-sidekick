@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=MWFpt3ZQ0zE
 author: Josh Toonen
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [animation, sequencer, cinematics, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/create-a-lightsaber-battle-in-unreal-5-in-10-minutes/
 frame_count: 9
 ---
@@ -73,27 +73,43 @@ frame_count: 9
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Beginner Mixamo character animation in UE5: importing and rigging characters via Mixamo, building a Level Sequence with motion-blended sword animations, using playrate to slow down attacks, enabling root motion, and attaching an emissive lightsaber prop to a hand bone.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen shows complete beginners how to get a believable lightsaber battle into UE5 in roughly ten minutes using only free assets. Viewers learn to select and download Mixamo character packs, import them to UE5 with a new skeleton, create a Level Sequence, assemble sword and shield animation clips, use motion blending to chain attacks seamlessly, adjust playrate for dramatic slow-motion, enable root motion for locomotion animations, and parent a simple emissive lightsaber mesh to the character's hand bone. By the end, beginners have their first complete character animation sequence.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Go to Mixamo.com → Characters tab → select "Vanguard by T. Chiu Young" → Animations tab → find the Sword and Shield pack → Download (FBX, default settings).
+2. In UE5, import the FBX: Import Options → Skeletal Mesh = true; Skeleton = none (create new); Import = all assets.
+3. Create a Level Sequence (right-click Content Browser → Cinematics → Level Sequence → LS_Character); drag the Vanguard character into the viewport; drag into Sequencer with + (Add Selected Actor).
+4. Add animation track via the green + → Add Animation; select sword animations to build an attack combo sequence.
+5. Parent lightsaber prop: duplicate a simple emissive cylinder mesh → set to Movable → drag onto character in Outliner → "Attach to Bone" → right_hand bone → zero transform.
+6. Chain animations with Motion Blend: right-click animation clip → Motion Blend Options → Match Bone = pelvis/hips; the new animation starts where the previous one ended.
+7. Slow attacks with Playrate: right-click animation clip → Properties → Play Rate = 0.7 (70% speed for sword attacks) or 0.5 (50% for extra dramatic moments).
+8. Fix run animation with Root Motion: double-click run animation → Animation Editor → Enable Root Motion = true; Root Motion Root Lock = Force Root Lock = true; save. Back in Sequencer, add transform keyframes to manually drive root position.
+9. Use Curve Editor to set keyframe interpolation on transform keys: select keyframe → press 4 = Linear for smooth root travel; pre/post infinity = Linear for looping.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Mixamo FBX import**: Skeletal Mesh = true; Skeleton = new; Import Mesh = true; import all textures/materials
+- **Level Sequence**: Right-click Content Browser → Cinematics → Level Sequence; 24fps; Camera Cut track optional
+- **Motion Blend**: Right-click animation clip → Motion Blend Options → Match Bone = pelvis; aligns new clip to end pose of previous clip
+- **Play Rate**: Right-click clip → Properties → Play Rate; 1.0 = normal, 0.7 = slow, 0.5 = half speed
+- **Root Motion**: Animation Asset Editor → Enable Root Motion = true; Root Motion Lock = Force Root Lock = true
+- **Bone attachment**: Outliner → drag prop onto character → Attach to Bone → right_hand bone; set Transform to zero after attach
+- **Curve Editor**: Sequencer → Curve Editor button; select key → press 4 = Linear tangent; right-click → Pre-Infinity = Linear for loop extrapolation
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x
 
 ### Tags
-[PENDING EXTRACTION]
+animation, sequencer, cinematics, beginner
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[this-free-plugin-changes-filmmaking-forever-unreal-5]] — deeper Mixamo pipeline with Blender prep and OneClick Control Rig
+- [[how-to-animate-spider-man-in-unreal-engine-5-for-beginners]] — next step: Control Rig baking, additive tracks, Pose Library
+- [[unreal-5-hotkeys-every-filmmaker-must-use]] — Sequencer workflow shortcuts for efficient animation editing

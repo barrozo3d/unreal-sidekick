@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=-syj6kFf6e4
 author: Josh Toonen
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [nanite, materials, geometry, rendering, compositing, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/how-i-remade-dune-in-24-hours-using-vfx/
 frame_count: 11
 ---
@@ -83,27 +83,40 @@ frame_count: 11
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+24-hour Dune challenge using UE5: J-Displacement plugin for procedural building detail, world-aligned textures from Quixel, Nanite for polygon budget, Gaea height maps for dune landscapes, and Substance Painter UV texturing for the Ornithopter hero asset.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen documents a 24-hour speed filmmaking challenge recreating Dune in UE5, showing how to achieve a photorealistic sci-fi desert environment without hand-modeling every detail. Viewers learn to use J-Displacement for adding panel lines and surface complexity to simple building geometry, world-aligned textures for seamless material coverage across modular buildings, Nanite to render billions of polygons from Megascans assets, and Gaea terrain software to generate realistic dune height maps that import directly into UE5 as landscape displacement. A one-click compositing template finalizes the look.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Build base building geometry with simple box modeling; use the J-Displacement Blender plugin to bake panel lines, rivets, and surface detail without manual modeling.
+2. Apply world-aligned textures from Quixel Megascans (concrete, sand, rust) using a World-Aligned Texture material node; layer multiple materials with height-blend for variation.
+3. Right-click each mesh in UE5 → Enable Nanite to handle the high-polygon count from detail meshes; Nanite automatically manages LOD for billions of polygons.
+4. In Gaea software: sculpt sand dune and mountain terrain; export as 16-bit EXR or PNG height maps.
+5. Import height maps into UE5: Quick Add → Landscape → Import from Height Map; use Landscape Material with displacement for surface microdetail.
+6. Set up Sequencer with fast real-time render presets (no ray tracing; MRQ PNG output) for quick iteration during the 24-hour challenge.
+7. Apply one-click compositing template (pre-built Nuke/AE template) for color grade, lens diffusion, and vignette to finalize the look.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **J-Displacement plugin (Blender)**: Bakes panel lines / surface detail onto UV-mapped geometry; exports FBX for UE5 import
+- **World-Aligned Texture material node**: Takes a texture and projects it in world space (not UV space); eliminates stretching on large geometry; plug into Base Color, Roughness, Normal
+- **Nanite**: Right-click mesh in Content Browser → Enable Nanite; renders billions of polygons; auto-LOD
+- **Gaea terrain**: Export as 16-bit heightmap (EXR/PNG); import to UE5 via Landscape → Import Heightmap
+- **Quixel textures**: Megascans concrete/sand/rust layered with height-blend material; auto-imported via Bridge/Fab
+- **Landscape displacement**: Landscape material with World Displacement enabled; height map drives microdetail
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x
 
 ### Tags
-[PENDING EXTRACTION]
+nanite, materials, geometry, rendering, compositing, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[how-unreal-54-changes-filmmaking]] — Nanite Tessellation in 5.4 for material-level displacement
+- [[the-fastest-way-to-learn-lighting-in-ue5]] — exterior lighting setup using directional + sky atmosphere
+- [[every-filmmaker-should-know-this-vfx-workflow]] — compositing pipeline for final polish step

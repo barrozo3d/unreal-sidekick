@@ -2083,9 +2083,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=NLVMJX-5ahc
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5 (MetaHuman Animator, OverCrowd, FAB)
+- **Tags:** ai-video, kling, metahuman, mocap, overcrowd, compositing, character-replacement, nano-banana, quickmagic-ai, metahuman-animator, wardrobe, ue5
+- **Summary:** Charlie Driscoll stress-tests Kling 01 generative video model as a MetaHuman visual replacement tool. Core idea: UE5 handles camera freedom, blocking, environment, and mocap animation — Kling 01 handles character stylization (face + wardrobe). Kling Elements feature creates a character identity from 3–5 reference photos (mini-LoRA). NanoBanana generates consistent front/back outfit reference im...
 - **File:** tutorials/can-ai-replace-metahumans-in-unreal-engine-cinematics.md
 
 
@@ -2103,9 +2103,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=2t3c1KJbBe8
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5 (MetaHuman Animator, OverCrowd, FAB marketplace)
+- **Tags:** production-breakdown, cinematics, metahuman, move-pro, overcrowd, niagara, sequencer, historical-drama, client-work, mocap, metahuman-animator, voice-ai, ue5
+- **Summary:** Production breakdown of Charlie Driscoll's client project for Sharp Entertainment (Doomsday Preppers, 90 Day Fiance producers) — a proof-of-concept for "Die Like a Legend," an historical drama series recreating famous deaths in UE5. The project (Emperor Valerian vs. Persian King Shapur) was completed solo in one month. Key workflow decisions: source pre-lit FAB environments and modify lighting ...
 - **File:** tutorials/recreating-brutal-deaths-from-history-in-unreal-engine-5.md
 
 
@@ -2123,9 +2123,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=M799eoMK4tw
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.6 (MetaHuman Creator integrated; UE5.6 mannequin skeleton export option in QuickMagic)
+- **Tags:** mocap, single-camera, metahuman, metahuman-animator, quickmagic, meshcapade, move-one, marionette, overcrowd, sequencer, cinematics, budget-mocap, ai-mocap, face-capture, ue5-6
+- **Summary:** Charlie Driscoll compares 4 single-camera AI mocap systems head-to-head for a full 5-minute pirate short film "Cavern of the Damned" using only a Samsung Note S23 Ultra at 4K 60fps. Results: QuickMagic ($2.94/min, max 60s clips, best for subtle acting, upper-body mode available) wins for dialogue; Meshcapade ($10.80/min, 2-actor support, best spatial accuracy) wins for walking/complex blocking....
 - **File:** tutorials/the-easiest-and-cheapest-motion-capture-setup-for-metahumans-in-unreal-engine-56.md
 
 
@@ -2343,9 +2343,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=N4hq0WUaPmk
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** cinematics, rendering, post-process, lighting, beginner
+- **Summary:** Josh Toonen shows how he recreated the Backrooms viral horror aesthetic entirely inside Unreal Engine 5 using free tools. Viewers learn to capture gameplay footage with Take Recorder, build a believable liminal-space environment in Modeling Mode, and apply volumetric fog plus a VHS post-process material for the signature degraded-camera look. The end result is a polished found-footage short fil...
 - **File:** tutorials/how-i-remade-the-backrooms-using-vfx.md
 
 
@@ -2353,9 +2353,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=g4DIDafH4lM
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** compositing, cinematics, camera, sequencer, intermediate
+- **Summary:** Josh Toonen explains his complete compositing pipeline for layering UE5 renders with real-world footage and stock clips inside Nuke. Viewers learn to export a camera from Sequencer as FBX, rebuild it as a 3D image plane in Nuke, use cryptomatte passes for clean object masking, and apply color grade nodes and lens diffusion templates for a polished film look. The end result is a professional com...
 - **File:** tutorials/every-filmmaker-should-know-this-vfx-workflow.md
 
 
@@ -2363,9 +2363,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=eOQM1Tbyw0Y
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** cinematics, rendering, pipeline, beginner
+- **Summary:** Josh Toonen reviews the key creative and technical decisions behind the Academy Award-winning UE5 short film "Wars Over," demonstrating that photorealistic filmmaking is achievable without a large studio. The video is primarily inspirational and conceptual rather than a step-by-step tutorial, discussing how UE5's real-time rendering eliminated traditional rendering bottlenecks. Viewers gain an ...
 - **File:** tutorials/how-this-unreal-engine-5-film-won-an-oscar.md
 
 
@@ -2373,9 +2373,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=TufXrvN5Ei0
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** lighting, rendering, cinematics, intermediate
+- **Summary:** Josh Toonen breaks down the LEGO Horizon Adventures music video lighting approach, showing how the LEGO Movie's signature look relies on specific lighting rules rather than complex shaders. Viewers learn the "hot dog" technique of placing rim lights on both sides of a character, why LEGO scenes replace black shadows with colored light, and how to prevent reflective plastic surfaces from washing...
 - **File:** tutorials/recreate-the-lego-movie-style-in-unreal-engine-5.md
 
 
@@ -2383,9 +2383,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=AomczYcvBYM
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** cinematics, sequencer, animation, control-rig, mocap, lighting, crowds, advanced
+- **Summary:** Josh Toonen walks through the complete production of a LEGO Horizon Adventures music video made in UE5, from initial pitch to final render. Viewers see how a professional filmmaker structures a large animation project: Sequencer managing 70+ shots, a custom Control Rig watcher control for unique character animations, motion blending from existing game creature clips, additive tracks layered on ...
 - **File:** tutorials/how-i-made-this-lego-horizon-animation-in-unreal-engine-5.md
 
 
@@ -2393,9 +2393,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=BG_zYneV3mo
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** cinematics, lighting, materials, animation, niagara, beginner
+- **Summary:** Josh Toonen delivers four immediately actionable tips that elevate static UE5 renders to dynamic cinematics in under 14 minutes. Viewers learn to create fire using Paper 2D flipbooks from exported PNG sequences, simulate cloth wind using a SimpleGrassWind material node, generate smoke cards from UE's built-in T_SoftSmoke texture without additional assets, and animate light intensity with Float ...
 - **File:** tutorials/give-me-14-minutes-and-youll-make-cinematic-renders.md
 
 
@@ -2458,9 +2458,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=hoCoa8gMP-M
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** mocap, animation, control-rig, sequencer, mrq, intermediate
+- **Summary:** Josh Toonen demonstrates how to use Rococo's affordable motion capture suits to produce Hollywood-quality animation in UE5. Viewers learn the full pipeline from configuring actor profiles in Rococo Studio through retargeting mocap data onto any character rig, baking to Control Rig for cleanup, and adding additive tracks for performance enhancement. The tutorial proves that professional mocap wo...
 - **File:** tutorials/motion-capture-isnt-just-for-hollywood-any-more.md
 
 
@@ -2468,9 +2468,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=7ENEextL1n8
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** animation, niagara, sequencer, cinematics, camera, intermediate
+- **Summary:** Josh Toonen shows how to create believable ragdoll physics for cinematic shots in UE5 without any coding. Viewers learn to configure the Physics Asset Editor's rigid bodies and angular constraints, trigger ragdoll at a precise frame via a Sequencer keyframe, drive the body's motion with an invisible expanding sphere collision, and sync a Niagara explosion effect to the physics event. Camera aut...
 - **File:** tutorials/ragdoll-physics-are-insanely-easy-in-unreal-5.md
 
 
@@ -2489,9 +2489,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=ncjHJQPyzto
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** cinematics, sequencer, lighting, post-process, animation, mrq, beginner
+- **Summary:** Josh Toonen provides an end-to-end beginner tutorial recreating the Blade Runner neon-noir aesthetic in UE5 using entirely free assets. Viewers follow every step from opening a Third Person template and importing a Mixamo character through building a desert landscape with Quixel sand textures, adding volumetric fog and dramatic color grading, animating the scene in Sequencer, and rendering a fi...
 - **File:** tutorials/how-to-make-blade-runner-in-unreal-5-step-by-step.md
 
 
@@ -2499,9 +2499,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=CneRhBFaLjM
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** animation, control-rig, sequencer, rigging, beginner
+- **Summary:** Josh Toonen demonstrates how to take a basic Mixamo animation and elevate it with Control Rig editing tools in UE5. Viewers learn to bake any animation to a Control Rig for full per-bone editing capability, use additive tracks to add hero poses on top of base animation without disrupting the underlying clip, save poses to the Pose Library and mirror them for symmetric shots, and attach a weapon...
 - **File:** tutorials/how-to-animate-spider-man-in-unreal-engine-5-for-beginners.md
 
 
@@ -2509,9 +2509,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=hFM_jGd46as
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x (+ Nuke compositing)
+- **Tags:** compositing, post-process, camera, cinematics, intermediate
+- **Summary:** Josh Toonen explains how to use Nuke to add the anamorphic widescreen lens aesthetic to UE5 renders using the world depth pass for accurate depth-of-field. Viewers learn to disable DOF in UE5 first (to preserve a clean depth pass), build a ZDefocus node with a custom anamorphic bokeh kernel for horizontal-stretch lens blur, use Nuke's convolve node to automatically generate lens flares from bri...
 - **File:** tutorials/improve-your-vfx-with-lens-flares-anamorphic-tutorial.md
 
 
@@ -2519,9 +2519,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=LUoUVC5tXCo
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** animation, control-rig, rigging, sequencer, beginner
+- **Summary:** Josh Toonen introduces the OneClick Control Rig plugin as the foundational tool for UE5 filmmaking with custom characters. Viewers learn the full pipeline from preparing a 3D character in Blender (removing the existing armature and scaling to real-world height) through Mixamo's marker-based auto-rigging and back into UE5 with a fully functional Control Rig. The tutorial covers blending multiple...
 - **File:** tutorials/this-free-plugin-changes-filmmaking-forever-unreal-5.md
 
 
@@ -2529,9 +2529,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=OLwLqjBtSKk
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** animation, control-rig, rigging, beginner
+- **Summary:** This brief (3-minute) video is a promotional companion to the full OneClick Control Rig tutorial, showing the end result of the workflow with a free project file download. Viewers see a finished animated sequence created with the OneClick Control Rig pipeline and are directed to download the starter project. Minimal new technical content beyond what is covered in the full tutorial.
 - **File:** tutorials/unreal-5-animation-made-easy-free-download.md
 
 
@@ -2539,9 +2539,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=wFhZxRJZN8E
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** niagara, vfx, particles, sequencer, cinematics, intermediate
+- **Summary:** Josh Toonen walks through building a production-ready Niagara gunfire system entirely from first principles in UE5. Viewers learn to create the muzzle flash (directional burst with emissive sprite material), bullet tracer (velocity cone emitter with collision events), spark burst (event handler responding to bullet impact), and dynamic light render (radius/exponent scale). Niagara user paramete...
 - **File:** tutorials/create-muzzle-flash-gun-fx-for-unreal-5-cinematics.md
 
 
@@ -2549,9 +2549,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=Og9za5-VCag
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x (+ Nuke)
+- **Tags:** cinematics, lighting, niagara, vfx, compositing, camera, control-rig, intermediate
+- **Summary:** Josh Toonen breaks down how he created a Godzilla cinematic entirely in UE5 and Nuke, covering each production challenge from building a believable Tokyo nightscape to integrating a custom Godzilla control rig with the environment. Viewers learn night lighting with practical sources (street lights, car headlights, explosion animated lights), DMP/matte painting as background images, fog card dep...
 - **File:** tutorials/how-i-made-a-godzilla-cinematic-in-unreal-engine-5.md
 
 
@@ -2559,9 +2559,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=NiOgmvMBcxk
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.4
+- **Tags:** nanite, rendering, materials, animation, sequencer, movie-render-graph, ue5-4, intermediate
+- **Summary:** Josh Toonen highlights the four most impactful UE 5.4 additions for filmmakers. The Motion Design plugin brings Adobe After Effects-style cloners and effectors to 3D, enabling procedural motion graphics directly in UE5. Nanite Tessellation adds real-time geometric displacement to any mesh via a simple material setting. One-click retargeting transfers any animation to any character instantly. Th...
 - **File:** tutorials/how-unreal-54-changes-filmmaking.md
 
 
@@ -2569,9 +2569,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=Qun6BB6Q2tg
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** lighting, cinematics, camera, sequencer, vfx, compositing, beginner
+- **Summary:** Josh Toonen shares three practical shortcuts for improving VFX quality demonstrated through a Dune cinematic recreation. Viewers learn that placing the key light behind actors (rather than in front) creates separation, drama, and organic lens flares. Invisible point lights combined with low-roughness materials create believable nighttime reflections from otherwise unlit surfaces. Sequencer's ca...
 - **File:** tutorials/how-to-actually-improve-your-films-vfx-dune-in-unreal-5.md
 
 
@@ -2579,9 +2579,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=-syj6kFf6e4
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** nanite, materials, geometry, rendering, compositing, intermediate
+- **Summary:** Josh Toonen documents a 24-hour speed filmmaking challenge recreating Dune in UE5, showing how to achieve a photorealistic sci-fi desert environment without hand-modeling every detail. Viewers learn to use J-Displacement for adding panel lines and surface complexity to simple building geometry, world-aligned textures for seamless material coverage across modular buildings, Nanite to render bill...
 - **File:** tutorials/how-i-remade-dune-in-24-hours-using-vfx.md
 
 
@@ -2589,9 +2589,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=HU7qHi6bn9A
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** sequencer, cinematics, camera, animation, pipeline, beginner
+- **Summary:** Josh Toonen systematically covers the essential Sequencer hotkeys and workflow patterns that professional UE5 filmmakers use daily, demonstrating each with practical context. Viewers learn playback shortcuts, camera piloting, the stage actor pattern for organizing characters and cameras under a shared parent, additive animation offsets, the Time Dilation track for bullet-time effects, and how t...
 - **File:** tutorials/unreal-5-hotkeys-every-filmmaker-must-use.md
 
 
@@ -2599,9 +2599,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=0Yc6qJSWet4
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** lighting, cinematics, camera, post-process, compositing, beginner
+- **Summary:** Josh Toonen reveals three production secrets used in his Mr. Freeze short film that elevate UE5 renders from "CG" to cinematic. Viewers learn a disciplined 1–3 light framework with key, rim, and accent roles, how to create organically moving shadows by parenting a spotlight to a physics-rope-simulated chain and a rotating fan, and the three compositing imperfections (lens diffusion with fall-of...
 - **File:** tutorials/unreal-5-secrets-every-filmmaker-must-know.md
 
 
@@ -2609,9 +2609,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=56RMmZlDVw4
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** cinematics, pipeline, rendering, beginner
+- **Summary:** Josh Toonen provides an overview of LED volume virtual production, explaining how UE5's real-time rendering drives physical LED wall stages where actors perform in front of an interactive, real-light-emitting environment. Viewers learn the fundamental concept of in-camera VFX (ICVFX), how the LED wall replaces green screen and adds practical interactive lighting on actors, and the implications ...
 - **File:** tutorials/the-future-of-filmmaking-in-unreal-5-virtual-production.md
 
 
@@ -2619,9 +2619,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=Cp7sWfiHcJg
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** cinematics, sequencer, geometry, animation, materials, lighting, intermediate
+- **Summary:** Josh Toonen demonstrates nine practical techniques used in the War of Being cinematic to make a static environment feel alive in UE5. Viewers learn the professional 3-stage environment workflow (blockout cameras before detailing), cloud card materials, how to animate floating rocks via a parent empty actor with looping rotation, organize the scene with sub-levels controlled by Sequencer's Level...
 - **File:** tutorials/how-to-create-cinematic-environments-in-unreal-engine-5.md
 
 
@@ -2629,9 +2629,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=ixnoglWzwBw
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** cinematics, mocap, animation, sequencer, pipeline, control-rig, intermediate
+- **Summary:** Josh Toonen breaks down the production workflow for his War of Being samurai film, focusing on the practical pipeline for getting clean mocap data onto a samurai character and collaborating with a team. Viewers learn the Rococo mocap cleanup process, how to retarget the Rococo skeleton to a custom samurai rig, use Control Rig for final animation polish, apply the stage actor pattern to manage c...
 - **File:** tutorials/how-to-make-a-samurai-film-in-unreal-5.md
 
 
@@ -2639,9 +2639,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=dT4Vl3PGe08
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** lighting, hdri, rendering, cinematics, beginner
+- **Summary:** Josh Toonen presents a systematic framework for learning UE5 lighting built on four variables: direction, size, color, and intensity. Viewers learn how to choose key light direction by tracing from shadows, control shadow softness with Source Angle and Source Soft Angle settings, set up exterior vs HDRI-based interior lighting, use a hidden overhead light trick for convincing nighttime scenes, ...
 - **File:** tutorials/the-fastest-way-to-learn-lighting-in-ue5.md
 
 
@@ -2649,9 +2649,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=jAz4Lb93gwY
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** lighting, cinematics, rendering, beginner
+- **Summary:** Josh Toonen teaches the single most important skill for cinematic character lighting in UE5: understanding how to place light relative to the camera-character axis and building a reusable light rig actor. Viewers learn to parent multiple lights to an empty actor (the rig) so they can test directions by rotating the rig without repositioning individual lights, use color temperature for warm/cool...
 - **File:** tutorials/the-1-skill-you-need-for-lighting-in-ue5.md
 
 
@@ -2659,9 +2659,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=Kjg6kCW2BtY
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** lighting, volumetrics, fog, rendering, materials, compositing, intermediate
+- **Summary:** Josh Toonen provides an expert-level guide to every volumetric fog tool in UE5, explaining the distinction between Exponential Height Fog (global atmosphere) and the Volumetric Fog system (3D light scattering). Viewers learn to create gobo materials that cast volumetric light shaft patterns, enable Cast Volumetric Shadow on spotlights (disabled by default), control render quality vs performance...
 - **File:** tutorials/master-cinematic-fog-volumetric-god-rays-in-ue5.md
 
 
@@ -2669,9 +2669,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=4-_mXW1Vwuo
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** cinematics, animation, niagara, sequencer, mrq, tsr, intermediate
+- **Summary:** Josh Toonen delivers eight practical techniques to add life and movement to any UE5 environment scene for filmmaking. Starting from a completely static scene, viewers learn to animate hard-surface ships via empty actor parents, retarget characters through the Blender→Mixamo pipeline, animate clouds with Ultra Dynamic Sky's simulation system, build Niagara smoke using sprite sheets for performan...
 - **File:** tutorials/unreal-engine-masterclass-animate-environments-the-easy-way.md
 
 
@@ -2679,9 +2679,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=VIY1fzRahJY
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** rendering, lumen, post-process, camera, lighting, materials, beginner
+- **Summary:** Josh Toonen analyzes the Unrecord body-cam shooter trailer — which went viral for looking indistinguishable from real footage — breaking down exactly which UE5 tools create each realism element. Viewers learn that fisheye lens distortion requires a custom post-process material, that auto exposure in UE5 simulates real camera sensor clipping, that camera roll (not typical in games) comes from th...
 - **File:** tutorials/how-ue5-created-the-most-realistic-game-ever---unrecord-trailer-breakdown.md
 
 
@@ -2689,9 +2689,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=MWFpt3ZQ0zE
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** animation, sequencer, cinematics, beginner
+- **Summary:** Josh Toonen shows complete beginners how to get a believable lightsaber battle into UE5 in roughly ten minutes using only free assets. Viewers learn to select and download Mixamo character packs, import them to UE5 with a new skeleton, create a Level Sequence, assemble sword and shield animation clips, use motion blending to chain attacks seamlessly, adjust playrate for dramatic slow-motion, en...
 - **File:** tutorials/create-a-lightsaber-battle-in-unreal-5-in-10-minutes.md
 
 
@@ -2699,9 +2699,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=9rRiExTYrpE
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.x
+- **Tags:** cinematics, pipeline, animation, niagara, beginner
+- **Summary:** Josh Toonen reflects on one year of learning Unreal Engine 5 for filmmaking, distilling the experience into 5 lessons that accelerate the learning curve. Viewers learn his recommended approach: start with the game engine fundamentals before filmmaking, master one editor at a time (starting with Materials), use virtual camera and previs, rely on F1/F11 for context-sensitive documentation, and fi...
 - **File:** tutorials/learning-unreal-5-in-one-year-progression-lessons.md
 
 
@@ -2709,9 +2709,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=_3PQ19-LMRg
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.x
+- **Tags:** compositing, vfx, cinematics, pipeline, intermediate
+- **Summary:** Josh Toonen breaks down the VFX for his viral Last of Us fan film "Stay" — over 90% of shots contain visual effects, mostly invisible. Covers full-CG zombie head replacement (frame-by-frame 3D animation matching to live actor), layered matte painting for destruction and fungus, camera tracking workflow, atmospheric particle systems, sky replacement with matching light, and complete location rep...
 - **File:** tutorials/how-we-made-the-last-of-us-stay-vfx-breakdown.md
 
 ---

@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=hoCoa8gMP-M
 author: Josh Toonen
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [mocap, animation, control-rig, sequencer, mrq, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/motion-capture-isnt-just-for-hollywood-any-more/
 frame_count: 10
 ---
@@ -78,27 +78,40 @@ frame_count: 10
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Full Rococo motion capture pipeline integrated with UE5: actor profile setup, 4-stage production workflow (build → mocap → filmmaking cycle → lighting), retargeting to character rig, baking to Control Rig, additive layering, and MRQ final render.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen demonstrates how to use Rococo's affordable motion capture suits to produce Hollywood-quality animation in UE5. Viewers learn the full pipeline from configuring actor profiles in Rococo Studio through retargeting mocap data onto any character rig, baking to Control Rig for cleanup, and adding additive tracks for performance enhancement. The tutorial proves that professional mocap workflows are accessible to independent filmmakers without expensive studio setups.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Set up actor profiles in Rococo Studio: input performer height and select male/female body type for accurate skeleton scaling.
+2. Capture performance data and export from Rococo as FBX animation retargeted to a standard skeleton.
+3. Import Rococo FBX into UE5 and use the IK Retargeter to transfer animation to your character's skeleton (Window → IK Retargeting → create retarget asset).
+4. Bake the retargeted animation to Control Rig: right-click animation in Sequencer → Bake to Control Rig → select your rig; this enables per-bone cleanup.
+5. Open the Curve Graph Editor in Sequencer to add Additive tracks on top of the baked animation — layer on supplemental poses without replacing the base mocap performance.
+6. Set up cameras in Sequencer (Shift+C to pilot camera, Shift+P to unlock from pilot) and cut between performances.
+7. Render via Movie Render Queue (MRQ) with TSR anti-aliasing and high temporal sample count for final output.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Rococo Studio**: Actor profiles (height + body type); exports FBX retargeted to standard skeleton
+- **IK Retargeter**: Window → IK Retargeting; create IK Rig for both source and target skeletons; map bone chains
+- **Bake to Control Rig**: Right-click animation clip in Sequencer → Bake to Control Rig; enables per-bone curve editing
+- **Additive tracks**: Curve Graph Editor → Add Track → Additive; layered on top of baked animation
+- **Sequencer camera**: Shift+C to view through camera cut; Shift+P to pilot/unlock camera
+- **Movie Render Queue**: TSR anti-aliasing; Temporal Sample Count = 8–16; EXR or PNG output
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x
 
 ### Tags
-[PENDING EXTRACTION]
+mocap, animation, control-rig, sequencer, mrq, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[how-i-made-this-lego-horizon-animation-in-unreal-engine-5]] — production that used Rococo mocap with this exact pipeline
+- [[how-to-make-a-samurai-film-in-unreal-5]] — further Rococo retargeting workflow for a different character
+- [[how-to-animate-spider-man-in-unreal-engine-5-for-beginners]] — OneClick Control Rig baking and additive track workflow

@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=ncjHJQPyzto
 author: Josh Toonen
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [cinematics, sequencer, lighting, post-process, animation, mrq, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-make-blade-runner-in-unreal-5-step-by-step/
 frame_count: 14
 ---
@@ -98,27 +98,43 @@ frame_count: 14
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Complete beginner-to-finished-cinematic walkthrough using UE5: Third Person template → FBX import → Mixamo auto-rig → landscape creation → Megascans textures → Exponential Height Fog → Post Process color grade → Sequencer → Movie Render Queue ProRes output.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen provides an end-to-end beginner tutorial recreating the Blade Runner neon-noir aesthetic in UE5 using entirely free assets. Viewers follow every step from opening a Third Person template and importing a Mixamo character through building a desert landscape with Quixel sand textures, adding volumetric fog and dramatic color grading, animating the scene in Sequencer, and rendering a final cinematic in Apple ProRes. By the end, beginners have a complete understanding of the core UE5 filmmaking pipeline.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Start a Third Person template project; open the Content Browser (Ctrl+Space) for asset navigation.
+2. Import character FBX: Content Browser → Import → select FBX → FBX Import Options: Skeletal Mesh = true, Skeleton = none (create new skeleton).
+3. Upload character to Mixamo.com for auto-rigging: on Mixamo, place markers on chin, left/right wrists, left/right elbows, left/right knees, and groin; download the rigged character as FBX.
+4. Create landscape: Modes → Landscape → Managed tab → Create New Landscape; set desired size and resolution.
+5. Import Quixel Megascans sand textures from Fab/Bridge and paint them onto the landscape using the Landscape Paint tool.
+6. Add Exponential Height Fog (Quick Add → Visual Effects): Volumetric Fog = true, Fog Density = 1.0, Start Distance = set to push fog away from camera.
+7. Add Post Process Volume (Infinite Extent); in Color Grading: boost Gain for orange/yellow highlights; push Gamma for red shadow tones.
+8. Create a Level Sequence at 24fps; add Camera Cut track with Cine Camera actor; add character animation tracks.
+9. Open Movie Render Queue; enable Apple ProRes Media plugin (Edit → Plugins → Pro Res); set output format to Apple ProRes.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **FBX Import**: Import Options: Skeletal Mesh = true; Skeleton = new; Import Mesh = true; no morph targets needed
+- **Mixamo markers**: Chin, left/right wrists, left/right elbows, left/right knees, groin (7 points)
+- **Landscape Mode**: Modes → Landscape → Managed tab; Scale and resolution set at creation; painted with Quixel sand materials
+- **Exponential Height Fog**: Volumetric Fog = true; Fog Density = 1.0; Start Distance = push from camera; Fog Height Falloff controls layer thickness
+- **Post Process Volume**: Infinite Extent (Unbound) = true; Color Grading → Gain (orange/yellow highlights); Gamma (shadow red push)
+- **Sequencer**: 24fps; Camera Cut track; Animation track per character
+- **Movie Render Queue + Apple ProRes**: Edit → Plugins → "Apple ProRes Media" → enable; MRQ output format = Apple ProRes 4444
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x
 
 ### Tags
-[PENDING EXTRACTION]
+cinematics, sequencer, lighting, post-process, animation, mrq, beginner
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[how-i-remade-the-backrooms-using-vfx.md]] — same beginner pipeline (Third Person template, fog, post-process)
+- [[this-free-plugin-changes-filmmaking-forever-unreal-5]] — OneClick Control Rig for the Mixamo rig step
+- [[unreal-engine-masterclass-animate-environments-the-easy-way]] — next-level environment animation building on this foundation

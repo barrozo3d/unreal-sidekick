@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=0Yc6qJSWet4
 author: Josh Toonen
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [lighting, cinematics, camera, post-process, compositing, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-5-secrets-every-filmmaker-must-know/
 frame_count: 8
 ---
@@ -68,27 +68,41 @@ frame_count: 8
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Three cinematic secrets from the Mr. Freeze short film: efficient 1–3 light setups (key/rim/accent), animated light rigs driven by physics rope and fan rotation for organic shadows, and three compositing imperfections (lens diffusion, chromatic aberration, vignette) that make renders feel photographic.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen reveals three production secrets used in his Mr. Freeze short film that elevate UE5 renders from "CG" to cinematic. Viewers learn a disciplined 1–3 light framework with key, rim, and accent roles, how to create organically moving shadows by parenting a spotlight to a physics-rope-simulated chain and a rotating fan, and the three compositing imperfections (lens diffusion with fall-off, correctly-positioned chromatic aberration, and vignette) that simulate real camera optics. Depth of field settings from the Cine Camera round out the tutorial.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Minimal light rig**: Use only 1–3 lights total; Key light = primary illumination and separation from background; Rim light = punch and silhouette; Accent under-light = colored fill from below for stylized effect.
+2. **Animated pendulum shadows**: Create a physics rope constraint (Physics → Rope Component or Blueprint) with a spotlight attached at the end; record the rope swinging with Take Recorder; parent the spotlight to the rope end bone for organically moving shadow patterns.
+3. **Fan rotation shadows**: Place a fan mesh with rotation animation (Sequencer transform track); position a spotlight behind the fan so its blades cast rotating shadow patterns onto the character.
+4. **Cine Camera depth of field**: Aperture = f/2.0 for shallow DOF; note that focal length affects composition (longer = compression, closer background; shorter = wider, more space around subject).
+5. **Lens diffusion**: Apply a post-process lens diffusion material; set Opacity/Fall-Off = 0.75 so the blur is stronger at frame edges and falls off toward center.
+6. **Chromatic aberration**: Enable in Post Process Volume → Lens → Chromatic Aberration; set to affect only the frame edges (not uniformly — real lens aberration is strongest at the periphery); value = 0.5–1.0.
+7. **Vignette**: Post Process Volume → Lens → Vignette Intensity = 0.4–0.6 for a subtle darkening of the frame corners.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Light roles**: Key light (1 directional/spot — primary separation); Rim light (1 spot behind — silhouette punch); Accent under-light (1 small colored point — stylized fill)
+- **Physics rope + spotlight**: Rope Component (Physics → Cable Component plugin); Spotlight attached to rope end; Take Recorder captures rope swing; parent Spotlight to rope end socket
+- **Fan rotation animation**: Static Mesh fan; Sequencer rotation track looping; Spot Light positioned behind fan blades
+- **Cine Camera DOF**: Current Aperture = 2.0; Focus Method = Manual; Manual Focus Distance set per shot; note: Focal Length affects field of view AND composition
+- **Lens diffusion material**: Post Process Material in PPV Post Process Materials slot; Opacity = 0.75; stronger at edges
+- **Chromatic Aberration**: Post Process Volume → Lens → Chromatic Aberration Intensity = 0.5–1.0; Chromatic Aberration Start Offset = center of frame (aberration only at edges)
+- **Vignette**: Post Process Volume → Lens → Vignette Intensity = 0.4–0.6
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, cinematics, camera, post-process, compositing, beginner
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[the-fastest-way-to-learn-lighting-in-ue5]] — 4-factor lighting framework (direction, size, color, intensity)
+- [[the-1-skill-you-need-for-lighting-in-ue5]] — light rig actor and upstage positioning
+- [[improve-your-vfx-with-lens-flares-anamorphic-tutorial]] — lens flare and chromatic aberration in Nuke compositing

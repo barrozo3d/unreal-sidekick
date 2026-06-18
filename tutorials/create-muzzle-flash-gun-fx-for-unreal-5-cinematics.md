@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=wFhZxRJZN8E
 author: Josh Toonen
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [niagara, vfx, particles, sequencer, cinematics, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/create-muzzle-flash-gun-fx-for-unreal-5-cinematics/
 frame_count: 16
 ---
@@ -108,27 +108,47 @@ frame_count: 16
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Building a complete Niagara gunfire FX system from scratch in UE5: muzzle flash sprite, bullet tracer with collision, spark directional burst, light render, and Niagara user parameters — with SimCache for frame-perfect cinematic renders.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen walks through building a production-ready Niagara gunfire system entirely from first principles in UE5. Viewers learn to create the muzzle flash (directional burst with emissive sprite material), bullet tracer (velocity cone emitter with collision events), spark burst (event handler responding to bullet impact), and dynamic light render (radius/exponent scale). Niagara user parameters expose spawn rate and intensity for per-shot customization, and the Niagara SimCache plugin bakes the stochastic simulation for consistent multi-sample MRQ renders.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Create a new Niagara System from the Directional Burst template; rename to NS_Gunfire.
+2. Set Spawn Rate module value = 3; Loop Behavior = Infinite so it fires as long as triggered.
+3. Initialize Particle module: Lifetime = 0.05 seconds; Sprite Size = 60 (uniform) for a compact muzzle flash.
+4. Create a muzzle flash sprite material: Blend Mode = Masked; Emissive Color input (bright orange/white); Opacity Mask input connected to a radial gradient texture; set Two-Sided = true.
+5. Add a second emitter for the bullet tracer: set Velocity in Cone module with Cone Angle = 0 (straight forward), Lifetime = 2, Speed = 1500 units/frame for supersonic feel.
+6. Add Kill Particles module: condition = Has Collided = true so tracers disappear on impact.
+7. Add an Event Handler: Generate Collision Event (from bullet emitter) + Persistent ID enabled; create a third spark emitter that reads this collision event to spawn the impact burst.
+8. Add a Light Renderer module in the muzzle flash emitter: Radius Scale = 64, Light Exponent = 800 for a brief intense flash.
+9. Create Niagara User Parameters (float variables) for Spawn Rate and other exposed values so instances can be customized per character.
+10. Install the Niagara SimCache plugin (Edit → Plugins → Niagara SimCache); bake the simulation to SimCache before MRQ render so every temporal sample uses identical particle positions.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Niagara System**: Directional Burst template → renamed NS_Gunfire; Spawn Rate = 3; Loop Behavior = Infinite
+- **Initialize Particle**: Lifetime = 0.05; Sprite Size = 60 (uniform)
+- **Muzzle flash material**: Blend Mode = Masked; Emissive + Opacity Mask; Two-Sided = true
+- **Bullet emitter**: Velocity in Cone; Cone Angle = 0; Lifetime = 2; Speed = 1500
+- **Kill Particles module**: Has Collided condition = true
+- **Event Handler**: Generate Collision Event; Persistent ID = enabled; triggers spark burst emitter
+- **Spark emitter**: Velocity Aligned Sprite (sprites align to travel direction)
+- **Light Renderer**: Radius Scale = 64; Light Exponent = 800
+- **Niagara User Parameters**: Float variables in User Parameters section; linked to Spawn Rate, Lifetime, etc. via drag-connect
+- **Niagara SimCache plugin**: Edit → Plugins → "Niagara SimCache"; bake before MRQ for deterministic multi-sample renders
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x
 
 ### Tags
-[PENDING EXTRACTION]
+niagara, vfx, particles, sequencer, cinematics, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[ragdoll-physics-are-insanely-easy-in-unreal-5]] — Niagara system lifecycle track in Sequencer for explosion timing
+- [[learning-unreal-5-in-one-year-progression-lessons]] — Niagara event chain muzzle tracer system as learning milestone
+- [[how-i-made-a-godzilla-cinematic-in-unreal-engine-5]] — rain Niagara particles and lighting in a full production context

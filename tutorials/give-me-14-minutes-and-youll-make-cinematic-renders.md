@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=BG_zYneV3mo
 author: Josh Toonen
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [cinematics, lighting, materials, animation, niagara, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/give-me-14-minutes-and-youll-make-cinematic-renders/
 frame_count: 5
 ---
@@ -53,27 +53,37 @@ frame_count: 5
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Four quick cinematic techniques for UE5: Paper 2D flipbook fire animation, SimpleGrassWind cloth simulation via World Position Offset, animated smoke cards from engine textures, and Perlin noise-driven animated lights.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen delivers four immediately actionable tips that elevate static UE5 renders to dynamic cinematics in under 14 minutes. Viewers learn to create fire using Paper 2D flipbooks from exported PNG sequences, simulate cloth wind using a SimpleGrassWind material node, generate smoke cards from UE's built-in T_SoftSmoke texture without additional assets, and animate light intensity with Float Perlin Noise for organic flickering. Each technique is self-contained and reusable across any UE5 project.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Paper 2D flipbook fire**: Enable the Paper 2D plugin (Edit → Plugins → Paper 2D); export a fire animation from Premiere as a PNG sequence at 512×512; import the sequence into UE5 as a sprite; create a Flipbook asset and set its material to Unlit with Emissive + Opacity Mask inputs.
+2. **Cloth wind via SimpleGrassWind**: In a cloth material, add a SimpleGrassWind node connected to the World Position Offset input; set Wind Intensity = 0.5, Weight = 0.5, Speed = 1.0 for realistic cloth movement without physics simulation.
+3. **Smoke cards**: In the Content Browser, enable Show Engine Content → go to All folder → search T_SoftSmoke; create a plane mesh with a translucent material using T_SoftSmoke as the Opacity Mask; place multiple cards at varying depths and scales in the scene.
+4. **Animated lights with Perlin noise**: Select a Point Light intensity value in the Details panel → right-click → Float Perlin Noise; set Amplitude = 4; add an additive Sequencer track with a +4 offset so the light never drops to zero and flickers realistically.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Paper 2D plugin**: Edit → Plugins → search "Paper 2D" → Enable; PNG sequence exported at 512×512 from Premiere/AE
+- **Flipbook asset**: Right-click sprite frames → Create Flipbook; set frames per second to match source
+- **SimpleGrassWind node**: Material node in World Position Offset input; Wind Intensity = 0.5, Weight = 0.5, Speed = 1.0
+- **T_SoftSmoke**: Built-in engine texture at Engine Content → All; used in translucent material Opacity Mask
+- **Float Perlin Noise**: Right-click any float property in Details → Float Perlin Noise; Amplitude = 4
+- **Sequencer additive track**: Right-click intensity track → Add additive key offset +4 to prevent zero crossings
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x
 
 ### Tags
-[PENDING EXTRACTION]
+cinematics, lighting, materials, animation, niagara, beginner
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[how-to-actually-improve-your-films-vfx-dune-in-unreal-5]] — explosion image sequences and animated lights technique
+- [[master-cinematic-fog-volumetric-god-rays-in-ue5]] — fog and volumetric techniques to pair with smoke cards
+- [[unreal-5-hotkeys-every-filmmaker-must-use]] — Sequencer workflow including additive tracks

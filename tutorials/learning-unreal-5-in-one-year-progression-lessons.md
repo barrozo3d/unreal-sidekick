@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=9rRiExTYrpE
 author: Josh Toonen
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [cinematics, pipeline, animation, niagara, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/learning-unreal-5-in-one-year-progression-lessons/
 frame_count: 16
 ---
@@ -108,27 +108,38 @@ frame_count: 16
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+A one-year UE5 learning progression retrospective covering 5 key lessons, including a Niagara event chain muzzle-tracer system, flipbook sub-UV fire textures, and IK retargeting as the three core technical milestones.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen reflects on one year of learning Unreal Engine 5 for filmmaking, distilling the experience into 5 lessons that accelerate the learning curve. Viewers learn his recommended approach: start with the game engine fundamentals before filmmaking, master one editor at a time (starting with Materials), use virtual camera and previs, rely on F1/F11 for context-sensitive documentation, and finish small projects. Three technical milestones are showcased: a complete Niagara muzzle-flash-to-bullet-impact event chain, flipbook sub-UV fire textures (64 frames in a 2K atlas), and IK retargeting for cross-character animation transfer.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Lesson 1 — Learn the game engine first**: UE5 is a game engine; spend time understanding actors, components, blueprints, and the editor before focusing on filmmaking tools.
+2. **Lesson 2 — One editor at a time**: Each UE5 editor (Material Editor, Animation Editor, Niagara Editor, Sequencer) is its own sub-program; start with Materials because it underlies everything.
+3. **Lesson 3 — Virtual camera and previs**: Use UE5's virtual camera system to previs shots in 3D before committing to final animation; iterates quickly.
+4. **Lesson 4 — F11 for documentation**: Press F11 on any node or property for context-sensitive UE documentation (or search UE docs directly).
+5. **Lesson 5 — Finish small projects**: Complete small films before moving to bigger ones; every finished project teaches pipeline lessons no tutorial can.
+6. **Niagara event chain**: Muzzle flash Niagara emitter → generates collision event → bullet tracer emitter reads event → on bullet collision → triggers impact burst emitter; full chain with persistent IDs.
+7. **Flipbook sub-UV fire**: 64 fire frames arranged in a 2K texture atlas (8×8 grid); Niagara Sub-Image UV module picks frames in sequence for animated fire; lightweight alternative to video texture.
+8. **IK Retargeting**: Use IK Rig + IK Retargeter to transfer any animation from one skeleton to any other without Mixamo; supports complex rigs.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Niagara event chain**: Emitter 1 (muzzle flash) → Generate Collision Event + Persistent ID; Emitter 2 (bullet) reads Collision Event → fire on event; Emitter 3 (impact burst) reads bullet Collision Event; all three emitters in one Niagara System
+- **Flipbook sub-UV**: 64 frames, 2K texture atlas (8×8 grid); Niagara Sub-Image UV module → Num Tiles X=8, Num Tiles Y=8; animation mode = Sequential for fire, Random for smoke
+- **IK Retargeter**: Window → IK Retargeting → IK Rig (source) + IK Rig (target) → map bone chains → Export Retargeted Animation
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x
 
 ### Tags
-[PENDING EXTRACTION]
+cinematics, pipeline, animation, niagara, beginner
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[create-muzzle-flash-gun-fx-for-unreal-5-cinematics]] — detailed Niagara gunfire system building toward the event chain shown here
+- [[this-free-plugin-changes-filmmaking-forever-unreal-5]] — OneClick Control Rig and Mixamo pipeline covered in early learning
+- [[motion-capture-isnt-just-for-hollywood-any-more]] — IK Retargeting in production use

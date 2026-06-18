@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=AomczYcvBYM
 author: Josh Toonen
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [cinematics, sequencer, animation, control-rig, mocap, lighting, crowds, advanced]
+extraction_status: complete
 frames_dir: tutorials/frames/how-i-made-this-lego-horizon-animation-in-unreal-engine-5/
 frame_count: 15
 ---
@@ -103,27 +103,40 @@ frame_count: 15
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Full production pipeline breakdown for the LEGO Horizon Adventures theme song animation: concept → storyboard → Rococo mocap → Sequencer (70+ shots) → custom Control Rig → crowd of 300 characters → final lighting and render.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen walks through the complete production of a LEGO Horizon Adventures music video made in UE5, from initial pitch to final render. Viewers see how a professional filmmaker structures a large animation project: Sequencer managing 70+ shots, a custom Control Rig watcher control for unique character animations, motion blending from existing game creature clips, additive tracks layered on top of mocap data, and crowd management for 300+ LEGO characters. The breakdown demonstrates advanced Sequencer and Control Rig workflows applicable to any large-scale UE5 animation project.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Establish production pipeline: concept → client pitch → storyboard → mocap day → UE5 animation → lighting → render.
+2. Create a Level Sequence per shot and manage all 70+ shots through a master sequence for editorial control.
+3. Build a custom Control Rig for the watcher creature: add controls manually in the Control Rig editor for parts not covered by standard auto-rigging.
+4. Import game creature animations and use motion blending in Sequencer to blend existing creature locomotion into custom shot animations.
+5. Add Additive tracks on top of base mocap data in the Curve Graph Editor to layer on dance moves and hero moments without replacing the underlying performance.
+6. Duplicate character blueprints and vary animation seeds to create a crowd of 300 LEGO characters with non-repeating motion.
+7. Apply the hot dog lighting setup (two rim lights per character) and adjust per-shot Post Process Volume settings for consistency across 70+ cuts.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Sequencer**: 70+ level sequences managed via master sequence; Camera Cut track per shot; 24fps timeline
+- **Control Rig**: Custom watcher control rig built in Control Rig Editor; bake Mixamo animation to Control Rig (right-click → bake to control rig)
+- **Additive tracks**: Added on top of base animation track in Sequencer Curve Graph Editor; do not offset entire sequence — add new additive layer track
+- **Motion blending**: Right-click animation clip → Motion Blend Options → match bone = hips
+- **Crowd system**: 300 characters using Blueprint duplicates with randomized animation offsets
+- **Post Process Volume**: Per-shot overrides for bloom, color grading; Infinite Extent off for shot-specific control
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x
 
 ### Tags
-[PENDING EXTRACTION]
+cinematics, sequencer, animation, control-rig, mocap, lighting, crowds, advanced
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[recreate-the-lego-movie-style-in-unreal-engine-5]] — lighting techniques breakdown for this same LEGO project
+- [[motion-capture-isnt-just-for-hollywood-any-more]] — Rococo mocap pipeline used in this production
+- [[how-to-animate-spider-man-in-unreal-engine-5-for-beginners]] — OneClick Control Rig and additive track workflow

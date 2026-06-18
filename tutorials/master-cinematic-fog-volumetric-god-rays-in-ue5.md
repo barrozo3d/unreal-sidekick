@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=Kjg6kCW2BtY
 author: Josh Toonen
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: [lighting, volumetrics, fog, rendering, materials, compositing, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/master-cinematic-fog-volumetric-god-rays-in-ue5/
 frame_count: 12
 ---
@@ -88,27 +88,42 @@ frame_count: 12
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Complete mastery of UE5's volumetric fog system: Exponential Height Fog actor, gobo material for shadow casters, Cast Volumetric Shadow on spotlights, r.VolumetricFog.GridPixelSize console variable for quality, Volume material domain for localized fog volumes, interior fog via Volumetric Scattering Intensity, and AOV rendering for compositing volumetrics separately in Nuke.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen provides an expert-level guide to every volumetric fog tool in UE5, explaining the distinction between Exponential Height Fog (global atmosphere) and the Volumetric Fog system (3D light scattering). Viewers learn to create gobo materials that cast volumetric light shaft patterns, enable Cast Volumetric Shadow on spotlights (disabled by default), control render quality vs performance with the r.VolumetricFog.GridPixelSize console variable, create local fog volumes using the Volume material domain, add interior god rays via Volumetric Scattering Intensity on lights, and extract volumetrics as a separate AOV pass for compositing control in Nuke.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Add Exponential Height Fog (Quick Add → Visual Effects → Exponential Height Fog); the EHF actor is required for the Volumetric Fog system to function.
+2. In EHF Details → Volumetric Fog section: enable Volumetric Fog = true; set Albedo and Extinction Scale values for density.
+3. Create a gobo material: New Material; Blend Mode = Masked; connect a noise texture (T_Noise_01) to Opacity Mask; set Two-Sided = true; place as a plane mesh in front of a Spotlight.
+4. On any Spotlight: Details → Light → Cast Volumetric Shadow = true (this is OFF by default); without this, the spotlight makes no visible god rays through fog.
+5. In the console (tilde key): `r.VolumetricFog.GridPixelSize 4` for quality (default is 16); `r.VolumetricFog.GridPixelSize 2` for high quality; use `stat gpu` to monitor performance cost.
+6. Create a local fog volume: New Material → Details → Material Domain = Volume; Blend Mode = Additive; connect a constant to the Extinction input; apply this material to a cube mesh for a localized fog zone.
+7. Interior god rays via Volumetric Scattering Intensity: select an interior Spotlight or Rect Light → Details → crank Volumetric Scattering Intensity from 1 to 10+ to make interior light beams visible through the global EHF fog.
+8. AOV rendering for compositing: render 3 MRQ passes — (1) full scene with volumetrics; (2) detail lighting only (no volumetrics); (3) in Nuke, subtract pass 2 from pass 1 to isolate the volumetric layer for independent grading.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Exponential Height Fog**: Quick Add → Visual Effects; Volumetric Fog = true; Albedo = color of fog; Extinction Scale = density multiplier; Fog Inscattering Color = tint
+- **Gobo material**: Blend Mode = Masked; Opacity Mask = noise texture (T_Noise_01); Two-Sided = true; plane mesh placed in spotlight beam
+- **Cast Volumetric Shadow**: Light Details → Cast Volumetric Shadow = true (disabled by default on all lights); required for visible light shafts
+- **Console var quality**: `r.VolumetricFog.GridPixelSize 4` (quality); `r.VolumetricFog.GridPixelSize 2` (high quality); default = 16; lower = more voxels = better quality = higher cost
+- **stat gpu**: Console command to show GPU frame time breakdown; use to monitor volumetric fog performance cost
+- **Volume material domain**: Material → Details → Material Domain = Volume; Blend Mode = Additive; Extinction input = fog density value; applied to any mesh shape
+- **Volumetric Scattering Intensity**: Light Details → Volumetric Scattering Intensity; default = 1; increase to 10+ for interior god ray beams
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.x
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, volumetrics, fog, rendering, materials, compositing, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[how-i-remade-the-backrooms-using-vfx]] — basic Exponential Height Fog setup for atmospheric environments
+- [[how-to-make-blade-runner-in-unreal-5-step-by-step]] — Exponential Height Fog with volumetric fog for noir atmosphere
+- [[the-fastest-way-to-learn-lighting-in-ue5]] — foundational lighting framework that pairs with fog for complete environment setups
