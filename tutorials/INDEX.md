@@ -2538,6 +2538,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-5-animation-made-easy-free-download.md
 
+
+### Create MUZZLE FLASH Gun FX for Unreal 5 Cinematics
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=wFhZxRJZN8E
+- **Author:** Josh Toonen
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/create-muzzle-flash-gun-fx-for-unreal-5-cinematics.md
+
 ---
 
 ## Tag Reference
