@@ -2608,6 +2608,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-5-secrets-every-filmmaker-must-know.md
 
+
+### The Future of Filmmaking in Unreal 5 (Virtual Production)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=56RMmZlDVw4
+- **Author:** Josh Toonen
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/the-future-of-filmmaking-in-unreal-5-virtual-production.md
+
 ---
 
 ## Tag Reference
