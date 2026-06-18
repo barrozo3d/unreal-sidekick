@@ -2338,6 +2338,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** "William Wallace" is a very short (1m25s) period CGI short film by Charlie Driscoll recreating the iconic Braveheart "Freedom" speech with a custom William Wallace MetaHuman in a medieval Scottish bat
 - **File:** tutorials/william-wallace---moveai-and-metahuman-short-film-in-unreal-engine-5.md
 
+
+### How I Remade the BACKROOMS using VFX
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=N4hq0WUaPmk
+- **Author:** Josh Toonen
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-i-remade-the-backrooms-using-vfx.md
+
 ---
 
 ## Tag Reference
