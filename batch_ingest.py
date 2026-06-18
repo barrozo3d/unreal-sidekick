@@ -205,12 +205,48 @@ DEANYURKE = [
     ("WenSYKg08Uc", "Where are my Animation Curves!? This MYSTERIOUS SYMBOL will save you HOURS of Frustration!"),
 ]
 
+# ── JOSH TOONEN (@JoshToonen) — UE tutorials/breakdowns ──────────────────────
+JOSHTOONEN = [
+    ("N4hq0WUaPmk", "How I Remade the BACKROOMS using VFX"),
+    ("g4DIDafH4lM", "every filmmaker should know this VFX workflow"),
+    ("eOQM1Tbyw0Y", "How this Unreal Engine 5 film won an Oscar"),
+    ("TufXrvN5Ei0", "Recreate the LEGO MOVIE Style in Unreal Engine 5"),
+    ("AomczYcvBYM", "How I Made this LEGO Horizon animation in Unreal Engine 5"),
+    ("BG_zYneV3mo", "Give me 14 minutes and you'll make cinematic renders"),
+    ("hoCoa8gMP-M", "Motion Capture isn't just for Hollywood any more"),
+    ("7ENEextL1n8", "Ragdoll Physics are Insanely Easy in Unreal 5"),
+    ("ncjHJQPyzto", "How to Make Blade Runner in Unreal 5 (Step-by-step)"),
+    ("CneRhBFaLjM", "How to Animate Spider-Man in Unreal Engine 5 (for Beginners)"),
+    ("hFM_jGd46as", "Improve Your VFX with Lens Flares (Anamorphic Tutorial)"),
+    ("LUoUVC5tXCo", "This Free Plugin Changes Filmmaking Forever [Unreal 5]"),
+    ("OLwLqjBtSKk", "Unreal 5 Animation Made Easy! [FREE DOWNLOAD]"),
+    ("wFhZxRJZN8E", "Create MUZZLE FLASH Gun FX for Unreal 5 Cinematics"),
+    ("Og9za5-VCag", "How I Made a Godzilla Cinematic in Unreal Engine 5"),
+    ("NiOgmvMBcxk", "How Unreal 5.4 Changes Filmmaking"),
+    ("Qun6BB6Q2tg", "How to ACTUALLY Improve Your Films + VFX (Dune in Unreal 5)"),
+    ("-syj6kFf6e4", "How I Remade Dune in 24 Hours using VFX"),
+    ("HU7qHi6bn9A", "Unreal 5 Hotkeys Every Filmmaker Must Use"),
+    ("0Yc6qJSWet4", "Unreal 5 Secrets Every Filmmaker Must Know"),
+    ("56RMmZlDVw4", "The Future of Filmmaking in Unreal 5 (Virtual Production)"),
+    ("Cp7sWfiHcJg", "How to Create Cinematic Environments in Unreal Engine 5"),
+    ("ixnoglWzwBw", "How to Make a Samurai Film in Unreal 5"),
+    ("dT4Vl3PGe08", "The Fastest Way to Learn Lighting in UE5"),
+    ("jAz4Lb93gwY", "The #1 Skill You NEED For Lighting in UE5"),
+    ("Kjg6kCW2BtY", "Master Cinematic Fog & Volumetric God Rays in UE5"),
+    ("4-_mXW1Vwuo", "Unreal Engine Masterclass: Animate Environments The Easy Way"),
+    ("VIY1fzRahJY", "How UE5 Created the Most Realistic Game Ever - Unrecord Trailer Breakdown"),
+    ("MWFpt3ZQ0zE", "Create a Lightsaber Battle in Unreal 5 (in 10 minutes!)"),
+    ("9rRiExTYrpE", "Learning Unreal 5 in One Year (Progression + Lessons)"),
+    ("_3PQ19-LMRg", "How We Made The Last of Us: Stay (VFX Breakdown)"),
+]
+
 ALL_VIDEOS = (
     [("boundless",        vid_id, title) for vid_id, title in BOUNDLESS]
   + [("blackeye",         vid_id, title) for vid_id, title in BLACKEYE]
   + [("polygonflow",      vid_id, title) for vid_id, title in POLYGONFLOW]
   + [("charliedriscoll",  vid_id, title) for vid_id, title in CHARLIEDRISCOLL]
   + [("deanyurke",        vid_id, title) for vid_id, title in DEANYURKE]
+  + [("joshtoonen",       vid_id, title) for vid_id, title in JOSHTOONEN]
 )
 
 def load_log():

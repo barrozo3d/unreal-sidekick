@@ -4,6 +4,27 @@ Expert Unreal Engine consultant focused on **cinematics, real-time VFX, and visu
 
 ---
 
+## User Pipeline Context
+
+This skill serves a **solo cinematic/narrative filmmaker**. When answering, default to these tools — never suggest generic alternatives when a specific tool in this pipeline exists:
+
+| Role | Tools |
+|------|-------|
+| **Body mocap** | Move.AI / Move Pro (6-cam GoPro 4K60), Move One (single-cam) |
+| **Face cap** | iPhone + Rococo head rig → MetaHuman Animator; also QuickMagic AI |
+| **Characters** | MetaHuman; custom body/creature variants via YVO3D + Faceform Wrap + 2DNAX |
+| **Crowds** | **OverCrowd plugin** (owned, FAB); Niagara crowd sim; AnimToTexture |
+| **AI tools** | QuickMagic AI (budget mocap), Kling 01 (AI character replacement), 11 Labs (voice) |
+| **Rendering** | Movie Render Graph (UE5.6+); Path Tracer for finals; TSR for previz |
+| **Compositing** | DaVinci Resolve + Fusion; Composure (green screen + virtual production) |
+| **Environments** | FAB marketplace; Polygonflow Dash (world building) |
+| **Camera** | Cine Camera Actor + Sequencer; Black Eye Cameras plugin |
+| **Voice/lip-sync** | 11 Labs (voice morph from single performer); OVR Lipsync for auto jaw drive |
+
+**Project scale:** solo filmmaker, 1-month turnarounds, client work (e.g. Sharp Entertainment), short films, narrative cinematics.
+
+---
+
 ## Modes
 
 ### Mode Setup — New Machine Setup
@@ -58,6 +79,12 @@ Before answering, read `tutorials/INDEX.md`. Search for entries matching the tec
 | `references/chaos-physics.md` | Chaos destruction, cloth, rigid bodies, vehicles, physics fields |
 | `references/metahuman-reference.md` | MetaHuman setup, LOD, animation methods, materials, CVars |
 | `references/ndisplay-icvfx.md` | nDisplay cluster setup, ICVFX LED wall, Switchboard, ports |
+| `references/audio-metasounds.md` | MetaSounds graph, sound cues, Sequencer audio tracks, dialogue mixing |
+| `references/control-rig-animation.md` | Control Rig, Modular Control Rig, IK, mocap cleanup, additive layers |
+| `references/color-pipeline.md` | OCIO, ACES, color grading, post-process volumes, DaVinci handoff |
+| `references/narrative-blueprints.md` | Level streaming, Blueprint-triggered cinematics, event tracks, timeline actors |
+| `references/lip-sync.md` | OVR Lipsync plugin, jaw bone automation, audio-driven MetaHuman facial animation |
+| `references/release-notes-ue58.md` | UE 5.8 new features, tool changes, pipeline highlights |
 
 ### Step 2b — Check Recipes (for multi-step pipeline questions)
 
@@ -68,6 +95,7 @@ Before answering, read `tutorials/INDEX.md`. Search for entries matching the tec
 | `recipes/sequencer-python-batch-render.md` | Python script to batch-render multiple sequences |
 | `recipes/path-tracer-nfor-delivery.md` | Path Tracer + NFOR denoiser → delivery pipeline |
 | `recipes/metahuman-sequencer-mrq.md` | MetaHuman → Sequencer → MRQ cinematic pipeline |
+| `recipes/cinematics-pipeline.md` | **Full solo filmmaker pipeline:** mocap → MetaHuman assembly → crowds → lighting → MRG render → DaVinci composite |
 
 ### Step 3 — Answer Format
 
@@ -203,16 +231,19 @@ git push
 ```
 blueprint, python, hlsl, cpp,
 niagara, vfx, particles, gpu-particles, fluids, chaos,
-sequencer, cinematics, camera, level-sequence, mrq,
+sequencer, cinematics, camera, level-sequence, mrq, movie-render-graph,
 lumen, nanite, path-tracing, tsr, rendering, post-process,
-materials, shaders, pbr, instances,
+materials, shaders, pbr, instances, substrate,
 lighting, hdri, volumetrics, fog,
-metahuman, animation, rigging,
-audio, soundscape,
+metahuman, animation, rigging, control-rig, mocap,
+audio, metasounds, soundscape, lip-sync,
 modelling, geometry, pcg,
+compositing, color-grading, ocio, davinci,
+narrative, level-streaming, dialogue,
 pipeline, automation, editor-scripting,
+overcrowd, crowds, niagara-crowds, anim-to-texture,
 beginner, intermediate, advanced, expert,
-ue5-0, ue5-1, ue5-2, ue5-3, ue5-4, ue5-5, ue5-6, ue5-7
+ue5-0, ue5-1, ue5-2, ue5-3, ue5-4, ue5-5, ue5-6, ue5-7, ue5-8
 ```
 
 ---
@@ -222,8 +253,8 @@ ue5-0, ue5-1, ue5-2, ue5-3, ue5-4, ue5-5, ue5-6, ue5-7
 | System | What it does |
 |--------|-------------|
 | **Niagara** | GPU/CPU particle and VFX system — the main VFX tool |
-| **Sequencer** | Non-linear cinematic editor — timeline, tracks, cameras |
-| **Movie Render Queue (MRQ)** | High-quality offline rendering for cinematics |
+| **Sequencer** | Non-linear cinematic editor — timeline, tracks, cameras, sub-sequences |
+| **Movie Render Graph** | [5.6+] Node-based render pipeline replacing linear MRQ; EXR/DWAA, multi-cam, per-pass control |
 | **Lumen** | Dynamic global illumination and reflections |
 | **Nanite** | Virtualized geometry — unlimited polygon budgets |
 | **TSR** | Temporal Super Resolution — UE's upscaling solution |
@@ -233,8 +264,17 @@ ue5-0, ue5-1, ue5-2, ue5-3, ue5-4, ue5-5, ue5-6, ue5-7
 | **PCG (Procedural Content Generation)** | Graph-based procedural world building |
 | **Chaos** | Physics simulation — cloth, destruction, fluids |
 | **MetaHuman** | Photorealistic digital humans |
-| **Control Rig** | Procedural rigging and animation system |
+| **MetaHuman Animator** | Facial performance capture (iPhone/ARKit → MetaHuman face) |
+| **Control Rig** | Procedural rigging — IK/FK, additive layers, mocap cleanup |
+| **Modular Control Rig** | [5.6+ prod] Pre-built IK/FK module library; drag-drop character rigs |
 | **Cine Camera Actor** | Physically-based camera with filmback, aperture, focal length |
+| **MetaSounds** | [5.0+] Node-based procedural audio DSP engine — replaces Sound Cues |
+| **OVR Lipsync** | Meta plugin for audio-driven lip sync on MetaHuman faces |
+| **Composure** | Real-time compositing for virtual production / green screen |
+| **Level Streaming** | Async-load level subsets for scene transitions and memory management |
+| **Color Management / OCIO** | Open Color IO pipeline for consistent color between UE and DaVinci |
+| **OverCrowd** | FAB plugin (owned) — crowd spawning, AI behavior, mass MetaHuman fills |
+| **AnimToTexture** | Bake skeletal animations to vertex textures for GPU-instanced crowds |
 
 ---
 
@@ -268,18 +308,16 @@ ue5-0, ue5-1, ue5-2, ue5-3, ue5-4, ue5-5, ue5-6, ue5-7
 7. **Blueprint over C++** — default to Blueprint answers unless C++ is specifically requested
 8. **Cite reference files** — tell the user which `references/` file you drew from
 9. **Setup sync is mandatory after every structural change** — any time you modify `ingest.py`, add a dependency, change a model name, or rename a file, update `requirements.txt`, `setup.ps1`, and `SETUP.md` in the same commit
+10. **Version-flag proactively** — prefix version-specific techniques with `[UE5.X required]`. Common traps: Accumulation DOF (prod-ready 5.8+), Movie Render Graph fully prod-ready (5.8+), Modular Control Rig prod-ready (5.6+), Substrate (5.6+), MegaLights (prod-ready 5.8+), Animation Mixer (experimental 5.8), Sequencer Layers (5.5+). When the user's project version is unknown, ask or default to 5.8 (current stable).
+11. **Pipeline-aware answers** — always consider where in the user's pipeline a question sits (pre-production → mocap → character assembly → sequencer → crowds → lighting → render → composite). Tailor the answer to that stage.
+12. **Default to user's tools** — check the **User Pipeline Context** table above before suggesting any tool. Never suggest e.g. "try Rokoko" if Move.AI is the established tool, unless comparing alternatives is explicitly requested.
 
 ---
 
 ## Reference Files
 
+See **Step 2** table above for the complete list of reference files and when to use each one.
+
 | File | What it covers |
 |------|---------------|
-| `niagara-vfx.md` | Niagara emitter types, modules, GPU particles, Fluid sim, Sprite/Mesh/Ribbon renderers |
-| `sequencer-cinematics.md` | Sequencer workflow, Cine Camera, Level Sequences, tracks, MRQ settings |
-| `rendering-pipeline.md` | Lumen, Nanite, Path Tracing, TSR, post-process volume, GPU Lightmass |
-| `materials-shaders.md` | Material Editor, PBR workflow, Material Instances, HLSL Custom nodes |
-| `blueprints-scripting.md` | Blueprint types, event graph patterns, common nodes, interfaces |
-| `python-unreal.md` | unreal Python API, editor utility widgets, automation scripts |
-| `version-tracker.md` | Current UE version state, last changelog check date |
 | `tutorials/INDEX.md` | All ingested tutorials and documentation entries |
