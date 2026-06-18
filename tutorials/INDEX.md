@@ -2704,6 +2704,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/learning-unreal-5-in-one-year-progression-lessons.md
 
+
+### How We Made The Last of Us: Stay (VFX Breakdown)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=_3PQ19-LMRg
+- **Author:** Josh Toonen
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-we-made-the-last-of-us-stay-vfx-breakdown.md
+
 ---
 
 ## Tag Reference
