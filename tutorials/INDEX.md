@@ -2804,6 +2804,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/mastering-the-ue5-tweener-tool-push-pull-overshoot-animation.md
 
+
+### UE5 Curve Editor 2.0 New Lattice Tool & Curve Scaling HACKS (UE 5.6)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=VD_cfVvMs6Y
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/ue5-curve-editor-20-new-lattice-tool-curve-scaling-hacks-ue-56.md
+
 ---
 
 ## Tag Reference
