@@ -2934,6 +2934,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/live-link-hub-tips-unreal-engine-animation-hub.md
 
+
+### Movie Render Graph Intro | Unreal Engine Animation Hub
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=0c8-8NSarDI
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/movie-render-graph-intro-unreal-engine-animation-hub.md
+
 ---
 
 ## Tag Reference
