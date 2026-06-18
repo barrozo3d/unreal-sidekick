@@ -2714,6 +2714,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Josh Toonen breaks down the VFX for his viral Last of Us fan film "Stay" — over 90% of shots contain visual effects, mostly invisible. Covers full-CG zombie head replacement (frame-by-frame 3D animation matching to live actor), layered matte painting for destruction and fungus, camera tracking workflow, atmospheric particle systems, sky replacement with matching light, and complete location rep...
 - **File:** tutorials/how-we-made-the-last-of-us-stay-vfx-breakdown.md
 
+
+### Realistic and Physical Lighting in UE5: What is PBL ?
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=JoxgvwNFc8g
+- **Author:** arthur tasquin
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/realistic-and-physical-lighting-in-ue5-what-is-pbl.md
+
 ---
 
 ## Tag Reference
