@@ -3004,6 +3004,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Installing and enabling UE 5.8's new MetaHuman Animator Markerless plugin via Fab, turning on the required MetaHuman + Live Link plugins, and opening Live Link Hub to begin marker-free, suit-free motion capture.
 - **File:** tutorials/unreal-engine-58-new-markerless-motion-capture-tutorial.md
 
+
+### NEW Unreal Engine 5.8 MetaHuman Markerless Mocap Tutorial
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=b2i1aZbhxAU
+- **Author:** Smart Poly
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/new-unreal-engine-58-metahuman-markerless-mocap-tutorial.md
+
 ---
 
 ## Tag Reference
