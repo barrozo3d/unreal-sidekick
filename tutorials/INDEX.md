@@ -2974,6 +2974,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** 30-minute Unreal Fest Bali 2025 session by Hugo Lignac (Epic Groom Team) on creating production-quality grooms for MetaHumans. Covers the foundational guide-driven system, procedural node graph for applying clumping/noise/curl modifiers, the artistic vs. technical balance in hair design, and how MetaHuman Creator's groom presets work under the hood. Targets studios aiming for film/linear qualit...
 - **File:** tutorials/how-to-create-grooms-for-metahumans-unreal-fest-bali-2025.md
 
+
+### NEW Unreal Engine 5.8 MCP Tutorial (QuickStart Guide)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=PqrKqhkj3gQ
+- **Author:** Smart Poly
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/new-unreal-engine-58-mcp-tutorial-quickstart-guide.md
+
 ---
 
 ## Tag Reference
