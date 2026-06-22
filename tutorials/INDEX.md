@@ -2979,9 +2979,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=PqrKqhkj3gQ
 - **Author:** Smart Poly
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.8
+- **Tags:** #mcp #ai-agent #pipeline #blueprints #pcg #quickstart
+- **Summary:** Quickstart guide for installing and connecting UE 5.8's official MCP plugin, which exposes a project's Blueprints, PCG graphs, materials, C++ code, level design, and assets to AI agents like Claude Code, referencing Epic's Unreal Fest demo of an AI agent building a full city via PCG.
 - **File:** tutorials/new-unreal-engine-58-mcp-tutorial-quickstart-guide.md
 
 ---

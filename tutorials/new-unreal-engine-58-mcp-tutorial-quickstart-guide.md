@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=PqrKqhkj3gQ
 author: Smart Poly
 ingested: 2026-06-22
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.8"
+tags: [mcp, ai-agent, pipeline, blueprints, pcg, quickstart]
+extraction_status: complete
 frames_dir: tutorials/frames/new-unreal-engine-58-mcp-tutorial-quickstart-guide/
 frame_count: 0
 ---
@@ -32,27 +32,34 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+A quickstart guide for installing and connecting Unreal Engine 5.8's official MCP (Model Context Protocol) plugin, which exposes a project's full context — Blueprints, PCG graphs, materials, C++ code, level design, and asset management — to AI agents such as Claude Code or ChatGPT.
 
 ### Summary
-[PENDING EXTRACTION]
+Smart Poly introduces the new UE 5.8 MCP plugin, which connects AI agents directly into an Unreal Engine project so the agent can understand and act on the project's actual context rather than working blind. He references Epic's Unreal Fest demo where an AI agent generated a PCG graph and used it to build an entire city from real content-browser assets, framing this as a preview of the plugin's potential. The video then walks through installing the plugin and getting it connected so it works correctly with AI agents from inside the user's own UE projects. (Whisper transcript truncated by ingestion at ~1200 characters; the exact installation/connection steps shown later in the video were not captured here and would need a follow-up pass — e.g. re-running ingestion without the per-chapter truncation, or reviewing the full video directly — for complete step-by-step detail.)
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. [Context] Understand the MCP plugin's purpose: bridges AI agents (Claude Code, ChatGPT, etc.) into live UE project context
+2. [Capabilities] Recognize the scope of what a connected AI agent can act on: Blueprints, PCG graphs, materials, C++ code, level design, asset management
+3. [Reference case] Epic's Unreal Fest demo — AI agent builds a PCG graph, then a full city using real content-browser assets
+4. [Install] Install the official UE 5.8 MCP plugin (exact steps not captured in available transcript)
+5. [Connect] Connect an AI agent client (e.g. Claude Code) to the running UE project via the MCP plugin (exact steps not captured)
+6. [Verify] Confirm the connection works correctly before relying on it in a real project
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- UE 5.8 MCP plugin — official Epic plugin exposing project context (Blueprints, PCG, materials, C++, level design, assets) over the Model Context Protocol
+- PCG (Procedural Content Generation) graph — referenced as the basis for the Unreal Fest AI-built-city demo
+- AI agent client (Claude Code / ChatGPT) — connects to the MCP plugin to read/act on project context
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+5.8
 
 ### Tags
-[PENDING EXTRACTION]
+mcp, ai-agent, pipeline, blueprints, pcg, quickstart
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+[None yet — first MCP-focused entry in this skill's library]
