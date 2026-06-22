@@ -2994,6 +2994,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Feature-roundup of UE 5.8's most useful filmmaking tools: webcam-to-MetaHuman markerless mocap, Accumulated Depth of Field, in-engine blendshape sculpting, Mesh to MetaHuman, floor-constraint retargeting, production-ready Megalights, Movie Render Graph parity, and procedural vegetation with free Megascans presets.
 - **File:** tutorials/how-unreal-58-changed-filmmaking.md
 
+
+### Unreal Engine 5.8 NEW Markerless Motion Capture Tutorial
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=kxsncXh8hhM
+- **Author:** World Of VFX
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-58-new-markerless-motion-capture-tutorial.md
+
 ---
 
 ## Tag Reference
