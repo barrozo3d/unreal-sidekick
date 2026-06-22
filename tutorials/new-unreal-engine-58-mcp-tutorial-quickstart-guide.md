@@ -62,4 +62,4 @@ mcp, ai-agent, pipeline, blueprints, pcg, quickstart
 ---
 
 ## Related Entries
-[None yet — first MCP-focused entry in this skill's library]
+- [How Unreal 5.8 Changed Filmmaking](how-unreal-58-changed-filmmaking.md) — another UE 5.8-focused video, covering filmmaking/rendering features rather than the AI-agent MCP plugin

@@ -2989,9 +2989,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=ALBCqhdNWRE
 - **Author:** Josh Toonen
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.8
+- **Tags:** #metahuman #mocap #rendering #retargeting #lighting #vegetation #pcg #pipeline #overview
+- **Summary:** Feature-roundup of UE 5.8's most useful filmmaking tools: webcam-to-MetaHuman markerless mocap, Accumulated Depth of Field, in-engine blendshape sculpting, Mesh to MetaHuman, floor-constraint retargeting, production-ready Megalights, Movie Render Graph parity, and procedural vegetation with free Megascans presets.
 - **File:** tutorials/how-unreal-58-changed-filmmaking.md
 
 ---
