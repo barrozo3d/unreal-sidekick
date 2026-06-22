@@ -2984,6 +2984,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Quickstart guide for installing and connecting UE 5.8's official MCP plugin, which exposes a project's Blueprints, PCG graphs, materials, C++ code, level design, and assets to AI agents like Claude Code, referencing Epic's Unreal Fest demo of an AI agent building a full city via PCG.
 - **File:** tutorials/new-unreal-engine-58-mcp-tutorial-quickstart-guide.md
 
+
+### How Unreal 5.8 Changed Filmmaking
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=ALBCqhdNWRE
+- **Author:** Josh Toonen
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-unreal-58-changed-filmmaking.md
+
 ---
 
 ## Tag Reference
