@@ -3019,9 +3019,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=bJIPlvmoTVw
 - **Author:** Smart Poly
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.8
+- **Tags:** #metahuman #mass #optimization #lod #overview
+- **Summary:** Overview of UE 5.8's experimental MetaHuman Crowd plugin, which uses Mass to simulate optimized crowds of MetaHuman characters from tens to thousands, with automatic high-fidelity/low-fidelity LOD transitions based on camera distance, plus the free Fab sample project.
 - **File:** tutorials/new-unreal-engine-58-metahuman-crowd-plugin.md
 
 ---
