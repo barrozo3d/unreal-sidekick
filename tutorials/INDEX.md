@@ -3014,6 +3014,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** In-depth demo of UE 5.8's MetaHuman Markerless Motion Capture plugin converting ordinary iPhone camera footage of body movement and gestures into usable character animation with no suit or markers, evaluating real-world setup ease and animation quality for games.
 - **File:** tutorials/new-unreal-engine-58-metahuman-markerless-mocap-tutorial.md
 
+
+### New Unreal Engine 5.8 Metahuman Crowd Plugin
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=bJIPlvmoTVw
+- **Author:** Smart Poly
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/new-unreal-engine-58-metahuman-crowd-plugin.md
+
 ---
 
 ## Tag Reference
