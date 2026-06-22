@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=kxsncXh8hhM
 author: World Of VFX
 ingested: 2026-06-22
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.8"
+tags: [metahuman, mocap, plugins, quickstart]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-58-new-markerless-motion-capture-tutorial/
 frame_count: 0
 ---
@@ -32,27 +32,35 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Installing and enabling the new MetaHuman Animator "Markerless" plugin in Unreal Engine 5.8, then opening Live Link Hub to begin capturing motion without a suit or physical markers.
 
 ### Summary
-[PENDING EXTRACTION]
+World Of VFX walks through getting Unreal's new markerless motion capture plugin running. The plugin is installed via Fab (search "markerless" to find the MetaHuman Animator Markerless plugin), and is only available starting in UE 5.8. Inside the Unreal project, the user must enable several plugins under Edit > Plugins: all MetaHuman-related plugins, plus Live Link and Live Link Control Link, followed by an engine restart. After importing a MetaHuman character, the workflow continues via Tools > Live Link to open the newly available Live Link Hub window, where capture is configured. (Transcript truncated by ingestion at ~1200 characters; the remaining capture-configuration and recording steps in Live Link Hub were not captured here and would need a follow-up review of the full video for complete detail.)
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. [Fab marketplace] Search "markerless" in Fab and install the MetaHuman Animator Markerless plugin (UE 5.8+ only)
+2. [Enable plugins] Edit > Plugins > enable all MetaHuman-related plugins
+3. [Enable Live Link] Edit > Plugins > enable Live Link and Live Link Control Link
+4. [Restart] Restart Unreal Engine for the newly enabled plugins to take effect
+5. [Import character] Import a MetaHuman character into the project
+6. [Open Live Link Hub] Tools > Live Link > opens the Live Link Hub window to begin configuring/recording the markerless capture
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- MetaHuman Animator Markerless plugin (Fab, UE 5.8+) — enables motion capture without physical markers or a mocap suit
+- Live Link + Live Link Control Link plugins — required alongside the MetaHuman plugins for the capture pipeline to function
+- Live Link Hub (Tools > Live Link) — the capture/monitoring window used to drive the markerless mocap session
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+5.8
 
 ### Tags
-[PENDING EXTRACTION]
+metahuman, mocap, plugins, quickstart
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [NEW Unreal Engine 5.8 MetaHuman Markerless Mocap Tutorial](new-unreal-engine-58-metahuman-markerless-mocap-tutorial.md) — a longer, more detailed walkthrough of the same markerless MetaHuman mocap pipeline
+- [How Unreal 5.8 Changed Filmmaking](how-unreal-58-changed-filmmaking.md) — mentions the related webcam-to-MetaHuman Animator pipeline as a top UE 5.8 feature
