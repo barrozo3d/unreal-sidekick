@@ -3,10 +3,10 @@ title: How to ACTUALLY Improve Your Films + VFX (Dune in Unreal 5)
 source: YouTube
 url: https://www.youtube.com/watch?v=Qun6BB6Q2tg
 author: Josh Toonen
-ingested: 2026-06-18
-ue_version: "5.x"
-tags: [lighting, cinematics, camera, sequencer, vfx, compositing, beginner]
-extraction_status: complete
+ingested: 2026-06-23
+ue_version: "[PENDING]"
+tags: []
+extraction_status: pending
 frames_dir: tutorials/frames/how-to-actually-improve-your-films-vfx-dune-in-unreal-5/
 frame_count: 9
 ---
@@ -38,7 +38,7 @@ frame_count: 9
 **Frame:** tutorials\frames\how-to-actually-improve-your-films-vfx-dune-in-unreal-5\frame_002.jpg
 
 ### Photography vs Cinematography [2:33]
-**Transcript:** But let's stop right there. What's the difference between photography and cinematography? Photography  is only dealing with still images. But cinematography is all about making images that move. After all,  we're creating movies. Looking at the sequence from Dune, there's not a single shot here where the  camera isn't moving. And I think this is the biggest difference between static environment renders  and creating visual effect shots that look right out of your favorite Hollywood movies.  And I think this becomes obvious if we go look back at the original Star Wars pre-puls. These were  some of the first movies where they were experimenting with full green screen stages and digital environments.  You're doing lines against a blue curtain and it's really hard work. It's difficult to make that  believable. I don't know if I have. Pretty much every set has blue screen even if it's just out of  window or something. It's everywhere. People say why am I doing it? Is it the real question? Why not?  I think the biggest reason some of these shots don't hold up isn't because of bad visual effects.  It's because we have two actors standing still in the middle of this room with a static came...
+**Transcript:** But let's stop right there. What's the difference between photography and cinematography? Photography  is only dealing with still images. But cinematography is all about making images that move. After all,  we're creating movies. Looking at the sequence from Dune, there's not a single shot here where the  camera isn't moving. And I think this is the biggest difference between static environment renders  and creating visual effect shots that look right out of your favorite Hollywood movies.  And I think this becomes obvious if we go look back at the original Star Wars pre-puls. These were  some of the first movies where they were experimenting with full green screen stages and digital environments.  You're doing lines against a blue curtain and it's really hard work. It's difficult to make that  believable. I don't know if I have. Pretty much every set has blue screen even if it's just out of  window or something. It's everywhere. People say why am I doing it? Is it the real question? Why not?  I think the biggest reason some of these shots don't hold up isn't because of bad visual effects.  It's because we have two actors standing still in the middle of this room with a static camera.  So let's start by animating our cameras and our characters. First, I'm going to start by animating
 
 **Frame:** tutorials\frames\how-to-actually-improve-your-films-vfx-dune-in-unreal-5\frame_003.jpg
 
@@ -53,7 +53,7 @@ frame_count: 9
 **Frame:** tutorials\frames\how-to-actually-improve-your-films-vfx-dune-in-unreal-5\frame_005.jpg
 
 ### Explosions [5:05]
-**Transcript:** people mess up. If you want your renders to look as good as your favorite films, then the name of  the game is photo realism. People think we need to use video game techniques to create our visual  effects, but that is not the way to approach filmmaking in Unreal. Most people don't know it's super  easy to add footage into Unreal. I got these explosions for free from my buddy Alex over at  Compositing Academy. By creating an image sequence in Unreal, we can load in any footage and even  use ones that have high dynamic range. Just drag that image sequence into your viewport and then  drag that into sequencer. Now you can slide this left and right just like an editing timeline.  Perfect that timing, change the size, scale and rotation, but we're not done yet. To take this  one step further, we can add in point lights where our explosions are and animate them brighter to  make these explosion blasts feel huge. Now they cast light dynamically in the environment just like  the real thing. I also modified the material and added a depth fade node so I could slide this  anywhere around our environment without getting any hard edges or seams. It's a simple trick,  but just animating the int...
+**Transcript:** people mess up. If you want your renders to look as good as your favorite films, then the name of  the game is photo realism. People think we need to use video game techniques to create our visual  effects, but that is not the way to approach filmmaking in Unreal. Most people don't know it's super  easy to add footage into Unreal. I got these explosions for free from my buddy Alex over at  Compositing Academy. By creating an image sequence in Unreal, we can load in any footage and even  use ones that have high dynamic range. Just drag that image sequence into your viewport and then  drag that into sequencer. Now you can slide this left and right just like an editing timeline.  Perfect that timing, change the size, scale and rotation, but we're not done yet. To take this  one step further, we can add in point lights where our explosions are and animate them brighter to  make these explosion blasts feel huge. Now they cast light dynamically in the environment just like  the real thing. I also modified the material and added a depth fade node so I could slide this  anywhere around our environment without getting any hard edges or seams. It's a simple trick,  but just animating the intensity of these lights and timing them to the movement of our final  explosion suddenly this pretty simple trick starts to become convincing. Now we get this interactive  light on the environment, on our atmosphere and casting onto our ornithopters. This is why  Unreal Engine is the ultimate filmmaking tool. You can make all of these adjustments all in real time  just like you're on a movie set. Rendering in Maya, Blender or Cinema 4D can take minutes or  hours to render out a single frame from your movie. It becomes impossible to imagine making a 10  minute, 20 minute or 90 minute film, but when working in Unreal it's not two times or 10 times  faster, it's exponentially faster because we're not waiting around for our final renders or focusing  on the creative parts of visual effects and filmmaking. We're not done yet. If we want our shots to
 
 **Frame:** tutorials\frames\how-to-actually-improve-your-films-vfx-dune-in-unreal-5\frame_006.jpg
 
@@ -63,7 +63,7 @@ frame_count: 9
 **Frame:** tutorials\frames\how-to-actually-improve-your-films-vfx-dune-in-unreal-5\frame_007.jpg
 
 ### Compositing [8:15]
-**Transcript:** in 10 different lens effects that you'll find in every single photograph. All the things that I add in  every single time when I'm working on Hollywood films, I combine all of these settings into one  template with easy use sliders so you can apply that feature film look to your Unreal renders.  Look, if you're new to filmmaking, are you struggled learning Unreal in the past? I believe anyone  can start making Hollywood level films using Unreal Engine 5. I've already held 500 artists just  like you start making films from home inside of Unreal Fundamentals. You can go from a complete  beginner to an Unreal filmmaker in just 30 minutes a day without knowing how to code, how to model,  or how to animate. And by the end, you'll be able to create your own movies that look just like  your favorite Hollywood films. Get started right now at Unreal for VFX.com slash Fundamentals.  Or click the link down below and create your own visual effects in films today. Let's take a look at  the final shot.  I hope that gives you some ideas on how to level up your Unreal renders and make them look like  your favorite movies. My last video, I wrote this entire environment in just 24 hours inside of  U...
+**Transcript:** in 10 different lens effects that you'll find in every single photograph. All the things that I add in  every single time when I'm working on Hollywood films, I combine all of these settings into one  template with easy use sliders so you can apply that feature film look to your Unreal renders.  Look, if you're new to filmmaking, are you struggled learning Unreal in the past? I believe anyone  can start making Hollywood level films using Unreal Engine 5. I've already held 500 artists just  like you start making films from home inside of Unreal Fundamentals. You can go from a complete  beginner to an Unreal filmmaker in just 30 minutes a day without knowing how to code, how to model,  or how to animate. And by the end, you'll be able to create your own movies that look just like  your favorite Hollywood films. Get started right now at Unreal for VFX.com slash Fundamentals.  Or click the link down below and create your own visual effects in films today. Let's take a look at  the final shot.  I hope that gives you some ideas on how to level up your Unreal renders and make them look like  your favorite movies. My last video, I wrote this entire environment in just 24 hours inside of  Unreal 5. If you want to see how I did it step by step, join me in my free Dune Master class  over at unrealforvFX.com slash Dune. Click the link in the description and sign up today.  Otherwise, subscribe to the channel for more visual effects and filmmaking videos just like this.  Thanks for watching and I'll see you next time. Peace.
 
 **Frame:** tutorials\frames\how-to-actually-improve-your-films-vfx-dune-in-unreal-5\frame_008.jpg
 
@@ -73,37 +73,27 @@ frame_count: 9
 ## Structured Notes
 
 ### Core Technique
-Three cinematic shortcuts to elevate UE5 VFX quality: backlighting key lights for contrast and lens flares, invisible lights with low-roughness materials for nighttime reflections, adding Sequencer camera shake noise tracks, and compositing real lens flares in post.
+[PENDING EXTRACTION]
 
 ### Summary
-Josh Toonen shares three practical shortcuts for improving VFX quality demonstrated through a Dune cinematic recreation. Viewers learn that placing the key light behind actors (rather than in front) creates separation, drama, and organic lens flares. Invisible point lights combined with low-roughness materials create believable nighttime reflections from otherwise unlit surfaces. Sequencer's camera shake noise tracks add cinematic instability, and real-world lens flare footage composited in post adds the final touch of photoreal authenticity.
+[PENDING EXTRACTION]
 
 ### Key Steps
-1. **Backlight key placement**: Position your key/sun light behind the actors (cross the 180-degree line), pointing toward the camera — this creates strong rim/separation lighting and generates natural-looking lens flares in the Cine Camera.
-2. **Invisible lights for reflections**: Add Point Lights in the scene with Visibility = hidden in game; reduce the material roughness of reflective surfaces (ground, windows) below 0.15 to catch the invisible light; this creates realistic glowing reflections at night without visible practical light sources.
-3. **Camera must move**: In Sequencer, add a Translation Noise track and a Rotation Noise track to the Cine Camera actor; set small amplitudes (0.5–2.0 for translation, 0.2–1.0 for rotation) to simulate handheld cinematography.
-4. **Explosion from image sequences**: Import explosion PNG sequences as a Flipbook or Texture 2D Array; apply to a card mesh with a Depth Fade material node so the explosion blends into the ground naturally.
-5. **Compositing lens flares**: Record or purchase real lens flare footage; composite over the final render using Merge Plus (additive) in Nuke or After Effects.
+[PENDING EXTRACTION]
 
 ### UE Systems / Blueprints / Settings
-- **Backlight key**: Directional Light or Spot Light positioned behind actors; Source Angle = small for crisp backlight; Lens Flare = enabled on Cine Camera
-- **Invisible lights**: Point Light; Visible = false (hidden in game); Cast Shadows = false; target material Roughness below 0.15
-- **Camera shake in Sequencer**: Cine Camera actor → Add Track → Transform → Translation Noise; Rotation Noise; Amplitude: Translation = 0.5–2.0, Rotation = 0.2–1.0
-- **Explosion image sequence**: PNG frames → Texture 2D Array or Flipbook; Depth Fade node in material (Fade Distance = 1000) for ground blend
-- **Animated explosion light**: Point Light keyframed intensity 0 → 50000 → 0 over explosion duration; parented near explosion card
+[PENDING EXTRACTION]
 
 ### Difficulty
-Beginner
+[PENDING EXTRACTION]
 
 ### UE Version
-UE 5.x
+[PENDING EXTRACTION]
 
 ### Tags
-lighting, cinematics, camera, sequencer, vfx, compositing, beginner
+[PENDING EXTRACTION]
 
 ---
 
 ## Related Entries
-- [[the-fastest-way-to-learn-lighting-in-ue5]] — lighting framework and key light direction theory
-- [[the-1-skill-you-need-for-lighting-in-ue5]] — upstage lighting and backlight motivation
-- [[give-me-14-minutes-and-youll-make-cinematic-renders]] — animated lights with Perlin noise intensity
+[PENDING EXTRACTION]
