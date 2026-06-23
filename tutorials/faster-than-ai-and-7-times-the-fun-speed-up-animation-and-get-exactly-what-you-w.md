@@ -3,10 +3,10 @@ title: Faster than AI and 7 times the fun! Speed up Animation and get exactly wh
 source: YouTube
 url: https://www.youtube.com/watch?v=o_AE2kUsF3E
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
-ingested: 2026-06-17
-ue_version: "5.x"
-tags: ["Rokoko", "mocap", "motion capture", "Smartsuit Pro II", "Smartgloves", "Coil Pro", "FBX import", "animation retargeting", "Composure", "3D compositing", "filmmaking", "virtual production"]
-extraction_status: complete
+ingested: 2026-06-23
+ue_version: "[PENDING]"
+tags: []
+extraction_status: pending
 frames_dir: tutorials/frames/faster-than-ai-and-7-times-the-fun-speed-up-animation-and-get-exactly-what-you-w/
 frame_count: 16
 ---
@@ -23,7 +23,7 @@ frame_count: 16
 
 
 ### Intro & The "Robot" Unboxing [0:00]
-**Transcript:** So I'm very excited because the Coco have crazily given me one of their suits to play with and giving my thoughts on  My first thought though is where do I begin because some of your boxes and cables and Wi-Fi routers  It's  So I'm gonna let this guy over here  I'll come back when it's all done  The Coco is easy to set up. Let's do this thing make a mocap fun  So everything remarkably set up very quickly. I just follow the tutorials on the website and the website and  Plugged in the suit and the gloves and got the latest firmwares and  It all just did its magic and then worked and my biggest fear was because I'm down the end of my garden  And I've got a little room that I use to do all my videos and I have like a 300 foot cable  Ethernet cable and so I don't have like a Wi-Fi router in here  And I was a bit worried about having to set one up because it just scares me  But I used the mobile hotspot on the actual PC and it worked so  Brilliant, yeah, it's great and so  This was like two hours after opening the box and so I'm just gonna show you me  plotting through to create that opening scene and I'm gonna have to say that  The Ricoco provided the suit and they just came out of the ...
+**Transcript:** So I'm very excited because the Coco have crazily given me one of their suits to play with and giving my thoughts on  My first thought though is where do I begin because some of your boxes and cables and Wi-Fi routers  It's  So I'm gonna let this guy over here  I'll come back when it's all done  The Coco is easy to set up. Let's do this thing make a mocap fun  So everything remarkably set up very quickly. I just follow the tutorials on the website and the website and  Plugged in the suit and the gloves and got the latest firmwares and  It all just did its magic and then worked and my biggest fear was because I'm down the end of my garden  And I've got a little room that I use to do all my videos and I have like a 300 foot cable  Ethernet cable and so I don't have like a Wi-Fi router in here  And I was a bit worried about having to set one up because it just scares me  But I used the mobile hotspot on the actual PC and it worked so  Brilliant, yeah, it's great and so  This was like two hours after opening the box and so I'm just gonna show you me  plotting through to create that opening scene and I'm gonna have to say that  The Ricoco provided the suit and they just came out of the blue and went and would you like to play with a suit?  And I was like, yes, please. It's great. And so I have to declare that so  Take it with that in mind, but I love it anyway, but I'll skip to the end. We didn't know it's great. It's really fun  Okay, so here we go. Here's the video  Create new scene. I'm going to call this one robot
 
 **Frame:** tutorials\frames\faster-than-ai-and-7-times-the-fun-speed-up-animation-and-get-exactly-what-you-w\frame_000.jpg
 
@@ -53,7 +53,7 @@ frame_count: 16
 **Frame:** tutorials\frames\faster-than-ai-and-7-times-the-fun-speed-up-animation-and-get-exactly-what-you-w\frame_005.jpg
 
 ### The Immediacy of Mocap vs. AI Processing [5:00]
-**Transcript:** So I had that and what I wanted to do was just play that on a loop  So then I could kind of have that and act against it as the robots  The thing that I really like about the rococo system is that it's live and there's no waiting  So you can perform you can see it take you can see that it's not very good and then you do it again  I tried some sort of the some of the AI kind of the ones where you upload it to a site and  They're good  But they're kind of annoying because you have to wait so long you have to film it you have to make sure you fit within the frame  And then also if anything's included it doesn't understand what that is  And then the worst thing is though it's just waiting and as you can tell I'm always in a rush  I've got time to waste um  So I like the immediacy of just seeing it's like working with an actor  You know you see if it takes good and then you go what do you think like that? I hope they'll change it  So there we go anyway, so I said on a loop and then I went and filmed myself  Embarrassing me in my pajamas. It's a rococo suit. It just looks like pajamas  She gets super on one all right on the show  Yeah  All right, that's my recording. Let's see how that w...
+**Transcript:** So I had that and what I wanted to do was just play that on a loop  So then I could kind of have that and act against it as the robots  The thing that I really like about the rococo system is that it's live and there's no waiting  So you can perform you can see it take you can see that it's not very good and then you do it again  I tried some sort of the some of the AI kind of the ones where you upload it to a site and  They're good  But they're kind of annoying because you have to wait so long you have to film it you have to make sure you fit within the frame  And then also if anything's included it doesn't understand what that is  And then the worst thing is though it's just waiting and as you can tell I'm always in a rush  I've got time to waste um  So I like the immediacy of just seeing it's like working with an actor  You know you see if it takes good and then you go what do you think like that? I hope they'll change it  So there we go anyway, so I said on a loop and then I went and filmed myself  Embarrassing me in my pajamas. It's a rococo suit. It just looks like pajamas  She gets super on one all right on the show  Yeah  All right, that's my recording. Let's see how that worked  So I've unplugged the suit and
 
 **Frame:** tutorials\frames\faster-than-ai-and-7-times-the-fun-speed-up-animation-and-get-exactly-what-you-w\frame_006.jpg
 
@@ -63,7 +63,7 @@ frame_count: 16
 **Frame:** tutorials\frames\faster-than-ai-and-7-times-the-fun-speed-up-animation-and-get-exactly-what-you-w\frame_007.jpg
 
 ### Post-Processing: Foot Locking and Drift Cleanup [6:37]
-**Transcript:** Are planted on the ground and so you can edit this because with an inertia-based system even with coil  You still get drift and it's not  Outside in tracking  So it's um this helps fix all that so I'm going to go through and I can change these so wherever I think the foot should be locked  I can edit these and keep them locked like here  It's like there it needs to be locked there it needs to be locked so though  Anyway, so I'm just going to go through and manually do this and this is the  Second time I've opened up this software so for ease of use it's pretty damn  Use a friendly so far  This is great though to have this um cleanup. I mean it used to be so difficult  All right, there we are that's it. Okay now. I think I hit finalize post process  So now it's going to process that and clean it up a bit  All right, there we go now um, I'm going to go and export that to unreal engine  So one thing that I wanted to mention was that when I was first setting up the coil pro  I noticed that it was quite sensitive around anything magnetic  So if I was walking by a cable I the little suit would jump or it would kind of jitter or there was like weird thing  So it needed to be a little bit ...
+**Transcript:** Are planted on the ground and so you can edit this because with an inertia-based system even with coil  You still get drift and it's not  Outside in tracking  So it's um this helps fix all that so I'm going to go through and I can change these so wherever I think the foot should be locked  I can edit these and keep them locked like here  It's like there it needs to be locked there it needs to be locked so though  Anyway, so I'm just going to go through and manually do this and this is the  Second time I've opened up this software so for ease of use it's pretty damn  Use a friendly so far  This is great though to have this um cleanup. I mean it used to be so difficult  All right, there we are that's it. Okay now. I think I hit finalize post process  So now it's going to process that and clean it up a bit  All right, there we go now um, I'm going to go and export that to unreal engine  So one thing that I wanted to mention was that when I was first setting up the coil pro  I noticed that it was quite sensitive around anything magnetic  So if I was walking by a cable I the little suit would jump or it would kind of jitter or there was like weird thing  So it needed to be a little bit more. I haven't quite worked out yet  But the important thing was even though it did these little weird things when I recorded the animation  It didn't record that so I don't know if it's just a display thing or if it was just part of the cleanup software
 
 **Frame:** tutorials\frames\faster-than-ai-and-7-times-the-fun-speed-up-animation-and-get-exactly-what-you-w\frame_008.jpg
 
@@ -108,43 +108,27 @@ frame_count: 16
 ## Structured Notes
 
 ### Core Technique
-End-to-end Rokoko Smartsuit Pro II mocap workflow for indie filmmaking: record performance in Rokoko Studio with foot locking and cleanup, export FBX, import and retarget onto a custom character in Unreal Engine, then place the animated character into a Composure 3D scene.
+[PENDING EXTRACTION]
 
 ### Summary
-Dean Yurke reviews Rokoko's Smartsuit Pro II inertial mocap suit (provided as a sponsored review) and demonstrates his full pipeline for using it in a cinematic project. He shows setup of the suit, smart gloves, and Coil Pro EMF generator in Rokoko Studio, performing to a looping robot animation and recording the take. Post-processing in Rokoko Studio includes foot locking (manually editing foot-plant markers along the timeline to correct drift) and finalization. The FBX is then imported into Unreal Engine, retargeted onto a robot character using UE's animation retargeting tool, and placed in a pre-built Composure 3D compositing scene (camera projection of a real room). Key advantages over AI mocap tools: immediate real-time feedback, live preview of the captured animation with no upload wait, and precise iterative performance direction. He also mentions the separate Rokoko Studio Preview app for jitter smoothing and loop creation.
+[PENDING EXTRACTION]
 
 ### Key Steps
-1. Assemble Rokoko Smartsuit Pro II; install Rokoko Studio; connect suit via Wi-Fi hotspot from the recording PC.
-2. In Rokoko Studio, create an Actor and drag the suit sensor onto it; add Smartgloves; add Coil Pro if available for better spatial accuracy.
-3. Set calibration delay (6 seconds) and perform a T-pose; confirm the character mirrors your movements.
-4. Record the performance take inside Rokoko Studio.
-5. In post-processing: enable foot locking, manually review and lock foot-plant frames along the timeline to eliminate drift; hit Finalize Post Process.
-6. Export the recorded animation as FBX.
-7. In Unreal Engine: right-click in Content Browser → Import to Current Folder → select the FBX; import animation and create physics asset/skeleton.
-8. Retarget animation: right-click the animation asset → Retarget Animations → select target skeletal mesh (e.g., robot character); export retargeted animation.
-9. Drag the retargeted animation into the Sequencer for the target character; adjust timing and slip the clip.
-10. Place the animated character in the Composure scene at the correct depth; adjust transforms to match the plate's camera projection.
+[PENDING EXTRACTION]
 
 ### UE Systems / Blueprints / Settings
-- FBX Import (skeletal mesh animation import pipeline)
-- Animation Retargeting (right-click → Retarget Animations)
-- Sequencer (animation clip placement, slip/trim)
-- Composure / Composite Mesh Actor (camera projection scene)
-- Rokoko Studio (external: foot locking, post process, FBX export)
-- Rokoko Studio Preview (external: jitter cleanup, loop creation)
+[PENDING EXTRACTION]
 
 ### Difficulty
-Beginner
+[PENDING EXTRACTION]
 
 ### UE Version
-5.x (no specific version referenced)
+[PENDING EXTRACTION]
 
 ### Tags
-Rokoko, mocap, motion capture, Smartsuit Pro II, Smartgloves, Coil Pro, FBX import, animation retargeting, Composure, 3D compositing, filmmaking, virtual production
+[PENDING EXTRACTION]
 
 ---
 
 ## Related Entries
-- `easiest-vfx-pipeline-ever-with-composite-mesh-actors-in-unreal-engine-57-composu.md` — the Composure 3D scene this animation was placed into
-- `motion-blending-bone-matching-for-unreal-engine---make-films-in-unreal-ep2-inter.md` — animation blending and bone matching as a complement to mocap cleanup
-- `beat-yourself-up-with-unreal-ragdoll-physics-for-filmmaking-made-easy-or-hard-in.md` — alternative animation workflow (physics-driven) also using retargeting
+[PENDING EXTRACTION]
