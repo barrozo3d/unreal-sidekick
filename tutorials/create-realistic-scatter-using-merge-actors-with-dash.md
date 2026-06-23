@@ -1,13 +1,12 @@
-﻿---
+---
 title: Create Realistic Scatter Using Merge Actors with Dash
 source: YouTube
 url: https://www.youtube.com/watch?v=P90HaXlYSNE
 author: Polygonflow Dash
-ingested: 2026-06-16
-plugin_version: dash-1.3
-ue_version: "UE 5.x"
-tags: [dash-1.3, merge-actors, physics, pivot, scatter, megascans, sketchfab, beginner]
-extraction_status: complete
+ingested: 2026-06-23
+ue_version: "[PENDING]"
+tags: []
+extraction_status: pending
 frames_dir: tutorials/frames/create-realistic-scatter-using-merge-actors-with-dash/
 frame_count: 6
 ---
@@ -34,7 +33,7 @@ frame_count: 6
 **Frame:** tutorials\frames\create-realistic-scatter-using-merge-actors-with-dash\frame_001.jpg
 
 ### Bricks [1:23]
-**Transcript:** Here in this new scene, you'll see that I have a few burnt bricks placed around.  This is one of the many bricks you can find in the Megascans library, but this one I think  feels pretty good for the scene.  So I'm going to go ahead and select the bricks, and then I'm going to open the Physics  tool from the prompt bar.  For now, I'm going to hit start and the tool automatically make all the selected assets  dynamic objects and drop them down to the plane.  From here, what I like to do is duplicate these objects a few times using the duplicate  button.  After I've done this three to five times, I'll hit the select button, which selects  the duplicated objects, and then I'll hit duplicate another timer too, which gives  us a lot of duplicates to work with.  Sometimes especially when using one mesh with unique characteristics, you'll notice some  of the bricks really make it obvious or just duplicates.  And while it's better to use multiple assets for something like this to add a bit of variety,  one trick you can do is hold down control and hit the reset button up here.  This will put the duplicates back to where they originally spawned, and as such, a lot  of the assets are inside ...
+**Transcript:** Here in this new scene, you'll see that I have a few burnt bricks placed around.  This is one of the many bricks you can find in the Megascans library, but this one I think  feels pretty good for the scene.  So I'm going to go ahead and select the bricks, and then I'm going to open the Physics  tool from the prompt bar.  For now, I'm going to hit start and the tool automatically make all the selected assets  dynamic objects and drop them down to the plane.  From here, what I like to do is duplicate these objects a few times using the duplicate  button.  After I've done this three to five times, I'll hit the select button, which selects  the duplicated objects, and then I'll hit duplicate another timer too, which gives  us a lot of duplicates to work with.  Sometimes especially when using one mesh with unique characteristics, you'll notice some  of the bricks really make it obvious or just duplicates.  And while it's better to use multiple assets for something like this to add a bit of variety,  one trick you can do is hold down control and hit the reset button up here.  This will put the duplicates back to where they originally spawned, and as such, a lot  of the assets are inside one another.  Now when I hit start, the bricks give us a bit of an explosion effect as they push away  from each other.  This is a great way to really get each brick to land a little differently, which will  help reduce that obvious repeating pattern the bricks were showing before.  And if you aren't 100% satisfied with the results, just hit reset and start again to keep  trying until you have something you like.  Okay, I'm happy with how this pile looks, but the problem is, each brick is its own actor,  and the more actors you have in your scene, the more taxing it's going to be on your performance.  So now what I can do is select the brick assets, and then go up to the prompt bar and type  merge actors.  This will take all the assets and create a single static mesh.  Now we have dozens of bricks in this pile, but it's only one static mesh actor.  Now I can just type NANI into the prompt bar, and select actor switch NANI, which will  enable NANI for this mesh, further optimizing it.  Depending on the scene you've created, you're probably going to want multiple variations  of the asset you're creating.  Just like we wanted to avoid obvious repetition in the brick pile itself, we don't want every  scattered instance to be the same pile, just at different rotations.  So creating a few variants of piles, perhaps even introducing some additional assets, will  really help add a lot of variety to the scatter.  Back in my scene, I can now drag my newly created meshes out onto my terrain, and then with  them selected, type surface scatter in the prompt bar.  And I'll go ahead and add them to the scatter set, then I just need to select my terrain,  and add that to the surface set of the scatter.  Now everything is set up just like any normal scatter, except you're able to scatter tens  of thousands of bricks and significantly fewer actors.
 
 **Frame:** tutorials\frames\create-realistic-scatter-using-merge-actors-with-dash\frame_002.jpg
 
@@ -59,37 +58,27 @@ frame_count: 6
 ## Structured Notes
 
 ### Core Technique
-Dash 1.3 Merge Actors command (consolidate multi-mesh Sketchfab GLTFs into a single static mesh) combined with Pivot Adjustment (center/top/bottom) and Physics Drop to scatter debris realistically.
+[PENDING EXTRACTION]
 
 ### Summary
-6-minute tutorial by Josh Powers demonstrating a WWI battle scene enriched with physically-dropped debris. The key new Dash 1.3 features highlighted are: Merge Actors (type `merge actors` in prompt to combine multi-mesh Sketchfab imports into one static mesh) and Pivot Adjustment (type `pivot center/top/bottom` to instantly reposition the pivot to the bounding box). These combine with the Physics Tool to allow physics-accurate placement of varied debris without stacking hundreds of actor instances.
+[PENDING EXTRACTION]
 
 ### Key Steps
-1. **Select bricks** → type `Physics` in Dash prompt → open Physics Tool → Start (selected assets become dynamic, drop to floor)
-2. **Duplicate physics assets** — use Duplicate button in Physics toolbar 3-5 times; then Select button (selects newly duplicated objects) → Duplicate again to multiply
-3. **Handle duplicate repetition** — Ctrl+Reset to respawn all duplicates from origin → re-drop for different positions/rotations (assets overlap at spawn and separate on drop)
-4. **Merge multi-mesh Sketchfab imports** — select all meshes of a single object → type `merge actors` in Dash prompt → single static mesh result
-5. **Fix distant pivot** — type `pivot bottom` in Dash prompt → pivot moves to bottom-center of bounding box; options: `pivot center`, `pivot top`, `pivot bottom`
-6. **Drop fixed asset** — now correctly pivoted asset can be physics-dropped and placed precisely in scene
+[PENDING EXTRACTION]
 
 ### UE Systems / Blueprints / Settings
-- **Merge Actors command** — type `merge actors` in Dash prompt; merges all selected static meshes into one; new in Dash 1.3; solves multi-mesh GLTF imports from Sketchfab
-- **Pivot Adjustment commands** — `pivot center`, `pivot top`, `pivot bottom`; repositions pivot to bounding box center/top/bottom instantly; new in Dash 1.3
-- **Physics Tool** — Start = all selected assets become dynamic + drop; Reset = reset selected assets; Ctrl+Reset = reset all dynamic assets; Duplicate = duplicate selected; Select = select only the duplicated batch
-- **Sketchfab GLTF import quirks** — may import as multiple static meshes; may have pivot far from geometry; both fixed with Merge Actors + Pivot commands
+[PENDING EXTRACTION]
 
 ### Difficulty
-Beginner
+[PENDING EXTRACTION]
 
 ### UE Version
-UE 5.x (Dash 1.3)
+[PENDING EXTRACTION]
 
 ### Tags
-`#dash-1.3` `#merge-actors` `#physics` `#pivot` `#scatter` `#megascans` `#sketchfab` `#beginner`
+[PENDING EXTRACTION]
 
 ---
 
 ## Related Entries
-- [[new-physics-tool-for-unreal-engine-5]] — full Physics Tool explainer (early Dash)
-- [[beginner-content-library-tutorial-for-ue5]] — Content Library drag-and-drop + Ctrl+drag physics entry
-- [[surface-scatter-beginner-guide-to-your-ue5-co-pilot-dash]] — Surface Scatter for dense coverage; Physics for specific placement
+[PENDING EXTRACTION]
