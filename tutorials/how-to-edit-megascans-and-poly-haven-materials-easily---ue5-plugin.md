@@ -1,13 +1,12 @@
-﻿---
+---
 title: How to Edit Megascans and Poly Haven Materials Easily - UE5 Plugin
 source: YouTube
 url: https://www.youtube.com/watch?v=7NKl90gt0w0
 author: Polygonflow Dash
-ingested: 2026-06-16
-plugin_version: dash-1.4
-ue_version: "UE 5.x"
-tags: [dash-1.4, materials, megascans, polyhaven, displacement, nanite, snow, dirt, water, beginner]
-extraction_status: complete
+ingested: 2026-06-23
+ue_version: "[PENDING]"
+tags: []
+extraction_status: pending
 frames_dir: tutorials/frames/how-to-edit-megascans-and-poly-haven-materials-easily---ue5-plugin/
 frame_count: 9
 ---
@@ -59,7 +58,7 @@ frame_count: 9
 **Frame:** tutorials\frames\how-to-edit-megascans-and-poly-haven-materials-easily---ue5-plugin\frame_006.jpg
 
 ### Adjusting Water Material [4:38]
-**Transcript:** The plane Dash creates isn't big enough for my scene, so I'm going to rescale it to make it fit the environment that I've built.  For a plane this is a very simple way to create a plane with a pre-applied Dash Water Material.  For a plane this large without modified UVs, the default tiling range needs to be adjusted.  Sliding the tiling value around will change the values up to a point, but for anything higher than 100 you need to manually type in values to extend the sliding range.  I'll type in a large value and then adjust it until I'm happy with it.  The depth of the water determines how murky the water appears from a distance.  The depth of the water determines how murky the water appears from a distance.  The higher up the water plane is above an object, the murky or the object will appear as the depth value is increased.  Distortion uses the normal map to create the optical illusion of waves breaking up the refracted object under the water.  The stronger the value is, the more visible the refraction becomes.  Underlying hue and saturation changes the color of the objects and terrain below the water surface.  Both of these sliders work in concert to produce a subtle but notic...
+**Transcript:** The plane Dash creates isn't big enough for my scene, so I'm going to rescale it to make it fit the environment that I've built.  For a plane this is a very simple way to create a plane with a pre-applied Dash Water Material.  For a plane this large without modified UVs, the default tiling range needs to be adjusted.  Sliding the tiling value around will change the values up to a point, but for anything higher than 100 you need to manually type in values to extend the sliding range.  I'll type in a large value and then adjust it until I'm happy with it.  The depth of the water determines how murky the water appears from a distance.  The depth of the water determines how murky the water appears from a distance.  The higher up the water plane is above an object, the murky or the object will appear as the depth value is increased.  Distortion uses the normal map to create the optical illusion of waves breaking up the refracted object under the water.  The stronger the value is, the more visible the refraction becomes.  Underlying hue and saturation changes the color of the objects and terrain below the water surface.  Both of these sliders work in concert to produce a subtle but noticeable color absorption pattern, which can resemble real-world oceans or something completely different entirely.  You can also change the intensity of the waves in the surface of the water by adjusting the normal slider.  You can also use the normal hue and saturation sliders to get a wildly different water effect or dial in the tropical green that I'm looking for here.
 
 **Frame:** tutorials\frames\how-to-edit-megascans-and-poly-haven-materials-easily---ue5-plugin\frame_007.jpg
 
@@ -74,47 +73,27 @@ frame_count: 9
 ## Structured Notes
 
 ### Core Technique
-Dash 1.4's Material Edit tool for non-destructive inline editing of Megascans and Poly Haven assets — albedo, roughness, normal intensity, displacement (Nanite), and layered dirt/snow effects — plus the Dash Water Material system.
+[PENDING EXTRACTION]
 
 ### Summary
-7-minute tutorial by Jonathan (Community Director) covering the significantly improved Dash 1.4 Material Edit tool. Demonstrates the full suite: basic albedo/roughness/normal/tiling sliders, Nanite displacement (requires Actor Switch Nanite command first), Dirt layer (intensity, hue, saturation, brightness, tiling), Snow layer (sharpness, angular slope, roughness/reflectivity, normal chunkiness, coverage), and the procedural Water Material (depth, distortion, tiling, underlying hue/saturation). All edits are non-destructive and update live as terrain or object shape changes.
+[PENDING EXTRACTION]
 
 ### Key Steps
-1. **Open Material Edit** — select mesh/terrain → palette icon in Dash panel (or art palette icon)
-2. **Basic adjustments** — Albedo Hue, Saturation, Brightness/Contrast; Roughness; Normal Map Intensity; Texture Tiling
-3. **Enable Nanite for displacement** — type `Nanite` in Dash prompt → select "Actor Switch Nanite" command → then adjust Displacement values (note: may create shadow artifacts; fix by slightly moving mesh)
-4. **Add Dirt layer** — expand Dirt rollout → adjust Intensity, Albedo Hue, Saturation, Brightness, Tiling
-5. **Add Snow layer** — enable Snow rollout → Enable Snow checkbox → Sharpness, Angular Slope coverage, Roughness (reflectivity), Normal Map (chunkiness), Tiling; lower base material brightness first so snow shows up
-6. **Apply to terrain** — terrain subdivisions + surface variation required; material auto-updates as terrain shape changes
-7. **Create Water** — type `water` in Dash prompt → Create Water → plane with pre-applied Dash Water Material
-8. **Tune water** — Tiling (type manually for values >100), Depth (murk/opacity), Distortion (refraction wave strength), Underlying Hue + Saturation (color of submerged objects)
-9. **Reset** — Material Editor Options → Reset to Default
+[PENDING EXTRACTION]
 
 ### UE Systems / Blueprints / Settings
-- **Material Edit tool** — art palette icon in Dash panel; works with Megascans + Poly Haven only (custom textures via material instance replacement)
-- **Albedo Hue / Saturation / Brightness / Contrast** — inline color correction per surface
-- **Roughness slider** — surface specular/glossiness control
-- **Normal Map Intensity** — slider for normal bumpiness strength
-- **Texture Tiling** — UV scale control
-- **Actor Switch Nanite command** — Dash command enabling Nanite + real-time displacement on selected mesh
-- **Displacement** — Nanite-based; adjustable amount; shadow artifact workaround = slightly move mesh in world
-- **Dirt Layer** — Intensity, Albedo Hue, Saturation, Brightness, Tiling
-- **Snow Layer** — Enable Snow toggle; Sharpness (edge definition), Angular Slope (which faces collect snow), Roughness (snow reflectivity), Normal Map (snow chunkiness), Tiling, Coverage
-- **Dash Water Material** — `Create Water` command; Tiling (type manually for >100), Depth (underwater murk), Distortion (refraction/wave), Underlying Hue + Saturation
+[PENDING EXTRACTION]
 
 ### Difficulty
-Beginner
+[PENDING EXTRACTION]
 
 ### UE Version
-UE 5.x (Dash 1.4)
+[PENDING EXTRACTION]
 
 ### Tags
-`#dash-1.4` `#materials` `#megascans` `#polyhaven` `#displacement` `#nanite` `#snow` `#dirt` `#water` `#beginner`
+[PENDING EXTRACTION]
 
 ---
 
 ## Related Entries
-- [[creating-a-blend-material-in-unreal-engine-5-just-got-easier]] — Blend Material with wetness/rain/snow on road mesh
-- [[beginner-water-tool-tutorial-for-ue5]] — Dash Water tool basics
-- [[how-to-create-vines-procedurally-in-unreal-engine-5]] — Edit Material usage on leaf/bark assets
-- [[getting-started-with-dash---easy-world-building-in-ue5]] — Blend Material introduced in Dash 1.8 overview
+[PENDING EXTRACTION]
