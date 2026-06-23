@@ -3,12 +3,12 @@ title: Demystifying the Skylight [Unreal Engine 4 & 5]
 source: YouTube
 url: https://www.youtube.com/watch?v=BGoaPyfZlYg
 author: William Faucher
-ingested: 2026-06-12
-ue_version: "UE 4 & 5"
-tags: [lighting, skylight, hdri, cubemap, distance-field-ao, ambient-occlusion, reflections, realtime-capture, william-faucher, beginner, intermediate, ue5]
-extraction_status: complete
+ingested: 2026-06-23
+ue_version: "[PENDING]"
+tags: []
+extraction_status: pending
 frames_dir: tutorials/frames/demystifying-the-skylight-unreal-engine-4-5/
-frame_count: 0
+frame_count: 4
 ---
 
 # Demystifying the Skylight [Unreal Engine 4 & 5]
@@ -23,20 +23,24 @@ frame_count: 0
 
 
 ### Intro [0:00]
-**Transcript:** Hi everyone, welcome back.  It's great to see you again and get a little bit lonely in this void here.  The topic of today's video concerns the Skylight Actor.  So the Skylight is one of the most powerful but most misunderstood and misused lighting  tools in the Unreal Engine.  So most of what we're talking about today has already been covered in last week's livestream  right here, but I wanted to make a dedicated video about this because I totally understand  that not everyone had the time to listen to a two-hour livestream.  That being said, this was last month of a two-hour livestream and more of a two-hour  live course.  I was going ahead and talking about the little skylight, talking about my workflow when  it comes to lighting exteriors.  It was a really good time and not just because I was talking for two hours, but you guys,  the community, would have wanted the best part of this livestream.  You guys asked questions, you answered your own questions as well as offering other tips  and tricks that even I didn't even know about.  I've been using Unreal for what, 10, 12 years now and I'm the first to admit that I'm  still learning new things every single day.  I am an eternal ...
+**Transcript:** Hi everyone, welcome back.  It's great to see you again and get a little bit lonely in this void here.  The topic of today's video concerns the Skylight Actor.  So the Skylight is one of the most powerful but most misunderstood and misused lighting  tools in the Unreal Engine.  So most of what we're talking about today has already been covered in last week's livestream  right here, but I wanted to make a dedicated video about this because I totally understand  that not everyone had the time to listen to a two-hour livestream.  That being said, this was last month of a two-hour livestream and more of a two-hour  live course.  I was going ahead and talking about the little skylight, talking about my workflow when  it comes to lighting exteriors.  It was a really good time and not just because I was talking for two hours, but you guys,  the community, would have wanted the best part of this livestream.  You guys asked questions, you answered your own questions as well as offering other tips  and tricks that even I didn't even know about.  I've been using Unreal for what, 10, 12 years now and I'm the first to admit that I'm  still learning new things every single day.  I am an eternal student and there's so much to learn.  So if you want the length of that livestream, you can find it right there.  Right there?  It's hidden, but it's there.  And I encourage you to go watch it and to come join us in the next livestream.  We'll be happy to have you.  So I'm fully aware that I've been talking for way too long now.  You want the juicy tidbits of information.  Let's get started.  All right.  So now that we're in Unreal, the first thing I always do before even placing any light
 
+**Frame:** tutorials\frames\demystifying-the-skylight-unreal-engine-4-5\frame_000.jpg
 
 ### Setup [1:33]
-**Transcript:** is to create a Chrome ball.  So we're going to go ahead and add a sphere here.  I'm going to drop it to the end here and I'm going to add a Chrome material to it.  And you'll see the Chrome material is very simple.  It's just a base color of 0.8 or can be one or any other having a metallic set to one  and a roughness at the zero.  Okay.  So this is going to give you a perfectly reflective surface.  Now the reason I create a Chrome ball here is because it's going to give me a better  visualization of what exactly is being reflected in my scene.  Okay.  So you're going to understand how this works real soon.  So bear with me.  Now that we've created our Chrome ball here, I'm going to go ahead and add into light's  panel up here.  So add the skylight.  Now look at the boring part out of the way.  One of the main things that the skylight is used for is for HDRI.  So if you have an HDRI that you got online and you want to use that, you apply that with  the skylight.  So if you have an HDRI that you found online and you want to use that for your lighting,  you apply it to your skylight.  So in order to do that, you need to go into the details panel and in source type right here,  we're g...
+**Transcript:** is to create a Chrome ball.  So we're going to go ahead and add a sphere here.  I'm going to drop it to the end here and I'm going to add a Chrome material to it.  And you'll see the Chrome material is very simple.  It's just a base color of 0.8 or can be one or any other having a metallic set to one  and a roughness at the zero.  Okay.  So this is going to give you a perfectly reflective surface.  Now the reason I create a Chrome ball here is because it's going to give me a better  visualization of what exactly is being reflected in my scene.  Okay.  So you're going to understand how this works real soon.  So bear with me.  Now that we've created our Chrome ball here, I'm going to go ahead and add into light's  panel up here.  So add the skylight.  Now look at the boring part out of the way.  One of the main things that the skylight is used for is for HDRI.  So if you have an HDRI that you got online and you want to use that, you apply that with  the skylight.  So if you have an HDRI that you found online and you want to use that for your lighting,  you apply it to your skylight.  So in order to do that, you need to go into the details panel and in source type right here,  we're going to go click on SLS specified cube map.  Okay.  So once that done, you can choose your cube map right here and we're going to go just  use one of these, for example.  And you'll see right away we have, we can kind of see our tree that our HDRI is showing  up in the reflection of our Chrome ball.  This is why the Chrome ball is so useful because it really shows you what's being lit in  your scene.  All right.  So now that we've covered how to use an HDRI, let's get into the fun part and why the skylight  is such a powerful tool.  Okay.  So I'm going to reset this right here.  I'm just going to leave it to captured scene and now it's worth seeing get a little bit  interesting.  So what I'm going to do first and foremost is I'm going to disable ray tracing because I  don't want any ray trace reflections affecting my Chrome ball.  I want to make sure that the Chrome ball is only showing what the skylight is doing to  it.  Okay.  So I'm going to give you a console command and turn off ray tracing.  And so you'll see now we've got no more ray trace reflections on our Chrome ball here.  So we just have the sky and the black bottom of the sphere here.  Now the first thing I like to do when using the skylight is I like to set it to movable  right here.  The reason for that is if you have distance fields enabled in your projects, so distance  field ambient occlusion, you're going to get much better shadowing with the movable  skylight.  If you're using ray tracing, you don't need to worry about that.  You're going to get proper ray trace shadows if you choose the check box.  Obviously, if you're baking the light, that's another topic entirely, but for now, we're  going with dynamic lighting, set it to movable.  Now the skylight by default has a myriad of settings that are pretty self explanatory,  like intensity scale.  You know, we can choose the brightness of our skylight here.  We can choose the light color, add a tint to it like this, whatever you want.  That's pretty straightforward.  I think everyone understands this.  Effects worlds and effect world is kind of an important one because as you probably notice,  if you hide the skylight in the outliner right here, you'll notice it's still affecting  your scene.  It doesn't actually hide anything.  So in order to hide the skylight, you need to disable effect world like this.  Okay.  Now the next thing I like to do is if you scroll down, notice how the bottom of the  chrome ball here is totally black.  That's because of lower hemisphere is solid color.  I usually turn that off for the most part.  There are some use cases where it can be useful, but for the most part, I tend to disable  this.  So I'm going to uncheck this and notice how now we've got, instead of being black, it's  like blue.  Why is that?  And that brings me to my next point.  The magical setting that is very often misunderstood or misused is right here.  Sky distance threshold.  Okay.  So by default is set to 150,000.  Pay close attention to the reflection on the chrome ball when I set this down to one.  Now notice now, instead of being this, you know, just washed out blue, flat color, now  we have some detail showing up in here.  We actually see the reflection of many hour mannequin here.  We have a little ball up here.  We have the grass showing up in our scene.  Now notice that the chrome ball suddenly integrate with the environment so much better than  it did before.  Okay.  That's what the sky distance threshold does.  It captures what's immediately around it now.  So when you set the sky distance threshold to one, it's really important to understand  the position of the skylight actor right here immediately affects what the reflection  will be.  Okay.  So let me demonstrate right here to show you what I mean.  I'm going to move the skylight actor like over here, something like that.  And now we're going to scroll down all the way down here and you in skylight it says  recapture scene.  All right.  I'm going to hit recapture and pay close attention to the reflections in the chrome ball  again.  Notice how they totally changed.  Notice how now the mannequin shows up way over here and the same thing with our sphere  shows up here, right?  And if I move the skylight actor, you know, over here for example, and I hit recapture  one more time, notice how the reflection change once again.  So I think I hope you're starting to understand what the skylight actor is doing when you hit  recapture.  It's immediately, it's basically become a reflection capture actor.  If you've ever worked with those, you'll know what they do.  And that's basically what the skylight is doing.  Okay.  So it'll update and capture what is immediately around it.  Now what exactly does this guy does in threshold do?  Why is it that one that set to 150,000 by default?  It doesn't include the surrounding environment.  The easiest way to visualize this is to imagine, I'm going to duplicate this just to give  you an idea of what's happening.  Okay.  I'm going to duplicate this and I'm going to place a default material on it.  So imagine this gray ball right here.  Okay.  Imagine this is set to one.  Imagine that this gray ball is the skylight, this threshold set to one.  It's captured everything that's around it.  Now if I were to increase the skylight in threshold, it would also increase the size of this  sphere.  Okay.  So now, it ignores the reflection.  We'll totally ignore everything that's inside the sphere.  It'll only capture everything that's around it.  Okay.  So if I made this, you know, 150,000 in scale, you'll notice how huge our ball is here  now, right?  Now it'll, that means the skydiving threshold or the skylight will only capture everything  that's outside the radius of this sphere.  I hope this doesn't make sense.  Let's demonstrate this one more time for you guys.  Now if I select my skylight again and we change the skydiving threshold to a higher value  like 100, notice how it's starting to ignore everything that's within 100 units of it.  Same thing, if I set it to 1000, it starts to ignore everything that's within 1000 units.  But that starts to make sense.  That's what the skylight is doing.  It's basically capturing what's around it.  And that's why I prefer having a skydiving threshold of one because then it creates an  h to your eye for you that's immediately displayed what's around the actor itself.  Okay.  This, you can really help you with the integration of your lighting and helping your model  feel more kind of integrated into the scene.  Now you might be wondering, well why don't I just check the box right here called real-time  capture?  Well, the reason for that is that when you have a real-time capture turned on and we'll  see this in a second, it basically ignores the skydiving threshold which is kind of a  bummer.  So let's visualize this real quick.  If I set this on and you'll notice, hey, now we lost our surrounding environment.  Now the advantage of having real-time capture on is that if you update your lighting, let's  say let's give it a more of a sunset feeling here, notice how our sky updated automatically.  So if you're trying to have a day and night cycle going on in your game or your project  or whatever, having real-time capture will really help things feel a little bit more natural.  Now the major inconvenience of using real-time capture is that you lose the integration.  You lose the immediate surroundings of your model.  So turning off real-time capture and I'm going to bring my sun back up a little bit and  we're going to recapture the skylight intensity and now you'll see we have a way more interesting  reflection in our scene.  This is how the skylight is supposed to be used.  I know it's weird, but this is one of those little things that people don't really know  about.  So I just want to tell you about it.  Once you understand how the skylight works, your lighting is going to go to the next level.  Now I'm going to turn ray tracing back on and now you'll notice that there is another  thing in the skylight that's for ray tracing.  So if I select my skylight again and I got a type ray, the skylight has cast ray tracing  shadows available.  Now it's a little bit hard to visualize in this scene, but I promise you, let's turn  it on and see what it does.  You'll notice we get much more interesting shadows showing up on your models, especially  like right around here.  Notice how we had this really bright and green bounce going on, which is not necessarily  realistic.  Now it can cast shadows and things kind of feel a bit more integrated.  So if you have ray tracing in your project, cast ray tracing shadow goes a long way and  if you don't have ray tracing, no worries.  Let's open up another level so I can show you another way that the skylight can cast shadows  and that's with distance fields.
 
+**Frame:** tutorials\frames\demystifying-the-skylight-unreal-engine-4-5\frame_001.jpg
 
 ### Distance Field Ambient Occlusion [11:22]
-**Transcript:** So I've opened a new level here.  It's part of the Australia package that is available for free on the Epic Marketplace.  Let's demonstrate what distance field the ambient inclusion does.  Okay.  So I'm going to select my skylight right here and in the search detail panel, I'm going  to search for distance fields.  And now you'll see we have a bunch of different settings.  So I'm going to totally disable this just to show you what it's doing.  So now this is with this nothing, no occlusion and with occlusion, no occlusion with occlusion.  You'll notice that distance field AO will give you much more oomph to your scene, it gets  much more depth.  And this is totally not ray trace.  This is one of the major advantages of using the distance fields ambient inclusion is  that you don't need ray tracing for it to work and it looks pretty good as well.  So while I do prefer ray trace ambient inclusion, this is a great alternative if you don't  have an RTX graphics card.  And plus performance wise, I do things that run a lot better.  So if you're you know running, if you're pushing your graphics card to its limits, DFAO  is amazing.  And I'll show you guys how to enable that right here.  S...
+**Transcript:** So I've opened a new level here.  It's part of the Australia package that is available for free on the Epic Marketplace.  Let's demonstrate what distance field the ambient inclusion does.  Okay.  So I'm going to select my skylight right here and in the search detail panel, I'm going  to search for distance fields.  And now you'll see we have a bunch of different settings.  So I'm going to totally disable this just to show you what it's doing.  So now this is with this nothing, no occlusion and with occlusion, no occlusion with occlusion.  You'll notice that distance field AO will give you much more oomph to your scene, it gets  much more depth.  And this is totally not ray trace.  This is one of the major advantages of using the distance fields ambient inclusion is  that you don't need ray tracing for it to work and it looks pretty good as well.  So while I do prefer ray trace ambient inclusion, this is a great alternative if you don't  have an RTX graphics card.  And plus performance wise, I do things that run a lot better.  So if you're you know running, if you're pushing your graphics card to its limits, DFAO  is amazing.  And I'll show you guys how to enable that right here.  So let's go to the settings tab up here in project settings.  And we're going to type distance fields.  And it's set right here, generate mesh distance fields.  Okay, make sure that's enabled.  By default, if you have ray tracing, I don't think this is enabled.  So go double check to make sure that the distance fields are generated in your project.  Once they are, then you'll have access to the distance field ambient occlusion settings  in your skylight.  And you'll see, you know, the results are day and night.  As you can see, the skylight is not a complicated thing.  It's just a matter of understanding what the sky distance threshold does down here.  And once you've understood that, things really start falling into place.  And I promise you, you're lighting will go to the next level.
 
+**Frame:** tutorials\frames\demystifying-the-skylight-unreal-engine-4-5\frame_002.jpg
 
 ### Donations and Thanks [13:10]
 **Transcript:** And that my friend concludes this week's video.  In the event of this channel, it helps you out in any way.  And you want to donate.  Don't hesitate to check to buy me a coffee button, found on my channel right here.  You can donate to any amount that you want.  It means the world to me and really goes a long way into helping me justify the time spent  making all these videos, making this content available to everyone for free.  So obviously no pressure, but it's much appreciated.  That being said, thanks so much for watching guys.  I hope you learned a little something.  Don't forget to hit that like button and comment down below if you have any questions.  And I'll see you guys in the next video.
 
+**Frame:** tutorials\frames\demystifying-the-skylight-unreal-engine-4-5\frame_003.jpg
 
 
 ---
@@ -44,69 +48,27 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-Skylight actor setup and configuration — Captured Scene vs HDRI source types, Recapture Sky for realtime updates, Distance Field Ambient Occlusion (DFAO) as a non-raytraced AO alternative, chrome ball reference tool for visualizing Skylight contribution.
+[PENDING EXTRACTION]
 
 ### Summary
-Short but dense tutorial by William Faucher on the Skylight Actor — frequently misunderstood and misused. Covers using HDRI as skylight source, the difference between SLS Captured Scene (captures everything above) and SLS Specified Cubemap (static HDRI), enabling Real Time Capture, and Distance Field Ambient Occlusion as a performance-friendly AO option for non-RTX machines.
+[PENDING EXTRACTION]
 
 ### Key Steps
-
-**Chrome Ball Reference Setup:**
-- Add Sphere → apply material: BaseColor=0.8, Metallic=1.0, Roughness=0.0
-- Shows what the skylight is reflecting → immediate feedback on sky capture quality
-
-**Skylight Source Types:**
-| Source | Behavior |
-|--------|----------|
-| **SLS Captured Scene** | Captures everything above the horizon in the level (dynamic, updates with scene) |
-| **SLS Specified Cubemap** | Uses a static HDRI cubemap file (faster; doesn't react to level changes) |
-
-**Enable Real Time Capture:**
-- Skylight Details → Real Time Capture ✓
-- Updates continuously (more expensive but necessary for dynamic skies)
-- Without it: manually press "Recapture Sky" after scene changes
-
-**HDRI as Skylight Source:**
-1. Add Skylight to scene
-2. Details → Source Type = SLS Specified Cubemap
-3. Cubemap = browse to your HDRI asset (.hdr/.exr imported to Content Browser)
-4. Cubemap Resolution = 256 (default) up to 1024 (sharper)
-
-**Distance Field Ambient Occlusion (DFAO):**
-- Skylight Details → search "Distance Fields" → Enable DFAO ✓
-- Adds contact shadow/AO effect without raytracing
-- Good for non-RTX hardware; cheaper than ray-traced AO
-- `r.AOQuality 2` — set AO quality (0=off, 1=low, 2=medium, 3=high)
+[PENDING EXTRACTION]
 
 ### UE Systems / Blueprints / Settings
-
-**Skylight Detail Settings:**
-```
-Source Type: SLS Captured Scene | SLS Specified Cubemap
-Cubemap: [HDRI asset]
-Cubemap Resolution: 256 | 512 | 1024
-Real Time Capture: True/False
-Intensity: multiplier (1.0 = default)
-Tint: color tint the sky contribution
-Lower Hemisphere is Solid Color: True (prevent black from below horizon)
-Distance Field Ambient Occlusion: True/False
-Occlusion Max Distance: cm radius for DFAO
-```
-
-**Key Note:** When using Lumen, Skylight with Real Time Capture is essential — it provides the sky contribution to Lumen's final gather. A static skylight will not update with time-of-day changes.
+[PENDING EXTRACTION]
 
 ### Difficulty
-Beginner to Intermediate
+[PENDING EXTRACTION]
 
 ### UE Version
-UE 4 & 5 (settings apply to both)
+[PENDING EXTRACTION]
 
 ### Tags
-lighting, skylight, hdri, cubemap, distance-field-ao, ambient-occlusion, reflections, realtime-capture, william-faucher, beginner, intermediate, ue5
+[PENDING EXTRACTION]
 
 ---
 
 ## Related Entries
-- `tutorials/lighting-in-unreal-engine-5-for-beginners.md` — Full beginner lighting tutorial
-- `tutorials/tips-for-sky-atmosphere-fog---unreal-engine-5-ue4.md` — Sky Atmosphere complement
-- `references/rendering-pipeline.md` — Lumen + lighting settings reference
+[PENDING EXTRACTION]
