@@ -3,11 +3,10 @@ title: Unreal Engine Black Eye Cameras: That's a Cool Shot #1 Pedestal Pan
 source: YouTube
 url: https://www.youtube.com/watch?v=NOOpWzeC0Mg
 author: Black Eye Technologies
-ingested: 2026-06-16
-plugin_version: blackeye-v1
-ue_version: "UE 5.x"
-tags: [blackeye-v1, camera, cinematics, sequencer, beginner, intermediate]
-extraction_status: complete
+ingested: 2026-06-23
+ue_version: "[PENDING]"
+tags: []
+extraction_status: pending
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-thats-a-cool-shot-1-pedestal-pan/
 frame_count: 5
 ---
@@ -39,7 +38,7 @@ frame_count: 5
 **Frame:** tutorials\frames\unreal-engine-black-eye-cameras-thats-a-cool-shot-1-pedestal-pan\frame_002.jpg
 
 ### Follow and LookAt [0:56]
-**Transcript:** Okay, let's go into hybrid mode and what that means is we're going to drag the camera  onto the sequencer and we're going to keyframe, manually keyframe some things and do some procedural  things.  So let's keyframe the follow offset, and we want to do up and down the pedestal, so we're  going to put some keyframes on the Z channel.  So let's get it down low, put a keyframe, and then at the moment where we want the camera  to come up, little later, sort of doing the wipe over the car, we'll drop a keyframe.  And look at that, we're procedurally composing on the two actors and we're manually pedestaling  the camera up and down, but the camera is relative to the subject.  Okay, let's widen the camera up a little bit, let's go to 28 mil lens.  Cool.  And let's have a look through the lens.  Okay, so we're kind of long.  The camera is tracking automatically rotating, we got a little wipe.  Let's just fix that high, I'm just going to bounce the keyframe with those keyframe.  Snap to keyframe buttons, just tweak this a little bit more.  Okay, and that's looking pretty good.  You know, maybe a little bit low there.  Let's just move that out.  Let's have the camera go a little slower, snap...
+**Transcript:** Okay, let's go into hybrid mode and what that means is we're going to drag the camera  onto the sequencer and we're going to keyframe, manually keyframe some things and do some procedural  things.  So let's keyframe the follow offset, and we want to do up and down the pedestal, so we're  going to put some keyframes on the Z channel.  So let's get it down low, put a keyframe, and then at the moment where we want the camera  to come up, little later, sort of doing the wipe over the car, we'll drop a keyframe.  And look at that, we're procedurally composing on the two actors and we're manually pedestaling  the camera up and down, but the camera is relative to the subject.  Okay, let's widen the camera up a little bit, let's go to 28 mil lens.  Cool.  And let's have a look through the lens.  Okay, so we're kind of long.  The camera is tracking automatically rotating, we got a little wipe.  Let's just fix that high, I'm just going to bounce the keyframe with those keyframe.  Snap to keyframe buttons, just tweak this a little bit more.  Okay, and that's looking pretty good.  You know, maybe a little bit low there.  Let's just move that out.  Let's have the camera go a little slower, snap to that keyframe, and just the height.  Of course, check the curves.  It's really great to do a lot of fine tuning of the anything animation.  So we'll just tweak that so it's looking good at each position.  Still like using less keyframes than more.  Very smooth.  So let's make sure we get this.  What we're doing is we're procedurally moving the camera with the car.  We're procedurally targeting the two dancers, but we're keyframing the height.  The only keyframes here are on the heights so far.  So we're getting some really sophisticated movement just with those two keyframes.  But the composition is still in the center.  So let's add a look at animation track.  Close a follow, we'll open the look at and let's put some keyframes on our subject screen position.  This is very powerful.  So what we're doing here is we're keyframing where we want things composed right here.  It's in the center, but just by changing the X and Y, we're changing where we want the subject  composed in screen space.  And what's so powerful about this is you just think like a director.  Like, where do I want the composition at the start?  And here at the end, we want the composition a little bit over to the right.  Let me just lift it up a little bit.  And the magic here is we start with the composition on the left.  And we're blending the composition from the start to the end.  So we've got now what, one, two, three, four, five, six keyframes to do this complex shot.  It's so fast.  So let's watch it again.  Procedural movement, procedural rotation, keyframe composition, keyframe height.  Let's do a little bit more tweaking now that we got it all working.  So few keyframes so fast to work.  And these shots will still work even if things change.  That's the magic of them because you're giving the camera intent.  This is the composition I want at this moment in time.  This is the height.  These are things that I'm relative to.  The cameras are smart.  They'll follow your direction.  You tell them what you want.  And they can handle variability.  Let's go even a little bit wider.  I want to see a bit more of the car.  Just to just see the camera position relative to the car.  This is probably going to crash through though.  Yeah, it's crashing.  That's fine.  Just find that crash bit.  Just move the camera over.  Again, that's the offset between the camera and the car.  Let's try that one more time.  When we lift and go over the car, we get a nice white boom.  Pretty cool shot.
 
 **Frame:** tutorials\frames\unreal-engine-black-eye-cameras-thats-a-cool-shot-1-pedestal-pan\frame_003.jpg
 
@@ -56,39 +55,27 @@ frame_count: 5
 ## Structured Notes
 
 ### Core Technique
-Hybrid Sequencer shot: classic pedestal pan using Black Eye's follow + multi-subject LookAt with a Z-channel keyframe pedestal move — camera follows a car while looking at two walking characters and manually rises over the car.
+[PENDING EXTRACTION]
 
 ### Summary
-5.5-minute "That's a Cool Shot" episode #1. Demonstrates building a cinematic pedestal pan in under 20 seconds setup time using Black Eye. Camera follows a car but looks at two people walking beside it. Adds manual Z-axis keyframes in Sequencer (pedestal up) while keeping all rotation/tracking procedural. Uses 28mm lens for wide feel. Iterates on timing via curve editor.
+[PENDING EXTRACTION]
 
 ### Key Steps
-1. **Install plugin + add camera** — install Black Eye from Fab, drop a Black Eye Camera into the scene.
-2. **Set Follow on car** — click Follow → pick car → camera jumps 300 units to side.
-3. **Set Multi-subject LookAt** — click Look At → Multiple Subjects → eyedropper person left, eyedropper person right. Camera now follows the car but looks at two walking people.
-4. **Add to Sequencer** — drag camera to Sequencer timeline.
-5. **Add Follow Offset track** — keyframe Z channel only: start low (set key), pedestal up at the desired moment (set key). Camera rises over the car while still following it.
-6. **Choose lens** — set to 28mm for wider feel. Adjust composition by reviewing through lens.
-7. **Refine timing** — use Sequencer curve editor to push/pull keyframe positions for pacing. Adjust camera speed (how fast it rises) by moving keys on the Z channel.
+[PENDING EXTRACTION]
 
 ### UE Systems / Blueprints / Settings
-- **Follow** — translational tracking; camera rigidly attached to follow subject offset
-- **Multiple Subjects LookAt** — camera looks at combined bounding box of multiple subjects
-- **Follow Offset track** — Sequencer track; keyframe spatial relationship between camera and follow target; Z channel = pedestal
-- **Hybrid mode** — procedural follow/look-at + manual Sequencer keyframes on select channels only
-- **28mm lens** — wider field for the pedestal pan feel
-- **Snap-to-keyframe buttons** — Sequencer navigation; bounce between keyframe positions while adjusting
+[PENDING EXTRACTION]
 
 ### Difficulty
-Beginner / Intermediate
+[PENDING EXTRACTION]
 
 ### UE Version
-UE 5.x (Black Eye v1)
+[PENDING EXTRACTION]
 
 ### Tags
-`#blackeye-v1` `#camera` `#cinematics` `#sequencer` `#beginner` `#intermediate`
+[PENDING EXTRACTION]
 
 ---
 
 ## Related Entries
-- [[unreal-engine-black-eye-cameras-start-here-tutorial]] — full v1 system; Follow Keyframes section covers the same hybrid technique
-- [[unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics]] — follow fly-by rig uses the same hybrid approach with more tracks
+[PENDING EXTRACTION]
