@@ -3,12 +3,12 @@ title: Lighting Interiors in Unreal Engine 5
 source: YouTube
 url: https://www.youtube.com/watch?v=0GYyHDuaPcg
 author: William Faucher
-ingested: 2026-06-12
-ue_version: "UE 5.3"
-tags: [lighting, interiors, lumen, hardware-ray-tracing, path-tracing, indirect-lighting, rect-light, virtual-shadow-maps, light-bleeding, diffuse-color-boost, william-faucher, intermediate, ue5-3]
-extraction_status: complete
+ingested: 2026-06-23
+ue_version: "[PENDING]"
+tags: []
+extraction_status: pending
 frames_dir: tutorials/frames/lighting-interiors-in-unreal-engine-5/
-frame_count: 0
+frame_count: 8
 ---
 
 # Lighting Interiors in Unreal Engine 5
@@ -23,36 +23,44 @@ frame_count: 0
 
 
 ### Intro [0:00]
-**Transcript:** In today's video we'll be taking a look at interior lighting, combining the uses of  Lumen, hardware ray tracing and path tracing. I'm going to show you how you can think of  lighting in a way that will help you pick and choose the mood you're going for. By simply  lighting a couple of different lighting scenarios, it will really help you break down how to  light any given interior. Now, full disclosure, the video is sponsored by Nvidia Studio and Scan  Computers. Everything from the modeling, layout, lighting, rendering, and editing of this video  had been done with the ASUS ZenBook Pro 16 OLED laptop. I don't get to keep the laptop, it's  being sent back and only being used for reviewing purposes. Just before we jump into today's  tutorial, I'm going to take a brief moment to talk about the hardware we're using today.  The ASUS ZenBook Pro 16 OLED laptop runs on a beefy RTX 4070 that allows you to fully utilize  hardware ray tracing and path tracing and tensor AA cores, which is going to help massively when  you're rendering your shots. It's got the CUDA cores you need, which are needed if you plan on  3D scanning things with an app like Reality Capture. And since the 40 series G...
+**Transcript:** In today's video we'll be taking a look at interior lighting, combining the uses of  Lumen, hardware ray tracing and path tracing. I'm going to show you how you can think of  lighting in a way that will help you pick and choose the mood you're going for. By simply  lighting a couple of different lighting scenarios, it will really help you break down how to  light any given interior. Now, full disclosure, the video is sponsored by Nvidia Studio and Scan  Computers. Everything from the modeling, layout, lighting, rendering, and editing of this video  had been done with the ASUS ZenBook Pro 16 OLED laptop. I don't get to keep the laptop, it's  being sent back and only being used for reviewing purposes. Just before we jump into today's  tutorial, I'm going to take a brief moment to talk about the hardware we're using today.  The ASUS ZenBook Pro 16 OLED laptop runs on a beefy RTX 4070 that allows you to fully utilize  hardware ray tracing and path tracing and tensor AA cores, which is going to help massively when  you're rendering your shots. It's got the CUDA cores you need, which are needed if you plan on  3D scanning things with an app like Reality Capture. And since the 40 series GPU, you can benefit  from DLSS3, which I've talked about in an earlier video right here. It's got 32GB of RAM, a core i9  processor, which handles unreal shader compilation like an absolute champ. The display on this laptop is  absolutely top notch, 120Hz with 100% DCI-P3 and 100% SRGB color coverage, and its OLED meaning  your blacks could be nice and inky. Some notable quality of life features include this nifty  hinged keyboard, which not only feels a lot more natural than I'm typing, but also seem to help  with the cooling. And the trackpad has haptic feedback, which was a nice surprise.  Nvidia Studio is for creator when Nvidia GeForce is for gamers, right down to the drivers.  Even unlike personal desktop workfaces, I'm always using studio drivers just because I find  them a lot more reliable than the game drivers for creative work specifically. If a laptop or  desktop is Nvidia Studio validated, it means that spec and design meet the need of a creator.  You can get Nvidia Studio laptop at scan computers, you can check out the link down below.  I thought it would be fun to make a tutorial using a laptop for a change, because a lot of people  assume that the work I do in Unreal can only be done on a crazy expensive workstation desktop,  and that's just not the case. So let's get started with what you came here for,
 
+**Frame:** tutorials\frames\lighting-interiors-in-unreal-engine-5\frame_000.jpg
 
 ### Project Settings in Unreal Engine 5 [2:11]
 **Transcript:** lighting interiors in Unreal Engine 5. Okay, so since we're getting started,  I just want to make sure that you all have the same project settings that I'm using.  I am currently using Unreal Engine 5.3, so by going to Settings up here, we're going to go to  Project Settings. We're going to scroll down to the Rendering tab down here, and you're going to  want to make sure to support hardware ray tracing and turn it on and pass tracing and turn it on  here as well. I'm using Virtual Set-O-Maps and make sure that you hardware ray tracing when available  is turned on. And it should go without saying, but if you want this to work, you need a GPU that  is capable of ray tracing. The GPU in this laptop is an RTX 4070, so you're not going to have any  issues with it. And one last thing, in a search panel up top, we're going to search for DirectX,  and I believe you need to have DirectX 12 enabled. At least, that's what I'm using, and it works like a charm.
 
+**Frame:** tutorials\frames\lighting-interiors-in-unreal-engine-5\frame_001.jpg
 
 ### Reference and Lighting [3:03]
-**Transcript:** So here we have a scene that I made it Unreal that is loosely inspired by a scene in Game of Thrones,  and before we get started with the lighting, let's look at the reference and try to break down  where the light is coming from. Notice how there is no artificial lighting. The only thing we're seeing  is light pouring in through that doorway at the top of the stairs. That is the only light source,  and the camera is exposing for the interior, making the exterior completely overexposed, and blown out.  And that is what we're going to try to mimic here. Now this laptop handles this scene like an  absolute champ. I'm blazing past 60 FPS without any issues, and if you want to follow along with  this environment in this tutorial and reverse engineer, how to scene with lit, you can download  this project for free here on Gumroad. Link down below. Just to be clear though, it's not going to  look exactly the same because I'm using a lot of mega-scan textures and models in this level,  and I'm not legally allowed to redistribute those assets, but you will have something to work with,  and the lighting will look the same. So what we're going to do now is we're going to completely kill  all ...
+**Transcript:** So here we have a scene that I made it Unreal that is loosely inspired by a scene in Game of Thrones,  and before we get started with the lighting, let's look at the reference and try to break down  where the light is coming from. Notice how there is no artificial lighting. The only thing we're seeing  is light pouring in through that doorway at the top of the stairs. That is the only light source,  and the camera is exposing for the interior, making the exterior completely overexposed, and blown out.  And that is what we're going to try to mimic here. Now this laptop handles this scene like an  absolute champ. I'm blazing past 60 FPS without any issues, and if you want to follow along with  this environment in this tutorial and reverse engineer, how to scene with lit, you can download  this project for free here on Gumroad. Link down below. Just to be clear though, it's not going to  look exactly the same because I'm using a lot of mega-scan textures and models in this level,  and I'm not legally allowed to redistribute those assets, but you will have something to work with,  and the lighting will look the same. So what we're going to do now is we're going to completely kill  all of our lighting, and we have to create a daylight system using the environment light mixer,  as always. So by going to the window tab up here, we're going to go to the environment light mixer,  create skylight, atmospheric light, sky atmosphere, and height fog, and next we're going to create a  post-brosit volume, and drag it into our scene here, and make sure we set it to unbound. Make  sure to select right here. You'll see this is really important for pretty much everything moving  forward in this video. So you'll see obviously this is very underwhelming. When it comes to interior  lighting, indirect lighting is everything, and that's the main takeaway here. The easiest way is to  increase the brightness of your skylight, because this is our main source of light. Notice in our  reference, we don't have any sunlight coming in there. The sun is probably pointing in a totally  different direction. We only want skylight coming in. So we can select our skylight, and we can  increase intensity scale to something ridiculous, like 20 or 100. 1000. You'll see we're starting to  get a little bit more lighting coming into our scene, but you'll see, you know, it's not really  great. It's very splotchy, and I think that's really just because it's a limitation of  lumen right now with the skylight. It just doesn't have enough sample to work with. And so,  when that doesn't work, what's next? We can increase the exposure of the scene. So we're going to go  to the post-process volume, and we're going to search for EXP, and I got to check these three boxes  here and uncheck Apply Physical Camera Exposure, and we can adjust the exposure this way.  Now again, this brightens everything up, but it's still pretty splotchy. Not really what we're  going for. It's not really what we want. And we get this really not so great looking blue fog,  and that's because we want to make sure to be select our exponential high fog, and turn on volumetric  fog. You'll see why this is important later. Now, in order to give your skylight a bit of a boost,  you can also increase the brightness of your directional light to something like, I don't know,  like 800 or something, and that will also help inject a lot more light, because as you increase  your directional light, it increases the brightness of your sky as well. So it kind of goes both ways.  Honestly, I think about in here, it's probably a bit too strong. I would rather play around with  the exposure later. So now we are getting a bit of a better result over here, but still, this is  not what we're going for. And the reason why, because the indirect lighting quality of lumen is  great, volumetric does not have enough samples to really get a high quality render from such a tiny  light source coming in through that window. So we need to fake it, and in order to fake it,  we're going to go ahead and create a rect light over here, and drag that over here,  and loosely shape it to the, well, shape and size of our doorway here. So by increasing these  or its width, and the source height, like that, loosely matching the size of it, the skylight does  inject a little bit of indirect lighting, but it's just not enough. You're not getting enough  consecutive bounces here. So we need to inject some direct lighting with the help of direct light  here to really get some better results. Okay. So with our rect light, we're also going to increase  the attenuation radius, and maybe set the value to something like 800. And now, notice how we are  getting a much more interesting look, all because we've introduced a bit of direct lighting,  it's okay to fake things. Now, I'm going to create, I can change the color a little bit, make a  little bit cooler, and there you have it. We're already having a much bluer look to our scene.  And already we are about 60% of the way there. But you'll notice that these areas here are still  very black, not very good looking. What more can we do? We don't want to increase the exposure,  we want to increase the indirect lighting values. Sometimes, looming can be a little bit tricky,
 
+**Frame:** tutorials\frames\lighting-interiors-in-unreal-engine-5\frame_002.jpg
 
 ### Pathtracing and Ground Truth [7:43]
-**Transcript:** so this is why I like using the path tracers sometimes in order to help me figure out, hey,  am I actually doing things right here? So by going to the lit tab here, we're going to go turn on  path tracing, and what the path tracer is going to do is it's going to give you a more ground  screws physically accurate lighting result based on your current lighting settings. This is what  your scene should look like if everything is set up correctly. There should be no tremendous  difference between the two. They should both be pretty similar. And if they're not, then there's  other issue we need to fix. So you'll see we're missing out on a ton of indirect lighting over here.  If you'll notice it's not perfectly black, it's not there, not black at all there. So we need to go  fix that somehow, right? We need to try and rectify this issue. And how do we inject a little bit more  indirect lighting into our scene? We don't want to go ahead and increase the exposure again.  That will work, but it also brightens up everything else. And we don't want that. All we want is to  lift up those shadows a little bit more. So we're going to go ahead and click on our rectlight here.  And we're going to ...
+**Transcript:** so this is why I like using the path tracers sometimes in order to help me figure out, hey,  am I actually doing things right here? So by going to the lit tab here, we're going to go turn on  path tracing, and what the path tracer is going to do is it's going to give you a more ground  screws physically accurate lighting result based on your current lighting settings. This is what  your scene should look like if everything is set up correctly. There should be no tremendous  difference between the two. They should both be pretty similar. And if they're not, then there's  other issue we need to fix. So you'll see we're missing out on a ton of indirect lighting over here.  If you'll notice it's not perfectly black, it's not there, not black at all there. So we need to go  fix that somehow, right? We need to try and rectify this issue. And how do we inject a little bit more  indirect lighting into our scene? We don't want to go ahead and increase the exposure again.  That will work, but it also brightens up everything else. And we don't want that. All we want is to  lift up those shadows a little bit more. So we're going to go ahead and click on our rectlight here.  And we're going to scroll down to indirect lighting intensity. So I'm going to bump it up to  something like five to exaggerate it a little bit. And you'll see, hey, we're starting to get a lot  more indirect lighting into our scene. It's already looking a whole lot better. Now keep in mind,  this is not a physically accurate setting. Your changes here will not be mirrored in the path tracer  because what's happening here is a surface is reflecting five times more light than it is  receiving, which is physically impossible. So use this was caution, use it only more of a subtle  art direction kind of feature. Okay. Now another issue that I'm noticing is our shadows here are very
 
+**Frame:** tutorials\frames\lighting-interiors-in-unreal-engine-5\frame_003.jpg
 
 ### Soft Shadows, Hardware Raytracing vs Virtual Shadow Maps [9:21]
-**Transcript:** harsh. Right. Again, if I turn on the path tracer, you'll notice that shadows are very, very  soft here, right? It look really, really good. And I don't, I'm not seeing that we're getting  these really hard shadows here. There's something feels off. And the reason for that is because of  virtual shadow maps when it comes to very, very soft shadows, you're just kind of hitting that  limitation there. So in order to fix that, we're going to select our rectlight again. And we're  going to search for ray trace. And we want to make sure we cast ray shadows on and pay attention  to the sheer difference here. No, especially notice on the wall here, this before and this after,  before and after. The shadows are so much softer. So we're getting much, much better  softer shadows here now. When you need to really, really soft shadows, there is no way around using  hardware ray tracing. And that is where RTX GPUs come in really, really handy. Another reason it  incredibly important to add direct lighting, even your ishersine is mostly indirectly lit,  is because of specular highlights. Now pay attention right here on the pillar on the left hand  slide here. I wanted to give it like a, you know...
+**Transcript:** harsh. Right. Again, if I turn on the path tracer, you'll notice that shadows are very, very  soft here, right? It look really, really good. And I don't, I'm not seeing that we're getting  these really hard shadows here. There's something feels off. And the reason for that is because of  virtual shadow maps when it comes to very, very soft shadows, you're just kind of hitting that  limitation there. So in order to fix that, we're going to select our rectlight again. And we're  going to search for ray trace. And we want to make sure we cast ray shadows on and pay attention  to the sheer difference here. No, especially notice on the wall here, this before and this after,  before and after. The shadows are so much softer. So we're getting much, much better  softer shadows here now. When you need to really, really soft shadows, there is no way around using  hardware ray tracing. And that is where RTX GPUs come in really, really handy. Another reason it  incredibly important to add direct lighting, even your ishersine is mostly indirectly lit,  is because of specular highlights. Now pay attention right here on the pillar on the left hand  slide here. I wanted to give it like a, you know, running water kind of look like it would very damp.  If I hide my rectlight right now, and I only rely on the indirect lighting from Lumen,  and I'm going to go ahead and increase the exposure here just for clarity sake. Notice how it  doesn't look wet. And the reason for that, at least it's my understanding, Lumen's indirect lighting  is not going to contribute to specular highlights, at least not very much. You can clearly tell right  here that there is just no real specular highlights. We completely lost that wetness that it had,  right? And so that is why it's really important to inject that direct lighting to make that surface
 
+**Frame:** tutorials\frames\lighting-interiors-in-unreal-engine-5\frame_004.jpg
 
 ### Bonus Tip 1 [11:12]
-**Transcript:** look wet. Now bonus tips number one, if ever you notice this kind of like light bleeding in your  interiors, this is actually something that's pretty common. You'll notice like along the edges,  you just got this weird light that seems to be, the skylight that's coming through the walls,  you need to go ahead and add some light blockers to the exterior of your level. And what I mean by  this is these large white cubes, right? It's literally just a big white cube that I place underneath my  level to make sure that light is being blocked correctly. Because as we saw earlier, the skylight has  some very low resolution sampling, which makes it very splotchy. And sometimes, at least my understanding  is that you just need more geometry to block that light coming in. So again, if I were to just  lower this cube right here, notice how we're getting a whole bunch of light that's bleeding into  our scene here? Just lifting this big cube up here. Whoa, that light gone. That is how you can fix  light that's leaking into the corners of your wall. It's very frustrating, but fortunately,  with light blockers, it's a very easy fix. Now, let's say you wanted to have some light shaft or  some god r...
+**Transcript:** look wet. Now bonus tips number one, if ever you notice this kind of like light bleeding in your  interiors, this is actually something that's pretty common. You'll notice like along the edges,  you just got this weird light that seems to be, the skylight that's coming through the walls,  you need to go ahead and add some light blockers to the exterior of your level. And what I mean by  this is these large white cubes, right? It's literally just a big white cube that I place underneath my  level to make sure that light is being blocked correctly. Because as we saw earlier, the skylight has  some very low resolution sampling, which makes it very splotchy. And sometimes, at least my understanding  is that you just need more geometry to block that light coming in. So again, if I were to just  lower this cube right here, notice how we're getting a whole bunch of light that's bleeding into  our scene here? Just lifting this big cube up here. Whoa, that light gone. That is how you can fix  light that's leaking into the corners of your wall. It's very frustrating, but fortunately,  with light blockers, it's a very easy fix. Now, let's say you wanted to have some light shaft or  some god rays coming through the window, you can absolutely do that too. So what we need to do is  grab our directional light here and rotate it so that the sun shines through the doorway.  And we can angle it the way that we want to, something like that. And you'll see it injects  quite a bit of indirect lighting into our level as well. And we got these light shaft here,  thanks to the volumetric fog that we turned on in our exponential height fog earlier. See,  if I turn off volumetric fog here, it's going to be a totally different look. And we don't get those  light shafts coming through. If I want to make that light shaft even stronger, we can simply just  increase the volumetric scattering intensity even higher. So I haven't already set it to 10 here.  By default, there'll be one. You might not even see it, but if we increase the late 50,  100, you'll see it's a very, very strong god ray shining in our scene now. And already we're getting  quite a bit of indirect lighting bouncing up and lighting the rest of our scene. This doesn't match  the reference we were going for, but I still just wanted to show you that it is something you can do.  But for now, I'm just going to go back bring it back up here because that's not the look I wanted.  Every single light hand had its own volumetric scattering intensity. You'll see in my rectalight,  I already had it cranked up to six. If you want more fog like that coming in, which we do have in  our reference here, that is how you can control that. Bonus tip number two, there's one more
 
+**Frame:** tutorials\frames\lighting-interiors-in-unreal-engine-5\frame_005.jpg
 
 ### Bonus Tip 2 [13:42]
 **Transcript:** trick we have up our sleeve in order to inject a little bit more indirect lighting into our scene.  Again, this brake physicality, but the really cool tip know about. In our post process volume,  we're going to search for a lumen. And here we've got a neat little tip called diffuse color boost.  I already said it to two, but if I said to one, you'll see our shadows are very dark, right? It's  very pitch black. We could always just increase the indirect lighting of our rectalight, but by  increasing the color boost here, it's going to increase the boost of not our light, but of the  albedo values of our materials. So if I said to two, you'll see we've already  injected quite a bit more indirect lighting into our level here. Again, purely in our direction  thing, there's no right or wrong way to do it. It's just important to know which tools are available  to you. So I hope that helps. So now that I've covered this scene here, how do you light an
 
+**Frame:** tutorials\frames\lighting-interiors-in-unreal-engine-5\frame_006.jpg
 
 ### Lighting Interiors without natural light [14:40]
-**Transcript:** interior that doesn't have any natural light? And that my friend is artificial lighting. So we're  going to hide this here. I have to turn this on here. You'll see here we've got a completely  differently lit scene. I'm not going to go ahead and show you how to place each individual light,  but really it's about breaking down what our lighting is. This is a really quick reference I found  from some old museum somewhere and to notice how there is no natural light here, it's all artificial.  You as a lighting artist need to break down and ask yourself, where is my lighting coming from?  If I turn on my light in my bedroom at night, the light source is your light bulb or your lamp or  whatever. And that's how we need to break it down here. So I went ahead and added some light  fixtures here. We need a physical prop that is there to suggest that hey, there's lighting here.  This is actually what is contributing to the illumination of the scene. Because if I were to  hide these light fixtures here and you just place light, something would feel a little bit odd.  I mean, it feels like something is missing, right? So that's why we need not only add some practical  light props, but really ...
+**Transcript:** interior that doesn't have any natural light? And that my friend is artificial lighting. So we're  going to hide this here. I have to turn this on here. You'll see here we've got a completely  differently lit scene. I'm not going to go ahead and show you how to place each individual light,  but really it's about breaking down what our lighting is. This is a really quick reference I found  from some old museum somewhere and to notice how there is no natural light here, it's all artificial.  You as a lighting artist need to break down and ask yourself, where is my lighting coming from?  If I turn on my light in my bedroom at night, the light source is your light bulb or your lamp or  whatever. And that's how we need to break it down here. So I went ahead and added some light  fixtures here. We need a physical prop that is there to suggest that hey, there's lighting here.  This is actually what is contributing to the illumination of the scene. Because if I were to  hide these light fixtures here and you just place light, something would feel a little bit odd.  I mean, it feels like something is missing, right? So that's why we need not only add some practical  light props, but really think about where the lights are coming from. And then I just add  as some point lights here and adjusted them to the rough shape of my light source by increasing the  source lights here. You can kind of increase the source lights of any point light.  And I'm just going ahead and place them there. And again, using the exact same trick that we learned  earlier, either the exposure of your post process volume, the global exposure of your scene,  or the indirect lighting intensity of your light, or the diffuse color boost of your post process  volume, right? If I wanted to the two or five, you'll see we made this scene much, much brighter.  Not really the look and going for, but you get the idea. The actual lighting part here is  not very complicated. Again, just to give you one more example, I've used the torch prof that are  on the wall to suggest torch light. And also each point light that I placed, again, it's really just  a simple point might right here that I placed over the torch, each light that I placed also has  a volumetric scattering intensity that I cranked way up to suggest that it maybe took a little bit  moisture in the scene or a little bit of haze or smoke or whatever. That's really it. The key  to interior lighting is just to break down where my lighting is coming from, an understanding,  exposure, indirect lighting, and direct lighting. All right, thanks so much to Nvidia Studio and  Scan Computers for sponsoring this video. Scan Computers are one of the leading resellers on  Nvidia Studio laptop and desktop in Europe. If you're looking for an Nvidia Studio laptop,  then check out their range at the link down below. So thanks so much for watching everyone.  I hope you found this video helpful and as always folks, happy rendering.
 
+**Frame:** tutorials\frames\lighting-interiors-in-unreal-engine-5\frame_007.jpg
 
 
 ---
@@ -60,86 +68,27 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-Interior lighting workflow combining Lumen + Hardware Ray Tracing — using path tracer as ground-truth reference to validate lighting, fixing light bleeding with geometry blockers, boosting indirect lighting with Lumen Diffuse Color Boost, building believable artificial-light scenes with practical props + light actors.
+[PENDING EXTRACTION]
 
 ### Summary
-17-minute tutorial on lighting interior scenes in UE5.3. Covers a complete workflow from reference analysis to execution: using path tracer to verify lighting accuracy, ray-traced shadows for soft penumbras (vs VSM limitations), light blocker geometry for sky light bleeding, Lumen Diffuse Color Boost to lift shadows, and the principle of using physical prop light fixtures to ground artificial lighting.
+[PENDING EXTRACTION]
 
 ### Key Steps
-
-**Project Settings (UE5.3):**
-- Support Hardware Ray Tracing ✓
-- Hardware Ray Tracing When Available ✓
-- Path Tracing ✓
-- Virtual Shadow Maps ✓
-- Default RHI = DirectX 12
-
-**Workflow Philosophy:**
-1. Analyze reference: identify single vs multiple light sources, natural vs artificial
-2. Start with darkness, build up from primary source
-3. Use Path Tracer as "ground truth" check — compare to Lumen result
-4. If they look very different → fix the lighting, don't fight the renderer
-
-**Natural Interior Light (window/doorway only):**
-1. Place Rect Light at window/doorway opening
-2. Scale to match opening
-3. Set Source Width/Height to fill opening
-4. Enable Cast Ray Tracing Shadows → soft shadows through space
-5. Use Indirect Lighting Intensity to amplify bounce if needed
-
-**Using Path Tracer as Reference:**
-- Viewport → View Mode → Path Tracing
-- Compare shadow quality: if PT looks better → VSM limitations; enable "Cast Ray Tracing Shadows" per light
-- Compare brightness: if PT is brighter → need more indirect lighting in Lumen
-
-**Fix Soft Shadows with Hardware Ray Tracing:**
-1. Select Rect/Point/Spot Light
-2. Details → search "ray trace" → **Cast Ray Tracing Shadows** ✓
-3. Massively improved shadow softness vs VSM at large source radius
-
-**Fix Light Bleeding / Sky Leaking Through Walls:**
-- Add large Static Mesh cube (white, invisible to player) BELOW and around the exterior of building
-- Acts as light blocker → prevents sky light sampling artifacts bleeding through thin walls
-- Common in tight interiors or buildings without thick enough geometry
-
-**Boost Indirect Lighting (Lumen Diffuse Color Boost):**
-- Post Process Volume → search "lumen" → **Diffuse Color Boost** (default 1.0)
-- Set to 1.5–3.0 → amplifies albedo contribution to bounce light without changing direct lighting
-- Non-physical but artistically controllable
-
-**Artificial Interior Lighting:**
-1. Add physical light fixture props (not just invisible lights)
-2. Match a light actor to each fixture prop position
-3. Point/Spot Light for focused fixtures
-4. Rect Light for panel/strip lights
-5. Enable Cast Ray Tracing Shadows for soft fixture falloff
+[PENDING EXTRACTION]
 
 ### UE Systems / Blueprints / Settings
-
-**PPV Lumen Settings for Interiors:**
-```
-Lumen > Diffuse Color Boost: 1.0 (default) to 3.0 (lifted shadows)
-Lumen > Final Gather Quality: 2-4 (higher = cleaner GI)
-```
-
-**Key Tip: Specular Highlights:**
-- Even mostly indirectly-lit scenes NEED a direct light component for specular highlights
-- Without direct light → surface normals flatten → scene looks wrong
-- Principle: add a small direct fill even when primarily indirect
+[PENDING EXTRACTION]
 
 ### Difficulty
-Intermediate — assumes Lumen basics; covers practical workflow decisions
+[PENDING EXTRACTION]
 
 ### UE Version
-UE 5.3 (RTX GPU required for hardware ray tracing)
+[PENDING EXTRACTION]
 
 ### Tags
-lighting, interiors, lumen, hardware-ray-tracing, path-tracing, indirect-lighting, rect-light, virtual-shadow-maps, light-bleeding, diffuse-color-boost, william-faucher, intermediate, ue5-3
+[PENDING EXTRACTION]
 
 ---
 
 ## Related Entries
-- `tutorials/lighting-in-unreal-engine-5-for-beginners.md` — Prerequisite beginner lighting tutorial
-- `tutorials/lumen-explained---important-tips-for-ue5.md` — Lumen internals and best practices
-- `tutorials/path-tracer-explained---unreals-underrated-tool.md` — Deep-dive on path tracing (WF)
-- `references/rendering-pipeline.md` — Lumen + Path Tracing settings
+[PENDING EXTRACTION]
