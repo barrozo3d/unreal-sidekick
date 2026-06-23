@@ -3,10 +3,10 @@ title: How I Made a Godzilla Cinematic in Unreal Engine 5
 source: YouTube
 url: https://www.youtube.com/watch?v=Og9za5-VCag
 author: Josh Toonen
-ingested: 2026-06-18
-ue_version: "5.x"
-tags: [cinematics, lighting, niagara, vfx, compositing, camera, control-rig, intermediate]
-extraction_status: complete
+ingested: 2026-06-23
+ue_version: "[PENDING]"
+tags: []
+extraction_status: pending
 frames_dir: tutorials/frames/how-i-made-a-godzilla-cinematic-in-unreal-engine-5/
 frame_count: 11
 ---
@@ -38,7 +38,7 @@ frame_count: 11
 **Frame:** tutorials\frames\how-i-made-a-godzilla-cinematic-in-unreal-engine-5\frame_002.jpg
 
 ### Beginner's Method to Animating Crowds [2:50]
-**Transcript:** imported them into Mixamo.com. To this day, Mixamo is super underrated and it's the easiest,  fastest way to get free rigs and free animations directly onto your characters. In this way,  I could get three animations of this crowd running for their lives away from Godzilla.  In Unreal, it's super easy to combine all these animations together and blend between a few,  so you can actually start crafting a performance throughout an entire crowd of people without dropping  a single keyframe. So using this method, I could animate this entire crowd in just a couple minutes.  And now I have my previs. So I rendered out all these shots to assemble them in an edit so I  could add in music and start to find the pace of this intro. Now our animation and our city are  underway, but we're just getting started. Next, we need to transform this one street into an entire  city. So I'll build that next by sent over the previs and animations over to my buddy John  Abinheim over at Watch Me Animator. He's a super passionate animator and he was up for the challenge  of trying to get this whole thing together in just a week. And this was his first time animating  everything inside of Unreal Engine, but ...
+**Transcript:** imported them into Mixamo.com. To this day, Mixamo is super underrated and it's the easiest,  fastest way to get free rigs and free animations directly onto your characters. In this way,  I could get three animations of this crowd running for their lives away from Godzilla.  In Unreal, it's super easy to combine all these animations together and blend between a few,  so you can actually start crafting a performance throughout an entire crowd of people without dropping  a single keyframe. So using this method, I could animate this entire crowd in just a couple minutes.  And now I have my previs. So I rendered out all these shots to assemble them in an edit so I  could add in music and start to find the pace of this intro. Now our animation and our city are  underway, but we're just getting started. Next, we need to transform this one street into an entire  city. So I'll build that next by sent over the previs and animations over to my buddy John  Abinheim over at Watch Me Animator. He's a super passionate animator and he was up for the challenge  of trying to get this whole thing together in just a week. And this was his first time animating  everything inside of Unreal Engine, but he managed to pick everything up in just a single day.  That way he can focus on what he's great at and I can focus on the lighting and effects.  So the next step here is to take this from daytime into night. Now in my head, I thought this
 
 **Frame:** tutorials\frames\how-i-made-a-godzilla-cinematic-in-unreal-engine-5\frame_003.jpg
 
@@ -48,12 +48,12 @@ frame_count: 11
 **Frame:** tutorials\frames\how-i-made-a-godzilla-cinematic-in-unreal-engine-5\frame_004.jpg
 
 ### Environment and World Building Shortcuts [5:04]
-**Transcript:** how can we create an entire city that looks believable and cinematic?  I think a huge beginner mistake with Unreal is overbuilding your entire environment. You don't  actually need a 3D model for every single asset in your scene. When there's things really far  into the background, you can actually use images instead of 3D models. At a Visual Effects Studio,  these are known as matte paintings or DMP. By finding real images of cities far in the  background, I don't need to worry about modeling an entire city with all these thousands of lights.  I can just use big images and hide them behind our buildings so you can't tell where one starts  and the other ends. Not only is this more realistic, it's also way faster, so make sure to use this  in your own scenes. So from here, I just duplicated a bunch of images of Hong Kong and placed them  in the background. But to take that one step further, we just need more buildings so it feels  like this complex cityscape. So I grabbed a couple extra models from KitBash 3D. This way, I could  add more variation and height to the buildings and then rotate, scale them up and down, so I can make  these 4 or 5 buildings look like 40 or 50. These mode...
+**Transcript:** how can we create an entire city that looks believable and cinematic?  I think a huge beginner mistake with Unreal is overbuilding your entire environment. You don't  actually need a 3D model for every single asset in your scene. When there's things really far  into the background, you can actually use images instead of 3D models. At a Visual Effects Studio,  these are known as matte paintings or DMP. By finding real images of cities far in the  background, I don't need to worry about modeling an entire city with all these thousands of lights.  I can just use big images and hide them behind our buildings so you can't tell where one starts  and the other ends. Not only is this more realistic, it's also way faster, so make sure to use this  in your own scenes. So from here, I just duplicated a bunch of images of Hong Kong and placed them  in the background. But to take that one step further, we just need more buildings so it feels  like this complex cityscape. So I grabbed a couple extra models from KitBash 3D. This way, I could  add more variation and height to the buildings and then rotate, scale them up and down, so I can make  these 4 or 5 buildings look like 40 or 50. These models don't always look good up close, but they're  perfect for the background. But now these buildings are completely dark, so I had to add in these  office building lights. So instead of modeling these from scratch, I just took images of office  buildings and turned them into decals with an emissive input so they could literally start  lighting up the rest of the city. And by using real images, it'll make our scene look true to life.
 
 **Frame:** tutorials\frames\how-i-made-a-godzilla-cinematic-in-unreal-engine-5\frame_005.jpg
 
 ### Use this VFX Technique from Godzilla vs Kong [6:32]
-**Transcript:** Now this is starting to look pretty cool, but this is where most artists stop. And it's probably  why your shots aren't at that next level. So to take our city even further, I want to use this  technique I first used on Godzilla vs. Kong. Back in 2019, I had my first opportunity as a lead  compositor and it was my job to set the look of the Hong Kong sequence, starting with these first two  shots. And I found a really cool way to mimic volumetric fog. If you look at these foggy images  of Hong Kong at night, you'll see thousands of street lights and all these glowing neon signs  cast volumetric fog into the air. So instead of simulating all of this, it was faster and easier  to create cards in 3D space. Just like you can use cloud cards to create atmosphere, I used these  fog cards to add different color and depth throughout our entire city. Instead of relying on the  volumetric fog system, I just took these simple images of this light follow up and I started placing  them throughout the city. And using a depth fade node, I could spread this out across several buildings  so that light would travel between several different streets. So I placed nice cool blue light in  the sky and h...
+**Transcript:** Now this is starting to look pretty cool, but this is where most artists stop. And it's probably  why your shots aren't at that next level. So to take our city even further, I want to use this  technique I first used on Godzilla vs. Kong. Back in 2019, I had my first opportunity as a lead  compositor and it was my job to set the look of the Hong Kong sequence, starting with these first two  shots. And I found a really cool way to mimic volumetric fog. If you look at these foggy images  of Hong Kong at night, you'll see thousands of street lights and all these glowing neon signs  cast volumetric fog into the air. So instead of simulating all of this, it was faster and easier  to create cards in 3D space. Just like you can use cloud cards to create atmosphere, I used these  fog cards to add different color and depth throughout our entire city. Instead of relying on the  volumetric fog system, I just took these simple images of this light follow up and I started placing  them throughout the city. And using a depth fade node, I could spread this out across several buildings  so that light would travel between several different streets. So I placed nice cool blue light in  the sky and have the red and yellow street lights underneath. I even added in orange ones to  accentuate the explosions. So by adding small light sources and glow cards, I was able to transform  this entire city shot to make it look way more cinematic and complex. Now a rock in, but what are  those Hollywood visual effects techniques that you can start applying to take our shots to the next  level? The first thing I had to add was rain. Creating that downtown battle, I'm proud of a lot of
 
 **Frame:** tutorials\frames\how-i-made-a-godzilla-cinematic-in-unreal-engine-5\frame_006.jpg
 
@@ -63,7 +63,7 @@ frame_count: 11
 **Frame:** tutorials\frames\how-i-made-a-godzilla-cinematic-in-unreal-engine-5\frame_007.jpg
 
 ### Level-Up Your Renders with NukeX [8:53]
-**Transcript:** into the city. So I got some spark and smoke elements from compositingacademy.com and brought  those into Nuke. Now is the last step. We just need to right click our camera inside of Unreal  and export that so we can import it into Nuke. And then to mimic our exact camera movement,  I just need to use an image plane node in Nuke and I just plug in my camera and my stock footage  and tell it how far we want to place it in depth and now our stock elements have the same exact  camera move. I also rendered out a depth pass out of Unreal, which we can use in a really cool way.  We can stretch and squash this depth pass to block out all of the things in the foreground so we  can really make it look like those sparks exist in a real 3D space. And now we can blend the smoke  and spark elements with our environment. And I did the same thing for Godzilla's roar,  adding in real footage of smoke and matching the movement and position of Godzilla. And then I got  those final animations back from John so I could swap them out. Now this is super important because  in visual effects so many people think they have to do everything themselves. But that is not true.  You're not limited by your own r...
+**Transcript:** into the city. So I got some spark and smoke elements from compositingacademy.com and brought  those into Nuke. Now is the last step. We just need to right click our camera inside of Unreal  and export that so we can import it into Nuke. And then to mimic our exact camera movement,  I just need to use an image plane node in Nuke and I just plug in my camera and my stock footage  and tell it how far we want to place it in depth and now our stock elements have the same exact  camera move. I also rendered out a depth pass out of Unreal, which we can use in a really cool way.  We can stretch and squash this depth pass to block out all of the things in the foreground so we  can really make it look like those sparks exist in a real 3D space. And now we can blend the smoke  and spark elements with our environment. And I did the same thing for Godzilla's roar,  adding in real footage of smoke and matching the movement and position of Godzilla. And then I got  those final animations back from John so I could swap them out. Now this is super important because  in visual effects so many people think they have to do everything themselves. But that is not true.  You're not limited by your own resources, you're limited by how resourceful you can be.  And that means reaching out to other artists who want to be filmmakers just like you.  So I just re-rendered each shot which was super fast because we're using Unreal Engine.  And then I added my one click compositing template to add in those last lens effects and now  we're ready to render out the final shots. Let's take a look at the final sequence.
 
 **Frame:** tutorials\frames\how-i-made-a-godzilla-cinematic-in-unreal-engine-5\frame_008.jpg
 
@@ -83,42 +83,27 @@ frame_count: 11
 ## Structured Notes
 
 ### Core Technique
-Production breakdown of a Godzilla cinematic in UE5: custom Control Rig for creature, Tokyo city dressing, night lighting with practical sources, matte painting background integration, fog cards for depth, Niagara rain, and Nuke compositing with world depth pass.
+[PENDING EXTRACTION]
 
 ### Summary
-Josh Toonen breaks down how he created a Godzilla cinematic entirely in UE5 and Nuke, covering each production challenge from building a believable Tokyo nightscape to integrating a custom Godzilla control rig with the environment. Viewers learn night lighting with practical sources (street lights, car headlights, explosion animated lights), DMP/matte painting as background images, fog card depth enhancement, Niagara rain particles, and the complete compositing workflow in Nuke using camera FBX export and image planes. The breakdown demonstrates how to combine a hero CG creature with a full-scale environment for a believable blockbuster look.
+[PENDING EXTRACTION]
 
 ### Key Steps
-1. Build the Tokyo city environment using a Turbo Squid or marketplace city asset pack; dress the scene with street lights, car headlights, and background building lit windows.
-2. Rig Godzilla's creature with a custom Control Rig in the Control Rig Editor; add controls for spine, neck, head, and tail for shot-specific animation.
-3. Set up night lighting: spotlights for street lamps, low-intensity point lights for car headlights, and animated point lights attached to explosion FX for dynamic flicker.
-4. Add matte painting background images (DMP technique): create large card meshes behind the cityscape, apply 2D matte painting textures, match light direction to the key light in-scene.
-5. Place fog cards (translucent planes with depth fade material) between building layers to add atmospheric depth and separate foreground/midground/background.
-6. Create Niagara rain system: particles with downward velocity, heavy spawn rate, fine sprite sprites with rain streak texture.
-7. Export camera from Sequencer as FBX (right-click camera → Export); import to Nuke; use image plane nodes at matching depths for background plates.
-8. Render a World Depth pass from MRQ; use in Nuke for ZDefocus depth-of-field and layer separation.
+[PENDING EXTRACTION]
 
 ### UE Systems / Blueprints / Settings
-- **Custom Control Rig**: Control Rig Editor; manual control placement for creature spine/neck/head/tail
-- **Night lighting**: Spotlights (street lamps); Point Lights (car headlights, intensity 500–2000 lux); animated Point Lights parented to explosion Niagara with Perlin noise intensity
-- **Matte painting cards**: Large plane mesh; Unlit material with DMP texture; Two-Sided = true; positioned behind city geometry
-- **Fog cards**: Translucent plane + Depth Fade material node (Fade Distance = 1000–5000) for atmospheric blending at card edges
-- **Niagara rain**: Sprite emitter; Velocity = (0, 0, -2000); Spawn Rate = high; elongated vertical sprite texture
-- **Camera FBX export**: Sequencer → right-click camera actor → Export → FBX
-- **MRQ World Depth pass**: EXR multi-channel; World Depth channel for Nuke ZDefocus
+[PENDING EXTRACTION]
 
 ### Difficulty
-Intermediate
+[PENDING EXTRACTION]
 
 ### UE Version
-UE 5.x (+ Nuke)
+[PENDING EXTRACTION]
 
 ### Tags
-cinematics, lighting, niagara, vfx, compositing, camera, control-rig, intermediate
+[PENDING EXTRACTION]
 
 ---
 
 ## Related Entries
-- [[every-filmmaker-should-know-this-vfx-workflow]] — foundational Nuke pipeline: image planes, camera FBX, cryptomatte
-- [[improve-your-vfx-with-lens-flares-anamorphic-tutorial]] — ZDefocus world depth pass and anamorphic lens in Nuke
-- [[create-muzzle-flash-gun-fx-for-unreal-5-cinematics]] — Niagara system construction for other VFX needs
+[PENDING EXTRACTION]
