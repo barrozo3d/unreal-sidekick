@@ -530,6 +530,8 @@ def main():
     parser.add_argument("--doc-depth", type=int, default=2,
                         choices=[0, 1, 2, 3],
                         help="Crawl depth for Epic documentation pages (default: 2)")
+    parser.add_argument("--force", action="store_true",
+                        help="Overwrite an existing tutorial file even if extraction_status: complete")
     args = parser.parse_args()
 
     # ── Route: Epic documentation hub ────────────────────────────────────────
@@ -564,6 +566,12 @@ def main():
         hub_title = pages[0][0]
         slug      = slugify(hub_title)
         out_md    = TUTORIALS_DIR / f"{slug}.md"
+
+        if out_md.exists() and not args.force and "extraction_status: complete" in out_md.read_text(encoding="utf-8"):
+            print(f"      {out_md.name} is already fully extracted — refusing to overwrite.")
+            print(f"      Pass --force to re-collect anyway (this will wipe the existing Structured Notes).")
+            return
+
         print(f"\n[2/4] Crawled {len(pages)} pages. Assembling markdown...")
 
         md = build_doc_md(args.url, pages, slug)
@@ -605,6 +613,11 @@ def main():
         slug      = slugify(title)
         out_md    = TUTORIALS_DIR / f"{slug}.md"
         frames_out = FRAMES_DIR / slug
+
+        if out_md.exists() and not args.force and "extraction_status: complete" in out_md.read_text(encoding="utf-8"):
+            print(f"      {out_md.name} is already fully extracted — refusing to overwrite.")
+            print(f"      Pass --force to re-collect anyway (this will wipe the existing Structured Notes).")
+            return
 
         print(f"[2/6] Downloading audio + transcribing with Whisper ({args.whisper_model})...")
         ch_transcripts = []
