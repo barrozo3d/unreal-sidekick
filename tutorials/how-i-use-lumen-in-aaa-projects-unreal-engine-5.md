@@ -3,10 +3,10 @@ title: How I Use Lumen in AAA Projects | Unreal Engine 5
 source: YouTube
 url: https://www.youtube.com/watch?v=yspmZJ6YjpM
 author: Karim Yasser
-ingested: 2026-06-15
-ue_version: "UE 5.0+"
-tags: [lumen, global-illumination, hardware-ray-tracing, project-settings, post-process, rendering, lighting, intermediate, youtube, ue5]
-extraction_status: complete
+ingested: 2026-06-23
+ue_version: "[PENDING]"
+tags: []
+extraction_status: pending
 frames_dir: tutorials/frames/how-i-use-lumen-in-aaa-projects-unreal-engine-5/
 frame_count: 4
 ---
@@ -23,7 +23,7 @@ frame_count: 4
 
 
 ### Full Content [0:00]
-**Transcript:** April 5, 2022. This is when Lumen was firstly introduced in Android Engine 5. And since then, a lot of videos took about the requirements to have Lumen works well. And mostly they mentioned the light values, the base color values for materials, and the indirect light intensity. But if you think that these three options are the only options that control Lumen, they are completely wrong. And that's because Lumen has different types, different approaches, and that depends on the project type, the target hardware, and the specs and quality you want to get. So in this video, I will show you how I use Lumen in the Tribal A projects I work on. First of all, we need to go in project settings, then rendering, and we can scroll down here and we can see support hardware ray tracing. This is related to the project overall to support hardware ray tracing work not. So it's not only related to Lumen, but if you want to use hardware ray tracing for Lumen, you can use it. And we have mainly two things. Like as you can see here, the hardware ray tracing, and the other one, which is the cheaper option and works on why the range of hardware specs, which is the software ray tracing. So in order to use ...
+**Transcript:** April 5, 2022. This is when Lumen was firstly introduced in Android Engine 5. And since then, a lot of videos took about the requirements to have Lumen works well. And mostly they mentioned the light values, the base color values for materials, and the indirect light intensity. But if you think that these three options are the only options that control Lumen, they are completely wrong. And that's because Lumen has different types, different approaches, and that depends on the project type, the target hardware, and the specs and quality you want to get. So in this video, I will show you how I use Lumen in the Tribal A projects I work on. First of all, we need to go in project settings, then rendering, and we can scroll down here and we can see support hardware ray tracing. This is related to the project overall to support hardware ray tracing work not. So it's not only related to Lumen, but if you want to use hardware ray tracing for Lumen, you can use it. And we have mainly two things. Like as you can see here, the hardware ray tracing, and the other one, which is the cheaper option and works on why the range of hardware specs, which is the software ray tracing. So in order to use software ray tracing, we can turn off the support hardware ray tracing, or we can keep it for other purposes, and just keep this one disabled. So this is the use hardware ray tracing when available. This triggers Lumen to use ray tracing support when the specs or the hardware can do it. Otherwise, you will fall back to software ray tracing. So what actually the types of software ray tracing are, we have two things. They are here in software ray tracing category. You have first to use the generateMeshDistanceFields that could be added for each static mesh you import into your project, and then you can control that mode for it from software ray tracing port. We have detailed tracing and global tracing. Simply detailed tracing uses the MeshDistanceFields, which is more accurate and works with each mesh individually. And the global tracing uses the global distance field, which is less end resolution, and it's not as accurate as the detailed tracing. So what we can see here, we can go to showflag options, visualize meshDistanceFields, and we can see here this is really low resolution. We try to select and open this static mesh editor. Let's go to build options. And as you can see, this asset has really thin geometry in here. Notice what will happen if we try to go here and increase the distance field resolution scale. Let's try to name it for example, and that will increase the memory for sure and maybe increase the disk size, but this is super accurate now. It respects this thin geometry and reads the details in much, much better way. So if you have really thin geometry like wall sealing, so you can fix it with this option, or you can rescale it and increase the thickness of the static mesh itself. But if you cannot do that, you can do that here in the static mesh editor. So that's for the meshDistanceFields. The other way to use software ray tracing is to use the globalDistanceField. As you can see, this is really low resolution. So it's not representing the exact same details that we want. So this saves more memory and it makes the projects run faster, but it lacks the details, especially within really small distances or really focused areas, but it works really well with really large world scale environments. So you can switch between them based on your project preferences, and personally, I prefer to use the meshDistanceFields if I'm going to use software ray tracing. And we have also the other way, which is using hardware ray tracing. So here we can use hardware ray tracing when available, and that will enable and give us the option to use it with the recommended or the required hardware specs. And that default here is to use SurfaceCache. So SurfaceCache is that she is the way to use Lumen for hardware ray tracing, and we still have other ways which are higher in resolution. And also it gives better details, but that will take or consume more from the performance. So we have headlighting for reflections. This is more accurate for reflection surfaces. So here if we try to go in there, as we can see the reflections on the water surface, we can scroll here for post process volume. And I believe I was using that lighting. So if I try to switch to SurfaceCache, as you can see the reflections are not really good, you still see some black reflections here. They are not too accurate. And especially if you are using really high quality reflections, this will not work for you. So you might need to use headlighting for reflections or headlighting. But they have some differences because headlighting is way more expensive than headlighting for reflections because it projects more rays into the indirect lighting paths. So it gives you much more accurate results, but it's not reliable for games. So what I personally use is to work with SurfaceCache and sometimes I don't even want to use hardware ray tracing. But I have to ensure that I keep my meshes working perfectly. I have the proper distance field for the meshes and they have the proper thickness and they have proper materials and everything like that. And also there are other things that depend or have some work to do with Lumen. And if you want to recreate this scene, I have a step-by-step, a full breakdown that I'm going to do for this scene specifically. So we can get this kind of result here, as we can see for a golden hour, how you can set up the lighting, the values that we have in here. And the sky values, the proper exposure, and everything that works fine for the environment. So you can get this kind of balance in here. I will have it live in a workshop that is going to be happening really soon. So if you want to get your hands on this scene and start to know how to use Lumen in more details and understand the differences in more practices and how I can actually use it and unlock all these features and settings that I use in my projects and realize this scene. You can register in the workshop link. I will add in the description below. It's going to be completely for free. And you can get all the details and behind the scenes for this environment lighting step-by-step from setting up the sky, setting up the directional lights, setting up the exposure and balance to recreate this beautiful golden hour lighting. Also to understand more about Lumen from practical approach in the industry and connect with others while they are asking more questions about Lumen and the lighting in there. So make sure to register, to attend, and get your seat to join us in this free workshop to start reliving your projects in a proper way as I do in trivially projects. Thank you so much for watching and see you there in the workshop.
 
 **Frame:** tutorials\frames\how-i-use-lumen-in-aaa-projects-unreal-engine-5\frame_000.jpg
 
@@ -33,73 +33,27 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-AAA-grade Lumen configuration — selecting Hardware Ray Tracing vs Software Ray Tracing based on project type and target hardware, then pushing quality beyond the three commonly cited settings via Project Settings and Post Process Volume overrides.
+[PENDING EXTRACTION]
 
 ### Summary
-Karim Yasser (an AAA industry professional) walks through how Lumen is actually configured in production projects, countering the common belief that only light values, base color values, and indirect light intensity control Lumen quality. The tutorial introduces the critical fork between Hardware Ray Tracing (HWRT) and Software Ray Tracing (SWRT), explaining when each is appropriate based on platform target and quality requirements. Across three distinct scenes — warm autumn outdoor environment, nighttime urban street, and a golden-hour canal — Karim demonstrates the settings panel and Post Process Volume knobs that deliver AAA lighting results.
+[PENDING EXTRACTION]
 
 ### Key Steps
-1. **Open `Project Settings` → `Rendering` → scroll to `Support Hardware Ray Tracing`** — this is a global project toggle that enables HWRT across all systems (not just Lumen). Must restart editor after changing.
-2. **Choose your Lumen ray tracing mode** — two options:
-   - `Hardware Ray Tracing` (HWRT): higher quality, requires DXR-capable GPU (RTX or RDNA 3+). Traces actual geometry, not surface cache proxies.
-   - `Software Ray Tracing` (SWRT): cheaper, runs on a wider range of hardware specs. Uses distance fields. Default and recommended for most projects targeting broad audiences.
-3. **For HWRT: also verify `Ray Tracing` is enabled** in `Project Settings → Rendering → Ray Tracing`. HWRT for Lumen requires this base DXR support to be on.
-4. **Set the Lumen method per scene via Post Process Volume** — in `Lumen Global Illumination` section, set `Lumen GI` to `Hardware Ray Tracing` or `Software Ray Tracing` to override per-volume rather than globally.
-5. **Tune `Final Gather Quality`** (in PPV → Lumen GI) — controls the number of samples Lumen uses for final gather. Higher = less noise, more cost. For AAA: 2–4. Default is 1.
-6. **Tune `Scene Lighting Sensitivity`** — affects how aggressively Lumen updates GI when light changes. Lower = more stable (less flickering in lit scenes). Raise only if GI is too slow to respond to fast light changes.
-7. **For HWRT: set `Ray Lighting Mode`** in PPV → Lumen GI → Advanced:
-   - `Surface Cache`: fast, less accurate (uses precomputed surface cache). Good for most production scenes.
-   - `Hit Lighting for Reflections`: traces secondary rays to lights directly — significantly more accurate for specular, costs more. Reserve for hero shots or cinematics.
-8. **Understand what the common three settings actually do** — light values (EV100 physically correct values), base color values (keep albedo below 0.9, ideally 0.4–0.85), and indirect light intensity (PPV → Global Illumination → Indirect Lighting Intensity) are prerequisites, not the full picture.
-9. **Match your setup to project type** — PC AAA: HWRT + Hit Lighting for reflections. Console or wider PC: SWRT. Mobile: Lumen is not supported (use baked lighting or DFAO).
+[PENDING EXTRACTION]
 
 ### UE Systems / Blueprints / Settings
-
-**Project Settings → Rendering:**
-- `Support Hardware Ray Tracing` → true/false (project-wide, requires restart)
-- `Ray Tracing` (DXR base toggle) → must be enabled if using HWRT Lumen
-
-**Post Process Volume → Lumen Global Illumination:**
-- `Lumen GI` method → `None` / `Lumen` (uses project default) / `Hardware Ray Tracing` / `Software Ray Tracing`
-- `Final Gather Quality` → 1.0 (default) to 4.0+ (AAA)
-- `Scene Lighting Sensitivity` → lower = more stable, less flickering
-- `Max Trace Distance` → how far Lumen traces GI rays (increase for large outdoor scenes)
-- `Ray Lighting Mode` (Advanced) → `Surface Cache` (default) / `Hit Lighting for Reflections` (HWRT only, high quality)
-
-**Post Process Volume → Lumen Reflections:**
-- `Lumen Reflections` method → `Lumen` / `Hardware Ray Tracing` / `Screen Space`
-- `Reflection Quality` → 1–4 (must be 4 to run HWRT reflections simultaneously with HWRT GI)
-- `Ray Lighting Mode` → `Surface Cache` / `Hit Lighting for Reflections`
-
-**Global Illumination (General):**
-- `Indirect Lighting Intensity` → scales all GI bounce; raise to compensate for dark interiors
-- `Diffuse Color Boost` (PPV → Lumen Advanced) → artificially brightens material colors for GI. Use sparingly — 1.5–2.0 max for indoor scenes
+[PENDING EXTRACTION]
 
 ### Difficulty
-Intermediate
+[PENDING EXTRACTION]
 
 ### UE Version
-UE 5.0+ (Lumen first introduced April 5, 2022 with UE5 launch; HWRT / SWRT distinction and PPV overrides present from UE5.0)
+[PENDING EXTRACTION]
 
 ### Tags
-`#lumen` `#global-illumination` `#hardware-ray-tracing` `#project-settings` `#post-process` `#rendering` `#lighting` `#intermediate` `#youtube` `#ue5`
-
----
-
-## Frame Analysis
-
-**frame_000 / frame_001:** UE5 editor with a large settings panel open (Project Settings or PPV details), warm golden autumn outdoor scene in the viewport — trees, buildings, afternoon/sunset sky. Shows Lumen GI settings being configured while the scene has rich indirect light bouncing.
-
-**frame_002:** Same settings panel open but the scene is now a dark nighttime urban environment — stone-paved street, European-style buildings, low ambient light. Demonstrates configuring Lumen settings for a drastically different lighting scenario (low EV, dark materials, artificial lighting).
-
-**frame_003:** Final high-quality result shot — golden-hour canal scene with warm orange directional light, trees, water reflections, and European buildings. Visible in the Details/right panel are post-process or actor settings. Represents the AAA quality output achievable with properly tuned Lumen.
+[PENDING EXTRACTION]
 
 ---
 
 ## Related Entries
-
-- [[lumen-explained---important-tips-for-ue5]] — Surface cache internals, emissive best practices, known Lumen limitations (landscape, translucency, WPO). Shares: `#lumen` `#global-illumination` `#hardware-ray-tracing`
-- [[things-to-know-about-lumen-unreal-engine-5]] — Early UE5.0 Lumen project setup (DX12, HWRT toggle, VSM), indirect controls. Shares: `#lumen` `#global-illumination` `#project-settings`
-- [[lighting-in-unreal-engine-5-for-beginners]] — Light values, albedo/GI bounce theory, DX12/HWRT/VSM project setup. Shares: `#lumen` `#lighting`
-- [[lighting-interiors-in-unreal-engine-5]] — Lumen + HWRT for interiors, Diffuse Color Boost, Path Tracer as ground-truth validator. Shares: `#lumen` `#hardware-ray-tracing` `#lighting`
-- [[designing-visuals-rendering-and-graphics-with-unreal-engine]] — Full Epic Lumen docs reference (170 pages). Shares: `#lumen` `#rendering` `#post-process`
+[PENDING EXTRACTION]
