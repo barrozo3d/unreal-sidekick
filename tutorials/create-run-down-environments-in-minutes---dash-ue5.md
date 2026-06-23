@@ -1,13 +1,12 @@
-﻿---
+---
 title: Create Run-down Environments in Minutes - Dash & UE5
 source: YouTube
 url: https://www.youtube.com/watch?v=NNBDLTPsktc
 author: Polygonflow Dash
-ingested: 2026-06-16
-plugin_version: dash-early
-ue_version: "UE 5.x"
-tags: [dash-early, environment, scatter, proximity-masking, decals, mesh-cards, post-process, color-grading, beginner]
-extraction_status: complete
+ingested: 2026-06-23
+ue_version: "[PENDING]"
+tags: []
+extraction_status: pending
 frames_dir: tutorials/frames/create-run-down-environments-in-minutes---dash-ue5/
 frame_count: 5
 ---
@@ -29,12 +28,12 @@ frame_count: 5
 **Frame:** tutorials\frames\create-run-down-environments-in-minutes---dash-ue5\frame_000.jpg
 
 ### Scatter Grass [1:18]
-**Transcript:** First, I wanted to scatter some grass in the corners of the room.  To do this with dash is quite trivial.  We find the right asset in the content browser, drag it onto the viewport, and hold control  to scatter it.  I'll adjust a few parameters on the scatter, but before I really dial those details in,  I want to make sure the grass is locked to these two corners.  I can quickly do this by first selecting the grass, then a few of the props in the corners.  Then I can click on this proximity icon right here.  With this, I can adjust the proximity distance of my grass to quickly expand the coverage  away from these assets.  Then using one of my favorite settings, I can bump up the falloff on the grass, which  gives us a really smooth transition of scale as a scatter reaches its borders.  This makes things feel so much more natural and organic.  Here's a quick tip.  If you drop in a small static mesh that fits your scene, you can then add the mesh to the  proximity mask by going into the grass scatters main property panel.  And with the mesh selected, you can just add it.  Now the grass will extend out to the mesh, and you can easily move it around and scatter  will update in real tim...
+**Transcript:** First, I wanted to scatter some grass in the corners of the room.  To do this with dash is quite trivial.  We find the right asset in the content browser, drag it onto the viewport, and hold control  to scatter it.  I'll adjust a few parameters on the scatter, but before I really dial those details in,  I want to make sure the grass is locked to these two corners.  I can quickly do this by first selecting the grass, then a few of the props in the corners.  Then I can click on this proximity icon right here.  With this, I can adjust the proximity distance of my grass to quickly expand the coverage  away from these assets.  Then using one of my favorite settings, I can bump up the falloff on the grass, which  gives us a really smooth transition of scale as a scatter reaches its borders.  This makes things feel so much more natural and organic.  Here's a quick tip.  If you drop in a small static mesh that fits your scene, you can then add the mesh to the  proximity mask by going into the grass scatters main property panel.  And with the mesh selected, you can just add it.  Now the grass will extend out to the mesh, and you can easily move it around and scatter  will update in real time.  This will help you really fine tune the look of your proximity masking in no time.
 
 **Frame:** tutorials\frames\create-run-down-environments-in-minutes---dash-ue5\frame_001.jpg
 
 ### Scatter Leaves [2:37]
-**Transcript:** I wanted to place a bunch of leaves in the scene, and while Megascans does have some leaf  cluster meshes, they don't always play well due to their high frequency.  To fix this, I'll select my floor mesh, then write, create and scatter mesh cards in  my dash prompt bar.  Then I'll select the create cards action.  This will prompt me to pick an opacity map of my leaves, and once we do that, it'll convert  that opacity map to actual mesh cards for each leaf in this case, and then scatter them  all over the ground.  As always, tweaking the results is a fun part.  We can change their density, play with the breakup parameters to have more realistic clustering  and so on.  I'll now go back to the content browser, and just start scattering more objects on the  ground to really start filling out the scene.  The key is to add enough detail that really sells the scene, but not so much that it becomes  too noisy, making it difficult for the viewer's eye to find a place to rest.  We also have this wall outside the window.  Since the scene is more focused on the interior, I didn't spend too much time out there, but  I did scatter some ivy along the wall, as well as add a few decals to further g...
+**Transcript:** I wanted to place a bunch of leaves in the scene, and while Megascans does have some leaf  cluster meshes, they don't always play well due to their high frequency.  To fix this, I'll select my floor mesh, then write, create and scatter mesh cards in  my dash prompt bar.  Then I'll select the create cards action.  This will prompt me to pick an opacity map of my leaves, and once we do that, it'll convert  that opacity map to actual mesh cards for each leaf in this case, and then scatter them  all over the ground.  As always, tweaking the results is a fun part.  We can change their density, play with the breakup parameters to have more realistic clustering  and so on.  I'll now go back to the content browser, and just start scattering more objects on the  ground to really start filling out the scene.  The key is to add enough detail that really sells the scene, but not so much that it becomes  too noisy, making it difficult for the viewer's eye to find a place to rest.  We also have this wall outside the window.  Since the scene is more focused on the interior, I didn't spend too much time out there, but  I did scatter some ivy along the wall, as well as add a few decals to further give the  appearance that this area has been decaying over years of neglect.  Back in the interior, the next step is to really leverage the decals to break up tiling  elements of our textures, as well as add more detail to the scene.  This is always such a fun part, as you can make any seemingly generic surface truly  stand out, and thanks to dashes and to-it-of-you-eye, the material floating bars allow us to  edit the decals really quickly in order to make them blend nicely with the background  they're sitting on.
 
 **Frame:** tutorials\frames\create-run-down-environments-in-minutes---dash-ue5\frame_002.jpg
 
@@ -54,40 +53,27 @@ frame_count: 5
 ## Structured Notes
 
 ### Core Technique
-Post-apocalyptic interior detailing pass using Dash — corner-locked grass scatter with Proximity Mask + Falloff, Megascans leaf Mesh Cards from opacity map, decal scatter, ivy wall scatter, and named color-grade LUT presets from Dash's grading library.
+[PENDING EXTRACTION]
 
 ### Summary
-6-minute tutorial by Josh Powers polishing a Last of Us–inspired interior from blockout to final render using Dash. Key techniques: corner-locked grass via Proximity Mask on prop actors with Falloff for organic border fade; Mesh Cards generated from a Megascans leaf opacity map for natural leaf clustering; scatter of more props and decals; ivy on exterior wall; Dash Camera with post-process panel (DOF, vignette, chromatic aberration, sharpness console var exposed in UI); and named LUT presets from Dash's color grading library (`type: last of us` or `cycle grading` to step through all presets).
+[PENDING EXTRACTION]
 
 ### Key Steps
-1. **Corner grass** — Ctrl+drag grass asset → Scatter; select grass + corner props → click Proximity icon; adjust Distance to expand coverage toward props; increase Falloff for smooth organic border fade
-2. **Moveable proximity guide mesh** — drop small static mesh → add to grass scatter's Proximity Mask → scatter updates live as guide mesh moves
-3. **Leaf Mesh Cards** — select floor mesh → type `create scatter mesh cards` in Dash prompt → Create Cards → pick Megascans leaf opacity map → Dash generates one mesh card per leaf → scatters over floor; tune density + breakup
-4. **Fill scatter** — add more Megascans debris, objects from Content Browser; scatter to fill visual interest without excessive noise
-5. **Ivy + decals** — scatter ivy on exterior wall; add grunge/crack decals to surfaces
-6. **Camera + post-process** — type `new camera` → move to composition → click post-process icon → tune DOF, vignette, chromatic aberration, sharpness
-7. **Color grade** — type `last of us color grading` to apply named preset; OR type `cycle grading` to step through all presets (Blade Runner, Children of Men, traditional, etc.)
+[PENDING EXTRACTION]
 
 ### UE Systems / Blueprints / Settings
-- **Proximity Mask → Distance** — expands scatter coverage toward masked actors (not away from them); use Invert for exclusion
-- **Proximity Falloff** — smooth scale fade at scatter boundary; increases organic feel at border edges
-- **Create Scatter Mesh Cards** — type `create scatter mesh cards` in Dash prompt; selects floor → picks opacity map → generates individual mesh cards from each leaf in atlas; density + breakup settings
-- **Color Grading Library** — type named preset or `cycle grading` to step through all available Dash LUT presets; applied per-camera
-- **Camera Sharpness** — normally console-var-only in UE5; exposed as slider in Dash camera post-process panel
+[PENDING EXTRACTION]
 
 ### Difficulty
-Beginner
+[PENDING EXTRACTION]
 
 ### UE Version
-UE 5.x (Dash early)
+[PENDING EXTRACTION]
 
 ### Tags
-`#dash-early` `#environment` `#scatter` `#proximity-masking` `#decals` `#mesh-cards` `#post-process` `#color-grading` `#beginner`
+[PENDING EXTRACTION]
 
 ---
 
 ## Related Entries
-- [[surface-scatter-beginner-guide-to-your-ue5-co-pilot-dash]] — Proximity Mask + Falloff full reference
-- [[introducing-dash-for-unreal-engine-5]] — Mesh Cards from opacity atlas (first introduction)
-- [[beginner-guide-to-ue5-co-pilot-dash-camera-settings]] — Camera Tool + LUT color grading
-- [[how-to-scatter-decals-in-ue5---world-building-plugin]] — Decal scatter reference
+[PENDING EXTRACTION]
