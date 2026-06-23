@@ -3,10 +3,10 @@ title: How I made this AAA battle scene in Unreal Engine 5
 source: YouTube
 url: https://www.youtube.com/watch?v=P2eR9gGPZnA
 author: Charlie Driscoll - Unreal Engine Filmmaking
-ingested: 2026-06-17
-ue_version: "5.x"
-tags: [mocap, metahuman, move-ai, naval-battle, battle-scene, ocean, vfx-particles, sequencer, elevenlabs, ue5]
-extraction_status: complete
+ingested: 2026-06-23
+ue_version: "[PENDING]"
+tags: []
+extraction_status: pending
 frames_dir: tutorials/frames/how-i-made-this-aaa-battle-scene-in-unreal-engine-5/
 frame_count: 14
 ---
@@ -43,7 +43,7 @@ frame_count: 14
 **Frame:** tutorials\frames\how-i-made-this-aaa-battle-scene-in-unreal-engine-5\frame_003.jpg
 
 ### Adding Metahuman Crew [3:11]
-**Transcript:** I figured, what if we actually got down on the ships and saw some meta-humans?  I started throwing some meta-humans in there, and I started dressing them up with this asset pack from Polyphoria that I have called Medieval Armor.  It's great, they're really high quality, they're kind of pricey, but they look great.  I just dragged the clothing into the skeletal mesh slot on the meta-humans replacing their clothing, and it works really well.  Honestly, I'm kind of just making this up as I go.  Let's get some crew in there.  I end up with about 10 individual meta-humans, most of them are duplicates of each other.  I figured, okay, that's enough to fill the deck and make it look like there's a crew here.  Keep in mind, I'm not entirely sure how I'm going to do this.  I'm kind of experimenting as I go.  I'm just kind of spacing the meta-humans out around the ship, putting them in interesting places.  I have both the ship and all of the meta-humans added to the sequencer, and in the sequencer, they're all the meta-humans are attached to the ship.  That's how they're able to move relative to the ship like that.  I have a few guys with some basic animations from a pirate motion capture pac...
+**Transcript:** I figured, what if we actually got down on the ships and saw some meta-humans?  I started throwing some meta-humans in there, and I started dressing them up with this asset pack from Polyphoria that I have called Medieval Armor.  It's great, they're really high quality, they're kind of pricey, but they look great.  I just dragged the clothing into the skeletal mesh slot on the meta-humans replacing their clothing, and it works really well.  Honestly, I'm kind of just making this up as I go.  Let's get some crew in there.  I end up with about 10 individual meta-humans, most of them are duplicates of each other.  I figured, okay, that's enough to fill the deck and make it look like there's a crew here.  Keep in mind, I'm not entirely sure how I'm going to do this.  I'm kind of experimenting as I go.  I'm just kind of spacing the meta-humans out around the ship, putting them in interesting places.  I have both the ship and all of the meta-humans added to the sequencer, and in the sequencer, they're all the meta-humans are attached to the ship.  That's how they're able to move relative to the ship like that.  I have a few guys with some basic animations from a pirate motion capture pack.  It's just kind of space people out around the deck doing stuff like that.  After a while, I have just some really basic shots blocked out.  The shots aren't final, but I have a pretty good idea of the action that I want to happen in the different scenes that I want to play out.  Now it's time to move into the motion capture phase.
 
 **Frame:** tutorials\frames\how-i-made-this-aaa-battle-scene-in-unreal-engine-5\frame_004.jpg
 
@@ -53,7 +53,7 @@ frame_count: 14
 **Frame:** tutorials\frames\how-i-made-this-aaa-battle-scene-in-unreal-engine-5\frame_005.jpg
 
 ### Adding Motion Capture to the Scene and Blocking Out Shots [6:08]
-**Transcript:** Back in Unreal Engine, I get my performance captures onto the meta-humans and into the sequencer.  Start just scrubbing around and flying a camera around.  I'm still not 100% sure what the shots are going to be.  I'm just looking at different angles and seeing what looks cool.  Playing things back, and I slowly start to get a good idea of the shots that I want.  What's so awesome about Unreal Engine is, in this case, I think there should be some ocean spray spraying up behind them.  I just go to the marketplace and grab some spray splashing particle effects.  Within a minute or two, I've got these particles added to my scene.  I'm just duplicating them along the side of the ship here.  It ends up working really, really well.  Then, similarly, in lining up this shot, I'm looking up at the sky, and I'm like,  there should definitely be some birds in the background there.  I take this old asset that I have that has some bird splines in it, and I just add a spline,  and get some birds working, and there you go.  Then, the guy actually climbing the rigging, this is the only place where I had to do any real animation cleanup.  Here I am just working on an additive layer on his control ri...
+**Transcript:** Back in Unreal Engine, I get my performance captures onto the meta-humans and into the sequencer.  Start just scrubbing around and flying a camera around.  I'm still not 100% sure what the shots are going to be.  I'm just looking at different angles and seeing what looks cool.  Playing things back, and I slowly start to get a good idea of the shots that I want.  What's so awesome about Unreal Engine is, in this case, I think there should be some ocean spray spraying up behind them.  I just go to the marketplace and grab some spray splashing particle effects.  Within a minute or two, I've got these particles added to my scene.  I'm just duplicating them along the side of the ship here.  It ends up working really, really well.  Then, similarly, in lining up this shot, I'm looking up at the sky, and I'm like,  there should definitely be some birds in the background there.  I take this old asset that I have that has some bird splines in it, and I just add a spline,  and get some birds working, and there you go.  Then, the guy actually climbing the rigging, this is the only place where I had to do any real animation cleanup.  Here I am just working on an additive layer on his control rig, and just going in keyframing and adjusting as needed.  Okay, and now to the battle scene.
 
 **Frame:** tutorials\frames\how-i-made-this-aaa-battle-scene-in-unreal-engine-5\frame_006.jpg
 
@@ -98,47 +98,27 @@ frame_count: 14
 ## Structured Notes
 
 ### Core Technique
-Historic naval battle scene built by combining duplicated Spanish galleon assets on Waterline Pro ocean, MetaHuman crew with Move.AI mocap (including a climbing-rigging animation), particle effects for cannon fire and ocean spray, and ElevenLabs narration — all assembled by exploring camera angles in real time in Unreal Engine.
+[PENDING EXTRACTION]
 
 ### Summary
-Charlie Driscoll chronicles the creative process behind a 1588 Spanish Armada battle scene in Unreal Engine 5. Inspired by the Epic History YouTube channel, he builds the scene iteratively: placing and keyframe-animating galleon ships on a Waterline Pro ocean, adding ~10 MetaHuman crew with Polyphoria medieval armor, using pirate mocap packs plus one custom Move.AI climbing-rigging animation, then layering cannon muzzle flash particles (staggered in Sequencer for broadside effect), ocean spray splashes, bird spline assets, and a shipwreck scene with swimming/drowning animations. Shots are discovered organically by flying the camera around the live scene. ElevenLabs produces the voiced narration.
+[PENDING EXTRACTION]
 
 ### Key Steps
-1. Import Spanish galleon from Marketplace; duplicate multiple times; add Waterline Pro ocean asset.
-2. Keyframe ship positions (sway and bob) in Sequencer; fly camera around to find shots.
-3. Add ~10 MetaHumans; apply Polyphoria Medieval Armor pack by dragging into skeletal mesh slots; space around ship deck.
-4. Add MetaHumans to Sequencer; attach all MetaHumans to ship actor so they move relative to ship.
-5. Assign pirate mocap animations to most crew; capture one custom Move.AI climbing animation using a ladder prop in mocap volume; clean up via additive layer on Control Rig.
-6. Duplicate and place artillery muzzle flash particle effects on all cannon positions; stagger activation in Sequencer for broadside effect.
-7. Add smaller English galleon models; duplicate artillery particles onto English ships; add cannonball splash particles.
-8. Set up shipwreck shot: place shipwreck asset (matches galleon style), use Waterline Pro waterline cutting through camera; add swimming/drowning animations to MetaHumans below surface.
-9. Add point light to fire on shipwreck deck; set up creeping/crawling animation MetaHuman.
-10. Record narration; morph with ElevenLabs; add to Sequencer audio track.
+[PENDING EXTRACTION]
 
 ### UE Systems / Blueprints / Settings
-- Waterline Pro (ocean asset with waterline camera effect)
-- Level Sequencer: ship keyframe animation (transform), particle activation tracks, MetaHuman attached to ship Actor
-- Move.AI multi-cam body mocap (6 GoPros)
-- MetaHuman Animator (face capture, Rokoko head rig)
-- Pirate mocap pack, scared animation pack, Dramatic Deaths animation pack (swimming/falls)
-- Control Rig additive layer (rigging cleanup for climbing animation)
-- Niagara particles: artillery muzzle flash, ocean spray splashes, cannonball splashes
-- Bird spline asset (background atmosphere)
-- Polyphoria Medieval Armor Pack (MetaHuman clothing)
-- ElevenLabs (narration voice morphing)
+[PENDING EXTRACTION]
 
 ### Difficulty
-Intermediate
+[PENDING EXTRACTION]
 
 ### UE Version
-5.x
+[PENDING EXTRACTION]
 
 ### Tags
-mocap, metahuman, move-ai, naval-battle, battle-scene, ocean, vfx-particles, sequencer, elevenlabs, ue5
+[PENDING EXTRACTION]
 
 ---
 
 ## Related Entries
-- `how-i-use-moveai-and-metahumans-to-achieve-aaa-character-animation-in-unreal-eng.md` — Move.AI pipeline overview with two simultaneous actors
-- `cinematic-motion-capture-with-move-one-and-metahuman-animator---unreal-engine-54.md` — full beginner tutorial for the underlying mocap pipeline
-- `how-i-made-this-aaa-cinematic-in-unreal-engine-5---moveai-and-metahuman-animator.md` — similar production breakdown with interior mafia-themed cinematic
+[PENDING EXTRACTION]
