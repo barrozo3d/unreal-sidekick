@@ -135,4 +135,9 @@ python ingest.py "https://dev.epicgames.com/community/..." --youtube-url "https:
 
 # YouTube — skip video download (text-only extraction)
 python ingest.py "https://www.youtube.com/watch?v=..." --skip-video
+
+# Re-collect a tutorial/doc-hub that was already fully extracted (overwrites Structured Notes)
+python ingest.py "<url>" --force
 ```
+
+`ingest.py` refuses to overwrite a tutorial or doc-hub `.md` whose frontmatter already has `extraction_status: complete`, to protect hand-written Structured Notes from being wiped by an accidental re-ingest. Pass `--force` only when you intend to discard the existing extraction and will re-run the extraction pass afterward.
