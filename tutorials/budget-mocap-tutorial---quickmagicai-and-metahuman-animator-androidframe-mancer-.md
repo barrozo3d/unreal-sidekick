@@ -3,10 +3,10 @@ title: Budget Mocap Tutorial - Quickmagic.AI and Metahuman Animator (Android/Fra
 source: YouTube
 url: https://www.youtube.com/watch?v=i2W2rDsZXk4
 author: Charlie Driscoll - Unreal Engine Filmmaking
-ingested: 2026-06-17
-ue_version: "5.x"
-tags: [mocap, metahuman, metahuman-animator, quickmagic-ai, frame-mancer, budget-mocap, elevenlabs, android, performance-capture, ue5]
-extraction_status: complete
+ingested: 2026-06-23
+ue_version: "[PENDING]"
+tags: []
+extraction_status: pending
 frames_dir: tutorials/frames/budget-mocap-tutorial---quickmagicai-and-metahuman-animator-androidframe-mancer-/
 frame_count: 13
 ---
@@ -33,7 +33,7 @@ frame_count: 13
 **Frame:** tutorials\frames\budget-mocap-tutorial---quickmagicai-and-metahuman-animator-androidframe-mancer-\frame_001.jpg
 
 ### Using QuickMagic for Body Mocap [1:19]
-**Transcript:** Before we get started, I want to mention that this video is not sponsored in any way by any of the companies mentioned.  So that said, let's jump right into using QuickMagic.  So this actually ended up taking me a few takes to get a capture I was happy with.  This is just the reality of using these entry-level tools at this current stage.  So really try to give yourself the best conditions for the best capture possible.  I actually found that having the camera handheld rather than static on a tripod seemed to give me  the most stable animation with the least amount of jitters in the hips.  No idea why, but I ended up getting one I liked on the first take of doing it handheld.  And I mean, look how good the hand animations are right out of the box.  And this is one of the cheapest solutions I've found yet.  This cost about $2 worth of credits and took about 10 minutes to process with their paid tier,  which is $10 per month.  As I mentioned, this video is not sponsored by them, but I do have an affiliate link for QuickMagic.  So if you want to try it out and support the channel at the same time,  consider using my co-blow or click here to sign up.  Now, there are a few things in thi...
+**Transcript:** Before we get started, I want to mention that this video is not sponsored in any way by any of the companies mentioned.  So that said, let's jump right into using QuickMagic.  So this actually ended up taking me a few takes to get a capture I was happy with.  This is just the reality of using these entry-level tools at this current stage.  So really try to give yourself the best conditions for the best capture possible.  I actually found that having the camera handheld rather than static on a tripod seemed to give me  the most stable animation with the least amount of jitters in the hips.  No idea why, but I ended up getting one I liked on the first take of doing it handheld.  And I mean, look how good the hand animations are right out of the box.  And this is one of the cheapest solutions I've found yet.  This cost about $2 worth of credits and took about 10 minutes to process with their paid tier,  which is $10 per month.  As I mentioned, this video is not sponsored by them, but I do have an affiliate link for QuickMagic.  So if you want to try it out and support the channel at the same time,  consider using my co-blow or click here to sign up.  Now, there are a few things in this animation that need to be corrected,  like a few wobbles of the legs or my phone, including my face and messing with the head orientation,  but that's easy enough to fix and on real engine.  So at the same time I was recording the body animation, I was recording the face animation using
 
 **Frame:** tutorials\frames\budget-mocap-tutorial---quickmagicai-and-metahuman-animator-androidframe-mancer-\frame_002.jpg
 
@@ -43,7 +43,7 @@ frame_count: 13
 **Frame:** tutorials\frames\budget-mocap-tutorial---quickmagicai-and-metahuman-animator-androidframe-mancer-\frame_003.jpg
 
 ### Using Frame Depth Frame Mancer Plugin with Metahuman Animator [3:34]
-**Transcript:** I need to bring the face capture footage into Unreal to process with MetaHumanAnimator.  Now, I was going to include a whole step-by-step tutorial and process on installing and using the  frame-mancer plugin, but here's a much more in-depth tutorial on it from the developer himself.  Keep in mind the plugin costs $20, but that's a lot cheaper than an iPhone. Basically, you import your  footage into Unreal and using frame-mancer extract the frames from the video. Frame-mancer will then  use AI to create a depth map for each frame. The frames and depth maps are then combined to create a  capture source, which is then used in the normal MetaHumanAnimator workflow to create the face animation.  And it really is that easy. The plugin adds just a few clicks to an already very simple process for  getting incredible face animation. Now, I would say I'm not getting quite as accurate of a capture as  when I use my iPhone 13, but this is still very good, probably 90% of the way there, and the developer  just added a brand new camera calibration function that I didn't do, but would probably increase the  accuracy beyond what you are seeing here. I ended up doing a few small tweaks to the anima...
+**Transcript:** I need to bring the face capture footage into Unreal to process with MetaHumanAnimator.  Now, I was going to include a whole step-by-step tutorial and process on installing and using the  frame-mancer plugin, but here's a much more in-depth tutorial on it from the developer himself.  Keep in mind the plugin costs $20, but that's a lot cheaper than an iPhone. Basically, you import your  footage into Unreal and using frame-mancer extract the frames from the video. Frame-mancer will then  use AI to create a depth map for each frame. The frames and depth maps are then combined to create a  capture source, which is then used in the normal MetaHumanAnimator workflow to create the face animation.  And it really is that easy. The plugin adds just a few clicks to an already very simple process for  getting incredible face animation. Now, I would say I'm not getting quite as accurate of a capture as  when I use my iPhone 13, but this is still very good, probably 90% of the way there, and the developer  just added a brand new camera calibration function that I didn't do, but would probably increase the  accuracy beyond what you are seeing here. I ended up doing a few small tweaks to the animation to  make it pop just a little bit more, which I'll show later in the video. Also, one important thing to  keep in mind if you are using this plugin. Do the face capture and MetaHumanAnimator process  as the very first step in your project. Before you even add a MetaHuman to your project,  I'm not sure why, but I kept crashing while processing the animation unless I was doing it in  an empty project. Next, I'll download and add a MetaHuman to my project and then import my animation
 
 **Frame:** tutorials\frames\budget-mocap-tutorial---quickmagicai-and-metahuman-animator-androidframe-mancer-\frame_004.jpg
 
@@ -58,7 +58,7 @@ frame_count: 13
 **Frame:** tutorials\frames\budget-mocap-tutorial---quickmagicai-and-metahuman-animator-androidframe-mancer-\frame_006.jpg
 
 ### Camera Settings and Setting up the Scene [6:19]
-**Transcript:** a more cinematic level for lack of a better term, I decided to use some high quality assets from  Fab. I used this amazing medieval village from the scans factory and I just kind of scouted it  around until I found an area I thought would look good. And I had this asset in mind when I thought  of the video, especially because it had this darker lighting scenario that had great atmosphere  with the volumetric fog and small fires throughout the scene. And for the character's clothing,  I went with the medieval clothing pack from Polyphoria, which I think is some of the best medieval  and fantasy style clothing for metahumans on the market. Now, once the character is in place and  added to the sequencer with animations, I like to get a camera up and the shot framed as soon as  possible. So, to keep the camera focused on the character, I attached a small sphere to her  headbone in the sequencer. I make it invisible and then I add a camera. And for the most cinematic  camera settings, I like to set the film back to 35mm VistaVision and then set the crop to 16x9.  Then set the focus settings to tracking and select the sphere under the actor to track. Now, I can  keyframe the camera movem...
+**Transcript:** a more cinematic level for lack of a better term, I decided to use some high quality assets from  Fab. I used this amazing medieval village from the scans factory and I just kind of scouted it  around until I found an area I thought would look good. And I had this asset in mind when I thought  of the video, especially because it had this darker lighting scenario that had great atmosphere  with the volumetric fog and small fires throughout the scene. And for the character's clothing,  I went with the medieval clothing pack from Polyphoria, which I think is some of the best medieval  and fantasy style clothing for metahumans on the market. Now, once the character is in place and  added to the sequencer with animations, I like to get a camera up and the shot framed as soon as  possible. So, to keep the camera focused on the character, I attached a small sphere to her  headbone in the sequencer. I make it invisible and then I add a camera. And for the most cinematic  camera settings, I like to set the film back to 35mm VistaVision and then set the crop to 16x9.  Then set the focus settings to tracking and select the sphere under the actor to track. Now, I can  keyframe the camera movement however I want and the character will be in focus the entire time.  I also added some handheld camera shake, which you can do by creating a camera shake-based  blueprint component. In here, you can change these parameters to change how the camera moves and  how intensely. So, set the duration to minus one to make it generate a continuous shake without  stopping. You can then add it to your camera in the sequencer and drag it out for the length of  your timeline. Now, I ended up changing these settings as I went, so here are the ones I used to  get my camera to move how it does in the final animation. And before I go any further, remember to  set your sequence to 24 frames per second. That's what that's the frame rate that films you. So,  if you want your animation to look more like a movie, set it to 24. It's probably at 30 frames per  second as the default. Now, for the lighting, I wanted it dark basically nighttime and one of the
 
 **Frame:** tutorials\frames\budget-mocap-tutorial---quickmagicai-and-metahuman-animator-androidframe-mancer-\frame_007.jpg
 
@@ -93,46 +93,27 @@ frame_count: 13
 ## Structured Notes
 
 ### Core Technique
-Budget full-body and face performance capture using QuickMagic AI (single Android camera) combined with MetaHuman Animator via the $20 Frame Mancer plugin to generate depth maps from non-iPhone footage, then assembled into a cinematic short in Unreal Engine.
+[PENDING EXTRACTION]
 
 ### Summary
-Charlie Driscoll demonstrates the cheapest viable full-performance-capture pipeline for Unreal Engine filmmaking. He uses QuickMagic AI (~$2 in credits) for body mocap from a single Android camera, and the Frame Mancer plugin ($20) to enable MetaHuman Animator face capture with an Android phone instead of an iPhone. The tutorial covers retargeting animations to MetaHumans, camera setup with a 35mm VistaVision film back, lighting with complementary orange and blue sources, rain effects via two Fab assets, camera lens dirt masks, and additive animation tweaking on the face control board. ElevenLabs is used for AI voice morphing.
+[PENDING EXTRACTION]
 
 ### Key Steps
-1. Film body performance with QuickMagic AI on an Android/any-camera device; upload footage to QuickMagic browser platform and process with full body + hands + moving camera settings.
-2. Film face capture footage on Android phone mounted in head rig; import into Unreal and use Frame Mancer plugin to extract frames and generate AI depth maps, creating a capture source for MetaHuman Animator.
-3. Import QuickMagic FBX animation into UE (skeleton set to None); retarget using Animation Retargeter to MetaHuman skeleton.
-4. Set up MetaHuman in scene, add to Level Sequence, apply body and face animations, sync both tracks.
-5. Set camera film back to 35mm VistaVision, crop to 16x9; attach invisible sphere to head bone for focus tracking; keyframe camera movement.
-6. Bake face animation to face control board; add additive track for non-destructive tweaks (eye opens, head orientation, eye line correction).
-7. Add lighting: directional light as moonlight (blue edge light), spotlights to accentuate fire, complementary orange/blue color scheme; delete skylight for darker shadows.
-8. Add rain via Easy Rain (drops) and Animated Rain Material (wet skin effect); apply camera dirt/lens water masks to each camera's dirt mask slot.
-9. Upload dialogue to ElevenLabs for AI voice morphing.
+[PENDING EXTRACTION]
 
 ### UE Systems / Blueprints / Settings
-- MetaHuman Animator (face capture processing)
-- Animation Retargeter (QuickMagic FBX → MetaHuman skeleton)
-- Level Sequencer (animation and camera timeline)
-- Face Control Board + Additive Tracks (non-destructive face animation editing)
-- Cine Camera Actor: film back 35mm VistaVision, 16x9 crop, focus tracking to invisible sphere
-- Camera Dirt Mask slot (lens dirt/water effect)
-- Exponential Height Fog (nighttime atmosphere)
-- Spotlight and Directional Light (fire and moonlight simulation)
-- Niagara / particle effects (Easy Rain, Animated Rain Material from Fab)
-- Frame Mancer plugin ($20, UE Marketplace) — depth map generation for Android cameras
+[PENDING EXTRACTION]
 
 ### Difficulty
-Intermediate
+[PENDING EXTRACTION]
 
 ### UE Version
-5.x
+[PENDING EXTRACTION]
 
 ### Tags
-mocap, metahuman, metahuman-animator, quickmagic-ai, frame-mancer, budget-mocap, elevenlabs, android, performance-capture, ue5
+[PENDING EXTRACTION]
 
 ---
 
 ## Related Entries
-- `cheap-ai-mocap-that-actually-works---quickmagicai-chaos-destruction-and-metahuma.md` — companion video expanding QuickMagic AI use with a tracking shot and Chaos Destruction
-- `cinematic-motion-capture-with-move-one-and-metahuman-animator---unreal-engine-54.md` — full beginner tutorial covering a similar pipeline with Move One instead of QuickMagic
-- `how-i-made-this-aaa-cinematic-in-unreal-engine-5---moveai-and-metahuman-animator.md` — same core pipeline using higher-end Move.AI Pro
+[PENDING EXTRACTION]
