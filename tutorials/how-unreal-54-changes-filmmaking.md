@@ -3,10 +3,10 @@ title: How Unreal 5.4 Changes Filmmaking
 source: YouTube
 url: https://www.youtube.com/watch?v=NiOgmvMBcxk
 author: Josh Toonen
-ingested: 2026-06-18
-ue_version: "5.4"
-tags: [nanite, rendering, materials, animation, sequencer, movie-render-graph, ue5-4, intermediate]
-extraction_status: complete
+ingested: 2026-06-23
+ue_version: "[PENDING]"
+tags: []
+extraction_status: pending
 frames_dir: tutorials/frames/how-unreal-54-changes-filmmaking/
 frame_count: 8
 ---
@@ -28,7 +28,7 @@ frame_count: 8
 **Frame:** tutorials\frames\how-unreal-54-changes-filmmaking\frame_000.jpg
 
 ### C4D in Unreal 5 - The Motion Design plug-in [0:50]
-**Transcript:** Now you can add text, in titles, and create motion graphics for TVs,  documentaries, and logos.  And there's easy animation tools and presets to add to anything in your scene.  Working with text and vectors used to be a pain in Unreal 5.  And a lot of people would flip flop between Cinema 4D and Unreal.  But now it's super easy using the motion design plugin.  Just enable the motion design plugin and you'll have access to this new motion design tab.  Now you can create 2D or 3D text by selecting your fonts directly in Unreal.  And you can add vector logos by importing .sbg files.  It's never been easier to create movie titles,  logo reveals, or any type of motion graphics work easily and haul in real time.  You can even create custom graphics using their shape tools and rulers  to create title slides just like this.  But to create 3D graphics, all you need to know are the Cloner and Effector tools.  Cloners are an easy way to take a collection of objects  and clone them into new groups or shapes.  Cloners create these 3D shapes, but effectors allow you to animate and modify these.  So now you can create real time procedural animation  by dragging these effectors around or animating...
+**Transcript:** Now you can add text, in titles, and create motion graphics for TVs,  documentaries, and logos.  And there's easy animation tools and presets to add to anything in your scene.  Working with text and vectors used to be a pain in Unreal 5.  And a lot of people would flip flop between Cinema 4D and Unreal.  But now it's super easy using the motion design plugin.  Just enable the motion design plugin and you'll have access to this new motion design tab.  Now you can create 2D or 3D text by selecting your fonts directly in Unreal.  And you can add vector logos by importing .sbg files.  It's never been easier to create movie titles,  logo reveals, or any type of motion graphics work easily and haul in real time.  You can even create custom graphics using their shape tools and rulers  to create title slides just like this.  But to create 3D graphics, all you need to know are the Cloner and Effector tools.  Cloners are an easy way to take a collection of objects  and clone them into new groups or shapes.  Cloners create these 3D shapes, but effectors allow you to animate and modify these.  So now you can create real time procedural animation  by dragging these effectors around or animating them through your scene.  I'm also in love with the new animation tools like the animation presets  and modifiers that help you create transition, bounces, and wiggles without keyframing anything yourself.  Now you can add in title slams, zooms, and other common motion graphic presets  all ready for you in Unreal.  So try out these new animation presets to add motion graphics into your next project.  I absolutely love this new motion design toolkit  and I'm going to make more tutorials covering it in depth.  So make sure to subscribe if you want to see more.  Now with Unreal 5.4, Unreal now has Photoshop.  Or should I say Material Designer?
 
 **Frame:** tutorials\frames\how-unreal-54-changes-filmmaking\frame_001.jpg
 
@@ -38,7 +38,7 @@ frame_count: 8
 **Frame:** tutorials\frames\how-unreal-54-changes-filmmaking\frame_002.jpg
 
 ### Update to Nanite (Add Displacement in your Material!) [3:30]
-**Transcript:** The next update you have to start using is Nanite.  Specifically, Nanite Tessilation.  Nanite allows you to put billions of polygons in your scene at the same time.  But Nanite got a huge improvement with Unreal 5.4 with Nanite Tessilation.  Now you can dynamically change your displacement in real time, in the viewport.  Displacement takes a 2D image and adds 3D detail so your objects look good up close.  Using this method, you can create better looking terrains just like in this demo from Marvel 1943.  Rise of Hydra.  I tried this out in my Dune project file,  and now I can modify and control this displacement in real time and change it per shot.  So to enable this feature, you just need to file these four steps.  First, go to your plugins and enable Nanite Displaced Mesh.  Next, go into your config folder and open up DefaultEngine.i and I.  I'll leave this text in the description, but just copy and paste these two command variables  into your renderer settings and then press Save.  And make sure to close down and reopen your project.  And then the last two steps for your 3D object in your scene,  just make sure to right click on this mesh and enable Nanite in your content browser...
+**Transcript:** The next update you have to start using is Nanite.  Specifically, Nanite Tessilation.  Nanite allows you to put billions of polygons in your scene at the same time.  But Nanite got a huge improvement with Unreal 5.4 with Nanite Tessilation.  Now you can dynamically change your displacement in real time, in the viewport.  Displacement takes a 2D image and adds 3D detail so your objects look good up close.  Using this method, you can create better looking terrains just like in this demo from Marvel 1943.  Rise of Hydra.  I tried this out in my Dune project file,  and now I can modify and control this displacement in real time and change it per shot.  So to enable this feature, you just need to file these four steps.  First, go to your plugins and enable Nanite Displaced Mesh.  Next, go into your config folder and open up DefaultEngine.i and I.  I'll leave this text in the description, but just copy and paste these two command variables  into your renderer settings and then press Save.  And make sure to close down and reopen your project.  And then the last two steps for your 3D object in your scene,  just make sure to right click on this mesh and enable Nanite in your content browser.  And in your material, make sure to plug in a displacement texture and enable Tessilation.  And now you can dynamically add detail and displacement to any object inside of Unreal.
 
 **Frame:** tutorials\frames\how-unreal-54-changes-filmmaking\frame_003.jpg
 
@@ -48,12 +48,12 @@ frame_count: 8
 **Frame:** tutorials\frames\how-unreal-54-changes-filmmaking\frame_004.jpg
 
 ### Movie Render Graph [5:45]
-**Transcript:** artists and filmmakers, rendering just got a huge upgrade with the new movie render graph.  You can turn your complicated render settings into easy customizable menus.  This will give you all the power of a big budget visual effects studio all from your home computer.  So to switch over to the movie render graph, it's really easy. Inside a sequencer, you're going to  do the same thing and press on this little movie clapperboard to launch your render. But instead of  clicking here to change our movie render cue settings, let's click on this little arrow and replace  this with a graph instead. Now when we click on our settings, we have a new menu which is the default  render graph. Now all of our render settings are in this top graph here in our warm-up settings,  global game overrides and global output. All the defaults you're used to are exactly the same  and to change your file path and resolution, we just go to our global output settings and change  the directory or final resolution. Now if you want to add an extra layer into our outputs tab,  all we have to do is go on the left hand side and press on the plus icon to add another output.  Now we can rename this to data passes and...
+**Transcript:** artists and filmmakers, rendering just got a huge upgrade with the new movie render graph.  You can turn your complicated render settings into easy customizable menus.  This will give you all the power of a big budget visual effects studio all from your home computer.  So to switch over to the movie render graph, it's really easy. Inside a sequencer, you're going to  do the same thing and press on this little movie clapperboard to launch your render. But instead of  clicking here to change our movie render cue settings, let's click on this little arrow and replace  this with a graph instead. Now when we click on our settings, we have a new menu which is the default  render graph. Now all of our render settings are in this top graph here in our warm-up settings,  global game overrides and global output. All the defaults you're used to are exactly the same  and to change your file path and resolution, we just go to our global output settings and change  the directory or final resolution. Now if you want to add an extra layer into our outputs tab,  all we have to do is go on the left hand side and press on the plus icon to add another output.  Now we can rename this to data passes and now let's create another layer. So now I'll just drag  off a branch from our default layer. Let's create a new deferred render which is just our viewport  and Unreal. And then let's pull off an EXR sequence, create a new render layer, we'll call this  data passes and just plug this in. And then to enable our data passes, just click on your deferred  render tab, then we'll expand all of our details. Let's add an additional post process material and  let's include our world depth and our world position. Then just press save and we're going to render  out the same exact way. We'll go back to move your render queue and press on render local. Now if  you want to make those customizable menus, all you need to know is you need to create some user  variables. And here's how you do it. On the left hand side, all you do is press on the plus icon
 
 **Frame:** tutorials\frames\how-unreal-54-changes-filmmaking\frame_005.jpg
 
 ### Make Custom Menus in MRG [7:35]
-**Transcript:** next to variables and now we have all the data types that we're used to. But the really fast way  to modify any setting and turn it into a variable can be done by right clicking. So if I wanted to make  my output directory customizable, all I'd have to do is right click on our global output settings,  expose the output directory as a new pin and then just right click on here and promote this  to a variable. Just like that. Now the biggest reason everyone's upgrading to the movie render  is all the tools around isolating different objects in your scene. But personally, I like to use  crypto mats or object IDs which work in Newq or After Effects as a way to isolate any object inside  of your scene. This way you're not restricting yourself and baking it down. You can change up  these mats and grab an ID for any object in your entire scene. But there are some huge caveats  with the movie render graph that you have to know. The first is that landscapes are not fully  supported. Spongebobal actors aren't supported as well. So any object that has that little lightning  bolt icon next to it won't render out using the movie render graph. You should also know most people  aren't talking abou...
+**Transcript:** next to variables and now we have all the data types that we're used to. But the really fast way  to modify any setting and turn it into a variable can be done by right clicking. So if I wanted to make  my output directory customizable, all I'd have to do is right click on our global output settings,  expose the output directory as a new pin and then just right click on here and promote this  to a variable. Just like that. Now the biggest reason everyone's upgrading to the movie render  is all the tools around isolating different objects in your scene. But personally, I like to use  crypto mats or object IDs which work in Newq or After Effects as a way to isolate any object inside  of your scene. This way you're not restricting yourself and baking it down. You can change up  these mats and grab an ID for any object in your entire scene. But there are some huge caveats  with the movie render graph that you have to know. The first is that landscapes are not fully  supported. Spongebobal actors aren't supported as well. So any object that has that little lightning  bolt icon next to it won't render out using the movie render graph. You should also know most people  aren't talking about Unreal 5.3 is free forever. But Unreal 5.4 you'll have to start paying for licenses  if your company makes over a million bucks in revenue. So overall my first impressions for  Unreal 5.4 are mixed. There's a lot of potential, a lot of new features. But if you don't plan on
 
 **Frame:** tutorials\frames\how-unreal-54-changes-filmmaking\frame_006.jpg
 
@@ -68,35 +68,27 @@ frame_count: 8
 ## Structured Notes
 
 ### Core Technique
-Overview of four UE 5.4 features that transform filmmaking: Motion Design plugin (2D/3D animation with cloners and effectors), Nanite Tessellation/Displacement, one-click animation retargeting, and the new Movie Render Graph system.
+[PENDING EXTRACTION]
 
 ### Summary
-Josh Toonen highlights the four most impactful UE 5.4 additions for filmmakers. The Motion Design plugin brings Adobe After Effects-style cloners and effectors to 3D, enabling procedural motion graphics directly in UE5. Nanite Tessellation adds real-time geometric displacement to any mesh via a simple material setting. One-click retargeting transfers any animation to any character instantly. The Movie Render Graph replaces the old linear MRQ settings with a node-based graph for flexible multi-output pipelines. Together these features significantly reduce production complexity.
+[PENDING EXTRACTION]
 
 ### Key Steps
-1. **Motion Design plugin**: Edit → Plugins → search "Motion Design" → Enable; restart; a Motion Design tab appears. Use the 2D and 3D text tools, import SVG logos, use the Cloner tool to instance 3D shapes, and apply Effectors for procedural animation. Material Designer lets you layer materials like Photoshop layers.
-2. **Nanite Tessellation**: Enable the Nanite Displaced Mesh plugin (Edit → Plugins); edit DefaultEngine.ini to add renderer settings (r.Nanite.Tessellation=1 under [/Script/Engine.RendererSettings]); right-click mesh → Enable Nanite; in the mesh's material, enable Tessellation in the Details panel; connect a displacement map to the Displacement input.
-3. **One-click retargeting (5.4)**: Right-click any animation asset in Content Browser → Retarget to Skeleton → select target character skeleton; UE 5.4 auto-maps bone chains and transfers immediately.
-4. **Movie Render Graph**: In MRQ, click the arrow next to the render settings → Replace with Graph; in the graph editor, left panel has Outputs+ (add EXR, PNG, etc.) and Variables for reusable parameters; connect nodes to build custom multi-output pipelines.
+[PENDING EXTRACTION]
 
 ### UE Systems / Blueprints / Settings
-- **Motion Design plugin**: Enable in Plugins; Motion Design tab; Cloner tool (instances meshes in patterns); Effector tool (drives position/rotation/scale procedurally); Material Designer (layer-based material authoring)
-- **Nanite Tessellation**: Plugin: "Nanite Displaced Mesh"; DefaultEngine.ini → [/Script/Engine.RendererSettings] → r.Nanite.Tessellation=1; mesh → Enable Nanite; material → Tessellation enabled; Displacement input connected
-- **One-click retarget (5.4)**: Right-click animation → Retarget Animation Assets → Duplicate and Retarget → select target skeleton; bone chains auto-mapped
-- **Movie Render Graph**: MRQ settings → Replace with Graph; Outputs+ node for multiple format outputs; Variables for reusable parameters; graph-based pipeline configuration
+[PENDING EXTRACTION]
 
 ### Difficulty
-Intermediate
+[PENDING EXTRACTION]
 
 ### UE Version
-UE 5.4
+[PENDING EXTRACTION]
 
 ### Tags
-nanite, rendering, materials, animation, sequencer, movie-render-graph, ue5-4, intermediate
+[PENDING EXTRACTION]
 
 ---
 
 ## Related Entries
-- [[unreal-engine-masterclass-animate-environments-the-easy-way]] — MRQ TSR settings and camera shake fix
-- [[how-i-remade-dune-in-24-hours-using-vfx]] — Nanite in production for environment detailing
-- [[motion-capture-isnt-just-for-hollywood-any-more]] — retargeting workflow context for the 5.4 one-click feature
+[PENDING EXTRACTION]
