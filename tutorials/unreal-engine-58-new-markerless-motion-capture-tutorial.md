@@ -3,12 +3,12 @@ title: Unreal Engine 5.8 NEW Markerless Motion Capture Tutorial
 source: YouTube
 url: https://www.youtube.com/watch?v=kxsncXh8hhM
 author: World Of VFX
-ingested: 2026-06-22
-ue_version: "5.8"
-tags: [metahuman, mocap, plugins, quickstart]
-extraction_status: complete
+ingested: 2026-06-23
+ue_version: "[PENDING]"
+tags: []
+extraction_status: pending
 frames_dir: tutorials/frames/unreal-engine-58-new-markerless-motion-capture-tutorial/
-frame_count: 0
+frame_count: 4
 ---
 
 # Unreal Engine 5.8 NEW Markerless Motion Capture Tutorial
@@ -23,8 +23,9 @@ frame_count: 0
 
 
 ### Full Content [0:00]
-**Transcript:** Well now you can do your motion capture instead of one religion without any markers and without your motion capture suit. Well in this video we will talk about this amazing plugin. Let's jump into this video. Well, first we need to jump into fab and just go to search and type markerless press enter and you you can find this meta human animator marker less new plugin. Just need to simply click this install plugin and you can see this window. Now I already have installed this, but if you are doing this first time, you can see your unrelangent one, but it's only available for version 5.8. Now let's jump into unrelangent. Well inside of one religion, firstly you need to go to edit, go to plugins and you need to type meta human and you need to turn on all this plugins should turn on after that simply type live link and you need to turn on this live link and control link for live link this to on and restart your unrelangent. That's it. Now you need to import one meta human character. I already imported this meta human character. Now let's start the video. So first of all, go to tools and type live link and you can find live link hub simply click and it will open a newly launched window. ...
+**Transcript:** Well now you can do your motion capture instead of one religion without any markers and without your motion capture suit. Well in this video we will talk about this amazing plugin. Let's jump into this video. Well, first we need to jump into fab and just go to search and type markerless press enter and you you can find this meta human animator marker less new plugin. Just need to simply click this install plugin and you can see this window. Now I already have installed this, but if you are doing this first time, you can see your unrelangent one, but it's only available for version 5.8. Now let's jump into unrelangent. Well inside of one religion, firstly you need to go to edit, go to plugins and you need to type meta human and you need to turn on all this plugins should turn on after that simply type live link and you need to turn on this live link and control link for live link this to on and restart your unrelangent. That's it. Now you need to import one meta human character. I already imported this meta human character. Now let's start the video. So first of all, go to tools and type live link and you can find live link hub simply click and it will open a newly launched window. This is called live link hub. So after open this, you need to go to live data, click this capture manager select and and this one of video ingest. Click here and browse your footage folder. So now I just have this footage instead of this new folder. Simply select this folder. Now click on this footage, press add to queue, select the footage and press start. Now if you have an audio file, it will automatically calculate your audio files. Now once it will done, simply minimize this. Now you can find this option called capture manager, then import just go inside of this folder. And now right click go to meta human and click this meta human performance and let's rename to meta. Now double click here. It will open a new window. Now select your footage calibration data like this. So now this is the footage you can see just like this. And after that going down, click this body tracking option. Now this is the main part of this video. Now going up, you to select the character which you want to rig with this character. So simply go to this bvgavin and it's loaded. Now this character will rig from this motion. These are the other all the details. No need to worry about. Make sure the facial tracking should turn down and this body tracking as well. And after that, simply press process. Now this is a long shot. So it will take some time to process. Still you can go and have a cup of coffee and it's done. It's took around 20 minutes to take this. And now once you play, you can simply see both the characters are animated. And just look at this. The hand gestures, the face gestures are actually too good. This is already taking the entire motion. Now let me show you how you can use this motion or how you can export this motion to your region. And then you can export this. Well, first of all, for export this, click this export animation. And you can find your folder. So let's export it here and press save. Export range should be whole sequence of processing range. So I just select this processing range. And for the skeleton, I am just using the existing skeleton. So now you need to select the body which body you want to export or which body you want this character animation to be exported. Automatically this SMKY body was selected and now simply press create. And press add. And it's done. Now you can close or you can minimize this. Now go to contained and you can find this option. Double click. You can see the exact character. Now if you notice there's a female body, don't worry. Simply select here and you can change it to male body. And now you can change all the characters which are rigged properly or not. So this is the leg. This is the pant and this is the body. Well, absolutely everything is working perfectly. Now let's minimize this. Close this window. Now go here. Add a new level sequence. And just name it as usual. Normal and press save. Now you need to create a new camera. Select the camera. And now you need to import the character. So simply go to contain browser. Go to meta human. Select this character. Drag and drop into this. So now you have the character in front of you. So now on the next thing. Select the character. Click on this body. Select this plus button. Go to animation. And you can simply select this as meta which you have exported. And now boom. You have that character animation in front of you. Change the frame range to 250 and boom. You are done. Your character is animated successfully. Well that's it for today. I hope you really enjoyed this video. If you learned something new from this today's video, then definitely subscribe. Comment section is open. If you have any doubts, please do comment. See you next time with some more amazing new content. Till then, keep watching. Keep rocking. Wall of VFX.
 
+**Frame:** tutorials\frames\unreal-engine-58-new-markerless-motion-capture-tutorial\frame_000.jpg
 
 
 ---
@@ -32,35 +33,27 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-Installing and enabling the new MetaHuman Animator "Markerless" plugin in Unreal Engine 5.8, then opening Live Link Hub to begin capturing motion without a suit or physical markers.
+[PENDING EXTRACTION]
 
 ### Summary
-World Of VFX walks through getting Unreal's new markerless motion capture plugin running. The plugin is installed via Fab (search "markerless" to find the MetaHuman Animator Markerless plugin), and is only available starting in UE 5.8. Inside the Unreal project, the user must enable several plugins under Edit > Plugins: all MetaHuman-related plugins, plus Live Link and Live Link Control Link, followed by an engine restart. After importing a MetaHuman character, the workflow continues via Tools > Live Link to open the newly available Live Link Hub window, where capture is configured. (Transcript truncated by ingestion at ~1200 characters; the remaining capture-configuration and recording steps in Live Link Hub were not captured here and would need a follow-up review of the full video for complete detail.)
+[PENDING EXTRACTION]
 
 ### Key Steps
-1. [Fab marketplace] Search "markerless" in Fab and install the MetaHuman Animator Markerless plugin (UE 5.8+ only)
-2. [Enable plugins] Edit > Plugins > enable all MetaHuman-related plugins
-3. [Enable Live Link] Edit > Plugins > enable Live Link and Live Link Control Link
-4. [Restart] Restart Unreal Engine for the newly enabled plugins to take effect
-5. [Import character] Import a MetaHuman character into the project
-6. [Open Live Link Hub] Tools > Live Link > opens the Live Link Hub window to begin configuring/recording the markerless capture
+[PENDING EXTRACTION]
 
 ### UE Systems / Blueprints / Settings
-- MetaHuman Animator Markerless plugin (Fab, UE 5.8+) — enables motion capture without physical markers or a mocap suit
-- Live Link + Live Link Control Link plugins — required alongside the MetaHuman plugins for the capture pipeline to function
-- Live Link Hub (Tools > Live Link) — the capture/monitoring window used to drive the markerless mocap session
+[PENDING EXTRACTION]
 
 ### Difficulty
-Beginner
+[PENDING EXTRACTION]
 
 ### UE Version
-5.8
+[PENDING EXTRACTION]
 
 ### Tags
-metahuman, mocap, plugins, quickstart
+[PENDING EXTRACTION]
 
 ---
 
 ## Related Entries
-- [NEW Unreal Engine 5.8 MetaHuman Markerless Mocap Tutorial](new-unreal-engine-58-metahuman-markerless-mocap-tutorial.md) — a longer, more detailed walkthrough of the same markerless MetaHuman mocap pipeline
-- [How Unreal 5.8 Changed Filmmaking](how-unreal-58-changed-filmmaking.md) — mentions the related webcam-to-MetaHuman Animator pipeline as a top UE 5.8 feature
+[PENDING EXTRACTION]
