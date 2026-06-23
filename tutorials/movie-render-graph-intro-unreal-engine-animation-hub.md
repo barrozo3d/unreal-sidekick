@@ -1,12 +1,12 @@
-﻿---
+---
 title: Movie Render Graph Intro | Unreal Engine Animation Hub
 source: YouTube
 url: https://www.youtube.com/watch?v=0c8-8NSarDI
 author: Unreal Engine
-ingested: 2026-06-18
-ue_version: "UE 5.8"
-tags: ["rendering", "movie-render-graph", "sequencer", "cinematics", "intermediate"]
-extraction_status: complete
+ingested: 2026-06-23
+ue_version: "[PENDING]"
+tags: []
+extraction_status: pending
 frames_dir: tutorials/frames/movie-render-graph-intro-unreal-engine-animation-hub/
 frame_count: 4
 ---
@@ -23,7 +23,7 @@ frame_count: 4
 
 
 ### Full Content [0:00]
-**Transcript:** Hi, welcome to the animation hub. My name is Sean and today we're going to have a look at how to use movie render graph to render out. Shots and layers. We got this cool, a go our project here. We're going to grab a shot of this big guy kind of ripping the doors apart and then it's this cat looking at. Jumping out of the way here. So let's go over here and if you right click and go to cinematic. Movie render graph, you can name it whatever you want. Here and let's double click and let's have a look real quick in movie render graph. So a lot of these nodes and things to look pretty familiar. If you're used to the movie render graph kind of legacy config. The stuff is in here in movie render graph. We just kind of exposed a lot of the more common settings that people are going to want to use. Like warm up settings game overrides game output settings, you know where you can change where where you render to which sort of resolution. Just for any interest of time we're not going to go over every single one. You can find a lot of videos and documentation out there on that. So movie render graph itself. You have your render blobels and then you have your actual layers here. So here is one...
+**Transcript:** Kind: captions Language: en Hi, welcome to the animation hub. My name is Sean and today we're going to have a look at how to use movie render graph to render out shots and layers. So, we got this cool agor project here. We're going to grab a shot of this big guy kind of ripping the doors apart and then it's this cat looking thing comes jumping out of the way here. So, let's go over here and if you right click and go to cinematics going to movie render graph. You can name it whatever you want. here. And let's double click. And let's have a look real quick in movie render graph. Here we go. So, a lot of these nodes and things should look pretty familiar if you're used to the movie render graph kind of legacy config. A lot of stuff is in here. In movie render graph, we just kind of exposed a lot of the more common settings that people are going to want to use like warm-up settings, game overrides, game output settings, you know, where you can change where where you render to, what sort of resolution. Just in the interest of time, we're not going to go over every single one. You can find a lot of videos and documentation out there on that. So, movie render graph itself, you have your render globals and then you have your actual layers here. So here is one example layer. The first thing that we're going to do is we're going to just drag this apart here and give ourselves something. We're going to delete this. We don't want to render JPEGs. Let's do EXRS here for now. And now in movie render graph, there's this notion of collections and modifiers. Collections are just groupings of actors in your level, right? So if you pull here, start typing collection, you'll see this collection. And then you add a condition group. And there are multiple ways how you can grab actors in your level. You you can grab it by layer, you can grab it by tag, you can grab it by type, you can grab by suble. Here we're going to do it by actor name where you're just typing. So we're just going to hit a star here. And that's just going to grab every actor in our level. So we can control everything. Now the name is very important because everything in the graph concatenates from left to right from input to output. So if you were to have multiple collections named no name and they were all different. Whatever the last one is, it's just going to concatenate down and it's just going to take the last one and that's what's going to be no name when you go into output. So make sure to give your collections a name. We're just going to see all here. Now let's have a look at what a modifier is. So if you go modifier, disconnect this for now. So what you do is you feed in a collection and then you mess with it per layer. So you'll see is is hidden cash out shadow as well hidden effect indirect hold out. So it's the same as if you were to just grab beta here and just set them to hold out. So hold out will be it will render black in the primary rays but it will still be visible to shadows and it'll be visible to reflections and refractions and GI effect indirect while hidden is if you have it hidden like this do you want that to still be in your lumen scene with reflections and GI and the same thing with hidden shadows. Do you want it to catch that? So for this scene we're going to render our set and our background in one layer. We'll render beta here the big guy in another. We'll render gamma which is the cat thing and another and then maybe these cool 2D effects that they're doing in a fourth layer. So we need to make collections for all of these. So let's copy paste here. Pull this. We're going to name this D beta. And let's get here named beta. And if you ever wonder if you got the right thing in your layers, pick something else. If you select this little arrow thing or hit this little arrow thing, it'll select whatever this is. And now let's get gamma gamma over. And now we're going to want to get all of our effects here. Same as the effects and the effects are called. So we see dust, we see sparks and then the 2D effects is just this project 2D effect. So here do star dust star sparks and then star Great. So, we have all of our collections. Now, we're going to use these collections to hide things, unhide things, make things visible, and make things not visible. The one thing we want to do is go back into this all, and we probably don't want to be turning on and off our lighting layer by layer because we want it all to be lit and shadowed and everything the same way. So what you can do is you can add another condition group and instead of putting this to add, you can subtract. Meaning whatever you put in here is going to subtract from this collection. So we're going to flip this over here to actor type. And then here, let's type light. And we want to grab all of our lights. So, point light, skylight, back light. So, we're going to leave all of our lighting alone basically. So, now we're going to start making our layers. This is what your render frames are going to be called. So, let's just name SBG. Pull this over here. Drag this. And again, you need to name these uniquely. So, let's go. M BG hold fold out here. So, this is going to be everything that we want held out in the BG layer. So, we're going to grab beta and we're going to grab gamma and we're going to set those to hold out. And then now, let's go grab our effects. Since these are additive effects, we're just going to turn these off. So, we're going to set hold out to off and is hidden to on. So, we want to hide them. We want to cast shadows while they're hidden. And we want to affect indirect while they're hidden. So, we want them to be in the luminency. And go ahead and plug that in. And that layer is done. So, now what we want to do is we want to make a beta layer. We want to make a gamma layer and now we also an effect layer. So what you can do is you can just pull off and drag up here and it'll automatically make the outputs for you. Very handy. And then here remember we didn't name this. All right. So biz and now let's just copy and paste some of this stuff for the sake of time. So now this would be beta uh hold out. So we want gamma and everything else held out in the beta layer. And we want the effect turned off but still influencing lighting on him mainly GI since we're turning all off here. Now remember beta is a part of that all group beta beta. Let's do this. Come in here and beta is on. And we're going to turn hold out off. We're going to say is it real? So, just walking through this, we turned everything to hold out. We made sure that beta was not held out and it's turned on. And now we have the effects turned off so that it can still influence lighting but not be part of the actual rendered scene. And we just want to do the same thing now for gamma. So, pull down here, pull this off. We're going to switch this to gamma. Switch gamma over to beta for the hold out. Same thing here. Gamma gamma. There's our gamma layer. And now we just want to do our effect here. Pull this down. So effect pull out. And that's going to be everything. And then now we just want to make sure that our effect are on. Let's take is hidden off. These stuff you can find. It doesn't need to be overridden. There we go. So now we have our four layers if you hit save. Let's bring our movie render queue back over here. Pull this down. Switch this over to movie render graph. And now let's load our graph. Here we go. And if we hit render, we should see four layers rendering. So now we see beta knocking out the background. We see gamma here. See beta on his own layer. We see our effects layer here. Now if we open Nuke and we bring everything in push this over plus and we can have a look. Now we see beta here. We see gamma jumping out. We have a look at the individual layers. You see that everything's holding out. But it's still shadowing and it's still reflecting. Let's have a look at our effects here. You see the effects here still have emission and we've split everything out into layers that we can mess with individually and comp. So hopefully that was informative and helpful. Please check out the details of this video for more
 
 **Frame:** tutorials\frames\movie-render-graph-intro-unreal-engine-animation-hub\frame_000.jpg
 
@@ -33,42 +33,27 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-Movie Render Graph (MRG) node-based render pipeline intro — setting up render globals, defining shot layers, and configuring output — the preferred replacement for legacy Movie Render Queue.
+[PENDING EXTRACTION]
 
 ### Summary
-Practical intro to Movie Render Graph from the Animation Hub series, using the ACOM sample project. Shows right-clicking a Level Sequence to create an MRG asset, the node graph interface (Render Globals → Output → Layers), configuring warm-up settings and game overrides, setting up per-layer render passes (beauty, cryptomatte, depth), and triggering a render. MRG is fully production-ready from UE 5.8.
+[PENDING EXTRACTION]
 
 ### Key Steps
-1. In Content Browser, right-click a Level Sequence → `Cinematic → Movie Render Graph` → name and save the asset
-2. Double-click the MRG asset to open the node graph
-3. The graph has: `Render Globals` node (warm-up, resolution, frame range) → connected to output layers
-4. Configure `Render Globals`: set `Warm Up Frame Count` (30–60 for physics/Niagara), `Resolution`, `Output Directory`
-5. Add a **Render Layer** node for the Beauty pass; connect to an **EXR Output** or **PNG Output** node
-6. Add additional Render Layer nodes for compositing passes: `Cryptomatte`, `Depth`, `Motion Vectors`
-7. Set `Game Overrides` node: disable LOD bias, enable high-quality shadows, disable streaming textures
-8. Right-click the graph → **Render** or queue multiple sequences
-9. Monitor output in `Output Log` → renders save to specified directory
+[PENDING EXTRACTION]
 
 ### UE Systems / Blueprints / Settings
-`Movie Render Graph` (Content Browser → Cinematic → Movie Render Graph) → node-based render pipeline
-`Render Globals` node → warm-up, resolution, frame rate, output path
-`Render Layer` node → per-pass render configuration (beauty, depth, cryptomatte)
-`Game Overrides` node → disables streaming, enables high-quality settings for render
-`EXR Output` / `PNG Output` nodes → file format selection per layer
-Fully production-ready from UE 5.8; replaces linear Movie Render Queue
+[PENDING EXTRACTION]
 
 ### Difficulty
-Intermediate
+[PENDING EXTRACTION]
 
 ### UE Version
-UE 5.8
+[PENDING EXTRACTION]
 
 ### Tags
-rendering, movie-render-graph, sequencer, cinematics, intermediate
+[PENDING EXTRACTION]
 
 ---
 
 ## Related Entries
-- `references/sequencer-cinematics.md` — MRQ/MRG settings reference
-- `recipes/mrq-multipass-exr.md` — multi-pass EXR setup
-- `recipes/cinematics-pipeline.md` — full pipeline Stage 7: render
+[PENDING EXTRACTION]
