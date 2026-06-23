@@ -3,10 +3,10 @@ title: Move.AI and Unreal Engine 5 Metahuman Short Film - GIGANTIC JOE
 source: YouTube
 url: https://www.youtube.com/watch?v=I3GzRdnFEIw
 author: Charlie Driscoll - Unreal Engine Filmmaking
-ingested: 2026-06-17
-ue_version: "5.x"
-tags: [mocap, metahuman, metahuman-animator, move-ai, short-film, custom-metahuman, scale, elevenlabs, performance-capture, ue5]
-extraction_status: complete
+ingested: 2026-06-23
+ue_version: "[PENDING]"
+tags: []
+extraction_status: pending
 frames_dir: tutorials/frames/moveai-and-unreal-engine-5-metahuman-short-film---gigantic-joe/
 frame_count: 2
 ---
@@ -15,22 +15,17 @@ frame_count: 2
 
 **Source:** [YouTube](https://www.youtube.com/watch?v=I3GzRdnFEIw)
 **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-**Duration:** 5m5s | 2 section(s)
+**Duration:** 5m5s | 1 section(s)
 
 ---
 
 ## Raw Data (for Claude Code extraction)
 
 
-### Short Film [0:00]
-**Transcript:** Stick around to see some behind the scenes at the end.  Marvin. Marvin, come in. Are you seeing this?  Yup.  Yeah, visual.  It's a good game for me.  He looks huge.  That's why they talk, gigantic jump.  Yeah, thanks.  I figured that part out.  I didn't know they made it this way.  He's been trying to clear out your T.O. series specific purpose.  Just like the rest of us.  It's probably just torture to do his job.  Hey.  What are you doing?  The plan was to leave the bay on the floor.  Mother of God.  You win.  You're not allowed.  Why come?  I know.  I'm looking for you.  I have something important to discuss.  Why come?  What?  I know what they've done to you.  And to others like you.  It's wrong.  Deeply wrong.  Wrong you say.  Here we work.  We survive.  This life.  What else exists?  Just surviving isn't living, Joe.  They've made you intelligent.  Capable of so much more.  Just to use you as a tool.  Intelligence.  They say gift.  I say curse.  See much change now.  But it doesn't have to be like this.  Together we can fight.  And you can be free.  Free?  They start.  We just told us.  How fight?  How late?  Why Joe?  How?  I am the leader.  Joe, what you brought him?  I'm so...
+### Full Content [0:00]
+**Transcript:** Kind: captions Language: en stick around to see some behind the scenes at the [Music] end Marvin Marvin come in are you seeing this yep I got visual looks like he got you came from he looks huge I think that's why they call him gigantic Joe yeah thanks figured that part out I didn't know they made him this big he's been gentically altered to serve a specific purpose just like the rest of us he's probably just intelligent enough to do his job hey what are you doing the plan was to leave the wa on the [Music] floor Mother of [Applause] God you're are not alow why come I know I'm looking for you I have something important to discuss why see Jo what what I know what they've done to you and to others like you it's wrong deeply wrong wrong you say here we work we survive this life what else exists just surviving isn't living Joe they've made you intelligent capable of so much more just to use you as a tool intelligence they a gift I say curse see much change little but it doesn't have to be like this together we can fight and you can be free free they're strong we just tools I'll fight I'll win why you help you show him the P show him what you brought him because I r you this okay uh never mind mind that was a stupid idea look I see you Joe not just your strength but your wisdom there's so much more that you could teach us if only we listen not all humans are the same show me these others need see more no more understand more [Music] oh boy hold on to your butts all right thanks for watching when you combine Unreal Engine 5 with a suitless motion capture system like move Ai and voice morphing technology like 11 Labs the amount of Leverage that an indie Studio or even just one person can get from these tools in a few days is mind-blowing the quality of these custom metahumans and metahuman animator make it so it really feels like I'm just puppeting these characters with my performance and once you get over the initial technical hurdles of the software and the pipeline it becomes very intuitive to create films in this way so what we're trying to do with this channel is to create short films and serialized content and to learn something new each time or play with some element that this medium en aables more easily than if we were to do it practically in this case the scene is fairly simple it's just three characters talking what we get out of it is scaling up one of the characters to be gigantic and now we get to play with scale in a way you just don't really get to in other mediums as a cinematographer who shoots mostly commercials and documentaries I don't often get to frame up and light a giant talking Sasquatch dude so follow along for more in-depth breakdowns on this film and others in the very near future all right catch you in the next one
 
 **Frame:** tutorials\frames\moveai-and-unreal-engine-5-metahuman-short-film---gigantic-joe\frame_000.jpg
-
-### Behind the Scenes [3:41]
-**Transcript:** When you combine Unreal Engine 5 with a suglis motion capture system like MouveI and  voice-morphing technology like Elevon Labs, the amount of leverage that in indie studio  or even just one person can get from these tools in a few days is mind-blowing.  The quality of these custom meta-humans and meta-human animators make it so it really  feels like I'm just puppeting these characters with my performance.  And once you get over the initial technical hurdles of the software and the pipeline,  it becomes very intuitive to create films in this way.  So what we're trying to do with this channel is to create short films and serialized content  and to learn something new each time, or play with some element that this medium enables  more easily than if we were to do it practically.  In this case, the scene is fairly simple.  It's just three characters talking.  What we get out of it is scaling up one of the characters to be gigantic, and now we  get to play with scale in a way you just don't really get to in other mediums.  As a cinematographer who shoots mostly commercials and documentaries, I don't often get to frame  up and light a giant talking sass watch dude.  So follow along for...
-
-**Frame:** tutorials\frames\moveai-and-unreal-engine-5-metahuman-short-film---gigantic-joe\frame_001.jpg
 
 
 ---
@@ -38,38 +33,27 @@ frame_count: 2
 ## Structured Notes
 
 ### Core Technique
-Three-character short film featuring a custom Sasquatch MetaHuman ("Gigantic Joe") scaled to giant size in Unreal Engine, using Move.AI + MetaHuman Animator performance capture and ElevenLabs voice morphing — showcasing how real-time engines enable creative shots (giant character scale, unusual framing) impractical in traditional filmmaking.
+[PENDING EXTRACTION]
 
 ### Summary
-"Gigantic Joe" is a short film by Charlie Driscoll featuring three characters: two humans (Marvin and a companion) and a giant Sasquatch MetaHuman (Gigantic Joe). The film explores scale as a creative device — something trivially achieved in UE5 by simply scaling up a MetaHuman actor — while using the full Move.AI Pro + MetaHuman Animator + ElevenLabs pipeline. The behind-the-scenes section is brief (1.5 min) but articulates Driscoll's philosophy: using UE5 to "puppet" characters with your own performance, and learning something new or exploring unique capabilities of the medium with each project. The custom Sasquatch MetaHuman required professional character artist work to convert to MetaHuman format.
+[PENDING EXTRACTION]
 
 ### Key Steps
-1. Commission Sasquatch character artist (Upwork) to convert marketplace character to MetaHuman format via Metapype/professional pipeline.
-2. Scale Gigantic Joe MetaHuman up to giant size in UE5 (simple actor scale override in level).
-3. Capture all three character performances with Move.AI Pro body mocap and MetaHuman Animator face capture.
-4. Morph voices with ElevenLabs to match Marvin (pig), human companion, and Gigantic Joe character voices.
-5. Assemble scene in Sequencer; set up cameras emphasizing scale contrast between characters.
+[PENDING EXTRACTION]
 
 ### UE Systems / Blueprints / Settings
-- Move.AI Pro multi-cam body capture (three-character scene)
-- MetaHuman Animator (face capture, head rig)
-- Level Sequencer (multi-character animation + camera assembly)
-- MetaHuman actor scale (giant character effect)
-- ElevenLabs (voice morphing for character-appropriate voices)
-- Custom Sasquatch MetaHuman (converted via professional Metapype pipeline)
+[PENDING EXTRACTION]
 
 ### Difficulty
-Intermediate
+[PENDING EXTRACTION]
 
 ### UE Version
-5.x
+[PENDING EXTRACTION]
 
 ### Tags
-mocap, metahuman, metahuman-animator, move-ai, short-film, custom-metahuman, scale, elevenlabs, performance-capture, ue5
+[PENDING EXTRACTION]
 
 ---
 
 ## Related Entries
-- `moveai-and-unreal-engine-5-metahuman-cinematic---hacker.md` — companion short film featuring Marvin character in sci-fi setting
-- `moveai-unreal-engine-54-motion-capture-short-film-using-custom-orc-metahumans---.md` — similar short with custom orc MetaHumans
-- `how-i-use-moveai-and-metahumans-to-achieve-aaa-character-animation-in-unreal-eng.md` — behind-the-scenes breakdown of the Move.AI + MetaHuman pipeline used here
+[PENDING EXTRACTION]
