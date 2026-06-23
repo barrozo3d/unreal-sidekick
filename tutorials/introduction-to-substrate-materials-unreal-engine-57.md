@@ -1,12 +1,12 @@
-﻿---
+---
 title: Introduction to Substrate Materials | Unreal Engine 5.7
 source: YouTube
 url: https://www.youtube.com/watch?v=d1ncs8M6Lkg
 author: Unreal Engine
-ingested: 2026-06-18
-ue_version: "UE 5.7"
-tags: ["materials", "shaders", "substrate", "rendering", "intermediate"]
-extraction_status: complete
+ingested: 2026-06-23
+ue_version: "[PENDING]"
+tags: []
+extraction_status: pending
 frames_dir: tutorials/frames/introduction-to-substrate-materials-unreal-engine-57/
 frame_count: 4
 ---
@@ -23,7 +23,7 @@ frame_count: 4
 
 
 ### Full Content [0:00]
-**Transcript:** Okay everyone, welcome to a new highlight video. Today we're taking a closer look at substrate, which is enabled by default, starting with Unreal 5.7 and onwards. Substrate introduces a new approach to material rendering and data storage, giving us more flexibility and control over how materials are built and evaluated. With the option to choose between two GBA formats, one focused on state-of-the-art visual fidelity and another optimized for performance. Now let's take a deeper look at what is substrate. Substrate is Unreal's engine next-generation material framework. It lets artists build layered, physically accurate surfaces with far more control than the traditional material system. As we look at the substrate slab node, you can see how the interface is organized into layers of visual behavior. At the top, we have reflectivity driven by F0 and F90. This defines how light responds at glancing and facing angles. Below that is the roughness section, which controls microsurface detail. And further down, we can opt into advanced features like fuzz or glint materials, which introduces tiny sparkling highlights to make that car paint material shine the way it should be. The slab mediu...
+**Transcript:** Okay everyone, welcome to a new highlight video. Today we're taking a closer look at substrate, which is enabled by default, starting with Unreal 5.7 and onwards. Substrate introduces a new approach to material rendering and data storage, giving us more flexibility and control over how materials are built and evaluated. With the option to choose between two GBA formats, one focused on state-of-the-art visual fidelity and another optimized for performance. Now let's take a deeper look at what is substrate. Substrate is Unreal's engine next-generation material framework. It lets artists build layered, physically accurate surfaces with far more control than the traditional material system. As we look at the substrate slab node, you can see how the interface is organized into layers of visual behavior. At the top, we have reflectivity driven by F0 and F90. This defines how light responds at glancing and facing angles. Below that is the roughness section, which controls microsurface detail. And further down, we can opt into advanced features like fuzz or glint materials, which introduces tiny sparkling highlights to make that car paint material shine the way it should be. The slab medium controls how light travels through a material layer. Using the MFP node or short for mean free path, defines how far light travels inside a material before it's absorbed or scattered. This enables advanced effects like tinted carbon materials. By tuning Albedo and thickness, we can shape exactly how color and light blends beneath the surface. Let's talk about the substrate operators. With substrates, materials are no longer flat shaders. They are physically layered systems designed to behave like real world materials, with legacy support still available when required. Using the different substrate operators, we can stack these layers to achieve these advanced effects. The vertical coat operator lets you physically layer materials on top of each other. The top slab must be transmissive, allowing light to pass through and interact with the layers below. Using MFP and thickness to control how deep the light travels and how the coated slabs blend together. The horizontal mix operator works like a more advanced lurp node, blending two slabs smoothly across a surface. You can control the foreground coverage at each pixel, creating natural material transitions. The coverage operator acts like a mask, controlling how much of a slab shows through. Think of it as revealing dirt patterns or selective surface detail. Substrate select is one of the newer additions to substrate. It doesn't blend two materials together, it chooses one slab or the other, and only that slab is evaluated. In this example, the selection mask is used to choose between two materials. If the mask value is greater than 0.5, material be selected, otherwise material A is used. This is a specially useful for switching between shading models that can't be blended using traditional methods. The ad operator sums two slabs lighting, however it's not recommended. It breaks energy conservation and quickly leads to unrealistic blown out materials. Use it only for very stylized effects. Let's put this into practice creating a carbon fiber material. All right, I'm in my viewport. Now, before I start creating a material, let's go into edit project settings and I'm going to type in substrate. Now, let's take a look at the different options here and let's focus on the G-Buffer format. Adaptive G-Buffer is substrates modern format, storing only the channels and material needs. It enables the full feature sets and is the default for shadow model six. Plendable G-Buffer is the legacy format optimized for lower end and shadow model five hardware, keeping compatibility with the old material and decal workflows. Now, for creating a material, we're gonna keep adaptive G-Buffer. Let's go ahead and create our first material sets. Now, everything looks relatively similar in terms of shadow graph. Now, for carbon fiber, we're going to be creating two coats, my top coat, which is gonna be the clear coats and then later a base layer. Let's start with the first one. So, I'm gonna put a constant three value of black here and put the F zero to a value of OO15. Then, I'm gonna create a parameter for the roughness so I can create maybe a math effect later. And then, I'll look for mean free paths. I'm gonna connect the MFP to the corresponding SSS MFP, create a constant three color node in which I'll be able to control the transmittance color for that tinted carbon effects. Now, we're gonna add the thickness node a little bit later. Just gonna press C here and comment my clear coat just to clean things up. So, now we created the top layer. Now, let's create the bottom layer, which is gonna be the carbon fiber. So, I'm just gonna copy and paste that substrate slab and let's start creating that bottom layer. Now, for the F zero, I'm gonna use a scientific approach and use OO1725. I'm gonna load up my materials and then I'm just gonna connect these to the associated nodes. So, I'm just gonna multiply this so I can control the roughness of the carbon material, connect that to the roughness. Now, I'm gonna do the same now for the carbon material. Use a flattened normal so I can control the intensity, connect that to the normal. And one last step, optional to control my UV stretching, connect these two to my textures. And now we created that carbon fiber on the layer. Now, all we have to do is connect these two together. So, I'm gonna be using that vertical layer operator. Let's connect the clear coat of the top layer and then the carbon on the bottom. Now, let's control that thickness and use that thickness node and connect that into the top thickness and connect that to the front material. Now, if we apply that material instance on the shadeable, we should be able to control that color transmittance and have some very interesting tinted carbon effects. Another example is car paint. Substrate nails the flake glints and layered reflections with formal realistic control. Here's a simple diagram showing how real car paint works. Light passes through the clear coats into the colored base layer and then hits the metallic flakes beneath. Now, if we put that into practice, this is going to be my top layer, the clear coats, just like carbon fiber and then base coats in the middle. And then under will have the flakes where I'm going to be using that glint density node. Now, I'm going to connect the base and the flakes with a horizontal blend layer and then connect that to the bottom of the vertical layer with the clear coat sitting on top. Now, let's try this material on this beautiful barn find classic car. And with some really nice close ups here, I can play with the values such as the roughness, the metallic and just see how the coating works here. I'm going to go into third layer, which is the flakes and just control those flake colors. I can control the flake density as well as the roughness. Just to showcase the power of substrate and the power of its layering. Now, let's take a look at another added material applied to the car, this time using the coverage weight node. I can really dial in the rust, playing with the different layers here on the car paint, giving me overall more control on my material. Playing with the metallic value and the roughness map, giving it extra contrast. Now, in terms of setup very similar to the metallic paint, I've just connected my texture maps here in the base. And what I've done here is I'm using the horizontal blend so I can blend between the two. And then I've added this coverage weight node on the top, which is essentially going to be my dirt layer, connecting this to the vertical layer, just giving me control on each layer paint of the car. And this is the result we get. I hope you enjoyed this video and see you in the next one.
 
 **Frame:** tutorials\frames\introduction-to-substrate-materials-unreal-engine-57\frame_000.jpg
 
@@ -33,41 +33,27 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-Introduction to Substrate material framework — enabled by default from UE 5.7; `Substrate Slab` node replaces legacy material shading models for layered, physically-accurate surface rendering.
+[PENDING EXTRACTION]
 
 ### Summary
-Official Epic overview of Substrate in UE 5.7 (now enabled by default). Covers the Substrate Slab node structure (F0/F90 reflectivity, roughness, fuzz/glint advanced features), two GBuffer format options (high-fidelity vs. performance), and how Substrate gives artists more layering control than the traditional material system.
+[PENDING EXTRACTION]
 
 ### Key Steps
-1. Substrate is enabled by default in UE 5.7+ — no manual activation needed (check `Project Settings → Rendering → Substrate`)
-2. In Material Editor, use the **`Substrate Slab`** node as the primary material expression
-3. Configure `F0` (facing reflectivity) and `F90` (glancing angle reflectivity) for PBR accuracy
-4. Set `Roughness` input for microsurface detail
-5. Enable `Fuzz` layer for velvet/fabric surfaces; enable `Glint` for sparkle (car paint, glitter)
-6. Layer multiple Slab nodes using **`Substrate Layer`** blend nodes
-7. Choose GBuffer format in `Project Settings → Rendering → Substrate → GBuffer Format`: `8-Byte` (performance) or `16-Byte` (maximum fidelity)
-8. Path Tracing is fully supported with Substrate — no special setup needed
+[PENDING EXTRACTION]
 
 ### UE Systems / Blueprints / Settings
-`Substrate Slab` node — primary material primitive replacing old shading models
-`F0 / F90` inputs → physically accurate reflectivity at facing and glancing angles
-`Fuzz` input → microfiber/velvet surface layer
-`Glint` input → sparkle highlights (car paint, metallic flake)
-`Substrate Layer` node → blend/stack multiple Slab layers
-`Project Settings → Rendering → Substrate → GBuffer Format` → 8-Byte (perf) or 16-Byte (fidelity)
+[PENDING EXTRACTION]
 
 ### Difficulty
-Intermediate
+[PENDING EXTRACTION]
 
 ### UE Version
-UE 5.7
+[PENDING EXTRACTION]
 
 ### Tags
-materials, shaders, substrate, rendering, intermediate
+[PENDING EXTRACTION]
 
 ---
 
 ## Related Entries
-- `references/materials-shaders.md` — broader material system reference
-- `tutorials/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe.md` — deep dive Unreal Fest talk
-- `references/rendering-pipeline.md` — Path Tracing compatibility
+[PENDING EXTRACTION]
