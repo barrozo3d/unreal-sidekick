@@ -1,13 +1,12 @@
-﻿---
+---
 title: BEST FREE UNREAL ENGINE 5 ASSET MANAGEMENT PLUGIN IN 2025
 source: YouTube
 url: https://www.youtube.com/watch?v=bsy4xZvhOqs
 author: Polygonflow Dash
-ingested: 2026-06-16
-plugin_version: dash-1.9
-ue_version: "UE 5.x"
-tags: [dash-1.9, asset-management, content-library, polyhaven, ai-tagging, collections, fab, megascans, ies-lights, beginner]
-extraction_status: complete
+ingested: 2026-06-23
+ue_version: "[PENDING]"
+tags: []
+extraction_status: pending
 frames_dir: tutorials/frames/best-free-unreal-engine-5-asset-management-plugin-in-2025/
 frame_count: 9
 ---
@@ -29,7 +28,7 @@ frame_count: 9
 **Frame:** tutorials\frames\best-free-unreal-engine-5-asset-management-plugin-in-2025\frame_000.jpg
 
 ### Poly Haven Library [1:10]
-**Transcript:** Let's start with the Polyhaven Library.  This is a free library of 2000 meshes, materials and age-year eyes, which we have integrated  into Dash, allowing you to easily drop assets into your scene without needing to download  them separately from the Polyhaven website.  By holding Ctrl and scrolling with the middle mouse button, you can zoom in closer to reveal  texture resolution options.  Right-clicking brings up the UI with multiple options, such as viewing asset properties and  tags.  Dash automatically creates various tags for assets based on their thumbnail images.  This means you can search for assets not only by name, but also by their properties.  For example, if I type in tool, every asset that contains this word in tags or in name will  appear.  The more relevant the search term is to be asset, the higher it will appear in the list.  I select the 2-care resolution and simply drag and drop the asset into the scene.  Dash also created a PBR material, so I don't have to manually connect material nodes as  if I had downloaded the asset from the website.  HDRIs and materials are just as easy to use.  I search for a concrete material, select the resolution and drop it onto the...
+**Transcript:** Let's start with the Polyhaven Library.  This is a free library of 2000 meshes, materials and age-year eyes, which we have integrated  into Dash, allowing you to easily drop assets into your scene without needing to download  them separately from the Polyhaven website.  By holding Ctrl and scrolling with the middle mouse button, you can zoom in closer to reveal  texture resolution options.  Right-clicking brings up the UI with multiple options, such as viewing asset properties and  tags.  Dash automatically creates various tags for assets based on their thumbnail images.  This means you can search for assets not only by name, but also by their properties.  For example, if I type in tool, every asset that contains this word in tags or in name will  appear.  The more relevant the search term is to be asset, the higher it will appear in the list.  I select the 2-care resolution and simply drag and drop the asset into the scene.  Dash also created a PBR material, so I don't have to manually connect material nodes as  if I had downloaded the asset from the website.  HDRIs and materials are just as easy to use.  I search for a concrete material, select the resolution and drop it onto the desired mesh.
 
 **Frame:** tutorials\frames\best-free-unreal-engine-5-asset-management-plugin-in-2025\frame_001.jpg
 
@@ -44,7 +43,7 @@ frame_count: 9
 **Frame:** tutorials\frames\best-free-unreal-engine-5-asset-management-plugin-in-2025\frame_003.jpg
 
 ### AI Tagging & Custom Assets [3:36]
-**Transcript:** Now let's talk about the project library tab.  Through you will be able to add your custom project assets and assign text to them to make  them easy searchable and accessible.  I expect a folder where my assets are stored in the folder tree on the left side.  I click on the Compute button and start the process.  This may take a few minutes.  The assets get assigned text based on their content and properties.  After a short while all my assets are available, searchable and ready to be easily dropped  into the scene.  Is that simple?  As I mentioned earlier, the main advantage of the tagging system is that you can search  for your assets not only by name but also by properties.  You can edit these text or add new text by double clicking on the single asset or she's  selecting several assets and choose Batch Edit to adjust the text on several assets at once.  Additionally you can easily search for similar assets.  In the Dash Free version you can access all your computer assets in the Dash Content Browser  within any UE project.  If you can't find them in the Content Browser, simply add the project's folder in the Preferences  menu.  You can either add them manually or use the automat...
+**Transcript:** Now let's talk about the project library tab.  Through you will be able to add your custom project assets and assign text to them to make  them easy searchable and accessible.  I expect a folder where my assets are stored in the folder tree on the left side.  I click on the Compute button and start the process.  This may take a few minutes.  The assets get assigned text based on their content and properties.  After a short while all my assets are available, searchable and ready to be easily dropped  into the scene.  Is that simple?  As I mentioned earlier, the main advantage of the tagging system is that you can search  for your assets not only by name but also by properties.  You can edit these text or add new text by double clicking on the single asset or she's  selecting several assets and choose Batch Edit to adjust the text on several assets at once.  Additionally you can easily search for similar assets.  In the Dash Free version you can access all your computer assets in the Dash Content Browser  within any UE project.  If you can't find them in the Content Browser, simply add the project's folder in the Preferences  menu.  You can either add them manually or use the automatic search.  As you can see once you've computed the assets, you can immediately use it in any of your  projects.  The default storage location for Dash Metadata is directly within the Unreal project itself.  This makes it as easy as sharing your project for any team member to access all Dash Content  Browser data.
 
 **Frame:** tutorials\frames\best-free-unreal-engine-5-asset-management-plugin-in-2025\frame_004.jpg
 
@@ -74,47 +73,27 @@ frame_count: 9
 ## Structured Notes
 
 ### Core Technique
-Comprehensive Dash Content Browser overview (free tier) — Poly Haven library (2000 assets + auto-PBR), Fab tab (downloaded assets with tags), Quixel Bridge tab (Megascans Atlas), IES library, Project Library AI tagging with Batch Edit, Unified View with + / - Boolean search, and Collections (personal + shared team sync).
+[PENDING EXTRACTION]
 
 ### Summary
-8-minute complete guide by Tomáš covering every feature of the free Dash Content Browser as of 2025. Key differentiators vs native UE Content Browser: AI-generated property tags (not just names), unified search across all asset sources, cross-project access (compute once → available everywhere), and a Collections system for team-shared curation. Fab tab shows downloaded Fab assets with tags; Quixel tab exposes Megascans Atlas (via standalone Bridge, still available March 2025). Preferences → Search for External Projects auto-discovers computed project folders.
+[PENDING EXTRACTION]
 
 ### Key Steps
-1. **Open Content Browser** — Dash icon (top left) → Content menu → window opens with tabs: Fab, Quixel Bridge, Poly Haven, IES, Project Library
-2. **Poly Haven** — browse 2000 meshes/materials/HDRIs; Ctrl+scroll = reveal resolution options; right-click = tags + properties; drag to scene = auto-PBR material
-3. **Fab tab** — assets downloaded via Fab plugin appear here automatically with AI tags
-4. **Quixel Bridge tab** — Megascans downloaded via standalone Bridge software appear here; Megascans Atlas only via standalone Bridge (not Fab plugin as of March 2025); configure Preferences if assets missing
-5. **IES library** — browse photometric light profiles; drag to scene
-6. **Project Library → Compute** — select folder → Compute → AI vision tags assigned from thumbnails
-7. **Edit tags** — double-click single asset = edit tags; Shift-select multiple + Batch Edit = bulk tag editing
-8. **Cross-project access** — computed assets available in any UE project; Preferences → Search for External Projects if not visible; or add project folder manually
-9. **Unified View** — all sources in one search panel; `tool - hdri` excludes HDRIs; `tool + box` broadens search; note: space required before operators
-10. **Collections** — Shift+select assets → drag to collection; right-click → Create Shared Version; team gets notifications on shared collection modifications
+[PENDING EXTRACTION]
 
 ### UE Systems / Blueprints / Settings
-- **Fab tab** — Fab plugin downloads appear automatically with auto-AI tags
-- **Quixel Bridge tab** — standalone Bridge exports appear here; Megascans Atlas requires standalone Bridge (not Fab plugin) as of March 2025; check Preferences if paths missing
-- **IES Library** — photometric light profile browser; drag to scene
-- **Project Library → Compute** — AI vision tagging; analyzes thumbnails; tags persist across all UE projects once computed
-- **Batch Edit** — select multiple assets → Batch Edit; modify tags on multiple assets simultaneously
-- **Cross-project asset use** — original files remain in source project; UE mirrors file structure when asset is used; no copy/migration needed
-- **Unified View** — combined search across Poly Haven + Fab + Quixel + IES + Project Library in one panel
-- **Search operators** — space before operator required: `term1 + term2` (include), `term1 - term2` (exclude)
-- **Collections** — personal and shared; team notifications on shared collection changes; load or override changes
+[PENDING EXTRACTION]
 
 ### Difficulty
-Beginner
+[PENDING EXTRACTION]
 
 ### UE Version
-UE 5.x (Dash 1.9)
+[PENDING EXTRACTION]
 
 ### Tags
-`#dash-1.9` `#asset-management` `#content-library` `#polyhaven` `#ai-tagging` `#collections` `#fab` `#megascans` `#ies-lights` `#beginner`
+[PENDING EXTRACTION]
 
 ---
 
 ## Related Entries
-- [[auto-tag-sort-1000-ue5-assetsmonth-with-this-free-content-browser]] — AI tagging focused walkthrough
-- [[centralized-content-browser-for-ue5---free-plugin]] — cross-project access deep dive
-- [[2000-free-high-quality-assets-for-any-unreal-engine-project]] — Poly Haven + IES library showcase
-- [[dash-19---managing-assets-in-ue5-just-got-a-lot-easier]] — Dash 1.9 feature overview
+[PENDING EXTRACTION]
