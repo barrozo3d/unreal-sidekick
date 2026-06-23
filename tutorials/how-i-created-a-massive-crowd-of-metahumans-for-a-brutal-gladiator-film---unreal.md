@@ -3,10 +3,10 @@ title: How I created a MASSIVE crowd of Metahumans for a BRUTAL Gladiator film -
 source: YouTube
 url: https://www.youtube.com/watch?v=y-6aiWvh_GY
 author: Charlie Driscoll - Unreal Engine Filmmaking
-ingested: 2026-06-17
-ue_version: "5.x"
-tags: [overcrowd, crowd-simulation, metahuman, mocap, move-ai, gladiator, battle-scene, vat, elevenlabs, ue5]
-extraction_status: complete
+ingested: 2026-06-23
+ue_version: "[PENDING]"
+tags: []
+extraction_status: pending
 frames_dir: tutorials/frames/how-i-created-a-massive-crowd-of-metahumans-for-a-brutal-gladiator-film---unreal/
 frame_count: 9
 ---
@@ -33,12 +33,12 @@ frame_count: 9
 **Frame:** tutorials\frames\how-i-created-a-massive-crowd-of-metahumans-for-a-brutal-gladiator-film---unreal\frame_001.jpg
 
 ### Creating a massive crowd with OverCrowd [2:50]
-**Transcript:** So, for this gladiator project, I teamed up with Kenneth McLean, the developer of Overcrowd, who's been building this incredibly powerful crowd simulation asset for Unreal Engine 5.  And full disclosure, I am now a partner in this asset and will be helping in its development moving forward.  So, for this scene specifically, I placed dozens of overcrowd instantiors around the stadium, each spawning roughly 300 modular crowd members.  Each instant ser lets you define exactly which characters, wardrobes, and animation sets spawn in each crowd section.  And once spawned, you can actually manually reposition individual crowd members, which is perfect for art directing or figuring out the exact composition of your shot.  Now, Overcrowd works similarly to the already powerful anima texture plugin by Epic, but it adds a lot of functionality.  Modular metahumans with facial animation, advanced vat animation sequencing, automatic LOD generation for optimization, precise art direction control, and dynamic mesh and ragdoll swapping capabilities.  Now, because Overcrowd is currently undergoing an overhaul in its UI and feature set, it's not available for sale right now.  But if you go to my bra...
+**Transcript:** So, for this gladiator project, I teamed up with Kenneth McLean, the developer of Overcrowd, who's been building this incredibly powerful crowd simulation asset for Unreal Engine 5.  And full disclosure, I am now a partner in this asset and will be helping in its development moving forward.  So, for this scene specifically, I placed dozens of overcrowd instantiors around the stadium, each spawning roughly 300 modular crowd members.  Each instant ser lets you define exactly which characters, wardrobes, and animation sets spawn in each crowd section.  And once spawned, you can actually manually reposition individual crowd members, which is perfect for art directing or figuring out the exact composition of your shot.  Now, Overcrowd works similarly to the already powerful anima texture plugin by Epic, but it adds a lot of functionality.  Modular metahumans with facial animation, advanced vat animation sequencing, automatic LOD generation for optimization, precise art direction control, and dynamic mesh and ragdoll swapping capabilities.  Now, because Overcrowd is currently undergoing an overhaul in its UI and feature set, it's not available for sale right now.  But if you go to my brand new Patreon and follow it for free, that's actually where we'll be posting it initially for sale.  And it'll be for sale for a reduced price on Patreon while we're still adding new features.  And then when it's complete, it will be moved to fab, and don't worry, if you pick it up on Patreon, we'll make sure you get a free copy on fab later, so it's conveniently in your library.
 
 **Frame:** tutorials\frames\how-i-created-a-massive-crowd-of-metahumans-for-a-brutal-gladiator-film---unreal\frame_002.jpg
 
 ### Sword fighting choreography Mocap [4:41]
-**Transcript:** Alright, let's dive into the Gladiator Pights themselves.  Every Sword Combat sequence here uses custom mocap animations I captured myself using Move AI's Markylist Multi-Camp system.  So these animations are actually part of a paired Sword Fighting animation pack I'm developing, which is specifically targeted to the metahumanskeleton and designed for cinematic use.  This pack was directly inspired by the Kung Fu Fighting animation set I showcased in one of my earlier videos, but this time around I wanted something focused on realistic Sword Combat that filmmakers and cinematic artists could easily drop into their projects.  So having these animations pre-made made it incredibly easy to block out my fight scenes in Sequencer.  For each Gladiator pair, I set up their animations in their own dedicated folder in the Sequencer, allowing me to slide the entire choreography sequences around on the timeline.  So if I needed to adjust what a pair was doing in the background of a different character shot, it was as simple as just shifting the animation group.  Plus, since some of these animations included longer choreographed sequences, I was able to easily get wide establishing shots of th...
+**Transcript:** Alright, let's dive into the Gladiator Pights themselves.  Every Sword Combat sequence here uses custom mocap animations I captured myself using Move AI's Markylist Multi-Camp system.  So these animations are actually part of a paired Sword Fighting animation pack I'm developing, which is specifically targeted to the metahumanskeleton and designed for cinematic use.  This pack was directly inspired by the Kung Fu Fighting animation set I showcased in one of my earlier videos, but this time around I wanted something focused on realistic Sword Combat that filmmakers and cinematic artists could easily drop into their projects.  So having these animations pre-made made it incredibly easy to block out my fight scenes in Sequencer.  For each Gladiator pair, I set up their animations in their own dedicated folder in the Sequencer, allowing me to slide the entire choreography sequences around on the timeline.  So if I needed to adjust what a pair was doing in the background of a different character shot, it was as simple as just shifting the animation group.  Plus, since some of these animations included longer choreographed sequences, I was able to easily get wide establishing shots of the entire stadium or other characters, and be confident that the fighters in the background would stay engaging with realistic choreography without me having to babysit each animation.  And while this product is still very much in development, if you want, you can actually download the entire RAW Motion Capture session of the Sword Fighting animations from my Patreon.  It'll be available for a very, very reduced price.  Yeah, so if you need sword animations like right now, or you just want to support the channel and help fund the development, you can get that right now.  And if you're coming to this video later and the pack is finished, I'll put a link to the finished pack in the description below.
 
 **Frame:** tutorials\frames\how-i-created-a-massive-crowd-of-metahumans-for-a-brutal-gladiator-film---unreal\frame_003.jpg
 
@@ -73,41 +73,27 @@ frame_count: 9
 ## Structured Notes
 
 ### Core Technique
-OverCrowd crowd simulation plugin fills a Roman gladiatorial stadium with thousands of modular MetaHuman characters (facial animations included), while Move.AI Pro multi-cam mocap and MetaHuman Animator drive the foreground gladiator combat sequences, creating a week-long production of a cinematic short film.
+[PENDING EXTRACTION]
 
 ### Summary
-Charlie Driscoll breaks down his gladiator-themed short film made in one week using Unreal Engine 5. The stadium crowd of thousands is powered by OverCrowd, a custom crowd simulation plugin he co-developed, which places modular MetaHuman characters (with facial animations) using population instantiators around the stadium. Foreground combat uses custom paired sword-fighting mocap animations captured with Move.AI's MovePro multi-cam system, developed as part of a planned animation pack. Performers use 3D Scan Store premium heads for photo-realistic skin detail, with all acting performed by Driscoll himself using a FaceMotionCapture.com head rig. ElevenLabs handles voice morphing for multiple characters.
+[PENDING EXTRACTION]
 
 ### Key Steps
-1. Set up OverCrowd instantiators around stadium; configure each instantiator with character/wardrobe/animation sets for crowd sections (~300 characters per instantiator).
-2. Manually reposition individual crowd members for art-directed shots.
-3. Capture paired sword-fighting choreography with Move.AI MovePro multi-cam system; apply animations in Sequencer organized by gladiator pair folder.
-4. Import 3D Scan Store high-detail heads; integrate with MetaHuman (8K textures for realistic skin pores/wrinkles).
-5. Capture performances with Move.AI body mocap + MetaHuman Animator face capture via FaceMotionCapture.com head rig.
-6. Morph recorded dialogue audio using ElevenLabs voice changing.
-7. Organize each gladiator pair's animation group in Sequencer folders for easy repositioning.
+[PENDING EXTRACTION]
 
 ### UE Systems / Blueprints / Settings
-- OverCrowd plugin (crowd simulation, modular MetaHuman characters, VAT animation, facial animation, LOD generation, mesh/ragdoll swapping)
-- Move.AI MovePro multi-cam system (6 GoPros for body mocap)
-- MetaHuman Animator (face capture, FaceMotionCapture.com head rig)
-- Level Sequencer (animation groups by character pair, grouped for repositioning)
-- 3D Scan Store heads (8K texture MetaHuman integration)
-- ElevenLabs voice morphing
-- Niagara / AnimToTexture (underlying VAT system powering OverCrowd)
+[PENDING EXTRACTION]
 
 ### Difficulty
-Intermediate
+[PENDING EXTRACTION]
 
 ### UE Version
-5.x
+[PENDING EXTRACTION]
 
 ### Tags
-overcrowd, crowd-simulation, metahuman, mocap, move-ai, gladiator, battle-scene, vat, elevenlabs, ue5
+[PENDING EXTRACTION]
 
 ---
 
 ## Related Entries
-- `how-to-create-massive-crowds-and-battle-scenes-in-unreal-engine-5---niagara-and-.md` — full tutorial on using OverCrowd plugin step by step
-- `how-to-create-a-massive-zombie-horde-in-unreal-engine-55---niagara-crowd-simulat.md` — manual Niagara + AnimToTexture zombie crowd tutorial (precursor approach)
-- `motion-capture-sword-fighting-cinematic-in-unreal-engine-5---moveai-and-metahuma.md` — dedicated breakdown of the paired sword-fighting mocap capture process
+[PENDING EXTRACTION]
