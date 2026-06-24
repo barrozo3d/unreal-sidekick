@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=iJmOO0NS0Mk
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: ["lighting", "volumetrics", "fog", "materials", "shaders", "cinematics", "intermediate"]
+extraction_status: complete
 frames_dir: tutorials/frames/cinematic-lighting-masterclass-alien-in-unreal-5/
 frame_count: 5
 ---
@@ -53,27 +53,45 @@ frame_count: 5
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Three professional cinematography frameworks applied inside Unreal Engine 5 for an Alien-style short film: the 60-30-10 three-color lighting split for depth/separation, Exponential Height Fog + per-light Volumetric Scattering for "filled set" atmosphere, animated flicker/strobe lights via a custom Light Function Material (sine-wave emissive), and physical light shaping (Source Radius/Length, Barn Doors) to mimic real on-set diffusion/rigging.
 
 ### Summary
-[PENDING EXTRACTION]
+**60-30-10 color rule:** rather than lighting a whole scene in one monochromatic color (the "single red flare" look, easy but flat/unnatural), split the palette into three colors by image proportion — 60% background color (separates character from background, e.g. yellow), 30% a "neutral" light usually justified by an in-shot practical prop (e.g. a blue fluorescent in-world weapon, parented as a spotlight to the prop so it moves/interacts correctly with the character), and 10% an accent color carrying extra emotion/danger (e.g. a flickering red alert light). Brightest object in frame draws the eye first — if the character's face is one of the darkest areas, add a dedicated light to pull focus there. Pick the color you CAN'T change first (e.g. a fixed-color practical prop light) then choose the other two from elsewhere on the color wheel for contrast; keep every light of a given "role" using the exact same hue (copy/paste the Light Color value across multiple lights, or use UE's color-palette picker) so multiple rim/fill lights still read as one consistent source.
+
+**Fog for set atmosphere:** add exactly one Exponential Height Fog actor (Quick Add Actors → Visual Effects) and enable Volumetric Fog on it; then any Point/Spot/Rectangle Light's **Volumetric Scattering Intensity** controls how much that specific light "lights up" the fog — pull a light into the foreground (hidden behind the character) and lower its scattering intensity (~5-10) for background atmosphere without affecting the character's own lighting; enabling **Cast Volumetric Fog** on a light produces visible god-rays occluded correctly by scene geometry; narrowing a Spot Light's Outer Cone Angle while raising scattering intensity produces a defined visible light beam/cone.
+
+**Animated/flickering lights via Light Function Material:** rather than hand-keyframing intensity in Sequencer, create a Material, set Material Domain to **Light Function** (disables all inputs except Emissive Color), feed Emissive Color from a **Sine** node driven by a **Time** node (oscillates -1 to 1) — use the **Debug Scalar Values** node temporarily to verify the raw output range on a test cube. Normalize the sine wave to a clean 0–1 range with `(sin(time) + 1) * 0.5` (Saturate alone clips/loses half the wave — Add 1 then Multiply 0.5 is the correct fix). Chaining 2–3 Sine nodes together (summed) produces a more chaotic, less mechanically-perfect flicker pattern. Promote the Time multiplier to a parameter named "Speed" (e.g. ×0.1 for 10% speed) for per-instance control, and add an "Add" node on the Time input promoted to a "Time Offset" parameter so multiple Material Instances of the same flicker material can each have independently-phased flicker timing. Assign the finished Light Function Material to any light's Light Function Material slot for an automatic, Sequencer-keyframe-free strobe. For background "blinking LED" props (not actual lights, e.g. dashboard/spaceship details): duplicate the same sine-wave node setup into a regular Surface material, plug it into Emissive Color, set Base Color to black, and copy the RGB values from the actual light's Light Color property into a Vector Parameter on the material so the prop's emissive glow visually matches its corresponding real light.
+
+**Physical light shaping:** real film lights are large diffused sources (cloth/diffusion panels), not Unreal's default tiny point lights — increase a light's **Source Radius** and **Source Length** to stretch a point light into a tube/area shape for bigger, softer reflections and shadow gradients; Rectangle Lights are preferred for character key lighting specifically because their larger surface area produces naturally softer shadows, equivalent to a softbox/diffusion panel on a real set. Use Alt+Middle-Mouse-drag to offset a light's pivot point away from itself, then switch to Rotate mode to orbit/"sculpt" the light around a character through the camera lens — much faster than physically repositioning a real set light. Rectangle Light **Barn Doors** (lowering Barn Door Angle while extending door length) focus light tightly onto the subject and prevent background light contamination, keeping the character as the brightest element while the background stays hazier/flatter for separation.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Strip a scene to one base light; identify it as your fixed/unchangeable color (often a practical in-world prop light).
+2. Add a 60% background-color light source (separate hue from the base light) to split character from background.
+3. Identify the 30% "neutral" light — usually justified by an actual practical prop in the shot (parent a spotlight to that prop in the Outliner so it moves/interacts naturally).
+4. Add or boost a dedicated light onto the character's face if the face isn't already the brightest/most attention-grabbing area.
+5. Reserve a 10% accent-color light (e.g. flickering) for mood/emotion, keeping the overall palette to exactly three consistent hues; copy/paste Light Color between lights sharing a role.
+6. Add exactly one Exponential Height Fog actor; enable Volumetric Fog on it.
+7. On individual lights, raise Volumetric Scattering Intensity to control how much fog that light illuminates; enable Cast Volumetric Fog for occluded god-rays; narrow Spot Light Outer Cone Angle for a defined visible beam.
+8. Build a flicker Light Function Material: Material Domain → Light Function; Time node → Sine node → Add(1) → Multiply(0.5) → Emissive Color, for a normalized 0–1 oscillation; chain multiple Sine nodes for chaotic flicker; promote the Time multiplier to a "Speed" parameter and add a promoted "Time Offset" parameter for per-instance phase variation; assign the material to a light's Light Function Material slot.
+9. For non-light emissive props matching a real light's flicker: duplicate the sine-wave graph into a Surface material, Base Color black, Emissive Color from the sine chain, copy the corresponding light's RGB Light Color into a Vector Parameter for color match.
+10. Increase a light's Source Radius/Source Length to convert a point light into a soft tube/area source for more realistic reflections; prefer Rectangle Lights for character key lighting (larger surface area = softer shadow falloff).
+11. Alt+Middle-Mouse-drag to offset a light's pivot away from itself, then Rotate to sculpt/orbit the light around the subject through the camera view.
+12. Lower a Rectangle Light's Barn Door Angle and extend barn doors to focus light onto the subject and prevent background spill, preserving foreground/background separation.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+Exponential Height Fog (Volumetric Fog toggle), Point/Spot/Rectangle Light (Volumetric Scattering Intensity, Cast Volumetric Fog, Source Radius, Source Length, Barn Door Angle/Length, Outer Cone Angle), Light Function Material (Material Domain: Light Function, Emissive Color output only), Material Editor nodes: Sine, Time, Add, Multiply, Saturate, Debug Scalar Values, Vector Parameter, parameter promotion (right-click an input → Promote to Parameter), Sequencer (keyframing location/rotation for animated lights, auto-keyframe), Outliner parenting (light to a prop for interactive practical lighting), Alt+Middle-Mouse pivot offset + Rotate mode for light sculpting.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate — no Blueprint scripting, but combines several systems (fog, light functions, material parameters, light shaping) that require some prior UE lighting familiarity to apply confidently.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (mentions a "most recent version of Unreal" color-palette picker feature).
 
 ### Tags
-[PENDING EXTRACTION]
+"lighting", "volumetrics", "fog", "materials", "shaders", "cinematics", "intermediate"
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `advanced-volumetric-fog-secrets-in-unreal-engine-57-full-course.md` — shares Exponential Height Fog / Volumetric Scattering territory in much greater technical depth
+- `bake-lighting-faster-with-gpu-lightmass---unreal-engine-426.md` — shares general cinematic lighting setup philosophy
