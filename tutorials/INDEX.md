@@ -2262,8 +2262,8 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **URL:** https://www.youtube.com/watch?v=Fp3P0tSnY-Y
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
 - **UE Version:** 5.4
-- **Tags:** `#mocap` `#metahuman` `#metahuman-animator` `#move-one` `#move-ai` `#beginner-tutorial` `#animation-cleanup` `#performance-capture` `#elevenlabs` `#movie-render-queue`
-- **Summary:** This is Charlie Driscoll's flagship 2-hour step-by-step tutorial covering the entire budget performance-capture filmmaking workflow in Unreal Engine 5.4. It walks through every stage: building or buyi
+- **Tags:** "metahuman", "mocap", "animation", "rigging", "control-rig", "lighting", "volumetrics", "fog", "cinematics", "camera", "sequencer", "advanced"
+- **Summary:** Full budget performance-capture pipeline in UE 5.4: DIY mocap helmet + simultaneous MetaHuman Animator face capture and Move One single-iPhone markerless body capture (synced via a clap+mouth-pop slate), retargeted to a MetaHuman, cleaned up with Butterworth curve filtering + manual foot-plant/hand-pose fixes (reusable Pose Library), staged with Megascans environment art, lit with flickering Light Function fire materials + volumetric fog, shot with focus-pull-rig camera tracking (invisible sphere attached to the head bone), voice-converted via ElevenLabs, and exported as a UHD image sequence to Premiere for final edit/sound.
 - **File:** tutorials/cinematic-motion-capture-with-move-one-and-metahuman-animator---unreal-engine-54.md
 
 

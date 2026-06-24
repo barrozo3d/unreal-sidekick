@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=Fp3P0tSnY-Y
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.4"
+tags: ["metahuman", "mocap", "animation", "rigging", "control-rig", "lighting", "volumetrics", "fog", "cinematics", "camera", "sequencer", "advanced"]
+extraction_status: complete
 frames_dir: tutorials/frames/cinematic-motion-capture-with-move-one-and-metahuman-animator---unreal-engine-54/
 frame_count: 0
 ---
@@ -32,27 +32,44 @@ frame_count: 0
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+A complete budget end-to-end performance-capture short film pipeline in UE 5.4: simultaneous face capture (MetaHuman Animator, iPhone 11+) and single-camera markerless body capture (Move One app), combined with a DIY mocap helmet (~$30 skate helmet + GoPro mounts + counterweight), then retargeted, cleaned up (Butterworth filtering, manual foot/hand pose fixing), staged with Quixel Megascans environment art, lit, shot with focus-tracked cameras, voice-converted via ElevenLabs, and exported to Premiere for final edit/sound.
 
 ### Summary
-[PENDING EXTRACTION]
+**Why this setup:** professional head-rig + bodysuit solutions (Xsens, Rokoko, Move AI multi-camera) cost $2,000–$7,500+/year; Move One is a $15/month single-iPhone markerless body+hand tracker (60fps, 1080p, 60-second takes, ~5x5m capture area) paired with MetaHuman Animator (free, uses an iPhone's TrueDepth selfie camera for AAA facial capture) for a near-free alternative with usable, if jittery/imperfect, results.
+
+**Hardware/capture:** DIY mocap helmet built from a $30 skateboard helmet + GoPro mount + ~1kg zip-tied counterweight, holding the face-capture iPhone via GoPro arms (a $300 Rokoko head rig is the off-the-shelf alternative). Body capture: a second Apple device (iPad/iPhone) runs Move One, placed ~0.5m up and dead-level with the floor, ~3m² capture area; print/tape script pages around the space for lines and eyeline reference. Recording protocol: Live Link Face app set to MetaHuman Animator preset, 60fps, High quality, Depth Preview on, phone positioned close to the face with no black depth-dropout spots; at the start of every take, perform a neutral-face/gaze pose, a teeth-together pose (for jaw calibration), then a synchronized clap+mouth-pop as a visual slate to align face and body recordings afterward (face and body are recorded on two separate, unsynced devices). Move One take limit is 60 seconds; upload to process in the cloud, then download via Share → FBX → a generated code entered into the Move Chrome extension.
+
+**Unreal project setup (5.4):** enable Movie Render Queue and MetaHuman plugins; Project Settings → enable Support Hardware Ray Tracing + Use Hardware Ray Tracing When Enabled, disable Auto Exposure; build a MetaHuman via Quixel Bridge → MetaHuman Creator (custom skin/hair/beard with groom physics). Import the Move One FBX (leave Skeleton blank, Import Animations checked) to auto-generate its own skeleton, then right-click → Retarget Animation → target the MetaHuman's medium/underweight body skeletal mesh → Export Animations.
+
+**Face capture pipeline:** copy Live Link Face takes from iPhone to PC via iTunes File Sharing. In Unreal: create a MetaHuman Animator Capture Source (Live Link Archives, pointed at the synced takes folder) → Capture Manager → Add to Queue/Import All. Create a MetaHuman Identity from the footage (Create Component → From Footage), mark the Neutral Face frame and add a Teeth Pose frame, run Identity Solve → Mesh to MetaHuman (select a body type, Skeletal Mesh Only) → Prepare for Performance. Create a MetaHuman Performance referencing that Identity + take; disable Head Movement Mode (so head/neck motion comes from the Move One body capture instead of MetaHuman Animator) and set the processing start frame to the clap/mouth-pop slate frame for sync; Process (two passes) then Export Animations.
+
+**Assembly in Sequencer:** parent the MetaHuman to a plain Actor (more stable than animating the MetaHuman directly) and add that Actor to a new Level Sequence; add the body animation track, then the face animation track aligned to the same slate frame; set the MetaHuman's Force LOD to 0 (highest) to avoid a "headless" bug at distance (restart the project if this glitch occurs — a recurring workaround throughout the tutorial). Add Audio: re-record/export the take's audio, run it through ElevenLabs Speech-to-Speech voice conversion for a different character voice, import the result and align to the clap-slate frame.
+
+**Environment/lighting:** Quixel Megascans (Limestone Quarry collection) for ground/cliff/rock static meshes (Nanite enabled) scattered/scaled around the character, with 3D ground pieces specifically placed to occlude/hide foot-sliding in wide shots. Exponential Height Fog with Volumetric Fog enabled so point lights can light the atmosphere; a 3-point setup of two warm "fire" point lights (paired with free marketplace Niagara fire/ember VFX, Allow Scalability checked before scaling, Distortion unchecked to avoid visual artifacts) plus a cooler Moonlight spotlight behind the character for cinematic rim/edge separation. A documented MetaHuman+fog eye-reflection bug fix: on the face's Eye Occlusion material instance's parent material, copy Emissive Color into Base Color, set Opacity-like value to 0.25, Shading Model to Default Lit.
+
+**Cameras:** Cine Camera Actors set to 16:9 DSLR sensor, 2.39 crop for a cinematic look; manual focus pulling via a hidden tracking target — attach an invisible small Sphere to the MetaHuman's head bone (Attach Track in Sequencer) and set the camera's Focus Method to Track, targeting that sphere (selecting the MetaHuman actor directly for focus tracking didn't work reliably). Multiple lens lengths used per shot for variety/intent (16mm wide establishing shot with a small dolly move; 50–85mm closer/telephoto shots that exaggerate character lean-in motion; 24mm for an intimate, slightly exaggerated close-up). Camera moves and head-angle corrections both hand-keyframed shot-by-shot in the Transform track rather than auto-tracked, deliberately avoided to prevent a "robotic" feel.
+
+**Animation cleanup:** Bake the Sequencer body track to Control Rig first. In the Curve Editor, apply a Fourier Transform filter (Low Pass, Butterworth type) to the Body control curve (~0.12–0.13 cutoff) and separately to Head, then Arms/Hands (more aggressive, ~double strength), then Clavicles/Shoulders, then Legs/Feet — smoothing Move One's characteristic jitter at the cost of some subtle motion detail (an explicit quality/stability trade-off). Manual foot-plant fixing: locate the IK foot control's keyframes around a foot-plant, delete the in-between keys, then re-key a stable hold position to stop ground sliding. Hand-pose cleanup workflow: build a small Pose Library in a throwaway Level Sequence (select all finger/metacarpal controllers, keyframe, Create Pose) for a few reusable poses (e.g. "Neutral," "Pointing"), then apply an Additive Layer track on the MetaHuman Control Rig in the main sequence and paste/key those saved poses over glitchy hand frames — a reusable, time-saving cleanup library across projects. Eyeline correction: manually re-key the Head control rotation wherever gaze drifts off-camera.
+
+**Finishing:** assemble shot order via the Camera Cuts track (cut on character movement/look-direction changes); add flickering "fire" Light Function Materials to the point lights (Time → Multiply by a "Flicker Factor" scalar parameter → Sine → Fraction → Add a "Lowest Brightness" scalar parameter, so flicker amplitude and floor brightness are both tunable, avoiding the harsher fully-dark default look) — Material Domain set to Light Function for these. Add a Post Process Volume (Bloom + exposure) for final polish. Export via Movie Render Queue as a UHD (3840×2160) JPEG image sequence rather than a video file; import the sequence into Premiere (Interpret Footage → 24fps to match UE's project frame rate), edit, add the ElevenLabs voice track (with studio reverb/decay), ambient wind/fire/music/wolf SFX, footstep Foley (one recorded track duplicated/cut to match footfalls, nested for shared reverb), and matching impact-sound bookends at the start/end.
 
 ### Key Steps
-[PENDING EXTRACTION]
+See Summary — this is a full linear production pipeline (capture hardware → simultaneous face/body recording → UE project setup → MetaHuman Identity/Performance → retargeting → Sequencer assembly → environment/lighting → camera focus-tracking rig → animation cleanup (filtering, foot/hand fixes) → final lighting/Light Function flicker → shot assembly → Movie Render Queue export → Premiere edit/sound) rather than an independent step list.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+MetaHuman Animator (Capture Source, Metahuman Identity — From Footage, Neutral/Teeth pose calibration, Identity Solve, Mesh to MetaHuman, Prepare for Performance, MetaHuman Performance — Head Movement Mode disabled, Process/Export), Quixel Bridge/MetaHuman Creator, Quixel Megascans (Nanite static meshes), Retarget Animation tool, Sequencer (Actor parenting pattern, Attach Track for the focus-pull sphere, Camera Cuts track, Additive Layer on Control Rig, Bake to Control Rig), Cine Camera (Sensor size/crop, Focus Method: Track, Draw Debug Focus Plane), Curve Editor (Fourier Transform filter, Low Pass, Butterworth), Pose Library (Create Pose workflow), Exponential Height Fog (Volumetric Fog), Niagara fire/ember VFX (Allow Scalability, Distortion toggle), Light Function Material Domain (Time, Sine, Fraction, scalar parameters for flicker factor/lowest brightness), Post Process Volume (Bloom), Movie Render Queue (UHD JPEG image sequence export), Project Settings (Hardware Ray Tracing, Auto Exposure off, Startup Map). External tools: Move One (iPhone/iPad markerless body+hand mocap), Live Link Face, iTunes (file transfer workaround), ElevenLabs (Speech-to-Speech voice conversion), Adobe Premiere (image-sequence import, sound design).
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced — a full production pipeline spanning hardware, multiple capture apps, MetaHuman Animator, retargeting, manual animation cleanup, lighting, and editorial; long-form but each stage is individually approachable for a beginner willing to follow along closely (explicitly billed as a "Beginner Tutorial" despite the length and scope).
 
 ### UE Version
-[PENDING EXTRACTION]
+5.4 (5.4.4 specifically used; required for the animation retargeter).
 
 ### Tags
-[PENDING EXTRACTION]
+"metahuman", "mocap", "animation", "rigging", "control-rig", "lighting", "volumetrics", "fog", "cinematics", "camera", "sequencer", "advanced"
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `budget-mocap-tutorial---quickmagicai-and-metahuman-animator-androidframe-mancer-.md` and `cheap-ai-mocap-that-actually-works---quickmagicai-chaos-destruction-and-metahuma.md` — share budget-mocap-paired-with-MetaHuman-Animator territory, likely overlapping techniques with a different body-capture tool (QuickMagic AI vs. Move One)
+- `baking-animation-in-ue5-control-rig-to-animation-sequence-back.md` — shares Control Rig baking and Sequencer animation workflow
