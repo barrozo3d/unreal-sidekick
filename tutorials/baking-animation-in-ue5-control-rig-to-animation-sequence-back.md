@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=mDEliLixziU
 author: Unreal Engine
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.x"
+tags: ["animation", "rigging", "control-rig", "sequencer", "intermediate"]
+extraction_status: complete
 frames_dir: tutorials/frames/baking-animation-in-ue5-control-rig-to-animation-sequence-back/
 frame_count: 4
 ---
@@ -33,27 +33,32 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Converting freely between a live, editable Control Rig and a pre-baked Animation Sequence on the same character in Sequencer — "Bake Animation Sequence" (rig → clip) and "Bake to Control Rig" (clip → rig, via the rig's backward/reverse solve), so animators can pick whichever representation suits the task at hand.
 
 ### Summary
-[PENDING EXTRACTION]
+Explains the two main ways animation data lives in a UE5 production: a **Control Rig** sub-sequence (live, keyframed control curves, fully editable, but heavier/animation-mode-only) versus a **baked Animation Sequence** track on the Skeletal Mesh (a lightweight pre-made clip usable in Blueprints, other shots, etc., but not directly re-editable as rig controls). Demonstrates editing a live Control Rig (adjusting a body control's Z-location curve in the Sequencer Curve Editor for a bouncier run, scaling keys with Ctrl+T), then **baking it to an Animation Sequence**: right-click the character's Skeletal Mesh track (not the Control Rig track) → Bake Animation Sequence → choose a save path/name → Ctrl+S immediately (the new asset is unsaved/temporary until then). That Animation Sequence can then be dragged onto any character's Animation Track in any other sequence as a reusable clip. Demonstrates the reverse: right-click a character driven by an Animation Sequence → Bake to Control Rig → pick the target Control Rig asset → Unreal performs a **backward/reverse solve**, computing the rig control values that reproduce the baked clip's motion, turning it back into a fully editable live rig. Notes a common reverse-solve artifact (IK/FK mismatch causing broken-looking arms) and the fix: select the affected IK control(s) (e.g. left/right arm IK solve), find the broken frame's value in the Curve Editor, and delete all but one keyframe so the IK switch is held constant at the correct value across the whole clip instead of flipping per frame.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Identify which representation a character is currently using in Sequencer: a **Baked Animation** sub-track (Animation Sequence asset on the Skeletal Mesh track) vs. a **Control Rig** sub-track (live rig data) — mute one, unmute the other to compare; double-click into the Control Rig sub-sequence and select the rig asset to enter Animation Mode and see/edit individual control curves in the Sequencer Curve Editor.
+2. **Editing a live rig:** select a control (e.g. Body), find its relevant channel (e.g. Location Z for an up/down bounce), select keys in the Curve Editor and scale with Ctrl+T (or drag values) to adjust the motion; playback updates in real time.
+3. **Bake rig → Animation Sequence:** in Sequencer, right-click the character's **Skeletal Mesh track** (not the Control Rig track itself) → Bake Animation Sequence → choose/create a destination folder and name (author's convention: `AS_<CharacterName>_<Action>_V<N>`, e.g. `AS_beta_run_V1`) → accept default bake settings → OK. The resulting asset is temporary/unsaved (shown with a star icon) — save immediately with Ctrl+S to avoid losing it on a crash.
+4. **Reusing the baked clip:** in any Level Sequence, drag the character's Skeletal Mesh into Sequencer, click "+" on its Animation Track, search for and select the saved Animation Sequence — it plays back as a self-contained clip; reposition the character with the Transform track if the original rig's offset placed it away from origin.
+5. **Bake Animation Sequence → Control Rig (reverse):** right-click the character's track (now driven by an Animation Sequence) → Bake to Control Rig → select the target Control Rig asset (a character can have multiple compatible rigs) → Unreal performs a backward/reverse solve to compute rig control keyframes reproducing the clip's motion, replacing the baked track with a live, fully re-editable Control Rig sequence.
+6. **Fixing reverse-solve IK/FK artifacts:** if a converted rig shows visually broken limbs (e.g. odd arm poses) compared to the original, filter the rig's controls for the relevant IK switch (e.g. type "arm mid" to find left/right elbow-area controls), Ctrl-click to multi-select both the left and right "Arm IK Solve" controls, open the Curve Editor, find a frame where the limb looks correct, and delete all OTHER keyframes on that IK-solve channel so it's held at a single constant value for the whole clip instead of toggling per frame (the toggling per frame is what causes the visible breakage).
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+Sequencer (Skeletal Mesh track vs. Control Rig sub-track, Animation Track "+" to add a clip, Transform track), Control Rig (Animation Mode, individual rig controls and their curves, IK Solve switch controls), Sequencer Curve Editor (scaling/editing keyframes with Ctrl+T, deleting keyframes to hold a constant value), right-click context actions: **Bake Animation Sequence** (rig → clip, applied to the Skeletal Mesh track) and **Bake to Control Rig** (clip → rig, backward/reverse solve, applied to the animation-sequence-driven track), Developer/personal content folder convention for temp/WIP assets.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate — the bake/un-bake mechanics themselves are simple right-click actions, but understanding when to use a live rig vs. a baked clip, and fixing reverse-solve IK artifacts, requires some animation-pipeline experience.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (Sequencer/Control Rig workflow shown is current UE5; exact minor version not stated).
 
 ### Tags
-[PENDING EXTRACTION]
+"animation", "rigging", "control-rig", "sequencer", "intermediate"
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+None with direct technical overlap yet — likely part of a series with other "ACOM animation sample project" videos by the same presenter (Wade/"Sir Wade"); cross-reference once other entries from that series are extracted.

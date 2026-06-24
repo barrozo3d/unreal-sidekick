@@ -2849,9 +2849,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=mDEliLixziU
 - **Author:** Unreal Engine
-- **UE Version:** UE5
-- **Tags:** animation, control-rig, sequencer, pipeline, intermediate
-- **Summary:** Explains the difference between animating with a live Control Rig (interactive, editable) vs. a baked Animation Sequence (performant, portable) in Sequencer. Covers the bake workflow (Control Rig → Animation Sequence via right-click Bake To Animation Sequence), the reverse (re-link an Animation Sequence back to a Control Rig for editing), and production tradeoffs. Part of the ACOM Animation Sam...
+- **UE Version:** 5.x
+- **Tags:** "animation", "rigging", "control-rig", "sequencer", "intermediate"
+- **Summary:** Converting between a live Control Rig and a baked Animation Sequence on the same character: right-click the Skeletal Mesh track → Bake Animation Sequence (rig → reusable clip, save immediately since the result is temporary), and right-click an Animation-Sequence-driven track → Bake to Control Rig (clip → live rig via backward/reverse solve). Covers a common reverse-solve IK/FK artifact fix (holding an IK Solve control constant by deleting all but one keyframe). Part of the ACOM Animation Sample Project series.
 - **File:** tutorials/baking-animation-in-ue5-control-rig-to-animation-sequence-back.md
 
 
