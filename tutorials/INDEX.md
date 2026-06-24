@@ -1924,8 +1924,8 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **URL:** https://www.youtube.com/watch?v=xbZNHZ-QGyg
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
 - **UE Version:** 5.7
-- **Tags:** `#volumetric` `#fog` `#VDB` `#sparse` `#volume` `#textures` `#heterogeneous` `#volumes` `#exponential` `#height`
-- **Summary:** Dean Yurke covers his complete toolbox for volumetric fog in UE 5.7, motivated by upgrading his sci-fi animatic from a basic block-out to final quality. He walks through each method in sequence — from
+- **Tags:** "vfx", "volumetrics", "fog", "lighting", "rendering", "sequencer", "cinematics", "advanced"
+- **Summary:** Five cinematic volumetric fog methods for large-scale UE5.7 scenes: Exponential Height Fog (with raytraced-shadow CVars and Lumen distance-cutoff fixes), Local Fog Volumes, Volume-domain fog materials, Sparse Volume Textures/VDBs via Heterogeneous Volumes (with MaxTraceDistance CVar for cinematic scale), and animated Fog Cards (Media Texture + Depth Fade). Includes a Sequencer Console Variable Track trick to persist all the required CVars with the shot.
 - **File:** tutorials/advanced-volumetric-fog-secrets-in-unreal-engine-57-full-course.md
 
 
