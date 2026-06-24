@@ -369,9 +369,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=hq1WFFF6iD0
 - **Author:** William Faucher
-- **UE Version:** UE 4.26
-- **Tags:** `#lighting` `#baked-lighting` `#gpu-lightmass` `#lightmap-uv` `#rtx` `#ray-tracing` `#virtual-texturing` `#hdri` `#william-faucher` `#intermediate` `#ue4`
-- **Summary:** GPU Lightmass baking setup â€” requires RTX GPU + ray tracing + virtual texturing. Two UV channels per mesh required (channel 1 = lightmap, no overlapping). Uncheck Compressed Lightmaps in World Settings for smooth gradients (+4Ã— memory). "Bake What You See" mode for fast camera-area-only test bakes. Disable AO in PPV, keep material albedo 0.4+ for good bounce.
+- **UE Version:** 4.26
+- **Tags:** "lighting", "rendering", "post-process", "beginner", "intermediate"
+- **Summary:** GPU Lightmass baking crash course — requires RTX GPU + Ray Tracing + Virtual Texturing enabled, plus the GPU Lightmass plugin. Covers the full troubleshooting checklist for bad bakes: lightmap UV setup (2 non-overlapping UV channels per mesh), Lightmap Resolution, disabling Compressed Light Maps for smooth gradients (4× memory cost), zeroing Ambient Occlusion in the Post Process Volume, HDRI Backdrop/Skylight baking (Static mobility, SLS Specified Cubemap), "Bake What You See" for fast iteration, and the gotcha that very dark material colors starve GI and need temporary brightening before baking.
 - **File:** tutorials/bake-lighting-faster-with-gpu-lightmass---unreal-engine-426.md
 
 

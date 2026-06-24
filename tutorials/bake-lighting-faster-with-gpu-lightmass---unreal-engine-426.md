@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=hq1WFFF6iD0
 author: William Faucher
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "4.26"
+tags: ["lighting", "rendering", "post-process", "beginner", "intermediate"]
+extraction_status: complete
 frames_dir: tutorials/frames/bake-lighting-faster-with-gpu-lightmass---unreal-engine-426/
 frame_count: 10
 ---
@@ -78,27 +78,39 @@ frame_count: 10
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+A from-scratch crash course in baking lighting with GPU Lightmass in UE 4.26 for a simple interior scene, covering every common pitfall (lightmap UVs, resolution, compression, AO, skylight/HDRI baking) that produces splotchy/wrong-looking bakes.
 
 ### Summary
-[PENDING EXTRACTION]
+Sets up GPU Lightmass requirements (RTX-capable GPU, Ray Tracing + Virtual Texturing enabled in Project Settings, GPU Lightmass plugin enabled) and a minimal test interior (Unreal starter-content boxy room, a stationary Directional Light, a Post Process Volume with Infinite Extent enabled and auto-exposure disabled) using `r.RayTracing.ForceAllRayTracingEffects 0` to disable viewport ray-tracing effects during baking (per Epic's own recommendation, despite ray tracing being a baking prerequisite). Explains the GPU Lightmass window settings (Radiance Caching + First Bounce Ray Guiding recommended on) and walks through fixing a sequence of common bad-bake symptoms: splotchy/smudgy results fixed via Lightmap Resolution (Overridden Light Map Res, scales bake time with quality); a "stuck in slow mode" UI bug fixed via Disable Real Time Override; dark/harsh edges from default Ambient Occlusion fixed by zeroing AO Intensity in the Post Process Volume; harsh/non-smooth gradients fixed by disabling Compressed Light Maps in World Settings (Lightmap Settings) at the cost of 4× memory/disk size; non-destructive Indirect Lighting Intensity tuning in the Post Process Volume (rebake-free); HDRI/Skylight baking via an HDRI Backdrop actor with its auto-generated Skylight component set to Static (not Stationary — author hit issues with Stationary) and Source Type: SLS Specified Cubemap matching the backdrop's HDRI; the Bake What You See mode in the GPU Lightmass window (vs. Full Bake) for fast iteration baking only the current camera frustum; and a bonus material-brightness gotcha — very dark material base colors (e.g. 0.2) starve the GI solver and produce splotchy/artifacted bounce light, so the fix is to temporarily brighten the material before baking, then darken it back afterward (material color changes don't require a rebake, only lighting changes do).
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Prerequisites:** RTX-capable GPU; Project Settings → enable Ray Tracing; Project Settings → search "virtual" → enable Virtual Texture Support and Virtual Texture Lightmaps; Plugins → search "GPU" → enable GPU Lightmass → restart editor.
+2. **Scene setup:** add a Post Process Volume, enable Infinite Extent (Unbound); set Exposure Min/Max both to 1 to disable auto-exposure; console command `r.RayTracing.ForceAllRayTracingEffects 0` to disable viewport ray-traced effects while baking (Epic's documented recommendation, separate from needing Ray Tracing enabled at the project level).
+3. Place a Directional Light, set Mobility to **Stationary** (not Movable — Movable never bakes).
+4. Open Build → (dropdown arrow) → GPU Lightmass window; enable Radiance Caching and First Bounce Ray Guiding; click Build Lighting (Ctrl+R toggles slow/fast preview mode in the viewport during the bake).
+5. **Lightmap UVs (critical):** every static mesh needs a second UV channel (channel 1) dedicated to light baking, with NO overlapping UV shells (overlap causes wrong shadowing artifacts); verify/set this in the Static Mesh Editor's UV tab and confirm Build Settings → Destination Lightmap Index matches the UV channel actually holding the lightmap UVs.
+6. **Lightmap Resolution:** select meshes → Details → search "res" → raise Overridden Light Map Res (e.g. to 1024+) to fix splotchy/smudgy bakes; higher = slower bake, better quality.
+7. If the bake UI gets stuck in slow/real-time mode: GPU Lightmass window dropdown arrow → Disable Real Time Override.
+8. **Ambient Occlusion:** Post Process Volume → search "ambient occlusion" → set Intensity to 0 if dark blotchy edges/corners appear (AO is on by default and often too strong for baked-lighting workflows).
+9. **Indirect lighting intensity** (Post Process Volume → search "indirect"): non-destructive post-bake brightness control for all baked indirect/bounce light — 0 disables it entirely, no rebake needed to retune.
+10. **Lightmap compression:** Window → World Settings → Lightmap Settings → uncheck Compressed Light Maps to eliminate harsh/splotchy gradient banding; trade-off is ~4× larger lightmap memory/disk footprint.
+11. **Skylight/HDRI baking:** add an HDRI Backdrop actor (enable its plugin if not visible under Lights); on its auto-added Skylight component set Mobility to **Static** (Stationary caused issues for the author) and Source Type to SLS Specified Cubemap, matching the backdrop's own HDRI asset; Build Lighting.
+12. **Bake What You See:** in the GPU Lightmass window, switch from Full Bake to "Bake What You See" to bake only the current camera frustum for fast iteration; remember to hit Save then Stop when satisfied, and switch back to Full Bake before the final full-level bake.
+13. **Material brightness gotcha:** materials with very dark/low base-color values (e.g. 0.2) starve global illumination and cause splotchy/banding artifacts in bounce lighting. Fix: temporarily raise the material's brightness, rebake, then darken the material color back down afterward — changing a material's color post-bake does NOT require re-baking lighting, only lighting/light-intensity changes do.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+GPU Lightmass (window: Radiance Caching, First Bounce Ray Guiding, Full Bake vs. Bake What You See modes), Project Settings (Ray Tracing, Virtual Texture Support, Virtual Texture Lightmaps), Plugins (GPU Lightmass), Post Process Volume (Infinite Extent/Unbound, Exposure Min/Max, Ambient Occlusion Intensity, Indirect Lighting Intensity), Static Mesh Editor (UV channel 0 vs. 1, Destination Lightmap Index in Build Settings), Light Mobility (Static/Stationary/Movable), World Settings → Lightmap Settings (Compressed Light Maps), HDRI Backdrop actor + Skylight component (Mobility, Source Type: SLS Specified Cubemap). Console: `r.RayTracing.ForceAllRayTracingEffects 0`.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate — each individual fix is simple, but diagnosing which of several possible causes (resolution, compression, AO, UV overlap, material darkness) is responsible for a given bad-bake symptom takes real troubleshooting experience.
 
 ### UE Version
-[PENDING EXTRACTION]
+4.26 (GPU Lightmass requirements — RTX GPU, Ray Tracing, Virtual Texturing — are explicitly stated "as of 4.26").
 
 ### Tags
-[PENDING EXTRACTION]
+"lighting", "rendering", "post-process", "beginner", "intermediate"
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+None with direct technical overlap yet — cross-reference with other Unreal lighting/GI tutorials (Lumen, baked lighting workflows) once extracted, since this covers the pre-Lumen baked-lighting alternative.
