@@ -1332,10 +1332,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=bsy4xZvhOqs
 - **Author:** Polygonflow Dash
-- **Plugin Version:** dash-1.9
-- **UE Version:** UE 5.x
-- **Tags:** `#dash-1.9` `#asset-management` `#content-library` `#polyhaven` `#ai-tagging` `#collections` `#fab` `#megascans` `#ies-lights` `#beginner`
-- **Summary:** Comprehensive Dash Content Browser guide by TomÃ¡Å¡ â€” Poly Haven (2000 assets + auto-PBR), Fab tab, Quixel Bridge/Megascans Atlas tab (standalone Bridge required as of March 2025), IES library, Project Library AI tagging with Batch Edit, cross-project access, Unified View with Boolean search operators, and Collections system (personal + team-shared with notifications).
+- **UE Version:** Not specified
+- **Tags:** "pipeline", "automation", "beginner"
+- **Summary:** Feature tour of Dash Content Browser, a free third-party UE5 asset management plugin: Poly Haven (2000 assets + auto-built PBR materials on drop), Fab tab, Quixel Bridge/Megascans Atlas integration (standalone Bridge app required as of March 2025), IES light library, Project Library with AI-driven asset auto-tagging (+ manual Batch Edit) for cross-project searchable assets, Unified View with `+`/`-` search operators, and a shareable team Collections system.
 - **File:** tutorials/best-free-unreal-engine-5-asset-management-plugin-in-2025.md
 
 

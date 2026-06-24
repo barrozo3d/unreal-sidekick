@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=bsy4xZvhOqs
 author: Polygonflow Dash
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "Not specified"
+tags: ["pipeline", "automation", "beginner"]
+extraction_status: complete
 frames_dir: tutorials/frames/best-free-unreal-engine-5-asset-management-plugin-in-2025/
 frame_count: 9
 ---
@@ -73,27 +73,27 @@ frame_count: 9
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+A plugin showcase (not a from-scratch build) for Dash Content Browser — a free third-party UE5 asset management plugin that AI-tags assets for cross-project search, integrates Poly Haven/Fab/Quixel Bridge/IES libraries directly into drag-and-drop browsing, and adds a shareable Collections system.
 
 ### Summary
-[PENDING EXTRACTION]
+Demonstrates Dash Content Browser, the free standalone asset-management component of the larger paid "Dash" world-building plugin. Covers: the Poly Haven Library tab (2000 free meshes/materials/HDRIs integrated for direct drag-and-drop into the scene, with Dash auto-building the PBR material graph — no manual node wiring — and Ctrl+scroll to preview texture resolution options before choosing one); the Fab tab (assets downloaded via the Fab plugin appear automatically, auto-tagged); Quixel Bridge integration (Megascans assets/Atlases from the standalone Bridge app, since Atlases weren't yet available via the Fab plugin as of the recording); the IES Library (browsable real-world light-profile presets); the Project Library tab, where you point Dash at your own asset folders and run an AI "Compute" pass that auto-tags your own project assets by visual content/properties for name-independent search, with manual tag editing/Batch Edit across multiple selected assets and similarity search; a Unified View merging all libraries with `+`/`-` search operators (e.g. `tool -HDRI`, `tool +box`, space required before the operator); and a Collections system (Shift-select + drag to group assets, shareable with a team with change notifications on shared-collection edits). Dash's metadata is stored inside the Unreal project itself, so computed/tagged assets travel with the project and become searchable in any other UE project once any project has computed them. Free forever per the plugin's stated terms; installed/licensed via the Polygonflow website's Dash license manager.
 
 ### Key Steps
-[PENDING EXTRACTION]
+N/A — this is a feature tour/review, not a build tutorial. Quick-reference workflow: install Dash from polygonflow.io → activate free license in the Dash License Manager → open the Dash toolbar icon (top-left) → Content menu → browse Poly Haven/Fab/Quixel/IES tabs or your Project Library tab → for your own assets, point at your folder and run Compute to AI-tag them → drag-drop any asset into the scene → use Unified View with `+`/`-` search operators to filter across all libraries → group assets into shareable Collections via Shift-select + drag.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+Third-party plugin (Dash Content Browser by Polygonflow) — not a native UE5 system. Touches: Fab plugin, Quixel Bridge (standalone app) integration, IES light profiles, PBR material auto-generation on asset drop, project-level metadata storage for cross-project asset reuse.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner — install-and-use plugin walkthrough, no node/Blueprint work required.
 
 ### UE Version
-[PENDING EXTRACTION]
+Not specified (UE5, "as of March 2025" per the Quixel Bridge standalone app availability note).
 
 ### Tags
-[PENDING EXTRACTION]
+"pipeline", "automation", "beginner"
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `centralized-content-browser-for-ue5---free-plugin.md` — likely covers the same or a similar asset-browser plugin category; cross-reference once both are extracted
