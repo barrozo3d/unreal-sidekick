@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=9-kRF6DFfPE
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.0"
+tags: ["compositing", "pipeline", "beginner"]
+extraction_status: complete
 frames_dir: tutorials/frames/ai-real-time-and-surviving-hollywoods-vfx-industry-for-30-years/
 frame_count: 16
 ---
@@ -108,27 +108,27 @@ frame_count: 16
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Not a technical tutorial — a career Q&A/interview with veteran VFX artist Dean Yurke (Star Wars prequels, Avatar, 30-year career) about his path from Softimage/Inferno/Nuke compositing into Unreal Engine virtual production, and career advice for breaking into VFX.
 
 ### Summary
-[PENDING EXTRACTION]
+Yurke recounts his career arc: Softimage/Inferno compositor on Star Wars prequels and Avatar (Nuke) → environment artist work using Blender/3ds Max → building his own indie sci-fi feature, initially baking V-Ray lighting into Nuke via the Nuke-Unreal-Reader live-link node, then realizing it was simpler to do everything natively inside Unreal Engine (starting from UE5.0, having bounced off UE4's "too gaming" reflection-capture workflow). He describes his virtual production pipeline: extracting green-screen plates and placing them on cards in 3D space inside Unreal so lighting can be matched live in-context, keeping plates clean rather than relying on relighting tools. Career advice: specialize to get a first job, generalize (compositing is the universal cross-department skill) to sustain a career; document everything you learn (a running "how I did X" doc); know the whole pipeline so you understand other departments' constraints; and his take on AI in filmmaking — useful for incremental tasks (e.g. DaVinci's Magic Mask) but unreliable for generating anything outside common training-data subject matter, and a concern about losing "real" actors to digital doubles. Also touches on Unreal's animatic-to-final-render workflow advantage: the same Sequencer scene scales from blocking to final fidelity without being recreated department-to-department like traditional Maya-animatic → layout → animation pipelines.
 
 ### Key Steps
-[PENDING EXTRACTION]
+N/A — conversational interview, no step-by-step technique. Key workflow point mentioned: extract a green-screen/chroma-key plate, place it on a card in 3D space inside Unreal Engine, and move scene lights to visually match the plate in real time, instead of using look-matching tools like IBL/Switchlight.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+Mentions: Sequencer (animatic-to-final-render continuity), Nuke Unreal Reader (live link node between Nuke and Unreal, used before switching fully to Unreal), Megascans (asset source), UE4 vs UE5.0 lighting/reflection-capture workflow contrast, DaVinci Resolve Magic Mask (AI rotoscoping, mentioned as the one AI tool he finds genuinely useful). No Blueprint/node-graph technique is demonstrated.
 
 ### Difficulty
-[PENDING EXTRACTION]
+N/A (non-technical career discussion).
 
 ### UE Version
-[PENDING EXTRACTION]
+UE4 (briefly tried, rejected) and UE5.0 (adopted from).
 
 ### Tags
-[PENDING EXTRACTION]
+"compositing", "pipeline", "beginner"
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+None found with direct technical overlap — this is a career/interview entry rather than a technique entry; cross-reference manually with other virtual-production or compositing-pipeline tutorials if added later.

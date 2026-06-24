@@ -1843,9 +1843,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=9-kRF6DFfPE
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
-- **UE Version:** 5.x
-- **Tags:** `#career` `#advice` `#VFX` `#industry` `#Hollywood` `#virtual` `#production` `#compositing` `#AI` `#in`
-- **Summary:** This is a career and industry discussion video, not a technical tutorial. Dean Yurke recounts his journey from Bournemouth University in 1987, through Softimage and Inferno compositing at Pialis Camer
+- **UE Version:** 5.0
+- **Tags:** "compositing", "pipeline", "beginner"
+- **Summary:** Career Q&A (not a technical tutorial): veteran compositor Dean Yurke (Star Wars prequels, Avatar) on moving from Softimage/Inferno/Nuke into Unreal Engine virtual production — extracting green-screen plates onto cards in 3D space inside UE5 and matching scene lighting live in-context instead of using look-matching tools. Career advice: specialize to get hired, generalize (compositing) to sustain a career, document everything you learn, and know the whole pipeline. Skeptical but open take on AI's current usefulness in VFX.
 - **File:** tutorials/ai-real-time-and-surviving-hollywoods-vfx-industry-for-30-years.md
 
 
