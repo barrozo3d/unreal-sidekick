@@ -2071,19 +2071,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=NLVMJX-5ahc
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** UE5
-- **Tags:** `#ai-video` `#kling` `#metahuman` `#mocap` `#overcrowd` `#compositing` `#character-replacement` `#nano-banana` `#quickmagic-ai` `#metahuman-animator` `#advanced` `#ue5` `#youtube`
-- **Summary:** Hybrid UE5 + Kling 01 AI pipeline: mocap-driven MetaHuman placeholder → render (no motion blur) → Kling replaces face/wardrobe via Elements (identity LoRA) + NanoBanana outfit refs. Wide-shot hack: dual-render 18mm+300mm composite. OverCrowd for crowds. Kling Motion Control 2.6 for talking heads.
-- **File:** tutorials/can-ai-replace-metahumans-in-unreal-engine-cinematics.md
-
-
-### Can AI Replace MetaHumans in Unreal Engine Cinematics?
-- **Source:** YouTube
-- **URL:** https://www.youtube.com/watch?v=NLVMJX-5ahc
-- **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** UE5 (MetaHuman Animator, OverCrowd, FAB)
-- **Tags:** ai-video, kling, metahuman, mocap, overcrowd, compositing, character-replacement, nano-banana, quickmagic-ai, metahuman-animator, wardrobe, ue5
-- **Summary:** Charlie Driscoll stress-tests Kling 01 generative video model as a MetaHuman visual replacement tool. Core idea: UE5 handles camera freedom, blocking, environment, and mocap animation — Kling 01 handles character stylization (face + wardrobe). Kling Elements feature creates a character identity from 3–5 reference photos (mini-LoRA). NanoBanana generates consistent front/back outfit reference im...
+- **UE Version:** Not specified
+- **Tags:** "metahuman", "mocap", "animation", "crowds", "intermediate"
+- **Summary:** Stress-test (not a tutorial): UE handles camera/blocking/environment/mocap while Kling01's Elements (character mini-LoRA from reference photos) + outfit references generated in Nano Banana swap face/wardrobe on the rendered footage. Lip-sync and wide shots (Kling "won't reliably swap" a small-in-frame character) are the main failure modes — worked around with a dual 18mm/300mm render composite. Stress-tested on a DMX lighting scene, an Overcrowd-driven crowd, and a two-person sword fight. Verdict: doesn't replace MetaHumans/marketplace assets, reinforces that better source mocap/assets produce better AI-augmented results.
 - **File:** tutorials/can-ai-replace-metahumans-in-unreal-engine-cinematics.md
 
 
