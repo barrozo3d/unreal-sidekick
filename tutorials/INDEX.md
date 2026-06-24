@@ -1299,10 +1299,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=rjTv9jWfY4s
 - **Author:** Polygonflow Dash
-- **Plugin Version:** dash-1.6
-- **UE Version:** UE 5.x
-- **Tags:** `#dash-1.6` `#content-library` `#asset-management` `#cross-project` `#ai-tagging` `#polyhaven` `#beginner`
-- **Summary:** Dash 1.6 cross-project asset access â€” Compute assets in source project once â†’ available in every future UE5 project via Preferences â†’ Search for External Projects. AI tagging optional for property-based search. Original files stay in source project; UE mirrors file structure on use. Recommended: one master asset project or category-specific projects.
+- **UE Version:** Not specified
+- **Tags:** "pipeline", "automation", "beginner"
+- **Summary:** Dash Content Browser's cross-project asset workflow: Compute (+ optional AI tagging) assets once in a source project's Project Library tab, then access them in any other UE5 project via Preferences → Search for External Projects, searchable by keyword and drag-and-drop, no manual copy/migrate. Recommends either one master asset project or several topic-specific ones (city/nature/stylized).
 - **File:** tutorials/centralized-content-browser-for-ue5---free-plugin.md
 
 

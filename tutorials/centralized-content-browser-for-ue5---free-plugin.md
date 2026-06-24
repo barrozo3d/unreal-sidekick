@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=rjTv9jWfY4s
 author: Polygonflow Dash
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "Not specified"
+tags: ["pipeline", "automation", "beginner"]
+extraction_status: complete
 frames_dir: tutorials/frames/centralized-content-browser-for-ue5---free-plugin/
 frame_count: 5
 ---
@@ -53,27 +53,32 @@ frame_count: 5
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Using the free Dash Content Browser plugin's cross-project asset library to avoid re-importing the same 3D assets into every new Unreal project — compute/tag assets once in a "master" project, then drag them into any other project without copying or migrating files.
 
 ### Summary
-[PENDING EXTRACTION]
+Shorter companion video to the general Dash Content Browser overview, focused specifically on the cross-project reuse workflow. In a project containing your core asset library (e.g. a "UE5 Assets" project, or a Quixel/Megascans project), open Dash's Content Browser → Project Library tab, select the folder(s) to make available externally, optionally enable AI tagging (auto-tags assets from thumbnail content, not just filenames), and click Compute — assets then become available in ANY other UE project without manual copy/migrate. In a new project, if the source project doesn't appear automatically in the Content Browser, use Preferences → Search for External Projects to detect it. Once detected, assets are searchable by keyword (not just folder browsing) and drag-and-drop directly into the new scene; the original project's folder structure is mirrored once an asset has been used. Right-click → Asset Details shows size, triangle count, and tags for any asset before using it. Recommends two organizational strategies: one giant "everything" project, or several topic-specific projects (e.g. city assets, nature assets, stylized assets) for more structured searching later.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Install the free Dash Content Browser plugin (polygonflow.io).
+2. In your asset-library project: Dash toolbar → Content Browser → Project Library tab → select the folder(s) to expose → optionally enable AI tagging → click Compute (processes for a few minutes, assets appear as they finish).
+3. In a different/new UE project: open the Dash Content Browser; if the source project isn't listed, go to Preferences → Search for External Projects to detect it.
+4. Search by keyword (e.g. "trees", "rocks") across all detected external projects' computed assets, or browse by mirrored folder structure; drag-and-drop directly into the scene — no manual copy/migrate step.
+5. Right-click any asset → Asset Details for size/triangle-count/tag info before committing to using it.
+6. Organize at the project level: either one master "everything" asset project, or several narrower topic-specific projects (city/nature/stylized, etc.) depending on how much structure you want when searching later.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+Third-party plugin (Dash Content Browser by Polygonflow) — Project Library tab, AI tagging/Compute process, Preferences → Search for External Projects, cross-project mirrored folder structure, Asset Details panel (size, triangle count, tags). Not a native UE5 system.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner — plugin setup and drag-and-drop workflow, no node/Blueprint work.
 
 ### UE Version
-[PENDING EXTRACTION]
+Not specified.
 
 ### Tags
-[PENDING EXTRACTION]
+"pipeline", "automation", "beginner"
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `best-free-unreal-engine-5-asset-management-plugin-in-2025.md` — same plugin (Dash Content Browser) and author, broader feature overview that this video's cross-project workflow is a focused subset of
