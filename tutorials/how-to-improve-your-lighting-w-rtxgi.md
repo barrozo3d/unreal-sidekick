@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=hJohX8T5O-8
 author: William Faucher
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE4"
+tags: [lighting, rtxgi, nvidia, global-illumination, irradiance-probes, ray-tracing, ue4, performance, indirect-lighting]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-improve-your-lighting-w-rtxgi/
 frame_count: 11
 ---
@@ -83,27 +83,56 @@ frame_count: 11
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Nvidia RTXGI plugin for UE4: ray-traced irradiance probe global illumination. Alternative to Lumen for UE4 projects — fully dynamic indirect lighting with no baking, no lightmap UVs, no light leaks, real-time updates, and emissive material GI contribution. Configured via DDGI Volume placed in scene + two console variables.
 
 ### Summary
-[PENDING EXTRACTION]
+21-minute tutorial by William Faucher covering the Nvidia RTX Global Illumination plugin for UE4 (not UE5/Lumen). RTXGI uses ray-traced irradiance probes in a DDGI volume to compute indirect lighting in real time. Offers 2x performance over legacy UE4 ray-traced GI, no baking needed, supports emissive material GI. Caveats: incompatible with Sky Atmosphere (use HDRI backdrop instead); batch rendering in Movie Render Queue breaks between shots. Multiple DDGI volumes can be stacked for higher probe density in specific areas.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Download plugin** — Epic Marketplace → search "Nvidia RTX Global Illumination" → External Link → Nvidia website → download zip; unzip → paste RTX GI folder to: `Program Files/Epic Games/UE4.27/Engine/Plugins/Runtime/Nvidia/`
+2. **Enable plugin** — UE4 → Settings → Plugins → search "RTX" → enable RTX Global Illumination → restart engine
+3. **Add DDGI volume** — Volumes tab → RTX GI DDGI volume → drag into scene
+4. **Scale volume** — scale to encompass entire level, fitting snugly (not too large — probe density decreases with volume size)
+5. **Enable console variables** — open console (backtick `), type:
+   - `r.globalillumination.experimentalplugin 1`
+   - `r.rtxgi.ddgi 1`
+6. **Visualize probes** — select DDGI volume → Details → enable "Visualize Probes" to see probe density
+7. **Set probe count** — default: 8x8x8; increase to 16x16x16 for better accuracy; 32x32x32 heavy on performance (~20fps)
+8. **Light Multiplier** — set to 5-20 for dark interiors where GI is too dim; essential for cave/interior scenes
+9. **Probe Max Ray Distance** — increase (add extra zeros) for very large HDRI backdrops or huge open worlds
+10. **Multiple DDGI volumes** — add additional smaller DDGI volumes in key areas for higher local probe density without destroying scene-wide performance; match light multiplier between volumes
+11. **Fix light leaks** — nudge DDGI volume position, or increase probe count from 8x8x8 to 16x16x16
+12. **Sky atmosphere workaround** — Sky Atmosphere is incompatible with RTXGI; use HDRI Backdrop or Sky Light instead for sky contribution to GI
+13. **Batch rendering workaround** — RTXGI resets between batch render shots in MRQ; render each shot individually (not batched)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **RTX GI DDGI Volume** — core actor; placed in scene; controls all RTXGI settings via Details panel; must encompass entire level
+- **Console variables** — `r.globalillumination.experimentalplugin 1` + `r.rtxgi.ddgi 1`; both required to activate
+- **Probe Count** — DDGI volume setting; default 8x8x8; 16x16x16 good balance; higher count = more accurate but heavier performance
+- **Visualize Probes** — DDGI volume detail toggle; shows probe distribution to verify density
+- **Light Multiplier** — DDGI volume setting; multiplies GI brightness; essential for dark interiors; set 5-20 typical range
+- **Probe Max Ray Distance** — DDGI volume setting; default covers small/medium scenes; increase for large HDRI or open world
+- **Multiple DDGI volumes** — stack smaller volumes in high-priority areas for localized probe density boost; independent light multiplier per volume
+- **Sky Atmosphere incompatibility** — known limitation; Nvidia aware but not yet fixed (at time of video); use HDRI Backdrop instead for sky color contribution to GI
+- **Batch rendering bug** — MRQ batch mode resets RTXGI probes at start of each shot, causing GI to fade in during render; workaround: render shots one at a time
+- **Emissive materials** — contribute to GI just like Lumen (probes capture emissive light)
+- **HDRI backdrop distance** — if HDRI scale is very large, probes can't reach it; fix with Probe Max Ray Distance increase
+- **Light leaks** — fix by: (1) nudging DDGI volume position, (2) increasing probe count
+- **DXR requirement** — needs DXR-capable GPU (GTX 1060 minimum up to RTX 3090)
+- **Performance** — 2x faster than legacy UE4 ray-traced GI; 16x16x16 typically maintains playable frame rates
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate. Installation requires manual file copy. Two console variables required. DDGI volume sizing and light multiplier tuning are the main iterative steps.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE4 (UE4.27 specifically referenced; UE5 users should use Lumen instead)
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, rtxgi, nvidia, global-illumination, irradiance-probes, ray-tracing, ue4, performance, indirect-lighting
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `how-i-use-lumen-in-aaa-projects-unreal-engine-5.md` — UE5 Lumen GI (the modern successor to RTXGI for UE5 users)
+- `lighting-in-unreal-engine-5-for-beginners.md` — foundational UE5 lighting concepts
+- `realistic-and-physical-lighting-in-ue5-the-pbl-workflow.md` — PBL lighting workflow for production-accurate scenes

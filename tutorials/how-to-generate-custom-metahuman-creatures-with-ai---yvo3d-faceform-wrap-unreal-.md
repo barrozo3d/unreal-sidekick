@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=PEObW2odtXI
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5.6"
+tags: [metahuman, ai-pipeline, yvo3d, faceform-wrap, blender, custom-characters, creatures, ai-generation, retopology]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-generate-custom-metahuman-creatures-with-ai---yvo3d-faceform-wrap-unreal-/
 frame_count: 25
 ---
@@ -153,27 +153,88 @@ frame_count: 25
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+AI-generated custom MetaHuman creature HEAD pipeline (Part 1): ChatGPT 4.0 image → YVO3D 3D mesh → Blender (texture extraction + OBJ export) → Faceform Wrap/RAP (retopology to MetaHuman topology via Cartoon Wrapping node) → MetaHuman Creator UE5.6 (conform + texture override + rig). Yields fully rigged creatures with real-time facial capture capability via MetaHuman Animator.
 
 ### Summary
-[PENDING EXTRACTION]
+43-minute tutorial (with community member Zen) showing how to convert AI-generated character images into fully rigged custom MetaHuman creatures in UE5.6, for free or near-free. ChatGPT 4.0 generates the reference portrait image with neutral expression and flat lighting; YVO3D generates a 3D mesh from it (~$2/generation, $10 for 500 credits); Blender exports OBJ + textures; Faceform Wrap retopologizes the mesh to MetaHuman topology using a Cartoon Wrapping node (50-100 point pairs); MetaHuman Creator conforms, blends, applies texture overrides, and creates the full rig. Head and body are done separately (Part 2 covers the body). Results require cleanup around eyes/lips but are usable for creature characters in production.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **ChatGPT 4.0 prompt** — generate character portrait: head + upper shoulders, direct camera, neutral expression, closed mouth, flat neutral lighting; prompt included in tutorial files; alt: use Mage for uncensored/gore characters
+2. **YVO3D mesh generation** — upload image to YVO3D.com; select polygon count (up to 200K; 100K often sufficient for heads); select real 4K textures; ~$10 subscription (500 credits = ~4-5 generations); download GLB
+3. **Blender — texture extraction**:
+   - Import GLB → Shading tab → see 3 textures (base color, metallic/roughness mask, normal)
+   - Select each → Image → Save As as PNG (e.g., DemonD, DemonR, DemonN)
+4. **Blender — OBJ export**:
+   - File → Export → OBJ; scale = 10 (not 1); export
+5. **Faceform Wrap (RAP) — setup**:
+   - Create Load Geometry node 1: MetaHuman HEAD topology OBJ (from tutorial files); rotation -90°
+   - Create Load Geometry node 2: AI demon OBJ; scale ~1.8x to match size
+   - Add Load Image nodes: MetaHuman face texture → node 1; AI diffuse map → node 2
+   - Create Select Point Pairs node → connect both geometries
+6. **Faceform Wrap — point placement**:
+   - Left geometry: X Symmetry ON; Right geometry: No Symmetry
+   - Place 50-100 point pairs; focus on: eye corners, mouth corners, top/bottom lip, jawline, cheekbones, dimples, neck creases, horns/protrusions; keep point counts in sync on both sides
+   - Undo if counts fall out of sync
+7. **Faceform Wrap — Cartoon Wrapping**:
+   - Create Cartoon Wrapping node (not regular Wrapping node — better for AI meshes)
+   - Connect both geometries; compute
+   - Add Brush node (relaxed tool, low strength) → clean up eyelids, horns, bad folds
+   - Accept brush → right-click → Save Output (OBJ) e.g., "demonwrapped"
+8. **Faceform Wrap — texture transfer**:
+   - Transfer Texture node → set resolution 4096x4096
+   - Extrapolate Image node (fills empty UV space)
+   - Right-click → Save Output: diffuse (demonwrappedD), normal (demonwrappedN), roughness (demonwrappedR)
+   - Repeat by swapping the Load Image at top for each texture map
+9. **UE5.6 — import**:
+   - Enable MetaHuman plugins (if missing, enable missing plugins when prompted and restart)
+   - Import wrapped OBJ into Content Browser (set offset rotation = 90°)
+   - Import 3 wrapped texture PNGs
+   - Right-click in Content Browser → Create MetaHuman Character (e.g., "Demon")
+10. **MetaHuman Creator — conform**:
+    - Head tab → Conform → From Template → select imported wrapped mesh → Conform
+    - Blend tab: fix deformations (mouth, nose, eyes) by blending from preset heads
+11. **MetaHuman Creator — body**:
+    - Body tab → Model → enable compatibility mode bodies if not visible: Project Settings → Plugins → MetaHuman Character → Show Compatibility Mode Bodies → restart Creator
+    - Select appropriate body type (e.g., male tall) for armor fitting
+12. **MetaHuman Creator — textures**:
+    - Materials tab → Enable Texture Overrides
+    - Face: Base Color = demonwrappedD; Normal = demonwrappedN
+13. **MetaHuman Creator — rig and assemble**:
+    - Create Full Rig; Download Textures (8K); Assembly tab → Assemble (save first — can crash)
+    - Save and close Creator; Save All
+14. **UE5.6 blueprint — material tweaks**:
+    - Open MetaHuman blueprint → Viewport → double-click face material instance
+    - Increase Normal strength (pop surface detail); adjust roughness (lower = wet/slimy); swap eye materials from third-party eye packs
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **ChatGPT 4.0** — image generation; prompt parameters: head/shoulders only, neutral expression, closed mouth, flat lighting, minimal shadow/specular; alternative: Mage (uncensored, harder to control)
+- **YVO3D** — AI image-to-3D; $10/500 credits; poly count slider (100K-200K); real 4K textures; generates GLB; head-only quality significantly better than full-body generations
+- **Blender** — GLB import; Shading tab for texture node inspection; Image → Save As for PNG export; OBJ export with scale=10
+- **Faceform Wrap (RAP)** — node graph: Load Geometry (×2), Load Image (×2), Select Point Pairs, Cartoon Wrapping, Brush, Transfer Texture, Extrapolate Image; 30-day free trial; Indie: $570
+- **Cartoon Wrapping node** — preferred over regular Wrapping node for AI-generated meshes; handles less-clean topology and non-standard creature features better
+- **Select Point Pairs** — X Symmetry on reference (MetaHuman) side; No Symmetry on AI mesh side; 50-100 pairs; point count must stay in sync between left and right geometry
+- **Brush node (Relax)** — set strength very low; clean up eyelid folds, horn areas, dense overlapping geometry; Accept locks changes
+- **Transfer Texture + Extrapolate Image** — re-projects source textures onto wrapped MetaHuman UV space; 4096x4096; repeat once per texture map
+- **MetaHuman Creator — From Template conform** — imports custom OBJ as head; import offset rotation must be 90°; Blend tab used for post-conform cleanup
+- **Compatibility Mode Bodies** — older MetaHuman body types; enable via Project Settings → Plugins → MetaHuman Character → Show Compatibility Mode Bodies; must restart Creator
+- **Texture Overrides** — Materials tab in Creator; Face: 2 slots minimum (base color + normal); apply wrapped textures
+- **MetaHuman Animator** — subsequent step not covered in detail here; all resulting characters support real-time facial animation capture via any camera
+- **Material Instance tweaks** — Normal Strength slider (enhances baked detail under direct lighting); Roughness (lower = wet/slimy, useful for robots, creatures); Eye Material slot (swap from third-party packs)
+- **Note**: light baked into AI textures appears as "heavy makeup" under direct light — use flat-lighting prompts and adjust saturation/contrast in material
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate. Main cost: $10 YVO3D; Faceform Wrap 30-day free trial covers learning. Wrap point placement takes 10-20 min and becomes fast with practice. No Maya required for head-only pipeline.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5.6
 
 ### Tags
-[PENDING EXTRACTION]
+metahuman, ai-pipeline, yvo3d, faceform-wrap, blender, custom-characters, creatures, ai-generation, retopology
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `how-to-generate-custom-metahuman-bodies-with-ai---yvo3d-faceform-wrap-2dnax---un.md` — Part 2 of same series (AI body pipeline + Maya/2DNAX rig fix)
+- `how-to-create-grooms-for-metahumans-unreal-fest-bali-2025.md` — hair groom pipeline for custom MetaHumans
+- `how-i-use-moveai-and-metahumans-to-achieve-aaa-character-animation-in-unreal-eng.md` — performance capture pipeline for these characters with MetaHuman Animator
+- `how-to-create-massive-crowds-and-battle-scenes-in-unreal-engine-5---niagara-and-.md` — OverCrowd integration uses custom MetaHumans for crowd characters
