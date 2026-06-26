@@ -3,9 +3,9 @@ title: Control Rig in Unreal Engine
 source: Epic Documentation
 url: https://dev.epicgames.com/documentation/en-us/unreal-engine/control-rig-in-unreal-engine
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.8"
+tags: [control-rig, animation, rigging, ik, fbik, sequencer, modular-rig, spline-rig, backwards-solve, construction-event, documentation, advanced]
+extraction_status: complete
 page_count: 93
 ---
 
@@ -491,24 +491,49 @@ Level Editor Modes in Unreal Engine | Unreal Engine 5.8 Documentation | Epic Dev
 ## Structured Notes
 
 ### Core Topics
-[PENDING EXTRACTION]
+Comprehensive 93-page Epic Documentation reference for Control Rig in UE 5.8: create/animate rigs in-engine; Controls/Bones/Nulls; Forwards/Backwards/Construction solve directions; Full-Body IK (FBIK); Spline Rigging; Modular Control Rigs (experimental); FK Control Rig; Constraints; Space Switching; Animation Blueprints integration.
 
 ### Summary
-[PENDING EXTRACTION]
+93-page crawled Epic Documentation covering all aspects of Control Rig in Unreal Engine 5.8. Primary reference for in-engine rigging and animation. Key topics: (1) What is Control Rig — animate characters without external DCC; create in Content Browser (RMB skeletal mesh > Create Control Rig); (2) Control Rig Editor — Rig Hierarchy panel (Controls/Bones/Nulls), Rig Graph (node-based logic), viewport, Execution Stack, Curve Container, My Blueprint; (3) Controls (main interactable elements; types: Animation Control, Animation Channel, Proxy Control; value types: Bool/Float/Integer/Vector2D/Position/Scale/Rotator/Euler Transform); Bones (create custom in-engine for IK end effectors); Nulls (grouping/organization, like Maya Groups); (4) Transform types — Initial (default pose), Current (animated value), Offset (zero-position offset for Controls); (5) Solve Directions — Forwards (bones driven by controls), Backwards (controls driven from baked animation), Construction Event (init logic), Backwards+Forwards (debug baking); Backwards Solve used for "Bake To Control Rig" workflow; (6) Full-Body IK — FBIK node (requires FullBodyIK plugin); Root bone, Effectors (bone + transform), Bone Settings (Rotation/Position Stiffness, Preferred Angles, Limits per axis); Mass Multiplier, Iterations, Allow Stretch, Root Behavior; (7) Spline Rigging — Spline From Points node (Hermite/BSpline); Fit Chain on Spline Curve; for tails, tentacles, spines; (8) Modular Control Rigs (experimental) — combine pre-built Modules (Spine, Neck, Leg, Foot, Shoulder, Arm, Finger) via Schematic Overlay drag-drop; Connectors auto-resolve to Sockets; mirror modules; requires Control Rig Modules plugin; (9) Key shortcuts: S key = set keyframe in Sequencer; Shift+P = unparent; Alt+Shift+click > Add Controls For Selected; F2 = rename.
 
 ### Key Concepts & Systems
-[PENDING EXTRACTION]
+- **Control Rig Asset**: RMB skeletal mesh in CB > Create Control Rig → creates _CtrlRig asset; or CB > Animation > Control Rig
+- **Rig Hierarchy panel**: create Controls/Bones/Nulls (RMB > New); drag to reparent; Shift+P to unparent; F2 rename; Mirror command for symmetrical controls
+- **Rig Graph**: node-based; drag from Rig Hierarchy to get/set elements; Forwards Solve node = main entry; collapse to Function for reuse
+- **Controls**: shape/color customizable; Control Shape Library; animatable in Sequencer; types: FK (default), Channel, Proxy; value types: Euler Transform (default), Float, Bool, Rotator, Position, Scale, Vector2D; transform limits (Min/Max per axis)
+- **Transform types**: Initial (Setup Event editable), Current (animated), Offset (zero-position/freeze transforms equivalent)
+- **Forwards Solve**: controls→bones; default and primary solve direction
+- **Backwards Solve**: bones→controls; used for "Bake To Control Rig"; requires Backwards Solve node in Rig Graph; in sequencer: RMB character track > Bake To Control Rig
+- **Construction Event**: runs once at init; spawns dynamic elements (Spawn Control/Bone/Null nodes); set initial positions; enable Construction Event preview to edit initial poses
+- **FK Control Rig**: built-in; works on any FBX skeletal mesh without custom Control Rig; edit joint rotations only; add as Layered track in sequencer
+- **FBIK (Full-Body IK)**: requires FullBodyIK plugin; Hierarchy > Full Body IK node; Root bone + Effectors array (bone + transform + Position/Rotation Alpha + Strength Alpha); Bone Settings (Stiffness, Preferred Angles, Limits per axis: Free/Limited/Locked); Mass Multiplier 0-5; Iterations; Allow Stretch; Root Behavior: PrePull/PinToInput/Free
+- **Spline Rigging**: Spline From Points node (Hermite = passes through all points; BSpline = smoother, passes through endpoints only; min 4 points); Fit Chain on Spline Curve; Alignment: Stretched/Front; Draw Spline for preview
+- **Modular Control Rigs** (experimental): requires Control Rig Modules plugin; Modular Rig asset (CB > Animation > Control Rig > ModularRig); drag Modules from Module Assets panel onto Schematic Overlay sockets; Connectors auto-resolve; mirror modules in Module Hierarchy
+- **Animation in Sequencer**: drag Control Rig to viewport → Sequencer opens; expand track > find control; select control + S key = set keyframe; scrub to pose + S = second keyframe
+- **Bake To Control Rig**: RMB character track in Sequencer > Bake To Control Rig > select Control Rig asset; requires Backwards Solve in rig; options: Record in World Space, Warm Up Frames, Reduce Keys, Tolerance
+- **Space Switching**: dynamically reparent controls at keyframe time; pre-define Available Spaces on control in Details
+- **Control Rig Component**: use Control Rig in Blueprints
 
 ### UE Systems / Settings / Code
-[PENDING EXTRACTION]
+- Editor: Control Rig Editor toolbar (Compile, Solve Direction, Auto Compile, Debug Object, Class Settings)
+- Rig Hierarchy: drag to reparent; Shift+P unparent; Alt > Add Controls For Selected (batch FK control creation)
+- Control types: Animation Control / Animation Channel / Proxy Control
+- Value types: Bool, Float, Integer, Vector2D, Position, Scale, Rotator, Euler Transform
+- Solve Directions: Forwards Solve / Backwards Solve / Construction Event / Backwards+Forwards (border color: yellow/red/blue)
+- FBIK node: Root, Effectors[], BoneSettings[], Mass Multiplier (0-5), Iterations, Allow Stretch, Root Behavior (PrePull/PinToInput/Free)
+- Spline nodes: Spline From Points, Fit Chain on Spline Curve, Draw Spline, Get Length Of Spline
+- Modular Rig: Spine, Neck, Leg, Foot, Shoulder, Arm, Finger modules; Schematic Overlay; Mirror in Module Hierarchy
+- Key: S = set keyframe; Shift+P = unparent; F2 = rename
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.8
 
 ### Tags
-[PENDING EXTRACTION]
+[control-rig, animation, rigging, ik, fbik, sequencer, modular-rig, spline-rig, backwards-solve, construction-event, documentation, advanced]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- non-destructive-animation-in-ue5-layered-control-rigs-explained.md (layered control rigs)
+- dynamic-space-switching-in-ue5-pro-ik-hand-constraint-techniques.md (space switching in practice)
+- pose-library-additive-mode-layer-animation-poses-in-unreal-engine.md (pose library)

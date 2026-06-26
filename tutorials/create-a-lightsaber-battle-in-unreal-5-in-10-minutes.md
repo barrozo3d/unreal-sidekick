@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=MWFpt3ZQ0zE
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [mixamo, animation, sequencer, motion-blending, retargeting, props-attachment, root-motion, lightsaber, vfx, filmmaking, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/create-a-lightsaber-battle-in-unreal-5-in-10-minutes/
 frame_count: 9
 ---
@@ -73,27 +73,48 @@ frame_count: 9
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Mixamo characters + animations → UE5 Sequencer: import FBX (skeletal mesh + skeleton); import animation pack (assign skeleton + animation length = exported time); drag char to viewport + Add Selected Actor to sequencer; overlap animation clips for soft blend; Motion Blending (match bone in previous clip = hips) to prevent teleporting between clips; parent prop (lightsaber) to right hand bone; adjust animation play rate (RMB clip > Properties > Play Rate); root motion for looping run animations.
 
 ### Summary
-[PENDING EXTRACTION]
+11m52s beginner filmmaking tutorial by Josh Toonen (Hollywood VFX supervisor). Creates a 2-character lightsaber battle using free Mixamo characters and animations. Covers: importing characters and animation packs from Mixamo; setting up sequencer; adding multiple overlapping animation clips with soft blends between them; Motion Blending (RMB clip > bone match = hips) to chain animations without characters teleporting back to origin; parenting props (emissive cylinder lightsaber) to character hand bones; adjusting play rate per clip to sync timing between two characters; enabling root motion on looping run animations for correct world travel; using curve editor with linear pre-infinity on transform keys for smooth character travel.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Mixamo character**: mixamo.com; character tab; pick character; download FBX for Unity (T-pose); animations tab → download animation packs (e.g., sword and shield pack); download in T-pose
+2. **Import FBX**: import character FBX; FBX Import options: skeletal mesh ON, skeleton = none (create new); import → generates skeletal mesh + skeleton + materials; move textures/materials to separate folder
+3. **Import animations**: select all animation FBX files; drag to UE → FBX Import; assign skeleton (type skeleton name); Animation Length = Exported Time; hit Import
+4. **Level sequence setup**: RMB > Level Sequence; name "LS_character"; drag character from CB to viewport; in Sequencer: + > Actor To Sequence > select character; + Animation > pick from list
+5. **Lightsaber (prop)**: build from cylinders + emissive material; set to Movable; parent to character hand bone (RMB lightsaber > Attach To > select char > select Right Hand bone); zero out transform → snaps to hand; rotate 90° to align; prop follows animation automatically
+6. **Add second character**: Ctrl+drag first character → duplicate adds to sequencer; gives each their own lightsaber
+7. **Overlapping clips for blend**: drag animation clips so they overlap at transition points; UE auto-blends between them; can change easing in clip properties
+8. **Motion Blending**: RMB animation clip > Motion Blending options > match bone in previous clip = hips; prevents character teleporting back to start position when new animation begins
+9. **Sync timing**: slide clips in timeline to align impact moments; RMB clip > Properties > Play Rate (e.g., 0.7 = 70% speed, 2.0 = double speed) to match timing between characters
+10. **Run animation + world travel**:
+    - Open animation in Animation Editor; enable Root Motion; set to Animation First Frame; enable Force Root Lock; save
+    - In sequencer: add transform track; set start keyframe (location); advance timeline; set end keyframe at destination; select keys in curve editor > Pre-Infinity = Linear (extends movement before first key); move keys closer = faster, further = slower
+11. **Curve editor for smooth travel**: open curve editor from sequencer; select X location curve; select start keyframe; double-right-arrow > Pre-Infinity > Linear; adjust key spacing to control run speed
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **FBX Import**: Skeletal Mesh ON; Skeleton = none (new); Animation Length = Exported Time
+- **Actor To Sequence**: sequencer + button > Actor to Sequence > select from viewport
+- **Animation clip overlap**: drag clips to overlap → auto soft blend; RMB clip > easing options
+- **Motion Blending**: RMB animation clip > Motion Blending > match bone in previous clip (use hips for full-body)
+- **Attach To**: RMB object > Attach To > select parent actor > select bone socket; zero transform to snap; set Movable
+- **Play Rate**: RMB animation clip > Properties > Play Rate (float multiplier; 0.5 = half speed, 2.0 = double)
+- **Root Motion**: Animation Editor > Enable Root Motion; Root Motion Root Lock = Animation First Frame; Force Root Lock = ON
+- **Curve Editor Pre-Infinity Linear**: select keyframe in Curve Editor > double-right-arrow button > Pre-Infinity > Linear
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[mixamo, animation, sequencer, motion-blending, retargeting, props-attachment, root-motion, lightsaber, vfx, filmmaking, beginner]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- animating-characters-and-objects-in-unreal-engine.md (deeper animation coverage)
+- how-to-animate-spider-man-in-unreal-engine-5-for-beginners.md (similar beginner character animation)
+- baking-animation-in-ue5-control-rig-to-animation-sequence-back.md (baking animation)
