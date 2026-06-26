@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=GLOQdCQonOg
 author: Polygonflow Dash
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [dash, procedural, landscape, scatter, biomes, performance, nanite, foliage, proximity-mask, height-mask, spline, world-building, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/creating-a-massive-procedural-game-world-in-ue5-with-dash/
 frame_count: 6
 ---
@@ -58,27 +58,59 @@ frame_count: 6
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Large-scale procedural world building with Dash: Surface Scatter + Nanite for performance, Feature Masking (height/noise/surface align) for biome control, shared References across multiple scatters, Proximity Tables for inter-scatter clearance, Curve Object Mask for biome zones, and Freeze/Unfreeze for safe large-scale edits.
 
 ### Summary
-[PENDING EXTRACTION]
+Polygonflow's Tamash stress-tests Dash on a large UE5 landscape and walks through building a diverse procedural world from scratch. Key performance insight: rocks (solid mesh + Nanite = cheap), bushes/foliage (transparent leaf cards = overdraw even with Nanite = expensive). World building technique: Feature Masking (height range, noise clearings, surface align), Reference system to link masks across scatter tools, Compound Tool for editing all at once, Proximity Table for inter-scatter spacing, Draw Curve as both road/path AND biome zone object mask, and spline-scatter for fences. Biome optimization tip: use Draw Curve enclosed area as Object Mask for very high-density grass scatter with good performance. Freeze command disconnects all Dash tools from landscape for safe edits.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Quick scatter test:** hold Ctrl + drag asset from Content Browser (or Dash Content Library) onto landscape → instant surface scatter; enable Nanite via Dashbar for performance
+2. **Performance hierarchy:** solid meshes (rocks) = cheapest; foliage with transparent cards (bushes, grass) = most expensive due to overdraw; Nanite helps solid meshes most
+3. **Feature Masking (trees):**
+   - Height Mask: min/max height → keeps trees off mountain tops and below shoreline
+   - Noise Mask: random clearings (natural look)
+   - Rotation → Surface Align: keeps trees vertical on sloped terrain
+4. **Shared mask References:**
+   - Trees scatter → Feature Masking section → convert mask values to References
+   - Other scatter tools (bushes, grass) → reference the same objects
+   - Individual Weight values per scatter (e.g., bushes weight=1 near shore, trees weight=0)
+5. **Compound Tool:** add scatter tools to Compound → edit all selected scatters simultaneously
+6. **Proximity Table:** select one scatter (bushes) → Pin tool → choose rocks scatter as proximity mask → adjust distance to clear vegetation around rocks → save as reference, reuse for trees
+7. **Road/path with fence:**
+   - Draw Curve tool → Create menu → draw path across landscape
+   - Proximity Table: add curve as additional proximity mask (main slot already in use)
+   - Drag fence assets onto curve → spline scatter along path; Parallel Width to duplicate both sides; Projection=Landscape for terrain following
+   - Use fence scatter itself as proximity mask for flowers nearby
+8. **Biome zones (optimization):**
+   - Draw Curve tool → draw enclosed area polygon on landscape
+   - Surface Scatter → Object Mask → assign the drawn curve
+   - Scatter is confined to that area only → very high density grass/foliage possible with good performance
+   - Combine with other masks (height/noise) inside biome area
+9. **Freeze/Unfreeze:** select landscape → Dashbar "freeze" → all connected Dash tools stop updating (safe for large landscpe edits); "unfreeze" to recompute
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Dash Surface Scatter**: hold Ctrl + drag = instant scatter; density, max count controls; uses UE instanced static meshes (native, no Dash dependency at runtime)
+- **Feature Masking**: Height Mask (vertical range), Noise Mask (organic clearings), Surface Align (upright on slopes)
+- **Reference System**: convert scatter mask values to shared References; Weight multiplier per scatter that shares the reference
+- **Proximity Table**: multiple proximity objects (beyond main proximity slot); inter-scatter clearance zones
+- **Compound Tool**: group multiple scatter tools for simultaneous editing
+- **Draw Curve as Object Mask**: enclosed curve area = high-performance biome zone; optimal for dense foliage/grass
+- **Spline Scatter**: drag assets onto curve → scatter along spline path; Parallel Width for double-sided; Projection type
+- **Freeze/Unfreeze**: disconnects Dash from landscape for safe edits; recomputes on unfreeze
+- **Nanite performance notes**: solid opaque meshes benefit greatly; transparent/masked foliage still causes overdraw regardless of Nanite
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate — many systems but each one is prompt-bar driven
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[dash, procedural, landscape, scatter, biomes, performance, nanite, foliage, proximity-mask, height-mask, spline, world-building, intermediate]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- create-realistic-scatter-using-merge-actors-with-dash.md (Dash scatter + merge actors)
+- create-run-down-environments-in-minutes---dash-ue5.md (Dash interior environment)
+- creating-a-blend-material-in-unreal-engine-5-just-got-easier.md (Dash materials workflow)

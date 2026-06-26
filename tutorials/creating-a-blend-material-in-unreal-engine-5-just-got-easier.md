@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=MoAk8c1ek7A
 author: Polygonflow Dash
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [dash, materials, blend-material, nanite-tessellation, road-tool, megascans, snow, wetness, environment, layered-materials, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/creating-a-blend-material-in-unreal-engine-5-just-got-easier/
 frame_count: 9
 ---
@@ -73,27 +73,43 @@ frame_count: 9
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Dash workflow for Megascans material customization: basic layer editing (dirt/rain/snow) in material editor, then advanced Blend Material mode using Nanite Tessellation to mix up to 3 Megascans materials per mesh with per-layer wetness, displacement, and snow controls.
 
 ### Summary
-[PENDING EXTRACTION]
+Polygonflow Dash tutorial showing how to go beyond basic material application to create detailed, layered surfaces on a procedural road mesh. Covers Dash Road Tool setup (Draw Curves → road spline; UV mapping; resolution/smoothness), applying Megascans materials via Dash Content Browser, basic layer editing (snow/rain/wetness parameters), and the full Blend Material workflow: increase subdivisions → bake to static mesh → enable Nanite + Nanite Tessellation → Ctrl-drag 3 materials → Apply Blend Material → edit per-layer in tool panel. Also shows applying weather layers to Megascans prop models. Note: Dash material customization only supports Megascans and Polyhaven materials.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Road creation:** Dash → Create → Draw Curves (freehand on terrain); Road Tool → add curve to Curves section; set road width; Environment: select all scatter tools → Proximity Mask with road as reference; click reference tool icon to share mask settings across multiple scatter actors
+2. **Material application:** search Dash Content Browser → drag Megascans material onto road; Road Tool → Geometry settings → UV Scale adjustment
+3. **Basic material layers:** select asset → open material editor → enable snow/rain/dirt presets; adjust parameters per layer
+4. **Blend Material workflow (advanced):**
+   - Road Tool → Geometry → increase Subdivision value
+   - Wireframe mode to visualize tessellation
+   - Click actor-to-static-mesh icon (bakes road, loses non-destructive; backup first)
+   - Dashbar → "nanite" → enable Nanite; enable Nanite Tessellation
+   - Hold Ctrl → drag 3 Megascans materials from Dash asset library onto mesh → "Apply Blend Material"
+   - Dashbar → "Edit Blend Material" → adjust tiling per layer; mix ratios; per-layer wetness, tessellation strength, snow amount
+5. **Object material editing:** drag Megascans prop → tool panel → Edit Material → snow/wet/dirty/rain per surface
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Dash Road Tool**: Draw Curves → spline-based road; UV Scale, Resolution, Smoothness in Geometry settings; non-destructive until baked
+- **Dash Proximity Mask with References**: share proximity/follow settings across multiple scatter tools via Reference button; update all simultaneously
+- **Dash Blend Material**: up to 3 Megascans (or Polyhaven) materials blended on one mesh; requires Nanite + Nanite Tessellation; per-layer: tiling, blend ratio, wetness, displacement, snow/dirt/rain amount
+- **Nanite Tessellation**: enables sub-polygon displacement from Megascans height maps; must bake road to static mesh first
+- **Limitation**: Dash material editing only works with Megascans or Polyhaven materials (not custom materials)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate — blend material step requires baking (irreversible without backup) and Nanite setup
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[dash, materials, blend-material, nanite-tessellation, road-tool, megascans, snow, wetness, environment, layered-materials, intermediate]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- create-run-down-environments-in-minutes---dash-ue5.md (Dash environment workflow with decals and scatter)
+- create-realistic-scatter-using-merge-actors-with-dash.md (Dash scatter and merge)
+- creating-a-massive-procedural-game-world-in-ue5-with-dash.md (large-scale Dash world building)
