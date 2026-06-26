@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=yspmZJ6YjpM
 author: Karim Yasser
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [lumen, lighting, rendering, ray-tracing, distance-fields, performance, environment, technical-settings]
+extraction_status: complete
 frames_dir: tutorials/frames/how-i-use-lumen-in-aaa-projects-unreal-engine-5/
 frame_count: 4
 ---
@@ -33,27 +33,51 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Lumen mode selection for AAA projects: Software Ray Tracing (SRT) with Mesh Distance Fields (detailed, per-mesh, accurate for close geometry) vs Global Distance Field (low-res, large worlds) vs Hardware Ray Tracing (HRT) with SurfaceCache (default) / Hit Lighting for Reflections (more accurate, expensive) / Hit Lighting (most accurate, not for games). Fix thin-geometry Distance Field errors by increasing Distance Field Resolution Scale in Static Mesh Editor.
 
 ### Summary
-[PENDING EXTRACTION]
+Karim Yasser (AAA environment artist) explains Lumen's configuration options beyond the basics. Project Settings → Rendering: "Support Hardware Ray Tracing" enables HRT availability; "Use Hardware Ray Tracing When Available" makes Lumen choose HRT on capable hardware, falling back to SRT. SRT modes: Detailed Tracing uses per-mesh Mesh Distance Fields (accurate, respects thin geometry) vs Global Distance Field (low-res, suited for large open worlds). For thin geometry (walls, ceilings) with bad SRT results: open Static Mesh Editor → Build Options → increase Distance Field Resolution Scale. HRT modes: SurfaceCache (default, balanced performance + quality; some reflection inaccuracy), Hit Lighting for Reflections (accurate reflections, moderately expensive), Hit Lighting (most accurate, full indirect lighting rays, too expensive for games). Karim's preference: SurfaceCache with well-configured meshes (proper distance fields, correct thickness, proper materials) as primary approach; skip HRT entirely on projects requiring broad hardware support.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Choose Lumen mode (Project Settings → Rendering):**
+1. "Support Hardware Ray Tracing": Enable only if you want HRT available (required for HRT features)
+2. "Use Hardware Ray Tracing When Available": Enable to let Lumen auto-pick HRT on capable hardware; disable to force SRT
+
+**Configure Software Ray Tracing:**
+- Detailed Tracing (default): uses per-mesh Mesh Distance Fields → accurate, respects individual mesh shapes
+- Global Distance Field: low-res fallback; good for large open-world scale; less detail in close range
+- Visualize: Show Flags → Visualize → Mesh Distance Fields
+
+**Fix thin-geometry SRT artifacts:**
+1. Open Static Mesh Editor for problematic mesh
+2. Build Options → Distance Field Resolution Scale → increase (e.g. 1 → 4)
+3. Re-build; note: increases memory + disk size
+
+**Hardware Ray Tracing mode selection (Post Process Volume):**
+- SurfaceCache: default; balanced performance + quality; some reflection inaccuracy on mirror surfaces
+- Hit Lighting for Reflections: accurate reflections; moderately more expensive than SurfaceCache
+- Hit Lighting: maximum accuracy for full indirect lighting; not suitable for real-time games
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Support Hardware Ray Tracing** (Project Settings → Rendering): enables GPU HRT support for entire project; required for HRT Lumen modes
+- **Use Hardware Ray Tracing When Available** (Project Settings → Rendering / Lumen): toggles Lumen between HRT and SRT dynamically based on hardware
+- **Software Ray Tracing modes**: Detailed Tracing (Mesh Distance Fields per mesh) vs Global Tracing (low-res global distance field); set via Lumen scene settings
+- **Distance Field Resolution Scale** (Static Mesh Editor → Build Options): multiplier for per-mesh distance field voxel resolution; fix thin-wall SRT errors; increases memory cost
+- **Lumen Reflection Method** (Post Process Volume): SurfaceCache / Hit Lighting for Reflections / Hit Lighting; trade accuracy vs performance
+- **Mesh Distance Fields**: per-static-mesh implicit signed-distance representation; basis for Detailed SRT; requires "Generate Mesh Distance Fields" project setting enabled
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate (understanding modes) / Advanced (per-project optimization decisions)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[lumen, lighting, rendering, ray-tracing, distance-fields, performance, environment, technical-settings]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- how-to-create-cinematic-environments-in-unreal-engine-5.md (Lumen setup in cinematic context)
+- how-i-made-this-shot-in-unreal-engine-5.md (Path Tracer vs Lumen trade-off — hero shot used Path Tracer because Nanite incompatible)

@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=-GQWj_20J0g
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [mocap, metahuman, move-ai, animation, sequencer, character, performance-capture, butterworth-filter, two-actor, cinematics]
+extraction_status: complete
 frames_dir: tutorials/frames/how-i-use-moveai-and-metahumans-to-achieve-aaa-character-animation-in-unreal-eng/
 frame_count: 10
 ---
@@ -78,27 +78,72 @@ frame_count: 10
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Two-actor simultaneous Move AI + MetaHuman Animator pipeline: 6 GoPros in ring → both actors perform scene in one take with iPhone head rigs → upload to Move AI Cloud → download per-actor files → import Move AI pre-retarget skeleton → UE5.4 built-in retarget to MetaHuman → transfer iPhone face data → create MetaHuman Identity → process performance → sync face+body in Sequencer → bake body to Control Rig → Curves Editor Butterworth low-pass filter for jitter cleanup.
 
 ### Summary
-[PENDING EXTRACTION]
+Charlie Driscoll tests simultaneous two-actor Move AI capture in a garage with 6 GoPros covering ~100 sq ft. Each actor wears Rokoko head rig (iPhone) for face capture. Sync method: hand clap + mouth pop to align face and body timecodes. Performances uploaded to Move AI Cloud → few hours processing → per-actor animation files downloaded. Import pipeline in UE5.4: import Move AI pre-retarget skeleton → import body animation files → use built-in Retarget (UE5.4) to remap to MetaHuman skeleton. Face: transfer recordings from Live Link app on iPhone to PC → import → create MetaHuman Identity → Process Performance → AAA face animation in minutes. Sequencer: sync face + body animation tracks; head rig recording simultaneously avoids eyeline mismatch that causes uncanny valley when face is recorded separately. Cleanup: bake body tracks to MetaHuman Control Rig → Curves Editor → low-pass Butterworth filter to remove high-frequency jitter (especially head + arms). Cost: $7,000/year Move AI license for 2-actor capture; comparable to or cheaper than two Xsens suits. Limitation: hands still hit-or-miss.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Capture stage:**
+1. Set up 6 GoPro cameras in 360° ring covering ~100 sq ft capture area
+2. Each actor: mount iPhone in Rokoko adjustable head rig
+3. Sync method: hand clap (body timecode sync) + mouth pop (face timecode sync) at start of each take
+4. Perform scene in one continuous take
+5. Upload footage to Move AI Cloud → label files per actor → wait few hours for processing
+
+**Import to UE5 (body):**
+1. Download processed animation files from Move AI platform (per actor)
+2. UE5: Import Move AI pre-retarget skeleton FBX
+3. Import body animation for each actor (FBX)
+4. UE5.4 Retarget: Assets → Retarget → map Move AI skeleton → MetaHuman skeleton → bake retargeted animation
+
+**MetaHuman Animator (face):**
+1. iPhone Live Link app: transfer face recordings to PC
+2. UE5: import face performance files
+3. Create MetaHuman Identity for each actor (matches face mesh to performance)
+4. Process MetaHuman Performance → face animation generates automatically (few minutes)
+
+**Sequencer assembly:**
+1. Place MetaHuman characters in scene
+2. Add body animation track → assign retargeted body animation
+3. Add face animation track → assign processed face animation
+4. Sync face + body using clap/pop markers → offset tracks to align
+
+**Jitter cleanup:**
+1. Select body animation track in Sequencer → Bake to Control Rig
+2. Open Curves Editor
+3. Select jittery curves (head, arms)
+4. Apply Filters → Butterworth Low-Pass filter → reduces high-frequency jitter without destroying motion integrity
+
+**Assets used:**
+- Medieval armor (Polyphoria): drag armor parts onto MetaHuman skeletal mesh slots
+- Orc character (Polyphoria): non-MetaHuman initially → converted via Metapipe pipeline (hired Upwork artist)
+- Castle: UE Marketplace asset
+- Easy Fog (William Faucher): Marketplace fog system
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Move AI MovePro**: 6-camera markerless mocap; $7,000/year; 2-actor simultaneous; cloud processing (few hours/clip); provides pre-retarget skeleton for UE import
+- **UE5.4 Built-in Retarget**: Retarget Asset tool; maps Move AI skeleton → MetaHuman skeleton; no third-party plugin needed in UE5.4+
+- **MetaHuman Animator**: UE5 built-in tool; requires iPhone 12+; imports Live Link face recordings → create MetaHuman Identity → Process Performance; corrects eye movements for uncanny valley prevention
+- **Live Link (iPhone)**: records face animation during capture; transfer to PC after session; sync with body via clap/pop markers
+- **Rokoko head rig**: adjustable iPhone mount; keeps phone stable on actor's head during physical performance; enables simultaneous body+face capture
+- **Bake to Control Rig (Sequencer)**: converts animation track keyframes to Control Rig poses → makes curves editable in Curves Editor
+- **Butterworth Low-Pass Filter (Curves Editor)**: smoothing filter in UE5 Curves Editor; removes high-frequency jitter from mocap data while preserving large-arc motion; particularly effective on head + arm curves
+- **Metapipe**: MetaHuman conversion pipeline; converts third-party character meshes to MetaHuman format; complex process; suitable for outsourcing on Upwork
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced (full dual-actor mocap pipeline + jitter cleanup)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[mocap, metahuman, move-ai, animation, sequencer, character, performance-capture, butterworth-filter, two-actor, cinematics]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- how-i-made-this-aaa-cinematic-in-unreal-engine-5---moveai-and-metahuman-animator.md (same author, solo actor Move AI breakdown with 3D Scan Store heads)
+- how-i-made-this-aaa-battle-scene-in-unreal-engine-5.md (same author, Move AI naval battle + Dramatic Deaths pack)
+- how-i-created-a-massive-crowd-of-metahumans-for-a-brutal-gladiator-film---unreal.md (same author, OverCrowd for large crowds)
