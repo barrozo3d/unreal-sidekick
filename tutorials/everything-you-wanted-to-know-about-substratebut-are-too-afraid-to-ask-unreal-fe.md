@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=SqPaL8HS_Lw
 author: Unreal Engine
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.7"
+tags: [substrate, materials, shading-model, slab, energy-conservation, pbr, subsurface-scattering, layered-materials, rendering, gbuffer, technical, advanced]
+extraction_status: complete
 frames_dir: tutorials/frames/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe/
 frame_count: 4
 ---
@@ -33,27 +33,49 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Substrate material system deep-dive (Unreal Fest Stockholm 2025): Slabs (modular physically-parameterized shading blocks with Interface + Medium), composition operators (Vertical Coat, Horizontal Blend, Coverage, Select), parameter blending for performance, and two GBuffer modes (Adaptive SM6 / Blendable SM5 fallback). Production-ready in UE 5.7, on by default in new projects.
 
 ### Summary
-[PENDING EXTRACTION]
+43-minute Unreal Fest 2025 talk by Nathaniel Morgan (Principal Tech Artist, Epic Games). Substrate replaces UE's legacy "one shading model per pixel" with a composable Slab framework. A single Slab (Interface: F0 vec3, roughness + opt-in: anisotropy/fuzz/glints/rough refraction + Medium: diffuse albedo, thickness, MFP) already replaces 7 legacy models. Slabs compose via 5 operators: Vertical Coat (physical coating with light transport through transmissive top layer), Horizontal Blend (lerp with mask), Add (avoid — breaks energy conservation; emissive only), Coverage (single-slab weighting), Select (conditional one-or-other). Parameter blending = major optimization (blend inputs before evaluating, one slab per pixel — use everywhere possible from the start). Two GBuffer modes: Adaptive (SM6/PS5/Xbox Series, full features, no hardware blending) and Blendable (SM5 fallback, single slab, simplified). Migration: safe/incremental — legacy materials unchanged until substrate nodes added (then one-way).
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Enable Substrate (UE 5.7+):** on by default in new projects; existing projects: Project Settings → Substrate → enable 3 checkboxes → restart
+2. **Single Slab:** Replace legacy shading model with Substrate Material node → drag out Slab node; set Interface (F0 as RGB vec3 for any surface, Roughness) and Medium (Diffuse Albedo, Thickness, MFP)
+3. **Chromatic specular on dialectrics:** use F0 as vec3 (not scalar); Substrate enforces energy conservation so F0 up = diffuse down automatically; F90 = hue/saturation shift relative to F0 (not true color)
+4. **Opt-in Interface features (no cost if unused):** Anisotropy, Fuzz, Secondary Roughness, Glints, Specular Profile, Rough Refraction
+5. **MFP:** spatially varyable (texture map supported); 0=fully opaque; large values=translucent/low-scatter; convert with "Transmittance to MFP" helper node; avoid large MFP on opaque materials (noisy)
+6. **Vertical Coat:** stack two slabs; top must have non-zero MFP to transmit light to base; MFP color = coat tint; Thickness = absorption; supports stacking multiple layers
+7. **Horizontal Blend:** lerp mask 0-1 between two slabs; if mask=0 or 1 only one slab evaluates; transition zone = both slabs evaluate (cost tied to blend region area)
+8. **Coverage:** single-slab weighting (0=no contribution; 1=full; fractional=proportional); use before Vertical Coat for spatially varying top layer; use for translucent masking/fading
+9. **Select:** conditional: if mask > 0.5 → slab B, else → slab A; never evaluates both; use for incompatible shading combos (different SSS profiles); dithered eval + TAA = perceptual blend
+10. **Add:** AVOID — breaks energy conservation; only valid when one slab is purely emissive
+11. **Parameter Blending (key optimization):** enable on all operators; blends inputs first, then evaluates one slab per pixel; must be designed in from the start (can't retrofit); has less visual impact on Horizontal Blend, more impact on Vertical Coat (loses layered transport); once used, all operators below it in tree must also use it
+12. **Decals in Substrate:** add "Convert to Decal" node before front material input; adaptive GBuffer = DBuffer decals only (blendable or after-base-pass for material normals without reprojection)
+13. **Not composable:** post-process, light functions, decals (domain materials); volumetric hair, eye, unlit, single-layer water (monolithic) — can't use operators on these
+14. **Migration:** existing materials = legacy internally but backed by Substrate data structures; no visual change until you edit; safe to toggle off until substrate nodes added; once slab/operator/convert nodes added = one-way (disabling strips parameters)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Substrate Slab Node**: Interface: F0 (RGB vec3), Roughness; opt-ins: Anisotropy, Fuzz, Secondary Roughness, Glints, Specular Profile, Rough Refraction; Medium: Diffuse Albedo, Thickness, MFP
+- **F0 (vec3)**: reflectance at normal incidence; any surface can have chromatic specular; Substrate auto-ensures energy conservation (F0↑ = diffuse↓); F90 = hue/saturation modifier of F0 for performance (use Specular Profile for finer Fresnel control)
+- **MFP (Mean-Free Path)**: average scattering distance in volume; 0=opaque; large=translucent; texture-mappable (unlike legacy SSS profiles which are constant); MFP enum controls SSS type (wrap/diffusion/volume)
+- **Composition Operators**: Vertical Coat (physical coating), Horizontal Blend (lerp), Add (emissive only), Coverage (single-slab weighting), Select (conditional)
+- **Parameter Blending**: per-operator checkbox; one-slab evaluation (huge performance win); must plan topology from start; less accurate for Vertical Coat
+- **Adaptive GBuffer (SM6)**: full substrate; bitpacked UAVs; no hardware blending; DBuffer decals only; intended for PS5/Xbox Series/PC SM6
+- **Blendable GBuffer (SM5)**: single slab per pixel; simplified features; hardware blending supported; 60fps target for previous gen
+- **Material Substrate Panel** (material editor): shows all features used + order of simplification for lower-end platforms
+- **Substrate migration**: Project Settings → Substrate checkboxes; legacy materials safe/unchanged until substrate nodes added
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced — technical rendering architecture talk; requires material authoring and shading model knowledge
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.7
 
 ### Tags
-[PENDING EXTRACTION]
+[substrate, materials, shading-model, slab, energy-conservation, pbr, subsurface-scattering, layered-materials, rendering, gbuffer, technical, advanced]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- creating-cinematics-in-unreal-engine-with-kitbash3ds-secrets-of-the-luminara.md (Electric Dreams requires Substrate enable in Project Settings)
+- creating-a-blend-material-in-unreal-engine-5-just-got-easier.md (Dash Blend Material = simpler practical alternative for environment work)

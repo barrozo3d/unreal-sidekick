@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=o_AE2kUsF3E
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [mocap, rokoko, animation, retargeting, fbx, sequencer, composure, smartsuit, hand-tracking, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/faster-than-ai-and-7-times-the-fun-speed-up-animation-and-get-exactly-what-you-w/
 frame_count: 16
 ---
@@ -108,27 +108,43 @@ frame_count: 16
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Rokoko Smartsuit Pro II + Smart Gloves + Coil Pro → Rokoko Studio (calibrate, record, foot lock edit, finalize post-process, export FBX) → UE5 import + retarget → Sequencer + Composure integration.
 
 ### Summary
-[PENDING EXTRACTION]
+Dean Yurke unboxing and first-use review of the Rokoko Smartsuit Pro II. Setup: ~2 hours from box to working animation. IMU-based (no external cameras), WiFi via PC mobile hotspot. Smart Gloves: drag onto actor in Rokoko Studio; without Coil Pro the 3D spatial sense of hands is limited. Coil Pro (EMF generator): improves hand tracking; sensitive near magnetic cables (jitter in display but NOT in recorded data for offline work). Post-processing in Rokoko Studio: foot lock editor (manually mark planted foot segments), Finalize Post Process. Additional tool: Rokoko Studio Preview for jitter smoothing + loop creation. Export as FBX → import into UE5 → RMB Retarget Animations → choose target mesh → Export Animations → drop retargeted anim into Sequencer. Combined with Composure camera projection for live-action background integration.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Hardware setup:** install Rokoko Studio + firmware updates; hotspot via PC if no router available; plug in suit + gloves + connect Coil Pro
+2. **Create actor in Rokoko Studio:** File → Create New Scene → name; create Actor → drag suit sensor onto actor
+3. **Calibrate:** T-pose position → calibrate (6-second delay to walk into pose)
+4. **Smart Gloves:** drag each glove onto actor in Rokoko Studio; with Coil Pro: 3D spatial position tracked; without: limited spatial sense
+5. **Coil Pro note:** sensitive to magnetic cables/equipment; jitter visible in preview but NOT recorded in offline mode
+6. **Record performance:** hit Record; perform; stop recording
+7. **Foot lock cleanup:** bottom bar → Foot Lock editor; identify where feet should be planted; manually draw/edit lock segments over recording; remove/add lock sections where feet lift or land
+8. **Finalize Post Process:** run to clean up drift and apply foot locking
+9. **Optional: Rokoko Studio Preview:** separate software for additional jitter smoothing + loop creation
+10. **Export FBX:** export from Rokoko Studio as FBX
+11. **Import to UE5:** RMB in Content Browser → Import to Current Folder → find FBX → default import → creates skeletal mesh + animation assets
+12. **Retarget animation:** RMB on animation asset → Retarget Animations → source skeletal mesh → choose target skeletal mesh → preview → Export Animations → name/output location → Export
+13. **Test in Sequencer:** drag retargeted animation sequence onto character animation track; slip to align timing; adjust character transform in scene
+14. **Composure integration:** character added to Composure Shadow/Reflection Layer for shadow casting on projected plate
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **FBX Animation Import (UE5)**: RMB → Import to Current Folder; default settings create animation asset with source skeleton; no skeleton reassignment needed if FBX has compatible hierarchy
+- **Retarget Animations (UE5)**: RMB on animation → Retarget Animations; pick source and target skeletal mesh; doubles as preview; outputs exportable retargeted animation clips
+- **Sequencer Animation Track**: drag animation sequence directly onto character animation slot; can slip timing inline
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner — straightforward workflow, hardware-focused; UE side is simple import + retarget
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[mocap, rokoko, animation, retargeting, fbx, sequencer, composure, smartsuit, hand-tracking, beginner]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- budget-mocap-tutorial---quickmagicai-and-metahuman-animator-androidframe-mancer-.md (alternative AI mocap pipeline without hardware)
+- easiest-vfx-pipeline-ever-with-composite-mesh-actors-in-unreal-engine-57-composu.md (Composure system used in this tutorial's final shot)
