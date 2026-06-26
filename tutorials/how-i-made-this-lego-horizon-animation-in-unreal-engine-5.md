@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=AomczYcvBYM
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [animation, stop-motion, production-breakdown, lighting, control-rig, sequencer, crowd, cinematics, lego]
+extraction_status: complete
 frames_dir: tutorials/frames/how-i-made-this-lego-horizon-animation-in-unreal-engine-5/
 frame_count: 15
 ---
@@ -103,27 +103,79 @@ frame_count: 15
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Professional animated short for LEGO Horizon Adventures (Sony/LEGO/Gorilla) made in UE5: stop-motion look via 12fps character animation + no motion blur + frozen midair poses; custom face rig with hand-drawn expressions; environment built only through camera; creature animation via game clip blending + additive tracks; 300-character crowd; lighting referenced from real LEGO sets with physical LED rigs; storyboards as UE5 screenshots to music in Premiere.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen directs the official LEGO Horizon Adventures theme song animation (Pixomundo/Sony). Complete end-to-end production breakdown: concept approval → storyboards as UE5 screenshots synced to song in Premiere (10× faster than animating cameras) → live action shoot with MXMTune → environment build from game assets (Gorilla-provided) → 3 animators using Control Rig/Sequencer → creature animation from existing game clips blended into dance moves → one-click compositing + lens flares. Stop-motion look: 12fps, no motion blur, frozen poses, physical minifigure at every desk. Lighting key: huge light sizes relative to tiny figures, boosted bounce, physically referenced with real LEGO + LED rigs. Blueprint-driven interactive dance floor; stop-motion waterfall; 300+ crowd; confetti. Additive tracks used to adjust creature animation per shot in camera.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Pre-production:**
+1. Beat-match shot list in Premiere with song audio → write shots at each beat
+2. Create storyboards as UE5 screenshots using minifigure + environment → 10 screenshots per animated camera
+3. Reference: LEGO movie/Batman for anamorphic look + bounce lighting; EDM concert references for party feel; real LEGO set under LED rigs for lighting study
+
+**Stop-motion animation rules:**
+1. Animate at 12fps (keyframe every 2 frames); camera renders at 24fps
+2. No motion blur (kills stop-motion look)
+3. Freeze poses mid-air — lean into it
+4. Slight off-balance: characters always tilted, rocking left/right
+5. Physical minifigure on desk at all times — pose reference for every shot
+6. Exaggerate motion, cheat gravity, oversized poses within physical joint limits
+
+**Facial animation:**
+1. Custom face rig built per character (by tech artist Mufid) → Sequencer-driven
+2. Hand-drawn-look expressions: big goofy smiles, squints
+3. Add blink poses between dance moves
+
+**Environment:**
+1. Import game geometry from Gorilla (direct asset sharing — game also UE5)
+2. Build only through camera lens — everything outside frame stays empty
+3. Animated leaf rotation + falling leaves via material/blueprint
+4. Blueprint-driven interactive dance floor (no manual animation)
+5. Stop-motion waterfall via blueprint (Tech artist Mufid)
+6. Scatter 300+ crowd characters; animate confetti
+7. Fog/atmosphere + animated spotlights for dance arena
+
+**Creature animation:**
+1. Start from Gorilla's existing in-game animation clips (walk/attack cycles)
+2. Combine multiple clips → motion blending tools → new dance move
+3. Additive tracks in Sequencer → adjust per-shot framing
+4. Import audio into Sequencer → assemble animation to beat
+
+**Lighting approach:**
+1. Use large light sizes (mini figures are tiny → real lights are enormous by comparison)
+2. Boost bounce lighting intensity (makes world feel smaller/more LEGO-like)
+3. Animate stage spotlights + speakers for dance energy
+4. Color palette: blue/pink main spots, orange torches, yellow interactive floor
+5. Fog and atmosphere control per shot; hero characters clean close-up, crowd falls into BG
+
+**Compositing:**
+1. One-click compositing template per shot
+2. Lens flares pass
+3. Review daily (sometimes twice/day); draw feedback on frames; live-action dance reference for rhythm
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Control Rig in Sequencer**: all character animation keyed here; used for stop-motion pose work
+- **Additive animation tracks**: applied on top of base creature animation to adjust per-shot without baking new clips
+- **Motion blending tools**: combine multiple Sequencer animation clips into new motion sequences
+- **Blueprint-driven interactive floor**: characters trigger light events underneath dance floor; no manual keyframes
+- **Audio in Sequencer**: import song → animate everything to music beat
+- **Custom face rig**: built by tech artist per character; Sequencer-driven; enables expression animation without MoCap
+- **Asset sharing from game**: UE5 game assets (Gorilla's Horizon) imported directly into separate UE5 project; same asset pipeline ensures visual consistency
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced (professional production, team of 5+)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[animation, stop-motion, production-breakdown, lighting, control-rig, sequencer, crowd, cinematics, lego]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- give-me-14-minutes-and-youll-make-cinematic-renders.md (animated lights + fog cards — same lighting philosophy)
+- how-i-made-a-godzilla-cinematic-in-unreal-engine-5.md (same author — fog cards, compositing template)
+- how-i-made-this-aaa-battle-scene-in-unreal-engine-5.md (production breakdown with similar crowd/stagger approach)

@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=HbGJyQVq3tk
 author: William Faucher
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [path-tracer, photogrammetry, rendering, lighting, environment, materials, movie-render-queue, davinci-resolve, post-production]
+extraction_status: complete
 frames_dir: tutorials/frames/how-i-made-this-shot-in-unreal-engine-5/
 frame_count: 7
 ---
@@ -63,27 +63,68 @@ frame_count: 7
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Axe hero shot workflow: Reality Capture photogrammetry (cross-polarized + scanning spray for shiny metal) → ZBrush retopo → Substance Painter PBR → UE5 Path Tracer (Nanite disabled) → MRQ 16-bit EXR, no denoiser, 16×16 samples → DaVinci Resolve denoising + color grade. Environment built camera-first; scaled-down Megascans rocks used as sand/pebbles; large-scale bushes as shadow-casting "trees."
 
 ### Summary
-[PENDING EXTRACTION]
+William Faucher's full production breakdown for three axe hero shots in UE5. 3D scanning: cross-polarized flash rig on tripod, axe mounted on ceiling with rotating arm (5° increments); subscan spray for shiny blade edge; ZBrush retopo and cleanup; Boolean for separate leather strap geometry; textures baked from Reality Capture, refined in Substance Painter (wood/steel/leather/brass PBR). UE5: camera and composition first; Path Tracer (not Lumen) for sub-pixel shadow and GI quality; Nanite must be disabled for Path Tracer compatibility. Environment scaling trick: giant Megascans rocks scaled down to sand-sized; large bushes scaled up for tree-shadow effect without needing actual large trees. MRQ: delete deferred rendering, add Path Tracer tab, 16-bit EXR, no tone curve, AA=none, 16×16 PT samples, disable denoiser. DaVinci: Fusion Noise Reduction (free) or Color page (Studio).
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**3D Scanning:**
+1. Mount subject on ceiling with rotating arm → camera on fixed tripod → rotate subject at 5° increments
+2. Use cross-polarized flash setup to eliminate reflections for photogrammetry consistency
+3. For shiny metal: apply subscan spray (fades naturally, no cleanup needed) → re-scan
+4. Import photos to Reality Capture → align cameras → generate model
+5. ZBrush retopology: clean up scan mesh into production-ready topology
+6. Repeat for separate elements (with/without leather strap) → Boolean to separate geometry
+7. Back into Reality Capture: generate albedo + normal map from photos
+
+**Texturing:**
+1. Export model + RC textures → Substance Painter
+2. Set up multiple material IDs (wood/steel/leather/brass) with proper PBR maps
+3. Export roughness/metallic/AO maps for UE5 import
+
+**UE5 environment:**
+1. Environment Light Mixer: add quick skylight + directional light for working visibility
+2. Set up camera FIRST → nail composition before building environment
+3. Quixel Bridge: spend 30 min building asset library (big shapes first — rocks, trees, ground)
+4. Path Tracer: disable Nanite on all objects (required for Path Tracer compatibility)
+5. Scaling trick: download large Megascans rocky/pebbly model → scale WAY down → duplicate across ground as sand/pebbles → rotate for variation
+6. Shadow casting trick: scale up bush meshes to create large tree-like shadow patterns without full trees
+7. Reference real environments: note frequency of detail variation, how grass grows between rocks, scale of pebbles vs rocks
+
+**Rendering (MRQ Path Tracer):**
+1. MRQ: delete Deferred Rendering tab → add Path Tracer tab
+2. Color Output: disable Tone Curve → linear 16-bit EXR
+3. Anti-Aliasing: override AA = None; samples spatial = 16, temporal = 16
+4. Post Process Volume → Path Tracing → disable Denoiser (denoise in DaVinci instead)
+5. Output: 4K resolution → Render Local → wait hours
+
+**DaVinci Resolve:**
+1. Free version: Fusion page → Shift+Space → Noise Reduction tool → adjust settings
+2. Studio version: Color page → Noise Reduction (preferred)
+3. Color grade to taste; experiment with different times of day (overcast, night)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Path Tracer**: brute-force rendering mode; far better sub-pixel shadow/GI quality vs Lumen; disable Nanite on all objects (Nanite = virtualized geometry, unsupported by Path Tracer); much slower
+- **Environment Light Mixer**: Window → Environment Light Mixer; adds Sky Atmosphere + Directional Light + Skylight in one click
+- **Nanite + Path Tracer incompatibility**: must disable Nanite per-mesh for Path Tracer to render correctly; increases GPU strain
+- **Subscan spray**: temporary scanning spray that adds texture to reflective/smooth surfaces for photogrammetry; fades naturally
+- **Cross-polarized flash**: eliminates view-dependent reflections in photogrammetry; requires polarizer on lens + polarizer on flash at 90°
+- **MRQ Path Tracer tab**: replaces Deferred Rendering tab; required to use Path Tracer in renders; set AA to None + use PT samples
+- **Reality Capture**: photogrammetry software (RealityCapture/Capturing Reality); outputs albedo + normal map from photos
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate–Advanced (photogrammetry + Path Tracer)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[path-tracer, photogrammetry, rendering, lighting, environment, materials, movie-render-queue, davinci-resolve, post-production]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- create-spectacular-accumulation-depth-of-field-in-unreal-engine-58.md (another advanced rendering mode — Accumulation DOF)
+- fixing-common-ue5-issues-changes-in-50.md (rendering project settings — Path Tracing project setup)
