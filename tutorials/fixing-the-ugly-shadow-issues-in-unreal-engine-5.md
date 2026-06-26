@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=F3XSKXhIAuU
 author: William Faucher
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [shadows, ray-tracing, nanite, lighting, rendering, troubleshooting, lumen]
+extraction_status: complete
 frames_dir: tutorials/frames/fixing-the-ugly-shadow-issues-in-unreal-engine-5/
 frame_count: 8
 ---
@@ -68,27 +68,48 @@ frame_count: 8
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Three solutions for Nanite + Ray Traced Shadows splotch bug in UE5: (1) disable RT shadows on the light, (2) set `r.RayTracing.Shadows.EnableTwoSidedGeometry 0`, (3) set Nanite Fallback Relative Error to 0 in Static Mesh Editor. Root cause: RT shadows trace against the lower-res Nanite fallback mesh (with inverted normals), not the actual Nanite mesh.
 
 ### Summary
-[PENDING EXTRACTION]
+William Faucher explains why UE5 Nanite meshes produce ugly black shadow splotches when using Ray Traced Shadows — it's not a bug, it's by design. RT shadows trace against the Nanite fallback mesh (a lower-res LOD with apparent inverted normals) rather than the actual high-res Nanite geometry. Three solutions with different trade-offs: disable RT shadows entirely, disable two-sided geometry tracing via CVar, or force the fallback mesh to match the Nanite mesh by setting Fallback Relative Error to 0. The comparison against Virtual Shadow Maps (Lumen default) is also shown — VSMs are sharper, RT shadows give better soft shadows.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Solution 1 — Disable RT shadows (simplest, loses soft shadows):**
+1. Select the directional light (or any offending light)
+2. Details panel → search "Ray" → Cast Ray Traced Shadows → set to Disabled or Use Project Settings
+
+**Solution 2 — Disable two-sided geometry tracing (preserves RT shadows):**
+1. Open console (~)
+2. Enter: `r.RayTracing.Shadows.EnableTwoSidedGeometry 0` (default=1)
+3. Caveat: one-sided geometry will no longer cast shadows — flip mesh toward light or use Solution 3 instead
+
+**Solution 3 — Reduce Nanite fallback mesh error (best match, performance cost):**
+1. Select the Nanite mesh → open Static Mesh Editor
+2. Show → enable Nanite Fallback Mesh to compare with source
+3. In Nanite settings: set Fallback Relative Error to 0 → Apply Changes (slow, saves automatically)
+4. Result: fallback mesh nearly identical to Nanite mesh, shadows much more accurate
+5. Caveats: performance impact; results vary by mesh; not perfect on all assets
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Ray Traced Shadows**: per-light toggle in Details → Cast Ray Traced Shadows; default on migrated UE4/early-access projects is Enabled
+- **`r.RayTracing.Shadows.EnableTwoSidedGeometry`**: CVar, default=1; set to 0 eliminates splotches but breaks one-sided geo shadow casting
+- **Nanite Fallback Mesh**: lower-res proxy used by RT shadows instead of actual Nanite geo; visible via Show → Nanite Fallback Mesh in Static Mesh Editor
+- **Fallback Relative Error**: Nanite setting in Static Mesh Editor; default generates a lossy fallback; set to 0 for exact match (heavy cook time)
+- **Virtual Shadow Maps**: Lumen's default shadow system; sharper shadows, less soft than RT; no splotch issue
+- **When to use RT shadows**: soft/diffuse lighting scenarios where VSM falls apart
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner (Solutions 1 & 2) / Intermediate (Solution 3 — performance trade-offs)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (behavior introduced with Nanite in UE5; CVar applies to any UE5 RT project)
 
 ### Tags
-[PENDING EXTRACTION]
+[shadows, ray-tracing, nanite, lighting, rendering, troubleshooting, lumen]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- fixing-common-ue5-issues-changes-in-50.md (companion UE5.0 RT setup guide — enable HW RT, Lumen reflections, glass fix)
+- demystifying-the-skylight-unreal-engine-4-5.md (Skylight + DFAO interaction with scene lighting)

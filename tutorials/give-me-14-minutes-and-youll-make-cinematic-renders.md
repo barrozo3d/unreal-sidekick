@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=BG_zYneV3mo
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [cinematics, vfx, materials, world-position-offset, flipbook, smoke-card, lighting, paper-2d, rendering, movement]
+extraction_status: complete
 frames_dir: tutorials/frames/give-me-14-minutes-and-youll-make-cinematic-renders/
 frame_count: 5
 ---
@@ -53,27 +53,73 @@ frame_count: 5
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Four techniques to add movement to UE5 renders for a "cinematic" feel: (1) looping fire flipbooks via Paper 2D, (2) cloth/fabric wind using Simple Grass Wind → World Position Offset + vertex-color masking, (3) animated smoke cards using Panner node + T_SoftSmoke engine texture, (4) flickering fire lights using Perlin Noise Float curve in Sequencer.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen defines "cinematic" as adding movement to otherwise static renders and gives 4 practical techniques. Looping stock footage fire via Paper 2D flipbooks (cross-dissolve loop trick in Premiere → PNG sequence → sprites → flipbook → additive material). Cloth simulation replacement using Simple Grass Wind node in material WPO, with vertex-color mask painted in Mesh Paint Mode to freeze specific areas. Smoke cards built from UE engine's tileable T_SoftSmoke texture with Panner animation, translucent blend mode, Depth Fade for seamless ground intersection, and Material Instances for per-card tuning. Flickering campfire light via Perlin Noise Float override on Sequencer light intensity, with additive track offset to prevent negative values.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Tip 1 — Looping fire flipbook (Paper 2D):**
+1. Edit → Plugins → enable Paper 2D
+2. Premiere: create 512×512 24fps comp → trim fire clip short → alt-drag copies before/after → Shift-D cross-dissolve → export middle section as PNG sequence (underscore as last char in filename)
+3. UE: Ctrl-A select all PNG files → drag into Content Browser (imported as textures)
+4. Shift-click all textures → Sprite Actions → Create Sprite
+5. Shift-click all sprites → RMB → Create Flipbook
+6. In flipbook: Default Material → Blend Mode: Additive (punches out black background)
+7. Drag flipbook into scene; vary Play Rate (1.0, 1.02, 1.04) across duplicates for variety
+8. Layer foreground / midground / background copies for depth
+
+**Tip 2 — Cloth wind without simulation:**
+1. Open material → search "Simple Grass Wind" → plug into World Position Offset
+2. Promote Wind Weight, Wind Intensity (0.5), Wind Speed (1.0) to parameters → save
+3. Create Vertex Color node + Lerp → set B=0 → plug Vertex Color Red into Alpha → plug into WPO
+4. Select Mode → Mesh Paint Mode (top-left) → Vertex Color mode
+5. Paint areas that should NOT move (Falloff 0.5); visualize with color view → Red channel
+6. Partial values (0.4-0.5) reduce wind rather than stopping it entirely
+7. Decals applied on top react to wind automatically
+
+**Tip 3 — Smoke cards (animated tileable texture):**
+1. Create material → in Content Browser Settings: enable Show Engine Content
+2. Navigate to Engine folder → search "smoke" → find T_SoftSmoke (tileable, seamless)
+3. Drag T_SoftSmoke into material → add Panner node → connect to UV of Texture Sample
+4. Speed X = -0.25; create Speed X / Speed Y Scalar Parameters → Append Vector → into Panner
+5. Blend Mode: Translucent → add Square Mask texture × Opacity scalar parameter → soft edges
+6. Add Depth Fade node (FadeDistance parameter = 150) → into Opacity → removes ground seam
+7. Base Color = Vector Parameter (0.7 gray) × smoke texture × mask → reacts to scene lights
+8. Apply to plane → adjust orientation → apply to foreground/midground/background
+9. RMB material → Create Material Instance → customize opacity/speed/color per card
+
+**Tip 4 — Flickering fire light:**
+1. Add light → Color Mode: Temperature → value 2500K (orange fire color)
+2. In Sequencer or Details: RMB on Intensity → Override with Float Perlin Noise
+3. Adjust amplitude (e.g. 4) for intensity range
+4. Add Additive track on same property with constant value +4 (prevents negative intensity)
+5. Color orange smoke cards for interactive fire glow effect
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Paper 2D plugin**: required for flipbook sprite system; enable in Edit → Plugins
+- **Flipbook Blend Mode: Additive**: punches out black background transparency on fire/smoke sprites
+- **Simple Grass Wind node**: material graph node for procedural wind motion via World Position Offset; inputs: Wind Weight, Wind Intensity, Wind Speed
+- **World Position Offset (WPO)**: material output that offsets mesh geometry without simulation
+- **Mesh Paint Mode**: selection mode → top-left dropdown; vertex color mode paints red channel into mesh; 0=no wind, 1=full wind (when using Lerp alpha setup above)
+- **Panner node**: animates UVs over time; Speed X/Y controls; connects to UV input of Texture Sample
+- **T_SoftSmoke**: built-in UE engine tileable smoke texture; find via Show Engine Content → Engine folder
+- **Depth Fade node**: fades plane intersection with world geometry by N units; fixes hard plane-ground seam
+- **Float Perlin Noise**: Sequencer curve override; creates organic random animation on any float property; set amplitude, add additive offset to prevent negative values
+- **Material Instance**: per-instance override of parent material parameters; essential for smoke card variation
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner–Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[cinematics, vfx, materials, world-position-offset, flipbook, smoke-card, lighting, paper-2d, rendering, movement]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- create-muzzle-flash-gun-fx-for-unreal-5-cinematics.md (Niagara for VFX particles as alternative to smoke cards)
+- easiest-vfx-pipeline-ever-with-composite-mesh-actors-in-unreal-engine-57-composu.md (compositing CG into live footage — smoke card approach similar)
