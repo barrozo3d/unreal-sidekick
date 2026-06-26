@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=VIY1fzRahJY
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [breakdown, realism, camera-simulation, lumen, post-process, ies-lights, dynamic-range, fisheye, body-cam, niagara]
+extraction_status: complete
 frames_dir: tutorials/frames/how-ue5-created-the-most-realistic-game-ever---unrecord-trailer-breakdown/
 frame_count: 7
 ---
@@ -63,27 +63,53 @@ frame_count: 7
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Breakdown of six realism techniques from the Unrecord game trailer (body-cam FPS using UE5): fisheye lens post-process, limited dynamic range auto exposure simulation, physical camera movement with roll, IES flashlight profile, Niagara smoke particles, rough photogrammetry materials. Core insight: UE renders in full HDR internally, then post-processes to simulate a low dynamic range body cam — "crapifying" the render is what makes it photorealistic.
 
 ### Summary
-[PENDING EXTRACTION]
+10-minute breakdown by Josh Toonen analyzing why the Unrecord game trailer (50M views in one day) looks like real body cam footage. Six identified techniques: (1) extreme fisheye distortion via post-process material; (2) limited dynamic range auto exposure — sky clips to white, shadows to black, exposure shifts when crossing indoor/outdoor; (3) camera rolls left/right + off-center hands + Unreal Remote iPhone app for physical randomness; (4) IES flashlight profile for uneven realistic beam; (5) Niagara 3D smoke particles from gun barrel; (6) rough photogrammetry surfaces for abandoned building realism. UE renders in full HDR then compresses to simulate body cam limited dynamic range.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Fisheye lens** — create post-process material with barrel/fisheye distortion math → assign to Post Process Volume in scene; tutorial files include example material graph + free download
+2. **Auto exposure (limited dynamic range)**:
+   - Body cams have ~5 stops vs human eye's 18-20 stops
+   - Sky + sunlight clips to pure white; deep shadows clip to black
+   - Auto exposure shifts compensation as camera moves indoor/outdoor → visible exposure shift
+   - In UE: Post Process Volume → Auto Exposure settings; tune min/max EV to simulate the narrow band
+   - Overcast day = no hard shadows; exposure still shifts with environment light level changes
+3. **Camera movement** — body cam rolls left/right (not just pitch/yaw); adds disorienting realism; hands are not centered; use **Unreal Remote** (free Epic iPhone app) to generate physical camera tracking data with real-world randomness
+4. **IES flashlight**:
+   - Import real-world IES light profile (light distribution data file)
+   - Apply to spotlight → flashlight cone becomes non-uniform (brighter center, rings from glass imperfections)
+   - In dark rooms: flashlight clips/overexposes consistent with camera's limited dynamic range
+5. **No muzzle flash** — realistic choice: small caliber handguns have minimal muzzle flash; only Hollywood exaggerates this
+6. **Niagara smoke** — gun barrel smoke is 3D Niagara particle simulation; each puff travels backward in 3D space as player moves forward (not a 2D card/billboard)
+7. **Rough materials** — abandoned building = surfaces coated in dust → near-zero specularity; some puddles = high specularity contrast; reflections in windows also clip consistent with dynamic range
+8. **Photogrammetry ground** — ground rubble texture detail level suggests photogrammetry (not just Quixel); real scan geometry for maximum ground resolution
+9. **HDR → SDR compression** — UE renders everything in full HDR internally; post-process compresses/clips to simulate body cam's narrow dynamic range → this is the key technique: don't limit your lighting, limit your camera's ability to perceive it
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Post-process material (fisheye)** — custom material with barrel distortion UV math; assign to Post Process Volume; free example in tutorial description
+- **Post Process Volume → Auto Exposure** — min/max EV settings; tune to simulate limited body cam dynamic range; exposure shifts automatically with environment luminance
+- **Unreal Remote** — free Epic iPhone app; generates physical camera tracking data with real-world device motion; adds roll, micro-jitter, and physical randomness to in-engine camera
+- **IES light profile** — real-world light distribution data file; import to UE → apply to spotlight → replaces uniform cone with measured non-uniform distribution from actual flashlight glass patterns; available free online for many fixture types
+- **Niagara smoke particles** — 3D volumetric particle emission from gun barrel; each particle has velocity and persists in world space as player moves; use Mesh Renderer or Sprite Renderer with low count for subtle effect
+- **Dynamic Range simulation** — Lumen renders full HDR; Post Process Volume compresses to SDR clip range to simulate camera limitation; sky overexposure + shadow underexposure = believable body cam effect
+- **Lumen limitation** — movable actors' shadows can lag slightly behind the character; visible in close inspection; ambient shadowing on characters near walls not as tight as static baked lighting
+- **Photogrammetry assets** — ground rubble in Unrecord appears to be photogrammetry (fine surface variation + real edge micro-geometry); Quixel also photogrammetry-based but Unrecord may use custom scans
 
 ### Difficulty
-[PENDING EXTRACTION]
+Reference/Analysis. Not a step-by-step tutorial — a breakdown for understanding what to replicate. Implementing all techniques requires: post-process material skills, exposure tuning, IES file import knowledge, Niagara basics.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (Lumen-powered; UE5.0 era based on game's development timeline)
 
 ### Tags
-[PENDING EXTRACTION]
+breakdown, realism, camera-simulation, lumen, post-process, ies-lights, dynamic-range, fisheye, body-cam, niagara
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `how-to-make-unreal-look-more-cinematic.md` — complementary take on camera simulation techniques (focal length, DoF, film grain)
+- `how-to-actually-improve-your-films-vfx-dune-in-unreal-5.md` — cinematic camera secrets including noise tracks
+- `how-to-add-camera-shake-in-unreal-engine.md` — CameraShakeBase BP for procedural camera movement
+- `lumen-explained---important-tips-for-ue5.md` — Lumen GI system used in Unrecord

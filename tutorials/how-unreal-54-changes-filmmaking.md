@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=NiOgmvMBcxk
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5.4"
+tags: [ue54, motion-design, nanite-tessellation, mrg, retargeting, material-designer, motion-matching, filmmaking, new-features]
+extraction_status: complete
 frames_dir: tutorials/frames/how-unreal-54-changes-filmmaking/
 frame_count: 8
 ---
@@ -68,27 +68,75 @@ frame_count: 8
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+UE5.4 feature overview for filmmakers. Top 3: (1) Motion Design plugin — Cinema 4D-like motion graphics with Cloner/Effector tools + SVG import + animation presets; (2) Nanite Tessellation — real-time displacement on any mesh; (3) Movie Render Graph — layered render output with user variables for customizable presets. Plus: one-click retargeting from Mixamo, Motion Matching, Material Designer.
 
 ### Summary
-[PENDING EXTRACTION]
+9-minute overview by Josh Toonen of UE5.4's top updates for filmmakers. Motion Design plugin adds real-time motion graphics (text, SVG, 3D Cloner+Effector, animation presets/bounces/wiggles) inside UE — reduces need for Cinema 4D. Nanite Tessellation enables real-time parametric displacement (enable plugin + DefaultEngine.ini config + mesh Nanite enable + displacement texture in material). Movie Render Graph replaces MRQ for layered render output with render layers, data passes, and user-exposed variables for custom menus. One-click retargeting transfers any animation to any character. Mixed first impressions — author mainly upgrading for Motion Design only at time of recording.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Motion Design plugin**:
+   - Edit → Plugins → enable "Motion Design" → restart
+   - New Motion Design tab in viewport toolbar
+   - Create text: 2D or 3D, select fonts directly in UE
+   - Import SVG logos: File → Import → .svg files supported
+   - Shape tools + rulers for custom graphics
+   - **Cloner** — take collection of objects → clone into shapes/groups (grids, circles, paths)
+   - **Effectors** — animate/modify cloners procedurally; drag effector around scene or keyframe
+   - Animation presets/modifiers: title slams, zooms, bounces, wiggles — no keyframing required
+   - Logo import tip: Unlit Mode = unchecked (logo reacts to lighting); Unlit Mode = checked (flat logo, unaffected by scene light)
+2. **Material Designer**:
+   - Layer-based material editing (like Photoshop layers)
+   - Add layers, gradients, masks directly in UE
+   - Alternative to node graph for material creation
+3. **Nanite Tessellation** (UE5.4):
+   - Enable Plugins → "Nanite Displaced Mesh"
+   - Config folder → DefaultEngine.ini → add two console variable lines (provided in description)
+   - Close and reopen project
+   - Content browser → right-click mesh → Enable Nanite
+   - Material → add displacement texture → Enable Tessellation
+   - Result: real-time 3D displacement adjustable per shot in viewport
+4. **One-click Retargeting** (new UE5.4):
+   - Right-click any animation in Content Browser → retarget to any other character in project
+   - Instant Mixamo animation transfer to any project character; no manual retarget setup
+5. **Motion Matching**:
+   - AAA-quality animation transitions with realistic weight/inertia
+   - Project file to be released free (not available at video time)
+6. **Movie Render Graph (MRG)**:
+   - Sequencer → clapperboard → arrow → Graph mode
+   - Default graph: Warm Up → Global Game Override → Global Output Settings → Deferred Render → JPEG Sequence → Render Layer
+   - Add data passes: drag branch from default layer → new Deferred Render → EXR Sequence → new Render Layer (name "data_passes") → connect; in Deferred Render: Additional Post Process Materials → World Depth + World Position
+   - User variables: left panel → + next to Variables → pick data type → right-click any setting → Expose as new pin → right-click pin → Promote to Variable = creates customizable menus
+   - Cryptomatte/Object IDs still supported
+   - **Caveats**: Landscapes NOT supported; actors with lightning bolt icon (splineable/Blueprint actors) NOT supported
+7. **Licensing (important)**: UE5.3 and earlier = free forever; UE5.4+ = license fee if company earns >$1M revenue
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Motion Design plugin** — UE5.4; Cloner + Effector paradigm (similar to Cinema 4D MoGraph); real-time rendering; SVG import; 2D/3D text; animation presets
+- **Cloner** — Motion Design tool; duplicates and distributes objects in grid/circle/path patterns
+- **Effector** — Motion Design tool; procedurally animates Cloner distributions; drag-to-animate or keyframe
+- **Material Designer** — UE5.4 layer-based material authoring alternative to node graph; Photoshop-like layers/gradients/masks
+- **Nanite Displaced Mesh plugin** — enables Nanite tessellation; requires DefaultEngine.ini changes (two console variables) + project restart + per-mesh Nanite enable + displacement texture in material
+- **One-click Retargeting (UE5.4)** — right-click animation → Transfer to Character; no IK rig setup needed for basic retargets
+- **Motion Matching** — animation system for natural blending between states; uses animation database; project file coming
+- **Movie Render Graph (MRG)** — node graph render system; replaces MRQ; supports render layers (multi-pass), data passes (world depth, world position), user-exposed variables for preset menus; cryptomatte supported
+- **MRG Render Layer** — isolates geometry into separate render passes; named layers output separately
+- **MRG User Variables** — expose any setting as a variable via right-click → Expose as Pin → Promote to Variable; creates UI parameters for the preset
+- **MRG Caveats** — Landscape actors not supported; Blueprint/splineable actors (lightning bolt icon) not rendered
+- **UE5.4 licensing** — UE5.3 and earlier: free forever; UE5.4+: royalty/license if annual company revenue exceeds $1M (check current Epic licensing for latest terms)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner overview. Each feature area is covered at a high level — enough to know what's available and how to enable it, not a full deep-dive on any single system.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5.4
 
 ### Tags
-[PENDING EXTRACTION]
+ue54, motion-design, nanite-tessellation, mrg, retargeting, material-designer, motion-matching, filmmaking, new-features
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `how-to-use-the-movie-render-graph-in-unreal-engine-58---simple-setup-for-filmmak.md` — detailed MRG setup (UE5.8); fixes multi-camera render bug
+- `nanite-everything-you-should-know-unreal-engine-5.md` — comprehensive Nanite deep-dive
+- `non-destructive-animation-in-ue5-layered-control-rigs-explained.md` — animation layering complement to motion matching
+- `how-to-make-blade-runner-in-unreal-5-step-by-step.md` — also by Josh Toonen; beginner pipeline tutorial
