@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=ova8s1H-mUI
 author: William Faucher
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE4.26"
+tags: [render-passes, mrq, movie-render-queue, z-depth, world-normal, exr, compositing, deferred-rendering]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-render-passes-with-the-movie-render-queue-unreal-engine-426/
 frame_count: 6
 ---
@@ -58,27 +58,44 @@ frame_count: 6
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Adding render passes (Z-depth, world normal, etc.) to Movie Render Queue in UE4.26. Passes are hidden inside the Deferred Rendering tab under "Additional Post Process Materials" — not obvious like Sequencer's render pass UI. Search by pass name, enable, then output to EXR. Critical caveat: Scene Depth (Z-depth) from UE4 has production-breaking edge artifacts — unusable for post DoF compositing in Nuke/Fusion.
 
 ### Summary
-[PENDING EXTRACTION]
+5-minute tutorial by William Faucher (correction video) showing that MRQ does support Sequencer's render passes — but the UI hides them in the Deferred Rendering tab → Additional Post Process Materials. You must search by pass name and enable each pass individually. MRQ adds the benefit of multi-sampling over Sequencer's built-in render passes. However, the Z-depth (Scene Depth World Units) pass has severe edge artifacts in UE4 and is not production-usable.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Open MRQ settings** — Window → Cinematics → Movie Render Queue → Render → click sequence → Unsafe Config → Settings
+2. **Access Deferred Rendering tab** — in MRQ settings, click on the Deferred Rendering item in the settings list
+3. **Add render pass** — Additional Post Process Materials → click + (plus) → search for pass name:
+   - Z-depth: search "scene depth world units" → select → Enable
+   - World Normal: search "world normal" → select "render queue world normal" → Enable
+   - Repeat for any additional passes (click "Add Element" each time)
+4. **Set output to EXR** — Settings → Add Output → EXR Sequence (recommended for multi-pass compositing)
+5. **Accept + Render Local**
+6. **Verify in Nuke/Fusion** — EXR contains requested render passes as separate channels
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Deferred Rendering tab** — MRQ settings panel; contains "Additional Post Process Materials" where render passes are hidden
+- **Additional Post Process Materials** — drop-down + button; search field for pass names; requires knowing the exact post-process material name
+- **Scene Depth World Units** — Z-depth render pass; search name: "scene depth world units"; KNOWN ISSUE: edge artifacts around objects make this unusable for production DoF compositing (bleed/fringing at object boundaries); Epic has NOT improved this as of UE4.26
+- **World Normal** — surface normal render pass; search name: "render queue world normal"; usable for relighting
+- **Multi-sampling advantage** — MRQ render passes get multi-sampling (anti-aliased, higher quality) vs Sequencer's built-in render passes; main reason to use MRQ for render passes
+- **EXR output** — required for multi-channel render pass output; passes bake into EXR channels
+- **Z-depth artifact issue** — edge pixels around geometry have garbage data; causes halos/bleed when used for Defocus in Nuke; "compers are going to hate you" — not recommended for VFX production work
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner-Intermediate. Straightforward once you know where the hidden "Additional Post Process Materials" field is. Main knowledge gap: pass names are not intuitive and you must search by name.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE4.26 (MRQ render passes available in UE5 with same Deferred Rendering tab approach; Z-depth quality improved somewhat in UE5)
 
 ### Tags
-[PENDING EXTRACTION]
+render-passes, mrq, movie-render-queue, z-depth, world-normal, exr, compositing, deferred-rendering
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `how-to-render-cryptomatte-in-unreal-new-in-426.md` — companion: adding Cryptomatte/Object ID passes in MRQ
+- `improve-your-renders-with-movie-render-queue-part-2---five-things-you-need-to-kn.md` — additional MRQ render quality tips
+- `the-2025-guide-to-rendering-in-unreal-engine-5.md` — UE5 rendering guide covering modern MRQ setup
+- `why-you-should-be-using-stencil-render-layers---unreal-engine-426.md` — alternative object isolation method

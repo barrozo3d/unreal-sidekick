@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=Ry4-Q8mBjdg
 author: William Faucher
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE4.26"
+tags: [cryptomatte, object-id, mrq, render-passes, compositing, exr, nuke, photoshop, movie-render-queue]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-render-cryptomatte-in-unreal-new-in-426/
 frame_count: 6
 ---
@@ -58,27 +58,46 @@ frame_count: 6
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Cryptomatte (Object ID / Matte ID) render pass in UE4.26 via Movie Render Queue. Requires "Movie Render Queue Additional Render Passes" plugin + EXR Sequence output with Multi-Layer enabled. Output is a multi-layer EXR with per-object ID layers usable in Nuke, Fusion, or Photoshop (with EXRIO plugin).
 
 ### Summary
-[PENDING EXTRACTION]
+5-minute tutorial by William Faucher on rendering Cryptomatte passes from Unreal 4.26 using the Movie Render Queue. Cryptomatte provides automatic per-object masks without manual rotoscoping. Requires enabling the Additional Render Passes plugin, adding Object IDs to MRQ settings, and outputting to EXR (with Multi-Layer enabled). PNG output does not work. Resulting EXR contains alpha, beauty, and per-object cryptomatte layers viewable in Nuke, Fusion, or Photoshop via the free EXRIO plugin.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Enable plugin** — Settings → Plugins → search "Render Q" → enable "Movie Render Queue Additional Render Passes" → restart (ignore beta warning)
+2. **Create sequence** — Cinematics → Add Level Sequence; add camera; keep frame count short (15 frames sufficient for test)
+3. **Open MRQ** — Window → Cinematics → Movie Render Queue → Render → add sequence via big Render button → click "Unsafe Config" to open settings
+4. **Configure MRQ output**:
+   - Delete JPEG Sequence (default)
+   - Settings → Add Output → **EXR Sequence** (PNG does NOT work for cryptomatte)
+   - In EXR Sequence settings: enable **Multi-Layer** checkbox (critical — without this you get many files instead of one multi-layer EXR)
+5. **Add Object ID pass** — Settings → Add Rendering → **Object IDs Limited** (adds cryptomatte data to EXR)
+6. **Set output** — Output tab: set output directory + resolution → Accept
+7. **Render** — Render Local
+8. **View in Photoshop** — install free EXRIO plugin (link in description) → File → Open → import EXR → EXRIO splits all layers: alpha, beauty, crypto_mat_XX layers per object; each layer = individual object ID
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **"Movie Render Queue Additional Render Passes" plugin** — enables Object IDs and other additional render passes in MRQ; must be enabled before cryptomatte is available
+- **Object IDs Limited** — MRQ rendering setting; adds cryptomatte data; must be combined with EXR Sequence output
+- **EXR Sequence** — MRQ output format required for cryptomatte (PNG fails); use Multi-Layer option
+- **Multi-Layer EXR** — packs all render passes (beauty, alpha, crypto layers) into a single EXR file per frame; enable in EXR Sequence settings
+- **EXRIO plugin (Photoshop)** — free third-party Photoshop plugin; opens multi-layer EXR and splits channels into Photoshop layers; enables cryptomatte inspection without Nuke/Fusion
+- **Nuke / Fusion** — production-standard compositing tools; cryptomatte layer from UE EXR integrates natively; provides automatic object selection via cryptomatte node
+- **Camera film back** — set to "Full Frame DSLR" in the tutorial (personal preference); does not affect cryptomatte output
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner. Straightforward once you know the plugin and EXR requirement. The main trap is outputting to PNG (broken) or forgetting Multi-Layer in EXR settings.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE4.26 (first version with Cryptomatte support; concepts apply to UE5 MRQ as well)
 
 ### Tags
-[PENDING EXTRACTION]
+cryptomatte, object-id, mrq, render-passes, compositing, exr, nuke, photoshop, movie-render-queue
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `how-to-render-passes-with-the-movie-render-queue-unreal-engine-426.md` — companion tutorial: how to add Z-depth, world normal, and other render passes in MRQ
+- `improve-your-renders-with-movie-render-queue-part-2---five-things-you-need-to-kn.md` — additional MRQ tips
+- `the-2025-guide-to-rendering-in-unreal-engine-5.md` — comprehensive UE5 rendering guide
+- `why-you-should-be-using-stencil-render-layers---unreal-engine-426.md` — alternative object isolation method
