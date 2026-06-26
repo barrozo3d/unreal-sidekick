@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=-syj6kFf6e4
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [world-building, displacement, materials, nanite, modeling, cinematics, production-breakdown, environment, landscape, rendering]
+extraction_status: complete
 frames_dir: tutorials/frames/how-i-remade-dune-in-24-hours-using-vfx/
 frame_count: 11
 ---
@@ -83,27 +83,60 @@ frame_count: 11
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Dune city + landscape created in 24 hours: 10 modular buildings from cubes via UE5 Modeling Tools → J-Displacement plugin for greeble → single world-aligned material (Quixel concrete/sand/rust); subdivided plane with 1M polygons + displacement = city block geometry → Nanite; Gaia free heightmaps → UE landscape + displacement for sand dunes; Ornithopter: TurboSquid model → Substance Painter metal+sand layers → 8-bone Blender rig; real-time rendering (30s clip = 30s render).
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen (professional VFX supervisor) builds a full Dune-inspired cinematic in UE5 within 24 hours. City construction: start with plain cubes from Modeling Mode, apply J-Displacement plugin to add Star Wars-style greeble paneling automatically. Single material covers the entire city using world-aligned texture projection — Quixel concrete, sand deposits, rust layers combined. City blocks made from subdivided plane with ~1 million polygons + displacement map producing detailed ground geometry; Nanite enables real-time performance at that poly count. Landscape (sand dunes + mountains) uses Gaia (free) to generate realistic height maps → imported into UE5 as landscape displacement. Ornithopter asset from TurboSquid; retextured in Substance Painter (metal base coat + sand/dust overlays); rigged in Blender with 8 wing bones for flapping animation. One-click compositing template for lens effects/imperfections applied at the end. Entire 30-second sequence renders in real-time (Lumen + Nanite).
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**City building:**
+1. Modeling Mode (UE5): create basic cube → duplicate and arrange 10 modular building shapes
+2. J-Displacement plugin: apply to each building surface → generates greeble paneling (Star Wars hull detail look)
+3. Create one world-aligned master material: Quixel concrete (base) + sand deposit layer + rust accent layer
+4. Apply single material to entire city → world-aligned projection covers everything seamlessly
+5. City ground: create plane → subdivide to ~1M polygons → apply displacement map → enables detail without modeling
+6. Enable Nanite on all city meshes → real-time performance maintained despite poly count
+
+**Landscape (dunes + mountains):**
+1. Download Gaia (free landscape generation tool)
+2. Generate realistic desert heightmap with dunes and distant mountains
+3. Import heightmap into UE5 as landscape → add displacement for fine sand detail
+
+**Ornithopter:**
+1. TurboSquid: find rigged ornithopter model
+2. Substance Painter: create metal base material + sand/dust deposit layers
+3. Blender: build 8-bone rig for wing mechanism → animate flapping motion
+4. Import into UE5 Sequencer; animate flight path
+
+**Rendering:**
+1. Set up Lumen for real-time GI + reflections
+2. Add one-click compositing template (lens flares, imperfections, film grain)
+3. Render: 30-second sequence renders in 30 seconds (real-time, no offline rendering needed)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **J-Displacement plugin**: procedural greeble/paneling generator; apply to mesh surface → adds sci-fi hull detail automatically; free/marketplace
+- **World-Aligned Texture node**: material node; projects texture from world space → single material covers any shape without UV seams; critical for covering entire city with one material
+- **Modeling Mode**: UE5 built-in polygon modeling; used to create and modify building primitives
+- **Nanite**: enabled on all city static meshes; handles 1M+ polygon meshes in real-time without LOD overhead
+- **Displacement on landscape**: high-density mesh + displacement map for sand dune and city ground micro-detail
+- **Gaia**: free third-party landscape height map generator; exports to UE-compatible formats
+- **Substance Painter**: used for layered texturing (metal + sand deposits) on ornithopter asset
+- **Lumen**: real-time GI system; provides soft desert sunlight bounce and reflections at render time
+- **MRQ (Movie Render Queue)**: real-time rendering; 30s sequence = 30s render time
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate (city construction, materials) / Advanced (full pipeline: modeling + texturing + rigging + compositing)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[world-building, displacement, materials, nanite, modeling, cinematics, production-breakdown, environment, landscape, rendering]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- how-i-made-a-godzilla-cinematic-in-unreal-engine-5.md (same author, similar city-building and VFX pass approach)
+- how-i-remade-the-backrooms-using-vfx.md (same author, environment building + VHS post-process)
+- how-i-made-this-shot-in-unreal-engine-5.md (same channel, Path Tracer hero shot vs real-time Lumen)

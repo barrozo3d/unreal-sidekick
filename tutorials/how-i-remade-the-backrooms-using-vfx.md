@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=N4hq0WUaPmk
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [environment, materials, post-process, vhs, blueprints, sequencer, gameplay-recording, take-recorder, found-footage, rendering, beginner-friendly]
+extraction_status: complete
 frames_dir: tutorials/frames/how-i-remade-the-backrooms-using-vfx/
 frame_count: 6
 ---
@@ -58,27 +58,75 @@ frame_count: 6
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Backrooms found-footage short film: build liminal office environment (world-aligned wallpaper + ceiling tile + Megascans carpet + rectangle lights + emissive light planes + decals + volumetric fog) → convert Third Person template to first-person character (camera to head bone, BP controller settings) → record gameplay as animation via Take Recorder → attach Cine Camera to gameplay camera in Sequencer → render via MRQ; free VHS post-process material applied via Post Process Volume.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen shows complete beginner pipeline for a found-footage horror short in UE5. Environment: Third Person template level as base; world-aligned wallpaper material (screenshot → tileable) on all walls; free Megascans plush carpet (tinted yellow); ceiling duplicated from floor + ceiling tile material; rectangle lights + one-sided emissive plane combined and parented = fluorescent fixture; Cube Grid modeling tool for hallway extension; Megascans damage decals for grime; exponential height fog with volumetric scattering per-light for atmosphere; Post Process bloom + lens dirt mask. Free VHS post-process material (MI_Handicap) installed via .uasset copy into project folder → applied to Post Process Volume material slot → real-time VHS preview with adjustable resolution, interlacing, noise, distortion, ringing, head swishing. Character: duplicate Third Person BP → move Follow Camera onto head bone → enable Use Pawn Control Rotation + Use Controller Rotation Yaw → disable Orient Rotation to Movement → Set Auto Possess to Player 0. Recording: Take Recorder → add character → keep only Transform + Animation + Camera Transform tracks → disable Reduce Keyframes, enable Record to Possessable, disable Record Into Sub-Sequences → record gameplay → review in Sequencer. Attach Cine Camera to Follow Camera → set focal length 18mm → assign to Camera Cuts track → Bake Transform → render via MRQ (Game Overrides enabled, QuickTime output).
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Environment build:**
+1. Content Browser → Add Feature: Third Person project template as starting layer
+2. Screenshot of wallpaper texture → make tileable → import → create material with World Aligned Texture node + Promote to Parameter for texture slot
+3. Fab: download free Megascans plush carpet → apply to floor → open material, adjust Base Color tint (yellowed) + Global Tile scale to 2-3
+4. Duplicate floor → move up to ceiling position (100-unit grid snap) → create separate ceiling material with ceiling tile texture + World Aligned Texture
+5. Rectangle light + plane (rotate 180° so visible) → parent plane to light → reset location → apply emissive material → set light Source Width/Height = 100 → alt-drag to duplicate across ceiling grid
+6. Modeling Mode → Cube Grid tool → draw hallway geometry (6000 units long) → Push/Pull to extrude walls/ceiling → collision mode = Complex Only
+7. Add Exponential Height Fog → enable Volumetric Fog → set per-light Volumetric Scattering Intensity = 5 for art-direction → dial fog density to 0.1
+8. Post Process Volume: Bloom intensity 5 + threshold; Dirt Mask texture + cranked intensity
+9. VHS material: copy MI_Handicap .uasset to project content folder via File Explorer → add to Post Process Volume → Post Process Materials element → Asset Reference
+
+**First-person character setup:**
+1. Find Third Person Character BP → Ctrl+D duplicate → rename BP_FirstPersonCharacter
+2. In BP: drag Follow Camera component onto Character Mesh → reset location → set Parent Socket = head bone → rotate/position in front of face
+3. Camera details: Use Pawn Control Rotation = True
+4. Top component (FirstPersonCharacter): Use Controller Rotation Yaw = True
+5. Character Movement: Orient Rotation to Movement = False (disabled)
+6. Compile + Save
+7. Drag character into viewport → Details: Auto Possess Player = Player 0
+
+**Gameplay recording (Take Recorder):**
+1. Window → Cinematics → Take Recorder
+2. Select character in Outliner → drag into Take Recorder source box
+3. Expand character tracks → Deselect All → re-enable: Transform track (top) + Skeletal Mesh Animation track + Camera Transform track
+4. Global settings: Record to Possessable = On; Record Into Sub-Sequences = Off; Reduce Keyframes = Off
+5. Press Play (game running) → Shift+F1 to regain mouse → click Record button → 3s countdown → perform
+6. Escape to stop → Take Recorder → Review Last Recording → Sequencer opens
+
+**Sequencer + Cine Camera:**
+1. Add Cine Camera Actor in Sequencer (camera icon)
+2. Add Attach Track to Cine Camera → attach to Follow Camera (not character/bone)
+3. Extend attach track to full duration → RMB → Properties → attach target = Follow Camera
+4. Set Transform track all values to 0; Focal Length = 18mm
+5. Change Camera Cuts track to use Cine Camera Actor
+6. Disable Auto Possess on character → select Cine Camera → wrench → Bake Transform (full frame range)
+7. Clapperboard → MRQ → Game Overrides enabled; Output tab: QuickTime format, set resolution; Render Local
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **World Aligned Texture node**: material node; projects texture in world space ignoring UVs → single material covers irregular geometry seamlessly
+- **Promote to Parameter**: RMB on texture in material → creates texture parameter input for instancing
+- **Rectangle Light + emissive plane combo**: plane with emissive material parented to rectangle light → visual bulb matches actual light source; Source Width/Height must match plane size
+- **Cube Grid (Modeling Mode)**: click-drag on grid to draw geometry → Push/Pull to extrude → creates hallway geometry; enable Complex Collision under settings before Accept
+- **Exponential Height Fog**: global atmospheric fog; Volumetric Fog checkbox = per-light scattering; Volumetric Scattering Intensity per-light controls density
+- **VHS Post Process Material (MI_Handicap)**: post process material from Josh Toonen's free pack; parameters: Source Resolution (down-res to 480 for VHS look), Viewport Size, Edge Sharpening, Luma/Chrome Radius blur, Interlacing + Field Blend, Scan Lines, Noise + Snow, Distortion, Ringing (edge smear), Head Swishing, Tracking Noise; install by copying .uasset to project content folder via Windows Explorer (NOT drag into Content Browser)
+- **Take Recorder**: Window → Cinematics → Take Recorder; records gameplay as Sequencer keyframes; keep only Transform + Animation + Camera Transform tracks; Record to Possessable ensures editable tracks; disable Reduce Keyframes for 1:1 fidelity
+- **Auto Possess Player**: Details panel property on placed character BP; set to Player 0 to auto-control on Play; disable before rendering to avoid unexpected input
+- **Attach Track (Sequencer)**: parent Cine Camera to Follow Camera → camera inherits gameplay movement exactly
+- **Bake Transform (Sequencer)**: wrench icon on camera → Bake Transform → converts attach-inherited transforms to explicit keyframes; guarantees render matches preview
+- **Game Overrides (MRQ)**: cranks all quality settings for render; enable in MRQ render config
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner-friendly (environment + character) / Intermediate (Take Recorder + Sequencer camera pipeline)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[environment, materials, post-process, vhs, blueprints, sequencer, gameplay-recording, take-recorder, found-footage, rendering, beginner-friendly]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- how-i-remade-dune-in-24-hours-using-vfx.md (same author, environment building + real-time rendering)
+- how-i-made-a-godzilla-cinematic-in-unreal-engine-5.md (same author, cinematic production breakdown)
+- green-screen-integration-in-unreal-engine-57-virtual-production-got-even-better-.md (Post Process Volume materials, MSAA rendering for MRQ)
