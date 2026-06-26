@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=VbLziZfiyD8
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [composure, compositing, virtual-production, green-screen, chroma-key, camera-projection, vfx, sequencer, media-player, offline-virtual-production]
+extraction_status: complete
 frames_dir: tutorials/frames/green-screen-cards-are-dead-camera-projections-in-unreal-engine-change-everythin/
 frame_count: 16
 ---
@@ -108,27 +108,65 @@ frame_count: 16
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Composure EP2 (Dean Yurke): replace traditional flat green-screen cards with Composite Mesh Actors (curved or custom shapes) for camera-projection-based keying. Advantage: shadows land on the geometry, VDB/fog interact with depth (using masked material), and any 3D shape works as the projection surface. Covers both live (Media Profile) and offline (EXR image sequence) workflows with full rendering setup for MSAA and frame-open shutter.
 
 ### Summary
-[PENDING EXTRACTION]
+Dean Yurke demonstrates Composure EP2: using Composite Mesh Actors instead of flat green-screen cards. The curved default shape captures floor shadows, while any mesh in the scene can act as projection surface (demonstrated with a wolf mesh). Two feed workflows are shown: live via Media Profile (Stream Media Source with video capture URL — persists in PIE/simulate), and offline pre-keyed EXR from DaVinci. Covers chroma keying via Color Keyer Pass, material trade-offs (Lit Mask vs. Unlit Alpha vs. custom dithered), MSAA rendering requirement, sub-level environment integration, and color output settings for linear SRGB EXR renders.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Live setup (Media Profile method):**
+1. RMB → Media → Media Player → double-click → load live camera feed → copy URL from vidcap URL string
+2. RMB → Media → Media Profile → Add New Media Source → Stream Media Source → paste URL → hit Refresh → save
+3. Window → Virtual Production → Composure → Place Composite Actor → assign camera from scene
+4. Plate Layer → + → Place Composite Mesh Actor (curved default shape or any scene mesh)
+5. Plate Layer → media source: choose Media Profile (dropdown) → auto-projects from camera
+6. Plate Layer → + → Color Keyer Pass → pick key color (pen-up required) → adjust Red Weight / Alpha Threshold
+7. Select Composite Mesh Actor → RMB → Apply Unlit Alpha Material (transparent, soft edges; default is binary masked)
+
+**Offline setup (EXR image sequence):**
+1. Pre-key footage in DaVinci as EXR DWAA sequence (foreground premultiplied over black)
+2. RMB → Media → Image Media Source → navigate to first EXR frame → save
+3. RMB → Media → Media Player → check "create media texture asset" → associate to IMS → save
+4. Level Sequence → Add Media Track → Add Media Source → select IMS → RMB Properties → assign Media Texture
+5. Drag composite mesh actor into plate layer geometry slot → RMB → Apply Unlit Alpha Material
+6. Plate Layer media source: switch to media texture (the one from step 3)
+
+**Material trade-offs:**
+- **Unlit Alpha**: soft edges, pre-multiplied over, but fog/VDBs don't occlude character (character always top layer)
+- **Lit Mask**: binary on/off edge, but depth-composites correctly with fog/VDB → to get soft edges: Alt-click composite mesh actor material → find master → RMB Duplicate → move to local dir → open duplicate → add Dither Temporal AA node to each Opacity Mask → Apply → use MSAA for rendering (specular scale=0 for fireflies)
+- Extended edges (edge-extend in DaVinci) required for masked material to avoid dark fringe
+
+**Sub-level integration:**
+1. Add Actor (null) at 0,0,0 → parent camera rig + composite mesh actor + lights to it → name "Root"
+2. Window → Levels → drag in environment sub-level → move Root actor to desired position
+
+**Render settings for Composure:**
+- Use Deferred Rendering; Camera → Shutter Timing: Frame Open (prevents frame blending double-image)
+- Color Output → Disable Tone Curve: off → linear SRGB EXR DWAA
+- If using masked dithered material: Anti-Aliasing = Multi-Sample AA (MSAA 1-17); set light Specular Scale=0 to eliminate fireflies
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Composite Mesh Actor**: the physical geometry that receives camera projection in Composure; can be any shape/mesh in scene; RMB → Apply material type
+- **Media Profile**: Window → Media → stores stream URL; survives PIE/simulate mode; preferred over bare Media Player for live production
+- **Color Keyer Pass**: Plate Layer pass for chroma key; Key Color = pen-up color picker; Red Weight / Alpha Threshold sliders
+- **Material types**: Apply Lit Mask Material (binary depth-correct), Apply Unlit Alpha Material (soft edges, no depth sort), custom with Dither Temporal AA (soft + partial depth)
+- **MSAA rendering**: required for dithered mask material; 1-17 sample range; set all light Specular Scale=0 to eliminate fireflies
+- **Camera Shutter Timing: Frame Open**: MRQ setting under camera; prevents blending plate video frames with adjacent frames
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate–Advanced
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[composure, compositing, virtual-production, green-screen, chroma-key, camera-projection, vfx, sequencer, media-player, offline-virtual-production]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- easiest-vfx-pipeline-ever-with-composite-mesh-actors-in-unreal-engine-57-composu.md (Composure EP1 — initial setup, shadow/reflection layers)
+- green-screen-edge-wrap-secrets-and-a-lie---advanced-davinci-to-unreal-engine-wor.md (same author; edge wrap + camera tracking deep-dive)
+- green-screen-integration-in-unreal-engine-57-virtual-production-got-even-better-.md (UE 5.7 Composure updates)
+- faster-than-ai-and-7-times-the-fun-speed-up-animation-and-get-exactly-what-you-w.md (Rokoko mocap → Composure shadow layer integration)

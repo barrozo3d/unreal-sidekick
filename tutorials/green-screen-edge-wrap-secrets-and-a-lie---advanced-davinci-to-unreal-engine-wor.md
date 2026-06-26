@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=t7Q1UiBr8e8
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [composure, compositing, virtual-production, green-screen, edge-wrap, camera-tracking, davinci-resolve, scene-capture-2d, vfx, offline-virtual-production, materials]
+extraction_status: complete
 frames_dir: tutorials/frames/green-screen-edge-wrap-secrets-and-a-lie---advanced-davinci-to-unreal-engine-wor/
 frame_count: 23
 ---
@@ -143,27 +143,84 @@ frame_count: 23
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Edge wrap (light wrap) for UE5 offline virtual production: generate a 4-channel utility-pass EXR from DaVinci Fusion (alpha=key matte, R/G/B=stencil edge mattes at different blur widths), import into UE as a second image media source, then use a Scene Capture 2D (DOF-blurred, parented to camera) as a render target — multiply the blurred background by the utility-pass channel in the master material to pull environment color onto the character edge. Also covers the complete DaVinci → UE camera tracking workflow with FBX export, scale tricks (Merge 3D ×50), and character depth placement.
 
 ### Summary
-[PENDING EXTRACTION]
+Dean Yurke's 99-minute deep-dive on edge wrap / light wrap in UE5 for offline virtual production. DaVinci Fusion side: multi-layer blue-screen extraction with clean-plate edge extension, Color Space Transform (BM 4.6K Film → Linear SRGB for correct UE color), resize to 3840×2160, export pre-keyed as DWA EXR; plus a utility pass EXR where R/G/B channels carry stencil mattes at different edge blur widths (25px/11px/4.5px via Stencil node). UE side: two image media sources (extraction + utility), Scene Capture 2D blurred background → render target, master material mixes blurred RT by utility alpha/R/G/B channel → expose EdgeWrap (intensity) and EdgeWidth (lerp between channels) as parameters editable directly in Sequencer. Bonus: full DaVinci Fusion camera-track workflow (Camera Tracker → solve → export FBX → Replicate 3D for point cloud geometry) and UE FBX import/alignment (File → Import into Level, scale hack via Merge 3D ×50, Disable Depth Test, cine camera child for DOF).
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**DaVinci Fusion — Extraction:**
+1. Noise-reduce blue/green screen footage → Ultra Keyer for main alpha
+2. Separate key for edge alpha; combine with color from another branch for best-of-both-worlds
+3. Clean plate node (blur the clean plate → Merge → grow/erode → blur → stencil) to extend edges
+4. Blue suppression curves → Color Space Transform: Input=BlackMagic 4.6K Film Gen 3 + BM Film Gamma, Output=Linear sRGB
+5. Resize to 3840×2160 → export as DWA EXR sequence (premultiplied over black)
+
+**DaVinci Fusion — Utility pass (edge wrap matte):**
+1. Start from keyed alpha → blur by 25px → Merge (Stencil mode) → this is the wide-edge alpha
+2. Duplicate with blur 11px → Stencil → red channel
+3. Duplicate with blur 4.5px → Stencil → green/blue channels
+4. Channel Booleans: copy each stencil into R/G/B of a multi-channel EXR (alpha = base matte)
+5. Resize to 1920×1080 (quarter data, still works fine) → save as separate DWA EXR sequence
+
+**UE — Media setup:**
+1. RMB → Media → Image Media Source (IMS_Extraction) → navigate to first EXR frame
+2. Repeat for IMS_Utility → smaller resolution works fine
+3. Each IMS needs: Media Player → yes to create media texture → double-click player → load IMS → save
+4. Level Sequence → Add Media Track → Add Media Source (Extraction) → RMB Properties → assign MT_Extraction
+5. Repeat for Utility track → assign MT_Utility
+
+**UE — Master material (edge wrap):**
+1. Extraction: MT_Extraction sample → RGB → emissive; A → opacity (Translucent shading); Shading Model: Unlit; divide by alpha to un-premultiply
+2. Add MF_ChromaKey color corrector node for per-instance color adjustments
+3. Utility: MT_Utility sample → select alpha/R/G/B channel → multiply by Scene Capture render target
+4. Scene Capture RT: RMB → Textures → Render Target (RT_Blur) → set size 1920×1080
+5. Add scene capture 2D actor → parent to FBX camera → reset transform → Texture Target = RT_Blur → FOV = 90° → Capture Source: Final Color HDR in Linear Working Color Space → enable DOF → Focal Distance ≈ 0 (max blur)
+6. In material: feed RT_Blur → multiply by utility channel → Add to emissive
+7. Create Scalar Parameter "EdgeWrap" → multiply edge amount
+8. Create "EdgeWidth" parameter → Lerp(alpha, R/G/B channel, EdgeWidth) for width control
+
+**Editing in Sequencer:**
+- Add plate plane to Sequencer → + Static Mesh Component → Material Slot → Material Parameters → find EdgeWrap/EdgeWidth → animate directly without needing a material instance
+
+**Scene Capture 2D hidden actors:**
+- Scene Capture 2D → Hidden Actors → add plate mesh + floor → prevents foreground from bleeding into background blur
+
+**Camera tracking (DaVinci Fusion — BONUS):**
+1. Clean plate node to remove moving subject → apply Camera Tracker node → Auto Track Locators → set Direction Threshold + Min Feature Separation → Auto Track
+2. Camera Solve → Export → FBX Exporter node → connect to Merge 3D → Fusion → Render Savers
+3. Point cloud export: Shape 3D (0.01 size) → Replicate 3D (on point cloud) → into Merge 3D → export as FBX geometry per point
+4. UE: File → Import into Level (NOT Import) → select FBX → hierarchy type: Create Level Actors → turn off Create Material
+5. Sequencer → wrench → import same FBX → camera animation only (no geometry)
+6. Parent plate plane to FBX camera → set plate local offset backwards to character position
+7. Root Actor: parent camera + plate + lights → scale root to adjust world scale
+8. Cine camera child of FBX camera: push along camera vector for DOF + look-through
+9. Disable Depth Test in material for alignment; re-enable + scale camera (not plate) to lift plate above floor
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Image Media Source**: RMB → Media; points to EXR frame sequence on disk; swap without re-importing
+- **Render Target**: created via RMB → Textures → Render Target; assigned as Scene Capture 2D texture target; set to 1920×1080 for performance
+- **Scene Capture 2D**: Capture Source must be set to "Final Color HDR in Linear Working Color Space" to access DOF; hidden actors list to exclude foreground plate from background blur
+- **Edge wrap stencil logic**: blur alpha → Merge(Stencil) = ring of alpha around character at given width; different widths in R/G/B channels
+- **`File → Import into Level`**: correct way to import FBX camera tracks (vs. regular Import which doesn't connect to sequencer)
+- **Merge 3D scale ×50**: DaVinci Fusion scale trick to get approximately correct world size in UE
+- **Disable Depth Test material parameter**: bypasses depth buffer so plate is always on top; used for alignment; disable once positioned
+- **MF_ChromaKey**: UE built-in material function for color-correcting media textures; gain/gamma/color controls accessible in material instance
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[composure, compositing, virtual-production, green-screen, edge-wrap, camera-tracking, davinci-resolve, scene-capture-2d, vfx, offline-virtual-production, materials]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- green-screen-cards-are-dead-camera-projections-in-unreal-engine-change-everythin.md (Composure EP2 by same author — composite mesh actor setup)
+- easiest-vfx-pipeline-ever-with-composite-mesh-actors-in-unreal-engine-57-composu.md (Composure EP1 — foundational setup)
+- green-screen-integration-in-unreal-engine-57-virtual-production-got-even-better-.md (UE 5.7 Composure updates)
+- every-filmmaker-should-know-this-vfx-workflow.md (Nuke compositing — CryptomatteNode + World Position pass as alternative to in-engine comp)
