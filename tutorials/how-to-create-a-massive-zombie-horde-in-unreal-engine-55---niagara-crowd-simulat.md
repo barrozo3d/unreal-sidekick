@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=h6FEW4Kz_Kk
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5.5"
+tags: [niagara, crowd-simulation, vertex-animation-texture, anim-to-texture, particles, performance, zombies, beginner-friendly, technical]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-create-a-massive-zombie-horde-in-unreal-engine-55---niagara-crowd-simulat/
 frame_count: 28
 ---
@@ -168,27 +168,95 @@ frame_count: 28
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Niagara particle crowd simulation using Vertex Animation Textures (VAT): AnimToTexture plugin bakes skeletal animation into static mesh material layers → thousands of animated static mesh particles rendered in real time; per-zombie static mesh with one retargeted animation; Niagara Fountain emitter with mesh renderer, random mesh selection, linear force with sine wave lateral wiggle, collision, spawn box, facing velocity + Update Mesh Orientation fix, restitution + friction tuning, scale-in/out curve.
 
 ### Summary
-[PENDING EXTRACTION]
+Charlie Driscoll builds a massive zombie horde using Niagara particle simulation + Vertex Animation Textures (VAT) in UE5.5. Pipeline: enable AnimToTexture plugin → download trash praxis' editor utility widget from GitHub → import zombie skeletal meshes + animations → modify parent material (copy mannequin's AnimToTexture BP section → add Make Material Attributes node + Static Switch "Use Layers" → create material instance) → use tool: create static mesh → add retargeted animation to array → create textures → create data set → set data parameters (Force Power of Two, 16-bit, Bone mode, animation frame range) → bake data → enable Use Layers in material instance → tune Sample Rate for animation speed. Repeat for 4-7 zombie variants with different animations for variety. Key Niagara setup: Fountain system → delete Sprite renderer → add Mesh renderer → add all zombie static meshes → Initialize Particle: Mesh Render Array = Random; linear force with Make Vector (X = random range, Y = sine with random scale/period for lateral wiggle); Collision (restitution=0.1, friction=0.05); spawn box 3000×3000; Facing Mode = Velocity → Update Mesh Orientation facing direction=-90; scale curve for ease-in/out at life edges; Cast Shadows enabled. DO NOT apply LOD when closing static mesh (breaks UVs). Direction control: two linear forces (X-axis and Y-axis) — disable one to change run direction.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Plugin and tool setup:**
+1. Edit → Plugins → search "anim to texture" → enable → restart
+2. Go to trash praxis GitHub → download .uasset → place in project Content folder via File Explorer (not drag into Content Browser)
+3. Right-click .uasset → Run Editor Utility Widget → dock panel
+
+**Zombie character prep:**
+1. Fab: zombie character pack (Undead Shop, ~$50 for 3 chars) + animation pack (73 Zombie Animations by Gem Games)
+2. If animations don't match skeleton: right-click animation → Retarget Animations → select target skeleton → export to new folder
+3. Move materials into organized zombie subfolder
+
+**Material modification (per zombie):**
+1. Open AnimToTexture plugin mannequin character → copy AnimToTexture blueprint node section from mannequin's parent material
+2. Open zombie's parent material → paste nodes
+3. Add Make Material Attributes node → reconnect all material channels (normal, AO, etc.) to it
+4. Enable Use Material Attributes on result node → connect Make Material Attributes → result
+5. Add Static Switch node + Bool Static Parameter "Use Layers" → default=false (base material), true=VAT layers → connect both paths
+6. Save → right-click material → Create Material Instance
+
+**VAT baking (per zombie, using trash praxis tool):**
+1. Drag skeletal mesh into tool's Skeletal Mesh slot
+2. Click "Create Static Mesh from Selected"
+3. Open static mesh → set material slot to the material instance just created
+4. In tool: click "+" in Animations array → add retargeted animation
+5. Click "Create Textures" → "Create Data Set" → "Set Data Parameters"
+6. Open Data Asset: check Force Power of Two; set 16-bit Precision; mode = Bone; check animation frame count (set custom range: Start=0, End=frameCount-1; match source frame rate)
+7. Click "Bake Data"
+8. In material instance: enable Use Layers → Layer Parameters appear; check Auto Play, Use For Influences; uncheck Use UV Zero
+9. Tune Sample Rate parameter to match desired animation speed
+
+**CRITICAL:** When closing static meshes, click NO if asked to apply LOD (breaks UVs → spiky mesh artifact)
+
+**Niagara emitter setup:**
+1. Content Browser → New Niagara System → Fountain → name NS_Zombie
+2. Delete Sprite Renderer → Add Mesh Renderer → Meshes array → add all zombie static meshes
+3. Particle Spawn → Initialize Particle → Mesh Attributes → Mesh Render Array Visible = Random
+4. Particle Spawn → Add Velocity → change to Linear → Random Range Vector (set X=-150 to -200, Y=0, Z=0; no vertical velocity)
+5. Particle Spawn → Shape Location → set to Box/Plane → Box Size 3000×3000
+6. Initialize Particle → Lifetime Mode = Random (set min/max for variety)
+7. Initialize Particle → Scale → Random Uniform mode (0.8 to 1.0)
+8. Particle Update → Add Linear Force:
+   - Coordinate Space = World
+   - Change from Random Range Vector → Make Vector
+   - X: Random Range Float (e.g. 80-120 for speed)
+   - Y: Make Sign → Scale = Random Range Float (-200 to 200), Period = Random Range Float (-10 to 10)
+9. Particle Update → Add Collision → Restitution = 0.1, Friction = 0.05
+10. Mesh Renderer → Facing Mode = Velocity
+11. Particle Update → Add Update Mesh Orientation → Stabilization Mode = Facing → Facing Direction = -90 (fixes sideways running)
+12. Particle Update → Add Scale Mesh Size → multiply by Float Curve: 0→0, 0.02→1, 0.95→1, 1→0 (ease in/out)
+13. Select Niagara Actor in scene → Details → Cast Shadow = enabled
+14. Emitter Update → Spawn Rate = 90 (loop = infinite); or set to Once + large box for one-time distribution
+
+**Direction control (dual linear force):**
+- Duplicate linear force → second one configured for Y-axis movement (X becomes the sine wave)
+- Enable X-force for left/right, Y-force for forward/back; disable one to choose direction
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **AnimToTexture plugin**: built-in UE5 plugin (Edit → Plugins); bakes skeletal animation into texture; enables per-material-instance animation
+- **Trash Praxis Editor Utility Widget**: GitHub tool; UI for skeletal mesh → static mesh conversion + VAT baking; install by drag .uasset to Content folder via Windows Explorer
+- **Vertex Animation Textures (VAT)**: per-frame bone/vertex positions baked into 2D texture; read by material shader per pixel to animate static mesh; no skeletal mesh runtime cost
+- **Make Material Attributes + Use Material Attributes**: UE material nodes; required when using material layers from AnimToTexture plugin alongside existing material logic
+- **Static Switch Bool Parameter "Use Layers"**: switches material between base rendering (false) and VAT-animated layer rendering (true); set to true in material instance after baking
+- **Sample Rate (VAT material instance)**: scalar parameter; controls animation playback speed; lower = slower; tune by trial
+- **Niagara Mesh Renderer**: replaces default sprite renderer; displays static mesh per particle
+- **Mesh Render Array Visible = Random**: Initialize Particle setting; randomly picks which mesh from the array per particle → variety in crowd
+- **Linear Force (Niagara)**: moves particles with constant force each frame; Coordinate Space = World required; combine Make Vector + Sine for organic lateral movement
+- **Restitution (Collision)**: how much energy is preserved on bounce; 0.1 = nearly no bounce; prevents zombies from bouncing off ground
+- **Friction (Collision)**: reduces particle clumping during collision; 0.05 prevents clumping at spawn
+- **Facing Mode = Velocity (Mesh Renderer)**: rotates mesh to face direction of movement
+- **Update Mesh Orientation (Niagara)**: additional rotation correction node; Facing Direction = -90 fixes character facing wrong way when velocity-aligned
+- **Scale Mesh Size + Float Curve (Niagara)**: scales particle in/out over its lifetime using curve; eliminates pop-in/pop-out
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced (64-min full tutorial; covers material modification, VAT baking, Niagara emitter configuration)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5.5
 
 ### Tags
-[PENDING EXTRACTION]
+[niagara, crowd-simulation, vertex-animation-texture, anim-to-texture, particles, performance, zombies, beginner-friendly, technical]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- how-i-created-a-massive-crowd-of-metahumans-for-a-brutal-gladiator-film---unreal.md (OverCrowd plugin alternative for MetaHuman crowds — simpler but MetaHuman-specific)
+- how-i-made-a-godzilla-cinematic-in-unreal-engine-5.md (Mixamo crowd approach — simpler, no VAT)

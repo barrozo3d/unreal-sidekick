@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=26c4TVIYZ8k
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5.5"
+tags: [cinematics, fight-scene, mocap, move-ai, animation-pack, metahuman, dubbing, elevenlabs, vdb, production-breakdown]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-create-a-fight-scene-cinematic-in-unreal-engine-55/
 frame_count: 9
 ---
@@ -75,27 +75,62 @@ frame_count: 9
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Kung Fu fight scene: Reallusion 68-animation hand-to-hand combat pack (Fab) retargeted to MetaHumans → Move AI MovePro body capture for connective performance → VDB explosion effects → camera whip cuts to mask transition from choreographed to custom animation; ElevenLabs dubbing pipeline: record English → 11Labs dub tool → Chinese audio → Audio-to-Lip-Sync → copy Chinese mouth keyframes onto original MetaHuman face animation.
 
 ### Summary
-[PENDING EXTRACTION]
+Charlie Driscoll builds a Kung Fu film using Reallusion's 68-animation hand-to-hand combat asset pack (Fab, ~$110) as the choreography base — retargeted to MetaHumans. Personal Move AI MovePro body capture for the narrative/dialogue scenes; camera whip transitions used to hide seams between purchased choreography and custom mocap. Environment: burning destroyed temple from Fab → fire as key light source; Easy Rain for drama; ember/smoke/fire particles for background depth. VDB explosion assets for "Dragon Ball Z" energy blast effects integrated into story. Dubbing pipeline: deliver English performance → upload to ElevenLabs dubbing tool → Chinese voice clone output → ElevenLabs Audio-to-Lip-Sync generates Chinese mouth animation → copy Chinese lip keyframes over original MetaHuman Animator face track. Sound design via Artlist.io (Adobe Premiere plugin for direct search + layer).
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Fight choreography:**
+1. Fab Marketplace: Reallusion hand-to-hand combat animation pack (~68 animations, ~$110)
+2. Retarget animations to MetaHuman skeleton in UE5
+3. Set up scene with character + camera; browse animations and pick fitting ones
+4. Layer with personal Move AI capture for dialog/connective tissue scenes
+5. Use camera whip/cut to hide transition points between purchased vs custom animation
+
+**Environment and lighting:**
+1. Fab: destroyed burning temple asset
+2. Fire particle/VFX as primary key light motivation for the scene
+3. Background: add ember, smoke, fire particles for depth/atmosphere
+4. Easy Rain: add rain for drama and ambiance
+
+**VDB explosions:**
+1. Source VDB assets (energy blast / explosion volumes)
+2. Place in scene; time with story beats for energy attacks
+
+**AI dubbing to Chinese:**
+1. Write and perform all dialogue in English
+2. Capture face animation with MetaHuman Animator (iPhone + head rig) in English
+3. Upload English audio to ElevenLabs → use Dubbing tool → select target language (Chinese) → download dubbed audio
+4. Run ElevenLabs Audio-to-Lip-Sync tool: input dubbed Chinese audio → generates facial animation keyframes
+5. In Sequencer: copy mouth keyframes from Chinese-dubbed face animation → paste onto original MetaHuman face track (replacing mouth channels)
+6. Note: tedious process; only lips are replaced, rest of face remains from original capture
+
+**Sound design:**
+- Artlist.io Premiere plugin: search + drag SFX/music directly into timeline; layer multiple elements
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Reallusion animation pack**: Fab Marketplace; 68 hand-to-hand combat animations; retarget to MetaHuman in UE5 retarget tool
+- **Move AI MovePro**: body capture for narrative scenes; 6-camera system; connects choreographed pack to personal performance via camera whips
+- **Easy Rain (Marketplace)**: rain particle system by William Faucher; one-click dramatic rain addition
+- **VDB assets**: volumetric data block particle volumes for explosions/energy effects; imported as Niagara VDB emitters in UE5
+- **ElevenLabs Dubbing Tool**: AI voice cloning + language translation of audio; output retains original vocal characteristics in target language
+- **ElevenLabs Audio-to-Lip-Sync**: tool that generates lip/mouth facial animation keyframes from audio file; output importable as animation
+- **MetaHuman Animator**: face capture on iPhone; used for original English performance base
+- **Artlist.io**: music + SFX library; Adobe Premiere plugin for in-timeline search and drag-drop
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate (fight choreography + mocap integration) / Advanced (full dubbing pipeline)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5.5
 
 ### Tags
-[PENDING EXTRACTION]
+[cinematics, fight-scene, mocap, move-ai, animation-pack, metahuman, dubbing, elevenlabs, vdb, production-breakdown]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- how-i-made-this-aaa-cinematic-in-unreal-engine-5---moveai-and-metahuman-animator.md (same author, same Move AI + MetaHuman pipeline)
+- how-i-use-moveai-and-metahumans-to-achieve-aaa-character-animation-in-unreal-eng.md (same author, two-actor Move AI + Butterworth filter cleanup)
