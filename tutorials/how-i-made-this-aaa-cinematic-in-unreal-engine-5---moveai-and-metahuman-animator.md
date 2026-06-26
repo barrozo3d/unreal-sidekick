@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=LpRGFkk3b0k
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [cinematics, production-breakdown, mocap, metahuman, move-ai, animation, sequencer, character, performance-capture]
+extraction_status: complete
 frames_dir: tutorials/frames/how-i-made-this-aaa-cinematic-in-unreal-engine-5---moveai-and-metahuman-animator/
 frame_count: 8
 ---
@@ -33,27 +33,58 @@ frame_count: 8
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Mafia game teaser cinematic breakdown (40 hours) using Move AI MovePro (6 GoPro 10s, 120FPS multi-cam) + MetaHuman Animator (iPhone + Rokoko head rig $300) + 3D Scan Store MetaHumans + ElevenLabs voice morph. Key practical lessons: off-screen hand interactions, cigarette-away-from-face trick, Mixamo for stair descent, Hand Pose Library for cleanup. Budget alternative: Move AI Move One (iPhone app) or Radical Motion.
 
 ### Summary
-[PENDING EXTRACTION]
+Charlie Driscoll's Mafia-themed game teaser breakdown demonstrates the full performance-capture pipeline using commercially available tools. Move AI MovePro: 6 GoPro 10s in 360° rig running at 120FPS → upload to Move AI cloud → 1-2hr processing per clip → retarget to MetaHuman. MetaHuman Animator: iPhone 12+ in Rokoko adjustable head rig ($300) → face capture processed in UE5. 3D Scan Store heads for higher-realism skin (custom injury/teeth work in Substance Painter by artist collaborator). All roles performed solo → challenges: eyeline corrections, hand position for off-screen interactions, cigarette held away from face to avoid tracker confusion. Small capture volume → walk back and forth, stitch in Sequencer. Stair problem solved with Mixamo stair animation + minimal stair shots. Hand Pose Library for finger cleanup. ElevenLabs voice morphing for dialogue. Budget alternatives noted: Move One (iPhone app) or Radical Motion for body; MetaHuman Animator works with just iPhone.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Tech stack setup:**
+1. Move AI MovePro: 6 × GoPro 10 at 120FPS in circular rig (can expand to 20 cams)
+2. Upload raw footage to Move AI online platform → wait 1-2 hrs per clip for processing
+3. Download processed animation → retarget to MetaHuman skeleton in UE5
+4. MetaHuman Animator: iPhone 12+ in Rokoko adjustable head rig → film face performance
+5. MetaHuman Animator (UE5 built-in tool) → process face footage → apply to MetaHuman face rig
+6. ElevenLabs: record dialogue → voice-morph per character
+
+**Solo actor tricks:**
+- Off-screen hand interactions: hand-off of objects (gun, bag) happens outside frame to avoid fake-looking hand contact
+- Cigarette held away from face when near mouth to prevent facial tracking interference
+- Eyeline corrections: manually offset in Sequencer when acting both parts
+- Walk back and forth in small space → stitch together in Sequencer for longer walking scenes
+- Stairs: no tall staircase in capture volume → use Mixamo stair descent animation + show only brief shots
+
+**MetaHuman quality enhancement:**
+1. 3D Scan Store: purchase MetaHuman-compatible head scans (high-res skin/wrinkle maps)
+2. Import and replace head in MetaHuman; commission artist for injury/teeth customization (Substance Painter)
+3. Hand Pose Library: build library of hand poses over time → apply to fix finger positions
+
+**Budget alternatives:**
+- Body: Move AI Move One (iPhone app, no GoPros) or Radical Motion
+- Body + Face: MetaHuman Animator + iPhone is free/low-cost without head rig; add Rokoko rig for stability
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Move AI MovePro**: 6-20 camera markerless multi-cam system; $7,000/year; captures 2 actors simultaneously; output directly to MetaHuman-compatible FBX
+- **Move AI Move One**: budget iPhone app alternative; single camera; less accurate than multi-cam
+- **Radical Motion**: another budget body mocap solution (AI-based, single camera)
+- **MetaHuman Animator**: UE5 built-in tool; iPhone 12+ face capture; processes .move files from Rokoko head rig; outputs face animation directly to MetaHuman blend shapes
+- **Rokoko head rig**: adjustable phone mount; $300; works with MetaHuman Animator; adjustable for multiple actors
+- **Hand Pose Library**: personal library of keyframed hand poses in UE5; used for fast hand cleanup on animation tracks
+- **3D Scan Store**: photogrammetry human head scans; MetaHuman-compatible; significantly more realistic skin than default MetaHuman heads
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced (full pipeline including mocap processing, retargeting, compositing workarounds)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[cinematics, production-breakdown, mocap, metahuman, move-ai, animation, sequencer, character, performance-capture]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- how-i-made-this-aaa-battle-scene-in-unreal-engine-5.md (same author, naval battle with same Move AI pipeline)
+- how-i-created-a-massive-crowd-of-metahumans-for-a-brutal-gladiator-film---unreal.md (same author, OverCrowd + Move AI)
+- faster-than-ai-and-7-times-the-fun-speed-up-animation-and-get-exactly-what-you-w.md (Rokoko Smartsuit body mocap — inertial suit alternative)

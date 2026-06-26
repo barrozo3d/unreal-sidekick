@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=P2eR9gGPZnA
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [cinematics, production-breakdown, animation, mocap, metahuman, naval, particles, sequencer, move-ai, vfx]
+extraction_status: complete
 frames_dir: tutorials/frames/how-i-made-this-aaa-battle-scene-in-unreal-engine-5/
 frame_count: 14
 ---
@@ -98,27 +98,68 @@ frame_count: 14
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Naval battle scene made in UE5 with Waterline Pro ocean, duplicated galleon assets, 10 MetaHumans in medieval armor attached to ship in Sequencer, Move AI + MetaHuman Animator mocap, staggered particle cannon fire broadside, ocean spray and cannonball splashes, Dramatic Deaths pack for falling sailors, shipwreck underwater shot, all discovered through real-time camera exploration. ElevenLabs voice morphing for narration.
 
 ### Summary
-[PENDING EXTRACTION]
+Charlie Driscoll builds a Spanish Armada battle cinematic from scratch in UE5. Process: Marketplace galleon ship + Waterline Pro ocean; keyframe sway/bob; add MetaHumans with medieval armor (Polyphoria pack) dragged into skeletal mesh slots; attach all crew to ship transform in Sequencer. Move AI 6-GoPro multi-cam mocap for performances; Rokoko head rig + MetaHuman Animator for faces; even captures ladder-climbing animation in the volume. Particle effects from marketplace: artillery muzzle flash staggered across cannons for broadside; ocean spray along hull; cannonball splashes. Dramatic Deaths asset for falling-off-rigging animations. Underwater drowning shot using swimming animations placed below surface + a found shipwreck asset. Camera work is exploratory — fly around in real time and discover shots by watching performances.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Ship and environment:**
+1. UE Marketplace: purchase Spanish galleon model + Waterline Pro ocean asset
+2. Duplicate ship multiple times; arrange fleet formation
+3. Sequencer: keyframe each ship with gentle sway/bob/rotation
+4. Add smaller galleon model for English ships
+
+**MetaHuman crew:**
+1. UE Marketplace: Medieval Armor (Polyphoria) or pirate MoCap animation pack
+2. Create ~10 MetaHumans (mostly duplicates, different clothing/props)
+3. Drag armor skeletal mesh into MetaHuman skeletal mesh slot
+4. In Sequencer: parent all MetaHumans to ship transform → they ride the ship movement
+
+**Motion capture:**
+1. Move AI: 6 GoPros 360° setup → capture performances in volume
+2. MetaHuman Animator + Rokoko head rig: facial capture per character
+3. For rigging climb: set up physical ladder in capture volume → works with light cleanup
+4. Import to Sequencer; additive layer on Control Rig for any needed cleanup
+
+**Battle VFX:**
+1. Marketplace: artillery muzzle flash particle effect → duplicate at each cannon position
+2. Sequencer: Niagara Component Track → stagger activation time per cannon → broadside effect
+3. Ocean spray particle: place along ship hull line in duplicates
+4. Cannonball splash: same pack as ocean spray → place in water at impact points
+5. Birds: spline-based bird animation asset → add spline, get birds in sky
+6. Dramatic Deaths pack: fall/explosion-throw animations → get MetaHuman into Sequencer + run animation
+
+**Shipwreck/drowning shot:**
+1. Marketplace: wrecked galleon asset that matches main ship
+2. Waterline Pro: already gives natural water cutting across camera frame
+3. Swimming animations on MetaHumans → place below water surface
+4. Add point light at fire source on deck
+
+**Audio:** Record voiceover → ElevenLabs voice morpher → narration track
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Waterline Pro**: ocean asset; gives natural ocean plane with Lumen interaction; water intersects scene geometry
+- **MetaHuman skeletal mesh slot**: drag replacement clothing/armor skeletal mesh here; overwrites default clothing
+- **Sequencer parent/attach**: attach MetaHumans (or any actors) to ship transform → all move as a group relative to parent
+- **Artillery muzzle flash (particle)**: Marketplace asset; activate per Niagara track with staggered start times for sequential cannon fire
+- **Move AI**: multi-cam markerless mocap; 6 GoPros in ring; processes online; supports single or multi-actor
+- **MetaHuman Animator**: iPhone face capture built into UE5; requires iPhone 12+ or Rokoko head rig
+- **Dramatic Deaths asset pack**: pre-made fall/death animations for MetaHuman skeleton
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate (scene setup) / Advanced (mocap pipeline)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[cinematics, production-breakdown, animation, mocap, metahuman, naval, particles, sequencer, move-ai, vfx]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- how-i-made-this-aaa-cinematic-in-unreal-engine-5---moveai-and-metahuman-animator.md (same author, full Move AI + MetaHuman Animator workflow breakdown)
+- how-i-created-a-massive-crowd-of-metahumans-for-a-brutal-gladiator-film---unreal.md (same author, OverCrowd crowd sim)
+- faster-than-ai-and-7-times-the-fun-speed-up-animation-and-get-exactly-what-you-w.md (Rokoko body mocap alternative)
