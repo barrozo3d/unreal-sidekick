@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=ixnoglWzwBw
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [production-breakdown, mocap, rokoko, short-film, cinematics, animation-cleanup, control-rig, physics-simulation, vfx, pipeline]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-make-a-samurai-film-in-unreal-5/
 frame_count: 9
 ---
@@ -33,27 +33,50 @@ frame_count: 9
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Full production breakdown of "War of Being" — an 11-minute sci-fi action short film / music video for Tesseract, made in UE5 by Josh Toonen. End-to-end: Rokoko mocap shoot with professional swordfighters → UE5 retarget → control rig cleanup → environment build → collaborative GitHub workflow → final lighting + lens effects, all in-engine.
 
 ### Summary
-[PENDING EXTRACTION]
+12-minute behind-the-scenes breakdown of a professional UE5 short film production. Key lessons: (1) finish characters and rigs before mocap; (2) plan for extensive animation cleanup — every single shot required hand-touching; (3) markerless mocap suits (Rokoko) fail for two-hands-on-sword scenarios, requiring full reanimate of those shots; (4) RTX 3080 (8GB) was a hard limitation — RTX 3090 (24GB) or better recommended for serious production; (5) parent characters + cameras to a shared parent actor so compositions are preserved when the stage is repositioned; (6) team collaboration via GitHub repository + separate level per team member.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Pre-production** — secure choreography and original characters before mocap; characters must be designed and rigged BEFORE the shoot (this project suffered from not having them ready)
+2. **Mocap shoot** — Rokoko suits at Hugo Fabrica; Chicago Swordplay Guild provided swordfight choreography; blocked out entire sequence beat by beat; Rokoko does first-pass cleanup in its own software
+3. **Import + retarget** — retarget animations from Rokoko rig to custom Samurai rig in UE5
+4. **Early edit** — render 6-7 camera angles → export play blasts → quick cut in NLE → send to director duo for approval before full production begins
+5. **Environment** — environment artist builds worlds in UE5 (Floranville Bear); 3 environments: cliffscape × 2 lighting scenarios, graveyard, scribe's chamber; fog + clouds for depth
+6. **Character finalization** — helmets hand-sculpted from existing base models (Sterling Slack); armor + textures created; physics simulation on cloth/armor/shoulder bulbs — real-time physics, no cache
+7. **Sword contact reanimate** — markerless Rokoko tracking fails for two hands gripping the same prop; reanimated all sword-contact and standoff moments by hand in UE5; Matt Ringo built control rigs; animation team: Andrea Lim, Tyler Lindsey, Bone Studios
+8. **GitHub collaboration** — entire team connected to shared GitHub repo; each member works in separate sub-levels; pushes at end of each day
+9. **Stage reference parent trick** — parent all characters + cameras to a single empty parent actor (stage reference); moving/rotating the parent repositions everything without changing any composition
+10. **Final lighting + compositing** — Josh Toonen handled final lighting, compositing, effects entirely in UE5; simple lens effect for glows + diffusion (simulates physical camera lens); no post-VFX added in compositing software
+11. **Output** — 120+ final shots; most rendered directly out of UE5
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Rokoko suit** — markerless inertial mocap (accelerometers in joints); cleanup in Rokoko software first pass; limitation: two separate hands gripping one prop = tracking breaks
+- **Retargeting** — UE5 built-in Animation Retarget; Rokoko rig → custom Samurai rig
+- **Control Rig** — built by Matt Ringo; enables full animation cleanup and reanimate entirely in UE5 without DCC roundtrip
+- **Play blasts** — exporting viewport animation previews for quick editorial review before final render
+- **Level sequencer** — animation timeline for cameras, characters, sequences
+- **GitHub collaboration** — version control for UE5 project; each artist works in separate sub-level; merges at end of day
+- **Stage parent actor** — empty actor parented to all scene actors + cameras; moving it globally repositions the entire scene while preserving all relative compositions
+- **Physics simulation** — real-time cloth, armor, shoulder bulb dynamics; UE5 Chaos physics; no cache needed (embraced randomness as feature)
+- **Lens effects** — in-engine lens glow and diffusion (not added in compositing); all VFX and lighting done inside UE5
+- **Hardware** — RTX 3080 (8GB VRAM) was hard limit for scene complexity; RTX 3090 (24GB) recommended for production; 3x VRAM headroom is significant
+- **GitHub repository** — team project sharing; separate sub-levels per contributor pushed daily
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced production context. The tutorial is a behind-the-scenes breakdown rather than step-by-step instruction. Useful for understanding professional short-film pipeline planning and team collaboration in UE5.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+production-breakdown, mocap, rokoko, short-film, cinematics, animation-cleanup, control-rig, physics-simulation, vfx, pipeline
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `how-i-use-moveai-and-metahumans-to-achieve-aaa-character-animation-in-unreal-eng.md` — Move AI alternative to Rokoko for mocap
+- `how-to-animate-spider-man-in-unreal-engine-5-for-beginners.md` — OneClick Control Rig for in-engine animation
+- `non-destructive-animation-in-ue5-layered-control-rigs-explained.md` — layered control rig technique for cleanup
+- `how-to-create-cinematic-environments-in-unreal-engine-5.md` — environment techniques for UE5 cinematic work

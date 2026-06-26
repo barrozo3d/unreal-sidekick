@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=ncjHJQPyzto
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [beginner, filmmaking, landscape, materials, sequencer, camera, mixamo, megascans, mrq, color-grading, fog]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-make-blade-runner-in-unreal-5-step-by-step/
 frame_count: 14
 ---
@@ -98,27 +98,82 @@ frame_count: 14
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Complete beginner UE5 filmmaking walkthrough: recreate a Blade Runner 2049 desert shot from scratch using the Third Person template, CGTrader models, Mixamo auto-rigging, Quixel Megascans sand, Exponential Height Fog + Volumetric Fog, Post Process Volume color grading, Sequencer + camera animation, and Apple ProRes MRQ render. No prior UE5 experience required.
 
 ### Summary
-[PENDING EXTRACTION]
+24-minute step-by-step tutorial by Josh Toonen (Hollywood VFX supervisor) aimed at complete beginners. Covers the full pipeline from project creation to final MOV render, using free or inexpensive tools. Character rigged via Mixamo (free), textured manually in material editor. Landscape imported from Gaia heightmap with Megascans sand + Nanite tessellation. Fog setup with Exponential Height Fog + Volumetric Fog. Color graded via Post Process Volume (orange gain, red gamma shadows). Sequencer camera with auto-focus tracking. Rendered via Movie Render Queue as Apple ProRes MOV.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Create project** — Epic Games Launcher → Games → Third Person template → Create
+2. **Open content browser** — Ctrl+Space; dock in layout (used constantly)
+3. **Import FBX models** — content browser → create folder → drag FBX file in → Import
+4. **Static vs Skeletal Mesh** — UE auto-detects rigged objects as Skeletal Mesh; press Import
+5. **Group multi-piece imports** — drag pieces into viewport → outliner: Shift+click all pieces → Ctrl+click body piece → drag onto body piece = parents all pieces to body
+6. **Create material** — right-click content browser → New Material → name (M_objectname) → open → drag texture files in → connect: base color → Base Color slot, metallic/roughness → Metallic/Roughness, normal → Normal Map → Save → drag material into actor's material slot in Details
+7. **Rig character for free (Mixamo)** — upload 3D model to Mixamo.com (free account) → auto-rigger: assign chin, wrists, elbows, knees, groin → Next; browse animation library (walk, combat etc.) → "In Place" for looping; Overdrive = speed control; download at 24fps → import as SKM into UE5
+8. **Assign material in SKM editor** — double-click pink SKM → Materials section → create new material → import + plug textures → save; material persists across all scenes using this SKM
+9. **Scale objects** — R key to enter scale mode
+10. **Build landscape**:
+    - Delete unwanted default objects (hide ≠ delete for renders — hidden objects reappear at render time)
+    - Top bar → exit selection mode → Landscape mode → Managed tab → Create
+    - Option A: sculpt manually; Option B: import height map (black/white PNG) from Gaia or online → scale Z from 100 → 5 to flatten → Import
+    - Raise landscape position to ~250 units to meet ground level
+11. **Sand texture (Megascans)**:
+    - Fab → Quixel filter → free rippled sand material → Add to Project → auto-downloads
+    - Content folder → Fab → Megascans → Surfaces → drag material instance onto Landscape in outliner (landscape material slot)
+    - Double-click material instance → tiling X/Y = 0.1-0.2
+    - Open parent material → Details → type "tessellation" → Enable Tessellation = True
+    - Landscape actor → Nanite settings → enable Nanite → Build Data (adds 3D displacement)
+    - Reduce displacement: back to material instance → Displacement Scaling → lower magnitude (e.g., 2)
+12. **Fog setup** — outliner → search "exponential height fog" → Details: Fog Density ~1.0; Start Distance (keeps fog behind characters); enable Volumetric Fog = True → directional light now creates volumetric light rays
+13. **Move sun** — Ctrl+L shortcut to drag sun in viewport; affects volumetric fog direction dramatically
+14. **Color grade** — search "post process volume" → Global tab → Gain (color wheel → drag to orange/yellow for Blade Runner look); Gamma (drag toward red, reduce blue = warm reds in shadows); delete Volumetric Clouds for clean sky
+15. **Create sequence** — clapperboard icon → New Level Sequence (ls_01) → set 24fps + enable snapping
+16. **Add actors to sequencer** — drag actors from outliner into Sequencer timeline; expand to add Animation track; animation loops automatically
+17. **Add camera** — Sequencer → Create New Camera button; viewport now pilots the camera (moving viewport = moving camera)
+18. **Camera auto-focus** — camera actor → Details → focus mode: Tracking → select character actor → Draw Debug Focus Plane = True (purple plane must intersect character)
+19. **Animate camera** — create keyframe at start position → advance in timeline → right-click viewport → find second position; creates smooth camera move
+20. **Character walk cycle** — add keyframe at frame 1; advance; add second keyframe; select both → press 4; animation curve editor → select transform keyframes → right arrow → Post Infinity = Linear (animation continues infinitely); adjust keyframe spacing to eliminate foot slide
+21. **Enable Apple ProRes** — Edit → Plugins → search "Apple ProRes Media" → Enable → restart; save all first!
+22. **MRQ render** — Sequencer → clapperboard icon → MRQ → render settings → add Apple ProRes track → disable JPEG sequence → add Game Overrides (boosts all render settings) → Render Local → exports .MOV (first render compiles shaders; subsequent renders skip this)
+23. **Path Tracing** — toggle in viewport render mode for fully realistic GI render (slower but more photorealistic)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Third Person template** — starting point; comes with 4 pre-rigged characters that can be dragged directly into scene
+- **Content Browser** — Ctrl+Space; container for all project assets; dock recommended
+- **FBX import** — supports static mesh + skeletal mesh detection; drag-and-drop into content browser
+- **Outliner parent** — drag actors onto another actor in Outliner = parents (groups) them; click parent to move entire group
+- **Material Editor** — node graph; texture node → connect to Base Color / Metallic / Roughness / Normal inputs; Save = apply
+- **Mixamo** — free web rigging + animation service; auto-rigger takes any humanoid mesh; outputs FBX at 24fps; "In Place" = no root motion (use for Sequencer-driven position)
+- **Landscape tool** — top bar mode switch; supports sculpt or height map import; Gaia recommended for height maps
+- **Nanite tessellation** — enable per landscape: Nanite settings → Enable Nanite → Build Data; driven by material Tessellation + Displacement Scaling
+- **Megascans / Fab** — free high-quality Quixel assets; filter by "Quixel" creator and free; auto-imports via Fab button
+- **Exponential Height Fog** — fog density, start distance, volumetric fog toggle; Volumetric Fog = True makes directional light create rays
+- **Ctrl+L** — shortcut to drag sun position in viewport
+- **Post Process Volume** — Global → Gain (highlights color wheel), Gamma (shadow color wheel); also: chromatic aberration, exposure, lens flares, depth of field
+- **Level Sequence** — clapperboard icon; animation timeline at 24fps; drag outliner actors into it
+- **Sequencer Camera** — create new camera button; pilots viewport; focus mode: Tracking for auto-focus lock
+- **Post Infinity = Linear** — curve editor setting; makes animation continue past last keyframe infinitely at the same velocity
+- **Apple ProRes plugin** — Edit → Plugins → Apple ProRes Media; enables MOV export from MRQ
+- **Movie Render Queue (MRQ)** — clapperboard in Sequencer; render settings: Apple ProRes track + Game Overrides; Render Local; exports MOV
+- **R key** — scale mode shortcut
+- **F key** — frame selection in viewport
+- **Shift+C** — exit camera cut view in Sequencer
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner. Designed for complete UE5 newcomers. Every step is spelled out. Uses free resources (Mixamo, Megascans, Third Person template).
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+beginner, filmmaking, landscape, materials, sequencer, camera, mixamo, megascans, mrq, color-grading, fog
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `how-to-make-a-samurai-film-in-unreal-5.md` — advanced production breakdown by the same author (Josh Toonen)
+- `how-to-render-passes-with-the-movie-render-queue-unreal-engine-426.md` — deeper MRQ render pass setup
+- `the-2025-guide-to-rendering-in-unreal-engine-5.md` — comprehensive rendering guide
+- `how-to-animate-spider-man-in-unreal-engine-5-for-beginners.md` — OneClick Control Rig for in-engine animation beyond Mixamo
+- `make-films-10x-faster-in-unreal-engine.md` — faster filmmaking workflow tips
