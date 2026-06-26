@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=P90HaXlYSNE
 author: Polygonflow Dash
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [dash, scatter, merge-actors, physics-simulation, nanite, environment, optimization, props, workflow, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/create-realistic-scatter-using-merge-actors-with-dash/
 frame_count: 6
 ---
@@ -58,27 +58,41 @@ frame_count: 6
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Dash 1.3 workflow: Physics tool to scatter and randomize asset piles → Merge Actors to combine into a single static mesh → Nanite enable → Surface Scatter for efficient large-scale distribution. Pivot adjustment for Sketchfab GLTF multi-mesh imports.
 
 ### Summary
-[PENDING EXTRACTION]
+Short Polygonflow Dash tutorial (6m) showing how to create optimized, non-repetitive scatter assets for environment scenes. Uses Dash's Physics tool to drop and randomize asset piles (including a Ctrl+Reset trick to overlap duplicates before re-simulating for natural variation), then Merge Actors reduces dozens of separate brick actors to one static mesh. Nanite is toggled via Dash prompt bar. Multiple pile variants feed a Surface Scatter setup. Pivot adjustment (center/top/bottom) fixes Sketchfab GLTF assets that arrive with offset pivots or multiple sub-meshes.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Select source assets (e.g., Megascans bricks) → Dash Prompt Bar → "Physics Tool" → Start (auto-makes objects dynamic, drops to plane)
+2. Duplicate button 3-5× → select duplicated objects → duplicate again to build quantity
+3. Ctrl+Reset: resets duplicates to original spawn origin (causes overlap) → Start again → physics explosion scatters them into natural varied pile
+4. Repeat/reset until satisfied with pile appearance
+5. Select all brick actors → Prompt Bar → "merge actors" → all selected become a single static mesh actor
+6. Prompt Bar → "NANI" → "actor switch NANI" → enables Nanite on merged mesh
+7. Create 2-3 variants of piles (different resets/seeds) for scatter variety
+8. Drag variants onto terrain → Prompt Bar → "surface scatter" → add variants to Scatter Set, terrain to Surface Set
+9. **Sketchfab GLTF fix:** select multi-mesh import → "merge actors" → single mesh; then "pivot bottom" to center pivot at bounding box bottom
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Dash Physics Tool**: makes actors dynamic rigid bodies; drop simulation; Ctrl+Reset overlaps duplicates for re-simulation variety
+- **Dash Merge Actors**: combines selected static mesh actors into one static mesh (reduces actor count/draw calls)
+- **Dash Nanite toggle**: "actor switch NANI" via prompt bar enables Nanite on merged mesh for LOD optimization
+- **Dash Surface Scatter**: scatter tens of thousands of instances with far fewer actors when source is a merged mesh
+- **Dash Pivot tool** (1.3): Prompt Bar → "pivot" → options center/top/bottom; "pivot bottom" = bottom of bounding box (essential for Sketchfab imports)
+- Sketchfab GLTF assets often import as multiple sub-meshes with offset pivots — Merge Actors + Pivot Bottom fixes both in seconds
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner — all operations via Dash prompt bar with no Blueprint or manual editor work
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[dash, scatter, merge-actors, physics-simulation, nanite, environment, optimization, props, workflow, beginner]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- create-run-down-environments-in-minutes---dash-ue5.md (Dash environment workflow)
+- creating-a-massive-procedural-game-world-in-ue5-with-dash.md (Dash large-scale scattering)

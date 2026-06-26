@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=wFhZxRJZN8E
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [niagara, vfx, gunfire, muzzle-flash, particle-system, cinematics, collision, sequencer, compositing, filmmaking, simcache, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/create-muzzle-flash-gun-fx-for-unreal-5-cinematics/
 frame_count: 16
 ---
@@ -108,27 +108,66 @@ frame_count: 16
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Procedural Niagara gunfire system for cinematics: three layered emitters (muzzle flash, tracer bullet, impact spark) with inter-emitter collision events, light renders, Sequencer user parameters for on/off animation, and SimCache for deterministic re-renders.
 
 ### Summary
-[PENDING EXTRACTION]
+Hollywood VFX veteran Josh Toonen (Dungeons & Dragons, Across the Spider-Verse) walks through building a complete interactive gunfire system from scratch in Niagara. The system uses a Directional Burst template as the starting point, then builds three emitters: a muzzle flash sprite with an additive material and ~0.05s lifetime, a tracer bullet with velocity-aligned scaling and collision, and a spark impact spawned via collision event handlers. Interactive light renders attach to each emitter. Spawn rate is exposed as a User Parameter and animated in Sequencer via Niagara Component Track. SimCache plugin locks particle positions for identical re-renders. Final shot is composite-friendly: isolate each layer and combine in Nuke.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Content Browser → RMB → New Niagara System → New System From Emitter → Directional Burst → name NS_Gunfire
+2. **Muzzle Flash emitter:**
+   - Delete default burst spawn module; add Spawn Rate (value=3); set Loop Behavior=Infinite
+   - Delete Drag, Gravity, Forces, Velocity, Scale Sprite Size By Speed modules
+   - Initialize Particle: Sprite Size=Uniform value=60; Lifetime=Direct Set value=0.05
+   - Create material: muzzle flash image → Emissive Color; Blend Mode=Additive; add Multiply node named "brightness"
+   - Sprite Render: assign new material
+3. **Bullet emitter:**
+   - Copy muzzle flash emitter, rename "bullet"; Lifetime=2s
+   - Add Velocity (In Cone); Cone Angle=0; speed=1500 units
+   - Add Scale Sprite Size By Speed (Y axis) for tracer stretch
+   - Sprite Render: Alignment=Velocity Align
+   - Particle Update: add Collision module; add Kill Particles → set Has Collided=true
+   - Enable Persistent ID at emitter top; add Generate Collision Event
+4. **Impact Spark emitter:**
+   - New emitter from Directional Burst; Sprite Render Alignment=Velocity Align
+   - Add Event Handler stage; Source=Collision Event; Spawn 20 particles; Execution Mode=Spawn Particles; receive Collision Event
+   - Add Velocity (In Cone): change cone axis to -X (negative) to invert direction
+   - Add Collision module; set Advanced aging rate after collision=2
+5. **Light Renders:**
+   - Muzzle flash: Add Light Render; Radius Scale=64; uncheck Inverse Square Falloff; Default Exponent=800; tint orange
+   - Bullet: copy same Light Render; increase exponent (dimmer)
+6. **Sequencer animation:**
+   - Muzzle flash spawn rate → click Spawn Rate field down arrow → type "user" → create User Parameter; repeat for bullet emitter, assign same parameter
+   - In Sequencer: select Niagara actor → Add Niagara Component Track → Add Spawn Rate sub-track → keyframe (3=fire, 0=stop)
+7. **Consistent renders:**
+   - Edit → Plugins → enable Niagara SimCache Plugin
+   - Sequencer: Niagara component → Add Niagara Cache Track → press Record → bakes per-frame particle positions
+8. **Layer isolation:** hide unused levels/geometry to isolate muzzle flash pass; composite in Nuke with lens flares, dirt, extra spotlights for art-directed light
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Niagara System**: Directional Burst template as base; three emitters chained via Event Handlers
+- **Collision Event / Generate Collision Event**: inter-emitter communication for impact spawning
+- **Persistent ID**: required on source emitter for collision events to work
+- **Sprite Render**: Additive blend mode for muzzle flash overlay; Velocity Align for bullets/sparks
+- **Light Render** (Niagara): Radius Scale, Default Exponent (non-inverse-square falloff), color tint
+- **User Parameters**: expose Spawn Rate as Niagara user param; keyframe via Niagara Component Track in Sequencer
+- **Kill Particles module**: condition on `Has Collided` to terminate bullets on impact
+- **Scale Sprite Size By Speed** (Y axis): stretches bullet sprite into tracer shape proportional to velocity
+- **Niagara SimCache Plugin**: deterministic per-frame particle baking for re-render consistency
+- **Movie Render Queue**: render isolated layers; composite in Nuke
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate — requires Niagara fundamentals but clearly walked through from template
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[niagara, vfx, gunfire, muzzle-flash, particle-system, cinematics, collision, sequencer, compositing, filmmaking, simcache, intermediate]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- cheap-ai-mocap-that-actually-works---quickmagicai-chaos-destruction-and-metahuma.md (action scenes, Chaos)
+- cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un.md (Movie Render Queue, compositing)
+- beat-yourself-up-with-unreal-ragdoll-physics-for-filmmaking-made-easy-or-hard-in.md (Sequencer filmmaking techniques)
