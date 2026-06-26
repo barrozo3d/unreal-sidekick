@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=Qun6BB6Q2tg
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [lighting, cinematics, camera-animation, vfx, explosions, compositing, lens-flares, sequencer, image-sequence, beginner-friendly]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-actually-improve-your-films-vfx-dune-in-unreal-5/
 frame_count: 9
 ---
@@ -73,27 +73,66 @@ frame_count: 9
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Three cinematography secrets for photoreal UE5 VFX: (1) backlit key light + hidden invisible spotlights + lower material roughness for reflections; (2) camera animation with noise tracks for handheld shake (both translation + rotation); (3) real-life footage image sequences for explosions + animated point lights + Depth Fade material + real lens flare footage composited over renders (not UE's built-in lens flares).
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen demonstrates three shortcuts to make UE5 renders look cinematic using a Dune War on Arrakis scene. Lighting: key light placed behind actor/environment → creates shadows/contrast (not flat fill); hide invisible spotlights to add controlled reflections on low-roughness city surfaces; attach point light to moving Ornithopter for dynamic backlight during chase shots. Camera: static render ≠ cinematic — every shot in Dune has camera movement; animate with 2-3 keyframes first (block timing), then refine; add Sequencer noise tracks to camera translation + rotation for handheld realism (need both axes, not just one). Explosions: import real-life explosion footage as Image Sequence asset (supports HDR) → drag into viewport → into Sequencer → adjust timing/size/rotation; add point lights at explosion positions and keyframe intensity to match blast timing → dynamic interactive lighting on scene. Depth Fade on explosion material to avoid hard edge seams when sliding card around environment. Lens flares: UE built-in lens flares look like game engine — use real footage/images of lens flares/lens dirt → composite over final render with timing tied to explosion impacts. One-click compositing template applies 10 lens effect layers (same as Josh's Hollywood workflow).
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Lighting:**
+1. Place directional/sun light behind actors/environment → creates backlight, shadows, contrast
+2. For nighttime: convert sun to moonlight intensity/color; still place behind subjects
+3. Add hidden invisible spotlights pointing at reflective surfaces (not visible to camera)
+4. Lower material Roughness value → surfaces look more reflective → faked wet-street/city reflection
+5. Attach point light to any moving hero object (Ornithopter, vehicle) → dynamic interactive backlight follows it
+
+**Camera animation:**
+1. Sequencer: add Cine Camera; set 2-3 initial keyframes for rough timing (block shot first)
+2. Refine keyframes until timing feels right
+3. Add noise tracks to camera: Translation noise (X/Y/Z) + Rotation noise (pitch/yaw/roll) — BOTH required for believable handheld shake
+4. Adjust noise frequency/amplitude to match desired camera style
+
+**Explosions (image sequence):**
+1. Get real explosion footage (Compositing Academy, free from collaborators)
+2. UE: Create Image Sequence asset → import footage frames
+3. Drag Image Sequence asset into viewport → place in scene
+4. Drag into Sequencer → adjust timing, size, rotation, depth placement
+5. Add point light at explosion position → keyframe intensity: peak at explosion frame, decay after
+6. Open explosion material → add Depth Fade node → removes hard edge when card overlaps geometry
+
+**Lens flares and compositing:**
+1. Avoid UE built-in lens flare presets (game engine look)
+2. Source: real lens flare footage/images + lens dirt images (can be free/stock)
+3. After MRQ render: composite lens flare footage over render frames
+4. Animate opacity/scale of lens flare element → time to explosion impacts and light sources
+5. Apply one-click compositing template: 10 lens effect layers (film grain, aberration, vignette, etc.)
+
+**Sub-sequence for animation loops:**
+- Create animation sub-sequence for repeating wing flap → drag into master sequence → loops/combines cleanly
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Directional Light (backlit)**: key light from behind actor → shadows define shape; do not use fill light as key
+- **Invisible Spotlights**: lights with Intensity set but not directly visible in frame; placed to create specular reflections on low-roughness surfaces
+- **Material Roughness**: lower value (0–0.2) = more mirror-like specular; used on city surfaces for wet/reflective look
+- **Camera noise tracks (Sequencer)**: add noise on Translation and Rotation separately in Sequencer; both required for handheld feel
+- **Image Sequence (UE)**: asset type; import footage frames → creates animated texture; supports HDR; drag into viewport as plane + into Sequencer for timeline control
+- **Point Light keyframing**: animate intensity per keyframe in Sequencer; spike at explosion start → decay → 0; creates interactive environmental light from VFX card
+- **Depth Fade node**: material node; fades mesh where it intersects other geometry; eliminates hard seams on VFX cards placed near/behind surfaces
+- **Sub-sequence**: a Level Sequence nested inside another; used for looping animations (wing flap) that repeat throughout master sequence
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner-Intermediate (lighting and camera) / Intermediate (explosion compositing)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[lighting, cinematics, camera-animation, vfx, explosions, compositing, lens-flares, sequencer, image-sequence, beginner-friendly]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- how-i-remade-dune-in-24-hours-using-vfx.md (same author, same Dune environment build — this video covers the VFX/rendering polish on top of that environment)
+- how-i-made-a-godzilla-cinematic-in-unreal-engine-5.md (same author, fog cards + explosion lighting + Nuke compositing)
+- give-me-14-minutes-and-youll-make-cinematic-renders.md (camera animation + light animation techniques)

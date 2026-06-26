@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=eOQM1Tbyw0Y
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [cinematics, filmmaking, color-theory, storytelling, oscar, animation, breakdown, short-film, color-script, camera-movement]
+extraction_status: complete
 frames_dir: tutorials/frames/how-this-unreal-engine-5-film-won-an-oscar/
 frame_count: 4
 ---
@@ -33,27 +33,58 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Filmmaking breakdown of Oscar-winning "War Is Over!" (WetaFX/Dave Mullins, UE5): color script as emotional roadmap; deliberate camera movement (static on humans / tracking on pigeon); 180-degree rule for opposing sides; setup-and-payoff storytelling; shape language (boxy/friendly vs circular/enemy); one location + one conflict + two characters formula for short film completion. The UE5 film won Best Animated Short Film; primary ecosystem for shots, lighting, rendering, and effects.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen (VFX supervisor) breaks down storytelling and filmmaking craft in "War Is Over!" — first Oscar-winning animated short film made in UE5 (WetaFX, directed by Dave Mullins). Analysis covers: color script planning (map emotional arc with color before animating); cold/neutral battlefield opening → warm tent interior (gold overhead light = humanity/hope); enemy introduced with pale desaturated green to match paper color; color saturation climbs as emotion builds; blood red sky at climax → pink/orange on resolution. Camera rule: static/tripod for humans, tracking for pigeon flight — contrast creates rhythm. 180-degree rule: enemy always right-to-left, friendly always left-to-right → convergence at finale. Shape language: friendly = boxy/square; enemy = circular/round (extends to chests, trees, barrels, tent shapes). Short film formula: one location + one conflict + two characters → one key decision. Montage technique to pass time without repeating every action. Setup-and-payoff: pigeon diving through explosions throughout = setup; final flight = payoff. "Show don't tell" — character introduction via action (wiping glasses in cold) not description.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Pre-production (planning):**
+1. Write color script: sequence of screenshots/paintings showing color per emotional beat
+   - Can use movie screenshots tweaked in Photoshop (no illustration skill needed)
+   - Map from dull/desaturated → vibrant/saturated as emotion builds
+2. Define shape language per faction/character archetype
+3. Apply "short film formula": 1 location, 1 conflict, 2 characters → 1 key decision
+
+**Color and lighting design:**
+- Establish neutral/cold base (battlefield, white snow) → any warm pop stands out (blood on snow)
+- Interior warmth via single overhead colored light (gold = humanity/hope)
+- Assign consistent color per side: gold (friendly) vs green (enemy) → audience reads instantly on cuts
+- Escalate saturation as emotional tension rises
+- Night sky: dark blue saturated = subconscious danger signal
+- Climax: blood red sky; resolution: pink/orange
+
+**Camera language:**
+- Locked/tripod camera for stationary characters → stasis, weight, gravity
+- Moving/tracking camera for bird flights → freedom, speed
+- First handheld appearance = tonal shift signal (commander intrusion scene)
+- POV shot at key decision moment: camera becomes character's eyes
+
+**Narrative structure:**
+- 180-degree rule: define axis between sides; never cross it until convergence
+- Montage: after establishing repeated action (pigeon delivery), cut to quick montage to pass time
+- Setup/payoff: repeat dangerous action multiple times → audience feels payoff without explicit explanation
+- Character introduction via telling action, not description
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Unreal Engine 5** used as primary ecosystem: shot structuring, all lighting, all rendering, most effects
+- Lighting principle: backlit key light → shadow creates contrast, not fill light → contrast over flatness
+- Color temperature pairing: warm overhead = humanity/hope; cold ambient = danger/isolation
+- No specific UE tools/nodes listed — this tutorial is about filmmaking craft, not UE mechanics
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner (filmmaking theory) — applicable regardless of software
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[cinematics, filmmaking, color-theory, storytelling, oscar, animation, breakdown, short-film, color-script, camera-movement]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- give-me-14-minutes-and-youll-make-cinematic-renders.md (camera movement + cinematic techniques)
+- how-i-remade-dune-in-24-hours-using-vfx.md (same author, UE5 production)
+- how-i-made-a-godzilla-cinematic-in-unreal-engine-5.md (same author, production breakdown)
