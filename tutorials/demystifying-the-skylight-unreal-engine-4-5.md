@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=BGoaPyfZlYg
 author: William Faucher
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE4/UE5"
+tags: [skylight, lighting, hdri, distance-fields, ambient-occlusion, sky-distance-threshold, ray-tracing, dynamic-lighting, dfao, environment-lighting, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/demystifying-the-skylight-unreal-engine-4-5/
 frame_count: 4
 ---
@@ -48,27 +48,45 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Deep dive into Skylight Actor: Sky Distance Threshold as the key misunderstood setting (default 150k = sky-only capture; set to 1 = captures immediate surroundings for scene integration), Movable vs. baked, Real-time Capture trade-off, Effect World toggle, Lower Hemisphere Solid Color, DFAO as RT alternative, and Cast Ray Tracing Shadows.
 
 ### Summary
-[PENDING EXTRACTION]
+William Faucher demystifies the Skylight, focusing on the sky distance threshold — UE's most misused skylight setting. Default 150,000 captures only far sky (ignoring nearby geometry); set to 1 captures the immediate environment around the skylight actor's position, dramatically improving scene integration. Demonstrated using a chrome ball (sphere + metallic=1, roughness=0). Real-time Capture auto-updates for day/night cycles but overrides sky distance threshold (loses integration). Skylight position matters when threshold=1: move it → Recapture Scene. Closing tips: Movable for DFAO, uncheck Lower Hemisphere Solid Color, uncheck Effect World to actually hide, Cast Ray Tracing Shadows for RTAO, and Project Settings → Generate Mesh Distance Fields for DFAO on non-RTX hardware.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Chrome ball reference:** Add → Sphere; create material: Base Color=0.8, Metallic=1, Roughness=0; apply → used to visualize what skylight is capturing
+2. **Add Skylight:** Add → Lights → Sky Light; Source Type: SLS Specified Cube Map for custom HDRI, SLS Captured Scene for ambient capture
+3. **Set Movable:** Mobility=Movable for Distance Field AO (DFAO) support; Movable also gets proper ray trace shadows if Cast Ray Tracing Shadows enabled
+4. **Disable Effect World to hide skylight:** hiding in Outliner doesn't work → must uncheck "Effect World" in Details
+5. **Uncheck Lower Hemisphere Solid Color:** default=on (makes bottom hemisphere black/solid color); uncheck to allow the captured sky to fill the lower hemisphere
+6. **Sky Distance Threshold = 1 (key tip):** default=150,000 → only captures distant sky (far sky dome), ignores all nearby scene geometry; set to 1 → captures everything immediately around the actor position → scene integration (reflections show nearby grass, mannequin, etc.); chrome ball reflects real scene context
+7. **Skylight position matters:** with threshold=1 the skylight acts like a reflection capture; move actor → Recapture Scene button at bottom of Details to update; chrome ball reflection will change based on position
+8. **Recapture Scene:** button in skylight Details → manually triggers a capture from current actor position (use after moving skylight)
+9. **Real-time Capture trade-off:** Real-time Capture=on → updates automatically for day/night cycles; BUT overrides Sky Distance Threshold → loses scene integration / nearby captures
+10. **Cast Ray Tracing Shadows:** enable if using ray tracing → proper sky-based shadows and RTAO; reduces oversaturated bounce light artifacts
+11. **DFAO (alternative to RT):** Project Settings → search "Distance Fields" → Generate Mesh Distance Fields = true; restart; Skylight Details → Distance Fields section → controls DFAO intensity; adds depth/contact shadow without requiring RTX
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Skylight Source Types**: SLS Captured Scene (auto-captures level), SLS Specified Cube Map (custom HDRI)
+- **Sky Distance Threshold**: radius around skylight actor beyond which geometry is NOT captured; default=150,000 (ignores everything nearby); set to 1 for maximum scene integration; skylight position then directly determines what's reflected
+- **Recapture Scene**: manual button in Skylight Details → triggers new environment capture from current actor position; must use whenever skylight is moved and Real-time Capture is off
+- **Real-time Capture**: auto-updates every frame; enables day/night cycle responsiveness; disables Sky Distance Threshold integration benefit
+- **Effect World**: must uncheck to actually hide the skylight's lighting contribution (Outliner hide does nothing)
+- **Lower Hemisphere Solid Color**: when checked = flat solid color below horizon; uncheck for full spherical capture
+- **Cast Ray Tracing Shadows**: Skylight-specific RT shadow toggle; adds RTAO; reduces green/color bounce artifacts
+- **Generate Mesh Distance Fields**: Project Settings → must enable; required for DFAO to work; not default-enabled when ray tracing is active
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner — conceptual focus, short runtime, immediately actionable tips
 
 ### UE Version
-[PENDING EXTRACTION]
+UE4/UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[skylight, lighting, hdri, distance-fields, ambient-occlusion, sky-distance-threshold, ray-tracing, dynamic-lighting, dfao, environment-lighting, beginner]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un.md (lighting and exposure setup for cinematics)
+- creating-cinematics-in-unreal-engine-with-kitbash3ds-secrets-of-the-luminara.md (practical lighting setup including skylight usage)

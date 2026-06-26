@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=f2YLWIvs6F8
 author: The Gnomon Workshop
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.4"
+tags: [kitbash3d, cinematics, sequencer, environment, lighting, sub-levels, volumetric-god-rays, post-process, character-animation, movie-render-queue, cargo, blueprint, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/creating-cinematics-in-unreal-engine-with-kitbash3ds-secrets-of-the-luminara/
 frame_count: 8
 ---
@@ -68,27 +68,51 @@ frame_count: 8
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+End-to-end cinematic creation mini-course: KitBash3D Cargo asset import → terrain blocking with Electric Dreams migration + Substrate enable → sub-level organization → volumetric god rays with Rect Light → character animation via Slay Sample migration → Level Sequence with Camera Cut Track → Apple ProRes render via Movie Render Queue.
 
 ### Summary
-[PENDING EXTRACTION]
+Kyosuke Saki (Gnomon Workshop instructor) guides a beginner through a complete cinematic from empty project to rendered shot using KitBash3D's Secrets of the Luminara kit. Covers UE fundamentals (navigation, Content Browser, actors, levels), KitBash Cargo plugin import, camera setup with lock, environment blocking with Electric Dreams terrain (Substrate materials), volumetric god rays via Rect Light piloting, sub-level organization for cinematics, character from Slay Animation Sample, Level Sequence assembly with camera cut track, keyframing camera motion, and rendering via Movie Render Queue with Apple ProRes. Duration: 42 minutes, UE 5.4.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Project setup:** Launcher → Unreal Engine → Library → new instance → v5.4.4; Games → Blank → enable Ray Tracing; Window → Load Layout → UE4 Classic
+2. **KitBash3D Cargo import:** download Cargo → sign in → Account → Software Settings → Unreal 5.4 → Add New Software → Install (auto-adds plugin); close/reopen project; Cargo panel → select kit → size/format → Download → Import → assets appear in /cargo/ content folder
+3. **Camera setup:** Add icon → Cine Camera Actor; viewport dropdown → select Cine Camera Actor (pilot mode); set Film Back=16:9 DSLR, Focal Length=18; Outliner → RMB camera → Transform → Lock Actor Movement (prevents accidental moves while piloting)
+4. **Scale reference:** Add → Feature Pack → Third Person; Content Browser → search "Manny" → SKM_Manny_Simple → drag to scene at 0,0,0
+5. **Terrain - Electric Dreams migration:** Launcher → Samples → Electric Dreams → create new project; Content → Assembly → filter Blueprint Class → Ctrl+A → RMB → Asset Actions → Migrate → select destination project /Content; Project Settings → Substrate → enable all 3 → restart; place cliff BPs as canyon blocking
+6. **Viewport Cinematic mode:** viewport dropdown → Cinematic Viewport → grid overlays for composition; pin camera preview while blocking (click camera → pin icon)
+7. **Sun direction:** Ctrl+L → drag widget to rotate directional light; Outliner → filter to find Directional Light → F to focus
+8. **Lock exposure:** drag Post Process Volume → Details → Infinite Extent=true; search "EXP" → min and max exposure both=-1 (locks at constant exposure)
+9. **Sub-level organization:** Window → Levels → Create New Empty Level; select actors in scene → RMB → Move To Level; create sub-levels per department (Architecture, Lighting, etc.); pin to show only current level in outliner
+10. **Sub-level render fix:** Levels panel → RMB sub-level → Change Streaming Method → Always Loaded (required or sub-levels render black)
+11. **Volumetric god rays:** Add → Lights → Rect Light; RMB → Pilot to position from light's PoV; Volumetric Scattering Intensity=100,000; Attenuation Radius large; Barn Door Angle small + Length large; Cast Volumetric Shadow=true; reduce Intensity; use tree mesh as fake shadow blocker; duplicate light with different color (warm + cool)
+12. **Character animation:** Launcher → Samples → Slay Animation Sample → migrate; Enable Plugins: Alembic Groom Importer, Movie Render Queue, Apple ProRes Media → restart; drag BP_Echo to scene
+13. **Level Sequence:** New → Cinematics → Level Sequence; set FPS=24; drag character BP into Sequencer → Animation section → find animation sequence (TF30_Echo) → drop on timeline
+14. **Camera cut track:** drag Cine Camera into Sequencer → Camera Cut track auto-created; ensure track spans full frame range; delete then Add Camera Cut Track → select camera if accidentally removed
+15. **Camera animation:** first/last frame keyframes on camera transform; pilot mode → move camera → click keyframe icon; RMB keys → Linear for constant rate vs. ease
+16. **Render:** Sequencer → clapperboard icon → Movie Render Queue; delete JPEG setting → add Apple ProRes; set output directory → Render Local
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **KitBash3D Cargo**: browser plugin for KitBash3D kits; assets imported as Blueprint Actors (expandable static mesh groups); modify by double-clicking sub-component; delete via Details → clear Static Mesh
+- **Sub-Levels**: organize complex scenes per department; streaming method = Always Loaded for rendering; Window → Levels panel; show only current level in outliner toggle
+- **Substrate Materials**: experimental material system from Electric Dreams; Project Settings → Substrate → enable 3 checkboxes + restart
+- **Post Process Volume**: Infinite Extent = affects entire scene; EXP settings for locked manual exposure (min/max EV = -1)
+- **Rect Light piloting**: RMB → Pilot → move from light perspective for precise volumetric placement
+- **Camera Cut Track**: required in Level Sequence for rendering; missing = black frame; Add Camera Cut Track → select camera
+- **UE Bookmarks**: Ctrl+Number to save viewport; press Number to recall (multiple bookmarks for AssetZoo vs. scene)
+- **Alt+MMB**: temporary pivot relocation (while orbiting)
+- **Content versioning**: UE projects share /Content folder; version = copy entire project folder; can't rename project folder to version
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner — comprehensive from scratch, clear explanations of each step
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.4
 
 ### Tags
-[PENDING EXTRACTION]
+[kitbash3d, cinematics, sequencer, environment, lighting, sub-levels, volumetric-god-rays, post-process, character-animation, movie-render-queue, cargo, blueprint, beginner]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un.md (camera settings and MRQ in depth)
+- advanced-ue5-cinematic-workflow-camera-rigs-custom-viewports.md (advanced cinematic workflow with sub-sequences)
