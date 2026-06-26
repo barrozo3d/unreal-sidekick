@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=1LfiYtKDsac
 author: William Faucher
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE4"
+tags: [lighting, night-time, volumetric-fog, directional-light, skylight, practical-lights, rim-lights, lighting-channels, cinematics, exterior]
+extraction_status: complete
 frames_dir: tutorials/frames/lighting-a-night-time-exterior-in-unreal/
 frame_count: 14
 ---
@@ -98,27 +98,75 @@ frame_count: 14
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Cinematic-style nighttime exterior lighting built in layers: (1) BP Sky Sphere for starry sky, (2) Directional Light as moonlight with volumetric scattering, (3) Exponential Height Fog + Volumetric Fog shaped by deliberate shadow-blocking geometry to control god ray direction, (4) Skylight at low intensity to lift shadows, (5) Practical Point Lights inside scene fixtures, (6) Rect Lights as fake indirect/rim lights per-object using Lighting Channels to isolate their influence. All techniques borrowed from real cinematography — nighttime exterior lighting is fundamentally a hack.
 
 ### Summary
-[PENDING EXTRACTION]
+29-minute William Faucher tutorial (UE4, but principally applicable to any renderer) teaching nighttime exterior lighting from first principles. Opens with film analysis: moonlight is too dark (0.25–1 lux vs sunlight 100,000 lux) so cinematographers fake it with large artificial key lights; the blue night look is convention (Purkinje effect) not physical reality; "day for night" is a real technique (shoot in daylight, color grade in post). Proceeds through a complete UE4 setup: deletes all lights, builds sky, adds directional light, volumetric fog (with critical project setting and shadow-blocking geometry for god ray shaping), skylight, practical point lights in lanterns, and finally rect light fill/rim lights with Lighting Channels to isolate influence. Key emphasis: silhouette and shape are the most important elements of night lighting; adding many local lights is fine for cinematic renders. Notes that ray-traced shadows don't cast on volumetric fog in UE4 (fixed in UE5), and Lighting Channels don't work with Lumen in UE5.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Understand the film convention** — moonlight is fake; cinematographers use large artificial key lights + blue grade; Purkinje effect = eyes shift to blue end at low light; day-for-night = shoot in daylight, grade in post
+2. **Delete all lights** — start from blank slate
+3. **BP Sky Sphere** (starry sky):
+   - Content Browser → Engine Content → search "sky" → filter by Blueprint Class → BP_Sky_Sphere → drag into scene
+   - Details: Sun Height → lower (below horizon); Stars Brightness → crank up
+   - Optional: open material → T_sky_stars texture → replace with custom star texture
+4. **Directional Light** (simulated moonlight):
+   - Add → Lights → Directional Light → set Movable
+   - Details → search "atmosphere" → Atmosphere Sun Light: ON (enables Ctrl+L shortcut to rotate in viewport)
+   - Rotate to rim-light the hero subject (silhouette from behind/side is key)
+   - Intensity: ~20; Color: slight blue tint (not too much)
+5. **Exponential Height Fog** (volumetric god rays):
+   - Add → Visual Effects → Exponential Height Fog
+   - **Critical project setting**: Edit → Project Settings → search "fog" → Support Sky Atmosphere Affecting Height Fog: ON → restart
+   - Select fog actor → Details: Fog Inscattering Color = black; Directional Inscattering Color = black (disable additive base fog; only volumetric fog will show)
+   - Scroll down → Volumetric Fog: ON
+   - Select Directional Light → search "ray" → Cast Ray Traced Shadows: OFF (UE4 issue: ray trace shadows don't cast on volumetric fog; UE5 fixed)
+   - Directional Light → Volumetric Scattering Intensity: 3 (or higher for stronger god rays)
+   - **Shape god rays with shadow blockers**: place large planes/meshes above scene to create "windows" that channel god ray shafts exactly where desired — deliberate art direction
+   - **Scattering Distribution** (Exponential Height Fog → Volumetric Fog tab): 0 = scatter equally all directions (god rays visible from side); 0.9 = scatter in light direction (god rays forward through trees); choose based on camera angle
+6. **Skylight** (shadow lift):
+   - Add → Lights → Sky Light → set Movable
+   - Uncheck Lower Hemisphere Is Solid Color
+   - Intensity: 0.5–1.0 (lift shadow blacks without overexposing)
+7. **Practical Lights** (in-scene fixtures):
+   - Add Point Light inside each lantern/lamp
+   - Color: warm orange; Intensity: ~1 (very low); set Movable
+8. **Fill Lights + Rim Lights** (cinematographer trick):
+   - Add Rect Light → Movable; Intensity very low (0.2–10); slight blue tint to match ambient
+   - Attenuation Radius: 300–500 (keep influence local to single object)
+   - Duplicate and position to rim-light each hero object (lanterns, props)
+   - Use to fake bounced moonlight (e.g., rect light pointing up from moonlit ground toward underside of lantern)
+   - **Lighting Channels** (to isolate rect light to single mesh):
+     - Select light → Details → search "channel" → uncheck Channel 0; check Channel 1
+     - Select target mesh → Details → Lighting → check Channel 1
+     - Light now only affects meshes with Channel 1; ignores everything else
+     - **Note**: Lighting Channels don't work with Lumen in UE5
+9. **Final render** — Movie Render Queue; then color grade in DaVinci Resolve (no specific settings given)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **BP_Sky_Sphere** — engine content blueprint; creates basic sky with starry night option; Sun Height and Stars Brightness parameters in Details; T_sky_stars material texture replaceable
+- **Directional Light** — simulates moonlight; Atmosphere Sun Light option enables Ctrl+L viewport rotation; Volumetric Scattering Intensity controls fog brightness; Cast Ray Traced Shadows must be OFF in UE4 for fog shadowing
+- **Exponential Height Fog** — add via Visual Effects; Fog Inscattering Color and Directional Inscattering Color set to black when using volumetric fog (prevents additive base fog interfering); Volumetric Fog enable checkbox; Scattering Distribution (0=omnidirectional, 0.9=directional forward)
+- **Project Settings → Support Sky Atmosphere Affecting Height Fog** — REQUIRED for sky atmosphere to correctly affect height fog color/scattering; restart required after enabling
+- **Volumetric Fog** — enabled inside Exponential Height Fog actor; shaped by Shadow Blockers (large meshes placed to cast shadows and channel god rays); ray-traced shadows don't affect volumetric fog in UE4 (must use Shadow Maps); works correctly with Lumen in UE5
+- **Shadow Blockers** — deliberate large geometry placed above/around scene to shape volumetric god rays; move or toggle to art-direct light shaft position; not physically accurate but standard cinematography practice
+- **Skylight** — lifts shadow blacks; Lower Hemisphere Is Solid Color: uncheck to allow sky light from below horizon; Intensity 0.5 adequate for night mood
+- **Point Light** — practical in-scene light sources (lanterns, lamps); warm orange color; very low intensity; Movable
+- **Rect Light** — preferred for fill/rim lights; directional (unlike Point Light); small attenuation radius isolates to single object; slight blue tint matches ambient; used to fake indirect bounce lighting and rim silhouettes
+- **Lighting Channels** — Details → search "channel"; uncheck Channel 0, enable Channel 1 on both light AND target mesh; light only affects meshes sharing its channel; used to add rim light to specific objects without contaminating neighboring geometry; does NOT work with Lumen in UE5
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner-Intermediate. Requires understanding of basic UE4 lighting workflow. The volumetric fog project setting and shadow blocker technique are non-obvious and critical. Lighting channels are intermediate-level but clearly explained. Color grading in DaVinci Resolve is mentioned but not covered.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE4 (tutorial explicitly uses UE4; notes foliage better in UE4 at time of recording; two UE4-specific issues: ray trace shadows + volumetric fog incompatibility, Lighting Channels incompatible with Lumen in UE5; volumetric fog god ray support is fixed in UE5 and works without the ray trace shadow workaround)
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, night-time, volumetric-fog, directional-light, skylight, practical-lights, rim-lights, lighting-channels, cinematics, exterior
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `lighting-in-unreal-engine-5-for-beginners.md` — beginner daytime/interior lighting fundamentals
+- `lighting-interiors-in-unreal-engine-5.md` — interior lighting counterpart
+- `improve-your-renders-with-movie-render-queue-part-1---goodbye-sequencer-4.md` — MRQ setup for final render output referenced at end of tutorial

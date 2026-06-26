@@ -3,9 +3,9 @@ title: Level Streaming in Unreal Engine
 source: Epic Documentation
 url: https://dev.epicgames.com/documentation/en-us/unreal-engine/level-streaming-in-unreal-engine
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [level-streaming, world-partition, world-composition, streaming-volumes, blueprints, large-worlds, sub-levels, open-world, level-management, pipeline]
+extraction_status: complete
 page_count: 15
 ---
 
@@ -100,25 +100,83 @@ World Partition Builder Commandlet Reference | Unreal Engine 5.8 Documentation |
 
 ## Structured Notes
 
-### Core Topics
-[PENDING EXTRACTION]
+### Core Technique
+Level Streaming loads/unloads sub-level .umap files at runtime to enable large seamless worlds. Persistent Level acts as master; Streaming Levels are sublevels set to Always Loaded or Blueprint (dynamic). Dynamic streaming triggered by Level Streaming Volumes (viewpoint-based, no scripting), Blueprints (`Load Stream Level` / `Unload Stream Level`), or C++ (`UGameplayStatics::LoadStreamLevel`). UE5+ recommends World Partition (automatic grid-cell streaming) over the legacy World Composition system. Also covers Data Layers, Level Instancing, HLOD, and World Partition commandlets.
 
 ### Summary
-[PENDING EXTRACTION]
+Epic Documentation hub (15 pages) covering all level streaming methods in UE5.8. Core model: Persistent Level + Streaming Levels (Always Loaded vs Blueprint type). Three dynamic methods: Volume-based (viewpoint triggers, hysteresis, bDisabled), Blueprint (Load/Unload Stream Level nodes), C++ (GameplayStatics). World Composition (legacy UE4): planar grid, folder scanning, layer-based streaming distances, LOD streaming levels, world origin shifting (not multiplayer-safe). World Partition (UE5+ recommended): single persistent level + automatic grid cells, One File Per Actor, streaming sources (Player Controller default, or World Partition Streaming Source component), Runtime Grid (Cell Size/Loading Range in World Settings). Also covered: Data Layers (Editor vs Runtime types; toggle via Set Data Layer Instance Runtime State), Level Instancing (embedded mode vs level streaming mode), World Partition HLOD layers (Instancing/Merged Mesh/Simplified Mesh types), and World Partition commandlets (HLODs, MiniMap, Navigation, PCG, RVT builders).
 
-### Key Concepts & Systems
-[PENDING EXTRACTION]
+### Key Steps
+1. **Persistent Level setup** — open master map; Window → Levels to open Levels panel; all sublevels listed here
+2. **Add streaming sublevel** — Levels dropdown → Add Existing... → select sublevel .umap; right-click Persistent Level → Make Current
+3. **Set streaming type** — right-click sublevel in Levels panel → streaming method:
+   - **Always Loaded**: loads with persistent, ignores volumes/Blueprints; good for collaboration layers
+   - **Blueprint**: dynamic; controlled by Volumes, Blueprints, or C++
+4. **Level Streaming Volumes method**:
+   - Place Volumes tab → drag Level Streaming Volume into level (must be in Persistent Level only)
+   - Window → Levels → select sublevel → Level Details → Streaming Volumes → add the volume
+   - Volume tracks player camera viewpoint — size to include full walkable area + approach zone
+   - Properties: `Editor Pre Vis Only` (editor preview only), `Disabled` / `bDisabled` (toggle via Blueprint to gate on game events), `Streaming Usage` (SVB_VisibilityBlockingOnLoad recommended)
+   - Hysteresis: Min Time Between Volume Unload Requests (default 2s) prevents load/unload thrashing
+   - Must test in standalone on target platform — PIE already has levels in memory so streaming is instant
+5. **Blueprints method**:
+   - Actor with Box Collision → `OnComponentBeginOverlap` → check OtherActor == GetPlayerCharacter → `Load Stream Level` (Level Name, Make Visible After Load, Should Block On Load)
+   - `OnComponentEndOverlap` → `Unload Stream Level`
+   - `Get Streaming Level` + `Create Instance` → procedural world with per-instance transforms
+6. **World Partition (UE5+, recommended for games)**:
+   - Enabled by default in Games category templates (Blank, First/Third Person, etc.)
+   - Convert existing: Tools → Convert Level; or commandlet: `UnrealEditor.exe Project -run=WorldPartitionConvertCommandlet Map.umap -AllowCommandletRendering`
+   - Actor Details → World Partition → Is Spatially Loaded: ON = stream by distance; OFF = always loaded
+   - World Settings → World Partition Setup → Runtime Grid: Cell Size, Loading Range
+   - Player Controller = default streaming source; add World Partition Streaming Source component to any Actor for custom streaming sources (e.g., teleport destination pre-load)
+7. **Data Layers (World Partition only)**:
+   - Window → World Partition → Data Layer Outliner
+   - Create Data Layer Asset (Content Browser → Miscellaneous → Data Layer) → create Data Layer Instance in Outliner
+   - Editor Data Layers: organization only; Runtime Data Layers: toggle at runtime via Blueprints
+   - Blueprint: Data Layer Subsystem → `Set Data Layer Instance Runtime State` (Unloaded/Loaded/Activated)
+8. **Level Instancing**:
+   - Select Actors → right-click → Level → Create Level Instance
+   - Edit in-context: select instance → right-click → Edit; commit changes propagates to all copies
+   - Runtime: Embedded Mode (OFPA actors join World Partition grid; recommended) vs Level Streaming Mode (non-OFPA; adds runtime streaming overhead)
+9. **World Partition HLOD**:
+   - HLOD Layer asset: Content Browser → Miscellaneous → HLOD Layer; Layer Type: Instancing (ISM lowest LOD), Merged Mesh (single proxy), Simplified Mesh (proxy + decimation)
+   - Generate: Build → Build HLODs; or commandlet: `UnrealEditor.exe Project Map -run=WorldPartitionBuilderCommandlet -AllowCommandletRendering -builder=WorldPartitionHLODsBuilder`
+10. **World Composition (legacy UE4)**:
+    - World Settings → Enable World Composition; Levels window → World Composition button for minimap
+    - Layers set streaming distance; LOD levels auto-discovered by naming: `[PackageName]_LOD1..4`
+    - World origin shifting keeps working area near engine origin (not supported in multiplayer)
 
-### UE Systems / Settings / Code
-[PENDING EXTRACTION]
+### UE Systems / Blueprints / Settings
+- **Level Streaming** — core system; loads/unloads .umap files at runtime; Window → Levels panel
+- **Persistent Level** — master .umap; governs streaming sublevels
+- **Always Loaded sublevel** — loads with persistent; ignores volumes/Blueprints; for artist collaboration layers
+- **Blueprint streaming sublevel** — dynamic; volume, Blueprint, or C++ controlled
+- **Level Streaming Volume** — UVolume in Persistent Level only; `bDisabled` toggleable via Blueprint; `Editor Pre Vis Only`; tracks all local player viewpoints; `Min Time Between Volume Unload Requests` default 2s hysteresis
+- **Load Stream Level (Blueprint)** — streams in level by FName; Make Visible After Load; Should Block On Load
+- **Unload Stream Level (Blueprint)** — streams out by FName
+- **Get Streaming Level + Create Instance** — procedural world copies with per-instance transforms
+- **UGameplayStatics::LoadStreamLevel / UnloadStreamLevel** — C++ level streaming; FLatentActionInfo
+- **World Partition** — UE5.0+ recommended; single persistent level + grid cells; One File Per Actor; distance-based streaming from streaming sources
+- **World Partition Streaming Source component** — custom streaming source on any Actor; `Enable Streaming Source` / `Disable Streaming Source` Blueprint functions; `Is Streaming Completed` bool
+- **Runtime Grid (World Partition)** — World Settings → World Partition Setup; Cell Size, Loading Range, Block on Slow Streaming, Preview Grids
+- **One File Per Actor (OFPA)** — each Actor saved to own file; enables multi-user workflows; World Settings → Use External Actors; commandlet: `-run=ConvertLevelsToExternalActorsCommandlet`
+- **Data Layers** — Window → World Partition → Data Layer Outliner; Editor Data Layers (organization) vs Runtime Data Layers (toggle at runtime); `Set Data Layer Instance Runtime State` Blueprint node (Unloaded/Loaded/Activated)
+- **Level Instancing** — Create Level Instance from selected Actors; edit in-context; Embedded Mode (recommended, OFPA) vs Level Streaming Mode
+- **HLOD Layer** — Content Browser → Miscellaneous → HLOD Layer; types: Instancing/Merged Mesh/Simplified Mesh; generate via Build → Build HLODs or commandlet
+- **World Composition** — legacy UE4; World Settings → Enable World Composition; planar grid minimap; layer-based streaming distances; world origin shifting (not multiplayer-safe)
+- **WorldPartitionConvertCommandlet** — convert existing levels to World Partition; options: `-ConversionSuffix`, `-DeleteSourceLevels`, `-OnlyMergeSubLevels`, `-FoliageTypePath`
+
+### Difficulty
+Beginner (Level Streaming Volumes) to Intermediate (Blueprints/C++, Data Layers) to Advanced (World Partition full pipeline, HLOD generation, commandlets). Comprehensive reference doc covering the entire spectrum.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (docs current for UE5.8; World Partition recommended for UE5.0+; World Composition is legacy UE4 system; level streaming volumes and Blueprint streaming still supported in UE5 for non-game/archviz)
 
 ### Tags
-[PENDING EXTRACTION]
+level-streaming, world-partition, world-composition, streaming-volumes, blueprints, large-worlds, sub-levels, open-world, level-management, pipeline
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `level-management-sub-levels-spawnables-possessibles-in-ue5.md` — sub-level management in Levels window, possessibles vs spawnables for Sequencer
+- `large-scale-animated-foliage-in-the-witcher-4-unreal-engine-5-tech-demo-unreal-f.md` — Nanite Assemblies + PCG integration for streaming foliage in open worlds
