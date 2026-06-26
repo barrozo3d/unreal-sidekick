@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=ye0gjAx50oU
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.6"
+tags: [ragdoll, physics, filmmaking, take-recorder, retargeting, animation, physics-asset, angular-limits, self-collision, sequencer, intermediate-advanced]
+extraction_status: complete
 frames_dir: tutorials/frames/beat-yourself-up-with-unreal-ragdoll-physics-for-filmmaking-made-easy-or-hard-in/
 frame_count: 21
 ---
@@ -133,27 +133,51 @@ frame_count: 21
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Ragdoll physics for filmmaking in UE 5.6 — two methods: (1) Use Manny (pre-built physics asset) → animate → keyframe "Simulate Physics" on/off in Sequencer → Take Recorder at half-speed/240fps to bake deterministic simulation → retarget baked animation to custom character; (2) Custom physics asset — create bodies/capsules per bone, set angular limits (free→limited, swing X/Y/Z + twist), orient constraints with Alt-rotate, set target orientation/velocity for springiness, enable self-collision between non-intersecting bodies.
 
 ### Summary
-[PENDING EXTRACTION]
+62m43s comprehensive tutorial by Dean Yurke. Two-method ragdoll guide for filmmakers. **Method 1 (Preferred)**: Add third-person template for Manny → drag to viewport → keyframe "Simulate Physics" off (beginning) then on (moment of impact) in Sequencer → add collision objects (cylinder/box); fix static mesh transform-vs-physics conflict with "trim selection right" + "when finished: keep state"; bake with Take Recorder (settings: disable Record Timecode, disable Record Sources into Sub-Sequences, set 240fps record rate, 0.5 time dilation); must press SIMULATE MODE before recording; retarget baked animation to custom FBX. **Method 2 (Custom char)**: Right-click char → "Create Physics Asset"; disable "Auto Orient to Bone" for aligned capsules; manually fit capsules to bones (select body, scale with unselect/reselect trick); change hands/feet to Box; set angular limits: free→limited, configure Swing 1/2 + Twist with Alt-drag to offset limit center without moving bone axis; set Angular Motor: Target Velocity (dampening=stiffness) and Target Orientation (spring strength/direction); self-collision: select all → disable all → manually enable between non-intersecting pairs ("Highlight Overlapping Bodies" to debug).
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Method 1 – Setup**: add Third Person template; drag Manny to level; create level sequence at 24fps; add animation clip (e.g., jog forward) + looped; add transform keys (linear) to move character forward
+2. **Keyframe physics on/off**: select character → Details > Physics > Simulate Physics → press keyframe button → it appears in Sequencer; set to OFF at frame 0, ON at impact frame; physics carries inertia from animation
+3. **Collision objects**: add cylinder/cube shape; Enable Simulate Physics on it; fix animate-vs-simulate conflict: trim animation section at physics start (RMB > Edit > Trim Selection Right) + Properties > When Finished: Keep State
+4. **Take Recorder bake**: Window > Cinematics > Take Recorder; add sources (actor + level sequence); Settings: disable Record Timecode, disable Record Sources into Sub-Sequences; FPS = 240; Time Dilation = 0.5; **press Simulate mode first**, then Record
+5. **Post-bake**: go to content browser > Cinematics/Takes; stop simulation; check baked sequence; trim to desired length (RMB > Trim Selection Right); set "When Finished: Keep State" on animation and transform tracks
+6. **Layered Control Rig for fine-tuning**: select character → + > Control Rig > enable Layered; add FK Control Rig; find bone in animation outliner (e.g., head); enable Auto Key; rotate bone to taste; plays on top of baked sim
+7. **Optional: bake transform into animation**: select character → RMB > Bake Animation Sequence; enable "Record in World Space"; then delete transform/control rig/old animation tracks and replace with baked sequence
+8. **Retarget**: find baked animation in Content Browser → RMB > Retarget Animations → choose target skeletal mesh → Export Animations → done
+9. **Method 2 – Custom Physics Asset**: RMB character → Create Physics Asset > Create; disable "Auto Orient to Bone"; manually fit/scale capsules; delete bad auto-generated bodies; select bone in hierarchy → Add Body
+10. **Capsule sizing**: select body → unselect → reselect (enables scale handle); use primitives > Capsule > Index to manually type values
+11. **Angular limits**: select constraint → Change Swing 1/2 from Free to Limited; rotate constraint (not with Alt = moves limit independently; without Alt = moves bone axis too); set Swing angles (e.g., 92°, 95°) and Twist (e.g., 5-65°); use Alt+Shift+I to simulate just that joint for testing
+12. **Angular Motor**: enable Target Velocity + Dampening (=stiffness, e.g., 50-100); enable Target Orientation + strength (e.g., 500) + Dampening (e.g., 50) for springiness
+13. **Self-collision**: select all bodies → Disable Collision; then manually select non-intersecting pairs and Enable Collision; use View > Bodies > Highlight Overlapping Bodies to debug red overlaps
+14. **Assign physics asset**: RMB char → Edit; Asset Details > Physics > Physics Asset → assign your custom asset
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Third Person template**: Manny/Quinn with pre-built physics asset; add via Add Feature/Content Pack
+- **Simulate Physics**: character Details > Physics > Simulate Physics; keyframeable in Sequencer
+- **Take Recorder**: Window > Cinematics > Take Recorder; sources: From Actor + Level Sequence; settings: Record Timecode OFF, Record into Sub-Sequences OFF, FPS=240, Time Dilation=0.5; must be in Simulate Mode
+- **Bake Animation Sequence**: RMB character in Sequencer > Bake Animation Sequence; enable "Record in World Space"
+- **Retarget Animations**: RMB animation asset in Content Browser > Retarget Animations > pick target skeletal mesh
+- **Layered Control Rig**: + > Control Rig > Layered ON > select FK Control Rig or Mannequin Control Rig; Auto Key for easy keyframing
+- **Physics Asset Editor**: create via RMB character > Create Physics Asset; Alt+I = simulate, Alt+Shift+I = simulate from selected joint; Shift+RMB = drag limbs in simulation
+- **Angular Limits**: Swing 1, Swing 2, Twist — set to Limited; degrees control range; Alt-drag = rotate limit boundary without moving bone axis
+- **Angular Motor**: Target Velocity (dampening=stiffness) + Target Orientation (spring direction + strength) per joint
+- **Self-collision**: View > Bodies > Highlight Overlapping Bodies; Enable/Disable Collision buttons in Physics Asset Editor
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate-Advanced
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.6
 
 ### Tags
-[PENDING EXTRACTION]
+[ragdoll, physics, filmmaking, take-recorder, retargeting, animation, physics-asset, angular-limits, self-collision, sequencer, intermediate-advanced]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- ragdoll-physics-are-insanely-easy-in-unreal-5.md (simpler ragdoll approach)
+- new-physics-tool-for-unreal-engine-5.md (new physics tools)
+- how-to-create-a-fight-scene-cinematic-in-unreal-engine-55.md (fight cinematics)

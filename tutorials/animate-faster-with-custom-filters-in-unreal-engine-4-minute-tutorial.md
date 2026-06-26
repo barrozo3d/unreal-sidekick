@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=WenSYKg08Uc
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [sequencer, animation, custom-filters, curves, workflow, productivity, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/animate-faster-with-custom-filters-in-unreal-engine-4-minute-tutorial/
 frame_count: 7
 ---
@@ -63,27 +63,34 @@ frame_count: 7
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Sequencer Custom Filters for fast switching between animated objects: type search term in Sequencer search bar → a "+" circle button appears → click to name and save a filter (e.g. "cam", "sun") → toggle saved filters with one click to jump between curve views for different objects without scrolling or re-selecting.
 
 ### Summary
-[PENDING EXTRACTION]
+3m58s quick tip by Dean Yurke. Solves the common problem of wasting time finding objects in Sequencer to view their animation curves. Solution: use the hidden "Create Custom Filter" button (the "+" circle in the Sequencer search bar). Type an object's name → it appears as a filter button; name it short (e.g. "cam"); press to apply — Sequencer highlights just that object and the Curve Editor shows only its curves. Create one per frequently-edited object (camera, sun, etc.). Toggle between them to hop instantly between animation curve views without re-selecting in the outliner or scrolling the sequence.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Problem**: scrolling/re-selecting in Sequencer to find objects whose curves you want to edit is slow
+2. **Search bar approach**: type the actor's name in the Sequencer search bar → it appears; select it → Curves Editor shows its curves
+3. **Custom filter creation**: type name in search bar → a "+" circle button appears at the right edge → click it; enter a short Filter Label (e.g. "cam") and confirm the Filter String (the search query); hit "Create and Apply"
+4. **Using filters**: filter appears as a named button above the search bar; press to activate — Sequencer highlights just that object; click again to deactivate (also accessible via Sequencer → Custom Filters menu)
+5. **Workflow**: create one filter per key object (camera, sun/light, character); single click to switch between them while staying in Curve Editor view
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Sequencer search bar**: type actor name to filter; "+" circle button appears when search has results
+- **Custom Filters**: named saved selections; accessible via filter toggle buttons or Sequencer > Custom Filters menu
+- **Curve Editor**: stays active; filter change updates which object's curves are shown
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[sequencer, animation, custom-filters, curves, workflow, productivity, beginner]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- mastering-the-ue5-tweener-tool-push-pull-overshoot-animation.md (animation workflow tools)
+- ue5-curve-editor-secrets-buffer-curves-smart-snap-keyframe-tricks.md (curve editor tips)
