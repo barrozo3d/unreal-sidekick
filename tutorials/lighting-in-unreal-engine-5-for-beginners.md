@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=fSbBsXbjxPo
 author: William Faucher
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [lighting, lumen, beginner, directional-light, rect-light, skylight, volumetric-fog, post-process, shadows, environment-light-mixer]
+extraction_status: complete
 frames_dir: tutorials/frames/lighting-in-unreal-engine-5-for-beginners/
 frame_count: 13
 ---
@@ -93,27 +93,88 @@ frame_count: 13
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Fully dynamic Lumen lighting workflow in UE5. Start with Environment Light Mixer (one-click sky + atmosphere + fog), disable auto-exposure via Post Process Volume (Metering Mode: Manual; Exposure Compensation slider for scene brightness), then layer in practical lights. Shadow softness is controlled by light source size (Source Radius / Source Angle). Ray Traced Shadows dramatically better than Virtual Shadow Maps for very soft penumbra. Indirect lighting boosted via (1) light intensity, (2) Indirect Lighting Intensity on light, (3) material albedo values.
 
 ### Summary
-[PENDING EXTRACTION]
+44-minute beginner Lumen lighting tutorial by William Faucher. Covers every UE5 light type, the single most important concept (shadow penumbra = light source size), VSM vs ray traced shadows comparison, reference spheres workflow (black/white/gray/chrome), indirect lighting control methods, emissive materials in Lumen, the Environment Light Mixer workflow, Post Process Volume setup (auto-exposure disable + exposure compensation), volumetric fog / god rays, and two complete lighting scenarios: sunny daylight interior (directional + atmosphere) and overcast day (HDRI Backdrop + Rect Lights at windows). "The most underrated aspect of 3D is lighting."
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Project Settings** (required before starting):
+   - Settings → Project Settings → search "DirectX" → Default RHI: DirectX 12; SM5: ON
+   - Rendering → Lumen section: Dynamic Global Illumination = Lumen; Ray Lighting Mode = Surface Cache; Software Ray Tracing Mode = Detailed Tracing
+   - Shadow Map Method: Virtual Shadow Maps; Support Hardware Ray Tracing: ON; Hardware Ray Tracing When Available: ON
+   - Must restart + recompile shaders after changes
+2. **Light types** (Place Actors → Lights):
+   - **Directional Light** — sun/moonlight; infinite parallel rays; for exteriors and window light; Ctrl+L rotates with Atmosphere Sun Light ON
+   - **Point Light** — omnidirectional; like a light bulb; Source Radius to soften shadows
+   - **Spotlight** — conical; inner/outer cone angles control beam shape
+   - **Rect Light** — soft-box equivalent; Source Width/Height = light shape; soft shadows; best for cinematics; reflection visible in shiny surfaces
+   - **Skylight** — ambient sky; SLS Captured Scene (captures surroundings) or SLS Specified Cube Map (HDRI); uncheck Lower Hemisphere Is Solid Color
+   - **HDRI Backdrop** — enable plugin first (Settings → Plugins → HDRI); drag into scene; projects HDRI dome; contains embedded Skylight; good starting point
+3. **Mobility** — always set to Moveable for Lumen/dynamic lighting (Stationary/Static = baked, shows warning)
+4. **Shadow softness = light source size**:
+   - Point Light: Source Radius (yellow gizmo shows size)
+   - Directional Light: Source Angle (controls angular size of sun)
+   - Rect Light: Source Width × Height
+   - Larger source relative to subject = softer penumbra (overcast sky logic)
+5. **VSM vs Ray Traced Shadows**:
+   - Virtual Shadow Maps (default): artifacts/banding when pushing soft shadows far
+   - Cast Ray Traced Shadows (light Detail panel → search "ray"): dramatically softer, cleaner; requires RTX GPU
+   - Noise fix: Samples Per Pixel → 4 (performance cost)
+6. **Reference spheres** — place in scene to gauge exposure:
+   - Black sphere: albedo 0.04 (coal = darkest natural material)
+   - White sphere: albedo 0.85 (snow = brightest natural material)
+   - Gray sphere: albedo 0.18 (18% gray = perceptual midpoint, NOT 0.5)
+   - Chrome ball: reveals what's being reflected in scene; metallic needs something to reflect
+7. **Indirect lighting control** (three levers):
+   - Increase light intensity (brightens direct + indirect)
+   - Light Details → Indirect Lighting Intensity (multiplies GI contribution only)
+   - Material base color / albedo: brighter material = more light bounced back for free
+8. **Emissive materials in Lumen**: multiply (Color param × Intensity param) → Emissive Color; casts light and shadows; but: noisy, disappears at distance — use as accent only, not primary source
+9. **Environment Light Mixer** (Window → ENV Light Mixer):
+   - Buttons: Create Skylight, Create Atmospheric Light 0, Create Sky Atmosphere, Create Volumetric Cloud, Create Height Fog
+   - One-click complete daylight system; Ctrl+L moves sun; clouds react automatically; gets exterior 90% done in one click
+10. **Force clear baked lighting**: World Settings → search "Force" → Force No Precomputed Lighting: ON → Build → Build Lighting Only
+11. **Post Process Volume (PPV)**:
+    - Create → set Infinite Extent (Unbound): ON (affects whole scene)
+    - Disable auto-exposure: Metering Mode = Manual; Apply Physical Camera Exposure = OFF
+    - **Exposure Compensation** slider: adjust overall scene brightness without touching lights (most efficient lever)
+    - Lumen quality (to reduce flickering): Scene Lighting Quality = 2; Final Gather Quality = 2; Final Gather Lighting Update Speed = 0.5
+12. **Volumetric fog (god rays)**:
+    - Exponential Height Fog → Volumetric Fog: ON
+    - Directional Light → Volumetric Scattering Intensity: 10 for visible god rays
+    - Scattering Distribution: 0.2 (default, rays visible from side); 0.9 (forward shafts, camera looking at light)
+13. **Overcast lighting scenario**: HDRI Backdrop → 80% done; add Rect Lights at windows/doors for direct light + specular highlights; Cast Ray Traced Shadows ON; chrome ball must integrate believably
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Lumen** — UE5 fully dynamic GI; enabled via Project Settings → Dynamic Global Illumination = Lumen; Surface Cache + Detailed Tracing recommended; works with Nanite meshes for better performance
+- **Directional Light** — Atmosphere Sun Light option enables Ctrl+L shortcut; Source Angle controls penumbra softness; Volumetric Scattering Intensity controls god ray strength
+- **Point Light** — Source Radius controls light physical size → shadow softness
+- **Rect Light** — Source Width/Height control shape; preferred for cinematic fill/rim; Cast Ray Traced Shadows for best quality
+- **Skylight** — SLS Captured Scene or SLS Specified Cube Map; Lower Hemisphere Is Solid Color: uncheck to use HDRI below horizon; Intensity Scale multiplier
+- **HDRI Backdrop** — plugin required; drag into scene; embeds Skylight + HDRI dome; Projection Center offset; Cubemap swap in Details; good for quick overcast/reflective setups
+- **Environment Light Mixer** — Window → ENV Light Mixer; one-click buttons for complete daylight system (Skylight + Atmospheric Light + Sky Atmosphere + Volumetric Cloud + Height Fog); highly recommended as starting point
+- **Post Process Volume (PPV)** — Infinite Extent (Unbound) ON; Metering Mode: Manual; Apply Physical Camera Exposure: OFF; Exposure Compensation slider; Lumen quality sliders (Scene Lighting Quality, Final Gather Quality, Final Gather Lighting Update Speed)
+- **Virtual Shadow Maps (VSM)** — default shadow method; UE5.0+; banding artifacts when penumbra size large
+- **Cast Ray Traced Shadows** — per-light setting; requires RTX GPU; dramatically better than VSM for very soft shadows; Samples Per Pixel = 4 to reduce noise
+- **Indirect Lighting Intensity** — per-light multiplier for GI contribution; boosts bounce without raising direct; non-physical at high values
+- **Emissive Color** — Lumen handles as light source; noisy and distance-limited; use as accent/fill not primary light
+- **Nanite** — Lumen works better with Nanite enabled meshes; right-click Static Mesh in Content Browser → Nanite Enable
+- **Force No Precomputed Lighting** — World Settings; clears all baked lighting data; required when transitioning to dynamic pipeline
+- **18% Gray** — middle gray for exposure calibration (NOT 50%); use 0.18 albedo sphere as exposure reference
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner. Explicitly targeted at UE lighting beginners. No Blueprint coding; all settings-based. Two complete scenarios demonstrated (sunny + overcast). Core concepts (shadow softness from source size, exposure compensation over changing light intensity, Indirect Lighting Intensity) are the most valuable takeaways for new users.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (Lumen; fully dynamic; no baked lighting; Virtual Shadow Maps; Environment Light Mixer introduced in UE5)
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, lumen, beginner, directional-light, rect-light, skylight, volumetric-fog, post-process, shadows, environment-light-mixer
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `lighting-a-night-time-exterior-in-unreal.md` — nighttime variant by same author; practical lights + lighting channels
+- `lighting-interiors-in-unreal-engine-5.md` — advanced interior follow-up; path tracer as ground truth; diffuse color boost
+- `lumen-explained---important-tips-for-ue5.md` — deeper Lumen-specific settings

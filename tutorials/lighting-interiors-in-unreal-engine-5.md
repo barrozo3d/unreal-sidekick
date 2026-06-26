@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=0GYyHDuaPcg
 author: William Faucher
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5.3"
+tags: [lighting, interior, lumen, path-tracing, hardware-ray-tracing, rect-light, indirect-lighting, diffuse-color-boost, volumetric-fog, cinematics]
+extraction_status: complete
 frames_dir: tutorials/frames/lighting-interiors-in-unreal-engine-5/
 frame_count: 8
 ---
@@ -68,27 +68,85 @@ frame_count: 8
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Interior lighting in UE5 using Lumen + hardware ray tracing. Core approach: (1) Environment Light Mixer for base sky system, (2) PPV for manual exposure, (3) Rect Light shaped to window/doorway opening for direct light injection (Lumen skylight alone too splotchy for tight interiors), (4) Indirect Lighting Intensity boost per light, (5) Diffuse Color Boost in PPV Lumen settings. Use Path Tracer as ground-truth reference to verify Lumen is set up correctly. Physical practical props required to justify artificial light placement.
 
 ### Summary
-[PENDING EXTRACTION]
+17-minute William Faucher interior lighting tutorial (UE5.3, RTX 4070). Two scenarios: (1) natural light interior (Game of Thrones-inspired — single doorway opening as only light source, camera exposing for interior = blown-out exterior); (2) artificial light interior (museum/torch dungeon). Key challenge: Lumen skylight at high intensity = splotchy indirect; must inject direct light via Rect Light at opening. Three advanced tips: path tracer as ground truth (Lit → Path Tracing to see what scene should look like), Indirect Lighting Intensity on individual lights (non-physical boost, not mirrored in path tracer), Diffuse Color Boost in PPV Lumen settings (boosts all albedo values for more bounce — non-physical). Light bleed fix: large geometry Light Blockers around exterior plugs Lumen skylight leakage. Artificial lighting: place physical fixture prop → place Point Light inside it → Volumetric Scattering Intensity per light for haze/smoke feel.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Project Settings** (UE5.3):
+   - Settings → Project Settings → scroll to Rendering → Support Hardware Ray Tracing: ON; Path Tracing: ON; Virtual Shadow Maps: ON; Hardware Ray Tracing When Available: ON
+   - DirectX 12 default RHI
+2. **Analyze reference first** — break down: where is light coming from? Single doorway? Practical fixtures? Sun angle? Then replicate
+3. **Clear all lights** → delete or start fresh
+4. **Base daylight system** (Window → ENV Light Mixer):
+   - Create Skylight + Atmospheric Light + Sky Atmosphere + Height Fog
+   - Drag PPV into scene → Details → Infinite Extent (Unbound): ON
+   - PPV → search "exp" → Metering Mode: Manual; Apply Physical Camera Exposure: OFF; adjust Exposure Compensation
+   - Exponential Height Fog → Volumetric Fog: ON (required for god ray shafts later)
+5. **Why skylight alone fails for tight interiors**:
+   - Skylight intensity cranked high = splotchy indirect (insufficient samples for small aperture)
+   - Solution: inject direct lighting with Rect Light shaped to opening
+6. **Rect Light at window/door** (main light injection):
+   - Add Rect Light → position at exterior of doorway/window facing inward
+   - Match Source Width and Source Height to aperture shape
+   - Attenuation Radius: ~800 (large enough to fill interior)
+   - Color: slightly cool blue (exterior sky)
+   - Cast Ray Traced Shadows: ON (much softer shadows; critical for quality)
+7. **Path Tracer as ground truth**:
+   - Lit dropdown → Path Tracing
+   - Compare Lumen vs Path Tracer result; should be similar; large differences = lighting setup issue
+   - Use to identify missing indirect in shadowed areas
+8. **Indirect Lighting Intensity** (boost GI per light):
+   - Select Rect Light → scroll to Indirect Lighting Intensity → set to 5
+   - Boosts bounce light from this light source; non-physical; NOT reflected in path tracer
+   - Use cautiously as art direction tool only
+9. **Specular highlights note**: Lumen indirect barely contributes to specular; always need direct light for wet/shiny/metallic surfaces to appear correctly
+10. **Light Bleed Fix** (Bonus Tip 1):
+    - Symptom: light bleeding through walls/edges from skylight
+    - Fix: place large white Static Mesh boxes (Light Blockers) around exterior of level under/around structure
+    - Blocks low-res Lumen skylight sampling from penetrating geometry
+11. **Volumetric god rays** (optional):
+    - Directional Light → rotate so sun shines through doorway
+    - Directional Light → Volumetric Scattering Intensity: 50–100 for visible shaft
+    - Each light has individual Volumetric Scattering Intensity → use on specific lights for localized haze
+12. **Diffuse Color Boost** (Bonus Tip 2):
+    - PPV → search "Lumen" → Diffuse Color Boost (default 1)
+    - Set to 2–5 → boosts all material albedo values → more indirect light bounced
+    - Non-physical; purely art direction; combines with Indirect Lighting Intensity for shadowed areas
+13. **Artificial lighting (no natural light)**:
+    - Place physical light fixture props (lamps, torches, candles) to justify light placement
+    - Add Point Light inside/above each fixture
+    - Increase Source Radius to match fixture size
+    - Each light: Volumetric Scattering Intensity cranked up for localized haze/smoke atmosphere
+    - Global: adjust Exposure Compensation or Diffuse Color Boost to control overall brightness
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Lumen** — dynamic GI; splotchy in tight interiors with tiny light apertures; fix with direct light injection
+- **Environment Light Mixer** — Window → ENV Light Mixer; one-click base sky system (Skylight + Atmospheric Light + Sky Atmosphere + Height Fog)
+- **Post Process Volume (PPV)** — Infinite Extent (Unbound) ON; Metering Mode: Manual; Apply Physical Camera Exposure: OFF; Exposure Compensation; Lumen → Diffuse Color Boost
+- **Rect Light** — shaped to window/door opening; Source Width/Height match aperture; Attenuation Radius 800+; Cast Ray Traced Shadows ON for interiors; individual Volumetric Scattering Intensity
+- **Path Tracing** — Lit dropdown → Path Tracing; physically accurate ground truth; compare to Lumen to verify setup; note: Indirect Lighting Intensity boost NOT reflected in path tracer
+- **Indirect Lighting Intensity** — per-light Detail panel setting; multiplies GI contribution from this light; 5 = 5× bounce; non-physical; not mirrored in path tracer; use with caution
+- **Cast Ray Traced Shadows** — per-light; requires RTX GPU; essential for quality soft shadows in interiors (VSM limited with large soft penumbra)
+- **Diffuse Color Boost** — PPV → Lumen section; boosts albedo of all materials → more indirect light; default 1; non-physical; art direction tool
+- **Volumetric Scattering Intensity** — per-light; controls how much this light contributes to volumetric fog shafts; individual per-light control; good for torch haze, shaft through door
+- **Light Blockers** — large Static Mesh cubes placed around exterior of level; block Lumen skylight from bleeding through walls; necessary for tight interior scenes
+- **Specular and Lumen** — Lumen indirect lighting contributes minimally to specular highlights; always need at least one direct light for wet/metallic/shiny surfaces to render correctly
+- **Practical lights** — physical prop fixtures (lamps, torches) must be present to justify and "sell" artificial light placement; light without a practical source feels wrong
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate. Assumes knowledge of basic UE5 lighting setup. Key advanced concepts: using path tracer as diagnostic, Diffuse Color Boost, Indirect Lighting Intensity, light bleed fix with blockers, per-light volumetric scattering intensity. RTX GPU required for hardware ray tracing features.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5.3 (explicitly stated; hardware ray tracing + path tracing; Virtual Shadow Maps; Lumen)
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, interior, lumen, path-tracing, hardware-ray-tracing, rect-light, indirect-lighting, diffuse-color-boost, volumetric-fog, cinematics
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `lighting-in-unreal-engine-5-for-beginners.md` — beginner companion by same author; light types, shadow softness fundamentals
+- `lighting-a-night-time-exterior-in-unreal.md` — nighttime exterior counterpart; lighting channels, practical lights
+- `lumen-explained---important-tips-for-ue5.md` — deeper Lumen-specific settings
