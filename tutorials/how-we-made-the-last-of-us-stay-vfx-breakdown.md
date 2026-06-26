@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=_3PQ19-LMRg
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "N/A"
+tags: [vfx-breakdown, compositing, matte-painting, camera-tracking, short-film, cgi-integration, production-pipeline, filmmaking, zbrush, nuke]
+extraction_status: complete
 frames_dir: tutorials/frames/how-we-made-the-last-of-us-stay-vfx-breakdown/
 frame_count: 16
 ---
@@ -108,27 +108,48 @@ frame_count: 16
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Traditional VFX pipeline breakdown for a Last of Us fan film ("Stay"). Techniques: ZBrush/Maya/Arnold CGI character integration, digital matte painting (DMP) matched to plate lighting, 3D camera tracking for 2D+3D compositing, frame-by-frame head animation matching for CG character replacement, sky replacement, green screen compositing with lens flare animation. Not an Unreal Engine tutorial — the author teaches UE elsewhere but this film used Maya/Arnold/Nuke/ZBrush.
 
 ### Summary
-[PENDING EXTRACTION]
+18-minute VFX breakdown by Josh Toonen of "Stay" (a Last of Us fan short film). Over 90% of shots have visual effects, most invisible. Key VFX include: (1) "The Wall" — fully digital ZBrush creature sculpture by Santiago Benchur, DMP with matched lighting direction, 3D camera track + foreground parallax plants + particles; (2) CG zombie skull — full character sculpt by Juraus Rodionovus in ZBrush + textures in Substance Painter, 3D camera track + prep-out of practical prop; (3) CG clicker head replacement — most complex shot: CG mask replaced practical mask + frame-by-frame head animation matching for CG-to-live-actor alignment over weeks; (4) matte painting wall destruction — tracking markers critical; (5) fungus atmosphere particles; (6) sky replacement with gradient (orange→blue); (7) Santa Monica Pier composite — assembled from still photos + sky + animated lens flares + exposure matching; (8) green screen plate composite (hand over sun shot). Key lesson: "just because you can fix it in post doesn't mean you should" — 90+ days of post from ~90 shots.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Lighting-matched DMP**: find images matching the plate's light direction (e.g., sunlight from screen left → find destruction/fungus photos with same light angle); assemble as digital matte painting; re-shoot per angle if camera moves
+2. **3D camera tracking**: recreate camera move in 3D to align CG with live plate; enables foreground parallax planes and particles
+3. **Foreground parallax**: after tracking, add practical-looking plants/elements in near foreground for depth
+4. **Prep-out / rotoscoping**: remove practical prop from plate before placing CG on top (e.g., skull prop removed before CG skull composited in)
+5. **Frame-by-frame head animation matching**: for CG clicker face over moving actor — manually match rotation/translation frame by frame until teeth align with practical mouth; no automatic solution; took weeks
+6. **Stock footage integration**: blood dribbling on shirt = stock footage tracked onto costume; zombies slamming glass = black & white stock footage with compositing blending
+7. **Tracking markers on set**: lesson learned — place small high-contrast markers on flat walls before shoot; saves hours of manual 2D tracking in post
+8. **Sky replacement**: add gradient sky (orange to blue); remove/paint-out street lights for post-apocalyptic look
+9. **Lens flare animation**: animate lens flare intensity as subject passes over sun — brighter/darker with blocking; required for believable sunset composite
+10. **Exposure matching**: sunset composite requires darkening of everything EXCEPT sky; study real photos of that light condition for reference
+11. **Green screen (hand over sun)**: plate → chroma key → composite against assembled sky + ocean motion footage; same lens flare technique as above
+12. **Iteration discipline**: sometimes simplest approach (find real location at right time of day) beats complex DMP — shot was reshot when downtown Seattle DMP felt too hyper-real
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+*This tutorial does not cover Unreal Engine directly.* Software pipeline used:
+- **ZBrush** — creature and skull sculpting; high-resolution base mesh
+- **Maya + Arnold** — CG character rendering; look development
+- **Substance Painter** — texture authoring for CG characters
+- **Nuke** (compositing) — camera tracking 2D, DMP assembly, EXR compositing, Defocus node for Z-depth
+- **3DE / PFTrack equivalent** — 3D camera solve from live plate
+- **DaVinci Resolve** — mentioned for color grading in other Josh Toonen tutorials
+- **Premiere / edit** — rough cut reference for VFX pulls
+- **ArtStation** — source for finding CG freelancers (skull sculptor Juraus Rodionovus found there)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Reference/Inspiration. Not a step-by-step tutorial — a production breakdown for understanding invisible VFX techniques and production decisions. Applicable concepts for UE filmmakers: lighting-matched matte painting, tracking marker discipline, the frame-by-frame CG replacement workflow, and story-first VFX approach.
 
 ### UE Version
-[PENDING EXTRACTION]
+N/A — film VFX done in Maya/Arnold/ZBrush/Nuke. Author teaches Unreal Engine for filmmaking separately (unrealforvfx.com).
 
 ### Tags
-[PENDING EXTRACTION]
+vfx-breakdown, compositing, matte-painting, camera-tracking, short-film, cgi-integration, production-pipeline, filmmaking, zbrush, nuke
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `how-to-make-unreal-look-more-cinematic.md` — complementary cinematic techniques applicable to UE production
+- `how-to-actually-improve-your-films-vfx-dune-in-unreal-5.md` — another Josh Toonen production breakdown with UE5 workflow
+- `how-to-make-a-samurai-film-in-unreal-5.md` — short film production breakdown using UE5 (Rokoko mocap + UE pipeline)

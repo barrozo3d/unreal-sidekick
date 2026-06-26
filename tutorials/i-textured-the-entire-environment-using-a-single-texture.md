@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=pkRH_mdAP2E
 author: Procedural Minds
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5.6"
+tags: [materials, stylized, color-curve, rgb-mask, vertex-paint, layered-materials, single-texture, game-dev, color-ramp, procedural]
+extraction_status: complete
 frames_dir: tutorials/frames/i-textured-the-entire-environment-using-a-single-texture/
 frame_count: 5
 ---
@@ -53,27 +53,70 @@ frame_count: 5
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Single RGB mask texture drives an entire stylized environment's color variation using the **Color Curve** node (new in UE5.6) with a **Curve Atlas**. Red/green/blue channels of one hand-painted texture provide three variation layers; Color Curve maps each channel to a user-defined color gradient; HSV shift nodes allow per-instance hue/saturation/value overrides. Normal From Heightmap converts the same texture to a normal map without separate normal texture. Layered materials + position-based vertex paint handle advanced objects (statues, hard surface).
 
 ### Summary
-[PENDING EXTRACTION]
+15-minute devlog by Procedural Minds showing how an entire dungeon environment (rocks, bricks, columns, trees, enemies, grass, leaves) is colored from a single hand-painted RGB mask texture in UE5.6. The Color Curve node (introduced UE5.6) takes a grayscale input and a Curve Atlas asset to remap values to color gradients — eliminating the need for separate per-asset textures. Three curve variations (A/B/C) stored in one Curve Atlas provide distinct looks switchable per material instance. HSV shift nodes then allow arbitrary hue/saturation adjustments without new textures. Normal From Heightmap derives normals from the same single texture. Position-based world-space masking in layered materials allows hard-surface props (statues, swords) to show natural moss/rust variation by world position without repeating UV seams.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Create RGB mask texture**:
+   - Open Affinity Photo (or Photoshop) — paint three sets of brush strokes: one for Red channel, one for Green, one for Blue
+   - Export as single texture; slight compression artifacts acceptable at this art style
+   - In UE: import; optionally set compression to None for cleanest result
+2. **Set up Color Curve asset**:
+   - Content Browser → right-click → Miscellaneous → Curve → CurveLinearColor (creates a color curve)
+   - Set X axis 0→1; paint the color gradient (e.g., green to yellowish for leaves)
+   - Create 3 variations: Curve_A, Curve_B, Curve_C
+3. **Create Curve Atlas asset**:
+   - Content Browser → right-click → Miscellaneous → Curve Atlas
+   - Add Curve_A, Curve_B, Curve_C into the atlas slots
+4. **Wire Color Curve node in material**:
+   - Material Graph: add **Color Curve** node
+   - Input: the appropriate RGB mask channel (e.g., Mask R, Mask G, or Mask B depending on which asset)
+   - CurveAtlas: plug in your Curve Atlas asset
+   - CurveIndex: expose as parameter (scalar) to select which of the 3 curves in the atlas to use per material instance
+   - Output connects to Base Color
+5. **Add HSV shift for per-instance color override**:
+   - After Color Curve output → plug into HSVtoRGB / Hue-Shift node (or use DesaturationNode + Lerp pattern)
+   - Expose Hue, Saturation, Value as material parameters → tweak per Material Instance without needing new curves
+6. **Normal From Heightmap** (same single texture):
+   - Normal From Heightmap node → input: one channel of the RGB mask (or converted grayscale)
+   - Expose NormalStrength as parameter
+   - Result → Normal input of material
+   - Note: slightly more expensive than pre-baked normals; fine for early dev or stylized needs
+7. **Layered Material for complex props** (statues, swords):
+   - Use Material Layers with position-based world-space masking for natural moss/rust distribution
+   - Moving the mesh changes the world-space offset → different section of the mask appears = natural variation
+   - Rotate or offset mesh to hide UV seams from camera angle
+8. **Vertex Paint for color zoning** (advanced):
+   - Paint vertex colors (grayscale) on mesh → feed into Color Curve node input
+   - Example: paint a mesh 0.0 (dark), 0.5 (mid), 1.0 (light) → each maps to distinct color in the ramp
+   - Eliminates need for complex UV unwrap just for color variation
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Color Curve node** (UE5.6+) — maps a 0-1 scalar input to a color gradient defined in a CurveLinearColor asset; requires Curve Atlas; game-changer for stylized single-texture pipelines
+- **Color Ramp node** (UE5.6+) — similar to Color Curve; inputs 0-1 → outputs interpolated color; mentioned as the discovery pathway that led to Color Curve
+- **Curve Atlas** — UE asset that packs multiple CurveLinearColor assets into one texture for GPU sampling; select which curve via index parameter
+- **CurveLinearColor** — defines a color gradient (color over 0→1 range); editable in UE curve editor; stored inside Curve Atlas
+- **Normal From Heightmap node** — derives surface normals from a grayscale heightmap channel; output connects to Material Normal input; avoids needing a pre-baked normal texture; expose NormalStrength as material parameter
+- **HSV Shift** — in-material hue/saturation/value adjustment after Color Curve output; enables per-instance color changes without new assets
+- **Layered Materials** — UE material layer system; supports world-position-based blending of layers (moss, rust, dirt); position-based masking = natural variation per prop instance
+- **Vertex Paint** (UE color painting) — paint per-vertex grayscale values on mesh in UE; feed painted value into Color Curve for complex per-zone coloring without UVs
+- **RGB Mask texture** — single channel-packed texture: R/G/B channels each carry different brush-stroke variation patterns; used to drive different material variation slots from one texture sample
+- **Unlit Mode** — toggle in viewport to inspect raw base color output without lighting; useful for checking mask/color setup
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate. The Color Curve/Curve Atlas node setup requires knowing where to find these UE5.6+ nodes (search "Color Curve" and "Color Ramp" in Material editor). The single-texture RGB mask approach is a production shortcut that requires artistic judgment for mask painting. Layered materials add complexity for advanced use.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5.6 (Color Curve and Color Ramp nodes introduced in UE5.6; core technique requires 5.6+)
 
 ### Tags
-[PENDING EXTRACTION]
+materials, stylized, color-curve, rgb-mask, vertex-paint, layered-materials, single-texture, game-dev, color-ramp, procedural
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `how-to-edit-megascans-and-poly-haven-materials-easily---ue5-plugin.md` — Polygonflow Dash for material editing (photorealistic); contrast to this stylized approach
+- `how-to-transform-texture-coordinates-in-unreal-engine-materials-tutorial.md` — UV animation techniques in UE materials
+- `nanite-everything-you-should-know-unreal-engine-5.md` — Nanite for environment geometry complement to single-texture approach
