@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=JdaXti950vg
 author: Unreal Engine
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [live-link, motion-capture, metahuman, virtual-production, facial-animation, animation, performance-capture, timecode, recording]
+extraction_status: complete
 frames_dir: tutorials/frames/live-link-hub-tips-unreal-engine-animation-hub/
 frame_count: 4
 ---
@@ -33,27 +33,56 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Live Link Hub is a standalone app (launch via UE Tools menu) that manages and routes Live Link data from multiple motion capture sources to multiple UE Editor workstations simultaneously. Virtual Subject combines body + face sources into a single stream. Config save/recall persists full setup. Supports recording, timecode sourcing, and plugin extension.
 
 ### Summary
-[PENDING EXTRACTION]
+6-minute Epic tutorial demonstrating Live Link Hub for multi-source motion capture streaming (body: Captury, face: Meta Human Animator on iPhone via WiFi + OptiTrack). Shows: adding multiple sources simultaneously; client panel (other workstations on subnet); Virtual Subject (combines body + face into one stream, requires Broadcast to appear in Editor); config save/recall; plugin directory management; face neutral pose calibration; head bone priority when combining sources (Captury drives neck/head — disable head orientation/translation from face source); recording (session name → slate → Record → stop → playback in Recording List); OptiTrack as timecode source.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Launch Live Link Hub** — Tools menu → Live Link Hub (requires Live Link Hub plugin enabled)
+2. **Add sources** (left panel → Add Source):
+   - Body: Captury Body, OptiTrack (add simultaneously — sources stack)
+   - Face: Meta Human Animator (iPhone over WiFi) → enter phone IP → Connect
+3. **Clients panel** (right) — shows all UE Editor workstations on same subnet; indicates which level each is running
+4. **Virtual Subject** (combine body + face for MetaHuman):
+   - Add Virtual Subject → name it → select body subject + face subject → combine
+   - Click **Broadcast** on virtual subject → now appears in UE Editor
+5. **Head bone priority when combining**:
+   - Face source (Meta Human Animator): disable head orientation + translation
+   - Virtual Subject settings: head position/rotation → keep parent = capture system (Captury/OptiTrack drives neck/head)
+6. **Face neutral pose calibration** — Live Link Hub → face subject → Calibrate Neutral Pose
+7. **Save/Load Config**:
+   - File → Save Config → saves to Live Link Hub content folder (includes virtual subjects)
+   - Recall config to restore full setup without re-configuring sources
+8. **Plugin Directory** — Settings → Plugin Directory; shows enabled plugins; add custom paths for third-party plugins
+9. **Recording**:
+   - Create session name + create slate
+   - Press Record → captures all active subjects (audio + Live Link data simultaneously)
+   - Stop → switch to Recording List → double-click take → timeline with scrub and playback
+10. **Timecode from mocap** — select timecode source from hub; choose subject (e.g., OptiTrack); gray = disabled, green = active; timecode updates live
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Live Link Hub** — standalone app; Tools menu → Live Link Hub; requires Live Link Hub plugin; manages multi-source Live Link routing to multiple Editor workstations
+- **Live Link Source** — hub left panel; Add Source button; types: Captury Body, OptiTrack, Meta Human Animator, ARKit face (iPhone), custom; multiple sources active simultaneously
+- **Live Link Clients** — hub right panel; workstations on subnet with UE Editor open; shows current level each workstation is running
+- **Virtual Subject** — combines multiple Live Link sources (body + face) into single stream; must Broadcast for it to appear in UE Editor; head priority setting controls which source drives neck/head bones
+- **Meta Human Animator** — iPhone app; streams face data over WiFi; enter iPhone IP in hub to connect; face neutral calibration in hub
+- **Broadcast** — virtual subject must be broadcast before it appears in UE Editor's Live Link panel
+- **Config Save/Recall** — saves entire hub setup (sources, virtual subjects, settings) to Live Link Hub content folder; recall restores without reconfiguration
+- **Recording** — session name + slate → Record button → captures all active subjects + audio; Recording List → double-click take → timeline scrub/playback
+- **Timecode Source** — Live Link Hub can act as timecode provider; select subject (e.g., OptiTrack) as source; gray = disabled, green = active
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate-Advanced. Requires physical mocap hardware (Captury, OptiTrack, iPhone). Conceptual knowledge of Live Link, MetaHuman, and bone hierarchy needed to correctly configure head bone priority in Virtual Subject setup.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (Live Link Hub, Meta Human Animator integration — UE5 era features)
 
 ### Tags
-[PENDING EXTRACTION]
+live-link, motion-capture, metahuman, virtual-production, facial-animation, animation, performance-capture, timecode, recording
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `lip-sync-in-unreal-engine.md` — lip-sync documentation (empty crawl)
+- `live-link-in-unreal-engine-5.md` — general Live Link setup in UE5 (if exists)

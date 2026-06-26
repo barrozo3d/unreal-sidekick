@@ -3,9 +3,9 @@ title: lip-sync-in-unreal-engine
 source: Epic Documentation
 url: https://dev.epicgames.com/documentation/en-us/unreal-engine/lip-sync-in-unreal-engine
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "N/A"
+tags: [lip-sync, animation, audio, facial-animation]
+extraction_status: complete
 page_count: 1
 ---
 
@@ -30,25 +30,29 @@ Table of Contents
 
 ## Structured Notes
 
-### Core Topics
-[PENDING EXTRACTION]
+### Core Technique
+Empty crawl — the ingested page returned only a Table of Contents with no body content. No extractable information.
 
 ### Summary
-[PENDING EXTRACTION]
+Epic Documentation page for lip-sync in Unreal Engine. The crawl captured only the page shell (Table of Contents section label) with no actual content. Lip-sync in UE typically involves audio-driven phoneme shapes via AnimGraph + Control Rig or the OVR Lipsync plugin, but none of that content was captured in this crawl.
 
-### Key Concepts & Systems
-[PENDING EXTRACTION]
+### Key Steps
+N/A — no content extracted.
 
 ### UE Systems / Settings / Code
-[PENDING EXTRACTION]
+N/A — page crawl returned empty content.
+
+### Difficulty
+N/A
 
 ### UE Version
-[PENDING EXTRACTION]
+N/A (empty crawl — could not determine)
 
 ### Tags
-[PENDING EXTRACTION]
+lip-sync, animation, audio, facial-animation
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `live-link-hub-tips-unreal-engine-animation-hub.md` — Live Link Hub for face + body mocap streaming to UE
+- `metahuman-animator-on-iphone-to-unreal-in-5-minutes.md` — facial animation capture pipeline
