@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=9rRiExTYrpE
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [beginner, learning-path, vfx, filmmaking, niagara, sequencer, virtual-production, progression, blueprints, workflow]
+extraction_status: complete
 frames_dir: tutorials/frames/learning-unreal-5-in-one-year-progression-lessons/
 frame_count: 16
 ---
@@ -108,27 +108,61 @@ frame_count: 16
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Year-long UE5 learning journey by a Hollywood VFX supervisor, with 5 concrete lessons: (1) UE is a game engine — understand simulation, not just rendering; (2) learn one editor at a time (material graph → lighting → sequencer → MRQ → skeletal mesh editor → Niagara); (3) don't model — use pre-existing assets; (4) use Epic's documentation intelligently (workflow pages first, then feature pages; Ctrl+Alt hover for inline definitions); (5) start and finish small projects (30 short projects > 1 long project).
 
 ### Summary
-[PENDING EXTRACTION]
+26-minute video by Josh Toonen documenting his one-year UE5 learning journey from scratch to professional virtual production. Covers progression through 8 projects: Quixel sandbox → drone lightsaber battle (Niagara tracers + physics) → ISS/Lumen lighting → Niagara smoke/flipbooks → at-home virtual production (Black Magic + Vive tracking) → Heatseeker physics vehicle → ICVFX LED volume horror → Mr. Freeze Batman Beyond. Five key lessons for VFX artists learning UE: UE5 is first a game engine; learn editors sequentially; use free assets; read workflow documentation first; finish small projects daily. Recommended free sample projects: Mirochat demo (Weta Digital UE4), Medieval (Quixel), Slay (animation), Matrix demo. Useful tip: Ctrl+Alt hover over any detail panel option for inline documentation.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Lesson 1 — UE is a game engine first**: MRQ is actually simulating your game; physics/gravity takes over after a few keyframes of animation; use Take Recorder to bake physics simulations into animation; troubleshoot with game-engine mindset, not render-engine mindset
+2. **Learning path (one editor at a time)**:
+   - **Material graph** → bring in Quixel/Megascans assets, play with material instances, understand master materials
+   - **Lighting** → Directional Light (sun) + Sky Atmosphere (time of day) + Sky Light (fill light) — all three required for exterior scene
+   - **Animation/Sequencer** → add actors to timeline, assign Mixamo animations
+   - **Movie Render Queue** → render out timelines with high-quality anti-aliasing
+   - **Skeletal Mesh Editor** → character rigs, IK retargeting
+   - **Niagara** → particles, dynamic effects, muzzle tracers, smoke, flipbooks
+3. **Don't waste time modeling**: use Mixamo, CG Trader, Turbo Squid, Quixel, Epic Marketplace; focus on learning systems, not asset creation
+4. **Gobos for art directing shadows**: large plane with noise texture, placed above scene to break up harsh sunlight into shaped shadows
+5. **Niagara muzzle tracers**: spawn muzzle flash → bullet travels → light trail follows; impact direction determines particle spawn direction; parent system to animated drones; entire chain moves with actor automatically
+6. **Sub-UV flipbooks for fire/smoke**: 64 animation frames baked into 2K texture; loop forever in material; "set it and forget it" — place in scene, focus on cameras instead
+7. **Virtual camera rig (budget)**: Black Magic Pocket Cinema Camera cage + wireless HDMI transmitter + Vive controller on top → enough for physical camera tracking; parent virtual camera to virtual dolly for tracking shots
+8. **Asset migration between projects**: browse asset in Content Browser → right-click → Asset Actions → Migrate → choose destination project's Content folder → all dependencies transfer
+9. **Documentation tips**:
+   - Start with workflow pages (top-down system overview) before feature-specific docs
+   - F11 in any editor opens contextual documentation for that editor
+   - Ctrl+Alt + hover over any detail panel option → inline definition tooltip + documentation link
+10. **Sample projects to download (recommended)**:
+    - Mirochat demo (Weta Digital UE4) — cinematic pipeline reference
+    - Medieval (Quixel team) — photorealism + optimization
+    - Slay animation sample — nested sub-sequences in Sequencer
+    - Matrix demo — full-scale open world with vehicle packs on Marketplace
+11. **Lesson 5 — small projects**: 30 short projects in a month beats 1 long project; discovery happens fastest through iteration; think like an engineer, not just an artist
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Movie Render Queue (MRQ)** — renders by simulating the game; physics take over after keyframes; bake physics first via Take Recorder if needed
+- **Take Recorder** — records real-time physics simulations as animation keys; enables replayable physics results
+- **Niagara tracer chain** — spawn event: muzzle flash → emits bullet particle → light trail attached → on impact: spawn burst particle system in reflected direction; parent to actor = entire chain follows
+- **Sub-UV flipbook** — material-based frame animation; bake 64 frames into 2K texture; Material UVs step through grid positions per frame; used for fire/smoke; no need to animate manually
+- **Gobos** — large plane with noise texture above scene; blocks/shapes directional light to break harsh sun shadows into dappled patterns
+- **IK Retargeting** — new in UE5; transfers Mixamo animations to custom character rigs; used in at-home virtual production project
+- **Virtual Camera** — UE5 LiveLink plugin with physical camera tracker (Vive/OptiTrack); outputs real physical camera movement to virtual camera in UE
+- **Physics simulation in Sequencer** — after a few keyframes, UE switches from animated to simulated; set physics start frame carefully; use Take Recorder to record results
+- **Asset Migration** — Content Browser → right-click asset → Asset Actions → Migrate → select destination Content folder; copies asset + all dependencies (materials, textures, etc.)
+- **Ctrl+Alt hover** — detail panel inline documentation tooltip; links directly to Epic docs for that specific property
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner. This is an inspirational/roadmap video, not a step-by-step tutorial. Best for artists evaluating whether/how to learn UE5 for VFX/filmmaking and understanding the learning order.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (early UE5; references UE5.1 documentation at time of video)
 
 ### Tags
-[PENDING EXTRACTION]
+beginner, learning-path, vfx, filmmaking, niagara, sequencer, virtual-production, progression, blueprints, workflow
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `how-to-make-blade-runner-in-unreal-5-step-by-step.md` — beginner UE5 filmmaking pipeline from same author
+- `how-to-make-a-samurai-film-in-unreal-5.md` — production breakdown of Josh Toonen short film showing advanced pipeline
+- `how-to-make-unreal-look-more-cinematic.md` — cinematic rendering techniques referenced in this video's later stages

@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=yOcgYMcxr3Q
 author: Unreal Engine
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [level-management, sub-levels, sequencer, spawnables, possessibles, world-partition, cinematics, pipeline, collaboration, level-streaming]
+extraction_status: complete
 frames_dir: tutorials/frames/level-management-sub-levels-spawnables-possessibles-in-ue5/
 frame_count: 4
 ---
@@ -33,27 +33,50 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Sub-level organization and Sequencer asset types (Spawnables vs Possessibles). Sub-levels nest multiple .umap files into a master level; visibility toggles persist across sessions (unlike Outliner toggles). Possessibles: assets that live in the world level; sequence temporarily overrides their transform/animation, then snaps back. Spawnables: assets that only exist when the Sequencer playhead is over their shot (lightning bolt icon); travel with the sequence into any level.
 
 ### Summary
-[PENDING EXTRACTION]
+15-minute tutorial from the Unreal Engine channel explaining level construction with sub-levels and the Possessible/Spawnable distinction in Sequencer. A production level nests multiple sub-levels (lighting, props, decals/damage) into a master level via Window → Levels; toggling visibility in the Levels panel persists on disk (unlike Outliner visibility which is session-only). Multi-artist workflow: each sub-level file is independently editable. Must double-click a sub-level in the Levels panel to make it active before its assets appear in the Outliner. Possessibles: world-level assets that Sequencer temporarily possesses for animation overrides; they snap back to world position when the shot ends. Spawnables: assets that spawn in for a specific shot and despawn when the playhead leaves; lightning bolt icon in Sequencer; advantage is the entire sequence (with spawnables only) can play in any level including a blank one. Can convert between possessible and spawnable via right-click on binding in Level Sequence.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Open Levels panel**: Window → Levels (sub-level management panel)
+2. **Add sub-level**: in Levels panel → top-level icon → Create New Sub-Level or reference existing .umap
+3. **Toggle sub-level visibility**: checkbox next to sub-level name in Levels panel → persists across sessions; NOTE: toggling visibility in Outliner is temporary (resets on project open)
+4. **Make a sub-level current (to edit it)**: double-click sub-level name in Levels panel → now its assets appear in Outliner and can be modified
+5. **Browse asset location**: click asset in viewport → Ctrl+B → jumps to asset in Content Browser (shows which sub-level/folder it belongs to)
+6. **Understand Possessible**: world-level asset; drag into Level Sequence → appears WITHOUT lightning bolt; sequence possesses it for that shot; reverts to world position when shot ends; good for static world props that need per-shot animation overrides
+7. **Understand Spawnable**: asset in Level Sequence WITH lightning bolt icon; spawns in when playhead enters the shot; despawns when shot ends; characters/cameras are typically spawnable; sequence is self-contained in any level
+8. **Add transform animation to world asset (possessible)**:
+   - Drop asset into Level Sequence
+   - Select it in Sequencer → press **S** to set a transform key
+   - Animate position over time → override exists only for that shot; snaps back after
+9. **Convert possessible → spawnable**: in Level Sequence, right-click actor binding → "Convert selected binding to a Spawnable Actor" → lightning bolt appears
+10. **Convert spawnable → possessible**: right-click binding → "Convert selected binding to a Possessible Actor" → asset pushed back into world level with its animation intact
+11. **Test spawnable-only sequence in blank level**: File → New Level → Basic (empty) → open the Level Sequence → hit Play → spawnable assets appear; possessible assets (world props) missing because they live in the original level
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Sub-levels (Nested Levels)** — Window → Levels; each .umap nested into master level; typical breakdown: lighting sub-level, prop sub-level, damage/decal sub-level; each can be assigned to a different artist
+- **Levels panel visibility toggle** — checkbox per sub-level; toggles load/visibility of entire sub-level including all its lights, props, decals; state persists to disk on save
+- **Outliner visibility toggle (eye icon)** — temporary session-only; does NOT persist between project opens; use for quick iteration only
+- **"Make Current" sub-level** — double-click sub-level name in Levels panel; required before its assets appear in Outliner and can be selected/edited; critical gotcha when assets in scene aren't appearing in Outliner
+- **Possessible actor** — exists in world level (.umap); no lightning bolt in Sequencer; Level Sequence references its world location; animation override reverts when shot ends; best for background props needing per-shot tweaks
+- **Spawnable actor** — exists only in Level Sequence; lightning bolt icon in Sequencer; spawns on shot entry, despawns on exit; carries with sequence into any level; best for characters, cameras, per-shot props
+- **S key (Sequencer)** — shortcut to set a transform key for selected actor at current time; basic animation authoring in Sequencer
+- **Control+B / Ctrl+Browse** — with asset selected → jumps to that asset in Content Browser; reveals which sub-level or folder owns it
+- **Convert Binding** — right-click actor binding in Level Sequence → "Convert selected binding to Spawnable/Possessible Actor"; changes whether asset spawns or persists in world
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner-Intermediate. The Possessible/Spawnable distinction is non-obvious and critical for understanding why assets appear/disappear or snap back during Sequencer playback. The "make current" requirement for sub-level editing is a common gotcha for new users.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (applicable to UE4.26+ with Level Sequences; World Partition in UE5.1+ partially replaces sub-levels for open worlds)
 
 ### Tags
-[PENDING EXTRACTION]
+level-management, sub-levels, sequencer, spawnables, possessibles, world-partition, cinematics, pipeline, collaboration, level-streaming
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `level-streaming-in-unreal-engine.md` — related level streaming system for runtime-loaded levels
+- `how-to-make-blade-runner-in-unreal-5-step-by-step.md` — beginner UE5 film pipeline using Sequencer (context for where these concepts apply)
+- `non-destructive-animation-in-ue5-layered-control-rigs-explained.md` — Sequencer animation layering complement to possession/spawn system
