@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=CneRhBFaLjM
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [animation, sequencer, control-rig, curve-editor, pose-library, mixamo, beginner-friendly, character, additive-animation]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-animate-spider-man-in-unreal-engine-5-for-beginners/
 frame_count: 12
 ---
@@ -88,27 +88,77 @@ frame_count: 12
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+OneClick Control Rig (Josh Toonen's free plugin) for Mixamo-rigged characters → bake animation to Control Rig in Sequencer → Additive Track for isolated pose corrections → Curve Editor (color-coded axes) for smooth animation editing; Pose Library for saving/mirroring hand poses; weapon attachment via parenting static mesh to hand bone; stacked additive layers for secondary motion (gun weight delay).
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen demonstrates animation editing workflow in UE5 using his free OneClick Control Rig plugin. Workflow: import Mixamo character + animations → auto-rig with OneClick Control Rig → bake animation to Control Rig in Sequencer → add Additive Track for isolated pose fixes without destroying existing animation → create before/after keyframes around the area to change → edit within that window. Pose Library: select bones → create new pose → save as asset (e.g. "web shooter") → double-click to reapply; mirror setting for swapping left/right. Weapon attachment: separate static mesh → set Movable → drag onto skeletal mesh → attach to hand bone → reset position → rotate into place. Curve Editor: color = axis (red = roll/X, green = yaw/Y, blue = roll/Z); middle mouse click to add keyframe; Ctrl+W to break tangent handles; Transform tool to proportionally scale all keyframes; secondary motion = delay forearm yaw keyframes on gun for weight feel. Enable Arcball Rotate (Editor Preferences) for natural click-drag rotation of controls.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Initial setup:**
+1. Import 3D character (tested with Spider-Man, Master Chief, Kratos from various sources)
+2. Import Mixamo animations (FBX)
+3. Apply OneClick Control Rig: download free from unrealforvfx.com/rig → auto-rigs any character
+4. In Sequencer: bake Mixamo animation onto Control Rig
+
+**Additive pose correction:**
+1. In Sequencer: select Control Rig track → Add Additive Track → drag to start of sequence
+2. Identify problem frame (e.g. frame 23)
+3. Create keyframe before problem (e.g. frame 10) — "before" state
+4. Create keyframe after problem (e.g. frame 36) — "return to normal"
+5. Scrub to problem frame → adjust controls (shoulder, arm, hand) in Additive Track only
+6. Copy pose keyframes from frame 23 → paste to frame 30 for extended hold
+
+**Hand posing:**
+1. For finger detail: delete baked keyframes on finger bones for target frame range
+2. Manually rotate each finger control (pointer, pinky, etc.)
+3. Select multiple controls → rotate together for "extra bendy" comic-book style
+4. Save to Pose Library: select all hand bone controls → Control Rig Pose menu → Create New Pose → name it
+5. Reuse: select hand controls → double-click pose in Pose Library to apply
+6. Mirror: set right/left side labels + enable Mirror → paste pose to opposite hand
+
+**Weapon attachment:**
+1. Import weapon as separate static mesh (not embedded in character)
+2. Set weapon Mobility to Movable
+3. In Outliner: drag weapon onto character's Skeletal Mesh
+4. Select bone socket = right hand
+5. Click Reset → rotates into place
+6. Add to Sequencer as sub-sequence; weapon follows hand for all animation clips
+
+**Curve Editor polish:**
+1. Open Sequencer → select control → Animation → Curve Editor
+2. Select rotation tracks; color key: Red = X-axis, Green = Y-axis, Blue = Z-axis
+3. Middle mouse click = add keyframe inline
+4. Ctrl+W = break tangent handles for manual bezier control
+5. Remove doubled keyframes (common jitter cause)
+6. Transform Tool (icon in Curve Editor) = select all keyframes + scale them proportionally
+7. Secondary motion: add forearm yaw keyframe with opposite/delayed value as body rises → gun lag = weight
+
+**Settings:**
+- Editor Preferences → search "Enable Arcball Rotate" → True: enables click-drag center-point rotation
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **OneClick Control Rig** (Josh Toonen free plugin): auto-rigs any character skeleton; download at unrealforvfx.com/rig; works with Mixamo-exported FBX skeletons
+- **Additive Track (Sequencer)**: non-destructive animation layer on top of baked animation; offsets only within defined keyframe range; bracket with before/after keyframes
+- **Bake to Control Rig (Sequencer)**: converts animation clip into Control Rig poses; prerequisite for Curve Editor editing
+- **Control Rig Pose Library**: save named pose assets per character; apply by double-clicking; Mirror setting (right/left label) for hand flipping
+- **Curve Editor**: animated value graph; color-coded axes; middle-mouse to add; Ctrl+W to break handles; Transform Tool for proportional keyframe scaling
+- **Enable Arcball Rotate** (Editor Preferences): allows click-drag rotation from center handle on any control; more natural for hand/arm manipulation
+- **Static Mesh Attachment to Bone**: drag static mesh onto Skeletal Mesh in Outliner → select socket/bone → Reset → weapon sticks for all animations
+- **Auto Keyframe (Sequencer)**: enable to automatically record a keyframe every time a control is moved; easiest entry point for beginners
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner-Intermediate (control rig + additive) / Intermediate (Curve Editor)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[animation, sequencer, control-rig, curve-editor, pose-library, mixamo, beginner-friendly, character, additive-animation]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- how-i-use-moveai-and-metahumans-to-achieve-aaa-character-animation-in-unreal-eng.md (professional mocap + Butterworth filter vs this manual cleanup approach)
+- how-i-made-this-aaa-cinematic-in-unreal-engine-5---moveai-and-metahuman-animator.md (Hand Pose Library as cleanup after mocap)
+- faster-than-ai-and-7-times-the-fun-speed-up-animation-and-get-exactly-what-you-w.md (Rokoko body mocap for hero character animation alternative)

@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=8eIavj62Mu8
 author: William Faucher
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [camera, sequencer, cinematics, camera-shake, perlin-noise, blueprints, rendering, beginner-friendly]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-add-camera-shake-in-unreal-engine/
 frame_count: 5
 ---
@@ -53,27 +53,58 @@ frame_count: 5
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Procedural camera shake in UE5 via Camera Shake Blueprint (CameraShakeBase + Perlin Noise Camera Shake Pattern): Duration=0 for infinite loop; Rotation Amplitude + Frequency for each axis (pitch/yaw/roll) for organic feel; stack two shake actors (one slow/broad + one fast/micro) for more granular control. Apply via Sequencer camera component track → Camera Shake.
 
 ### Summary
-[PENDING EXTRACTION]
+William Faucher demonstrates procedural camera shake in UE5 to make renders feel organic and less CG. Method: create Blueprint Class → search CameraShakeBase → set Root Shake Pattern = Perlin Noise Camera Shake Pattern → Timing Duration = 0 (infinite loop, otherwise shakes only 1 second). Parameters: Rotation Amplitude Multiplier (intensity), Rotation Frequency Multiplier (speed/rate), per-axis values for Pitch (up/down), Yaw (left/right), Roll (side tilt). Typical tasteful values: Amplitude 0.1-0.2, Frequency ~2. Location shake (XYZ position movement) also available. FOV shake (zoom in/out) exists but rarely used. Stacking tip: duplicate shake BP → assign two shake actors to same camera in Sequencer; one with low frequency + higher amplitude (slow, broad movement) + one with high frequency + low amplitude (micro-jitter) = realistic layered shake.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Create the shake blueprint:**
+1. Content Browser → Right click → Create Blueprint Class → All Classes search "shake" → select CameraShakeBase → name it (e.g. CameraShake_V1)
+2. Double-click to open → close graph (opens streamlined view)
+3. Root Shake Pattern → set to Perlin Noise Camera Shake Pattern
+4. Expand Timing → set Duration to 0 (infinite loop)
+5. Expand Rotation: set Amplitude Multiplier and Frequency Multiplier
+6. Per-axis: Pitch (up/down), Yaw (left/right), Roll (tilt) — typical: Amplitude 0.1-0.2, Frequency 1-2
+7. Hit Compile
+
+**Apply to Sequencer:**
+1. Select camera in Sequencer → click Track button → Camera Shake → select your CameraShake BP
+2. Extend track bar to cover shot duration
+3. Press Play to preview shake
+
+**Stack two shakes (bonus tip):**
+1. Duplicate CameraShake_V1 → name CameraShake_V2
+2. Add second Camera Shake track to same camera component in Sequencer → select V2
+3. V1: low frequency (0.5), higher amplitude (broad, slow swirl)
+4. V2: high frequency (2-3), very low amplitude (micro-jitter)
+5. Result: multi-layered handheld feel
+
+**Other shake types:**
+- Location: shakes camera position (X/Y/Z) — pure translation, no rotation
+- FOV: animates field of view (zoom pulse); rarely used in practice
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **CameraShakeBase**: Blueprint parent class for camera shake; used as base for all shake presets
+- **Perlin Noise Camera Shake Pattern**: shake implementation using Perlin noise; smooth procedural looping; set via Root Shake Pattern property
+- **Duration = 0**: in Timing settings; makes shake loop infinitely (default 1 second = wrong for sustained shots)
+- **Rotation Amplitude Multiplier**: controls intensity/magnitude of rotation shake; keep ≤0.2 for subtlety
+- **Rotation Frequency Multiplier**: controls speed/rate of shake oscillation; ≥1 for visible motion, >3 gets distracting
+- **Per-axis (Pitch/Yaw/Roll)**: individual multipliers for each rotation axis; set Roll to 0 or very low (0.2) to avoid nausea
+- **Camera Shake track (Sequencer)**: add from camera component Track button; accepts any CameraShakeBase BP
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[camera, sequencer, cinematics, camera-shake, perlin-noise, blueprints, rendering, beginner-friendly]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- how-to-actually-improve-your-films-vfx-dune-in-unreal-5.md (noise tracks in Sequencer as alternative to Camera Shake BP)
+- give-me-14-minutes-and-youll-make-cinematic-renders.md (camera movement + Perlin Noise Float for light animation)
