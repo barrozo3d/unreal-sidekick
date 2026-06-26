@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=aO_ceeiGHuw
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.5"
+tags: [cinematography, camera-settings, film-back, focal-length, aperture, depth-of-field, camera-shake, lens-flare, dirt-mask, movie-render-queue, exr, color-grading, sequencer, multi-camera, 180-degree-rule, premiere, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un/
 frame_count: 34
 ---
@@ -33,27 +33,59 @@ frame_count: 34
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Full cinematography workflow in UE 5.5: film back (35mm VistaVision) + focal length (24/35/50/85mm primes) + aperture (2.8 default) + tracking focus (sphere on headbone) + camera shake (multiple Blueprint tracks: base sway, footstep-move, footstep-impact) + post-process (chromatic aberration, Bloom, dirt mask, lens flare) + per-shot sequences with keyed lights + Movie Render Queue (draft JPEG / HQ EXR with disable-tone-curve + cinematic quality override + 17 temporal samples) + Premiere multicam + proxies.
 
 ### Summary
-[PENDING EXTRACTION]
+128m2s comprehensive beginner cinematography tutorial by Charlie Driscoll. Full end-to-end workflow: set up cameras for a 2-character scene (troll vs warrior), cover it with 4 shots, export drafts and HQ EXRs, edit multicam in Premiere with proxies, do basic color grading. Camera settings covered in depth: film back (sensor size → FOV relationship; 35mm VistaVision = full-frame); focal lengths (24mm wide/all-purpose, 35mm neutral, 50mm portrait/OTS, 85mm closeup); aperture (lower = shallower DOF + more light, 2.8 good default); focus (tracking via invisible sphere on headbone, or manual rack-focus with keyframed focus distance); look-at tracking (offset for non-center framing, interp speed ~0.3 for natural camera lag); crop (2.39 cinemascope, 1.77 16:9, 4:3); camera shake (3 Blueprint tracks: base sway, footstep walk, footstep impact; duration=0 for infinite; tune location/rotation amplitude+frequency per axis); chromatic aberration + Bloom Standard; dirt mask (drag image to CB, assign to camera, use high numeric value not slider); lens flare (bokeh size, intensity, threshold; directional light angle critical); camera animation via keyframed transform + additive layers for post-animation corrections; one sequence per shot + lights added to sequencer with transform keyframe for per-shot independent lighting; 180° rule; Movie Render Queue (draft = JPEG 4K; HQ = EXR 16-bit, disable tone curve, cinematic quality game override, anti-alias 17 odd temporal samples, engine warm-up 100 frames); Premiere: import as image sequence, interpret at 24fps, Lumetri color curves, multicam sequence, proxies via Media Encoder (ProRes half-res).
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Focus tracker**: add small sphere (scale 0.5); add to sequencer; Attach Track → headbone; reset location; "Actor Hidden in Game" → ON; use as focus/look-at target
+2. **Film back**: Camera > Film Back > 35mm VistaVision (full-frame); larger sensor = wider FOV + shallower DOF; can match real camera sensor exactly for previs/VFX match
+3. **Focal length**: 24mm (wide, all-purpose), 35mm (neutral), 50mm (portrait/OTS), 85mm (closeup); keyframe to create snap-zoom effect (2 frames = snappy, many frames = slow)
+4. **Aperture**: 2.8 default; lower = shallower DOF; UE doesn't change brightness with aperture (unlike real cameras — adjust exposure separately)
+5. **Focus Settings**: Tracking → select sphere actor for auto-follow; enable "Draw Debug Focus Plane" (purple plane) for visualization; Manual → keyframe "Focus Distance" for rack focus
+6. **Look At Tracking**: Enable Look At Tracking; select sphere actor; Relative Offset for off-center framing; Look At Tracking Interp Speed ~0.3 for natural camera operator lag (0 = instant follow)
+7. **Crop**: 2.39 (cinemascope/widescreen), 1.77 (16:9), 4:3; cinematic look = wider aspect ratio
+8. **Camera shake Blueprint**: New Blueprint Class > Camera Shake Base; Pattern = Perlin Noise Camera Shake Pattern; Duration=0 for infinite; tune Location/Rotation Amplitude and Frequency Multiplier per axis (X/Y/Z + Roll/Pitch/Yaw); add to camera in sequencer via "Add Camera Shake" track; 3 tracks: (a) base sway (always on), (b) footstep-walk (active while camera moves), (c) footstep-impact (short bursts over each footstep, high pitch frequency)
+9. **Post-process — per camera**: Chromatic Aberration (subtle); Bloom > Standard + Intensity (soft diffusion); Exposure Compensation > Manual (adjust camera brightness without affecting scene); Dirt Mask (drag image to CB, assign to Dirt Mask slot, set high numeric intensity value); Lens Flare (Bokeh Size, Intensity, Threshold; directional light must be visible in frame to look motivated)
+10. **Post-process volume**: Scene-wide settings; override individual cameras for per-shot variations (e.g., unique dirt mask per shot)
+11. **Camera animation**: pilot camera; keyframe Transform track; additive layer on Transform for post-animation framing corrections without rekeying everything
+12. **Per-shot sequence workflow**: duplicate base sequence for each shot; add lights (directional + rect light) to sequencer with transform track + key to anchor them; adjust lighting per-shot without affecting others; organize shots in Shots folder; rename sequences (troll_wide_1, warrior_close_1, etc.)
+13. **180° rule**: imaginary axis line through the scene (here = bridge); keep cameras on same side; characters stay on same screen sides cut to cut; can break rule deliberately but looks disorienting accidentally
+14. **Camera Cuts track**: add camera binding at top of sequencer; drag to full sequence length; this determines what MRQ renders
+15. **Movie Render Queue — Draft**: JPEG sequence; 4K (3840×2160); fast output; one folder per shot; for iterative review
+16. **Movie Render Queue — HQ**: EXR 16-bit (default compression); Color Output > Disable Tone Curve; Game Override > Cinematic Quality Settings ON; Anti-Aliasing: Temporal Sample Count=17 (odd), Override Anti-Aliasing=None; Advanced > Engine Warm-up Count=100 (for physics/particles to settle)
+17. **Premiere workflow**: import image sequence (first frame, check Image Sequence); Modify > Interpret Footage → confirm 24fps; RMB > New Sequence From Clip; Lumetri Color for grading; multicam: nest clips > RMB > Enable Multicamera > Display Mode > Multi Camera; live edit by clicking angles during playback
+18. **Proxies**: RMB HQ clips > Make Proxies; half-resolution ProRes QuickTime; set proxy folder; enable watermark to distinguish proxy from final; Toggle Proxies button for smooth editing
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Camera > Film Back**: sensor presets; custom width/height
+- **Camera > Focus Settings**: Method = Tracking (actor) / Manual (keyframe Focus Distance); Draw Debug Focus Plane
+- **Camera > Look At Tracking**: Enable; actor to track; relative offset; interp speed
+- **Camera > Crop**: 2.39, 1.77, 4:3, custom
+- **Camera Shake Base Blueprint**: Perlin Noise pattern; duration=0; amplitude/frequency multipliers per axis; add to camera as track in sequencer
+- **Post-process (camera)**: Chromatic Aberration, Bloom, Exposure Compensation, Dirt Mask, Lens Flare
+- **Post-process volume**: scene-wide defaults
+- **Camera > Focal Length**: keyframeable; snap-zoom via 2-frame transition
+- **Camera > Aperture**: affects DOF, NOT exposure in UE
+- **Transform Additive Layer**: on camera transform track for non-destructive framing adjustments
+- **Light Mixer**: add lights to sequencer; transform track + keyframe to anchor per-shot lighting
+- **Movie Render Queue**: Plugins: Movie Render Queue + Additional Render Passes; settings: JPEG (draft) or EXR 16-bit (HQ) + Color Output + Game Override + Anti-Aliasing + Warm-up Count
+- **Premiere proxies**: half-res ProRes via Media Encoder; Toggle Proxies button
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.5
 
 ### Tags
-[PENDING EXTRACTION]
+[cinematography, camera-settings, film-back, focal-length, aperture, depth-of-field, camera-shake, lens-flare, dirt-mask, movie-render-queue, exr, color-grading, sequencer, multi-camera, 180-degree-rule, premiere, beginner]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- the-2025-guide-to-rendering-in-unreal-engine-5.md (rendering deep dive)
+- improve-your-renders-with-movie-render-queue-part-2---five-things-you-need-to-kn.md (MRQ tips)
+- how-to-make-unreal-look-more-cinematic.md (cinematic look)
+- lighting-in-unreal-engine-5-for-beginners.md (lighting companion)

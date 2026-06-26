@@ -3,9 +3,9 @@ title: color-management-in-unreal-engine
 source: Epic Documentation
 url: https://dev.epicgames.com/documentation/en-us/unreal-engine/color-management-in-unreal-engine
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [color-management, documentation]
+extraction_status: complete
 page_count: 1
 ---
 
@@ -31,24 +31,25 @@ Table of Contents
 ## Structured Notes
 
 ### Core Topics
-[PENDING EXTRACTION]
+No extractable content — documentation page was crawled but only a table of contents stub was captured (no body text).
 
 ### Summary
-[PENDING EXTRACTION]
+Epic documentation page on color management in Unreal Engine. Page content was not captured during ingestion — only the table of contents header was saved. Refer to the official documentation URL directly for content.
 
 ### Key Concepts & Systems
-[PENDING EXTRACTION]
+See official documentation at: https://dev.epicgames.com/documentation/en-us/unreal-engine/color-management-in-unreal-engine
 
 ### UE Systems / Settings / Code
-[PENDING EXTRACTION]
+N/A — no content captured.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[color-management, documentation]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- the-2026-unreal-engine-to-davinci-resolve-guide---aces-srgb.md (color pipeline)
+- unreal-to-davinci-resolve-workflow---aces-srgb.md (color workflow)
