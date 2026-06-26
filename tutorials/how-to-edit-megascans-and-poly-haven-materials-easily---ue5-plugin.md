@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=7NKl90gt0w0
 author: Polygonflow Dash
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [materials, megascans, poly-haven, polygonflow-dash, plugin, displacement, nanite, environment, texturing]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-edit-megascans-and-poly-haven-materials-easily---ue5-plugin/
 frame_count: 9
 ---
@@ -73,27 +73,45 @@ frame_count: 9
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Polygonflow Dash 1.4 plugin material editor: non-destructive real-time material adjustment for Megascans and Poly Haven assets in UE5. Covers Albedo, roughness, normal, tiling, Nanite displacement, procedural dirt and snow layers, and a built-in water material system. Fully procedural — all changes update live.
 
 ### Summary
-[PENDING EXTRACTION]
+7-minute tutorial by Polygonflow showing how to use the Dash 1.4 plugin's material editor to modify Megascans and Poly Haven materials without touching the material graph. The editor exposes Albedo hue/saturation/brightness/contrast, roughness, normal intensity, texture tiling, Nanite-driven displacement, procedural dirt and snow layers (each with their own controls), and a water material creator (tiling, depth, distortion, wave normals). All edits are non-destructive and live-updating. Currently limited to Megascans and Poly Haven assets, with broader asset support planned.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Open material editor** — select a mesh placed in scene, click the art palette icon in the Dash panel
+2. **Albedo** — adjust Hue, Saturation, Brightness, Contrast sliders
+3. **Roughness / Normal** — adjust roughness slider and Normal Map Intensity slider
+4. **Tiling** — adjust texture tiling from the material editor
+5. **Nanite displacement** — select mesh → type "Nanite" in Dash → run "Actor Switch Nanite" command to enable Nanite + displacement → then adjust displacement values (fix shadow artifacts by slightly moving mesh in world)
+6. **Dirt layer** — enable in material editor; set intensity, Albedo Hue, saturation, brightness, tiling
+7. **Snow layer** — open Snow rollout → Enable Snow → adjust sharpness, angular slope (where snow collects), roughness (reflectivity), normal map chunkiness, tiling; combine with base material brightness/contrast if snow isn't visible
+8. **Water** — type "water" in Dash → "Create Water" → plane with Dash Water Material auto-created; resize plane; adjust: tiling (>100 requires manual value entry), depth (murkiness), distortion (wave refraction), underlying hue/saturation, wave normal intensity/hue/saturation
+9. **Reset** — Material Editor Options → reset all values to default
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Polygonflow Dash plugin** — third-party UE5 plugin; v1.4 introduces improved material editor; compatible with Megascans and Poly Haven assets (custom asset support planned)
+- **Dash panel** — main plugin UI; art palette icon opens material editor; search field for commands like "Actor Switch Nanite" and "Create Water"
+- **Actor Switch Nanite command** — Dash command; enables Nanite + displacement on selected mesh (prerequisite for displacement in material editor)
+- **Displacement shadow artifacts** — fix: slightly translate the mesh in world coordinates after enabling displacement
+- **Dirt layer** — procedural dirt overlay; parameters: intensity, Albedo Hue, saturation, brightness, tiling
+- **Snow layer** — procedural snow overlay; parameters: sharpness, angular slope coverage, roughness (shininess), normal map intensity (chunk size), tiling; use "Enable Snow" button to toggle
+- **Dash Water Material** — pre-built water material applied to plane via "Create Water" command; parameters: tiling (manual entry required for >100), depth, distortion, underlying hue/saturation, wave normal intensity/hue/saturation
+- **Material Editor Options** — menu within editor; "Reset to Default" option restores all sliders
+- **Procedural workflow** — all Dash edits are non-destructive; can be adjusted at any time without breaking the material
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner. No material graph knowledge required. Plugin abstracts all material editing into simple sliders.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+materials, megascans, poly-haven, polygonflow-dash, plugin, displacement, nanite, environment, texturing
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `how-to-create-cinematic-environments-in-unreal-engine-5.md` — environment building techniques that complement material workflows
+- `i-textured-the-entire-environment-using-a-single-texture.md` — contrasting manual single-texture approach vs plugin-assisted material editing
+- `introduction-to-substrate-materials-unreal-engine-57.md` — advanced UE5 material system (Substrate) for deeper material customization
