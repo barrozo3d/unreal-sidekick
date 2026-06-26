@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=d1ncs8M6Lkg
 author: Unreal Engine
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5.7"
+tags: [substrate, materials, physically-based-rendering, layered-materials, car-paint, carbon-fiber, advanced, rendering, ue57, shading-model]
+extraction_status: complete
 frames_dir: tutorials/frames/introduction-to-substrate-materials-unreal-engine-57/
 frame_count: 4
 ---
@@ -33,27 +33,63 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Substrate is UE5.7's new next-generation material framework enabled by default (SM6). Replaces traditional PBR with physically layered slabs. Core node: Substrate Slab (F0/F90, Roughness, Fuzz, Glint, MFP for subsurface/transmission, Thickness). Operators: Vertical Coat (stack layers, top must be transmissive), Horizontal Mix (lerp between slabs), Coverage (mask-based slab), Substrate Select (binary choose), Add (avoid — breaks energy conservation). Demonstrated on carbon fiber (clear coat + tinted transmission + carbon layer) and car paint (clear coat + base + metallic flakes with Glint Density + Coverage Weight for rust/dirt).
 
 ### Summary
-[PENDING EXTRACTION]
+9-minute official Epic highlight video introducing Substrate materials in UE5.7. Substrate enables physically layered material systems vs the traditional flat PBR shader. Two G-Buffer modes: Adaptive (Shading Model 6, default, full features) and Blendable (SM5, legacy compatibility for decals/older workflows). The Substrate Slab node organizes material properties into: top (F0/F90 reflectivity), roughness, optional Fuzz/Glint, and medium (MFP for transmission depth and tinted SSS). Operators combine slabs: Vertical Coat stacks layers physically (top must be transmissive to let light through), Horizontal Mix blends two slabs with a mask, Coverage is a mask-controlled reveal, Substrate Select binary-chooses one slab, Add sums lighting (not recommended). Practical demos: tinted carbon fiber (clear coat → tinted MFP → carbon fiber layer → Vertical Layer), car paint with flakes (Glint Density node + Horizontal Blend for base+flakes → Vertical Layer with clear coat), and rust/dirt via Coverage Weight node.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Enable Substrate** — enabled by default in UE5.7; check Project Settings → search "Substrate"
+2. **Choose G-Buffer format**:
+   - Edit → Project Settings → search "Substrate" → G-Buffer Format
+   - **Adaptive G-Buffer**: SM6; full Substrate features; default for new projects
+   - **Blendable G-Buffer**: SM5; legacy compatibility; required for old decal workflows
+3. **Substrate Slab node** — primary building block; replaces traditional Material output node; organize properties:
+   - Top: **F0** (reflectivity at facing angle), **F90** (reflectivity at glancing angle)
+   - Middle: **Roughness** (microsurface detail)
+   - Optional: **Fuzz** (soft fabric highlights), **Glint** (car paint flake sparkle)
+   - Medium: **MFP** (Mean Free Path node — defines how far light travels inside material before absorption/scattering; enables tinted SSS/transmission); **Thickness** (how deep light penetrates)
+4. **Vertical Coat operator** — physically stacks two slabs; top slab MUST be transmissive (MFP + Thickness set) to let light through to bottom layer; controls clear coat over base
+5. **Horizontal Mix operator** — blends two slabs smoothly across surface; foreground coverage at each pixel; like a lerp between two full material slabs
+6. **Coverage operator** — mask-based reveal; controls how much of a slab is visible; used for dirt/rust patterns revealing over base coat
+7. **Substrate Select operator** — binary: mask > 0.5 → slab B; else → slab A; no blending; for incompatible shading models
+8. **Carbon fiber demo**:
+   - Clear coat slab: F0=0.015, Roughness parameter, MFP → SSS MFP, Thickness constant, Color = tint
+   - Carbon fiber slab: F0=0.01725, roughness texture × multiply, normal flattened intensity, UV controls
+   - Vertical Layer operator: clear coat (top, transmissive) → carbon fiber (bottom)
+   - Apply as Material Instance → control tint color + roughness per shot
+9. **Car paint with flakes demo**:
+   - Clear coat slab (top)
+   - Base coat slab (middle)
+   - Flake slab with **Glint Density node** → controls sparkle
+   - Horizontal Blend: base coat + flakes → combined bottom layer
+   - Vertical Layer: clear coat (top) → horizontal blend (bottom)
+10. **Rust/dirt layer** — Coverage Weight node → connects on top of Vertical Layer; controls rust reveal via texture mask; adjust metallic + roughness per layer
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Substrate** — UE5.7 next-gen material framework; enabled by default; controlled via Project Settings → "Substrate"; replaces traditional PBR material output with layered slab system
+- **Adaptive G-Buffer** — Substrate format; SM6; stores only channels material needs; enables full Substrate feature set; default for UE5.7+ projects
+- **Blendable G-Buffer** — Substrate format; SM5; legacy compatibility with old decal workflows and lower-end hardware; same as "SM5" shading model path
+- **Substrate Slab node** — primary material building block; properties: F0, F90, Roughness, Fuzz, Glint, MFP input, SSS MFP, Thickness; replaces Diffuse + Specular + Normal inputs of traditional material
+- **MFP (Mean Free Path) node** — defines subsurface light travel distance and tint color; drives transmission effects (tinted carbon, skin SSS); inputs: Albedo (SSS color), Thickness
+- **Glint Density node** — car paint flake sparkle; connects to Substrate Slab Glint input; control glint density and roughness per slab
+- **Vertical Coat operator** — physically stacks slabs; top layer must have MFP+Thickness for light to transmit through; used for clear coat over base
+- **Horizontal Mix operator** — lerp between two slabs using coverage mask; creates natural surface transitions (e.g., blend base coat + metallic flakes)
+- **Coverage operator** — mask-based slab reveal; used for dirt/rust patterns layered over painted surface
+- **Substrate Select operator** — binary slab selector; no interpolation; needed when two shading models can't be blended (e.g., Fabric vs Metal)
+- **Add operator** — sums slab lighting; NOT recommended; breaks physical energy conservation; only for stylized effects
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate-Advanced. Substrate replaces the traditional material output entirely — users migrating from PBR must rethink material structure as layered slabs. The Vertical Coat transmissive requirement and MFP setup are non-obvious for first-time users. Carbon fiber and car paint examples provide good starting templates.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5.7 (Substrate enabled by default; experimental in earlier UE5 versions; Adaptive G-Buffer = SM6 only)
 
 ### Tags
-[PENDING EXTRACTION]
+substrate, materials, physically-based-rendering, layered-materials, car-paint, carbon-fiber, advanced, rendering, ue57, shading-model
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `how-to-edit-megascans-and-poly-haven-materials-easily---ue5-plugin.md` — Polygonflow Dash material editor (traditional PBR approach)
+- `i-textured-the-entire-environment-using-a-single-texture.md` — Color Curve node for stylized material coloring (UE5.6)

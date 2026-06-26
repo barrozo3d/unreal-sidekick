@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=EdNkm0ezP0o
 author: Unreal Engine
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5.7"
+tags: [foliage, nanite, assemblies, wind, skinning, performance, witcher4, tech-demo, lod, voxels, animation, open-world]
+extraction_status: complete
 frames_dir: tutorials/frames/large-scale-animated-foliage-in-the-witcher-4-unreal-engine-5-tech-demo-unreal-f/
 frame_count: 4
 ---
@@ -33,27 +33,68 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Witcher 4 tech demo foliage pipeline: Nanite Assemblies (modular tree parts → auto-LOD hierarchy from Nanite builder) + Voxels (sub-pixel distant LOD for shape preservation) + Skinned foliage (compute-shader bone animation, 1 bone per vertex rigid skinning) + Animation Templates (8 directional wind variants per unique skeleton, instances sample nearest orientation → reduces 500K animated instances to 150 unique skeletons). Running at 60fps on base PS5 with 26km² of forest, 500K trees, 1.7M shrubs, 7M grasses. UE5.7 features released from this R&D.
 
 ### Summary
-[PENDING EXTRACTION]
+37-minute Unreal Fest Stockholm 2025 technical talk by CD Projekt Red + Epic engineers on the Witcher 4 Nanite foliage tech demo. Challenges: alpha-tested cards are 3-4× slower than geometry in Nanite software rasterizer (barycentric UV calculation in inner loop); full geometry = 63MB VRAM/tree (10× cards); Nanite LOD poorly preserves foliage shape; vertex shader wind breaks Nanite cluster bounds. Solutions developed: (1) Skin Foliage — compute shader solves bone transforms, vertex shader applies them; rigid skinning (1 bone/vertex); (2) Nanite Assemblies — modular tree parts that form continuous LOD hierarchy without manual LOD generation; (3) Voxels — distant clusters become 4×4×4 bit-field voxels in Nanite build, traced at runtime for better shape preservation vs triangle soup; (4) Animation Templates — 8 directional variants of each unique skeleton simulated, instances pick nearest template based on orientation → from 500K to 150 simulated skeletons. Performance: 20K trees on screen, 500K total, 100K bones updated in 0.1ms GPU. UE5.7 ships: Dynamic Wind plugin, Nanite Assembly USD importer, Assembly Editor Utils plugin, PCG integration, Quixel preset trees on Fab, Procedural Vegetation Editor.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Avoid alpha-tested cards for Nanite foliage**:
+   - Alpha testing requires barycentric UV sampling in Nanite's inner software rasterizer loop = heavy GPU penalty
+   - Cards still 3-4× slower than geometry with Nanite
+   - If using cards: match geometry tightly to card shape; no large planes; minimize holes
+2. **Use geometry with Nanite** (not cards):
+   - Enable "Preserve Area" flag (right-click mesh → Nanite Settings) — required or foliage disappears at distance
+   - Fully modeled trees have too high VRAM (63MB each); use Nanite Assemblies instead
+3. **Nanite Assemblies** (UE5.7+):
+   - Build trees from modular parts (branches, clusters) — same modular input as Virtual Instances
+   - Re-import assets via new Assembly Builder → Nanite creates continuous simplified LOD geometry automatically
+   - No manual LOD generation required; memory footprint much lower than full geometry
+   - Parts simplified and combined continuously; per-cluster rigid transform applied at runtime
+   - Setup: Nanite Assembly Editor Utils plugin → right-click viewport selection → Create Nanite Assembly; or PCG tools → output Nanite Assembly mesh
+4. **Voxel LODs** (UE5.7+, for distant clusters):
+   - During Nanite build: sub-pixel triangle clusters converted to 4×4×4 bit-field voxel bricks
+   - At runtime: Nanite hardware rasterizer pass selects triangle vs voxel per cluster
+   - Better shape preservation at distance than triangle soup from simplified geometry
+   - Especially helpful for aggregate geometry (foliage, rocks)
+5. **Skin Foliage animation** (skeletal compute-shader):
+   - 2-pass: (1) compute shader solves all bone transforms (recursive accumulation parent→child); (2) vertex shader applies rigid transform per vertex (1 bone influence per vertex)
+   - Bone count: up to 1000+ per tree; 300µs GPU (or <20µs with async compute)
+   - Min Animation Screen Size: console variable to stop animating foliage below screen-size threshold
+6. **Animation Templates** (8 directional variants):
+   - Compute 8 wind variants of each unique skeleton (8 orientations × unique species count)
+   - Each instance in world assigned a template based on its facing direction (nearest of 8 octants)
+   - Reduces animated skeleton count from 500K to ~150 unique simulations
+   - Template selection: primitive is added to world → animation template index assigned based on Z rotation
+7. **Wind plugin** (UE5.7 Dynamic Wind plugin):
+   - Enable plugin → configure procedural wind → automatically affects Nanite skinned mesh assemblies
+   - Supports wind direction batching, physical parameters, all assembly types out of box
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Nanite "Preserve Area" flag** — essential for foliage; without it, foliage LOD loses shape and disappears at distance; right-click mesh → Nanite → check Preserve Area
+- **Nanite Alpha Testing** — available but expensive; inner loop barycentric calculation; 3-4× slower than geometry in software rasterizer; avoid for foliage
+- **Skin Foliage** — UE5.7; 2-pass animation: compute shader (bone transform solve) + vertex shader (rigid vertex move); 1 bone per vertex; extends Nanite to support animated foliage; enables assembly part skinning
+- **Nanite Assemblies** — UE5.7; modular mesh composition system; lightweight instances of archetype meshes + transforms + bone references; assembled into continuous Nanite LOD hierarchy without manual LOD creation; supports rigid skinning per assembly part
+- **Voxels (Nanite)** — UE5.7; sub-pixel clusters replaced with 4×4×4 bit-field bricks at build time; traced via Nanite rasterizer pass at runtime; better distant LOD shape preservation than triangle soup
+- **Animation Templates** — 8 directional wind simulation variants per unique skeleton; instance picks nearest template from 8 octants; reduces live simulation count by 3000×
+- **Min Animation Screen Size** — console variable to cull foliage animation below screen-size threshold; significant GPU savings in large open-world scenes
+- **Nanite Assembly Editor Utils plugin** — UE5.7; right-click viewport → Create Nanite Assembly from selection; Blueprint API for manual assembly building; PCG integration
+- **Procedural Vegetation Editor** — UE5.7; built on Quixel's procedural foliage algorithms; graph-based tree variation editor; outputs Nanite Assembly assets; supports Dynamic Wind plugin
+- **Dynamic Wind plugin** — UE5.7; procedural wind configuration; automatically affects Nanite skinned mesh assemblies; replaces vertex shader wind
+- **PCG (Procedural Content Generation)** — UE5 PCG tools now support Nanite Assembly output; scatter assemblies programmatically
+- **Virtual Instances** — investigated but not used: lightweight instances with pointer to archetype + transform + bone; doesn't count toward GPU Scene instance limit; poor Nanite simplification across separate entities
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced/Research. This is an Unreal Fest engineering deep-dive for AAA/engine developers. The techniques (assemblies, voxels, animation templates) are new engine systems arriving in UE5.7. Practical access is through the Dynamic Wind plugin + Nanite Assembly Editor Utils — more accessible for artists.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5.7 (tech demo developed against UE5 experimental; features shipping in 5.7: Dynamic Wind plugin, Nanite Assemblies via USD, Assembly Editor Utils, Procedural Vegetation Editor)
 
 ### Tags
-[PENDING EXTRACTION]
+foliage, nanite, assemblies, wind, skinning, performance, witcher4, tech-demo, lod, voxels, animation, open-world
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `nanite-everything-you-should-know-unreal-engine-5.md` — Nanite deep-dive; Preserve Area flag; fundamentals for understanding assemblies
+- `large-scale-world-building-in-unreal-engine-5.md` — open-world scale techniques complement to this foliage system
