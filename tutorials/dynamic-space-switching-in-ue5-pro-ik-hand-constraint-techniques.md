@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=9AavXj11Iw4
 author: Unreal Engine
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [animation, sequencer, ik, space-switching, constraints, control-rig, hand-constraints, posing, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/dynamic-space-switching-in-ue5-pro-ik-hand-constraint-techniques/
 frame_count: 4
 ---
@@ -33,27 +33,43 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+UE5 Sequencer Spaces panel: dynamically add and switch parent spaces for IK controls (e.g., hand IK) at any frame — change from world/parent space to a body bone/control space — with automatic key conversion and bake-to-space workflow.
 
 ### Summary
-[PENDING EXTRACTION]
+Short official UE tutorial (6m) demonstrating the Spaces panel in UE5's animation/posing workflow. IK hands are locked in world space by default (good for body-independent positioning), but Space Switching lets you dynamically reparent them to any control or bone on the rig at any frame. Demonstrated: left arm IK hand → add "spine_end" and "body" as custom spaces → keyframe the switch at frame 169 (auto-converts subsequent keys) → bake into any space for downstream cleanup. Different controls maintain separate space lists (arm ≠ leg). Also accessible via Constraints tab.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Understand default:** IK hand control = world space by default; body/torso moves without affecting the hand
+2. **Open Spaces panel:** in Sequencer animation editor, left side panel → "Spaces" section (near Constraints)
+3. **Select control:** click IK hand control (e.g., left arm IK) in viewport or rig hierarchy
+4. **Add custom space:** Spaces panel → "Add New" → type bone/control name (e.g., "spine_end") → select from list → adds as option (doesn't switch yet); repeat for additional spaces (e.g., "body")
+5. **Switch space at frame:** scrub to target frame → in Spaces panel → click desired space name → space switches, and all subsequent animation keys are auto-converted to preserve position
+6. **View space channel:** Sequencer → expand IK hand control → space attribute is now keyframed (shows switch point)
+7. **Result:** hand still IK-locked; shoulder doesn't move it; but moving the spine_end/body control now moves the hand along
+8. **Bake into space:** select control → Spaces panel → Bake → choose: target space, frame range (all frames / keys only), source/destination options → bakes animation in that space for clean handoff
+9. **Per-control spaces:** different controls have independent space lists (arm spaces ≠ leg spaces); each remembers its custom additions
+10. **Alternative access:** Constraints tab uses same math as Spaces; rig attribute controls on the rig itself can also do space switching
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Sequencer Spaces Panel**: UE5 animation posing tool; per-control custom space list; keyframeable space switches; auto-converts downstream animation on switch
+- **IK Controls**: by default in parent/world space; Spaces panel overrides parent relationship dynamically per frame
+- **Space Switch Keyframe**: animates the "space" attribute on the control; transition is instantaneous (one frame)
+- **Bake to Space**: resolves animation into a target space; accepts: target space, frame range, all frames vs. keys only; can bake to a new custom space at bake time
+- **Constraints Tab**: parallel system with same math as Spaces; interchangeable for many use cases
+- **Rig Attributes**: some rigs also expose space switching as attributes directly on rig controls (classic approach)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate — animation posing workflow, brief but dense; assumes familiarity with Sequencer and IK concepts
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[animation, sequencer, ik, space-switching, constraints, control-rig, hand-constraints, posing, intermediate]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- control-rig-in-unreal-engine.md (Control Rig system documentation, IK and FBIK)
+- dynamic-space-switching-in-ue5-pro-ik-hand-constraint-techniques.md (same video, self-reference removed)
+- beat-yourself-up-with-unreal-ragdoll-physics-for-filmmaking-made-easy-or-hard-in.md (animation baking and Sequencer techniques)

@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=RaY_FDaydoQ
 author: William Faucher
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.2"
+tags: [dlss, frame-generation, performance, upscaling, tsr, rendering, nvidia, real-time, movie-render-queue, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/double-your-framerate-in-ue5-for-free-sort-of---nvidia-dlss-30/
 frame_count: 9
 ---
@@ -73,27 +73,40 @@ frame_count: 9
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+DLSS 3.0 in UE 5.2: two distinct features — DLSS AI upscaling (works in viewport + MRQ, any Nvidia GPU) and Frame Generation (PIE/packaged only, RTX 40-series only, ~2x framerate). Comparison against UE's native TSR.
 
 ### Summary
-[PENDING EXTRACTION]
+William Faucher reviews DLSS 3.0 availability in UE 5.2 (RTX 4080 test). Clarifies the naming: DLSS 3.0 is the umbrella containing DLSS (upscaling), Frame Generation, Reflex, and Streamline. Frame Generation uses optical flow hardware (40-series exclusive) to synthesize intermediate frames — can ~2x FPS at near-zero image cost, but has artifacts on thin objects and motion blur. Works only in PIE external window or packaged executables (NOT viewport, NOT MRQ, NOT nDisplay). DLSS upscaling works in viewport and MRQ with multiple quality presets. Best MRQ render quality is still turning off AA entirely + 16+ temporal samples. DLAA = ML anti-aliasing at full native resolution (no upscaling). Install: copy engine folders + enable plugins + Project Settings → Nvidia tab.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **DLSS 3.0 naming:** DLSS 3.0 = umbrella (DLSS upscaling + Frame Gen + Reflex + Streamline + IS); "DLSS" alone = AI upscaling only; "Frame Gen" = frame interpolation
+2. **Install:** download DLSS 3.04 plugin → copy folders to engine directory → enable DLSS/Streamline plugins in project → Project Settings → Nvidia tab → enable relevant checkboxes; sample project included for testing
+3. **Frame Generation:** PIE → External Window (or packaged executable) → enable Frame Gen in Nvidia DLSS overlay/BP → ~2x frame rate; requires RTX 40-series GPU; needs baseline >30 FPS to work well; artifacts on motion blur and thin objects; NOT available in viewport, MRQ, VR, or nDisplay
+4. **DLSS upscaling (quality modes):** DLAA=100% native (ML AA only), Quality=66.67% screen pct, Balanced=58%, Performance=50%, Ultra Performance=33.33%; in MRQ: add DLSS tab → choose quality mode
+5. **TSR vs DLSS:** TSR=Epic built-in, default in UE5, no extra plugin; DLSS=Nvidia ML, requires plugin + Nvidia GPU; both are upscalers with different pros/cons; Frame Gen works with either
+6. **DLSS sharpening CVar:** console variable for sharpening DLSS/DLAA renders at render-time (not post-process blur)
+7. **Verification:** no visual indicator in viewport; use `stat GPU` console command to see active upscaler; screen percentage must be set manually for DLSS mode
+8. **Best offline render quality:** still turn off AA + 16+ temporal samples in MRQ (not DLSS)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **DLSS 3.0 Plugin (UE 5.2+)**: Nvidia plugin, install manually; requires Project Settings → Nvidia tab configuration
+- **Frame Generation**: RTX 40-series only (optical flow hardware); PIE external window or packaged only; ~1.5-2x frame rate; motion blur artifacts possible; incompatible with: standard viewport, MRQ offline render, VR, nDisplay (flickering)
+- **DLSS Upscaling**: any Nvidia GPU; works in viewport and MRQ; quality modes = screen percentage presets
+- **DLAA (Deep Learning Anti-Aliasing)**: 100% screen percentage, ML-based AA without upscaling; usable in MRQ
+- **TSR (Temporal Super Resolution)**: Epic's built-in upscaler (no GPU brand restriction); default in UE5; comparable to DLSS
+- **stat GPU console command**: check active upscaler type; required since no visual indicator exists in UE5 viewport
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate — review/explainer, not a step-by-step tutorial; requires Nvidia GPU for any benefit
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.2
 
 ### Tags
-[PENDING EXTRACTION]
+[dlss, frame-generation, performance, upscaling, tsr, rendering, nvidia, real-time, movie-render-queue, intermediate]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un.md (MRQ rendering, TSR usage)
+- create-spectacular-accumulation-depth-of-field-in-unreal-engine-58.md (Movie Render Graph, EXR/DWAA render settings)
