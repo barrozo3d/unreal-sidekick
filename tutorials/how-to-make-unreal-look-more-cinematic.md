@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=doUDJFKLyZs
 author: William Faucher
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [cinematics, color-grading, motion-blur, depth-of-field, focal-length, film-back, post-production, davinci-resolve, lens-effects, film-grain]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-make-unreal-look-more-cinematic/
 frame_count: 7
 ---
@@ -63,27 +63,52 @@ frame_count: 7
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Five cinematic pillars for UE renders: (1) 24fps + correct motion blur, (2) large film back + depth of field, (3) long focal length (85mm+), (4) 2.35:1 aspect ratio, (5) DaVinci Resolve post: curves, vignette, bloom, lens flare, masked chromatic aberration, film grain. "Crapify" the render — imperfections make CG look like film.
 
 ### Summary
-[PENDING EXTRACTION]
+29-minute tutorial by William Faucher breaking down five key techniques to make UE renders look cinematic rather than like a video game. In-engine: 24fps at motion blur 0.5, 69 DSLR film back, long focal length (85-200mm), 2.35:1 aspect ratio. Post in DaVinci Resolve: curves, temperature, gradient darkening, vignette, selective bloom, tasteful lens flare, and critically — chromatic aberration masked to high-contrast areas only (never global). Film grain re-added as organic texture. Strong argument that post-production color work is not cheating — it's essential professional workflow.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **24fps + motion blur** — render at 24fps always (not 60fps = soap opera effect); 180° shutter rule = shutter speed is double framerate; in UE: Post Process Volume → Motion Blur = 0.5; exception: slow-motion render at 48fps and slow down in NLE
+2. **Film back (sensor size)** — changes sensor/field-of-view without changing focal length; default: 69 Digital Film; prefer: 69 DSLR (larger sensor → wider FoV → move closer to subject → stronger DoF from same framing); found in camera actor details
+3. **Focal length** — always go long; avoid 35mm (default, overused, distorts faces); prefer 85-200mm; long focal length: compresses background, accentuates DoF, looks more professional; keep framing same by backing camera up as focal length increases; F1.4 at 200mm gives wildly different DoF than F1.4 at 35mm
+4. **Aspect ratio** — 2.35:1 (CinemaScope); black bars on top/bottom; instant cinematic association; not mandatory but highly recommended; adding black bars alone doesn't make shot cinematic — lighting/composition must support it
+5. **Post in DaVinci Resolve** (in order):
+   - **Curves** — lift highlights and blacks; add contrast
+   - **Color temperature** — cool down if render is too warm
+   - **Linear gradient** — darken local areas (e.g., bright corner of frame)
+   - **Radial gradient (vignette)** — darken + cool corners; add color variation to edges
+   - **Bloom/Glow** — selective around strong light sources (not global)
+   - **Lens flare** — tasteful; lifts blacks; creates glass element refractions; DaVinci Resolve Studio version required for Lens Flare tools
+   - **Chromatic aberration** — CRITICAL: never apply globally (UE's built-in = global = bad); in DaVinci Resolve apply globally then MASK to high-contrast areas only (edges of bright objects vs dark sky etc.); this is how real CA works
+   - **Film grain** — DaVinci Resolve Studio film grain plugin; re-adds organic texture; keep subtle in highlights; dramatically improves perceived realism of CG renders
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Post Process Volume → Motion Blur** — set to 0.5 for 180° shutter rule at 24fps (no physical shutter speed in UE; this approximates it)
+- **Camera Film Back** — camera actor Details; default: "69 Digital Film"; recommend: "69 DSLR" for larger virtual sensor; affects FoV and therefore achievable DoF
+- **Focal Length** — camera actor; go to 85-200mm; back camera up to maintain framing; long = compressed BG + strong DoF
+- **Aperture (F-stop)** — camera actor; lower = more DoF blur; combine with long focal length for strongest effect
+- **Manual Focusing Distance** — camera actor; focus plane helper shows exactly where focus point is; essential when dialing in DoF
+- **Aspect Ratio** — render at 2.35:1 for CinemaScope look; adds black bars
+- **Post Process Volume → Chromatic Aberration** — EXISTS in UE but is GLOBAL → do NOT use; apply in DaVinci Resolve with masking instead
+- **DaVinci Resolve** — primary post-production tool; color page: curves, temperature, gradient nodes, radial vignette, bloom, lens flare, chromatic aberration with masking, film grain; Studio license ($300) required for lens flare and film grain plugins
+- **Film Grain** — DaVinci Resolve Studio plugin; also available as third-party preset packs for free version; grain is less visible in highlights by default; adjustable per-zone
+- **Chromatic Aberration masking** — in DaVinci Resolve: apply CA globally first → create mask → paint mask only on high-contrast areas (bright edges, specular highlights) → CA only shows through mask
+- **Lens Flare (DaVinci Resolve)** — NOT the JJ Abrams type; subtle refractive glass elements; lifts blacks for filmic look; requires Studio version; control flare size and strength
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate. In-engine settings are simple to apply. DaVinci Resolve post-production requires Studio license ($300) for lens flare and film grain tools. Chromatic aberration masking technique requires basic Resolve node graph knowledge.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (concepts also apply to UE4; some settings may differ)
 
 ### Tags
-[PENDING EXTRACTION]
+cinematics, color-grading, motion-blur, depth-of-field, focal-length, film-back, post-production, davinci-resolve, lens-effects, film-grain
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `realistic-and-physical-lighting-in-ue5-the-pbl-workflow.md` — physical lighting as foundation for cinematic renders
+- `how-to-actually-improve-your-films-vfx-dune-in-unreal-5.md` — 3 cinematography secrets including camera noise and real lens flare footage
+- `improve-your-vfx-with-lens-flares-anamorphic-tutorial.md` — dedicated anamorphic lens flare technique
+- `the-2025-guide-to-rendering-in-unreal-engine-5.md` — comprehensive rendering guide for UE5

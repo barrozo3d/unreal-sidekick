@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=771myWapQ_s
 author: World Of VFX
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5.7"
+tags: [green-screen, compositing, media-plate, chroma-key, shadows, virtual-production, materials, sequencer]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-remove-green-screen-composite-in-unreal-engine-5-using-media-plate-realis/
 frame_count: 4
 ---
@@ -33,27 +33,68 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Green screen chroma key composite in UE5 using the Media Plate Beta plugin. Two Media Plate actors stacked in the same position: one for the keyed footage (MF Chroma node), one for shadow casting (opacity-controlled duplicate material). Both driven in Sequencer for synchronized playback with real-time dynamic shadows from scene lighting.
 
 ### Summary
-[PENDING EXTRACTION]
+9-minute tutorial by World Of VFX showing how to composite green screen footage into a UE5.7 scene using the Media Plate plugin. Chroma key is achieved by adding an MF Chroma node to a duplicated Media Plate CC Translucent material. Realistic dynamic shadows require a second duplicate Media Plate actor with a custom opacity parameter, cast shadow enabled, and opacity mask clip value = 0.001. Both plates are added to a Level Sequence for synchronized playback. Camera uses tracking auto-focus locked to the media plate.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Enable plugin** — Plugins → search "Media Plate Beta" → enable → restart UE5
+2. **Place Media Plate** — click Media Plate button in toolbar → plane appears; scale up; rotate 90° to face camera
+3. **Load footage** — Media Plate Details → File → browse green screen footage → Open Current Media → footage plays with UE lighting interaction
+4. **Duplicate material for keying**:
+   - Main Element → double-click material → parent material slot → search "media plate CC translucent" → right-click → Duplicate → rename (e.g., "key") → drag onto parent material slot → double-click parent material
+5. **Add MF Chroma node** — press Tab → type "key" → select MF Chroma → connect: RGB → Input Color; Emission Color → e-Multiplier; Opacity → Opacity → Apply
+6. **Key out green** — save and close material; double-click media texture palette (opens browser); drag "Key Color" out → enable it → select color → pick green → OK
+7. **Plane mode** — change from Spherical to Plain to see flat composite view
+8. **Spill correction** — enable "Key Spill Display" toggle to visualize edges
+9. **Color correction** — enable Color Correction Amount → set to 1; adjust brightness, contrast, etc.
+10. **Create shadow plate (duplicate)**:
+    - Select Media Plate actor → Edit → Duplicate
+    - Turn off original (visibility toggle)
+    - On duplicate: double-click material → double-click parent material
+    - Right-click inside material → Convert To Parameter → rename "Opacity"
+    - Add Multiply node: Opacity → A; default value → B; output → Opacity Override; default value = 1 → Apply → Save
+11. **Enable shadow visibility**:
+    - Set viewport to Default Lit (type "Unlit" in outliner → click Default Lit)
+    - Re-enable first (original) Media Plate; now both plates occupy same position
+    - On shadow duplicate: enable Cast Dynamic Shadow
+    - Global scale parameter: enable Opacity Multiplier → set to 0.001
+    - Opacity Mask Clip Value → 0.001 → Save
+12. **Media Plate shadow settings** — inside shadow Media Plate: Cast Shadow → enable; Shadow Cache Invalidation Behavior → Always
+13. **Level Sequence playback**:
+    - New Level Sequence → drag camera → drag both Media Plates (press Yes to each) → play sequence to sync both plates
+14. **Camera setup** — camera: Digital Film → DSLR; focal length 50-85mm; Focus: Manual → Tracking → type "media plate" in auto-track search → select → auto-focus locks on plate
+15. **Reposition character** — select BOTH media plates simultaneously → rotate/move together to keep shadow aligned; adjust camera independently
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Media Plate Beta plugin** — UE5 plugin; adds Media Plate actor type; supports video playback with UE lighting interaction; enable in Plugins panel
+- **Media Plate actor** — placed in scene as a plane; accepts video file via File → Browse; plays with real-time light interaction from scene directional light
+- **Media Plate CC Translucent material** — built-in Media Plate material; duplicate before modifying to preserve original
+- **MF Chroma node** — chroma key material function; input: color + emission color + opacity outputs from media texture; connects before the main media texture in material graph
+- **Key Color parameter** — in Media Texture palette browser; enable → color picker → select green; drives chroma key matte
+- **Plain mode** — media plate projection mode; use instead of Spherical for flat footage compositing
+- **Spill Correction / Key Spill Display** — shows edge mask for spill cleanup; toggle in texture palette browser
+- **Color Correction Amount** — must be enabled (set to 1) before brightness/contrast adjustments take effect
+- **Shadow plate technique** — duplicate Media Plate + custom Opacity parameter (multiplied down to 0.001) creates invisible plate that casts shadows from scene lighting
+- **Opacity Mask Clip Value** — set to 0.001 on shadow plate material; allows shadow geometry to exist without visible surface
+- **Cast Dynamic Shadow** — enable on shadow Media Plate actor; Shadow Cache Invalidation Behavior = Always for real-time shadow updates
+- **Level Sequence** — add both media plates + camera; play syncs footage playback with Sequencer timeline
+- **Camera tracking auto-focus** — camera focus mode: Tracking → Auto Track field → search "media plate" → selects Media Plate as focus target; DoF follows character movement
+- **UE version** — UE5.7 (specified in tutorial)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate. Shadow setup requires custom material parameter and specific opacity clip values. Two-plate workflow is the non-obvious part that enables dynamic shadows.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5.7
 
 ### Tags
-[PENDING EXTRACTION]
+green-screen, compositing, media-plate, chroma-key, shadows, virtual-production, materials, sequencer
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `how-to-make-blade-runner-in-unreal-5-step-by-step.md` — introduces camera, sequencer, and material basics for context
+- `how-to-make-unreal-look-more-cinematic.md` — focal length, DoF, and cinematic camera settings applicable to composited shots
+- `the-future-of-filmmaking-in-unreal-5-virtual-production.md` — virtual production context for live compositing workflows
