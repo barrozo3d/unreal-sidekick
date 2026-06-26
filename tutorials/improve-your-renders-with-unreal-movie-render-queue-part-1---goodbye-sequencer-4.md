@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=FxvF3zncClA
 author: William Faucher
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE4.26"
+tags: [mrq, movie-render-queue, rendering, anti-aliasing, subsampling, quality, sequencer, console-variables, high-resolution, ue4]
+extraction_status: complete
 frames_dir: tutorials/frames/improve-your-renders-with-unreal-movie-render-queue-part-1---goodbye-sequencer-4/
 frame_count: 12
 ---
@@ -88,27 +88,64 @@ frame_count: 12
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Movie Render Queue (MRQ) setup for UE4.26 with AA subsampling for dramatically cleaner renders vs Sequencer. Key insight: Override AA → None + high Temporal Sample Count (64) + 4 ray tracing denoiser console variables = motion blur and noise quality equivalent to offline renderers. Side-by-side comparison proves MRQ quality is far superior to Sequencer for final renders.
 
 ### Summary
-[PENDING EXTRACTION]
+16-minute intro tutorial by William Faucher introducing Movie Render Queue in UE4.26 as the new production-ready replacement for Sequencer's built-in renderer. Part 1 covers: enabling two required plugins, setting up MRQ for the first time, comparing default MRQ vs Sequencer renders (essentially identical by default), then enabling AA subsampling (Override AA → None + 64 temporal samples + 4 console CVars) for dramatically improved quality. High-Resolution Tiled Render feature noted (4× resolution tiles but no screen-space effect support). Conclusion: MRQ with subsampling produces far superior motion blur and noise floor vs Sequencer; author won't use Sequencer for finals again.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Enable plugins** (Settings → Plugins):
+   - Search "movie render" → enable "Movie Render Queue" plugin
+   - Also enable "Movie Render Queue Additional Render Passes" (required for Cryptomatte/Object ID)
+   - Restart engine
+2. **Open MRQ**: Window menu → Cinematics → Movie Render Queue
+3. **Add sequence**:
+   - Click + (Render button) → browse to your Level Sequence
+   - Click "Unsaved Config" to open render settings
+4. **Configure file format**:
+   - Delete the default JPEG Sequence entry
+   - Settings → Add: PNG Sequence 8-bit (or EXR Sequence for production)
+5. **Set output path**: Output tab → set output directory
+6. **Enable AA Subsampling** (the main quality upgrade):
+   - Settings → Add: Anti-Aliasing
+   - Anti-Aliasing Method: Override → set to **None** (this is correct — don't panic)
+   - Temporal Sample Count: set to **64** (64 subsamples = very high quality; more = slower)
+7. **Add console variables** (for ray tracing denoiser suppression during subsampling):
+   - Settings → Add: Console Variables
+   - Add 4 CVars from UE documentation (ray tracing denoisers set to 0): prevents denoiser artifacts during subsampling
+   - Note: copy text only, not the trailing " = 0" that's already in the value field
+8. **High Resolution Tiled Render** (optional for super-high-res stills):
+   - Settings → Add: High Resolution
+   - Each tile = project resolution; final composite = 4× tiles
+   - WARNING: screen-space effects (reflections, bloom, lens flare, motion blur) do NOT render correctly in tiled mode
+9. **Hit Accept → Render Local**
+   - Observe temporal sub-sample counter climbing (0 to 64 per frame)
+   - Expect significantly longer render times vs Sequencer (worth it for quality)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Movie Render Queue (MRQ)** — production render system; enabled as plugin; UE4.26+; works alongside Sequencer (does not replace it)
+- **"Movie Render Queue Additional Render Passes" plugin** — required for Cryptomatte and Object ID passes; separate plugin from core MRQ
+- **Anti-Aliasing setting (MRQ)** — Override Anti-Aliasing Method + set to None: disables real-time TAA, instead uses temporal accumulation from sub-sample count; counter-intuitive but correct
+- **Temporal Sample Count** — number of sub-frame samples per rendered frame; 64 = very high quality; default is 1 (same as Sequencer); higher = slower render, better motion blur + noise
+- **Console Variables setting (MRQ)** — inject console commands per-render without modifying project settings; used to disable ray tracing denoisers during subsampling for cleaner results
+- **Ray tracing denoiser CVars** — four CVars from UE docs (r.RayTracing denoisers for sky light, reflections, GI, shadows — set to 0 during MRQ subsampling); prevents temporal artifacts
+- **High Resolution Tiled Render (MRQ)** — renders 4 tiles at project resolution for 4× final resolution; good for stills/print; does NOT support screen-space effects (SSR, bloom, lens flare, motion blur)
+- **Render comparison** — MRQ default == Sequencer default (same quality if AA override disabled); MRQ + 64 samples = vastly superior motion blur, noise, and edge quality vs Sequencer at any setting
+- **Sequencer limitations (by comparison)** — fast but noisy; temporal AA artifacts in motion; no sub-sampling; best for quick iteration previews, not finals
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner-Intermediate. Core setup is straightforward once you know where to find MRQ (Window → Cinematics). The "Override AA to None" instruction feels wrong but is correct — the tutorial explains why. Console variable list comes from UE documentation.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE4.26 (MRQ made production-ready in 4.26; same core workflow applies in UE5 with some UI updates; High-Resolution Tiled Render screen-space limitation still applies in UE5)
 
 ### Tags
-[PENDING EXTRACTION]
+mrq, movie-render-queue, rendering, anti-aliasing, subsampling, quality, sequencer, console-variables, high-resolution, ue4
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `improve-your-renders-with-movie-render-queue-part-2---five-things-you-need-to-kn.md` — Part 2: MRQ limitations (Cryptomatte slowness, DoF/Object ID, Z-depth) and workflow features
+- `how-to-render-cryptomatte-in-unreal-new-in-426.md` — dedicated Cryptomatte/Object ID setup tutorial
+- `how-to-render-passes-with-the-movie-render-queue-unreal-engine-426.md` — adding render passes (Z-depth, world normal) in MRQ
+- `how-to-use-the-movie-render-graph-in-unreal-engine-58---simple-setup-for-filmmak.md` — MRG replaces MRQ as of UE5.7+ for multi-camera

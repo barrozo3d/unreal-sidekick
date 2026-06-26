@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=2U1wP8sJgfU
 author: William Faucher
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE4.26"
+tags: [mrq, movie-render-queue, cryptomatte, object-id, z-depth, render-passes, subsampling, render-presets, batch-render, ue4, limitations]
+extraction_status: complete
 frames_dir: tutorials/frames/improve-your-renders-with-movie-render-queue-part-2---five-things-you-need-to-kn/
 frame_count: 7
 ---
@@ -63,27 +63,54 @@ frame_count: 7
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+MRQ production limitations and quality-of-life features in UE4.26. Three critical limitations: (1) Cryptomatte/Object ID passes hang dramatically when combined with subsampling; (2) Object ID masks don't respect depth of field — mask edges are sharp even when geometry is out of focus; (3) no 32-bit Z-depth in MRQ (16-bit only). Two workflow features: Render Presets (save/load config) and true Render Queue (batch multiple shots in one session).
 
 ### Summary
-[PENDING EXTRACTION]
+12-minute follow-up by William Faucher covering production gotchas and workflow features of Movie Render Queue in UE4.26. Limitation #1: rendering Cryptomatte/Object ID with high sub-sample counts causes extreme hangs (~45s for 3 frames) — the hanging is specific to Cryptomatte passes, not subsampling itself; subsampling without Object ID is smooth. Limitation #2: Object ID masks don't match depth of field — a blurry pot gets a sharp mask, making the mask unusable for DoF compositing; VFX workaround: render no DoF in UE, apply DoF in Nuke using Z-depth. Limitation #3: MRQ only offers 16-bit EXR output; Sequencer has 32-bit Z-depth but no subsampling, and its Z-depth has bad edge artifacts. Feature: Presets — save/reload entire render configurations. Feature: Queue — batch multiple shots from multiple sequences/maps in one MRQ session, unlike Sequencer which required opening each map separately.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Cryptomatte/Object ID + subsampling (limitation)**:
+   - Object IDs + subsampling = render hangs significantly between frames (only Cryptomatte-specific, not general subsampling)
+   - Workaround: render beauty with subsampling + separately render a quick Object ID pass without high subsampling
+   - Or: accept the slower render time if Cryptomatte quality is critical
+2. **Object ID / DoF limitation**:
+   - In MRQ, Object ID mask edges don't respect camera DoF — mask is always sharp regardless of how blurry the geometry is
+   - VFX pipeline workaround: render with NO camera DoF in UE; render a Z-depth pass; apply DoF/defocus in Nuke/After Effects/Resolve using Z-depth data
+3. **Z-depth limitation**:
+   - MRQ: 16-bit EXR only — no 32-bit floating point Z-depth channel option
+   - Sequencer: technically offers 32-bit Z-depth (via "Capture HDR Frames" + "Scene Depth World Units") but: no subsampling, and still has bad edge artifacts
+   - Current status as of UE4.26: no perfect Z-depth solution available in either workflow
+4. **Render Presets**:
+   - In MRQ window: Presets button (top-right area of settings) → Save As Preset
+   - Choose save location; name the preset
+   - Next session: Presets → load preset → all console variables, file formats, output paths, etc. restored instantly
+5. **Batch Render Queue (multi-shot)**:
+   - In MRQ window: click + (render button) → add a second sequence/map
+   - Repeat for all shots
+   - Configure each with the same preset if desired
+   - Hit Render Local once → all shots render sequentially without manual map-switching
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Cryptomatte / Object ID pass** — "Movie Render Queue Additional Render Passes" plugin; renders per-object masks; dramatically slower with subsampling (hanging is Cryptomatte-specific)
+- **Object ID + DoF incompatibility** — MRQ Object ID mask is always sharp; doesn't match camera depth of field; known limitation as of UE4.26; workaround: DoF in post using Z-depth
+- **MRQ EXR output bit depth** — only 16-bit EXR available in UE4.26 MRQ; no 32-bit Z-depth channel option; 16-bit is sufficient for color but not ideal for Z-depth floating point precision
+- **Sequencer Z-depth (32-bit)** — Custom Render Passes → "Scene Depth World Units" + "Capture HDR Frames" = 32-bit, but no subsampling and still has edge artifacts; generally not production-usable
+- **MRQ Render Presets** — saves entire MRQ config (file formats, render passes, console variables, output path, AA settings) as a reusable asset; Presets button in MRQ header → Save As Preset
+- **MRQ Render Queue** — the core feature of Movie Render Queue: add multiple sequences (from multiple maps) to a single queue; render all sequentially in one session with Render Local; eliminates need to open each map manually
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate. This is a production-awareness video — knowing these limitations prevents surprises mid-production. The Cryptomatte hang and Object ID/DoF issues are not obvious from the UI and can derail deadlines.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE4.26 (same limitations and features carry forward into UE5; Z-depth edge quality improved but still imperfect; 32-bit Z-depth added to MRQ in later UE5 versions)
 
 ### Tags
-[PENDING EXTRACTION]
+mrq, movie-render-queue, cryptomatte, object-id, z-depth, render-passes, subsampling, render-presets, batch-render, ue4, limitations
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `improve-your-renders-with-unreal-movie-render-queue-part-1---goodbye-sequencer-4.md` — Part 1: MRQ setup, AA subsampling, quality comparison vs Sequencer
+- `how-to-render-cryptomatte-in-unreal-new-in-426.md` — dedicated Cryptomatte/Object ID render pass tutorial
+- `how-to-render-passes-with-the-movie-render-queue-unreal-engine-426.md` — render passes in MRQ (Z-depth, world normal)
+- `how-to-use-the-movie-render-graph-in-unreal-engine-58---simple-setup-for-filmmak.md` — MRG replaces MRQ in UE5.8 (fixes multi-camera bug)
