@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=Cp7sWfiHcJg
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [environment, world-building, lighting, cloth-simulation, fog-cards, landscape, foliage, level-organization, cinematics, animation]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-create-cinematic-environments-in-unreal-engine-5/
 frame_count: 10
 ---
@@ -33,27 +33,91 @@ frame_count: 10
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Nine techniques for cinematic UE5 environments: (1) 3-stage pipeline (blockout → camera → build); (2) rotating floating objects via parent empty actor + two keyframes + curve pre/post-infinity Linear; (3) HDRI for background + background robot card; (4) cloud/tree/mountain cards (plane mesh + translucent material + cloud texture in opacity + Depth Fade node); (5) backlit key light + selective spotlights; (6) landscape sculpting + Landscape Grass output in material for auto-populated foliage/props; (7) Level organization (geometry/effects/lighting as separate sub-levels); (8) background birds (asset product); (9) cloth simulation on skeletal mesh flags (Chaos Cloth + wind directional source).
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen shares 9 environment techniques from War of Being, a samurai fight cinematic made in UE5. Stage 1 (blockout): asset packs + primitives + human scale ref + mocap data early. Stage 2 (cameras): set up cameras early — if composition doesn't work at blockout, nothing will save it. Stage 3 (build): decals, upsres, lighting, movement. Animated floating rocks: parent multiple assets to empty actor → 2 rotation keyframes → Curve Editor: set Pre/Post-Infinity to Linear for continuous rotation. Background: HDRI rotatable shot to shot; background cards for robots/scenery not seen close-up. Cloud/tree/mountain cards: translucent plane + cloud texture → opacity → Depth Fade node (fade distance in hundreds); add simple translation keyframes for drifting. Lighting: backlit spotlight (push into scene, control surfaces via reflective material roughness); fill with additional spotlights; selective reveal; less lights/bigger radius. Tree cards: paint anywhere on landscape vs 3D tree models — prefer cards for distant trees. Level organization: separate geometry/effects/lighting into sub-levels → Sequencer Level Visibility Track controls what's loaded; teams with weak workstations load only what they need. Landscape Grass: Landscape Grass Output node in material → Landscape Grass asset (prefixed LGO_) → define foliage/prop array → auto-populates on landscape brush. Cloth simulation: export flag as skeletal mesh FBX with tessellated mesh from Blender → import as skeletal mesh → Right-click → Create Clothing Data → Apply Clothing Data → Cloth Paint (white=simulate, black=anchor, zero for corners) → Chaos Cloth Config settings → Wind Directional Source → Alt+S to preview in viewport → add Wind track in Sequencer for animation control.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**3-stage environment pipeline:**
+1. Blockout: primitives (cubes, spheres, cylinders) + asset pack for quick layout; add human scale ref + mocap data
+2. Camera: set cameras early; evaluate all compositions at blockout stage; tweak layout based on camera view
+3. Build: decals, upres close-camera assets, lighting, particle effects, animation
+
+**Animated floating objects (continuous rotation):**
+1. Add an empty Actor to scene
+2. Parent mesh assets to the empty actor (drag onto it in Outliner)
+3. Add rotation keyframes (2 keys, start + end)
+4. Curve Editor: select keyframes → set Pre-Infinity + Post-Infinity to Linear → object rotates continuously
+
+**Background composition:**
+- HDRI: Sky Sphere/Sky Light → real photo; rotate shot to shot for different BG feel
+- Non-hero background objects: use 2D cards; never build 3D models for background-only elements
+- Cloud/fog cards: plane mesh → translucent blend mode material → cloud texture → plug to Opacity → add Depth Fade node (fade distance ~hundreds) → soft blending with environment
+- Add simple translation keyframes for drifting movement
+
+**Lighting approach:**
+1. Start with spotlight pushed deep into scene behind/above environment → backlit shapes visible, shadows created
+2. Increase Attenuation Radius to cover whole environment
+3. Add selective fill spotlights; bigger lights affect wider areas (fewer lights is better)
+4. Preview through camera cuts to evaluate in context
+5. Lower Material Roughness on surfaces → more reflection → more dramatic backlight reads
+
+**Tree/mountain cards:**
+- Create material: Translucent blend mode + tree card texture → Opacity
+- Add Depth Fade node for soft edge intersections
+- Paint on landscape quickly; easier to adjust than 3D trees; identical quality at distance
+
+**Level organization:**
+1. World Settings / Windows → Levels → create sub-levels (Geometry, Effects, Lighting)
+2. Move actors into appropriate sub-levels
+3. Sequencer: Add Level Visibility Track → control which levels load per shot
+4. Lighting: swap lighting sub-levels for different times of day (same geometry, different light)
+
+**Landscape Grass (auto-population):**
+1. Landscape Material → right-click → add Landscape Grass Output node
+2. Expand array → add Landscape Grass element
+3. Content Browser → Right-click → Landscape Grass Type (prefix: LGO_)
+4. Open LGO asset → add foliage meshes/actors to array → set density, scale, random rotation, align to surface
+5. Paint landscape → foliage auto-populates on painted areas (works for any static mesh, not just grass)
+
+**Cloth simulation for flags:**
+1. Blender (or any 3D app): create flag mesh → tessellate (subdivide) for extra geometry → export FBX
+2. UE5: drag FBX → import as Skeletal Mesh
+3. Skeletal Mesh Editor → Right-click on LOD → Create Clothing Data from Section → Create
+4. Right-click → Apply Clothing Data to same section
+5. Activate Cloth Paint mode → paint white where cloth simulates, black where anchored; brush Paint Value = 0 for corners (hold points)
+6. Deactivate Cloth Paint → cloth previews in viewport
+7. Physics Asset / Chaos Cloth Config: adjust Mass, Air Resistance, Stiffness, Damping
+8. Add Wind Directional Source to level → adjust Strength and Speed
+9. Alt+S to simulate in viewport → rotate Wind Directional Source to art-direct wind direction
+10. Sequencer: Add Wind track → keyframe Speed (0 = no wind, 2000 = strong wind)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Pre-Infinity / Post-Infinity (Curve Editor)**: controls behavior before first and after last keyframe; Linear = continues the curve forever → continuous rotation loop with only 2 keyframes
+- **Depth Fade node**: fades material opacity where it intersects with other geometry; used on cloud cards and fog for soft blending
+- **Landscape Grass Output (material)**: UE material node; spawns Landscape Grass Type assets across painted landscape without manual placement
+- **Landscape Grass Type**: asset defining which meshes to scatter, density, scale variation, alignment options; works for any props (weapons, pillars, soldiers)
+- **Level Visibility Track (Sequencer)**: controls which sub-levels are loaded per shot; enables lighting/effects changes without touching geometry
+- **Chaos Cloth (UE5)**: successor to APEX Cloth; configure via Chaos Cloth Config (mass, stiffness, air resistance, damping)
+- **Create Clothing Data / Apply Clothing Data**: skeletal mesh editor workflow to add cloth simulation to mesh sections
+- **Cloth Paint**: paint tool for cloth; white=simulated, black=pinned; sets per-vertex paint weight
+- **Wind Directional Source**: actor providing global wind for cloth/particle systems; Strength controls force magnitude
+- **HDRI Sky**: background image for outdoor environments; rotatable per shot to adjust ambient lighting
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[environment, world-building, lighting, cloth-simulation, fog-cards, landscape, foliage, level-organization, cinematics, animation]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- how-i-made-a-godzilla-cinematic-in-unreal-engine-5.md (fog cards + DMP background cards + night lighting)
+- how-to-actually-improve-your-films-vfx-dune-in-unreal-5.md (backlit key light technique)
+- how-i-remade-the-backrooms-using-vfx.md (Exponential Height Fog for environment atmosphere)

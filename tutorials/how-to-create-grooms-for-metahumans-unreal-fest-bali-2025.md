@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=WqWpwVaewEU
 author: Unreal Engine
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [metahuman, groom, hair, houdini, technical, character, strand-based-hair, lod, cloth]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-create-grooms-for-metahumans-unreal-fest-bali-2025/
 frame_count: 4
 ---
@@ -33,27 +33,68 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+MetaHuman Groom Tools (MetaHuman for Houdini, available on Fab): purpose-built Houdini geometry node system for strand-based hair groom creation → export as Alembic → import to UE5 as Groom Asset → create Binding Asset (link to MetaHuman head skeletal mesh) → configure as wardrobe item → assign in MetaHuman Creator. Core workflow: Groom Workspace node (safe data environment) + Groom Builder node (all-in-one: density, clumping hierarchy: primary/secondary/tertiary, flyaways, length variation, modifiers).
 
 ### Summary
-[PENDING EXTRACTION]
+Hugo Lignac (Epic Games Groom Team) presents MetaHuman Groom Tools at Unreal Fest Bali 2025 — a Houdini-based toolset (MetaHuman for Houdini on Fab) for creating production-quality hair grooms compatible with MetaHumans in UE5. Core concept: guide-driven system (guides define flow/shape/volume → interpolated strands fill in). Layering: flow → clumping (primary/secondary/tertiary) → breakups → flyaways. Key nodes: MetaHuman Groom Head (head topology neutral shape, Scalperia/Face/Full region outputs, VDB for collision with/without ears), Groom Workspace (dedicated data streams: strands/skin/guides; plugin-play fashion; presets, stats tab, save-to-disk), Groom Builder (all-in-one tool: density masks, clumping hierarchy, flyaways, length variation). Styling nodes: Bun Tool (scattered/curve points → knot/donut variants), Braid Tool (curve → braid with tube-fill → high density strands), Conrow Tool (paired with braid for side-by-side styling). Modulation: MetaHuman Groom Multi-Clump, Scraggle Node (Houdini native noise optimized for curves), Spread Node, Width Node. Utility: Groom Curl/Filter, Attribute UV Jitter, Viewport Light Node (grooming camera with BG presets), Groom Doctor (diagnostic + auto-repair), Groom Transfer RBF (transfer groom between MetaHuman heads). Export pipeline: MetaHuman Groom Export → Alembic file → import to UE5 → Groom Asset (shading, LODs, physics) → Binding Asset (links to MetaHuman skeletal mesh) → configure as wardrobe item → MetaHuman Creator hair assignment. Optimization: density reduction (core can be simplified, preserve edges/silhouette), Groom Width node for LOD thickness, Groom Curl for curve culling, Hair Card Generator (strand-to-card for distant LODs/mobile).
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Houdini groom authoring:**
+1. Download MetaHuman for Houdini from Fab (includes Starter Kit: Houdini project + UE project + sample MetaHuman + groom asset + binding + wardrobe item)
+2. Groom Workspace node: initialize with MetaHuman Groom Head node (choose region: Scalp/Face/Full)
+3. Set skin collision: VDB output (with/without ears for better collision behavior)
+4. Groom Builder node: define density mask → set up clumping hierarchy: primary (mass) → secondary (breakups) → tertiary (fly-aways); tune tightness, curl, length variations per layer
+5. Apply styling tools as needed:
+   - Bun Tool: scatter points or draw curve → configure knot/donut variant + shape parameters
+   - Braid Tool: connect sculpted curves → configure profile, subdivision quality, knot frequency, twist/roll
+   - Conrow Tool: same curve input as Braid → merge outputs
+6. Modulation:
+   - Scraggle Node: noise modulation (frequency, amplitude, randomness)
+   - Spread Node: volume spread (around/lift)
+   - Width Node: thickness modulation (gain/override/randomize) + procedural masks
+7. Save groom workspace to disk (reduces recook time on reopen)
+8. Run Groom Doctor: diagnose issues → auto-repair or flag for manual fix
+9. MetaHuman Groom Export node → add color attribute → bake AO attribute on strands → export Alembic (.abc)
+
+**UE5 import and integration:**
+1. Import Alembic → UE5 creates Groom Asset (configure shading material, strand count, interpolation settings, LOD settings, physics: stiffness, damping)
+2. Binding Asset: Create → select Groom Asset + MetaHuman head Skeletal Mesh → bake binding
+3. Configure as wardrobe item: set Pipeline = Default Groom, assign binding
+4. Open MetaHuman Creator → Hair & Clothing → drag wardrobe item → groom appears in hair library
+
+**LOD optimization:**
+- Reduce strand density in core ponytail/mass areas; preserve detail at edges and silhouette
+- Groom Width node: thicken strands as count reduces (maintains apparent volume)
+- Groom Curl: cull guide curves by probability/length/mask
+- Hair Card Generator: convert strands → textured hair cards for LOD3+/mobile platforms
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **MetaHuman Groom Tools** (MetaHuman for Houdini, Fab): Houdini geometry node package; free via Fab; includes Starter Kit
+- **Groom Asset (UE5)**: container for imported Alembic hair data; configure material, strand interpolation, physics, LODs
+- **Binding Asset (UE5)**: links Groom Asset to specific Skeletal Mesh (MetaHuman head); required for groom to deform with head
+- **Wardrobe Item**: MetaHuman configuration asset; assigns groom as swappable hair in MetaHuman Creator; set Pipeline = Default Groom
+- **Groom Workspace (Houdini node)**: safe environment with dedicated data streams (strands/skin routes/guides); plugin-play fashion (reference other workspaces); presets for colors/materials; save-to-disk for build performance
+- **MetaHuman Groom Head (Houdini node)**: neutral shape head topology; outputs Scalp/Face/Full regions; includes VDB collision volumes
+- **Groom Builder (Houdini node)**: all-in-one tool; density masks → primary/secondary/tertiary clumping; flyaways; length variation; modifiers chained in single node
+- **MetaHuman Groom Multi-Clump**: multiple variant clumping within one system; variants with independent parameters; enables twist per sub-clump
+- **Braid Tool / Bun Tool / Conrow Tool**: complex hairstyle generators; convert curve inputs into detailed structures
+- **Groom Doctor**: diagnostic tool; checks strands/skin/guides for export readiness; auto-repairs or flags issues
+- **Groom Transfer RBF**: transfers groom between different MetaHuman head shapes; transfers both strands AND guides (both required for clean UE5 groom)
+- **Hair Card Generator**: converts strand-based groom to textured hair card meshes for distant LODs and resource-constrained platforms
+- **Groom Curl (Houdini node)**: filter/cull curves by probability, length, mask; useful for guide culling and LOD creation
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced (Houdini required; deep blend of artistic + technical grooming skills)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[metahuman, groom, hair, houdini, technical, character, strand-based-hair, lod, cloth]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- how-to-generate-custom-metahuman-bodies-with-ai---yvo3d-faceform-wrap-2dnax---un.md (custom MetaHuman body modification pipeline)
+- how-to-generate-custom-metahuman-creatures-with-ai---yvo3d-faceform-wrap-unreal-.md (creature MetaHuman modification)
