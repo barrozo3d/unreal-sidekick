@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=cER2jT8oxKY
 author: Unreal Engine
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.7"
+tags: [groom, dataflow, hair, metahuman, simulation, deformer-graph, control-rig, skin-weights, guide-generation, card-generation, physics, advanced]
+extraction_status: complete
 frames_dir: tutorials/frames/advanced-groom-dataflow-setup-in-ue-57-unreal-fest-stockholm-2025/
 frame_count: 4
 ---
@@ -33,27 +33,49 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+UE 5.7 Groom Dataflow integration: node-based Dataflow framework replaces DCC round-trips for groom setup. Enables dynamic attribute creation, visual card generation with per-node preview, skin weight transfer/painting onto curves in editor, procedural guide generation, and art-directed deformation via Control Rig on guides. Groom Solver Component enables strong coupling between multiple groom/cloth/physics components at runtime.
 
 ### Summary
-[PENDING EXTRACTION]
+31m46s Unreal Fest Stockholm 2025 talk by Senior Physics Engineer Michael Fro. Presents new Groom Dataflow pipeline in UE 5.7. Previously, any groom change (add attribute, modify guides) required DCC round-trip + source code modification. Now Dataflow enables: (1) dynamic attributes on grooms without DCC; (2) visual card generation (geometry/texture nodes) with intermediate-result preview; (3) skin weight transfer from SkeletalMesh to curves in editor, with full painting/editing tools from Persona; (4) procedural guide generation (resample, smooth, LOD); (5) art-directed deformation via Control Rig on groom guides (tail control example); (6) Groom Solver Component for strong coupling between multiple groom/cloth components; (7) experimental Dataflow Simulation for runtime inter-solver data exchange (e.g., extract velocity field from cloth simulation → drive groom deformer). Template/recipe system allows one Dataflow asset to be reused across all MetaHuman hair assets.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Motivation**: DCC round-trip for every change → Dataflow enables in-engine groom setup; template recipes across many assets; late-project changes (e.g., reduce guide count 10% across all characters)
+2. **Dataflow framework overview**: node graph with construction viewport (per-node preview) + simulation viewport (final result with custom Blueprint preview scene); Dataflow subgraphs for reuse; Dataflow variables for asset-level overrides; Collection Spreadsheet for debugging flowing data
+3. **Groom integration**: added ManagedArrayCollection to groom (dynamic attribute set available to deformers and materials); attributes flow from Dataflow nodes into deformer graphs
+4. **Card generation**: nodes for build-curves, build-geometry, build-texture → inspect intermediate results per node (replaces opaque "press button, hope for best")
+5. **Skin weight transfer**: target SkeletalMesh in Dataflow; transfer skin weights from mesh to guide curves; edit/visualize/paint with Persona tools inside Dataflow; procedural correction nodes (relax, normalize, smooth)
+6. **Guide generation**: nodes to resample, smooth, create from strands by percentage; selection-driven (paint area → generate guides for that subset)
+7. **Bone tool integration**: add/move bones without leaving Dataflow editor
+8. **Deformer graph extension**: new GromAsset binding (trends + Dataflow attributes + mesh data) + Groom Solver binding (evolution params + collision); enables interaction between groom components and between groom + cloth
+9. **Groom Solver Component**: container for registering groom components + collisions (SkeletalMesh/StaticMesh); assign deformer graph / Dataflow simulation; enables strong coupling
+10. **Dataflow Simulation (experimental)**: runtime Dataflow runs cloth/groom/physics solvers in centralized manager subsystem; proxy-based data passing between solvers at runtime; can drive deformers with cloth velocity fields
+11. **Groom cache extended**: now writes (not only reads); cache any deformation result from Dataflow graph
+12. **Simple setup example**: SkeletalMesh with physics asset → transfer skin weights to guides → deformer graph (guides + bone weights + bone transforms → blend skin → bind curves to bones) → Blueprint with groom solver + groom component + deformer graph
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Dataflow Editor**: Graph Editor, Construction Viewport, Simulation Viewport, Simulation Timeline, Tool Palette, Collection Spreadsheet
+- **Dataflow subgraphs**: group nodes → reuse within main graph
+- **Dataflow variables**: override per-asset without duplicating graph (template pattern)
+- **Groom Solver Component**: registers groom/cloth components + collisions; hosts deformer graph and Dataflow simulation
+- **Deformer Graph**: two new bindings — GroomAsset (trends + Dataflow attrs + mesh data) + GroomSolver (evolution params + collision data)
+- **Skin weight nodes**: transfer, relax, normalize, smooth, paint/visualize in Dataflow
+- **Card generation nodes**: build-curves, build-geometry, build-texture (per-node intermediate preview)
+- **Guide generation nodes**: resample, smooth, create-from-strands, selection-based extraction
+- **Bone Tool**: add/reposition bones inside Dataflow editor (no SkeletalMesh editor round-trip)
+- **Dataflow Simulation**: runtime manager subsystem; proxy registration; inter-solver data exchange
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.7
 
 ### Tags
-[PENDING EXTRACTION]
+[groom, dataflow, hair, metahuman, simulation, deformer-graph, control-rig, skin-weights, guide-generation, card-generation, physics, advanced]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- how-to-create-grooms-for-metahumans-unreal-fest-bali-2025.md (groom setup for MetaHumans)
+- advanced-groom-dataflow-setup-in-ue-57-unreal-fest-stockholm-2025.md (this file)
+- large-scale-animated-foliage-in-the-witcher-4-unreal-engine-5-tech-demo-unreal-f.md (UE tech demo physics)

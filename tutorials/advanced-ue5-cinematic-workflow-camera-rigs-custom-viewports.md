@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=E7C1xbpEA_Q
 author: Unreal Engine
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.6+"
+tags: [cinematics, sequencer, sub-sequences, camera-rig, control-rig, camera-shake, animation-layers, viewport-layout, cinematic-viewport, filmmaking, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/advanced-ue5-cinematic-workflow-camera-rigs-custom-viewports/
 frame_count: 4
 ---
@@ -33,27 +33,43 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Sub-sequences for multi-artist shot organization + Camera Control Rig for camera animation with layered camera shake (animation layers with weight keyframes) + dual/multi-panel viewports in UE 5.6+ (one panel = "Cinematic Viewport" + "Allow Cinematic Control", other = "No Cinematic Control") for simultaneous camera-preview and outside-rig manipulation.
 
 ### Summary
-[PENDING EXTRACTION]
+12m56s advanced cinematic workflow tutorial by Unreal Engine. Covers three topics: (1) Sub-sequences — nested level sequences within shots for per-department ownership (animation, lighting, effects, set animation) and individual mute control; (2) Camera Control Rig — a Control Rig object attached to camera with hierarchy of controls (root, all-move, handheld, move/offset); camera shake implemented as animation layers with weight keyframes (dial weight up/down, delete keys to reset); add own camera offset animation on top of existing keys using the move-control offset; (3) Dual-panel viewports in UE 5.6+ — waffle button top-right → layout → vertical split; one panel set to "Cinematic Viewport" (hides icons, adds play/pause buttons) + "Allow Cinematic Control" (lock camera button snaps this panel); other panel set to "Perspective" + "No Cinematic Control" (keeps icons, rig controls visible, unaffected by camera lock); dual-monitor: Windows > Viewport for new Viewport window.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Sub-sequences**: Main level sequence → shot tracks → each shot = another level sequence; sub-sequences contain animation, lighting, effects, set animation tracks separately; mute individual sub-sequences to isolate layers; enables multi-artist parallel work
+2. **Camera setup**: Camera object has focal length, focus distance keyframes; Camera Rig = Control Rig object alongside camera in shot; click "cam control rig" → enters animation mode → control shapes appear
+3. **Camera Rig hierarchy**: controls include root, all-move (big yellow, main animation), handheld, move-offset; each can be animated independently
+4. **Camera shake via animation layers**: animation layers panel shows shake layers with weight sliders; weight keyframes control intensity over time (0.4 default → can animate to 5 = 10× shake); delete weight keys to reset; curve editor shows weight values
+5. **Add camera offset**: select move-control in animation layer base → set key → drag control to adjust camera position/framing → builds offset on top of existing animation
+6. **Dual-panel viewport (UE 5.6+)**:
+   - Waffle button top-right → layout → vertical split (or horizontal)
+   - Left panel: drop perspective menu → select camera (e.g., Camera_55) → set to "Cinematic Viewport" (game mode, no icons, has play/pause buttons) → enable "Allow Cinematic Control" (camera lock button affects this panel)
+   - Right panel: leave as "Perspective" → set to "No Cinematic Control" (camera lock button does NOT snap this panel) → shows rig controls and icons
+   - Lock camera button: snaps only the "Allow Cinematic Control" panel to camera view
+7. **Dual-monitor**: Windows > Viewport → new Viewport window (set same cinematic control/viewport settings); note: cannot tear off panels to second monitor natively
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Sub-sequence tracks**: Add Sub Sequence Track in Sequencer; each sub-sequence = separate level sequence asset; mute with checkbox
+- **Camera Control Rig**: Control Rig object in shot; animation mode activated by clicking control shapes; hierarchy: root / all-move / handheld / move-offset
+- **Animation layers**: layer stack with weight keyframes; camera shake layers (noise types); weight animated per-frame; curve editor for weight values
+- **Viewport layout (UE 5.6+)**: waffle button → layout picker; Cinematic Viewport setting (hides icons, enables play/pause); Allow/No Cinematic Control per panel
+- **Dual monitor**: Windows menu > Viewport > new Viewport window
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.6+
 
 ### Tags
-[PENDING EXTRACTION]
+[cinematics, sequencer, sub-sequences, camera-rig, control-rig, camera-shake, animation-layers, viewport-layout, cinematic-viewport, filmmaking, intermediate]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- ue5-animation-layers-non-destructive-camera-shake-character-tweaks.md (animation layers in depth)
+- level-management-sub-levels-spawnables-possessibles-in-ue5.md (level/sub-sequence management)
+- how-to-add-camera-shake-in-unreal-engine.md (camera shake basics)
