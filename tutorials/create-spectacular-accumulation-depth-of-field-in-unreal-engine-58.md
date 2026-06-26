@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=H3OfTUhMmmc
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.8"
+tags: [depth-of-field, accumulation-dof, bokeh, cinematics, camera, groom, hair, movie-render-graph, exr, anamorphic, lens-distortion, rendering, experimental, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/create-spectacular-accumulation-depth-of-field-in-unreal-engine-58/
 frame_count: 15
 ---
@@ -103,27 +103,42 @@ frame_count: 15
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+UE 5.8 Accumulation Depth of Field (experimental plugin): replaces deferred bokeh with accurate per-pixel accumulation sampling, correctly handling hair/groom and transparent objects. Setup: enable plugin → add Camera Component → enable via Real-time Settings. Custom bokeh textures, anamorphic squeeze, and Panini lens distortion CVars available.
 
 ### Summary
-[PENDING EXTRACTION]
+Dean Yurke demonstrates the new Accumulation DOF plugin in UE 5.8, which solves the longstanding ugly/incorrect bokeh on hair, groom, and transparent objects in deferred rendering. The plugin adds a Camera Component with configurable sample counts (250 recommended) and custom bokeh texture slot. Caveats: ~30-60 seconds per frame (vs 5-10 sec deferred), no petal bokeh support. Movie Render Graph setup includes temporal sampling method node, disable tone curve, EXR/DWAA output. Bonus: Panini lens distortion CVars (`r.lens.distortion.panini.d` and `.s`) work with accumulation DOF for cinematic lens warp effects.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Enable plugin:** Edit → Plugins → search "Accumulation Depth of Field" → enable (Experimental) → restart editor
+2. **Add Camera Component:** select camera actor → Details → Add → search "rendering" → "Accumulation Depth of Field Camera Component"; must select this sub-component (not camera root) to edit settings
+3. **Activate in viewport:** Real-time Settings (⋯ button) → Accumulation Depth of Field → Settings → Use Camera Settings; in component → check "Accumulate" → Accept
+4. **Compensate weaker DOF:** camera aperture setting (e.g., f/0.5 for wider DOF than f/1.2); Post-Process → Metering Mode=Manual → Exposure Compensation (e.g., -2.5) to offset brightness from aperture change
+5. **Tune sample quality:** component → Number Samples: 250=quality, 64=faster with visible banding, 32=fastest; DOF Splat Size: default recommended; adjust to fix dark clipping-plane artifact at certain distances
+6. **Custom bokeh:** component → Bokeh Texture → drag in lens kernel image (import anamorphic bokeh PNG); Bokeh Softness=0 for crisp kernel shapes; widen aperture to make shapes visible
+7. **Anamorphic look:** Camera → Lens Settings → Squeeze Factor=2; Crop Settings=1.77 (compensates width); note: petal bokeh not supported with accumulation DOF
+8. **Render via Movie Render Graph (5.8):** MRQ → Movie Render Graph → open; drag from input pin to add: Sampling Method (temporal samples=5), Deferred Renderer (TSR on, spatial samples=1, disable tone curve), Global Output Settings (EXR, DWAA compression, output dir, resolution); auto-activate toggle on component=off skips accumulation DOF in render for comparison
+9. **Panini lens distortion (bonus CVar):** `r.lens.distortion.panini.d` 0-4 = center push/barrel distortion; `r.lens.distortion.panini.s` = scales frame sides outward; works with accumulation DOF (petal bokeh doesn't)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Accumulation Depth of Field Plugin (Experimental, UE 5.8)**: per-pixel accumulation sampling; correct bokeh for hair/groom/transparents; much slower than deferred
+- **Accumulation DOF Camera Component**: Number Samples (quality vs speed); DOF Splat Size (edge accuracy vs render speed; fix dark clipping artifact by adjusting); Bokeh Texture slot; Bokeh Softness; Auto Activate (toggle off to skip in render)
+- **Real-time Settings → Accumulation DOF → Use Camera Settings**: reads component settings from active sequencer camera
+- **Movie Render Graph (UE 5.8)**: new node-based replacement for MRQ settings; Sampling Method node for temporal samples; deferred renderer node with TSR+disable tone curve; EXR/DWAA output
+- **Panini CVars**: `r.lens.distortion.panini.d` (0-4, barrel distortion); `r.lens.distortion.panini.s` (side scale); computed before renderer so works with accumulation DOF
+- **Camera: Manual Metering + Exposure Compensation**: essential to control brightness when changing aperture for DOF strength; mirrors ND filter behavior
+- **Camera Squeeze Factor + Crop Settings**: anamorphic look without anamorphic lens; squeeze=2 + crop=1.77 is cinematic widescreen
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate — plugin-based, requires understanding of DOF, aperture, and render pipeline
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.8
 
 ### Tags
-[PENDING EXTRACTION]
+[depth-of-field, accumulation-dof, bokeh, cinematics, camera, groom, hair, movie-render-graph, exr, anamorphic, lens-distortion, rendering, experimental, intermediate]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un.md (camera settings, MRQ, DOF fundamentals)
+- advanced-groom-dataflow-setup-in-ue-57-unreal-fest-stockholm-2025.md (groom system that benefits from accurate accumulation DOF)

@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=NNBDLTPsktc
 author: Polygonflow Dash
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [dash, scatter, environment, post-process, color-grading, decals, mesh-cards, proximity-mask, interior-design, foliage, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/create-run-down-environments-in-minutes---dash-ue5/
 frame_count: 5
 ---
@@ -53,27 +53,39 @@ frame_count: 5
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Dash-driven interior environment dressing workflow: proximity-masked scatter for organic grass/leaf placement, mesh card generation from opacity maps for Megascans leaf assets, decal layering for texture breakup, and Dash color grading library for cinematic look.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Powers (Polygonflow) builds a Last of Us-inspired post-apocalyptic interior from a rough blockout using Dash tools in ~6 minutes. Key techniques: hold-Ctrl scatter for quick placement, Proximity Mask to confine scatter to corners (with falloff for natural border fade), Mesh Cards tool that converts an opacity map into actual scattered 3D mesh cards (solving Megascans leaf high-frequency issues), ivy + decals on exterior, and Dash's post-process panel and color grading library (type LUT name or "cycle grading") for rapid look dev.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Grass scatter:** find asset in Content Browser → drag into viewport → hold Ctrl to scatter; adjust density, falloff (smooth border scale transition)
+2. **Proximity Mask:** select grass scatter + nearby props → click Proximity icon in Dash; adjust Proximity Distance to expand coverage around assets; add a small positioned mesh to property panel proximity mask for real-time fine-tuning
+3. **Leaf mesh cards:** select floor mesh → Dash Prompt Bar → "create and scatter mesh cards" → Create Cards action → pick leaf opacity map → Dash generates individual 3D mesh cards for each leaf shape → scatter on floor; tweak density + breakup parameters
+4. **General scatter:** drag additional Megascans/Sketchfab assets onto surfaces; balance detail density so viewer's eye finds rest points
+5. **Exterior:** scatter ivy on walls; apply decals for decay/weathering (Dash material floating bar for inline edits)
+6. **Decals for interiors:** use decals to break tiling textures and add surface detail; Dash floating bar enables fast material edits without opening editor
+7. **Camera + Post-Process:** Prompt Bar → "new camera" → reframe; click Post-Process icon → adjust DOF, Vignetting, Chromatic Aberration, Sharpness (note: Sharpness is otherwise CLI-only in UE5)
+8. **Color grading:** Prompt Bar → type specific LUT name (e.g., "last of us color grading") to apply preset OR type "cycle grading" to cycle all available grades (Blade Runner, Children of Men, etc.)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Dash Scatter (hold Ctrl)**: quick scatter of selected content browser asset onto viewport surface
+- **Dash Proximity Mask**: constrains scatter to within a set distance of target objects; Falloff=smooth scale transition at scatter border; add mesh as dynamic proximity anchor via property panel
+- **Dash Mesh Cards from Opacity Map**: converts 2D leaf opacity map into individual 3D mesh cards scattered on a surface; fixes tiling/normals issues with flat Megascans leaf clusters
+- **Dash Post-Process Panel**: DOF, Vignetting, Chromatic Aberration, Sharpness (last one only accessible via Dash or console command in standard UE5)
+- **Dash Color Grading Library**: type LUT name or "cycle grading" in prompt bar; includes cinematic and game reference grades
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner — fully Dash prompt-bar driven; no Blueprint or material editor work
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[dash, scatter, environment, post-process, color-grading, decals, mesh-cards, proximity-mask, interior-design, foliage, beginner]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- create-realistic-scatter-using-merge-actors-with-dash.md (Dash scatter + Merge Actors workflow)
+- creating-a-massive-procedural-game-world-in-ue5-with-dash.md (Dash large-scale world building)
