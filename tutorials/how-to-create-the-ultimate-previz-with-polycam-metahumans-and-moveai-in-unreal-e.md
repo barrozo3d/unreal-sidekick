@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=ova-8EAD8eg
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [previz, polycam, lidar-scan, metahuman, move-ai, performance-capture, cinematics, pre-production, sequencer]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-create-the-ultimate-previz-with-polycam-metahumans-and-moveai-in-unreal-e/
 frame_count: 4
 ---
@@ -33,27 +33,48 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Full-location LiDAR scan via Polycam (iPhone) → FBX import into UE5 → performance capture with Move AI + MetaHuman Animator → full previz edit in Sequencer before shooting the real film. Enables confident, fast on-set execution by having every shot pre-planned with real animated characters.
 
 ### Summary
-[PENDING EXTRACTION]
+Charlie Driscoll's 9-minute tutorial shows how to scan a real filming location with Polycam on an iPhone (~25 min scan, ~15 min process), import it into Unreal Engine at 100x scale, light it with rectangular lights at windows, and then populate it with MetaHuman performances captured via Move AI + MetaHuman Animator. Multiple characters are captured in a single take and split in Sequencer. Minimal animation cleanup is done by design. The previz process took ~5 days total (~16 hrs of actual UE previz work).
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Polycam scan** — iPhone/iPad, slow sweep, blue areas = needs more data; ~25 min for a full floor; remesh to max geometry + 8K textures; export FBX
+2. **Import to UE5** — drop FBX, scale 100x for correct real-world size
+3. **Preview scan** — viewport → Unlit to see baked-in lighting from scan without UE lights
+4. **Lighting** — add Rectangular Lights at windows for natural light simulation; OR use Path Tracer + Boolean modeling cuts (Modeling Tab → Boolean) to cut window holes in scan geo for directional sun light — more realistic but slower
+5. **Sun position** (optional) — UE5 can simulate real GPS sun position by time of day (used in Dune pre-pro); skipped here as too time-intensive for quick previz
+6. **Performance capture** — Move AI (6 GoPros, body) + MetaHuman Animator (iPhone 13 + Rokoko headrig, face)
+7. **Multi-character in one take** — act husband part, then wife part without cutting; split in Sequencer after processing; saves processing time
+8. **Minimal cleanup** — bake to Control Rig for eyeline adjustments + smooth jitter; skip hands entirely; don't over-clean
+9. **Sequencer previz** — fly camera around scan, find shots, block entire edit; reference on phone on set for matching
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Polycam** — iPhone/iPad LiDAR scan app; remesh option: max geometry slider + 8K textures; exports FBX
+- **FBX import scale** — 100x scale factor corrects Polycam's metric output to UE5's centimeter units
+- **Viewport Unlit** — shows scan with baked lighting for quick inspection before setting up real UE lights
+- **Rectangular Lights** — placed at window openings to simulate natural incoming light; quick but not physically accurate
+- **Path Tracer** — more realistic lighting mode; combine with Boolean window cuts for accurate sun simulation
+- **Boolean Modeling Tool** — Modeling Tab → Boolean; combine scan mesh + cube fitted to window → cuts hole for directional light entry
+- **UE5 Sun position system** — GPS coordinates + time of day → physically accurate sun angle; used in Dune pre-pro
+- **Move AI** — 6 GoPros body capture; multiple people or sequential acting passes in single session
+- **MetaHuman Animator** — iPhone 13 + Rokoko headrig for facial capture; same multi-take-in-one approach
+- **Sequencer splitting** — multiple character performances recorded in one take are separated into individual tracks manually in Sequencer
+- **Control Rig bake** — bake animation to Control Rig for post-capture eyeline tweaks and jitter smoothing
+- **MetaHuman Creator / Animator** — for face capture pipeline integration
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate. Polycam and Move AI are beginner-friendly. UE5 integration and Sequencer work require some prior experience. Path Tracer + Boolean cuts add complexity if pursued.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (UE5.4 implied by Move AI built-in retarget reference in related tutorials)
 
 ### Tags
-[PENDING EXTRACTION]
+previz, polycam, lidar-scan, metahuman, move-ai, performance-capture, cinematics, pre-production, sequencer
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `how-i-use-moveai-and-metahumans-to-achieve-aaa-character-animation-in-unreal-eng.md` — full Move AI + MetaHuman Animator pipeline detail
+- `how-to-create-massive-crowds-and-battle-scenes-in-unreal-engine-5---niagara-and-.md` — also by Charlie Driscoll; OverCrowd crowd sim in UE5
+- `how-to-actually-improve-your-films-vfx-dune-in-unreal-5.md` — references Dune's pre-pro GPS sun position technique

@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=1BcKEd9UO9k
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [overcrowd, crowd-simulation, vertex-animation-texture, niagara, metahuman, animation, modular-characters, battle-scenes, performance]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-create-massive-crowds-and-battle-scenes-in-unreal-engine-5---niagara-and-/
 frame_count: 47
 ---
@@ -263,27 +263,61 @@ frame_count: 47
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+OverCrowd plugin (Charlie Driscoll's beta plugin) + Niagara for VAT-based crowd simulation of hundreds to thousands of characters in UE5. Characters are baked from skeletal meshes via the AnimToTexture system, driven by Niagara particles along splines with collision avoidance via neighbor grid. MetaHuman heads are integrated for facial animation. Weapons and shields are converted from static to skeletal meshes for proper attachment.
 
 ### Summary
-[PENDING EXTRACTION]
+Comprehensive 113-minute tutorial on building massive battle crowds in UE5 using the OverCrowd beta plugin. Covers the full pipeline from material preparation → Wardrobe Editor (modular clothing per body part) → scripted asset actions (LODs, VAT baking) → static crowd placement (Populate Scene Box) → MetaHuman head integration with facial animations → weapon/shield conversion → Niagara dynamic simulation (spline following, collision avoidance, animation index control) → Sequencer cache system. Includes MetaHuman head data assets for per-crowd facial animation and workarounds for the known duplicate spawn bug.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Material prep** — paste OverCrowd clipboard nodes into each character material; rewire Normal map and World Position Offset to the new OverCrowd nodes
+2. **Wardrobe Editor** — assign mesh pieces by body part tags (head, torso, legs, feet, hands); define variation groups for randomized outfits
+3. **Scripted asset actions** — right-click each clothing mesh → Generate LODs → Create VAT Mesh Pairing (pairs skeletal mesh with future VAT static mesh)
+4. **Body part tag system** — tag each mesh piece to its body part so OverCrowd knows which pieces are interchangeable
+5. **VAT baking** — run "Create Textures / Data Set / Parameters" from the OverCrowd editor utility widget to bake animations into textures
+6. **Populate Scene Box** — place BP_PopulateSceneBox, configure wardrobe + density for static crowd placement (stationary crowds, extras BG)
+7. **MetaHuman heads** — integrate MetaHuman head mesh as a head body part; create Head Body Part data assets per character
+8. **Facial animations** — add facial animation data assets to head body part; OverCrowd randomly selects from the pool per crowd instance
+9. **Weapon/shield conversion** — static mesh → Skeletal Mesh: reset XForm (A-pose), add binding bone named `hand_R` (or `hand_L`), export FBX → import as skeletal mesh; assign to hand body part tag
+10. **Scale variation** — enable per-instance scale randomization in OverCrowd settings for organic crowd variety
+11. **Niagara setup** — drag BP_NiagaraCrowdBase into scene; set wardrobe + crowd density; use FX_follow_spline_fixed emitter for spline-directed crowd movement
+12. **Neighbor grid collision avoidance** — enable in Niagara system for inter-particle avoidance (prevents crowd clumping/overlap)
+13. **Animation index control** — set animation index parameter in Niagara to control which VAT animation plays per particle
+14. **Speed/drag tuning** — adjust Niagara force and drag parameters to control crowd movement speed and feel
+15. **Sequencer integration** — add Niagara System Lifecycle Track → Cache Niagara System at desired frame range; cache prevents characters falling through floor on wide shots
+16. **Duplicate spawn bug workaround** — if duplicating a Populate Scene Box causes double spawning: duplicate the box first → delete orphaned placement nodes → then delete the original box
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **OverCrowd plugin** — Charlie Driscoll's beta plugin (VAT-based); installs as UE5 plugin; provides Wardrobe Editor, scripted asset actions, editor utility widget, BP_NiagaraCrowdBase
+- **Wardrobe Editor** — OverCrowd editor panel; defines modular outfit combinations by body part tags; drives randomized crowd looks
+- **Body part tag system** — tags: head, torso, legs, feet, hands; used for mesh piece assignment and interchangeability
+- **Generate LODs** — scripted asset action (right-click); generates LODs for each crowd mesh piece automatically
+- **Create VAT Mesh Pairing** — scripted asset action; pairs skeletal mesh with its static VAT counterpart for baking
+- **AnimToTexture / VAT bake** — "Create Textures / Data Set / Parameters" bakes skeletal animations into position/normal textures; result drives the static crowd mesh deformation in material
+- **OverCrowd material nodes** — pasted from OverCrowd clipboard; replace default Normal + WPO in each character material; include Make Material Attributes + Static Switch "Use Layers"
+- **BP_PopulateSceneBox** — places static/stationary crowd in a defined volume; configurable density + wardrobe
+- **Head Body Part data asset** — per-character MetaHuman head data asset; referenced in Wardrobe Editor head slot
+- **Facial animation data assets** — added to head body part; OverCrowd randomly assigns facial loops per crowd agent
+- **Weapon/Shield → Skeletal Mesh** — pipeline: reset XForm (A-pose position), add single `hand_R` binding bone, export FBX, import to UE5 as skeletal mesh; assign to hand body part
+- **BP_NiagaraCrowdBase** — Niagara-driven dynamic crowd base blueprint; spawns particles along spline
+- **FX_follow_spline_fixed** — Niagara emitter for spline-following crowd; parameters: speed, drag, animation index, scale
+- **Neighbor Grid module** — Niagara module for inter-particle collision avoidance; prevents crowd clumping
+- **Niagara System Lifecycle Track** — Sequencer track; set to Cache to bake Niagara simulation to frames; prevents floor-fall on wide shots
+- **Cache Niagara System** — Sequencer function on Lifecycle Track; bakes current Niagara state to frame cache for stable rendering
+- **Duplicate spawn bug** — duplicating BP_PopulateSceneBox sometimes orphans placement nodes and causes double spawning; fix: duplicate box first → delete orphaned nodes in level → delete original box
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate to Advanced. Plugin is in beta with known bugs. Material preparation, VAT baking, and Niagara integration require familiarity with UE5 materials and particle systems. MetaHuman integration adds another layer of complexity.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (UE5.4 or later; OverCrowd plugin requires UE5)
 
 ### Tags
-[PENDING EXTRACTION]
+overcrowd, crowd-simulation, vertex-animation-texture, niagara, metahuman, animation, modular-characters, battle-scenes, performance
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `how-to-create-a-massive-zombie-horde-in-unreal-engine-55---niagara-crowd-simulat.md` — AnimToTexture / trash praxis VAT crowd alternative (no plugin)
+- `how-to-create-the-ultimate-previz-with-polycam-metahumans-and-moveai-in-unreal-e.md` — also by Charlie Driscoll; Polycam LiDAR scan previz workflow
+- `how-to-create-cinematic-environments-in-unreal-engine-5.md` — environment setup techniques for scenes with large crowds
+- `how-i-use-moveai-and-metahumans-to-achieve-aaa-character-animation-in-unreal-eng.md` — MetaHuman performance capture pipeline for hero characters
