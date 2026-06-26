@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=i2W2rDsZXk4
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [mocap, metahuman, performance-capture, quickmagic, metahuman-animator, android, face-capture, retargeting, budget, cinematics, lighting, camera-shake, elevenlabs, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/budget-mocap-tutorial---quickmagicai-and-metahuman-animator-androidframe-mancer-/
 frame_count: 13
 ---
@@ -93,27 +93,49 @@ frame_count: 13
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Budget performance capture pipeline: QuickMagic AI (~$2/take or $10/month) for full body + hands from single camera; FaceDepth Frame Mancer ($20 plugin) to use Android phone with MetaHuman Animator instead of iPhone (AI depth map per frame → standard MHA workflow); retarget to MetaHuman; ElevenLabs for AI voice morphing; camera tracking via invisible sphere on headbone; camera shake via Blueprint component; complementary orange/blue lighting (fire + moonlight).
 
 ### Summary
-[PENDING EXTRACTION]
+12m40s production diary by Charlie Driscoll. End-to-end budget performance capture cinematic: (1) QuickMagic AI body mocap — handheld camera gave best stability; cost ~$2; 10min processing; hand animation out-of-box quality exceeds Move Pro; (2) FaceDepth Frame Mancer plugin ($20) — enables MetaHuman Animator with any camera (Android); import footage → plugin extracts frames + AI depth maps → creates capture source → standard MHA workflow; do MHA processing FIRST in empty project (crashes otherwise); (3) MetaHuman retarget animation to custom MetaHuman; (4) ElevenLabs voice morphing for character voice; (5) Scene setup: medieval village (Fab), medieval clothing (Polyphoria); camera attached via invisible sphere on headbone for auto-tracking focus; camera shake Blueprint component (duration=-1 for continuous; tune frequency/intensity); 24fps sequence; night lighting: spotlight for fire at angle, delete skylight for dark shadows, height fog tweaked, blue directional light as moonlight/edge light, keyframed spotlight for lightning effect; (6) Animation polish: bake face animation to Face Control Board, add additive track for non-destructive edits (open eyes, fix eye line, correct head orientation); (7) Rain via two Fab assets (Easy Rain for droplets, animated rain material for wet override); camera dirt mask (water/lens images → camera dirt mask slot; input high number not just slider); per-shot lighting adjustments.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Body capture**: use QuickMagic AI (browser-based); handheld camera works better than tripod (more stable hip animation); record on neutral lens (no wide angle distortion); export for UE4 mannequin skeleton; ~$2 per take
+2. **Face capture (Android)**: use Frame Mancer plugin ($20) for FaceDepth; do MHA processing first in empty project before adding MetaHuman; import face footage → Frame Mancer extracts frames + AI depth maps → creates capture source → run MetaHuman Animator normally
+3. **Animation cleanup**: bake face animation to Face Control Board; add Additive Track for non-destructive edits (eyes, eye line, head orientation, thumbs via FK);  fix head orientation keyframes
+4. **MetaHuman setup**: import QuickMagic FBX (skeleton=none); RMB animation > Retarget Animation > select MetaHuman skeleton > export; drag MetaHuman to level; add to sequencer; delete control rigs; add animation track with retargeted clip
+5. **Camera tracking focus**: attach invisible sphere to character head bone in sequencer; add camera; focus settings → Tracking → select sphere actor
+6. **Camera shake**: create Camera Shake Blueprint; set Duration=-1 (continuous); tune frequency/intensity parameters; add to camera in sequencer; drag out for full timeline length
+7. **Lighting (night)**:
+   - Delete Skylight (darker shadows)
+   - Add Spotlight angled from fire direction (simulate fire on face)
+   - Directional light: blue color, angled for moonlight edge light
+   - Exponential Height Fog: tweak color for nighttime atmosphere
+   - Lightning: bright spotlight keyframed on/off in sequencer
+8. **Rain**: Easy Rain (Niagara, actual droplets) + animated rain material (box drag into scene; overrides all materials including MetaHuman for wet look); camera dirt mask slot (images of water/dirt on lens; use high numeric value, not just slider)
+9. **Per-shot lighting**: hide/show lights per camera angle; supplemental spotlights close to character (hard light for shadows, orange/blue complementary colors); UE lights are invisible so can be placed very close
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **QuickMagic AI**: browser platform; AI MoCap tab; T-pose for best results; options: full body + hands, T-pose, moving camera, UE4 mannequin, on-real-floor export; ~$2/take or $10/month
+- **Frame Mancer plugin** ($20): FaceDepth extraction from any camera; process in empty project first; standard MetaHuman Animator workflow after
+- **Retarget Animation**: RMB animation > Retarget Animations > select target skeletal mesh > Export Animation
+- **Camera focus tracking**: Focus Settings → Tracking → Actor reference (invisible sphere on headbone)
+- **Camera Shake Blueprint**: Duration=-1; frequency/intensity params; add to camera via sequencer
+- **Additive track (Face Control Board)**: bake face animation → + Additive Track on face control rig track → non-destructive edits
+- **Rain materials**: Easy Rain (Niagara asset from Fab), animated rain material box (overrides all mats)
+- **Camera Dirt Mask**: in camera post-process settings; needs high numeric value to show effect
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[mocap, metahuman, performance-capture, quickmagic, metahuman-animator, android, face-capture, retargeting, budget, cinematics, lighting, camera-shake, elevenlabs, intermediate]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- cheap-ai-mocap-that-actually-works---quickmagicai-chaos-destruction-and-metahuma.md (same author, QuickMagic tracking shot)
+- how-i-made-this-aaa-cinematic-in-unreal-engine-5---moveai-and-metahuman-animator.md (Move AI vs QuickMagic)
+- budget-mocap-tutorial---quickmagicai-and-metahuman-animator-androidframe-mancer-.md (this file)

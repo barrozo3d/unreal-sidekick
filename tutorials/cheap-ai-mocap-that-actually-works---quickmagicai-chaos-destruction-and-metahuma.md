@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=7xYyfWeAHiA
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [mocap, quickmagic, metahuman, retargeting, chaos-destruction, sequencer, battle-scene, niagara, medieval, filmmaking, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/cheap-ai-mocap-that-actually-works---quickmagicai-chaos-destruction-and-metahuma/
 frame_count: 14
 ---
@@ -98,27 +98,47 @@ frame_count: 14
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+QuickMagic AI for continuous tracking-shot body mocap (moving camera, ~50m run, $1.86): import to UE5, retarget to MetaHuman; Chaos destruction for set pieces: fracture mode → cluster fracture → geometry collection → anchor fields (limit collapse) + bomb fields (timed explosions); LOD forced to 0 on MetaHuman for custom clothing; background characters use asset-pack mocap animations.
 
 ### Summary
-[PENDING EXTRACTION]
+19m43s production diary by Charlie Driscoll. Tests QuickMagic AI for tracking-shot mocap — key feature: compensates for moving camera while keeping subject anchored in 3D space, enabling captures over large distances (50m run). Process: film from behind/front with handheld camera, neutral lens, keep camera pointed same direction (no orbiting); upload to QuickMagic browser → AI MoCap → select UE4 mannequin skeleton, enable "moving camera" + "on-real-floor" → export FBX. Retarget to MetaHuman: RMB animation > Retarget > select MetaHuman skeleton > export. MetaHuman setup: force LOD=0 (for custom clothing); delete control rigs; add retargeted animation. Scene: medieval castle (Fab), custom clothing (Polyphoria), background MetaHuman characters with asset-pack animations. Chaos destruction: fracture mode > cluster > fracture settings > geometry collection; anchor fields (engine content) for structural constraints; bomb fields (engine content) for timed explosions; delay set in field details; explosions added as Niagara particles; caveat — simulation randomness makes complex shots difficult to art-direct consistently. Also compared with Sora AI video generation — couldn't achieve spatial continuity.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **QuickMagic capture**: film subject from behind or front (NOT side, NOT orbiting); handheld camera; ~50m run; neutral main lens (no wide angle); Samsung Note 23 Ultra; keep camera pointed same direction throughout
+2. **QuickMagic upload**: browser platform > AI MoCap > drag clip; trim; T-pose at start; drag UE4 mannequin skeleton; enable: full body + hands, T-pose, moving camera, on-real-floor export; 28 credits (~$1.86); download FBX
+3. **Import to UE5**: import FBX with skeleton = None
+4. **Retarget to MetaHuman**: RMB animation > Retarget Animations > select MetaHuman target skeletal mesh > Export Animation
+5. **MetaHuman sequence setup**: add MetaHuman to level; actor to sequence; set forced LOD = 0 (prevents LOD changes with custom clothing); delete default control rigs; add animation track with retargeted animation
+6. **Chaos destruction**:
+   - Select static mesh → change viewport to Fracture Mode
+   - Choose fracture type (Cluster); click New → save geometry collection; adjust fragment count; click Fracture
+   - Place Anchor Fields (search engine content) → constrain geometry collection from immediately collapsing; assign in geometry collection details > Initialization Field
+   - Place Bomb Fields (search engine content) → intersect with meshes to destroy; set delay in field details; make bomb fields invisible in sequencer
+   - Set minimum = maximum scale for consistent results (reduces variation)
+   - Add Niagara particle explosions at impact points; keyframe activation in sequencer
+7. **Background characters**: MetaHumans with asset pack animations (pirate mocap, Reallusion "Run for Your Life" pack); custom medieval clothing (Polyphoria)
+8. **Chaos caveats**: simulation runs fresh per render (some variation even with fixed settings); complex scenes need baking or careful art-direction; interior fracture normals/materials need manual fix
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **QuickMagic AI**: browser-based; UE4 mannequin export; moving camera mode; on-real-floor mode
+- **Fracture Mode**: viewport mode (selection mode dropdown); Cluster fracture type; geometry collection asset
+- **Anchor Fields** (engine content search): constraints to prevent full collapse; assigned to geometry collection > Initialization Field
+- **Bomb Fields** (engine content search): timed destruction trigger; delay parameter; scale = explosion power
+- **LOD sync forced=0**: MetaHuman details > LOD Sync > Forced LOD: 0 (locks highest LOD for custom clothing)
+- **Retarget Animations**: RMB animation > Retarget Animations > MetaHuman skeletal mesh
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[mocap, quickmagic, metahuman, retargeting, chaos-destruction, sequencer, battle-scene, niagara, medieval, filmmaking, intermediate]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- budget-mocap-tutorial---quickmagicai-and-metahuman-animator-androidframe-mancer-.md (same author: QuickMagic + face capture)
+- how-to-create-a-massive-zombie-horde-in-unreal-engine-55---niagara-crowd-simulat.md (crowd simulation)
+- recreating-brutal-deaths-from-history-in-unreal-engine-5.md (destruction cinematics)
