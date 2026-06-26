@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=y-6aiWvh_GY
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [crowd-simulation, metahuman, animation, mocap, overcrowd, vat, sequencer, cinematics]
+extraction_status: complete
 frames_dir: tutorials/frames/how-i-created-a-massive-crowd-of-metahumans-for-a-brutal-gladiator-film---unreal/
 frame_count: 9
 ---
@@ -73,27 +73,51 @@ frame_count: 9
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Gladiator short film breakdown using OverCrowd (crowd sim plugin) for stadium audience — dozens of Instantors each spawning ~300 modular MetaHuman crowd members with VAT animation; paired with Move AI multicam mocap for sword fight choreography; MetaHuman Animator + 3D Scan Store 8K heads for hero characters; Sequencer per-fighter-pair folder organization for easy choreography shifting.
 
 ### Summary
-[PENDING EXTRACTION]
+Charlie Driscoll breaks down a one-week gladiator short film made in UE5. The stadium crowd uses OverCrowd (crowd simulation plugin he co-developed), placing Instantors around the arena each spawning ~300 modular characters with MetaHuman faces, facial animations, and VAT sequences — art-directable per-member placement. Hero character fight animations come from Move AI MarkerList Multi-Cam mocap sessions custom-built for the MetaHuman skeleton. Hero faces use 3D Scan Store heads (8K scans) swapped into MetaHuman. MetaHuman Animator + FaceMotionCapture.com head rig ($100) for facial performance. ElevenLabs voice morphing for dialogue. Sequencer per-pair folders allow sliding entire choreography groups to sync with any camera shot.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Crowd setup with OverCrowd:**
+1. Place OverCrowd Instantor actors around the stadium at desired positions
+2. Per Instantor: define character pools (wardrobes, MetaHuman faces, animation sets)
+3. Spawn ~300 crowd members per Instantor
+4. Manually reposition individual crowd members for art direction / composition control
+5. LODs auto-generated for optimization; VAT animation sequences play across crowd
+
+**Hero character setup:**
+1. 3D Scan Store: purchase high-res head scan → 8K textures → integrate with MetaHuman skeleton
+2. Record body motion via Move AI MovePro Markerless Multi-Cam system
+3. Record facial performance: FaceMotionCapture.com head rig → MetaHuman Animator
+4. Record dialogue → ElevenLabs voice morpher for character voices
+
+**Sequencer fight choreography:**
+1. Create dedicated folder in Sequencer for each fighter pair
+2. Place pre-made sword fighting animation pack clips into folder
+3. Use folder-level drag to shift entire choreography group on timeline
+4. For wide/establishing shots: background pairs stay engaged with pre-made long-form animations without manual intervention
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **OverCrowd**: crowd simulation plugin for UE5; Instantor actors spawn modular crowd members; supports MetaHuman faces + VAT animation + auto-LOD + ragdoll swap; similar to Anima Texture (Epic) but with modular MetaHuman support
+- **VAT (Vertex Animation Texture)**: animation technique used by OverCrowd for performance-efficient crowd members; supports sequenced animation clips
+- **MetaHuman Animator**: facial capture solution (iPhone/iPad or head rig); retargets to MetaHuman face rig
+- **Move AI MovePro**: markerless multi-cam body mocap system; outputs animations targeted to MetaHuman skeleton
+- **3D Scan Store heads**: real-world photogrammetry scan heads with 8K textures; integrated into MetaHuman for superior skin detail
+- **Sequencer folder groups**: group per-character or per-pair animations in folders for easy timeline sliding
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate–Advanced (collaboration + custom mocap + multiple pipelines)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[crowd-simulation, metahuman, animation, mocap, overcrowd, vat, sequencer, cinematics]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- faster-than-ai-and-7-times-the-fun-speed-up-animation-and-get-exactly-what-you-w.md (Rokoko mocap as alternative body capture)
+- how-i-made-this-aaa-battle-scene-in-unreal-engine-5.md (same author — larger scale battle scene production)

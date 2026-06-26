@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=Og9za5-VCag
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [cinematics, production-breakdown, world-building, lighting, matte-painting, vfx, niagara, nuke, fog-cards, crowd, mixamo, compositing]
+extraction_status: complete
 frames_dir: tutorials/frames/how-i-made-a-godzilla-cinematic-in-unreal-engine-5/
 frame_count: 11
 ---
@@ -83,27 +83,63 @@ frame_count: 11
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Godzilla cinematic production breakdown: city built from asset packs + real-image matte-painting backgrounds + KitBash models; night lighting via fog cards (depth-fade + emissive 2D images in 3D space) layered in colored depths; rain/explosion VFX rendered as separate Niagara pass → composited in Nuke with stock elements via camera FBX + depth pass for 3D placement.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen (VFX supervisor on Godzilla vs. Kong, Avatar TLAB) breaks down a Godzilla UE5 short. Key techniques: use Mixamo to rig/animate crowd characters in minutes; city scale trick (Godzilla's foot = entire street width, everything else tiny); DMP/matte painting with real city photos in background instead of 3D models; office building lights = city images as emissive decals; fog cards with depth fade (technique from Godzilla vs. Kong production) for volumetric atmosphere without full volumetric fog; animated explosion lights on footsteps; separate Niagara rain pass + Nuke composite with live rain footage; camera FBX export → Nuke image plane for 3D element placement; depth pass to mask foreground/background for compositing sparks/smoke.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Character and crowd:**
+1. TurboSquid: find rigged model → collaborate with Control Rig specialist if needed
+2. Mixamo.com: upload crowd characters → auto-rig + 3 running animations → download FBX
+3. UE Sequencer: blend crowd animations → animate entire crowd in minutes
+
+**City building:**
+1. Tokyo City asset pack (Big Medium Small) for hero street elements
+2. Background: Google/stock photos of city (Hong Kong) → import as 2D images → hide behind foreground buildings
+3. KitBash 3D extra buildings → rotate/scale 4-5 models to read as 40-50 distinct buildings
+4. Office windows: take real office-building photos → create decals with Emissive input → place on building faces
+5. Scale trick: Godzilla's foot spans the entire street to convey scale
+
+**Night lighting:**
+1. Storefront lights along street for character illumination
+2. Car headlights
+3. Animated point lights at footstep positions: keyframe brightness brighter/darker for explosion feel
+4. Fog cards: create tileable fog texture → plane mesh → Emissive material + Depth Fade node → place at different depths
+   - Sky layer: cool blue fog cards
+   - Street: red/yellow (street light glow)
+   - Near explosions: orange fog cards
+
+**VFX render passes:**
+1. Rain: Niagara rain system in main scene → copy camera + rain into separate Level Sequence → render as EXR pass
+2. Nuke: composite rain pass + live-action rain footage
+3. Explosions/sparks/smoke: compositingacademy.com stock elements → Nuke
+4. Camera export: Sequencer → RMB on camera → Export FBX → import to Nuke
+5. Image plane node: plug in camera + stock element footage → set 3D depth distance → element follows camera move
+6. Depth pass: render from UE → in Nuke stretch/squash depth to create foreground mask → blend sparks between foreground and background
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Mixamo.com**: free auto-rigging and animation library; upload OBJ/FBX → download rigged with animations; works for crowd characters (not hero MetaHumans)
+- **Emissive Decal material**: city images applied as decals with Emissive channel → lights up surrounding environment without needing actual lights
+- **Fog Cards**: 2D planes with Panner + Depth Fade material placed in 3D layers; alternative to Volumetric Fog for art-directed atmospheric glow
+- **Depth Fade node**: fades card where it intersects geometry; used to spread fog across multiple buildings
+- **Animated explosion lights**: point/spot lights with keyframed intensity oscillation for footstep impacts
+- **Separate render pass workflow**: copy camera + VFX emitter to own Level Sequence → render separate EXR → composite in Nuke
+- **Camera FBX export → Nuke Image Plane**: RMB camera in Sequencer → Export FBX → Nuke image plane node; match camera movement for stock footage placement
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate (blocking/lighting) / Advanced (Nuke compositing)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[cinematics, production-breakdown, world-building, lighting, matte-painting, vfx, niagara, nuke, fog-cards, crowd, mixamo, compositing]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- give-me-14-minutes-and-youll-make-cinematic-renders.md (fog/smoke cards technique, light animation)
+- every-filmmaker-should-know-this-vfx-workflow.md (Nuke compositing with UE camera FBX and depth pass)
+- how-i-made-this-aaa-battle-scene-in-unreal-engine-5.md (related production breakdown)
