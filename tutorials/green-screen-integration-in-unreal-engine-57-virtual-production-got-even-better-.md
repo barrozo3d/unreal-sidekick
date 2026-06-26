@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=zlZCKT-5pLU
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5.7"
+tags: [composure, compositing, virtual-production, green-screen, chroma-key, davinci-resolve, lighting, vfx, offline-virtual-production, materials]
+extraction_status: complete
 frames_dir: tutorials/frames/green-screen-integration-in-unreal-engine-57-virtual-production-got-even-better-/
 frame_count: 22
 ---
@@ -138,27 +138,62 @@ frame_count: 22
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Composure EP3 (UE 5.7): three improvements — (1) use built-in "Dither Opacity Mask" material attribute (not the Dither Temporal AA node) for smooth lit-mask edges that work on render; (2) enable environment light interaction on composite mesh by turning off plate layer + using Lit Mass material with specular=0/roughness=1; (3) expose "Multiply Color" parameter in Sequencer via static mesh component → material slot. Also covers Delta Keyer extraction with clean plate, edge extension for un-pre-multiplied lit export, and Composite Mesh vs Texture (screen-space) mode comparison.
 
 ### Summary
-[PENDING EXTRACTION]
+Dean Yurke's Composure EP3 addresses two years of frustration with cross-hatching artifacts in the lit-mask dithered edge and adds environment-light interaction. Key discovery: the Dither Temporal AA node approach doesn't work correctly on final render — use "Dither Opacity Mask" checkbox in Material Attributes details instead. For lighting: disable plate layer, use Lit Mass material (specular=0, roughness=1), and scene lights will affect the composite mesh plate. Multiply Color parameter controls brightness matching between plate and environment. Also covers Delta Keyer workflow in DaVinci Fusion (clean plate input + edge extend + Channel Boolean), two export types (over-black for unlit vs. edge-extended un-premultiplied for lit), and Composite Mesh vs Texture mode (screen-space = best fidelity but no depth).
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Dither fix (Edge quality — critical improvement):**
+1. Duplicate Lit Mass material (Alt-click composite mesh → pencil → open → navigate to master → RMB Duplicate)
+2. Apply duplicate to composite mesh actor
+3. Open duplicate material → click Material Attributes node → Details panel → find "Dither Opacity Mask" → enable it → Apply
+4. Do NOT use Dither Temporal AA node in graph — it causes cross-hatching in final renders
+
+**Environment lighting on composite mesh:**
+1. Disable plate layer (checkbox in Composure window)
+2. Add/move scene lights → they now illuminate the composite mesh geometry
+3. Open composite mesh material → set Specular=0, Roughness=1 → Apply (removes unwanted sheen)
+4. Add Multiply node after composite texture → drive with Vector3 constant (e.g. 0.5 gray) → expose as "Multiply Color" parameter
+5. In Sequencer: drag composite mesh → + Static Mesh Component → + Material Slot → find Multiply Color / Specular / Roughness parameters
+
+**Simulate mode for scrubbing with media:**
+- Hit Simulate button (not Play) to update media textures while scrubbing sequencer timeline
+
+**Composite Mesh vs Texture mode:**
+- Plate Layer → Mode: Composite Mesh = 3D geometry projection, depth-correct, slight normal/seam issues
+- Plate Layer → Mode: Texture = screen-space, best fidelity/quality, but always locked to screen (no parallax)
+
+**DaVinci Fusion extraction (Delta Keyer method):**
+1. Apply Color Space Transform (BM 4.6K Film Gen 3 → Linear SRGB); view via VFX IO → Linear to SRGB LUT
+2. Clean Plate node → set eyedropper color to screen → fill + grow edges to remove subject
+3. Delta Keyer: feed Clean Plate into pink clean-plate input → eyedropper key color → adjust spill (red up, blue down)
+4. Shape node as garbage matte → feed into delta keyer garbage input → invert → soften edges
+5. Second Clean Plate node for edge extension: blur → feed as garbage mat → Color Curves boost alpha → grow edges
+6. Channel Boolean: delta keyer as background+mask, clean plate as foreground → alpha = background alpha (preserves original alpha)
+7. Export A: premultiplied over black (DWA EXR) for Unlit Alpha material
+8. Export B: edge-extended un-premultiplied (blur+clean plate overlay on original, copy original alpha) for Lit Mass material
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Dither Opacity Mask (Material Attribute)**: enable in Material Attributes details panel; correct way to dither masked material edges; works on final render unlike Dither Temporal AA node
+- **Lit Mass Material**: composure built-in material; receives scene lighting on composite mesh geometry; requires specular=0/roughness=1 for flat look
+- **Unlit Alpha Material**: soft pre-multiplied edges; no scene light interaction; use with premultiplied-over-black exports
+- **Plate Layer Mode — Composite Mesh vs Texture**: Texture mode = screen-space, best quality, no depth parallax
+- **Multiply Color parameter**: material parameter for brightness control on plate; accessible in Sequencer via Static Mesh Component → Material Slot
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate–Advanced
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5.7
 
 ### Tags
-[PENDING EXTRACTION]
+[composure, compositing, virtual-production, green-screen, chroma-key, davinci-resolve, lighting, vfx, offline-virtual-production, materials]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- easiest-vfx-pipeline-ever-with-composite-mesh-actors-in-unreal-engine-57-composu.md (Composure EP1)
+- green-screen-cards-are-dead-camera-projections-in-unreal-engine-change-everythin.md (Composure EP2)
+- green-screen-edge-wrap-secrets-and-a-lie---advanced-davinci-to-unreal-engine-wor.md (edge wrap + camera tracking deep-dive)

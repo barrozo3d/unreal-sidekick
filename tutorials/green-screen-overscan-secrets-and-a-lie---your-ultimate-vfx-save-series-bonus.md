@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=qe2x-puqVl0
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [overscan, rendering, movie-render-queue, davinci-resolve, blueprint, post-production, vfx, camera, lens-distortion]
+extraction_status: complete
 frames_dir: tutorials/frames/green-screen-overscan-secrets-and-a-lie---your-ultimate-vfx-save-series-bonus/
 frame_count: 14
 ---
@@ -98,27 +98,63 @@ frame_count: 14
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Overscan in UE5 for VFX: render extra pixel data outside the visible frame so lens distortion, camera shake, and reframing in post don't hit black edges. Two methods — built-in cine camera Overscan property (works in Fusion Loader, not DaVinci Media Pool) or Blueprint sensor-width scale trick (works everywhere). Blueprint: Event Begin Play → Get All Actors (Cine Camera Actor) → For Each → Set Film Back → multiply sensor W and H by overscan factor. MRQ output resolution must be scaled by same factor.
 
 ### Summary
-[PENDING EXTRACTION]
+Dean Yurke explains UE5 overscan and why it matters for virtual production and offline VFX. Built-in overscan (cine camera → Overscan + Crop Overscan + Scale Resolution With Overscan) works fine for Fusion Loader workflow but DaVinci Media Pool throws away the data window. Workaround: Blueprint Actor that scales the sensor dimensions at Begin Play (PIE) so the camera renders wider without touching FOV math. MRQ output resolution also scaled by same factor. DaVinci workflow: timeline mismatch = "Scale Entire Image to Fit", Frame Display = Sequence, Color Space Transform (sRGB linear) with saturation compensation gamut mapping, Transform node ×1.5 to zoom back in, then lens distortion + camera shake on cropped-in version. Lumen benefit: screen-space artifacts pushed to overscan edges instead of appearing in frame.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Method 1 — Built-in Overscan (Fusion only):**
+1. Select cine camera → Details → Overscan = 0.2 (20%) or desired amount
+2. Crop Overscan: ON (shows normal framing in viewport but renders with extra data)
+3. Scale Resolution With Overscan: ON → MRQ automatically scales output resolution
+4. Render → use Fusion Loader (not Media Pool) to access data window in DaVinci
+
+**Method 2 — Blueprint sensor scale (DaVinci Media Pool compatible):**
+1. RMB Content Browser → Blueprint Class → Actor → name it BP_OverscanOnRender
+2. Open → Event Graph → RMB: Get All Actors of Class → Actor Class = Cine Camera Actor
+3. Array → For Each Loop → Loop Body → drag Array Element pin → Get Cine Camera Component
+4. Return Value → Set Film Back → drag Film Back Component pin → Make Camera Film Back Settings
+5. Sensor Width = original × overscan multiplier (e.g. 23.76 × 1.5 = 35.64)
+6. Sensor Height = original × multiplier (e.g. 13.65 × 1.5 = 20.475)
+7. Connect Event Begin Play → Get All Actors → For Each → Set Film Back → compile + save
+8. Drag BP actor into level (won't work unless it's in the level)
+9. MRQ: output resolution = original resolution × same multiplier (e.g. 1920→2880, 1080→1620)
+10. Color Output: disable Tone Curve → linear SRGB EXR
+
+**DaVinci Resolve post workflow:**
+1. Timeline settings (RMB timeline → Timeline Settings): Mismatch Resolution = "Scale Entire Image to Fit"
+2. Media page: three-dot menu → Frame Display Mode = Sequence
+3. Import oversized EXR frames via Media Pool → they appear squashed to fit timeline
+4. Color page: add Color Space Transform → Input Color Space: SRGB, Input Camera: Linear → Gamut Mapping: Saturation Compensation
+5. Add Transform node → Scale = 1.5 → images now match original frame (1:1 quality)
+6. Add Lens Distortion and/or Camera Shake node before or after transform
+7. Camera Shake: default zoom-to-crop = OFF (you have room in overscan)
+8. Gallery → grab still → drag to other shots to batch-apply color grade
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Cine Camera Overscan**: Details panel property; percentage of extra render outside visible frame
+- **Crop Overscan**: ON = viewport shows normal framing; render shows full overscan area
+- **Scale Resolution With Overscan**: auto-multiplies MRQ output resolution by overscan factor
+- **Film Back sensor width/height**: the sensor dimensions; scaling these at Begin Play is equivalent to adding overscan but renders data window = display window (DaVinci-compatible)
+- **Event Begin Play (Blueprint)**: triggers when hitting play/render (PIE); used to override camera settings for MRQ without affecting editorial viewport
+- **Get All Actors of Class → For Each**: applies the sensor override to every cine camera in the level at once
+- **DaVinci Mismatch Resolution: Scale Entire Image to Fit**: keeps all pixel data when importing oversized images into a 1080p timeline
+- **Linear SRGB + Color Space Transform**: renders with linear SRGB (tone map off) → apply CST in color page for display; corrections done before CST have full HDR latitude
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate (Blueprint) / Beginner (built-in method)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[overscan, rendering, movie-render-queue, davinci-resolve, blueprint, post-production, vfx, camera, lens-distortion]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- green-screen-cards-are-dead-camera-projections-in-unreal-engine-change-everythin.md (same author Composure series — offline virtual production context)
+- create-spectacular-accumulation-depth-of-field-in-unreal-engine-58.md (another render quality technique using MRQ)
+- fixing-common-ue5-issues-changes-in-50.md (MRQ + rendering settings context)
