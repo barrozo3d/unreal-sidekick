@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=cZTO4ojzX2g
 author: William Faucher
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [nuke, compositing, unrealreader, render-passes, mrq, colorspace, camera-extraction, cryptomatte, pipeline, virtual-production]
+extraction_status: complete
 frames_dir: tutorials/frames/intro-to-unrealreader---nuke-132/
 frame_count: 12
 ---
@@ -88,27 +88,81 @@ frame_count: 12
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Unreal Reader (Foundry/Nuke 13.2) connects Nuke directly to UE5's Movie Render Queue over TCP/IP. Streams live renders into Nuke without writing to disk first. Features: render pass selection (cryptomatte, world depth, world normal, world position) from Nuke's UI; stencil layer picker (control+shift+click objects in render); UE camera extraction → Nuke Camera node (follows UE animation); camera override from Nuke; console variable injection; write-to-disk via Write node (must manually add `####.exr` to filename). Color fix: Advanced tab → Disable Tone Curve → add OCIO ColorSpace node → Input: Utility/Linear/SRGB.
 
 ### Summary
-[PENDING EXTRACTION]
+20-minute intro by William Faucher to the Unreal Reader node in Nuke 13.2 (built-in, not a separate download). Setup: download "Nuke Server" plugin from Foundry → copy to Engine/Plugins → enable in UE5 → Window → Nuke Server → Start Server (default port 9000). In Nuke: Tab → search "Unreal Reader" → connect to UE port → shows live MRQ render. Color space issue: disable tone curve in Advanced tab → add OCIO ColorSpace (Utility/Linear/SRGB). Render passes (cryptomatte, world depth, world normal, world position) available in Render tab. Stencil layer picker lets you click objects in render to build per-object masks. Camera tab: creates Nuke Camera node linked to UE sequence animation; can override with custom Nuke camera. Write to disk: click folder icon → set path with `####.exr` suffix → "Write to Disk" → generates a Read node pointing to output. Lumen warmup: increase Render Warmup and Engine Warmup to 30-50 frames if GI is missing. Temporal subsamples: 16 recommended in Advanced tab.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Install Nuke Server plugin**:
+   - Download from Foundry website (Nuke 13.2 page, bottom); choose UE version (UE5 Windows)
+   - Unzip → copy "Foundry" folder → paste into `C:\Program Files\Epic Games\UE5.x\Engine\Plugins\`
+2. **Enable plugin in UE**:
+   - Settings → Plugins → search "Nuke" → enable "Nuke Server" → restart engine
+3. **Start Nuke Server**:
+   - Window → Nuke Server → port default 9000 → Start Server → wait for "Running" status
+4. **Add Unreal Reader in Nuke**:
+   - Viewer area → Tab → search "Unreal Reader" → click to place node
+   - Set port to match UE Nuke Server port → click "Connect Server"
+   - Select Unreal Reader node → press **1** key to connect to Viewer
+5. **Configure project/sequence**:
+   - Unreal Reader: Project Path → your .uproject; Map → level; Sequence → your Level Sequence
+   - Image Format: select resolution (e.g., UHD 4K)
+   - Frame Range auto-populated from sequence
+6. **Fix color space** (critical):
+   - Unreal Reader → Advanced tab → Color Output → enable "Disable Tone Curve"
+   - Tab → OCIO ColorSpace node → Input Color Space: Utility → Utility → Linear → SRGB
+   - Connect OCIO node between Unreal Reader and Viewer
+7. **Select render passes** (Render tab):
+   - Enable: Cryptomatte, World Depth, World Normal, World Position as needed
+   - Preview passes via RGB button → select pass from dropdown
+   - If passes don't appear: "Update Channel List" or "Fetch Latest" in Unreal Reader tab
+8. **Stencil layer picker** (object masks):
+   - Render Mode → Stencil Layers → Render tab → Preview Layers
+   - Hold Ctrl+Shift → click object in viewer to add to layer; drag to select multiple
+   - Ctrl+Shift → Picker Remove button to remove from selection
+9. **Camera extraction**:
+   - Camera tab → Link Output → Create Camera → new Nuke Camera node appears
+   - Select Camera node → press 1 → see 3D space with animated camera matching UE sequence
+   - Optionally create own Nuke camera → connect to Unreal Reader → overrides UE camera for render
+10. **Console variables**:
+    - Variables tab → Add button → enter CVar name (e.g., `r.ScreenPercentage`) → value (e.g., 200)
+11. **Anti-aliasing (Advanced tab)**:
+    - Anti-Aliasing: Override → None; Temporal Sample Count: 16 (or 32 for complex shots)
+    - Lumen: Render Warmup Count + Engine Warmup Count → set to 30-50 if GI missing
+12. **Write to disk**:
+    - Click folder icon at bottom of Unreal Reader node → choose output directory
+    - Set filename: `render_name_####.exr` (must manually add `####` and `.exr` — not auto-added)
+    - Click "Write to Disk" → triggers MRQ render → generates Read node
+    - If Read node shows error: wait (rendering takes time); then double-click Read node → pick rendered file
+    - Color fix for Read node: Input Transform → Utility → Linear SRGB
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Nuke Server plugin** (Foundry) — TCP/IP server running in UE; port configurable; Window → Nuke Server → Start Server; Windows only for UE5 as of Nuke 13.2; Mac/Linux in development
+- **Unreal Reader node (Nuke 13.2+)** — built into Nuke X, Nuke Studio, Nuke Indy, Nuke Non-Commercial; connects to UE via Nuke Server port; streams MRQ renders live; NOT available in standard Nuke
+- **Port matching** — UE Nuke Server port must match Nuke Unreal Reader port; default 9000 in docs but tutorial's UE was 4500; set both to same value
+- **Disable Tone Curve** — in Unreal Reader Advanced tab; sends linear image to Nuke instead of tonemapped; required for correct Nuke color management
+- **OCIO ColorSpace node (Nuke)** — Input: Utility/Linear/SRGB; interprets UE's linear sRGB render correctly; prevents oversaturation artifacts
+- **Render Passes in Unreal Reader** — Cryptomatte, World Depth, World Normal, World Position; selected in Render tab; more user-friendly than raw MRQ UI
+- **Stencil Layers mode** — alternative to Cryptomatte; Ctrl+Shift+click objects in live preview → builds per-object mask; requires Render Mode: Stencil Layers
+- **Camera node extraction** — Camera tab → Create Camera; Nuke Camera automatically follows UE Level Sequence camera animation; usable for 3D projections and matte painting; overridable with custom Nuke camera
+- **Write to Disk** — Unreal Reader → folder icon → filename must include `####.exr` manually; triggers MRQ background render; outputs a Read node for the resulting EXR sequence
+- **Temporal subsamples (Advanced tab)** — Anti-Aliasing: None + 16 temporal samples recommended; 32 for difficult shots; same as MRQ subsampling setting
+- **Lumen warmup** — Render Warmup Count + Engine Warmup Count → increase to 30-50 frames if indirect illumination is missing from renders
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate. Setup is straightforward once you know the Nuke Server plugin must be manually downloaded from Foundry. Color space fix is mandatory and non-obvious. The Write to Disk filename format (`####.exr`) is a gotcha. Camera override and Stencil Layers are advanced features.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5.0 (Nuke 13.2 UnrealReader supports UE5; UE4 not supported; Windows only at time of tutorial)
 
 ### Tags
-[PENDING EXTRACTION]
+nuke, compositing, unrealreader, render-passes, mrq, colorspace, camera-extraction, cryptomatte, pipeline, virtual-production
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `improve-your-renders-with-unreal-movie-render-queue-part-1---goodbye-sequencer-4.md` — MRQ setup that Unreal Reader uses under the hood
+- `improve-your-vfx-with-lens-flares-anamorphic-tutorial.md` — Nuke compositing with UE renders (anamorphic lens flares)
+- `why-you-should-be-using-stencil-render-layers---unreal-engine-426.md` — Stencil Layers explained in detail
+- `how-to-render-cryptomatte-in-unreal-new-in-426.md` — Cryptomatte/Object ID rendering in MRQ

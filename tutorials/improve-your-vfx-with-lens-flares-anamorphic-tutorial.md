@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=hFM_jGd46as
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [lens-flares, anamorphic, compositing, nuke, bokeh, z-depth, post-processing, vfx, cinematics, depth-of-field]
+extraction_status: complete
 frames_dir: tutorials/frames/improve-your-vfx-with-lens-flares-anamorphic-tutorial/
 frame_count: 13
 ---
@@ -93,27 +93,66 @@ frame_count: 13
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Anamorphic lens simulation for CG renders using Nuke compositing. Three techniques: (1) Anamorphic bokeh from World Depth pass using ZDefocus node with custom kernel texture; (2) lens flare footage over-plus composite with 2-keyframe parallax animation; (3) automatic lens flare generation using Convolve node — keyer isolates highlights → Convolve applies lens texture to every bright pixel, no tracking required. UE action: disable DoF in camera, render World Depth pass for Z-depth use in Nuke.
 
 ### Summary
-[PENDING EXTRACTION]
+17-minute tutorial by Josh Toonen teaching three-step anamorphic lens recreation for CG renders (from UE or elsewhere) in Nuke. Step 1: disable DoF in UE camera → render World Depth pass → in Nuke: ZDefocus node + custom oval bokeh kernel texture → change filter from "Disk" to "Image" = anamorphic oval bokeh. Step 2: download real lens flare footage → Frame Hold node → Merge (operation: Plus, not Over) → Crop with softness 100 → animate with 2 keyframes for parallax; 3D option: export UE camera to Nuke, attach lens flare to Image Plane node at close distance. Step 3: automated Convolve technique used at ILM on X-Men Dark Phoenix/Spider-Man 2: Keyer node isolates bright pixels → Convolve applies lens flare texture per bright pixel = auto anamorphic flare on every light source without tracking. Advanced: multiple Convolve layers at different scales, inverse motion (Transform rotate 180°) for secondary "ghost" flares. SpotFlare node for additional effects.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **UE render prep (for Nuke DoF)**:
+   - Camera in UE: disable Depth of Field / set Focus Distance to very large value (F16 equivalent)
+   - MRQ: render beauty pass (no DoF) + World Depth pass (Scene Depth World Units)
+   - Result: perfectly sharp EXR with embedded Z-depth channel
+2. **Anamorphic bokeh in Nuke (ZDefocus)**:
+   - Add ZDefocus node → connect EXR → set Depth Channel to World Depth (red channel)
+   - Set focal point (clickable in viewer) → drag focus plane through animation
+   - Change Filter Type from "Disk" → "Image" → plug in custom oval bokeh kernel texture
+   - Result: anamorphic oval bokeh matching real lens
+   - Alt: Convolve node for global bokeh effect without Z-depth tracking
+3. **Lens flare composite (footage)**:
+   - Download real anamorphic lens flare footage (tutorial includes free pack)
+   - Frame Hold node → hold a single interesting frame
+   - Crop node → set Softness to 100 (feathered edges)
+   - Merge node → plug lens flare over background → change operation to **Plus** (not Over — all light is additive)
+   - Animate position: set 2 keyframes on Transform → slight downward movement over shot = parallax
+4. **Lens flare composite (3D camera method)**:
+   - Export UE camera animation → import into Nuke as Camera node
+   - Create Image Plane node → plug in lens flare crop
+   - Set Image Plane distance to very close value (near lens) → automatic 3D parallax based on camera animation
+5. **Automated Convolve technique (no tracking)**:
+   - Add Keyer node → isolate only the brightest highlights in the UE render (bright lights only)
+   - Pre-multiply the keyed result → clean, crisp highlight mask
+   - Add Convolve node → Image input: lens flare texture; Source input: highlight mask
+   - Result: anamorphic flare appears on every bright pixel automatically, driven by the render itself
+   - Used by ILM on X-Men Dark Phoenix and Spider-Man 2 (Electro lightning bolts)
+6. **Advanced Convolve stacking**:
+   - Add multiple Convolve passes at different scale values (e.g., scale = 4 for secondary distant flare)
+   - Add Transform (rotate 180°) before Convolve for inverse ghost flares (opposite side of frame)
+   - SpotFlare node: squash + highlight clamping + streak line for additional contrast
+   - Combine all layers with Plus merge operations
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Camera DoF** — must be disabled in UE camera settings before rendering; enables clean sharp plate for post-DoF in Nuke; if DoF rendered in UE, Nuke DoF doubles up and blurs unrealistically
+- **World Depth render pass** — Scene Depth World Units from MRQ Additional Post Process Materials; provides per-pixel depth data for ZDefocus node in Nuke; 16-bit EXR; known edge artifact issue (see MRQ Part 2)
+- **MRQ subsampling** — recommended with World Depth; 16-64 temporal samples for clean motion blur; Cryptomatte passes slow with subsampling
+- **Camera export to Nuke** — UE camera animation can be exported and imported into Nuke as a Camera node; UnrealReader (Nuke 13.2+) handles this automatically
+- **ZDefocus node (Nuke)** — applies depth-of-field using Z-depth channel; Filter Type: Image → uses custom bokeh kernel; focal point animatable per shot
+- **Convolve node (Nuke)** — applies a texture to every pixel proportional to pixel brightness; core of automated anamorphic flare technique; no tracking needed
+- **Merge: Plus operation** — lens flares composite as additive (+), not alpha-over; "all light is additive" principle
+- **Anamorphic lens artifacts** — horizontal streak across frame; secondary "ghost" flares on 180°-opposite side of frame; oval/elliptical bokeh; multi-color artifacts (orange/blue/shifting RGB)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate. UE setup (disable DoF, render World Depth) is simple. Nuke compositing requires familiarity with node graph, color operations, and Merge/Convolve nodes. The Convolve auto-flare technique is powerful but requires understanding of keying and node chaining.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (render source; same World Depth pass available in UE4.26+)
 
 ### Tags
-[PENDING EXTRACTION]
+lens-flares, anamorphic, compositing, nuke, bokeh, z-depth, post-processing, vfx, cinematics, depth-of-field
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `how-to-render-passes-with-the-movie-render-queue-unreal-engine-426.md` — World Depth pass setup in MRQ
+- `how-to-make-unreal-look-more-cinematic.md` — cinematic rendering techniques including lens effects
+- `intro-to-unrealreader---nuke-132.md` — direct UE→Nuke pipeline via UnrealReader (streams MRQ renders to Nuke live)
