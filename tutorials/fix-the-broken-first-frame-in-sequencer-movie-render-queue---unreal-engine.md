@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=lXcerW59onA
 author: William Faucher
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [sequencer, movie-render-queue, first-frame, bug-fix, camera-cut-track, rendering, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/fix-the-broken-first-frame-in-sequencer-movie-render-queue---unreal-engine/
 frame_count: 3
 ---
@@ -43,27 +43,32 @@ frame_count: 3
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+One-frame fix for Sequencer/MRQ broken first frame: extend the Camera Cut Track one frame before the sequence in-point. Applies to any starting frame, not just frame 0.
 
 ### Summary
-[PENDING EXTRACTION]
+William Faucher reveals the stupidly simple fix for the classic Sequencer first-frame corruption bug (camera at wrong position on frame 0 or any first frame). Previous workaround was 5-frame handles at start. The actual fix: in Sequencer, grab the Camera Cut Track clip and drag its start point one frame to the left of the actual sequence in-point (the green line). Works for both Sequencer preview and Movie Render Queue. Applies regardless of starting frame number (frame 0, frame 10, etc.).
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Reproduce issue: Sequencer → render → frame 0 (or any first frame) shows camera at wrong position
+2. In Sequencer timeline: find the Camera Cut Track (top track with camera name)
+3. Grab left edge of the Camera Cut Track clip → drag it one frame to the LEFT (so it starts 1 frame before the green in-point marker)
+4. Re-render → first frame now correct
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Camera Cut Track**: must start 1 frame before sequence in-point; by default starts at in-point (causes broken first frame); this applies to both Sequencer playback and MRQ renders
+- **Alternative workaround (before fix was known)**: add 5-frame handles at start and end of shot; discard the handle frames in post
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner — one-slider fix
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (also applies to UE4)
 
 ### Tags
-[PENDING EXTRACTION]
+[sequencer, movie-render-queue, first-frame, bug-fix, camera-cut-track, rendering, beginner]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un.md (full MRQ render setup)
+- create-spectacular-accumulation-depth-of-field-in-unreal-engine-58.md (Movie Render Graph in 5.8)

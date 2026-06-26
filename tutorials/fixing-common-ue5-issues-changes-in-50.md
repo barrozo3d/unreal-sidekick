@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=wTYM9TfckOQ
 author: William Faucher
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.0"
+tags: [lumen, reflections, ray-tracing, translucency, glass, nanite, path-tracing, project-settings, rendering, troubleshooting, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/fixing-common-ue5-issues-changes-in-50/
 frame_count: 10
 ---
@@ -78,27 +78,42 @@ frame_count: 10
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+UE 5.0 migration troubleshooting: project settings for hardware RT + Lumen combo, reflection quality options (Lumen vs. Hit Lighting vs. Hardware RT trade-offs), fixing glass refraction with ray-traced translucency, Nanite + path tracer proxy caveat, and Quixel Bridge reinstall.
 
 ### Summary
-[PENDING EXTRACTION]
+William Faucher addresses common UE 5.0 migration issues. Key clarification: Lumen works without RTX (GTX 1070+). RT reflections require project setting changes. Three reflection choices: (1) default Lumen (soft, GI-accurate), (2) Lumen Hit Lighting (sharper, loses multi-bounce), (3) Hardware RT Standalone (crispest, loses GI in reflections — fix with Max Bounces=5 + Max Roughness=1). Glass refraction: PPV → Translucency → Ray Tracing. Path Tracer: Nanite proxy caveat. Quixel Bridge: must reinstall as plugin from Launcher. 15 minutes, UE 5.0 specific but largely applies to UE 5.x.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Enable hardware RT + path tracing:** Project Settings → Rendering → Dynamic GI=Lumen; Reflections=Lumen; Support Hardware Ray Tracing=true; Lumen tab → Use Hardware Ray Tracing When Available=true; Path Tracing=true; search "DirectX" → DirectX 12 + DirectX 11/12 SM5 = enabled; accept Skin Cache when prompted; restart
+2. **Quick scene setup (Lumen):** Window → Environment Light Mixer → create: Skylight, Atmospheric Light 0, Sky Atmosphere, Volumetric Fog, Height Fog; Skylight → Real-Time Capture=true; Ctrl+L to move sun
+3. **Improve Lumen reflection sharpness:** PPV → search "Lumin" → Lumen section; Reflections Quality=2 (minor); Ray Lighting Mode → Hit Lighting for Reflections (much sharper — but loses mirror-on-mirror bounces)
+4. **Hardware RT reflections:** PPV → Reflections Method → Standalone Ray Traced (deprecated); sharper/crisper; loses GI in reflections; fix multi-bounce: RT Reflections section → Max Bounces=5; Max Roughness=1; Samples Per Pixel=10 (reduce noise); trade-off: worse scene GI integration vs. Lumen
+5. **Ray-traced glass refraction:** PPV → Translucency → Type → Ray Tracing; requires hardware RT GPU; note: glass shadows and caustics only work in Path Tracer (not real-time lit mode)
+6. **Path Tracer:** lit dropdown → Path Tracing; Nanite meshes = traced on proxy not high-res (same for RT shadows + virtual shadow maps); requires DirectX 12
+7. **Quixel Bridge reinstall:** Epic Launcher → Library → search "Bridge" → install to target engine version → restart UE
+8. **Nanite + hardware RT caveats:** RT shadows + Standalone RT reflections trace Nanite proxy mesh (not high-res Nanite geo); use Lumen's virtual shadow maps for Nanite compatibility
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Hardware RT Project Settings**: Support Hardware Ray Tracing + Use HW RT When Available (Lumen tab) + Path Tracing checkbox + DirectX 12
+- **PPV Lumen Reflections**: Quality slider (minor), Ray Lighting Mode: Project Default vs. Hit Lighting for Reflections (sharper, no multi-bounce)
+- **PPV Reflections Method**: Lumen (default, GI-accurate) vs. Standalone Ray Traced (crisp, no GI in reflections); deprecated term but still works
+- **PPV Ray Trace Reflections section**: Max Bounces, Max Roughness, Samples Per Pixel (denoise tradeoff)
+- **PPV Translucency Type**: Raster (default, broken glass in UE5) vs. Ray Tracing (correct refraction, needs RT GPU)
+- **Nanite + RT caveat**: hardware shadows, reflections, and path tracer all trace proxy mesh not Nanite virtual geo; use Lumen + virtual shadow maps for Nanite scenes
+- **Glass material basics**: Base Color=0, Specular=1, Roughness=0.05, Opacity=0.1, Refraction=1.5 (IOR); Blend Mode=Translucent; Lighting Mode=Surface Forward Shading
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner — project settings focused, practical fixes
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.0 (most settings still apply in UE 5.x)
 
 ### Tags
-[PENDING EXTRACTION]
+[lumen, reflections, ray-tracing, translucency, glass, nanite, path-tracing, project-settings, rendering, troubleshooting, beginner]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- demystifying-the-skylight-unreal-engine-4-5.md (skylight setup for scene integration)
+- easiest-way-to-get-cinematic-renders-in-unreal-engine---path-tracing.md (Path Tracer deeper setup)
+- fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro.md (Nanite + Path Tracer fix)
