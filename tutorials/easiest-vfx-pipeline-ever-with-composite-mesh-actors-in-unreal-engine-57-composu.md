@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=6he5ag3nLjs
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.7"
+tags: [composure, virtual-production, camera-projection, composite-mesh-actors, live-feed, shadow-reflection-layer, media-player, vfx, real-time-compositing, advanced]
+extraction_status: complete
 frames_dir: tutorials/frames/easiest-vfx-pipeline-ever-with-composite-mesh-actors-in-unreal-engine-57-composu/
 frame_count: 10
 ---
@@ -78,27 +78,55 @@ frame_count: 10
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+UE 5.7 Composure + Composite Mesh Actors: project a live camera feed (or image sequence/media player) onto simple 3D geometry representations of a real room; insert CG objects that cast real-time ray-traced shadows and receive bounce light from the projected plate; Post Process Volume affects only CG elements in composure camera view.
 
 ### Summary
-[PENDING EXTRACTION]
+Dean Yurke walks through the new UE 5.7 Composure system (Composite Mesh Actors approach) — a real-time camera projection pipeline for virtual production without expensive camera tracking hardware. The workflow: set up a Composite Actor (one per level), assign a Cine Camera, configure a Media Player + Media Texture for the live feed, build a rough geometry approximation of the real room, assign lit materials to geometry via the Plate Layer, add CG characters to the Shadow/Reflection Layer, and set lights to ray-traced. Key tips: lock camera to prevent accidental moves; `r.tonemapper.sharpen 0` to remove engine default sharpening that creates composite edge artifacts; material roughness editable via Level Sequence (workaround); Post Process Volume Bloom/CA/fog only affect CG elements when viewed through composure camera. 33 minutes, intermediate/advanced.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Enable Composure:** Window → Virtual Production → Composure → open Composure panel
+2. **Place Composite Actor:** Composure panel → Place Composite Actor; one composite per level
+3. **Camera setup:** Add → Cinematic → Cine Camera Actor; Composite Actor Details → Camera → assign camera
+4. **Media Player + Texture (live/file feed):**
+   - Content Browser → RMB → Media → Media Player → check "Create Media Texture" → name both (e.g., Demos + MT_MediaTexture_Demos)
+   - Open Media Player → Video folder → select source (HDMI, webcam, or load image sequence clips)
+   - Must keep Media Player window open for live feed to work
+   - For image sequences: use Image Media Source; for live: Video input
+5. **Geometry room approximation:** Add → Shapes → Cube/Plane → scale to match real room walls/floor/ceiling (eyeball to camera's FOV); use reference character (SKM_Manny) for scale
+6. **Assign geometry to Plate Layer:**
+   - Composure panel → Plate Layer → drag objects in (or + button → multi-select from outliner) 
+   - RMB on each object → Apply Lit Material (enables bounce light onto scene) or Apply Unlit Material (just projection, no light interaction)
+   - Plate Layer → Texture slot → assign MT_MediaTexture
+7. **Shadow/Reflection Layer:** drag CG characters/objects into this layer → they cast ray-traced shadows onto projected geometry; requires: select light → Details → Ray Tracing = Enabled
+8. **Fix edge artifacts:** Shadow/Reflection Layer → Auto Configure Actors = Hidden (removes hard noisy edges)
+9. **Fix engine sharpening artifact:** console → `r.tonemapper.sharpen 0` (default=2 causes edge noise on composited geometry)
+10. **Lock camera:** RMB camera → Transform → Lock Actor Movement (prevents accidental viewport camera moves)
+11. **Material roughness workaround:** Level Sequence → add static mesh → Static Mesh Component → World Material → + → reveals Metallic/Roughness/Specular sliders (direct material params not exposed in composite mat instances yet)
+12. **Post-Process Volume:** Add PPV → Infinite Extent=true; Bloom/Chromatic Aberration/Height Fog affect only CG elements when viewed through composure camera; works globally when outside camera view
+13. **Play mode media reactivation:** if live feed stops in Simulate mode → Composure panel → reactivate media source
+14. **Rectilinear lens tip:** use rectilinear camera lens (not fisheye) to minimize distortion correction needed; if using fish-eye, must pre-distort plate and add matching distortion back on CG
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Composite Actor (UE 5.7)**: one per level; has Camera slot + three sub-layers: Main Render Layer, Plate Layer, Shadow/Reflection Layer
+- **Plate Layer**: projects assigned texture (media or still) through camera onto any geometry in the list; unlit=projection only; lit=projection contributes to scene GI/bounce
+- **Shadow/Reflection Layer**: CG actors added here cast shadows onto projected plate geometry; requires ray-traced lighting (not default)
+- **Media Player + Media Texture**: container for live feed / file media / image sequences; must stay open (window) for live signals
+- **Composite Mesh Material (lit/unlit)**: applied via RMB in Composure panel; lit version derives bounce light from plate; roughness/metallic not directly editable in mat instance (use Level Sequence workaround)
+- **`r.tonemapper.sharpen 0`**: removes engine default sharpen (value 2) that causes composite edge noise
+- **Shadow/Reflection Layer → Auto Configure Actors = Hidden**: clears hard edge artifacts around shadow casters
+- **Post Process Volume in Composure**: Bloom, CA, Fog affect CG-only when viewed through composure camera; viewing outside camera affects full scene
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced — virtual production setup; requires understanding of camera matching, media players, and ray tracing
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.7
 
 ### Tags
-[PENDING EXTRACTION]
+[composure, virtual-production, camera-projection, composite-mesh-actors, live-feed, shadow-reflection-layer, media-player, vfx, real-time-compositing, advanced]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- green-screen-integration-in-unreal-engine-57-virtual-production-got-even-better-.md (Composure EP2 — green screen extraction with camera projection)
+- green-screen-cards-are-dead-camera-projections-in-unreal-engine-change-everythin.md (camera projection for green screen alternatives)

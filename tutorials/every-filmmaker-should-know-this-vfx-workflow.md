@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=g4DIDafH4lM
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [compositing, nuke, stock-footage, cryptomatte, position-matte, vfx, cinematics, color-grading, sequencer, data-passes, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/every-filmmaker-should-know-this-vfx-workflow/
 frame_count: 10
 ---
@@ -78,27 +78,49 @@ frame_count: 10
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Compositing pipeline for UE5 cinematic renders in Nuke: (1) stock footage smoke/atmosphere with image planes in 3D space + camera FBX export from Sequencer, (2) color grading smoke to match scene light color, (3) Cryptomatte for character isolation from UE's Object ID render pass, (4) Position Matte (P-MAT) from World Position pass for soft 3D-space masks, (5) "film look" (diffusion, vignette, chromatic aberration, grain) in Nuke.
 
 ### Summary
-[PENDING EXTRACTION]
+Josh Toonen (10-year compositing artist/supervisor on Star Wars, Spider-Verse) breaks down his 4-step compositing workflow for UE5 filmmakers in Nuke. Step 1: stock footage smoke/atmosphere placed in 3D space using Nuke image planes + UE camera exported as FBX (Sequencer → RMB camera → Export FBX); time-offset stock footage clips for organic randomness; foreground-midground-background depth layering; keep character's face clear using "3-triangle" rule. Step 2: color grade smoke to match scene lighting (not gray — smoke takes color of lights). Step 3: Cryptomatte for character masking using UE Object ID render pass (pixel-perfect, motion-blur-aware). Step 4: P-MAT (position matte) from World Position pass for soft 3D gradient masks for interactive light effects. Film look: lens diffusion (glow/falloff), vignette, chromatic aberration, monochromatic grain. Works in Nuke, After Effects, DaVinci Resolve.
 
 ### Key Steps
-[PENDING EXTRACTION]
+**UE5-side (render setup):**
+1. Export camera FBX from Sequencer: RMB on camera → Export → FBX; import into Nuke for 3D camera matching
+2. Render data passes in MRQ: Object ID pass (→ Cryptomatte in Nuke/AE), World Position pass (→ P-MAT for spatial masks)
+
+**Compositing (Nuke):**
+3. **Stock footage setup:** import smoke/steam elements (Action Essentials); Nuke: press Tab → Image Plane node → plug in footage + UE camera FBX → placed in 3D space; M key to merge layers; T key for transform node; adjust Distance per image plane (foreground/mid/background depth)
+4. **Time offset:** add TimeOffset node per stock element → stagger start frames to break synchronization and add organic randomness
+5. **3-triangle composition rule:** keep character face area clear; load smoke into side triangles only; don't cover subject with atmosphere
+6. **Color grade smoke:** G key → Grade node; Multiply → color wheel → match smoke to scene light color (smoke takes color of lights, not gray); second ColorCorrect node (CC) for saturation shifts; roto mask for localized color zones; blur mask for soft edge; embed roto into Image Plane for auto-tracking with camera
+7. **Cryptomatte (character isolation):**
+   - Must render Object ID pass from UE MRQ
+   - Nuke: CryptomatteNode → "Picker Add" eyedropper → Ctrl+click on character parts in viewer → builds matte from per-object IDs including motion blur
+   - Plug matte into Grade node → Multiply (brighten) + Gamma (contrast); animate Mix control to fade in/out over shot
+8. **P-MAT (position matte, soft spatial mask):**
+   - Must render World Position pass from UE MRQ
+   - Nuke: PMatte node → plug in World Position data → Source = world position channel → Ctrl+click in viewer to select 3D location → outputs soft spherical gradient centered on that point in 3D space
+   - Adjust Uniform Scale (radius); X/Y/Z scale; plug into Grade Mask for localized color changes
+   - Animate Mix to strobe light on/off (keyframe on/off for emergency lights etc.)
+9. **Film look:** diffusion (glow falloff ~0.75 mix); vignette (darken edges, focus center); chromatic aberration (color wheel for color cast, saturation = intensity); grain (0.75; color=digital noise vs. 1.0=monochromatic film grain)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Sequencer → Export Camera FBX:** RMB on camera track → Export → FBX → import in Nuke/AE for 3D camera matching; enables 3D-tracked stock footage placement
+- **Object ID Render Pass (MRQ):** enables Cryptomatte in Nuke/AE; pixel-perfect matte with motion blur; must enable Object ID AOV in MRQ settings
+- **World Position Render Pass (MRQ):** contains 3D world-space position per pixel; enables soft spatial gradient masks (P-MATs) in Nuke for art-directed grading zones
+- **EXR output:** required for multi-pass render (Object ID + World Position as additional channels); enable in MRQ output settings
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate — Nuke knowledge assumed; UE side is simple; compositing concepts are broadly applicable to AE/Resolve too
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+[compositing, nuke, stock-footage, cryptomatte, position-matte, vfx, cinematics, color-grading, sequencer, data-passes, intermediate]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un.md (MRQ render passes, EXR output)
+- create-muzzle-flash-gun-fx-for-unreal-5-cinematics.md (action VFX compositing by same author Josh Toonen)
