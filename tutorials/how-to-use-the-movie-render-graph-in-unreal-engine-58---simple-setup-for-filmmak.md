@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=ivE8Bg0EaBo
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5.8"
+tags: [movie-render-graph, mrg, mrq, rendering, exr, multi-camera, sequencer, filmmaking, linear-srgb, anti-aliasing]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-use-the-movie-render-graph-in-unreal-engine-58---simple-setup-for-filmmak/
 frame_count: 11
 ---
@@ -33,27 +33,72 @@ frame_count: 11
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Movie Render Graph (MRG) setup in UE5.8 as the required replacement for Movie Render Queue (MRQ) when using multiple cameras. MRQ in UE5.7/5.8 has a subframe tick bug where frames for cameras after the first are missing from disk. MRG fixes this. Minimal filmmaking setup: EXR DWAA + Disable Tone Curve + Sampling Method node (temporal samples = 8) + Camera Settings (Frame Open shutter timing).
 
 ### Summary
-[PENDING EXTRACTION]
+11-minute tutorial by Dean Yurke on migrating from Movie Render Queue to Movie Render Graph in UE5.8. Motivation: MRQ bug where second+ cameras in a multi-camera sequence appear to render in the UI but frames are missing from disk. MRG resolves this. Tutorial shows the simplest production-ready MRG setup: EXR Sequence (DWAA compression, camera name prefix), no render layers, linear sRGB (disable tone curve), temporal samples via separate Sampling Method node, Frame Open shutter timing for video compositing. DJV recommended as free EXR sequence viewer.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Identify MRQ bug** — if rendering multi-camera sequence in UE5.7/5.8: first camera renders OK, subsequent cameras show progress in UI but frames are missing from disk; fix = use Movie Render Graph
+2. **Open MRG from Sequencer**:
+   - Sequencer → clapperboard button → render button → small down arrow → Movie Render Graph
+   - Default graph opens; do NOT edit the default
+3. **Create new MRG asset**:
+   - Down arrow again → Movie Render Graph → Create New Asset → choose save location → save
+   - Double-click new asset to open it
+4. **Default graph structure** — Warm Up (64 frames) → Global Game Override → Global Output Settings → Deferred Renderer → JPEG Sequence → Render Layer (Layer 1)
+5. **Replace JPEG with EXR**:
+   - Drag pin from Deferred Renderer → search "EXR" → select EXR Sequence → connect
+   - Delete the JPEG Sequence node (select → Delete key)
+6. **Configure EXR node**:
+   - File Name Format: delete `{layer_name}`; keep camera name and frame number; change `{sequence_name}` to `{camera_name}` (same variable names as legacy MRQ)
+   - Compression: change from Piz → **DWAA** (DreamWorks Animation codec; more compact)
+7. **Disable Render Layer** — click Render Layer (Layer 1) node → turn it off (not needed for simple renders)
+8. **Global Output Settings**:
+   - Output Directory: set render output folder
+   - Output Frame Rate: 24fps
+   - Zero Padding: enable (for proper frame numbering)
+9. **Disable Tone Curve** (linear output):
+   - Click Deferred Renderer node
+   - Enable "Disable Tone Curve" = on (renders in linear sRGB → more color latitude for DaVinci Resolve)
+10. **Add Temporal Samples** (NOT in Deferred Renderer panel):
+    - Drag pin from Global Output Settings area → search "sampling method" → select Sampling Method node → connect into chain
+    - Temporal Sample Count: set to 8 (adjust based on quality/speed needs)
+11. **Camera shutter timing (Frame Open)**:
+    - Drag pin → search "camera settings" → Camera Settings node → connect
+    - Shutter Timing: change from **Frame Center** → **Frame Open**
+    - Critical for video media plates in scene — prevents double imaging (frame center mixes adjacent frames)
+12. **Save graph** → Render Local
+13. **Verify output** — check disk for all camera folders/files; DJV (free EXR viewer) for playback review
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Movie Render Graph (MRG)** — UE5.7+ node graph render system; replaces Movie Render Queue; fixes multi-camera frame-drop bug; created as a UE asset (save to Content Browser)
+- **MRQ multi-camera bug** — UE5.7/5.8: cameras after the first appear to render in UI but frames are absent from disk; subframe tick issue; fixed by using MRG
+- **EXR Sequence node** — MRG output format; file name format: `{camera_name}_{frame_number}`; compression: DWAA (compact) or Piz (lossless)
+- **DWAA compression** — DreamWorks Animation Version A; more compact than Piz; production standard for VFX workflows
+- **Render Layer** — MRG node for multi-pass/multi-layer EXR output; disable for simple single-beauty renders
+- **Global Output Settings** — MRG node: output directory, frame rate, zero padding
+- **Deferred Renderer** — MRG node: raster/standard renderer; contains "Disable Tone Curve" setting; spatial sample settings; does NOT contain temporal samples
+- **Disable Tone Curve** — Deferred Renderer setting; enables linear sRGB output (no tonemapping); apply color transform in DaVinci Resolve at import; gives more latitude for color grading
+- **Sampling Method node** — SEPARATE MRG node (not inside Deferred Renderer); drag pin from chain → search "sampling method"; set Temporal Sample Count = 8
+- **Camera Settings node** — SEPARATE MRG node; drag pin → search "camera settings"; contains Shutter Timing: Frame Center (default, causes double-imaging) vs **Frame Open** (correct for video media plates)
+- **Frame Open shutter timing** — loads video frame at frame start and holds until frame end; Frame Center blends between adjacent frames mid-render = double imaging / ghosting
+- **DJV** — free EXR sequence viewer (donation-ware); alternative to expensive RV; recommended for reviewing render output
+- **VFX frame convention** — start frames at 1001 (not 0) for negative-frame headroom; optional, mentioned as personal preference
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate. MRG node graph is more complex than MRQ but follows logical chain. Critical: Temporal Samples and Camera Settings are separate nodes that must be manually added — not embedded in main render nodes.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5.8 (MRG also available in UE5.7; same multi-camera bug exists in both; UE5.8 preview version used in tutorial)
 
 ### Tags
-[PENDING EXTRACTION]
+movie-render-graph, mrg, mrq, rendering, exr, multi-camera, sequencer, filmmaking, linear-srgb, anti-aliasing
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `improve-your-renders-with-movie-render-queue-part-1---goodbye-sequencer-4.md` — original MRQ setup tutorial (now legacy in UE5.7+)
+- `improve-your-renders-with-movie-render-queue-part-2---five-things-you-need-to-kn.md` — MRQ tips
+- `the-2025-guide-to-rendering-in-unreal-engine-5.md` — comprehensive UE5 rendering overview
+- `movie-render-graph-intro-unreal-engine-animation-hub.md` — likely another MRG intro tutorial

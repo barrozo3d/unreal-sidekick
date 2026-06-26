@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=Wb9hJqPcAwQ
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [materials, texture-coordinates, uv-transform, animation, sequencer, material-parameters, lerp, screen-graphics]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-transform-texture-coordinates-in-unreal-engine-materials-tutorial/
 frame_count: 10
 ---
@@ -78,27 +78,69 @@ frame_count: 10
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+UE material UV transform pipeline: Texture Coordinate → Add (translation) → Custom Rotator (rotation) → Scale UVs by Center (UE5 only) → texture sample UV input. Each transform is a Constant 1 Parameter for Sequencer animation. Combine animated texture with existing object material via Lerp + B&W mask texture.
 
 ### Summary
-[PENDING EXTRACTION]
+15-minute tutorial by Dean Yurke on animating texture coordinates (translate, rotate, scale) in UE materials and driving them via Sequencer. The full chain is: Texture Coordinate → Add node (translation via Append of trans_U/trans_V parameters) → Custom Rotator (rotation parameter) → Scale UVs by Center (scale_U/scale_V parameters) → texture sample UV. Parameters exposed to Sequencer via material instances. Also covers compositing the animated texture over an existing object material using Lerp with a B&W alpha mask to control where the animated texture appears.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Setup** — create plane; create Master Material (MM_plane); import texture; drag texture into material; RGB → Base Color + Emissive; Apply; drag material onto plane
+2. **Texture Coordinate node** — in material editor, drag from UV pin of texture sample → search Texture Coordinate; allows math operations on UV space
+3. **Translation setup**:
+   - Add math node
+   - Drag from Add's A input → search Append (Append Vector) → creates combined UV value
+   - Press 1 → create Constant 1 → right-click → Convert to Parameter → name "trans_U" → connect to Append's A
+   - Press 1 → Constant 1 → Convert to Parameter → name "trans_V" → connect to Append's B
+   - Connect Append output → Add's B input
+   - Texture Coordinate → Add's A input → Add output → texture sample UV
+4. **Texture wrap vs clamp** — in texture sample → triangle expand → Sample Source = Texture → default: Wrap (tiles); change to Clamp for single non-repeating texture instance
+5. **Rotation setup**:
+   - After Add node: drag from Add output → search Custom Rotator → connect Add → UVs input
+   - Press 1 → Constant 1 → Convert to Parameter → name "rotate" → connect to Rotation Angle input
+   - Custom Rotator rotates around center of current UV position (post-translation center, not image origin)
+6. **Scale setup** (UE5 only):
+   - After Custom Rotator: drag output → search "Scale UVs by Center" → connect
+   - For non-uniform scale: Append Vector with two parameters (scale_U, scale_V, both default=1)
+   - For uniform scale: single Constant 1 parameter
+   - Connect Append → Scale UVs by Center scale input
+7. **Final UV chain order** — Texture Coord → Add (translate) → Custom Rotator (rotate) → Scale UVs by Center (scale) → texture sample UV input
+8. **Create Material Instance** — right-click master material → Create Material Instance → name (MI_plane); apply MI to object; double-click MI to access parameter sliders live
+9. **Animate in Sequencer**:
+   - New Level Sequence; drag plane into Sequencer timeline
+   - In track: + → Component → Static Mesh Component → Material Parameter Collection → select parameter (e.g., "rotate")
+   - Set keyframe at start; advance timeline; set value; keyframe again; plays animated UV transform
+10. **Overlay texture on existing material (Lerp)**:
+    - Copy UV transform node group → paste into target master material
+    - Add Linear Interpolate node: existing base color → A; transform texture output → B
+    - Connect Lerp output → base color pin
+    - Apply → animated texture appears blended over original
+11. **Alpha mask** — import B&W mask texture (made externally); drag into material → connect single channel (R/G/B) → Lerp Alpha input; limits where animated texture appears (white = show animated texture, black = show original)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Texture Coordinate node** — exposes UV space for mathematical manipulation; connects to texture sample UV input
+- **Add node (math)** — adds offset to UV coordinates; connected after Texture Coordinate for translation
+- **Append Vector** — combines two scalar values (U and V offsets) into a 2D vector for the Add node's B input
+- **Constant 1 → Convert to Parameter** — right-click on Constant 1 → Convert to Parameter; names it and exposes it to material instances and Sequencer
+- **Custom Rotator** — rotates UV space around current center; rotation angle is 0-1 (not degrees); 0.5 = 180°
+- **Scale UVs by Center** — UE5-only node; uniform or non-uniform UV scale; default value = 1 (no scale); pair with Append for independent U/V control
+- **Texture sample → Clamp** — triangle expand on texture sample → Sample Source → change Wrap → Clamp; prevents tiling
+- **Material Instance** — exposes parameters as sliders; right-click master material → Create Material Instance; enables live preview of UV animation
+- **Sequencer material parameter track** — Sequencer: actor → Component → Static Mesh Component → Material Parameter Collection → select parameter; keyframeable; drives material parameter values over time
+- **Linear Interpolate (Lerp)** — blends two textures based on alpha; A = original, B = new; alpha = mask (0-1 or B&W texture)
+- **Alpha mask** — B&W texture used as Lerp alpha to restrict where animated texture renders; created in external program; single channel (R/G/B) fed to alpha
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate. Requires basic material node knowledge. UV transform chain is reusable once set up. Sequencer integration and Lerp overlay add complexity.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 ("Scale UVs by Center" node is UE5 only; translation + rotation work in UE4 also)
 
 ### Tags
-[PENDING EXTRACTION]
+materials, texture-coordinates, uv-transform, animation, sequencer, material-parameters, lerp, screen-graphics
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `introduction-to-substrate-materials-unreal-engine-57.md` — advanced UE5 material system
+- `how-to-edit-megascans-and-poly-haven-materials-easily---ue5-plugin.md` — non-destructive material editing via Polygonflow Dash plugin
+- `ue5-curve-editor-secrets-buffer-curves-smart-snap-keyframe-tricks.md` — Sequencer/Curve Editor techniques for animation
