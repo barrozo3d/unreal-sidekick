@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=jAz4Lb93gwY
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [lighting, character, portrait, cinematics, practical-lights, rectangle-light, workflow, technique, upstage-lighting, shadows]
+extraction_status: complete
 frames_dir: tutorials/frames/the-1-skill-you-need-for-lighting-in-ue5/
 frame_count: 11
 ---
@@ -83,27 +83,76 @@ frame_count: 11
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+**Upstage Lighting** for character/portrait work in UE5. Two fundamentals: light **direction** (position/location of the light source) and **size** (source area → soft vs hard shadows). Upstage rule: place key light behind the **180-degree eye line** (the invisible line where the character is looking). This guarantees a Rembrandt-style shadow triangle under the eye and prevents flat studio lighting. Pair with a **light rig actor** (empty actor parent → all lights as children) so you can rotate the entire rig around the character quickly.
 
 ### Summary
-[PENDING EXTRACTION]
+18-minute Josh Toonen tutorial (Hollywood lighting TD; Star Wars, Spider-Verse). Argues that 3-point lighting is too loose a framework — instead introduces **Upstage Lighting** as the #1 skill for character lighting in CG. Demonstrates using a light rig actor (parent empty actor) with attached movable lights to iterate quickly. Covers: point light vs spotlight (point to find direction, spotlight to constrain spread); rectangle lights (soft shadows from large source area, barn doors to focus, eye catch light in characters' eyes); Source Radius and Source Length to make point/spot lights behave like area lights; **practicals** (in-frame light sources that motivate off-camera key lights). Mindset: make the character the brightest thing; fewer lights is better; study film sets and real lighting rigs for reference.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Create a Light Rig Actor**:
+   - Add an empty actor to the scene (Add → Empty Actor); name it "Light Rig"
+   - Add lights (Point Light, Spot Light, Rect Light) and set them to **Movable**
+   - Drag-attach lights as children under the Light Rig actor
+   - Rotate the Light Rig parent to orbit lights around the character; translate to adjust distance/height
+2. **Color temperature**:
+   - Use **Use Temperature** toggle on lights; warm range (2,000-2,500K) for practical/fire lights on backgrounds
+   - CAUTION: very warm temperatures (2000K) make skin tones go extremely orange — reduce saturation if targeting skin
+3. **Point Lights vs Spotlights**:
+   - Point lights spill light everywhere; good for quickly finding light direction
+   - Once happy with position → copy to Spotlight; use outer cone angle to control spill
+   - Starting trick: set Spotlight outer cone to 90° to behave like a point light while finding position; tighten cone once position is locked
+   - Cheat attenuation radius if you want light contained (but physically accurate → set radius ≥ 1000)
+4. **Light size for shadows**:
+   - Smaller source → harder shadows; larger source → softer falloff
+   - **Rectangle Light**: Source Width/Height control; at size 1 = same as point light; increase for soft shadows on face/nose
+   - Mimics softbox or bounce card from film set
+   - **Barn Doors**: set Barn Door Angle to 0 to focus rectangle light beam directionally (like barn door flags on a film light)
+5. **Source Radius on Point/Spot lights**:
+   - Source Radius 50-100 → soft light similar to rectangle light
+   - Source Length → converts point light to a tube light (affects specular reflection shape, not shadow direction)
+   - Check with a chrome ball in scene to see specular reflection shape
+6. **Practicals**:
+   - Add in-frame visible light sources (torches, lamps, etc.) that **motivate** off-camera keys
+   - Reality: torch provides almost no light; off-camera rectangle light does the work, but torch gives visual reason to believe
+   - Eye catch light: rectangle light creates a soft square reflection in character's eyes (matches light source shape)
+7. **Focal point rule**: character (subject) should always be the **brightest element** in the frame; avoid adding bright background lights that compete with the subject
+8. **Upstage Lighting**:
+   - Draw an imaginary 180-degree eye line: the direction the character is looking
+   - Place key light **behind this line** (on the far/upstage side)
+   - Any position behind the line is safe; placement within that zone is taste-based
+   - Close to the character's head → moody and contrasty (Rembrandt)
+   - Further away → softer, flatter
+   - Works for any shot: action, drama, close-up, wide
+9. **Rim / Fill philosophy**:
+   - Rim lights: useful for separating subject from background; use sparingly
+   - Fill lights: can make dark interior setups look like sound stage; often better to skip and use Lumen's GI
+   - Priority: key light placement (upstage) > rim > fill
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Five light types in UE** — Directional Light, Point Light, Spot Light, Rectangle Light, Sky Light; interior scenes primarily use Point/Spot/Rectangle
+- **Light Rig Actor** (empty actor as parent) — rotates all child lights together; faster iteration than moving each light individually
+- **Movable light** — required for Lumen to calculate dynamic GI from this light
+- **Use Temperature** (on all lights) — set color in Kelvin; more realistic and predictable than HSV color picker; warm = 2000-4000K, neutral = 5500-6500K, cool = above 6500K
+- **Rectangle Light → Source Width / Source Height** — physical size of the light surface; directly controls shadow softness (bigger = softer); mirrors diffusion panels / softboxes on film sets
+- **Rectangle Light → Barn Doors** — Barn Door Angle (0 = fully closed/focused) + Barn Door Length; shapes the light output like physical barn door flags on film lights
+- **Point/Spot Light → Source Radius** — makes point lights behave like area lights; raise to 50-100 for soft shadows; visible as yellow sphere in editor
+- **Point/Spot Light → Source Length** — converts the point light into a tube light; changes specular reflection shape on chrome surfaces; does NOT significantly change shadow direction
+- **Practicals** — film term: in-frame visible light sources that serve as diegetic motivation for off-camera lights; essential for naturalistic interior lighting
+- **Upstage Lighting** — key light placed behind the subject's 180-degree eye line; guarantees Rembrandt lighting (triangle shadow under far eye); removes guesswork from key light placement
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner-Intermediate. No technical UE configuration — pure craft/artistic technique. Fundamentals are simple; mastery requires practice and iterating across many different scenes and characters.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (real-time Lumen GI assumed; lighting fundamentals apply to UE4+ as well)
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, character, portrait, cinematics, practical-lights, rectangle-light, workflow, technique, upstage-lighting, shadows
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `recreate-the-lego-movie-style-in-unreal-engine-5.md` — 8 cinematic lighting techniques including bilateral rim lighting and motivated practicals
+- `realistic-and-physical-lighting-in-ue5-the-pbl-workflow.md` — PBL workflow; HDR Viewmode and quantitative lighting calibration
+- `if-i-have-40-mins-to-light-an-environment-in-unreal-engine-5---ill-do-this.md` — exterior PBL practical walkthrough; EV100 curve; directional light placement
+- `the-fastest-way-to-learn-lighting-in-ue5.md` — beginner lighting entry; complements this technique guide

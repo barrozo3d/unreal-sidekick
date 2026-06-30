@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=fVg5ihB8Wdc
 author: William Faucher
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [rendering, mrq, movie-render-queue, anti-aliasing, motion-blur, sampling, exr, color-grading, performance, workflow]
+extraction_status: complete
 frames_dir: tutorials/frames/the-2025-guide-to-rendering-in-unreal-engine-5/
 frame_count: 12
 ---
@@ -88,27 +88,80 @@ frame_count: 12
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Movie Render Queue (MRQ) setup for maximum quality cinematic renders in UE5. Key decisions: **EXR output** with **Disabled Tone Curve** (linear space for color grading); **don't use console variables** (MRQ already maxes cinematic quality); choose **temporal samples** (for motion blur) OR **spatial samples** (for no-motion-blur) — never both; AA method **TSR** (fast, ≤8 samples) or **None** (sharp, 9-15+ samples). Ghost fix for Niagara/physics: double frame rate + MB amount 1.0.
 
 ### Summary
-[PENDING EXTRACTION]
+13-minute William Faucher (EasyFog/EasyMapper/EasySnow plugin author) 2025 MRQ guide. Dispels common misconceptions: console variables are unnecessary (MRQ's Game Overrides already maxes cinematic quality); increasing samples does NOT reduce noise (only improves AA and motion blur quality). Covers proper output settings (EXR + linear space), the spatial vs temporal sample dichotomy, physics/Niagara motion blur ghost fix (double FPS method), TSR vs AA None trade-off. Provides free preset download link (GUMROAD). Credits Matt Workman, Dylan Brown, Sean Commonly's Epic article for technical research.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Enable MRQ plugins**: Edit → Plugins → search "movie render queue" → enable both plugins; restart engine
+2. **Open MRQ**: requires a Level Sequence with camera; click the MRQ button in Sequencer toolbar
+3. **Output settings** (click Settings → gear icon):
+   - Add **Output** tab: Resolution, Directory, File Format
+   - **File Format**: EXR (16-bit, industry standard) for color grading pipeline; JPEG/PNG if you want final viewport look without post pipeline
+4. **Color Output tab** (for EXR pipeline):
+   - Add Color Output tab → enable **Disable Tone Curve** checkbox
+   - This renders in linear space (no tone mapping baked in) → allows color grading in DaVinci/Nuke/Resolve post
+   - Skip this tab if rendering direct-to-JPEG/PNG for immediate use
+5. **Console Variables tab**: generally **don't add any** unless you know exactly what you're doing
+   - MRQ's Game Overrides already maxes out quality variables internally
+   - Useful specific CVars: Screen Percentage, Ray Tracing mode, Nanite Mode; disable denoisers (expert only)
+   - Start with zero CVars; add only when you have a specific identified problem
+6. **Anti-Aliasing tab** (most important):
+   - **Want motion blur?** → Set Temporal Samples (e.g., 9-15); Spatial = 1; don't mix
+   - **No motion blur?** → Set Spatial Samples (e.g., 8-16); Temporal = 1; also set PPV Motion Blur Amount = 0
+   - Use **odd numbers** for temporal samples (ensures sample lands on keyframe for cleaner motion blur)
+   - Don't combine temporal AND spatial — you lose benefits of each
+7. **AA Method choice**:
+   - **TSR (default)**: best at ≤8 samples; diminishing returns above; good for fast renders
+   - **AA = None**: better for fine geometry (power lines, thin branches, leaves); pair with 9-15 temporal samples; William's personal preference for sharpness and predictability
+   - Rule of thumb: 15-31 temporal covers 95-98% of situations; no need for 64-128 unless denoisers disabled
+8. **Ghost fix for Niagara/physics motion blur**:
+   - Problem: physics/Niagara particles show ghost trails in motion blur
+   - Solution A: add more temporal samples (expensive, imperfect)
+   - Solution B (elegant): render at **2× target frame rate** (e.g., 48fps for 24fps delivery) + set PPV Motion Blur Amount to **1.0** (instead of default 0.5 = 180° shutter); bring into timeline at target fps → every other frame skipped → same final motion blur, no ghosting; renders 2× frames but clean results
+9. **Troubleshoot "Too many temporal samples" error**:
+   - No motion blur wanted → set PPV Motion Blur Amount = 0, use spatial samples
+   - Motion blur wanted → reset PPV MB to default; error clears
+10. **Noise troubleshooting** (increasing samples does NOT fix this):
+    - Large low-frequency noise → denoisers (disable via CVar, but increases sample requirement drastically)
+    - Flickering/popping → Lumen quality settings (not MRQ); check Lumen scene settings in PPV
+    - Ray trace reflection noise → per-light shadow samples or Lumen reflection quality in PPV
+11. **Render**: Settings complete → click **Render Local** → frames output to designated directory
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Movie Render Queue (MRQ)** — Plugin (two required: Movie Render Queue + Movie Render Queue Remote); accessed via Sequencer toolbar; replaces Sequencer's built-in render for quality cinematic output
+- **EXR format** — 16-bit HDR; preserves full lighting range for highlights + shadow recovery in color grading; standard VFX pipeline format
+- **Disable Tone Curve** (Color Output tab) — renders in linear light space; prevents tone mapping from being baked into frames; required for proper color grading pipeline
+- **Game Overrides tab** — automatically maxes cinematic quality settings (shadow quality, bloom quality, motion blur quality, etc.); these run **even if you don't add the tab**; Cinematic Quality Settings checkbox is the key
+- **Temporal Samples** — advances the engine simulation forward with each sample to capture different time slices; creates motion blur; smoother with more samples
+- **Spatial Samples** — multiple samples at the same time instant; improves anti-aliasing and edge quality; NO motion blur contribution
+- **Motion Blur Amount (PPV)** — default 0.5 = 180° shutter angle; set to 0 for no motion blur; set to 1.0 for ghost-fix double-framerate trick
+- **TSR (Temporal Super Resolution)** — UE5's default AA method; reconstruction-based upscaling + temporal; best at low sample counts; can show artifacts at high sample counts
+- **AA = None** — disables engine's built-in AA; relies entirely on MRQ spatial/temporal samples for AA and sharpness; more predictable; better for fine detail geometry
+- **Ghost fix (double FPS)**: render at 2× target fps + MB Amount 1.0 → import at target fps → every 2nd frame dropped → identical MB result without ghost artifacts from Niagara/physics
+
+**Sample count guidance:**
+| Goal | Temporal | Spatial | AA |
+|------|----------|---------|-----|
+| Motion blur, fast | 9 (odd) | 1 | TSR |
+| Motion blur, quality | 15 | 1 | None |
+| No motion blur (arch) | 1 | 8-16 | None |
+| Max quality | 31 | 1 | None |
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner-Intermediate. Plugin setup and output settings are straightforward. The temporal vs spatial distinction and ghost-fix workaround require conceptual understanding. Noise troubleshooting is Intermediate.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (MRQ, TSR, Lumen; 2025 edition; plugin name and features as of early 2025)
 
 ### Tags
-[PENDING EXTRACTION]
+rendering, mrq, movie-render-queue, anti-aliasing, motion-blur, sampling, exr, color-grading, performance, workflow
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `the-2026-unreal-engine-to-davinci-resolve-guide---aces-srgb.md` — color pipeline from UE5 render to DaVinci (where EXR linear-space renders are imported)
+- `path-tracer-explained---unreal-engines-underrated-tool.md` — Path Tracer alternative rendering; MRQ Path Tracer tab setup; spatial × temporal for denoising
+- `the-fastest-way-to-learn-lighting-in-ue5.md` — lighting foundations; what to light before rendering
+- `unreal-to-davinci-resolve-workflow---aces-srgb.md` — ACES/sRGB color pipeline for post-processing rendered EXR frames
