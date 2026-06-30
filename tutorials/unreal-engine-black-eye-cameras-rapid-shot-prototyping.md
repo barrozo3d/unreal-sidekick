@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=jhNjKV70uzk
 author: Black Eye Technologies
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [black-eye-cameras, prototyping, workflow, follow, look-at, pov, multi-subject, cinematics, technique]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-rapid-shot-prototyping/
 frame_count: 4
 ---
@@ -33,27 +33,44 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Black Eye Cameras rapid prototyping concept demo: set up Look At + Follow, then simply drag the camera anywhere — no keyframes needed, the shot adapts instantly. Three exotic shot types shown: (1) mount camera on a tracked prop (cube following a path); (2) mount camera inside a character's head (POV-style); (3) flip instantly to the other character. Core message: BEC enables pure directorial ideation without technical overhead.
 
 ### Summary
-[PENDING EXTRACTION]
+2m17s Adam (Black Eye Technologies) rapid shot prototyping demo. Shows how quickly you can try crazy ideas with BEC by removing keyframe overhead. Scenario 1: Look At + Follow camera dragged to various positions in scene — always maintains composition because it knows desired screen size and look-at target. Scenario 2: mount camera on a moving cube → Follow the cube → Look At two characters → tracking prop shot with per-axis damping. Scenario 3: Follow player head bone → Look At other player's head bone → first-person or near-POV camera with viscous weight. Instantly flip to opposite camera. Main value: iteration speed. "Try out crazy ideas" is the entire point.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Set up basic Look At + Follow camera (see overview tutorial)
+2. **Drag camera anywhere in scene** → composition auto-adjusts; no keyframes needed → instant shot test
+3. **Mount on prop**: select any moving prop in scene → set Follow target = that prop; set Look At = two characters → camera rides the prop while compositing on actors
+
+4. **POV-style shot**: Follow → character → **subject: head bone** → camera follows character's head bone position; Look At → other character → **bone: head** → camera inside first character's head looking at other's head
+5. Adjust Follow offset to position camera just ahead of head for proper POV
+6. **Flip sides**: swap Follow and Look At targets → instant reverse angle shot
+
+**Tuning:**
+7. Per-axis damping on Follow → smooth out camera motion while maintaining subject tracking
+8. Zoom damping on Look At → prevents pumping when subjects shift size
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Drag without keyframes** — BEC camera maintains desired composition regardless of physical camera position; drag = instant shot test
+- **Follow target: arbitrary prop** — BEC Follow can follow any actor, not just characters; use for dollies-on-track, crane arms, moving vehicles as camera mounts
+- **Follow bone targeting** — set Follow subject → actor → type bone name (e.g., "head") → camera physically follows that bone's 3D position; enables POV-style shot locked to character's eye level
+- **Look At bone targeting** — same but for rotation; look at specific bone on another character
+- **Per-axis damping** — tune separately for left/right (yaw) vs. up/down (pitch) on Follow module; enables different weights for different motion axes
+- **Instant reverse angle** — swap Follow and Look At targets → immediate opposite camera without new keyframes
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner. The whole point is to remove setup friction.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (Black Eye Cameras)
 
 ### Tags
-[PENDING EXTRACTION]
+black-eye-cameras, prototyping, workflow, follow, look-at, pov, multi-subject, cinematics, technique
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `unreal-engine-black-eye-cameras-overview-tutorial.md` — full BEC system overview; all modules explained
+- `unreal-engine-black-eye-cameras-2-person-combat-side-camera-tutorial.md` — multi-subject follow and look-at in practice
+- `unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics.md` — Follow on vehicle + cinematic composition workflow

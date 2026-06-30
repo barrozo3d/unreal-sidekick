@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=JGnNpbWiT_0
 author: Black Eye Technologies
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [black-eye-cameras, overview, look-at, follow, dynamic-fov, damping, bone-tracking, sequencer, hybrid-workflow, cinematics]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-overview-tutorial/
 frame_count: 11
 ---
@@ -83,27 +83,84 @@ frame_count: 11
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Comprehensive Black Eye Cameras overview covering all major systems: **Look At** (compositional camera rotation with bone targeting, Dynamic FOV, damping per-axis, multiple subjects), **Follow** (positional tracking with damping), **Plate + Pedestal** (realistic pivot point for tripod-like rotation), **Sequencer integration** (multi-camera timeline, cross-blend with Can Blend), and **Hybrid Workflow** (Transform keyframes + Look At auto-rotation + Subject Screen Position track for compositional keyframing).
 
 ### Summary
-[PENDING EXTRACTION]
+20m10s Adam (Black Eye Technologies) comprehensive overview tutorial. Seven major sections: (1) Installation — Fab → project Plugins folder → enable. (2) Look At — eyedropper → actor/bone; blue cube = tracking volume; Dynamic FOV auto-zooms to keep subject at desired % of screen; damping controls; composition presets (rule of thirds buttons). (3) Bone Tracking — type bone name instead of using actor bounds for stable head tracking. (4) Damping — "think in seconds"; pitch/yaw axes separate; 0 = hard pin; high values = very slow/viscous. (5) Multiple Subjects — add multiple Look At targets; each gets blue cube; white cube = combined frame; great for dialogue/cowboy shots with variable-size characters. (6) Plate + Pedestal — sets camera pivot off sensor to fluid-head tripod position; more realistic rotation behavior. (7) Follow — eyedropper → character; default 300 units back; drag camera to position; positional damping for mass/weight. Sequencer: multi-camera timeline; Can Blend for cross-fades (right-click Camera Cuts track); clip order adjustment (right-click clip). Hybrid workflow: Transform track for camera position keys + Look At auto-rotation + Subject Screen Position track for composition keys; bone targeting for zoom-in head shot.
 
 ### Key Steps
-[PENDING EXTRACTION]
+**Installation:**
+1. Fab.com → Buy Black Eye → Library → Add to project; open UE → Edit → Plugins → Black Eye → enable → restart
+
+**Basic Look At:**
+2. Content Browser → Enable Show Plugin Content → Black Eye folder → Cameras → drag **Simple Look At** (or "Basic Cine") into scene
+3. Select camera → Details panel → **Look At** → enable → eyedropper → click subject
+4. Blue cube = tracking volume (actor bounding box by default); camera always rotates to keep subject in frame
+5. Drag Camera Cuts track in Sequencer → drag BEC camera onto it
+
+**Dynamic FOV:**
+6. Look At → **Enable Dynamic FOV** → set **Desired Subject Viewport Size** (% of screen) → camera auto-zooms to maintain that size
+7. **Zoom Damping** — how aggressively camera zooms; higher = slower/heavier zoom response
+8. **Telephoto Limit / Wide Limit** — min/max FOV range for auto-zoom
+9. **Composition presets** — rule-of-thirds buttons; click to place subject at standard positions
+
+**Bone Tracking (vs bounding box):**
+10. Look At → disable Actor Bounds → type bone name (e.g., "head") → camera tracks specific bone position; more stable for head shots vs. body motion
+
+**Damping:**
+11. Separate **Pitch Damping** (up/down) and **Yaw Damping** (left/right); 0 = hard-pinned; values ~1 = significant weight; 5 = extremely slow/viscous; think of values as "seconds to catch up"
+12. Decouple axes: more pitch damping than yaw (or vice versa) for specific tracking behaviors
+
+**Multiple Subjects:**
+13. Look At → Add (+) → eyedropper → second subject; repeat for more subjects
+14. Each subject gets a blue cube; white cube = combined frame encompassing all subjects
+15. Dynamic FOV zooms to keep all subjects' combined frame at desired screen size
+
+**Plate + Pedestal:**
+16. Enables realistic camera pivot point (off-sensor, at fluid head tripod position); makes camera rotation feel more cinematic vs. rotating around sensor
+
+**Follow:**
+17. Follow → enable → eyedropper → character; camera snaps to default 300 units behind; drag camera to desired position
+18. **Positional Damping** — 0 = hard-locked; 0.2 = slight weight/mass; 1.0 = very heavy; choose based on desired feel
+
+**Sequencer multi-camera:**
+19. Drop multiple BEC cameras in scene; configure each differently (wide, medium, follow)
+20. Drag each onto Camera Cuts track as separate clip sections
+21. Right-click Camera Cuts track → **Can Blend** → overlap clip boundaries = cross-fade blend between cameras
+22. Right-click clip → change clip order
+
+**Hybrid workflow (composition keyframing):**
+23. Add **Transform track** to camera → set 2-3 position keyframes for the camera's physical path (push in, pull back, etc.)
+24. Look At handles all rotation automatically (camera always looks at subject)
+25. Add **Subject Screen Position track** → key frame X/Y where subject should appear on screen at each beat → BEC recalculates camera rotation to hit exact composition at each keyframe
+26. Enable **Auto Keys** in BEC → position camera in viewport → BEC auto-records the desired shot as keyframes
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Look At module** — core rotation system; eyedropper to pick subject; bone name targeting; composition presets; Dynamic FOV; pitch/yaw damping per-axis
+- **Dynamic FOV** — auto-zoom; Desired Subject Viewport Size (% screen); Zoom Damping; Telephoto/Wide limits
+- **Actor Bounds** — default tracking volume (whole actor's bounding box); disable to use bone targeting instead
+- **Bone targeting** — type bone name in Look At target field; more stable for character shots
+- **Multiple Subjects** (Look At) — add multiple targets; combined frame = white cube; Dynamic FOV fits all subjects simultaneously
+- **Plate + Pedestal** — camera pivot offset from sensor to fluid-head-tripod position; more cinematic rotation behavior
+- **Follow module** — positional follow; eyedropper → subject; Positional Damping; default offset 300 units
+- **Can Blend** (Camera Cuts track, right-click) — enables cross-fade blending when clips overlap on the cut track
+- **Subject Screen Position track** (Sequencer) — X/Y keyframes for desired subject position on screen; BEC recalculates rotation to match
+- **Auto Keys** — BEC setting; viewport camera adjustments auto-recorded as keyframes; "work through the lens"
+- **Hybrid workflow** = Transform keys (camera position) + Look At auto-rotation + Screen Position keys (composition)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner-Intermediate. Start here for BEC; full system reference.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (Black Eye Cameras, Fab.com)
 
 ### Tags
-[PENDING EXTRACTION]
+black-eye-cameras, overview, look-at, follow, dynamic-fov, damping, bone-tracking, sequencer, hybrid-workflow, cinematics
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `unreal-engine-black-eye-cameras-start-here-tutorial.md` — BEC beginner "Start Here" tutorial (companion)
+- `unreal-engine-black-eye-cameras-v2-start-here-tutorial.md` — v2 Start Here with updated features
+- `unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics.md` — Subject Screen Position track and damping in depth for vehicle shots
+- `unreal-engine-black-eye-cameras-2-person-combat-side-camera-tutorial.md` — Multiple Subjects in practice; automatic zoom for 2-character shots
