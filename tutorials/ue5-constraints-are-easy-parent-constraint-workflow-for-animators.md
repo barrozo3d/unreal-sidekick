@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=LHK3J5m_43c
 author: Unreal Engine
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [animation, constraints, parent-constraint, sequencer, control-rig, ik, workflow, technique, characters, cinematics]
+extraction_status: complete
 frames_dir: tutorials/frames/ue5-constraints-are-easy-parent-constraint-workflow-for-animators/
 frame_count: 4
 ---
@@ -33,27 +33,67 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Parent Constraints in UE5 Sequencer — attach one control rig control to a skeletal mesh bone so it follows that bone's animation automatically. Demonstrated with a character (Beta) ripping open a door: hands constrained to door panels (not door to hands — prevents socket tearing). Key advantages over Maya: constraint activates only from the frame it's created (preceding animation untouched); no locator/group setup required; deactivating a constraint automatically bakes the hand's motion back into the control's own space.
 
 ### Summary
-[PENDING EXTRACTION]
+9m9s official UE5 constraints tutorial (instructor: Sir Wade) using Shot 50 from the ACOM project. Beta rips open a wall; goal: adjust door-opening timing while keeping hands attached. Workflow: select IK hand control → Constraints panel → Add Parent Constraint → pick door Skeletal Mesh → pick bone (top/bottom panel). After constraining: delete existing animation keys on the hand after the constraint frame (prevents double-transform). Now editing the door's Y-translation curve moves both hand and door together. To release: select hand → Constraints panel → click **Active Keyframe** button to toggle off. UE automatically bakes the constraint-driven motion back to the control's own keyframes — no snapping or reset. Demonstrated for both left hand (top panel) and right hand (bottom panel). Comparison with Maya: Maya requires locator group setup; UE constraints are frame-by-frame local — much simpler.
 
 ### Key Steps
-[PENDING EXTRACTION]
+**Choosing constraint direction:**
+1. Attach **hands to door** (not door to hands); moving the door will pull the hands with it; if you attached door to hands, rotating the hand would pull door out of position
+
+**Adding a parent constraint:**
+2. Move playhead to the frame where the hand should first grab the object (e.g., frame 130/131)
+3. Select the IK hand control in the viewport
+4. In the **Constraints** panel (or animation toolbar) → **Add Constraint → Add Parent Constraint**
+5. When prompted: click the **Skeletal Mesh** of the target object (not just the actor/control) → specify the **bone** to attach to (e.g., "panel_top" or "panel_bottom")
+6. Constraint is now active from that frame onward; all preceding animation on the hand is preserved unchanged
+
+**Clean up double-transform:**
+7. After constraining, the hand still has its old location/rotation/scale keyframes fighting with the constraint
+8. Select the hand control → in Sequencer, select all keyframes after the constraint frame → delete them
+9. Hand now follows purely the door bone's motion; finger animation (still on separate controls) is preserved
+
+**Editing timing via the constrained object:**
+10. Select the door Skeletal Mesh → open Curve Editor → find the translation axis (Y or Z) → adjust keyframes: hold lower, then slam open; or slow linear pull; or any timing desired
+11. Both the door and hand move together — no need to touch the hand keyframes at all
+
+**Turning off the constraint:**
+12. Select the hand IK control → in the Constraints panel → click the **Active Keyframe** button (toggle off at desired frame)
+13. UE automatically re-bakes the constraint-driven motion back into the hand control's own space
+14. Hand is now free of the door; previous animation before the constraint is still intact
+
+**Second hand:**
+15. Repeat for the right IK hand: go to the grab frame → Add Parent Constraint → pick the door SM → select bottom panel bone
+16. Clean up post-constraint keyframes; adjust door curve for pacing
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Constraints panel** (animation mode) — found in the animation toolbar; lists active constraints; provides "Add Constraint" submenu; Active Keyframe toggle to turn on/off per frame
+- **Parent Constraint** — locks a control to a bone's transform (position + rotation); full 6DOF follow; other constraint types include point, rotation-only, etc. (not covered)
+- **Constraint activation frame** — UE5 constraint only applies from the frame it was created onward; preceding animation is NOT affected (Maya applies constraint as if it's always existed — opposite behavior)
+- **Double-transform issue** — after constraining, existing keyframes on the control conflict with constraint; delete post-constraint keyframes on the constrained control to fix
+- **Active Keyframe button** — per-frame toggle that turns the constraint on or off; creates a keyframe on the constraint track in Sequencer; when turned off, UE bakes the constraint-driven motion back into the control's own keyframes automatically
+- **Constraint track in Sequencer** — visible as a sub-track inside the Control Rig section; shows "parent" entry with sections for constrained and free ranges
+- **Bone-level targeting** — when adding a constraint, selecting the Skeletal Mesh and specifying a bone gives a deeper/more stable constraint than targeting the control actor directly
+- **Bake constraint** (mentioned but not demonstrated) — Constraints tab → Bake; converts constraint relationship to pure keyframes; needed before rendering (guarantees viewport = render)
+
+**Key workflow principle:**
+- Constrain the follower to the driver (hands → door), not driver to follower
+- This keeps the editing target (door timing) as the single source of truth
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner. Much simpler than Maya constraints; no rigging knowledge needed. UE handles all the offset math automatically.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (ACOM project, official Unreal Engine tutorial series)
 
 ### Tags
-[PENDING EXTRACTION]
+animation, constraints, parent-constraint, sequencer, control-rig, ik, workflow, technique, characters, cinematics
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `ue5-animation-layers-non-destructive-camera-shake-character-tweaks.md` — companion tutorial by same instructor; animation layers for non-destructive tweaks
+- `stylized-animation-control-rig-characters-in-unreal-engine-5.md` — ACOM rig intro; same project/instructor
+- `this-free-plugin-changes-filmmaking-forever-unreal-5.md` — OneClick Control Rig; uses parent constraint to lock hand to gun; bake constraints before rendering
+- `ue5-curve-editor-20-new-lattice-tool-curve-scaling-hacks-ue-56.md` — Curve Editor for adjusting constraint-driven timing curves

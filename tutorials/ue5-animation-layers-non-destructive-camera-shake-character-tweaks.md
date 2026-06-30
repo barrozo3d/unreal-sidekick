@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=NDrc3ap2ZAA
 author: Unreal Engine
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [animation, sequencer, animation-layers, control-rig, camera-shake, non-destructive, weight, characters, workflow, technique]
+extraction_status: complete
 frames_dir: tutorials/frames/ue5-animation-layers-non-destructive-camera-shake-character-tweaks/
 frame_count: 4
 ---
@@ -33,27 +33,66 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Animation Layers in UE5 Sequencer — non-destructive method for layering additive animation on top of base animation, demonstrated for two use cases: (1) camera shake layering with per-layer **weight sliders** to control shake intensity and enable/disable per shot section; (2) character rig tweaks where specific controls are isolated into named layers to counter-animate or offset without modifying base keyframes. Key insight: layers have a 0–1+ weight that can be keyframed — setting weight to 0 disables a layer's contribution in specific shot sections; weight > 1 multiplies the layer's effect.
 
 ### Summary
-[PENDING EXTRACTION]
+15m27s official UE5 tutorial (instructor: Sir Wade) demonstrating animation layers in Sequencer for the ACOM project. Part 1: camera rig (camera actor + camera rig skeletal mesh + camera control rig); three layers in Sequencer — base camera motion, shake layer A (general noise), shake layer B (handheld running kick); each layer has a **weight** parameter keyframed to 0 during slow-motion section; demonstrated adjusting shake weight to 0.4 (default) vs. 1.0 (full) vs. 4.0 (extreme). Part 2: character rig (Shot 70, Robot 1); selecting specific controls (head + chest control) → New Layer → name "Roboturn"; adding IK wrist to Roboturn layer via right-click → Add Selected; animating counter-pose on top of base; weight at 0.5 = half the layer's influence visible; blue dot indicator in Animation Layers panel shows which layers a selected control lives in.
 
 ### Key Steps
-[PENDING EXTRACTION]
+**Opening Animation Layers panel:**
+1. In Sequencer, enter **animation mode** (select a Control Rig track) → click the **Layers** button in the animation toolbar to open the Animation Layers panel (can be closed/reopened)
+
+**Camera shake layers (workflow):**
+2. Camera rig Skeletal Mesh → expand in Sequencer → find Camera Control Rig
+3. Layers are visible in the Animation Layers panel: Base layer + Shake A + Shake B
+4. **Mute/unmute layers** to isolate contributions: click the mute toggle next to each layer
+5. In Sequencer, select Camera Control Rig → switch view mode to **Stack** to see weight curves for all layers simultaneously
+6. Keyframe the **Weight** on each shake layer: weight = 0 at slow-motion section = shake disabled; weight = 0.4 = subtle; weight = 1.0 = full animation; weight > 1.0 = multiplied effect
+7. To modify shake intensity without editing animation data: adjust the layer weight keyframe only
+
+**Character rig layer tweaks:**
+8. Select target controls (e.g., head + chest control) in viewport
+9. In Animation Layers panel: click **New Layer** → name it (e.g., "Roboturn")
+10. Only the selected controls are added to this new layer — all other controls remain outside it
+11. Animate in the new layer; the base layer plays simultaneously and the new layer's keys are additive
+12. **Lock base/key-alive layers** if you don't want accidental keys there while working on the new layer
+13. To add more controls to an existing layer: select the control → right-click the layer in the Animation Layers panel → **Add Selected**
+14. Adjust **weight** on the character layer for partial influence (0.5 = 50% of your counter-pose applied)
+
+**Blue dot indicator:**
+15. Select any control in viewport → look at Animation Layers panel → blue dots appear on layers where that control has keyframes
+16. No blue dot on a layer = control not in that layer; must "Add Selected" before keying in that layer
+
+**Mute for before/after preview:**
+17. Right-click a layer → mute/unmute to toggle the entire layer's contribution instantly
+
+**Best practices:**
+- Name layers descriptively and intentionally; don't add layers without purpose
+- Override layers (more powerful but not covered here) — see instructor's YouTube channel
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Animation Layers panel** — in animation mode → Layers button; lists all layers for the selected Control Rig; per-layer mute + weight; blue dot = control exists in that layer
+- **Layer Weight** (keyframeable, 0–1+) — 0 = disabled; 1 = full; > 1 = amplified; negative values possible (counter-animate beyond neutral); weight curve visible in Curve Editor when layer is selected in Sequencer Stack view
+- **New Layer** — creates a new additive layer; only currently selected controls are added; all other controls remain in base
+- **Add Selected** (right-click layer) — adds the currently selected viewport control(s) to an existing layer
+- **Layer mute toggle** — disables layer entirely for playback; good for A/B comparison
+- **Additive vs Override layers** — additive layers (covered here) add on top of base; override layers replace base entirely for the controls they contain (not covered in this video)
+- **Camera rig** — separate Skeletal Mesh driving a Camera Actor; Camera Control Rig applies controls to the rig; shake layers are additive on top of base camera motion
+- **Stack view mode** (Sequencer) — shows all layer weight curves simultaneously when Camera/Control Rig is selected
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate. Requires familiarity with Control Rigs and Sequencer. Layer concept is straightforward once understood; the panel UI is simple.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (ACOM project; official Unreal Engine tutorial series)
 
 ### Tags
-[PENDING EXTRACTION]
+animation, sequencer, animation-layers, control-rig, camera-shake, non-destructive, weight, characters, workflow, technique
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `stylized-animation-control-rig-characters-in-unreal-engine-5.md` — ACOM modular rig intro; Sequencer + Control Rig basics; same ACOM project
+- `ue5-constraints-are-easy-parent-constraint-workflow-for-animators.md` — companion tutorial; parent constraints; same instructor and project
+- `this-free-plugin-changes-filmmaking-forever-unreal-5.md` — OneClick Control Rig; additive tracks as lighter-weight alternative to layers
+- `ue5-curve-editor-secrets-buffer-curves-smart-snap-keyframe-tricks.md` — Curve Editor tips used alongside animation layers
