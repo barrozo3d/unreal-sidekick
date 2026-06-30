@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=U5FGuo59IJc
 author: Black Eye Technologies
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [black-eye-cameras, testimonial, overview, workflow, production, filmmaking]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-behind-the-lens/
 frame_count: 4
 ---
@@ -33,27 +33,28 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+**⚠️ Testimonial/promotional video — no technical content.** User interviews praising the Black Eye Cameras plugin. Key sentiment: "hours vs. minutes" for camera work; plugin is production-ready (used on Star Wars, Star Trek, 9-figure productions, thousands of TV episodes). No UE systems demonstrated.
 
 ### Summary
-[PENDING EXTRACTION]
+3m16s testimonial montage from Black Eye Cameras users. Multiple users praise the plugin for dramatically reducing camera setup time (hours to minutes), enabling rapid iteration, and elevating shot quality without keyframing. One interviewee mentions using the plugin on Star Wars, Star Trek, and other major productions. No technical steps or UE systems demonstrated. Value: social proof that the BEC plugin is production-grade.
 
 ### Key Steps
-[PENDING EXTRACTION]
+*No technical steps — testimonial video.*
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+None demonstrated.
 
 ### Difficulty
-[PENDING EXTRACTION]
+N/A (testimonial)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+black-eye-cameras, testimonial, overview, workflow, production, filmmaking
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `unreal-engine-black-eye-cameras-overview-tutorial.md` — full BEC plugin overview; technical introduction
+- `unreal-engine-black-eye-cameras-start-here-tutorial.md` — BEC beginner tutorial

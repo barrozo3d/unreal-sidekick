@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=ub1_ET0LLJc
 author: Black Eye Technologies
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [black-eye-cameras, camera-switcher, multi-camera, live-events, follow, look-at, esports, workflow, broadcast]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-cam-switcher-tutorial/
 frame_count: 6
 ---
@@ -56,27 +56,55 @@ frame_count: 6
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Black Eye v1.1.7 Camera Switcher actor — live keyboard-driven multi-camera switching during play. Drag the Camera Switcher into the level, add BEC cameras to its array, bind each to a keyboard key, and switch between them live during play. Use case: live events, esports broadcast, mocap sessions, rapid cinematic prototyping.
 
 ### Summary
-[PENDING EXTRACTION]
+3m Camera Switcher tutorial (Adam, Black Eye v1.1.7). Demonstrates: drag Camera Switcher actor into level → configure Cameras array → bind keyboard buttons to each camera → run in PIE and press keys to switch. Camera setup reminder: Look At with bone name + Actor Bounds off (tracks bone not actor center); Follow with dynamic FOV + screen-size setting + position offset (300) + damping. Gotcha: if Camera Cuts track has a clip, it overrides the switcher — must clear the Camera Cuts track. Optional: add Text component to Switcher actor to display current camera name on screen. Use cases: esports, live events, rapid shot prototyping, mocap monitoring.
 
 ### Key Steps
-[PENDING EXTRACTION]
+**Setup:**
+1. Drag **Camera Switcher** actor from Black Eye content folder into scene
+2. Details panel → **Cameras** array → click + to add entry → pick a Black Eye camera; click + again for next camera; etc.
+3. For each camera entry: click the keyboard button → press desired key on keyboard → binding saved; key switches to that camera during play
+
+**Creating cameras to add:**
+4. Drag any Black Eye camera into scene → configure:
+   - **Head camera**: Look At → type headbone name (e.g., "head") → disable **Actor Bounds** (looks at bone point, not bounding box)
+   - **Follow camera**: Follow → pick character → offset 300 (or move camera manually); enable Dynamic FOV → set Screen Size to desired character size %; add damping
+5. Duplicate cameras to quickly create variations
+
+**Add to Switcher:**
+6. Open Camera Switcher → Cameras array → add entries → pick each configured BEC camera
+
+**Run and switch:**
+7. Remove any clip from **Camera Cuts track** in Sequencer (if present — it will override the switcher)
+8. Press Play → press the bound keyboard keys to switch between cameras live
+9. Camera transitions are live — each camera continues its procedural tracking, compositing, and zoom during switch
+
+**Camera name display (optional):**
+10. Select Camera Switcher → Add Component → **Text Render** (or text component) → type camera name → appears on screen during play
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Camera Switcher** (Black Eye v1.1.7+) — actor; array of BEC cameras + keyboard bindings; keyboard press during PIE switches active camera; available from Black Eye content folder
+- **Cameras array** — list of BEC cameras registered with the switcher; each entry has a keyboard button binding
+- **Look At type with bone name** — targets a specific skeleton bone instead of actor center; must disable **Actor Bounds** option on the Look At module
+- **Actor Bounds** — when enabled on Look At, camera tracks the actor's bounding box center; disable to track a specific bone
+- **Dynamic FOV** + **Screen Size** — Follow module; automatically adjusts zoom to keep character at a consistent % of screen; works with Camera Switcher
+- **Camera Cuts track conflict** — any clip on the Camera Cuts track overrides all camera switching; must be empty for Camera Switcher to function
+- **Text component** — add to Camera Switcher actor; renders text (camera name) in the viewport during play for operator reference
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner. 3-step setup (drag, configure, bind). Great for live/broadcast workflows.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (Black Eye v1.1.7)
 
 ### Tags
-[PENDING EXTRACTION]
+black-eye-cameras, camera-switcher, multi-camera, live-events, follow, look-at, esports, workflow, broadcast
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `unreal-engine-black-eye-cameras-v117-switcher-pilot.md` — related v1.1.7 Switcher Pilot feature
+- `unreal-engine-black-eye-cameras-overview-tutorial.md` — full BEC plugin overview
+- `unreal-engine-black-eye-cameras-rapid-shot-prototyping.md` — rapid camera prototyping workflow
