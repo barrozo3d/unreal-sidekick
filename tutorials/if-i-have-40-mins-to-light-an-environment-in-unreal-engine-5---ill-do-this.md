@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=64JnVJBgoos
 author: Karim Yasser
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [lighting, pbl, physically-based-lighting, exposure, ev100, tone-mapping, color-grading, lumen, environment, workflow]
+extraction_status: complete
 frames_dir: tutorials/frames/if-i-have-40-mins-to-light-an-environment-in-unreal-engine-5---ill-do-this/
 frame_count: 19
 ---
@@ -123,27 +123,83 @@ frame_count: 19
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+PBL (Physically Based Lighting) exterior environment lighting from scratch in 40 minutes using only **5 global light actors**: Sky Sphere mesh + Sky Material, Skylight (Movable/Real Time Capture), Directional Light, Exponential Height Fog (volumetric), and Post Process Volume. No fill lights. Key workflow: establish luminance with sky material using orders-of-magnitude reference table → set EV100 range with exposure compensation curve → dial contrast ratio (~2 stops for golden hour) → tone map shadows → add volumetric fog → color grade → Lumen polish.
 
 ### Summary
-[PENDING EXTRACTION]
+42-minute Karim Yasser tutorial (game/environment artist) covering a complete PBL exterior lighting pass using only global actors. Starts with theory (luminance vs illuminance, candela/m² vs lux, EV100) then executes step-by-step: scene cleanup → sky sphere + sky material (Fab asset, inverse normal sphere, scale 15,000) → skylight → exposure compensation curve (EV-based interior/exterior transition) → directional light (200-1000 lux, Source Angle 5, color temperature 2000-3000K) → contrast ratio measurement via HDRI Adaptation viewmode → tone mapping Local Exposure + filmic toe/slope → exponential height fog (volumetric) → sun disk in sky material → color grading (per-zone: shadows/midtones/highlights/global) → light shaft occlusion → cloud shadow Gobo Light Function → Lumen settings + film grain + convolution bloom. Game-focused (no Path Tracer) but concepts apply to cinematics.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Scene cleanup**:
+   - Remove all Lights, Sky, PPV, Reflection Captures from World Outliner (search "light")
+   - Window → World Settings → Lightmass → Advanced → Force No Pre-Computed Lighting → Build → Build Lighting Only (removes all lightmap data)
+2. **Lighting folder**: In Outliner right-click folder → **Make Current Folder** (turns green); all new actors auto-add to it
+3. **Sky sphere** (Fab asset — any inverse-normal sphere works):
+   - Scale to 15,000 (must exceed Skylight capture threshold to avoid black reflections)
+   - Assign sky material instance; adjust Source Brightness using **Orders of Magnitude & Luminance** reference table (sunrise/sunset ≈ 25 cd/m²)
+   - Measure with **Visualize → HDRI Adaptation → Luminance Meter** (nit = cd/m²); target average ~25 nit
+4. **Skylight**: Movable; Real Time Capture ON; Cube Resolution 256; adds ambient fill to all shaded areas
+5. **Post Process Volume** (infinite extent, exposure compensation 0 starting point):
+   - Exposure → **Exposure Compensation Curve** (right-click → Miscellaneous → Curve Float)
+   - Curve horizontal axis = EV100 (from HDRI Adaptation histogram); vertical = exposure compensation value
+   - Add key at exterior EV (≈7) → compensation ≈ 0-2
+   - Add key at interior EV (≈-5.5) → compensation ≈ +8 or more
+   - Set PPV min/max EV to match curve range (-5 to 7); smooth transition with curve tangents
+6. **Contrast ratio**: Measure EV100 on lit vs shadowed surface using HDRI Adaptation viewmode + gray material (18% gray = middle gray); golden hour target ≈ 2-stop difference
+7. **Directional Light**:
+   - Start at 5000 lux → tune to 200-1000 lux (golden hour = low sun = lower value)
+   - **Ctrl+L** shortcut to position sun by mouse drag
+   - Source Angle: 5 for realistic soft shadows (≥15 only for special cinematic looks)
+   - Color Temperature: 2000-3000K for golden hour orange
+8. **Tone Mapping (PPV → Local Exposure)**:
+   - **Shadow Contrast**: 0.6 (Epic's minimum recommended; significantly lifts dark areas)
+   - **Highlight Contrast**: leave default unless harsh sky highlights
+   - Filmic: **Toe** (lower → brighter shadows, loses color data); **Slope** (lower → less overall contrast)
+9. **Exponential Height Fog + Volumetric Fog**:
+   - Fog Density: 0.03-0.04; add warm/orange tint; enable **Volumetric Fog**
+   - Extinction Scale: adjust for thickness; Scattering Distribution ≈ 0.8 for golden hour
+10. **Sun Disk in Sky Material**: add sun disk material node; set high brightness; small radius; orange/red color; add sun glow with softness/radius
+11. **Color Grading (PPV)**: Shadows (reduce saturation 0.07; add gamma tint); Midtones (contrast 1.05, gain +10%); Highlights (contrast, gain); Global (reduce saturation slightly, contrast +7%)
+12. **Directional Light polish**: Light Shaft Occlusion 0.5; add **Light Function material** (cloud gobo) for natural shadow variation
+13. **Skylight boost**: Intensity 2-3; add slight blue/lush saturation (~20%); adjust Lumen color boost if needed
+14. **Lumen PPV settings**: Global Illumination → Lumen; **Sky Color Boost** 1.8 (makes base color maps brighter → more indirect light bounce); **Skylight Leaking** (optional interior ambient boost)
+15. **Polish**: Film Grain (intensity 1; midtones 0.5, highlights 0.2, shadows 0.7); Convolution Bloom
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Luminance** (cd/m², candela/m²) — light emitted FROM a surface; default unit for local lights in UE; sky sphere material uses this
+- **Illuminance** (lux, lm/m²) — light FALLING ON a surface; used for Directional Light (sun) in UE
+- **HDRI Adaptation viewmode** (Visualize → HDRI Adaptation) — shows live luminance (nit) and illuminance (lux) values at cursor position; essential for PBL calibration
+- **Exposure Compensation Curve** — PPV Exposure → curve float asset; maps EV100 (horizontal) to exposure compensation offset (vertical); enables smooth interior/exterior auto-exposure transition without manual PPV zones
+- **Sky Sphere**: inverse-normal mesh; must be scaled larger than skylight's capture threshold to avoid black reflections in skylight cubemap
+- **Skylight**: Movable + Real Time Capture (recaptures sky every frame); Cube Resolution 256-512; source for ambient lighting and sky reflections
+- **Local Exposure → Shadow Contrast**: minimum 0.6 per Epic recommendation; significantly lifts shadows without needing fill lights
+- **Filmic Tone Mapping → Toe**: lowers dark-area floor → brighter shadows; tradeoff = color saturation loss in shadows
+- **Light Function material** (on Directional Light): fake cloud shadow Gobo; breaks up flat shadow pattern across environment
+- **Lumen → Sky Color Boost**: makes material base color contribute more to indirect lighting; workaround if materials appear to absorb too much light
+- **Convolution Bloom**: physically-based lens bloom shape from PPV; more realistic than default fast Bloom
+
+**5-Actor Global Lighting Rig:**
+| Actor | Purpose |
+|-------|---------|
+| Sky Sphere Mesh | Sky background + sky material source |
+| Skylight (Movable) | Ambient fill from sky; reflection captures |
+| Directional Light | Sun/key light with shadows |
+| Exponential Height Fog | Atmospheric depth + volumetric god rays |
+| Post Process Volume | Exposure curve + tone map + color grade |
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate-Advanced. Requires understanding of PBL theory (EV100, luminance vs illuminance, contrast ratios) and exposure compensation curve setup. The exposure curve system is particularly unintuitive to set up the first time.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (Lumen, surface cache; game-rendering focus; no Path Tracer used)
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, pbl, physically-based-lighting, exposure, ev100, tone-mapping, color-grading, lumen, environment, workflow
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `realistic-and-physical-lighting-in-ue5-what-is-pbl.md` — PBL theory part 1 (units: Candela/Lumen/Lux/cd/m², EV100); foundational companion
+- `realistic-and-physical-lighting-in-ue5-the-pbl-workflow.md` — PBL workflow part 2 (HDR Viewmode meters, 4 lighting studies); same methodology
+- `the-fastest-way-to-learn-lighting-in-ue5.md` — beginner lighting entry point (same Karim Yasser series)
+- `the-1-skill-you-need-for-lighting-in-ue5.md` — Karim Yasser; contrast and tone management
+- `tips-for-sky-atmosphere-fog---unreal-engine-5-ue4.md` — Sky Atmosphere + fog system deep dive

@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=MJQ-0tmIhQk
 author: Karim Yasser
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [lighting, interior, lumen, fog, ray-tracing, reflections, tone-mapping, color-grading, performance, workflow]
+extraction_status: complete
 frames_dir: tutorials/frames/it-took-me-7-years-to-get-interior-lighting-that-easy-in-unreal-engine-5/
 frame_count: 13
 ---
@@ -93,27 +93,98 @@ frame_count: 13
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Interior lighting from scratch using Lumen + Hardware Ray Tracing + Mega Lights for cinematic-quality soft shadows. Key techniques: project settings configuration (DX12, hardware RT, High Precision G-Buffer, Mega Lights) → lighting cleanup → sky sphere + skylight as ambient base → spotlight for exterior-beam key light with shaped **light blockers** (black-only material meshes) → Source Radius + **Soft Source Radius** for area light behavior → Lumen noise fix via `r.Lumen.Radiosity.HemisphereProbeResolution 32` → volumetric fog quality with `r.VolumetricFog.GridPixelSize` → reflections polish via PPV Lumen settings.
 
 ### Summary
-[PENDING EXTRACTION]
+33-minute Karim Yasser tutorial for interior lighting in UE5, targeting cinematic quality. Starts with critical project settings (Lumen DX12 pipeline, hardware ray tracing, Mega Lights for soft shadows, G-Buffer High Precision Normals). Cleans all pre-baked lighting. Establishes ambient base with sky sphere + skylight; sets tone with Local Exposure Shadow Contrast 0.6; adds Exponential Height Fog with volumetric. Main key light: spotlight simulating exterior beam entering interior, shaped by black-material mesh blockers (Cosine Volumetric Shadow), very high Source Radius for soft shadows, Soft Source Radius to remove specular artifacts. Adds warm point lights as practicals. Full PPV color grade. Fixes Lumen flickering via console variable for probe resolution. Improves reflections via PPV Lumen settings (High Quality Translucent Zero Reflections, Max Roughness to Trace). Optimizes volumetric fog with `r.VolumetricFog.GridPixelSize` console variable.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Project Settings** (Edit → Project Settings → Rendering):
+   - Dynamic Global Illumination: **Lumen**
+   - Reflections: **Lumen**
+   - Support Hardware Ray Tracing: **ON**
+   - Use Hardware Ray Tracing When Available: **ON**
+   - Generate Mesh Distance Fields: **OFF** (hardware RT replaces SDFs)
+   - Local Exposure Highlight Contrast + Shadow Contrast: reset to **1** (defaults)
+   - G-Buffer Format: **High Precision Normals**
+   - Mega Lights: **ON** (provides ray-traced soft shadows with low overhead)
+   - Platform → Windows: Shader Model 6, DirectX12 as default RHI
+   - Restart engine after changes
+2. **Lighting cleanup**:
+   - Remove all Lights, Reflection Captures, Exponential Height Fog, PPV from level
+   - Window → World Settings → Lightmass → Force No Pre-Computed Lighting → Build All Levels (zeroes lightmaps)
+   - Restart level if lightmaps don't update
+   - Set all emissive material values to 0 before starting
+3. **Camera**: create camera actor → right-click → Pilot; right-click → Transform → Lock Actor Movement (prevents accidental move)
+4. **Sky sphere**: adjust material tint/saturation for desired time of day (night = blue/low saturation ≈ 0.5 saturation)
+5. **PPV**: infinite extent; exposure min=1 max=1, compensation=0 (temporary base to see the scene)
+6. **Skylight**: Movable; Real Time Capture; Cube Map Resolution 512; Recapture after sky changes; reduce sky sphere saturation if skylight is too blue
+7. **Tone Mapping**: Local Exposure Shadow Contrast → **0.6** to open up dark areas; Highlight Contrast reduce if needed
+8. **Exponential Height Fog + Volumetric Fog**: add fog volume; set color (cool cyan for night); enable Volumetric Fog; use fog value control to prevent over-bright exterior bleed
+9. **Key spotlight** (exterior beam entering through window):
+   - Add Spotlight; disable nabbing; intensity 1000-2000; small outer cone angle 20-40°
+   - **Volumetric Scattering Intensity**: 80-100 for god ray beam
+   - **Light Blockers**: place mesh planes with **Black Only material** (search Engine Content for "Black Only") to block unwanted light spill on sides
+   - Pilot the spotlight to position beam (right-click → Pilot)
+   - Enable **Cast Volumetric Shadow** (Cosine Volumetric Shadow) for fog/mesh shadows
+   - If using Virtual Shadow Map → switch to **Mega Lights** for soft shadows (VSM doesn't work correctly with sub-meshes/translucent)
+10. **Source Radius** (for area shadows): increase Source Radius to soften shadows (yellow sphere in viewport shows light source size)
+    - **Soft Source Radius**: increase to diffuse specular highlight from enlarged Source Radius (prevents distracting specular blob); use a chrome ball to inspect
+    - Source Radius 100, Soft Source Radius 200 is a reasonable starting point
+11. **Fill point lights** (practical/ambient fill):
+    - Source Radius: 5; Attenuation Radius: 300-600; Indirect Light Intensity: 2-3
+    - Temperature: warm (yellowish ~4000K) for warm interior practical look
+    - Reduce saturation if too orange
+12. **Emissive practical lights**: duplicate and apply emissive material (e.g., 4000K, reduced emissive multiplier)
+13. **PPV Color Grading**: Convolution Bloom; Chromatic Aberration (slight); Shadow Contrast 0.6; reduce shadow saturation; midtone contrast 1.2, gain 0.1; global saturation reduce slightly; temperature ≈ 7000K for slightly warm look
+14. **Fix Lumen flickering/noise**:
+    - Console: `r.Lumen.Radiosity.ProbeOcclusion` → visualize probe pattern
+    - Console: `r.Lumen.Radiosity.HemisphereProbeResolution 32` (default 4; increasing to 32 drastically reduces flickering)
+    - PPV → Global Illumination → Lumen: increase **Final Gather Quality** and **Lumen Scene Lighting Quality**
+15. **Lumen Reflections (PPV)**:
+    - Enable **High Quality Translucent Zero Reflections** (correct reflections in translucent meshes like glass)
+    - Debug: Lumen → **Dedicated Reflection Rays** visualization (red = RT-calculated; increase Max Roughness to Trace for more surfaces)
+    - Max Reflection Bounces: increase to 2+ for scenes with mirrors/chrome surfaces
+16. **Volumetric Fog quality console variables** (for rendering, not realtime):
+    - `r.VolumetricFog.GridPixelSize 4` (default 8; lower = better quality but heavier; 3 is a good balance)
+    - `r.VolumetricFog.GridSizeZ 512` (default 128; increase to 512-1024 for rendering; adds volumetric shadowing depth)
+    - Reset to default (8 / 128) for real-time/game use
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Mega Lights** — experimental lighting system in UE5; provides ray-traced soft shadows automatically; uses fewer shadow map artifacts than Virtual Shadow Maps for sub-meshes; enable in Project Settings
+- **Hardware Ray Tracing** — Project Settings → Rendering; replaces Signed Distance Field approach; required for accurate interior lighting and reflections; requires DX12 + compatible GPU
+- **High Precision Normals (G-Buffer Format)** — reduces banding artifacts in normal-dependent lighting (Lumen GI, specular)
+- **Source Radius** — size of the physical light source; larger = softer contact shadows; visible as yellow sphere in editor; large values cause distracting specular highlights
+- **Soft Source Radius** — diffuses the specular highlight from a large Source Radius without affecting shadow softness; fix for over-bright specular from area lights
+- **Black Only material** — engine content material that renders fully black (opaque, no light pass); used as light blocker mesh to shape spotlight beams
+- **Cast Volumetric Shadow / Cosine Volumetric Shadow** — per-light option to cast fog/volumetric shadows; essential for shaping god-ray beams through mesh occluders
+- **`r.Lumen.Radiosity.HemisphereProbeResolution`** — console variable; default 4; increase to 16-32 to dramatically reduce Lumen radiosity probe flickering; significant quality improvement for interiors
+- **`r.VolumetricFog.GridPixelSize`** — console variable; default 8 (screen-pixel size of each fog voxel); lower = more precise fog/shadow at cost of performance; 4 for quality render, 8 for game
+- **`r.VolumetricFog.GridSizeZ`** — console variable; default 128 (vertical fog grid resolution); increase to 512-1024 for better fog depth and volumetric shadow detail in renders
+- **High Quality Translucent Zero Reflections** — PPV → Global Illumination → Lumen Reflections; enables Lumen RT in translucent/glass materials instead of sky-capture fallback; large visual improvement on glass/water
+
+**Typical 4-actor interior base:**
+| Actor | Purpose |
+|-------|---------|
+| Sky Sphere + Skylight | Ambient light/color from exterior |
+| Spotlight | Exterior key beam (shaped with blockers) |
+| Point Lights (2+) | Warm practical fill / emissive sources |
+| Post Process Volume | Tone map + Lumen settings + color grade |
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate-Advanced. Project settings configuration requires understanding of ray tracing pipeline. Lumen console variables and source radius vs soft source radius distinctions are non-obvious. Light blocking with black-material meshes requires spatial thinking.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (Mega Lights, Lumen Hardware RT, High Precision G-Buffer — UE5.x features; Mega Lights is experimental as of UE5.4)
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, interior, lumen, fog, ray-tracing, reflections, tone-mapping, color-grading, performance, workflow
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `if-i-have-40-mins-to-light-an-environment-in-unreal-engine-5---ill-do-this.md` — same Karim Yasser; companion exterior PBL tutorial; EV100 curve and global lighting setup
+- `realistic-and-physical-lighting-in-ue5-what-is-pbl.md` — PBL theory (units, EV100); foundational to this workflow
+- `realistic-and-physical-lighting-in-ue5-the-pbl-workflow.md` — PBL workflow (HDR Viewmode meters, lighting studies)
+- `things-to-know-about-lumen-unreal-engine-5.md` — Lumen GI deep dive (surface cache, hardware RT, quality settings)
+- `the-perfect-sky-light-in-unreal-engine-5.md` — Skylight settings and configuration
