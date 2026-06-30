@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=0Yc6qJSWet4
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [filmmaking, lighting, cinematics, compositing, depth-of-field, photorealism, chromatic-aberration, lens-effects, rendering, technique]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-5-secrets-every-filmmaker-must-know/
 frame_count: 8
 ---
@@ -68,27 +68,69 @@ frame_count: 8
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Three secrets for cinematic, photorealistic UE5 renders: (1) **Lighting** — 1-3 lights max; key + rim + accent; animate lights for realism; shadow-only spotlight + prop for implied environment; (2) **Photorealism** — shallow DOF (Aperture ~1.4–2.0); anamorphic bokeh via squeeze factor + sensor width ÷ 2; translucent material Translucency Pass: Before DOF; Niagara particles in fore/background for bokeh; (3) **Compositing** — three lens imperfections: lens diffusion (multi-scale blur), chromatic aberration (scale RGB channels, not translate; subtle around edges), real-world lens flares.
 
 ### Summary
-[PENDING EXTRACTION]
+15m3s Josh Toonen tutorial sharing three "secrets" from a Mr. Freeze short film (War of Being). No code/blueprints — pure visual/workflow techniques. Secret 1 (Lighting): reference ShotDeck.com for film lighting stills; 1–3 lights create more contrast/drama than many lights; demonstrated 4-light setup (overhead fill + key + rim + red under-light); animate lights for realism: physics constraint on hanging rope with parented light (creates moving shadows); shadow-animation via fan prop + spotlight (implies complex off-screen machinery). Secret 2 (DOF + lens): Cine Camera → Aperture (~2 default, 1.4 for more blur); focal length controls zoom + DOF depth; Niagara particles in background = more bokeh to show; squeeze factor for anamorphic bokeh; sensor width ÷ 2 to correct scale; translucent fog fix (Translucency Pass: Before DOF). Secret 3 (compositing): three imperfections applied in post (AE/Nuke/DaVinci): lens diffusion (blur image at multiple radii, mix; contaminates shadow blacks with glow), chromatic aberration (scale — not translate — R/G/B at different sizes; God Rays in Nuke for smooth radial separation; keep subtle — check edge of frame only), real-world lens flares footage (composited on top for maximum realism).
 
 ### Key Steps
-[PENDING EXTRACTION]
+**Secret 1: Lighting**
+1. Reference **ShotDeck.com** → search any movie → analyze where lights are placed in each shot
+2. Keep 1–3 lights; create contrast (bright key on one side; shadow on other; rim to separate from background)
+3. **Emissive channel trick** — place photo of fluorescent lights on mesh → plug into emissive → instant area fill without light actor (photorealistic + no shadow artifact)
+4. **Animated light from physics** — add physics constraint to hanging rope prop → parent Point Light to rope → record with Take Recorder; moving shadows across character face
+5. **Shadow-animation trick** — place Spotlight pointing at background → put prop (e.g., fan from Quixel) in front of light → add rotation animation to fan → rotating shadows imply a huge off-screen environment
+
+**Secret 2: Photorealism via lens settings**
+6. Cine Camera → Sequencer → find **Aperture** and **Focal Length** at top:
+   - Aperture: start at 2.0; go to 1.4 for more blur; below 1.0 breaks realism
+   - Focal Length: zoom in = shallower DOF + more bokeh in background
+7. Place **Niagara particle effects** (snow, rain, leaves) in background → appears as bokeh; move close to lens for artistic foreground blur
+8. **Anamorphic bokeh** — select Cine Camera → Lens Settings → **Squeeze Factor** = 2 → bokeh stretches into ovals (but image also stretches 2×); go to **Film Back → Sensor Width** → divide original value by 2 → restores correct image dimensions with oval bokeh
+9. **Translucent material DOF fix** — select translucent/fog material → Material Details → search "DOF" → **Translucency Pass: Before DOF** → material now blurs naturally with depth of field
+
+**Secret 3: Compositing (in AE/Nuke/DaVinci)**
+10. **Lens diffusion** — most impactful step:
+    - Take render → apply Gaussian blur at very small radius (e.g., 2–5) → mix 10–20% with original
+    - Apply same blur at very large radius (e.g., 200–300+) → mix 5–10% with original
+    - Combining both creates soft glow and shadow contamination (colored light bleeds into black areas)
+    - Mimics dirty anamorphic lens glow from real-world films (e.g., Batman, Jesse James)
+11. **Chromatic aberration** (correct method):
+    - Separate R, G, B channels
+    - **Scale** (not translate) each channel by slightly different amounts (e.g., Red: 101%, Green: 100%, Blue: 99%)
+    - Gives more aberration at frame edges, less in center — matches real lens behavior
+    - In Nuke: use **God Rays** node scaled at different amounts per channel for smooth radial separation
+    - Keep very subtle: visible at frame edge, invisible at center — never draw attention to itself
+    - Wrong method: translating (offsetting) channels = anaglyph 3D look, not chromatic aberration
+12. **Lens flares** — use real-world lens flare footage (filmed through a camera) → composite on top of CG render → photochemical quality impossible to replicate in CG
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **ShotDeck.com** — film reference image database; search by movie/mood; analyze key/fill/rim placement in professional shots
+- **Emissive channel as fill** — place image of light fixture (fluorescent, neon) → Material Emissive slot → no light actor needed; scales to any shape naturally
+- **Take Recorder** — records live physics/animation in UE5; use for rope swing simulation → captured as animation asset
+- **Physics Constraint** — locks object; combined with active physics simulation creates natural swinging; parent light to swinging prop
+- **Cine Camera Aperture** — f/2.0 typical start; lower = more blur; below f/1.0 = physically unrealistic
+- **Cine Camera Focal Length** — wider (e.g., 24mm) = less DOF; telephoto (e.g., 85mm+) = more DOF separation; affects composition and background isolation
+- **Squeeze Factor** (Lens Settings) — stretches/squishes bokeh shape; 1 = spherical; 2 = 2:1 anamorphic oval; must compensate with Sensor Width ÷ 2 to maintain correct render dimensions
+- **Translucency Pass** (Material setting) — search "DOF" in material details; change from "After DOF" to **"Before DOF"**; allows translucent/volumetric elements to interact correctly with depth of field
+- **Lens diffusion** — multi-scale Gaussian blur composite; not a single blur but a mix of very small (subtle contamination) + very large (glow/bleed) passes
+- **Chromatic aberration (correct)** — scale channels at different amounts; use God Rays (Nuke) for smooth radial; NOT translate/offset which looks like anaglyph
+- **Real-world lens flares** — film glass flares in front of light source; composite as screen/add blend on top of CG render
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner-Intermediate. Lighting and lens settings are straightforward. Compositing techniques require familiarity with compositing software.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+filmmaking, lighting, cinematics, compositing, depth-of-field, photorealism, chromatic-aberration, lens-effects, rendering, technique
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `unreal-5-hotkeys-every-filmmaker-must-use.md` — companion Josh Toonen tutorial; Sequencer workflow + camera controls
+- `the-1-skill-you-need-for-lighting-in-ue5.md` — Josh Toonen character lighting deep dive; 180-degree eye line rule
+- `the-fastest-way-to-learn-lighting-in-ue5.md` — Josh Toonen exterior lighting study framework; 4-element approach
+- `the-2025-guide-to-rendering-in-unreal-engine-5.md` — MRQ render settings (EXR, tone curve, sampling)
+- `the-2026-unreal-engine-to-davinci-resolve-guide---aces-srgb.md` — DaVinci post-production pipeline for UE5 renders; ACES transform + color grading

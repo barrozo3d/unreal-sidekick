@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=HU7qHi6bn9A
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [sequencer, hotkeys, workflow, cinematics, camera, animation, filmmaking, tips, rendering, slow-motion]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-5-hotkeys-every-filmmaker-must-use/
 frame_count: 14
 ---
@@ -98,27 +98,113 @@ frame_count: 14
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+20 Sequencer hotkeys and workflow tips for filmmakers, from Josh Toonen's 8-year VP/VFX career. Covers: time navigation (J/K/L, arrow keys, Up/Ctrl+Up, D for snap), actor import into Sequencer (Ctrl+A), keyframing (S key, Shift+W/E/R), camera piloting (Shift+P) vs. viewing (Shift+C), stage actor parent workflow, material parameter animation (deep track hierarchy), Time Dilation track for slow motion, and preview-render-in-viewport workflow (add level sequence as actor → AutoPlay → Simulate with Alt+S).
 
 ### Summary
-[PENDING EXTRACTION]
+20m29s Josh Toonen crash course on Sequencer hotkeys and filmmaker workflow. Structured as 20 tips. Key hotkeys documented below. Additional workflows: custom hotkey creation (Editor Prefs → search action); spawnable vs possessable actor conversion; stage actor (parent camera + characters to empty actor for orbit composition); animating any material parameter via nested track hierarchy (Skeletal Mesh Component → Material Parameters → Element N → find param); FK Control Rig bake for animation editing; additive track for single-bone offset; Ctrl+M retime menu; Time Dilation track (add from dropdown, animate from 0–1+); level sequence actor for viewport preview render (drag sequence into scene → AutoPlay → Loop → Alt+S to simulate → Shift+F1 for cursor back).
 
 ### Key Steps
-[PENDING EXTRACTION]
+**Time navigation:**
+- **J** — play in reverse; **K** — pause; **L** — play forward
+- **D** — toggle time snap to whole frames (magnet icon); must be ON to avoid sub-frame keyframes (which cause stuttering renders)
+- **Arrow keys** — step forward/backward 1 frame
+- **Shift + Arrow keys** — jump forward/backward by N frames (default 5; change in Playback Options → Jump Frame Increment)
+- **Up** — jump to first frame (in/out range start)
+- **Ctrl + Up** — jump to last frame (in/out range end)
+- **Down** — play sequence
+- **Minus / Plus** — zoom out / zoom in on Sequencer timeline
+- **[ / ]** — move in/out range markers (green endpoints)
+- **F** — frame/fit the active in/out range in the Sequencer view
+- **Comma / Period** — (with track selected) jump backward/forward between keyframes
+
+**Adding actors to Sequencer:**
+- Drag from Outliner into Sequencer → easiest
+- Add Track button → select actor
+- Select actor in viewport → right-click inside Sequencer → **Ctrl+A** → fastest hotkey
+
+**Camera setup:**
+- Create Camera button → creates CineCameraActor from current view + Camera Cuts track
+- Custom hotkey: Edit → Editor Preferences → search "camera" → Sequencer → Create Camera → assign (e.g., Ctrl+Shift+Alt+C)
+- Spawnable (default) — camera only exists while sequence is open; convert to **Possessable** to persist in scene
+
+**Stage actor workflow:**
+- Create empty actor → parent CineCameraActor + characters to it
+- Rotate the parent → composition stays locked; everything orbits together
+
+**Keyframing:**
+- **S** — set keyframe on Location + Rotation of selected actor
+- **W / E / R** — switch gizmo (translate/rotate/scale); **Shift+W/E/R** — set keyframe for that transform type
+- Auto keyframe icon — scrub to frame → adjust property → key added automatically
+- Add **Transform track** manually if S key doesn't work on a specific actor
+
+**Nudge keyframes:**
+- Select keyframes → **Ctrl + Right Arrow** — nudge right 1 frame
+
+**Camera piloting vs viewing:**
+- **Shift+P** — pilot camera (freehand camera control; auto-keyframe updates camera position)
+- **Shift+C** — view camera cut (locked read-only; camera cannot be moved accidentally)
+- Right-click actor → **Lock** — all tracks go red; nothing can be keyed; right-click → Unlock to resume
+
+**Pin track:**
+- Right-click track → **Pin** — keeps it at top of Sequencer regardless of scroll
+
+**Material parameter animation:**
+- Add Track → Skeletal Mesh Component → (find component) → Material Parameters → Element N → search param name → adds animatable float track
+- Changes only apply within this sequence; original material unchanged when sequence closed
+
+**Camera preview panel:**
+- Editor Prefs → search "camera preview" → enable Preview Selected Camera
+- Click **pin icon** in camera preview → docks to viewport side; persists while active; unpin to dismiss
+- Shift+C alternative for most use cases
+
+**Organize Sequencer:**
+- **V** — collapse/hide all sub-tracks of selected item; **Shift+V** — expand all keyframeable properties
+- **Ctrl+F** — search tracks in Sequencer
+- Select multiple tracks → **Ctrl+G** → creates folder; rename folder to organize
+
+**Retiming animation:**
+- Drag gray bar at top of property track → stretches/compresses keyframes
+- **Ctrl+M** — Transform menu (offset keyframes ±10; multiply ×2; divide ÷2); select only desired keyframes first
+
+**Slow motion / bullet time:**
+- Add Track dropdown → **Time Dilation** → adds global time multiplier for entire world (characters, particles, water textures, etc.)
+- 1.0 = normal; 0.25 = 25% speed (quarter time); animate the value for variable-speed bullet time
+
+**Preview render in viewport:**
+- Drag Level Sequence from Content Browser into scene viewport (as an actor)
+- Set actor: **Auto Play = true**; **Loop = Loop Indefinitely**
+- **Alt+S** — Simulate game (without player controller) → sequence plays back exactly as rendered; view 3D scene from outside camera
+- **Shift+F1** — recover cursor while game is running (can now select/edit scene while game plays)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **J/K/L transport** — industry-standard edit software navigation; works in Sequencer and viewport
+- **Time snap (D)** — locks time indicator to whole frames; essential for clean renders
+- **Spawnable vs Possessable** — spawnable actor lives only in sequence; possessable is a scene actor referenced by sequence; right-click → Convert to Possessable
+- **Stage actor** — empty actor as parent for camera + characters; orbit/composition trick
+- **Ctrl+A in Sequencer** — adds selected viewport actor to Sequencer; requires focus inside Sequencer window
+- **S keyframe shortcut** — sets Location + Rotation keyframe; Shift+W/E/R sets per-component
+- **Auto Keyframe** — record icon in Sequencer toolbar; any property change while moving playhead creates a key
+- **Ctrl+M retime** — Transform Keyframes dialog; select keyframes first; offset/multiply/divide
+- **Time Dilation track** — added from track dropdown; animatable 0–1+ float; affects all physics, particles, animations globally; keyframeable for variable speed
+- **Level Sequence as actor** — drag sequence asset into viewport → Actor in scene; set Auto Play + Loop → simulates exact render timing without MRQ
+- **Alt+S** — Simulate (Play in Editor without spawning player); level sequence actor auto-plays; exact render preview
+- **Shift+F1** — recover cursor during Play/Simulate; enables viewport editing while game runs
+- **FK Control Rig bake** — right-click Skeletal Mesh in Sequencer → bake FK control rig; full bone rotation edit; for IK need custom control rig
+- **Additive track** — add on top of existing animation; key single bone for whole-shot offset without touching base keys
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner-Intermediate. Essential reference for any UE5 filmmaker. Start here.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (also applicable to UE4 in most cases)
 
 ### Tags
-[PENDING EXTRACTION]
+sequencer, hotkeys, workflow, cinematics, camera, animation, filmmaking, tips, rendering, slow-motion
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `unreal-5-secrets-every-filmmaker-must-know.md` — companion Josh Toonen tutorial; lighting, DOF, compositing secrets
+- `the-2025-guide-to-rendering-in-unreal-engine-5.md` — MRQ rendering guide; Movie Render Queue setup
+- `the-1-skill-you-need-for-lighting-in-ue5.md` — companion character lighting tutorial by Josh Toonen
+- `ue5-animation-layers-non-destructive-camera-shake-character-tweaks.md` — Sequencer animation layers; non-destructive approach to the additive track mentioned here
