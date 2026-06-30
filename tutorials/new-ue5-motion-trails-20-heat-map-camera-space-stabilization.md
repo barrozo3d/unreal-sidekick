@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=erHPJ8eoXyY
 author: Unreal Engine
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5.6"
+tags: [animation, motion-trails, heat-map, camera-space, sequencer, arc-visualization, spacing, control-rig, animator-tools, ue5-6]
+extraction_status: complete
 frames_dir: tutorials/frames/new-ue5-motion-trails-20-heat-map-camera-space-stabilization/
 frame_count: 4
 ---
@@ -33,27 +33,67 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Motion Trails 2.0 (UE5.6): select a control → click the bouncing ball icon in the animation viewport toolbar → motion trail appears. Four trail styles: Default (solid), Dash (spacing visualization), Time (blue=past/red=future), Heat Map (red=fast/green=slow). Camera Space Stabilization: twirl down trail → Space checkbox → pick Camera → Camera Component → trail locks to camera view (accounts for shake). Pin multiple controls simultaneously (max 10 default). Offset manipulator repositions trail calculation point along the bone.
 
 ### Summary
-[PENDING EXTRACTION]
+9-minute Epic Animation Hub tutorial by "Sir Wade" demonstrating Motion Trails 2.0 introduced in UE5.6. Uses the ACOM Animation Sample Project (Shot 50: Gamma character jumping through a door gap). Covers: creating a trail (bouncing ball icon), Advanced settings (Trail Thickness, Show Marks, Key Size), four Trail Styles (Default/Dash/Time/Heat Map), Camera Space Stabilization (attach trail to camera component to account for camera shake), Pin Selected (multi-trail display), Show Trails on Selection mode (dynamic selection-based trails), Offset manipulator (move calculation point along bone), Frame Range control (limit visible frame count).
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Create Motion Trail**: select any control in animation viewport → click **bouncing ball icon** (Motion Trails) in top toolbar → trail appears for selected control
+2. **Adjust appearance**:
+   - Click trail icon → open **Advanced** → change **Trail Thickness** (e.g., 2) → collapse menu to refresh
+   - Enable **Show Marks** → shows individual keyframe positions; adjust **Key Size** (e.g., 5) → collapse menu to apply
+3. **Trail Styles** (dropdown in trail settings):
+   - **Default**: solid color line
+   - **Dash**: spaced dashes showing animation spacing/timing (layout tool)
+   - **Time**: blue = frames before current position; red = frames after current position
+   - **Heat Map**: red = character moving fastest (large spacing); green = character moving slowest (small spacing/hang time) → reveals speed problems
+4. **Camera Space Stabilization**:
+   - Select the control with the motion trail → in trail panel, **twirl down** the trail entry
+   - Check the **Space** checkbox → pick the camera actor → select **Camera Component**
+   - Trail is now parented/locked to the camera view: accounts for camera shake, shows arc from camera perspective
+   - To disable: uncheck Space checkbox → trail returns to world space
+5. **Turn trail off/on**: click the bouncing ball icon again (toggles trail for the last-selected context)
+6. **Pin multiple controls**:
+   - Select multiple controls → click **Pin Selected** button → adds all selected controls as separate pinned trails (visible simultaneously)
+   - Maximum 10 pinned trails by default (adjustable)
+   - **Alt+click** a trail in the list to remove it from the pin list
+7. **Show Trails on Selection mode**: toggle to this mode → trail shows for whatever control(s) are currently selected (no persistent pinning)
+8. **Shift+click** to add a control to the pin list without replacing existing pins
+9. **Offset manipulator**:
+   - Select pinned trail → click **Offset** button → manipulator appears in viewport (turns red = preview mode)
+   - Drag manipulator along the bone to offset where the trail calculates from (e.g., move neck trail to top of neck)
+10. **Frame Range**: adjust to limit the number of visible frames around current position (e.g., show only ±10 frames instead of full shot)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Motion Trails 2.0** — UE5.6 rewrite of motion trail visualization; bouncing ball icon in animation viewport toolbar; not a Sequencer node; works in both animation and sequencer viewport
+- **Trail Styles**:
+  - **Default** — solid color line showing character path
+  - **Dash** — spaced dash segments; reveals animation spacing and timing density
+  - **Time** — blue segments = past frames; red segments = future frames relative to current frame
+  - **Heat Map** — color by speed: red = high velocity (large gaps); green = low velocity (small gaps/hang time); best for identifying speed inconsistencies
+- **Advanced settings** — Trail Thickness; Show Marks (keyframe tick marks on trail); Key Size (size of mark squares)
+- **Camera Space Stabilization** — Space checkbox in trail entry; pick Camera actor + Camera Component; stabilizes trail to camera view, compensating for camera shake/animation; shows arc from camera's perspective
+- **Pin Selected** — adds selected controls as persistent pinned trails (always visible regardless of current selection); max 10 by default
+- **Show Trails on Selection** — mode where trails update dynamically based on current selection instead of pinned list
+- **Alt+click** — removes a control from the pinned trail list
+- **Shift+click** — adds control to existing pin list
+- **Offset manipulator** — move trail calculation point along the control's bone; useful for neck, limb trails where you want to track tip/end position instead of joint center
+- **Frame Range** — limits trail visibility to N frames before/after current position (prevents full-shot clutter)
+- **ACOM Animation Sample Project** — Epic's free sample project used in this tutorial series (fourth set of videos)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner-Intermediate. Creating a basic trail is one click. Camera Space Stabilization and multi-pin workflows require understanding the trail panel's twirl-down structure.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5.6 (Motion Trails 2.0 is a UE5.6 feature; earlier versions had limited motion trail support)
 
 ### Tags
-[PENDING EXTRACTION]
+animation, motion-trails, heat-map, camera-space, sequencer, arc-visualization, spacing, control-rig, animator-tools, ue5-6
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `mastering-the-ue5-tweener-tool-push-pull-overshoot-animation.md` — animation viewport tools for polish; Tween Tool works alongside Motion Trails for spacing/timing review
+- `non-destructive-animation-in-ue5-layered-control-rigs-explained.md` — layered Control Rig editing; Motion Trails useful for reviewing additive layer arcs
+- `pose-library-additive-mode-layer-animation-poses-in-unreal-engine.md` — pose additive workflow; Motion Trails shows arc quality after pose adjustments

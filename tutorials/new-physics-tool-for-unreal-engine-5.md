@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=pWEnE86hZrM
 author: Polygonflow Dash
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [dash, physics, environment-building, procedural, scatter, collision, workflow, content-library, polygonflow, tool]
+extraction_status: complete
 frames_dir: tutorials/frames/new-physics-tool-for-unreal-engine-5/
 frame_count: 6
 ---
@@ -58,27 +58,50 @@ frame_count: 6
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Dash Physics Tool: temporary physics simulation for environment dressing. Select objects → Run Simulation → Dash tags them as Dynamic and they fall/collide. Reset only selected assets to re-try specific drops. Switch button locks previous drops as Static before continuing. Simple vs Complex collision for high-fidelity assets. Works on Scatter instances too.
 
 ### Summary
-[PENDING EXTRACTION]
+5-minute Polygonflow Dash tutorial covering the Physics tool for environment detailing. Select any mesh (including Nanite assets) → run simulation → objects fall and collide physically. Key workflow: Reset (selected only) or Ctrl+Reset (all), live-interact while simulation runs (drag assets mid-drop), Physics Drop from Content Library context menu, Duplicate for mass placement, Switch button to freeze previous drops as Static, Simple vs Complex collision (Simple default; Complex for floating Megascans assets). Works on scattered objects too (non-destructively combined with Scatter seed changes).
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Open Physics Tool**: Dash toolbar → click bouncing ball/physics icon (left of Bridge icon) → floating bar appears
+2. **Basic drop**: select object(s) in scene → press **Run Simulation** → assets become Dynamic → fall and collide
+3. **Reset**: press **Reset** to reset only selected assets; **Ctrl + Reset** = reset ALL dynamic objects
+4. **Live-interact**: while simulation running, grab any Dynamic asset, move it, let go → continues falling/colliding in real time
+5. **Physics Drop from Content Library**:
+   - Open Content Library → drag asset into scene → hold **Ctrl** before releasing → contextual menu → **Physics Drop**
+   - Asset immediately placed as Dynamic
+6. **Mass placement**: select asset → **Duplicate** → **Select** → continue duplicating → each copy is independently dynamic
+7. **Switch button**: makes selected objects Dynamic; all unselected objects Static → prevents previous drops from moving during next simulation pass
+8. **Simple vs Complex collision**:
+   - **Simple** (default): Dash generates approximated collision on-the-fly; fast but may float above surface for high-detail meshes
+   - **Complex**: select the floating Static object → press **Complex** → asset wakes up and drops to actual rendered mesh surface; heavier to process; use case-by-case for Megascans/high-fidelity assets
+9. **Scatter physics**: select Scatter instance → click **Set Static** → run physics drops on top; can adjust Scatter seed while simulation running → physics objects react in real time (non-destructive)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Dash Physics Tool** — Polygonflow Dash plugin; floating toolbar bar; not a native UE feature; requires Dash plugin installed
+- **Run Simulation** — Dash Physics toolbar button; tags selected actors as Dynamic; runs UE physics simulation
+- **Reset** (selective) — resets only selected Dynamic assets to original positions; allows iterating on specific drops
+- **Ctrl + Reset** (global) — resets ALL Dynamic assets regardless of selection
+- **Switch** — makes selected Dynamic; makes all unselected Static; essential for multi-pass placement workflows
+- **Simple collision** (default) — Dash generates simplified convex hull on-the-fly; may create floating for complex Megascans meshes
+- **Complex collision** — uses actual rendered mesh as collision surface; more accurate; processor-heavy; activate per-asset as needed
+- **Physics Drop** (context menu) — appears when holding Ctrl while dragging from Content Library into viewport; creates asset immediately as Dynamic
+- **Scatter + Physics** — select Scatter instance → Set Static first → physics objects drop on top; Scatter seed changes propagate to physics objects in real time
+- **Nanite support** — Physics tool supports Nanite-enabled meshes
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner. The tool is designed for minimal settings and maximum ease. Requires Dash plugin.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (Dash Physics Tool; Nanite support; no specific minor version mentioned)
 
 ### Tags
-[PENDING EXTRACTION]
+dash, physics, environment-building, procedural, scatter, collision, workflow, content-library, polygonflow, tool
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `new-ue5-plugin---easy-environment-creation.md` — Dash environment creation workflow (sibling tutorial)
+- `new-ue5-plugin---adding-detail-to-your-game-with-dash.md` — adding surface detail with Dash tools
+- `procedural-content-generation-framework-in-unreal-engine.md` — PCG for large-scale procedural placement (alternative to Dash Scatter for environments)
