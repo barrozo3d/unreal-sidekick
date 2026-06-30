@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=9g0K4GOACis
 author: Unreal Engine
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [animation, curve-editor, sequencer, buffer-curves, tween, bake, workflow, technique, keyframes, tools]
+extraction_status: complete
 frames_dir: tutorials/frames/ue5-curve-editor-secrets-buffer-curves-smart-snap-keyframe-tricks/
 frame_count: 4
 ---
@@ -33,27 +33,80 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Curve Editor workflow tools: (1) **Buffer Curves** — snapshot current animation state; swap/apply/replace to non-destructively compare and revert; buffer every control via Alt+click in Anim Outliner; (2) **Bake** — bake on ones (densify) OR bake every N frames (reduce density); (3) **Tween tool** smooth/rough modes for rapid curve contrast adjustment; (4) Euler filter and other filters accessed via right-click or filter button. Key insight: buffer first, then bake/reduce, compare with ghost, hand-correct discrepancies.
 
 ### Summary
-[PENDING EXTRACTION]
+14m25s official UE5 Curve Editor secrets tutorial (instructor: Sir Wade, ACOM project, Shot 40 — Beta running in corridor). Shows how to buffer all controls at once via Alt+click on Control Rig in Anim Outliner (selects full hierarchy). Buffer Curves: right-click → Buffer Curves → creates ghost; right-click → Swap Buffer Curves (toggle between current and buffered); right-click → Apply (revert to buffered); right-click → New Buffer Curve (update snapshot). Buffer does NOT persist across sessions. Anim Outliner flatten modules: removes hierarchy cascading so Alt+click on a section (e.g., left arm) selects only that section without children. Camera cuts track in a sub-sequence inherits camera from parent level sequence. Bake: can bake on ones (densify) OR bake every N frames (reduce/unbake); useful for reducing mocap data density. Tween tool: smooth/rough modes for mass curve smoothing or adding contrast; useful for noisy mocap. Filters: Euler filter (fix gimbal lock); Butterworth (smooth); Smart Reduce; Simplify. All filter access routes: right-click curve, filter button, or specific right-click sub-menu.
 
 ### Key Steps
-[PENDING EXTRACTION]
+**Buffer Curves (snapshot before editing):**
+1. Open Anim Outliner (top-right in Sequencer animation mode) → find character's Control Rig entry
+2. **Alt+click** on the Control Rig entry → selects ALL controls (hidden or visible) in the hierarchy
+3. In Curve Editor: right-click → **Buffer Curves** → creates ghost overlay for all curves simultaneously
+4. Now make edits; ghost shows where animation was at snapshot time
+5. Right-click → **Swap Buffer Curves** — toggles between current and buffered state (back and forth)
+6. Right-click → **Apply** — reverts current curve to the buffered snapshot
+7. Right-click → **New Buffer Curve** — updates the snapshot to the current state
+8. Note: buffer does NOT persist when UE is closed/reopened; buffer every session start
+
+**Anim Outliner hierarchy selection tricks:**
+9. Alt+click on any entry = selects that entry + all children recursively
+10. Top-left dropdown → **Flatten Modules** → removes hierarchy; Alt+click now selects only items in that exact section (not children) — useful for section-specific selection sets
+11. Unflatten modules when done to restore hierarchy behavior
+
+**Camera cuts in sub-sequences:**
+12. Inside a sub-sequence: add a Camera Cuts track → references the parent level sequence's camera automatically; no camera actor required in the sub-sequence
+
+**Viewport control rig visibility:**
+13. Press **G** in viewport → toggles Game Mode → shows/hides control rig handles (most common cause of "where did my rig go?")
+
+**Bake (densify or reduce density):**
+14. Select controls → Curve Editor right-click → **Bake** → interval options:
+    - "On Ones" → adds a key on every single frame (densify; e.g., for baked export)
+    - Every N frames → bakes at lower density (e.g., every 5 frames = reduce/unbake for sparse editing)
+15. Buffer curves first! Baking at low density loses high-frequency detail
+
+**Euler filter:**
+16. Right-click curve → **Euler Filter** (or Filter button → Euler Filter) → fixes gimbal lock and over-rotation artifacts on rotation channels; no settings; just Apply
+
+**Smoothing filters:**
+17. Right-click → Filter → **Butterworth** — lowpass Fourier smoothing; adjust tolerance; good for general jitter
+18. **Smart Reduce** — reduces keyframe count while preserving curve shape within tolerance
+19. **Simplify** — removes redundant (flat/collinear) keys
+20. **Smart Snap** — rounds sub-frame keys to whole frames (see companion tutorial for full workflow)
+
+**Tween tool (smooth/rough):**
+21. Tween button in Curve Editor toolbar (or animation viewport toolbar)
+22. Select all curve keys → set mode to **Smooth** → click repeatedly to smooth out jitter and reduce key-to-key contrast (good for noisy mocap)
+23. Set mode to **Rough** → click to increase contrast/emphasis between keys
+24. Combine with buffer curves: smooth, compare with ghost, hand-correct important extremes
+
+**Revert everything to pre-edit state:**
+25. Alt+click Control Rig → right-click → **Swap Buffer Curves** → all controls revert to snapshot; all baking/editing undone in one step
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Buffer Curves** — per-session snapshot; one snapshot slot per curve; ghost visible as gray overlay in Curve Editor; swap/apply/new actions; does NOT persist sessions
+- **Alt+click in Anim Outliner** — recursive selection of all controls in hierarchy; essential for bulk operations; Flatten Modules changes behavior to non-recursive per section
+- **Bake** (Curve Editor right-click) — densify to ones or reduce to every N frames; unbake workflow: bake every 5+ frames to get sparse editing-friendly keyframes
+- **Euler Filter** — standard 3D animation tool; fixes over-rotation/gimbal lock on Euler rotation channels; no settings; right-click or filter button
+- **Butterworth filter** — Fourier lowpass; reduces high-frequency noise; tolerance slider
+- **Smart Reduce / Simplify** — reduce key count; Simplify removes flat keys; Smart Reduce uses shape-preserving decimation
+- **Tween tool** — smooth/rough modes; works on entire selected curves in mass; designed for mocap cleanup
+- **Camera Cuts track in sub-sequence** — inherits camera from any parent level sequence; allows camera navigation within a sub-sequence without embedding a camera
+- **G key** — viewport game mode toggle; fastest way to show/hide control rig handles
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner-Intermediate. Tools are simple; key insight is combining buffer → edit → compare → hand-correct workflow.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (ACOM series; content compatible with UE5.0+; Smart Snap in UE5.6)
 
 ### Tags
-[PENDING EXTRACTION]
+animation, curve-editor, sequencer, buffer-curves, tween, bake, workflow, technique, keyframes, tools
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `ue5-curve-editor-20-new-lattice-tool-curve-scaling-hacks-ue-56.md` — companion tutorial; Lattice tool, view modes, time-scaling, Smart Snap workflow
+- `ue5-animation-layers-non-destructive-camera-shake-character-tweaks.md` — mentioned as next in series; animation layers for non-destructive approach
+- `stylized-animation-control-rig-characters-in-unreal-engine-5.md` — ACOM Control Rig intro; Alt+click Anim Outliner tip also covered

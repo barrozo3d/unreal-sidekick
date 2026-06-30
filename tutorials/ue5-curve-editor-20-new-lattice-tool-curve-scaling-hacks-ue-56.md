@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=VD_cfVvMs6Y
 author: Unreal Engine
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5.6"
+tags: [animation, curve-editor, sequencer, lattice, scaling, smart-snap, workflow, technique, keyframes, tools]
+extraction_status: complete
 frames_dir: tutorials/frames/ue5-curve-editor-20-new-lattice-tool-curve-scaling-hacks-ue-56/
 frame_count: 4
 ---
@@ -33,27 +33,67 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Curve Editor advanced tools in UE5.6: three view modes (Absolute / Normalized / Stacked), three selection/edit modes (default marquee, Transform scaling box with moveable pivot and Ctrl falloff, Lattice tool for independent corner control + curve flip). Two critical curve scaling workflows: (A) multiply `*=-1` trick for center-around-zero curves to flip; (B) Lattice double-click blank space for fast flip of any curve. (C) Time-scaling workflow for compressing baked-on-ones data: disable time snapping → scale with Transform → re-enable snapping → Smart Snap (Ctrl+H) to round sub-frame keys to nearest whole frame.
 
 ### Summary
-[PENDING EXTRACTION]
+16m40s official UE5.6 curve editor deep-dive (instructor: Sir Wade, ACOM project, Shot 10 — Beta brushing teeth). Part 1: View modes — Absolute (shared zero baseline), Normalized (each curve maximizes vertical space independently), Stacked (separate lanes per curve). Navigation: Alt+Shift+RMB to zoom; Shift+middle-drag to constrain axis movement. Part 2: Selection modes — default marquee; Transform mode (scaling box; pivot is draggable; Ctrl = falloff control with bounds options); Lattice tool (UE5.6 new — 4 corner handles for skewing; drag edge to pull section; double-click edge = flatten to that edge; double-click blank space = flip curve around its own bounds). Part 3: Curve flip — `*=-1` math trick works only for zero-centered curves; Lattice blank-space double-click works universally. Part 4: Time scaling workflow for dense baked curves — turn off time snapping magnet → Transform scale → sub-frame keys preserved precisely → Smart Snap (Ctrl+H) rounds everything to whole frames and deletes sub-frame duplicates. Buffer curve before scaling for comparison.
 
 ### Key Steps
-[PENDING EXTRACTION]
+**View modes (View tab in Curve Editor):**
+1. **Absolute** — all curves share a true zero baseline; default
+2. **Normalized** — each selected curve maximizes its own vertical space; good for comparing wildly different-scale curves simultaneously
+3. **Stacked** — each curve gets its own lane; scroll to see all; good for editing one at a time without overlap
+
+**Navigation:**
+4. Middle mouse drag — move selected keys indirectly
+5. Shift + middle mouse drag — constrain to vertical axis (value-only move) or horizontal (frame-only)
+6. Alt + Shift + RMB drag — zoom/pan view
+
+**Selection modes (dropdown in toolbar):**
+7. Default — marquee select; standard key manipulation
+8. **Transform mode** — appears as bounding box around selection; scales entire curve from center pivot; Shift+drag to move pivot; Ctrl held = shows falloff (feathering) options; upper/lower/left/right bounds options in tool panel
+9. **Lattice tool** (UE5.6) — 4 independent corner handles; drag corner to skew/scale non-uniformly; drag edge to pull entire side; double-click edge = flatten all keys to that edge (zero-out motion); double-click blank space = **flip curve around its own bounds** (fast mirror)
+
+**Flip curve workflows:**
+10. If curve is centered around zero: select curve → value field → type `*=-1` → Enter → multiplies all values by −1 (inverts)
+11. Universal flip: switch to **Lattice tool** → double-click the blank interior space → curve flips within its own range (no zero-centering required)
+
+**Time-scaling baked curves (compress timing without losing profile):**
+12. Buffer curve first (right-click → Buffer Curves)
+13. Disable **time snapping** by clicking the magnet button in the Curve Editor toolbar — allows sub-frame key positions
+14. With Transform mode: set pivot to first frame → drag to compress timeline → keys maintain exact curve profile as sub-frame values
+15. Re-enable time snapping
+16. Select all compressed keys → **Ctrl+H** (or right-click → Filter → **Smart Snap**) → applies snap to nearest whole frame and deletes sub-frame duplicates
+17. Curve profile preserved at new compressed timing; compare with buffer curve ghost to verify
+
+**Other filters (right-click → Filter or Filter button):**
+- Euler filter — fix gimbal lock / over-rotation on rotation channels
+- Butterworth — Fourier-based smoothing (lowpass); reduce jitter
+- Smart Reduce — reduce keyframe density with tolerance slider
+- Simplify — removes redundant keys
+- Looping tools — create seamless loops
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Curve Editor view modes** — Absolute / Normalized / Stacked; controlled in View tab
+- **Transform mode** (selection dropdown) — bounding box scale from moveable pivot; Ctrl = falloff; separate upper/lower/left/right scaling bounds
+- **Lattice tool** (UE5.6+) — independent 4-corner + 4-edge manipulation; double-click interior = flip; double-click edge = flatten; no additional rows/columns yet
+- **Time snapping toggle** (magnet icon) — locks keys to whole frames when on; must be OFF to allow sub-frame positions during scale workflow; re-enable after Smart Snap
+- **Smart Snap** (Ctrl+H) — rounds all selected sub-frame keys to nearest whole frame; deletes duplicates; UE5.6+; much cleaner than Maya's equivalent
+- **`*=-1` math trick** — select all keys on a zero-centered curve → value field → `*=-1` → flips; does NOT work for curves offset away from zero
+- **Lattice flip** — double-click blank space = flip within own bounds; works on any curve regardless of zero offset
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate. Assumes basic Curve Editor familiarity. Lattice and Smart Snap are new UE5.6 features.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5.6 (Lattice tool and Smart Snap are 5.6+ features; other content applies to earlier UE5)
 
 ### Tags
-[PENDING EXTRACTION]
+animation, curve-editor, sequencer, lattice, scaling, smart-snap, workflow, technique, keyframes, tools
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `ue5-curve-editor-secrets-buffer-curves-smart-snap-keyframe-tricks.md` — companion tutorial by same instructor; buffer curves, bake, tween tool, Euler filter
+- `ue5-animation-layers-non-destructive-camera-shake-character-tweaks.md` — animation layers; mentioned as next video in series
+- `stylized-animation-control-rig-characters-in-unreal-engine-5.md` — ACOM project intro; Control Rig basics used in this tutorial
