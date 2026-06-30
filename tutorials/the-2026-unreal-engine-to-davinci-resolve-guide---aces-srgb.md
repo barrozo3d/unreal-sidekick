@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=2Q3CybANHKE
 author: William Faucher
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [rendering, color-grading, davinci-resolve, exr, aces, linear-srgb, mrq, post-production, pipeline, workflow]
+extraction_status: complete
 frames_dir: tutorials/frames/the-2026-unreal-engine-to-davinci-resolve-guide---aces-srgb/
 frame_count: 13
 ---
@@ -93,27 +93,76 @@ frame_count: 13
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+UE5 → DaVinci Resolve color pipeline. Render EXR with **Disabled Tone Curve** (linear sRGB) in MRQ → import into DaVinci Resolve → apply **ACES Transform node** (input: Linear sRGB, output: sRGB) for correct color interpretation. Alternative: render with tone curve ON (input: sRGB Linear, output: sRGB Texture) for 1-to-1 viewport match but less grading flexibility. Optional OCIO config (`ocio://default` built into UE5) for true ACEScg output or viewport transform.
 
 ### Summary
-[PENDING EXTRACTION]
+23-minute William Faucher (EasyFog/EasyMapper/EasySnow) tutorial solving the "my render looks nothing like my viewport" problem. Explains why: EXR renders in linear space look wrong until converted in post. Covers three render configurations (tone curve ON, OFF, and ACEScg via OCIO) and exactly how to convert each in DaVinci Resolve's ACES Transform node. Demonstrates full Resolve color grading workflow: Lift/Gamma/Gain, curves, Hue vs Saturation, vignette, fake god ray painting, glow node — all with free Resolve tools. Shows Studio-only Film Look Creator node and Dehancer plugin (paid, film stock profiles + best film grain). Export settings: MP4 H264/H265 at fps × 2 (kbps) bitrate.
 
 ### Key Steps
-[PENDING EXTRACTION]
+**In Unreal Engine:**
+1. **Render settings** (MRQ):
+   - File format: **EXR** (16-bit; mandatory for this pipeline)
+   - Color Output node: tick **Disable Tone Curve** → renders in linear sRGB
+   - Optional: set PPV → Blue Correction = 0, Expand Gamut = 0 (reduce color oddities)
+2. **Optional: OCIO config for viewport match or ACEScg**:
+   - Enable **OpenColorIO plugin** (Edit → Plugins)
+   - Content Browser right-click → create OpenColorIO Configuration
+   - Open config → Configuration File Path: `ocio://default` (built-in, no download needed)
+   - Add color spaces: Linear sRGB + ACEScg; Display View: sRGB ACES 1.0 SDR video
+   - For ACEScg output: Color Output node → enable OCIO → source: linear sRGB → destination: ACEScg
+3. **Optional: Viewport OCIO transform** (to preview in known color space):
+   - Viewport → Lit → OCIO Display → Enable Display → load config
+   - Top dropdown: Linear sRGB; Bottom dropdown: ACES 1.0 SDR video
+   - Now viewport matches your tone-curve-disabled linear renders in Resolve
+
+**In DaVinci Resolve (Color page):**
+4. **Project setup**: File → Project Management → set resolution + frame rate
+5. **Import**: Edit page → Media Pool → right-click → Import Media → select EXR folder (Resolve auto-groups image sequence as one clip) → drag to timeline
+6. **Color conversion** (Color page → FX tab → ACES Transform node → connect before grade):
+   - **Tone curve ENABLED render**: Input = sRGB Linear, Output = sRGB Texture → matches viewport 1:1
+   - **Tone curve DISABLED render** (recommended): Input = Linear sRGB, Output = sRGB → ~1 stop darker than viewport (expected, not a bug); add OCIO viewport transform in UE if you need exact match
+   - **ACEScg render**: Input = ACEScg, Output = sRGB
+7. **Color grading nodes** (Alt+S to add new node after current; Ctrl+D to disable/enable for A/B compare):
+   - **Contrast node**: Lift/Gamma/Gain/Offset; use curves for fine control; add pre-convert node to lift shadows slightly to prevent clipping
+   - **Color correction node**: Temp adjustment; Hue vs Saturation (target blues in sky, reduce); Hue vs Hue (shift greens to warmer tone)
+   - **Vignette node**: circle Power Window → curves bring shadows down
+   - **God ray node**: circle Power Window → curves lift for fake god ray in frame
+   - **Glow node** (FX search "Glow"): bloom equivalent; set blend mode to Screen; adjust Shine Threshold, Opacity, Spread; be conservative
+8. **Studio: Film Look Creator node** — combines exposure/contrast/highlight/vignette/bloom/film grain in one node (similar to Dehancer)
+9. **Dehancer** (paid plugin — film stocks; best film grain reconstruction; `William10` for 10% off)
+10. **Export**:
+    - Still: Color page → right-click clip → Grab Still → right-click in gallery → export
+    - Video: Deliver page → MP4, H264 or H265; Bitrate = frame rate × 2000 (e.g., 24fps → 48,000 kbps)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **EXR (16-bit)** — preserves full HDR data; required for linear pipeline; JPEG/PNG are already 8-bit sRGB with tone curve baked in (no conversion needed in Resolve)
+- **Disable Tone Curve** (MRQ Color Output node) — outputs linear sRGB; more flexible; ~1 stop darker than viewport; correct baseline for color grading
+- **Tone Curve ON** (default MRQ) — "ACES flavored" tone map baked in; matches viewport exactly; less flexible for compositing/grading
+- **OpenColorIO (OCIO)** — UE5 plugin; config path `ocio://default` now built-in (no external download); enables true ACEScg render pipeline and viewport display transforms
+- **OCIO Viewport Display** — Lit → OCIO Display → Enable; shows viewport in known ACES 1.0 SDR profile; matches linear EXR renders in Resolve
+- **Blue Correction / Expand Gamut (PPV)** — minor color tweaks; set to 0 for cleaner linear output
+- **ACES Transform node (DaVinci)** — in FX library; converts between color spaces; required step for EXR renders; settings depend on render mode used
+
+**Color space conversion table:**
+| Render Mode | UE Setting | Resolve ACES Transform |
+|-------------|-----------|----------------------|
+| Recommended | Disable Tone Curve → linear sRGB EXR | Input: Linear sRGB → Output: sRGB |
+| Viewport match | Tone Curve ON (default) | Input: sRGB Linear → Output: sRGB Texture |
+| True ACES | OCIO → ACEScg | Input: ACEScg → Output: sRGB |
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate. Color science concepts are inherently complex; the specific node settings are simple once the theory is understood. DaVinci Resolve free version covers 100% of the tutorial content.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (OCIO built-in since UE5.x; MRQ; linear pipeline)
 
 ### Tags
-[PENDING EXTRACTION]
+rendering, color-grading, davinci-resolve, exr, aces, linear-srgb, mrq, post-production, pipeline, workflow
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `the-2025-guide-to-rendering-in-unreal-engine-5.md` — MRQ setup (EXR, tone curve, sampling); upstream step for this pipeline
+- `unreal-to-davinci-resolve-workflow---aces-srgb.md` — earlier version of same pipeline by same author; compare for changes
+- `path-tracer-explained---unreal-engines-underrated-tool.md` — Path Tracer renders also output to MRQ; same pipeline applies
+- `the-2026-unreal-engine-to-davinci-resolve-guide---aces-srgb.md` — this file (self-reference; 2026 updated version)

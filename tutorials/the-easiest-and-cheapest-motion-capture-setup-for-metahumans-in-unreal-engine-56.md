@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=M799eoMK4tw
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5.6"
+tags: [metahuman, mocap, performance-capture, single-camera, ai-mocap, live-link, facial-capture, pipeline, comparison, workflow]
+extraction_status: complete
 frames_dir: tutorials/frames/the-easiest-and-cheapest-motion-capture-setup-for-metahumans-in-unreal-engine-56/
 frame_count: 18
 ---
@@ -118,27 +118,92 @@ frame_count: 18
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Single-camera full performance capture (face + body) for MetaHumans in UE5.6 with no head rig. Pipeline: record performance on Android phone (4K 60fps, neutral 1X lens) → process body animation through AI mocap service (QuickMagic or Meshcapade) → FBX import → retarget to MetaHuman → process same footage through MetaHuman Animator (Mono Video Ingest, Head Movement Disabled) → combine body + face animations in Level Sequence.
 
 ### Summary
-[PENDING EXTRACTION]
+22-minute Charlie Driscoll production tutorial comparing 4 single-camera AI mocap solutions (QuickMagic, Meshcapade, Move One, Marionette) using the same footage to make a 5-minute pirate short film. Hybrid pick: QuickMagic for dialogue/upper body ($2.94/min, fastest), Meshcapade for movement/spatial accuracy ($10.80/min). Same footage fed to MetaHuman Animator (Mono Video Ingest) for face; Head Movement Mode set to Disabled since body mocap handles neck. Cinematography: per-shot sequences, everything as spawnable actors, 70mm IMAX filmback with 40-80mm lenses. OverCrowd for crowd (5,000+ zombies). Total mocap cost for 18-min animation: ~$74. Film produced in 3 weeks solo.
 
 ### Key Steps
-[PENDING EXTRACTION]
+**Project setup (UE5.6):**
+1. Engine install options: enable **MetaHuman Creator Core Data**
+2. Project: enable all **MetaHuman plugins**
+3. MetaHuman Creator (inside project): create/select MetaHuman → add clothing from Marketplace → Rig → download textures (8K) → **Assemble**
+
+**Capture setup:**
+4. Camera: Android phone (Samsung S23 Ultra tested); **4K 60fps**; use **neutral 1X lens** (avoid wide lenses — distortion at frame edges)
+5. Audio: use wireless mic (DJI tested) if phone is positioned away from performer
+6. Record A-Pose + T-Pose at start of takes only if using **Marionette** (not needed for QuickMagic or Meshcapade)
+
+**Body mocap — QuickMagic** (dialogue, upper body, seated):
+7. Go to QuickMagic web → drag-drop clip (max 60sec, max 200MB; split longer takes into segments)
+8. Select: **Unreal Engine 5.6 mannequin skeleton**
+9. For seated/upper body: enable **Upper Body Only** (locks hips, auto-poses legs; unique QuickMagic feature)
+10. Download FBX → UE5 Content Browser → Import → Animations Only → UE5 mannequin skeleton
+11. Right-click animation → Retarget Animation → select **MetaHuman Skeletal Mesh** → retarget
+
+**Body mocap — Meshcapade** (walking, action, multi-performer):
+- Upload clip to Meshcapade web (30sec = ~18min processing); outputs spatially accurate body mocap
+- Unique: can track 2 performers in same clip (same price as 1 performer); import/retarget same way as QuickMagic
+- Use for: walking toward camera, complex blocking, fight choreography
+
+**Face capture — MetaHuman Animator:**
+12. Tools → **Live Link Hub** → Live Data: **Capture Manager** → Add Device → **Mono Video Ingest**
+13. Set take directory to mocap footage folder → select same clips used for body → Add to Queue → Start (imports footage)
+14. Content Browser → right-click → MetaHuman → **Create New MetaHuman Performance**
+15. Open performance asset:
+    - Input Type: **Monocular Footage**
+    - Footage Capture Data: select clip
+    - Visualization Mesh: search "Face" → select face mesh of target MetaHuman
+    - **Head Movement Mode: Disabled** (critical — prevents neck tracking; body mocap handles this; otherwise double-transform)
+16. Hit **Process** (ML; takes significant time) → **Export Animation**
+
+**Assembly in Sequencer:**
+17. Create Level Sequence → Add MetaHuman
+18. **Delete Control Rigs** from MetaHuman track
+19. Add body animation to body track; add face animation to face track → should sync automatically (same source footage)
+
+**Cinematography setup:**
+20. Each shot = own Level Sequence (own camera/lights/characters)
+21. Convert all actors to **Spawnable** (right-click → Convert to Spawnable) → assets only exist when that sequence is active
+22. Add Directional Light to sequence as spawnable → adjust sun per shot without affecting other shots
+23. Duplicate sequence for next shot in same scene → start from same baseline
+24. Camera: **70mm IMAX filmback**; 40mm lens for wides, 80mm for close-ups
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **MetaHuman Creator Core Data** — Engine install option; required for new-generation MetaHumans in UE5.6; enables in-project MetaHuman Creator
+- **Live Link Hub** (Tools menu) → **Capture Manager** → **Mono Video Ingest** — imports performance footage for MetaHuman Animator processing
+- **MetaHuman Performance asset** — right-click → MetaHuman → Create New MetaHuman Performance; Input Type: Monocular Footage; Head Movement Mode: Disabled (when body mocap handles neck)
+- **Head Movement Mode: Disabled** — prevents MetaHuman Animator from tracking neck from the video; must be set when combining with body mocap to avoid double-transformation on the neck
+- **Spawnable actors** — Sequencer feature; actor only exists when that sequence is open/active; essential for per-shot organization in multi-shot projects
+- **70mm IMAX filmback** — gives compression of long lens + wider FOV; more cinematic feel; in UE Camera Actor → Filmback presets
+- **OverCrowd plugin** (Charlie Driscoll's plugin on Fab) — spawns hundreds/thousands of MetaHumans with modular wardrobes + animations; paired animations (e.g. sword fight) spawn characters dueling each other; used for 5,000 zombie crowd
+
+**AI Mocap solution comparison:**
+| Solution | Cost | Speed | Best For | Weakness |
+|---------|------|-------|----------|---------|
+| QuickMagic | $2.94/min | ~10min/1min | Dialogue, upper body, seated | Hip wobble on walking |
+| Meshcapade | $10.80/min | ~18min/30sec | Walking, action, 2-person | Hand jitter, cost |
+| Move One S1 | $2.50/min ($50/mo) | Medium | General purpose | Needs jitter cleanup |
+| Marionette | $150/year flat | Offline | Background, budget | Over-smoothed; needs A/T pose |
+
+**Cost example (18min total animation):**
+- QuickMagic only: $53
+- Meshcapade only: $197
+- Hybrid (16.5 QM + 2.5 MC): ~$74
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate. Each tool (QuickMagic, Meshcapade, MetaHuman Animator) has its own account/upload process. The MetaHuman Animator Head Movement Mode setting is a critical non-obvious step. Retargeting to MetaHuman is straightforward once you know the skeleton names.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5.6 (new-generation MetaHumans; in-project MetaHuman Creator; MetaHuman Animator Mono Video Ingest)
 
 ### Tags
-[PENDING EXTRACTION]
+metahuman, mocap, performance-capture, single-camera, ai-mocap, live-link, facial-capture, pipeline, comparison, workflow
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `new-unreal-engine-58-metahuman-markerless-mocap-tutorial.md` — UE5.8 markerless mocap via Live Link Hub (same face workflow, newer body processing)
+- `recreating-brutal-deaths-from-history-in-unreal-engine-5.md` — Charlie Driscoll; Move Pro (6-GoPro) + Rococo head rig pipeline (higher-tier comparison)
+- `new-unreal-engine-58-metahuman-crowd-plugin.md` — MetaHuman Crowd Plugin (alternative crowd solution to OverCrowd for UE5.8)
+- `metahuman-realtime-animator-best-practices-unreal-engine-animation-hub.md` — MetaHuman Animator best practices (webcam live vs. video ingest)
