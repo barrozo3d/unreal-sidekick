@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=yolGEIrhu0s
 author: William Faucher
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE4/UE5"
+tags: [volumetric-clouds, sky, environment, art-direction, cloud-mask, engine-content, materials, rendering, VFX]
+extraction_status: complete
 frames_dir: tutorials/frames/volumetric-cloud-secrets-unreal-engine-4-5-works-in-ue5/
 frame_count: 4
 ---
@@ -48,27 +48,68 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Art-direction of volumetric clouds using hidden Engine Content blueprints: **BP_CloudMaskObject** (controls position/shape of individual cloud) + **BP_CloudMaskGenerator** (generates render targets for the mask system). Replace the default volumetric cloud material with curated Engine Content profiles (e.g., `VolumetricCloud_03Profiles_Billowy`). Position cloud mask objects in scene to place clouds exactly. Enable Show Engine Content to access these assets. ⚠️ "Paint Cloud" materials need a render target texture swap to work with the mask system.
 
 ### Summary
-[PENDING EXTRACTION]
+15m2s William Faucher tutorial on positioning and art-directing volumetric clouds in UE4/UE5. Problem: default volumetric cloud actor has little art-direction control. Solution: Engine Content cloud compositing blueprints — BP_CloudMaskObject (one per cloud formation, scale ~25, Noise Intensity = 1) + BP_CloudMaskGenerator (generate render targets). Must replace default material with one from Engine Content Sky/Materials folder. Show Debug on CloudMaskObject = red preview plane shows shape. "Paint Cloud" materials: must replace T_CloudMask_Storm texture with RT_CloudMask_01 render target in master material, then create material instance for per-cloud tuning. To delete clouds: delete CloudMaskObjects → select Generator → click "Render Clouds" to clear.
 
 ### Key Steps
-[PENDING EXTRACTION]
+**Setup:**
+1. Plugins → search "volumetric" → ensure Volumetric Clouds plugin enabled; restart if needed
+2. Content Browser → View Options (bottom right) → enable **Show Engine Content** → engine folders appear on left
+
+**Place actors:**
+3. Place Actors → Visual Effects → **Volumetric Clouds** → drag into scene (clouds appear but look generic)
+4. In Content Browser → Engine content → VolumetricContent → Tools → Cloud Compositing → Blueprints:
+   - Drag **BP_CloudMaskGenerator** into scene (drag far away; it's large by default)
+   - Drag **BP_CloudMaskObject** into scene → set scale to ~25 in Details → move to desired cloud position
+
+**Assign material:**
+5. Select Volumetric Cloud actor → Details: Material slot → drag from VolumetricContent → Content → Sky → Materials → **VolumetricCloud_03Profiles_Billowy** (or another "Profiles" material) → clouds take new shape
+
+**Art-direct cloud shape:**
+6. Select BP_CloudMaskObject → Details → enable **Show Debug** → red preview plane appears showing cloud shape footprint
+7. Set **Noise Intensity = 1** → cloud shape breaks up from generic blob into organic form
+8. Adjust **Noise Seed** (randomize shape) + scale (larger object = bigger cloud)
+9. Duplicate BP_CloudMaskObject → move to different positions → multiple independent clouds
+10. Disable Show Debug when done
+
+**Tune cloud appearance:**
+11. Select Volumetric Cloud actor → Details: Layer Bottom Altitude, Layer Height, Cloud Shadow Extent → adjust for altitude and vertical thickness
+12. Edit material (open VolumetricCloud material) → adjust density, detail noise parameters; no right/wrong values
+
+**"Paint Cloud" materials (optional):**
+13. Paint cloud materials (material names containing "paint_clouds") need a texture swap to work with mask system
+14. Open paint cloud master material → find **T_CloudMask_Storm** texture → replace with **RT_CloudMask_01** (from VolumetricContent → Tools → CloudCompositing → RenderTargets)
+15. Save master material → close
+16. Right-click on that material → **Create Material Instance** → drag instance into Volumetric Cloud material slot
+17. Open instance → adjust parameters (bias, bottom noise, etc.) without editing master
+
+**Delete clouds:**
+18. Select BP_CloudMaskObjects → delete
+19. ⚠️ Clouds still visible until: select **BP_CloudMaskGenerator** in Outliner → click **"Render Clouds"** button → render targets update → clouds disappear
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Volumetric Clouds actor** — UE built-in sky component; place once; add material + configure layer height
+- **BP_CloudMaskObject** (Engine Content) — hidden blueprint; its world position = cloud position; Scale = cloud footprint size; Noise Intensity (1 = detailed organic shape); Noise Seed (shape randomization); Show Debug = red preview plane
+- **BP_CloudMaskGenerator** (Engine Content) — generates render targets that communicate cloud positions to the material system; also has "Render Clouds" trigger button for clearing
+- **VolumetricContent** (Engine Content path) — Enable Show Engine Content to access; VolumetricContent → Tools → CloudCompositing → Blueprints / RenderTargets; VolumetricContent → Content → Sky → Materials
+- **VolumetricCloud Profiles materials** — ready-to-use cloud materials that work with BP_CloudMaskObject out of the box (e.g., _Billowy, _Layered)
+- **"Paint Cloud" materials** — require texture swap: replace T_CloudMask_Storm → RT_CloudMask_01 in master material; then create material instance
+- **RT_CloudMask_01** — render target in Engine Content; what drives cloud mask position; must be referenced in paint cloud materials
+- **"Render Clouds" button** (BP_CloudMaskGenerator) — re-bakes render targets; must press after deleting CloudMaskObjects to clear stale cloud positions
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate. Engine Content not visible by default; texture swap in master material adds complexity but is one step.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE4.26+ / UE5 (confirmed compatible)
 
 ### Tags
-[PENDING EXTRACTION]
+volumetric-clouds, sky, environment, art-direction, cloud-mask, engine-content, materials, rendering, VFX
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `unreal-engine-masterclass-animate-environments-the-easy-way.md` — cloud animation via Ultra Dynamic Sky (alternate approach)
+- `the-perfect-sky-light-in-unreal-engine-5.md` — sky setup context

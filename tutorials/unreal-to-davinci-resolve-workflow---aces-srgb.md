@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=Bo3BvhGdaUo
 author: William Faucher
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [color-grading, davinci-resolve, aces, ocio, movie-render-queue, exr, color-science, post-production, workflow, vignette, chromatic-aberration, glow, film-grain]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-to-davinci-resolve-workflow---aces-srgb/
 frame_count: 16
 ---
@@ -108,27 +108,82 @@ frame_count: 16
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Complete UE5 → DaVinci Resolve pipeline: render EXR with ACES or sRGB color space via Movie Render Queue OCIO settings, then correctly apply ACES input transform in DaVinci. Two paths covered: (1) **ACES**: OCIO enabled → source=linear sRGB → destination=acescg → Resolve: ACES CCT project + acescg input transform; (2) **non-ACES sRGB**: OCIO disabled → Tone Curve OFF → Resolve: SRGB Linear input transform. Key insight: wrong input transform = oversaturated/wrong colors, even if file looks similar. Color grading workflow: S-curve contrast node, saturation/temp correction, glow effects, radial vignette mask, luminance-masked chromatic aberration, film grain.
 
 ### Summary
-[PENDING EXTRACTION]
+30m43s William Faucher complete color pipeline from UE5 to DaVinci Resolve. Two sections: (1) Unreal render setup: OCIO config asset with ACES 1.2 (one-time setup); MRQ: EXR 16-bit + AA (TSR 16 samples) + Color Output (OCIO enabled for ACES or Tone Curve OFF for non-ACES); bake color space name into filename. (2) DaVinci Resolve: project settings → ACES CCT → Rec.709 output; import EXR sequence; right-click → ACES Input Transform (acescg for ACES renders, SRGB Linear for sRGB renders); node-based non-destructive color grading: S-curve tone node + color correct node + glow FX + vignette via radial mask + masked chromatic aberration + film grain. Deliver page to export final video.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**One-time OCIO setup in Unreal:**
+1. Download ACES 1.2 config from official ACES repo (config.ocio file only, not full 5GB package)
+2. UE Content Browser → create folder "OCIO_Configs" → right-click → Miscellaneous → **OpenColorIO Configuration** → name it "OCIO_Config_01"
+3. Open the asset → click three dots → browse to downloaded config.ocio → load
+4. Click + twice to add two color spaces:
+   - "utility.linear.sRGB" (default UE color space)
+   - "acescg" (ACES CG color space)
+5. Save → done (one-time only)
+
+**Movie Render Queue render settings:**
+6. MRQ → add tabs: **EXR Sequence 16-bit**, **Anti-Aliasing**, **Color Output** (delete JPEG sequence)
+7. Anti-Aliasing: Temporal Sample Count = 16; Override Anti-Aliasing = None
+8. **Color Output** tab:
+   - **ACES path**: Enable OCIO → load OCIO_Config_01 → Source = utility.linear.sRGB → Destination = acescg
+   - **Non-ACES path**: OCIO disabled → ⚠️ **Disable Tone Curve** (critical! full HDR data, pixel values > 1 preserved)
+9. Output tab → filename format: include color space name (e.g., "acescg" or "notonecurve") for clarity
+10. Render Local
+
+**DaVinci Resolve project setup:**
+11. File → Project Settings → Color Management tab:
+    - Color Science: **ACES CCT**
+    - ACES Version: **1.2**
+    - ACES Output Transform: **Rec.709**
+12. Save → OK
+
+**Import and input transform:**
+13. Edit page → Media Pool → right-click → Import Media → select first frame of EXR sequence → Resolve auto-groups as sequence
+14. Drag clip to timeline
+15. Right-click clip → **ACES Input Transform → Color Space Conversion**:
+    - ACES renders → **acescg**
+    - Non-ACES (tone curve off) renders → **SRGB Linear** (⚠️ NOT acescg — colors will be wrong)
+16. Colors should now look approximately correct (matching UE viewport)
+
+**Color grading nodes:**
+17. Color page → existing node → **Alt+F** = add label → call it "tone"
+18. Curves → subtle S-curve (boost highlights, crush shadows) → adjust per taste
+19. **Alt+S** = add new node → label "color correct" → reduce saturation if oversaturated → adjust temperature
+20. **Ctrl+D** = toggle node on/off to compare
+21. **Glow**: Effects tab → FX library → search "glow" → drag onto node graph; adjust Shine Threshold + Spread + Opacity; set blending to Screen for natural feel
+22. **Vignette**: select last node → click radio mask button → curves: drag top point down → radial darkening at edges
+23. Masks as paint: duplicate node + different mask shape → simulate god rays by brightening a masked region
+24. **Chromatic Aberration with luminance mask**: add CA node → add Layer Mixer (right-click → Add Node → Layer Mixer) → add Corrector node below CA → connect Corrector to bottom input of Layer Mixer; select Corrector → Qualifier (eyedropper) → click bright area of image → magic wand to visualize mask → uncheck Hue + Saturation → only luminance mask remains → CA only appears in bright areas
+25. **Film grain** (paid): Effects → Film Grain → preset "35mm 400T" (may not be visible on YouTube due to compression)
+26. Deliver page → choose format/codec/resolution/FPS → Add to Render Queue → Render All
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **OpenColorIO Configuration asset** — UE content asset; loads OCIO config file; defines available color space conversions; reusable across project
+- **Color Output (MRQ)** — OCIO Enabled = ACES workflow; Tone Curve = must be OFF for non-ACES HDR renders; most commonly forgotten setting
+- **EXR 16-bit** (MRQ) — best render format; 32-bit float container; preserves full HDR data including values > 1
+- **ACES CCT** (DaVinci) — project color science; combined ACES transform + creative tone mapping; version must match OCIO config version
+- **ACES Input Transform → Color Space Conversion** (DaVinci) — per-clip setting; tells Resolve how to interpret image data; wrong selection = incorrect colors
+- **SRGB Linear** (DaVinci input transform) — correct transform for UE renders with tone curve disabled; NOT "acescg"
+- **Node-based color grading** (DaVinci Color page) — Alt+S new node; Ctrl+D toggle; each node isolated and non-destructive
+- **Qualifier** (DaVinci) — luminance/color selection tool; drives masks for effect isolation (e.g., CA only in bright areas)
+- **Layer Mixer** (DaVinci) — composites two node outputs; used to blend masked/unmasked effects
+- **Radial Mask** (DaVinci) — radio mask button on node; creates elliptical region; used for vignette and painted light
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate. Pipeline setup is one-time complex; grading workflow is iterative and learnable.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (also compatible with UE4; identical process)
 
 ### Tags
-[PENDING EXTRACTION]
+color-grading, davinci-resolve, aces, ocio, movie-render-queue, exr, color-science, post-production, workflow, vignette, chromatic-aberration, glow, film-grain
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `how-to-get-a-cinematic-look-in-unreal-engine-5.md` — in-engine cinematic look settings
+- `unreal-5-secrets-every-filmmaker-must-know.md` — chromatic aberration technique (scale not translate)
+- `the-movie-render-queue-explained.md` — MRQ detailed setup
