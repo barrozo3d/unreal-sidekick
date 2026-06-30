@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=JxHYt9vFQD8
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5.61"
+tags: [animation, sequencer, bone-matching, blending, mixamo, root-motion, control-rig, fk-rig, layered-animation, workflow]
+extraction_status: complete
 frames_dir: tutorials/frames/motion-blending-bone-matching-for-unreal-engine---make-films-in-unreal-ep2-inter/
 frame_count: 8
 ---
@@ -68,27 +68,66 @@ frame_count: 8
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+**Bone Matching** in Sequencer resolves the root-motion blending problem: when two root-motion animations (position baked into root) are placed end-to-end in Sequencer, the character snaps/skates back to the start position of each clip. Fix: right-click animation clip → "Match this bone in the previous clip" → select hip/root bone → enable "Match X and Y Translation". Bonus: add a **Layered FK Control Rig** track on top of blended animation for additive pose overrides.
 
 ### Summary
-[PENDING EXTRACTION]
+14-minute Dean Yurke tutorial (Make Films in Unreal, ep2) addressing root-motion animation blending in Sequencer. Uses Mixamo animations (Swagger Walk + Idle) as the demo. Shows the blending problem (character snaps to clip origin), the Bone Matching fix (right-click → match hip in previous clip + Match X and Y Translation), experimentation with different bones (hips vs feet), overlap positioning to find natural transition frames, and adding a Layered FK Control Rig track to the same character in Sequencer for custom bone animation overrides (head look, spine rotation) on top of the blended animation. Uses cubic tangents and Auto Key in Control Rig workflow.
 
 ### Key Steps
-[PENDING EXTRACTION]
+**Mixamo workflow:**
+1. Mixamo.com → search animation → turn off "In Place" for root-motion versions → download as FBX, 24fps, with skin, no keyframe reduction
+2. Import second animation: "Import Animation Only" + select existing skeleton → avoids duplicate skeleton assets (if you forget, UE will still detect and reuse the skeleton automatically)
+
+**Level Sequence setup:**
+1. Right-click → Cinematics → New Level Sequence; set 24fps
+2. Add character actor → under Animation: `+` → select Idle animation; extend end handle to loop
+3. Add second animation clip (Swagger Walk) after idle
+
+**The blending problem:**
+- Root-motion clips snap character back to world origin at clip boundary
+- Overlapping clips causes skating/sliding instead of smooth blend
+
+**THE FIX — Bone Matching:**
+1. Right-click the second animation clip in Sequencer
+2. Select **"Match this bone in the previous clip"** → choose bone (start with **hips/pelvis**)
+3. **CRITICAL**: Also enable **"Match X and Y Translation"** (without this, the match has no effect)
+4. Can also enable "Match Height" (Y axis)
+5. Optionally try foot bones ("left foot", "right foot") for transitions where footwork matters
+6. Adjust overlap amount — move clips to find the frame range where animations transition most naturally
+7. Add idle again at end → apply bone matching again for that transition
+
+**Layered FK Control Rig (post-blend animation overrides):**
+1. In Sequencer → under character → `+` → Control Rig → check **Layered** → select **FK Control Rig**
+2. Select bone to override (e.g., head, spine) in level viewport or Sequencer outliner
+3. Switch to **Local Rotation** mode (not World)
+4. Pose bone; right-click keyframe → change from Linear (triangle) to **Cubic Auto** tangent
+5. Enable **Auto Key** to record all bone movements as keys automatically
+6. Result: additive bone animation layer on top of blended mocap/animation
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Bone Matching** — Sequencer right-click animation clip → "Match this bone in the previous clip"; choose bone name (hips, foot_l, foot_r, etc.); fixes root-motion origin snap at clip boundaries
+- **Match X and Y Translation** — must be enabled alongside bone match; without it, bone match does nothing; right-click clip to find this option
+- **Match Height** — optional Y-axis (vertical) matching; helps when clips have different starting heights
+- **Layered Control Rig track** — Sequencer → character → `+` → Control Rig → Layered checkbox; sits on top of animation tracks; non-destructive override layer
+- **FK Control Rig** — Forward Kinematics rig; available on any FBX skeletal mesh import; provides per-bone rotation control; every Mixamo/3rd-party FBX character gets one automatically
+- **Local Rotation mode** — switch from World to Local in viewport to rotate bones relative to their own axes (critical for spine/head rotation)
+- **Auto Key** — Sequencer toolbar toggle; automatically creates keyframes for any modified bone/control
+- **Cubic Auto tangent** — keyframe tangent type; set via right-click keyframe → Interpolation → Cubic Auto; prevents linear/snapping motion between poses
+- **Mixamo** — free Adobe animation library; supports Mixamo skeleton (one-click Control Rig in UE compatible); download: FBX, 24fps, with skin, no keyframe reduction
+- **"Import Animation Only"** option — import dialog; reuses existing skeleton instead of creating a duplicate; recommended for second animation from same character
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner-Intermediate. Core bone matching workflow is a right-click menu operation — easy once you know the "Match X and Y Translation" trick. Layered Control Rig requires basic familiarity with Sequencer and bone selection. No Blueprint or C++ required.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5.61 (explicitly mentioned in tutorial)
 
 ### Tags
-[PENDING EXTRACTION]
+animation, sequencer, bone-matching, blending, mixamo, root-motion, control-rig, fk-rig, layered-animation, workflow
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta.md` — Dean Yurke ep1: beginner filmmaking pipeline, Sequencer basics, MRQ
+- `mastering-the-ue5-tweener-tool-push-pull-overshoot-animation.md` — Sequencer Tween Tool for animation polish
+- `motion-capture-isnt-just-for-hollywood-any-more.md` — Rococo mocap → UE5 filmmaking pipeline; retargeting; bake to Control Rig

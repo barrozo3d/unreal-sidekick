@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=hoCoa8gMP-M
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [mocap, motion-capture, rococo, workflow, sequencer, retargeting, control-rig, filmmaking, cinematics, indie-production]
+extraction_status: complete
 frames_dir: tutorials/frames/motion-capture-isnt-just-for-hollywood-any-more/
 frame_count: 10
 ---
@@ -78,27 +78,97 @@ frame_count: 10
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+End-to-end indie filmmaking pipeline using Rococo inertial mocap suits → UE5 Sequencer → editing → iterative camera/animation refinement. Four stages: Build (characters + environments + look dev turntable) → Mocap (shoot + Rococo Studio cleanup: Locomotion filter + Drift Fix) → Filmmaking Cycle (cameras + MRQ Playblast renders + editing → Control Rig improvements) → Lighting/FX. Key philosophy: get to a rough edit ASAP; never light until camera/animation is locked.
 
 ### Summary
-[PENDING EXTRACTION]
+18-minute Josh Toonen tutorial documenting the full mocap filmmaking workflow used to produce a samurai sword fight short (two actors, Rococo suits + gloves). Covers: Look Dev turntable method for stress-testing materials; Rococo smart suit setup (actor profiles, WiFi, recalibration between takes, clap-sync); Rococo Studio cleanup (Locomotion filter for foot planting — CRITICAL, Drift Fix for world-space trajectory); FBX export; UE5 import + IK retargeting to custom characters; Sequencer filmmaking cycle (cameras + MRQ Playblast renders + editing timeline); baking mocap to Control Rig for cleanup; iterative lock-then-light workflow.
 
 ### Key Steps
-[PENDING EXTRACTION]
+**Stage 1 — Build:**
+1. Source/create 3D character model → custom materials in Substance Painter
+2. **Look Dev Turntable** (critical step most skip):
+   - Place character center scene; add lights; rotate character 360° (see every side)
+   - Second pass: rotate the lights instead (reveals artificial-looking areas under different lighting angles)
+   - Fix any materials/textures that look fake; repeat until fully photorealistic
+
+**Stage 2 — Mocap (Rococo):**
+1. **Actor setup** in Rococo Studio: create actor profile per actor (height + male/female + measurements)
+2. Create project → add actors → connect smart suit + smart gloves for each
+3. Folder per camera setup + take number naming (keeps data organized)
+4. Start every take with a **clap** (audio-visual sync reference for matching mocap to video)
+5. **Recalibrate** between takes: press Recalibrate → actors stand still, hands by sides, 3 seconds
+6. Reference camera rolling at all times on set (fallback if mocap has errors)
+7. **Troubleshoot stuttering** (1hr+ sessions): restart laptop → router → all suits in chain order
+
+**Stage 2b — Rococo Studio Cleanup (DO NOT SKIP):**
+1. **Locomotion filter** (NECESSARY):
+   - Green = left foot planted; Blue = right foot planted
+   - Drag bars to correct timing; press Process Changes
+   - Prevents ice-rink foot-drift sliding
+   - Rococo does a first-pass guess; manually verify throughout full timeline
+2. **Drift Fix filter**:
+   - Set start/end world position for character (reference footage helps)
+   - Corrects trajectory drift (inertial sensors don't share a 3D world like camera-based mocap)
+3. Optional: Toe Bend filter; Foot IK (recalculates legs — may give better result)
+4. Export as FBX via X-Porter:
+   - Skeleton: **Mixamo skeleton** (enables one-click Control Rig in UE) OR Rococo Newton skeleton
+   - FPS: match project
+   - Export all takes individually
+
+**Stage 3 — Import + Retargeting in UE5:**
+1. Import Rococo skeleton + all animation FBX files into UE
+2. Place Rococo character in environment → add props (sword) → set up basic camera → start framing shots immediately
+3. Create **IK Retargeter assets** for source rig (Rococo/Mixamo) → target rig (custom character)
+4. Preview all takes on final character rig (can do this before final textures are done)
+
+**Stage 3b — Filmmaking Cycle (iterative):**
+1. Add both characters to Sequencer → assign mocap takes → align in environment center
+2. **Camera setup**:
+   - Wide shot: 20–40mm focal length
+   - Close-up per character: 50–150mm
+   - One "special moment" camera for key action
+   - Enable **Look At Tracking** → camera always follows action
+3. **MRQ → Playblast QuickTime preset** (.mov): fast renders of full takes (30s–few minutes); lower resolution if needed; add **Burn-In** (frame number + sequence name → makes NLE sync easy)
+4. Import renders into **Premiere or Resolve**: assemble edit with music/SFX ASAP; cut selects from long takes
+5. Iterate: camera adjustments → re-render → edit refinement → loop until flow is right
+6. **Animation improvement** (after edit is locked on frame ranges):
+   - Right-click animation clip → **Bake to Control Rig**
+   - Use additive tracks + Curve Editor to refine specific moments
+   - Keep cycling until animation and cameras are perfect
+
+**Stage 4 — Lighting + FX (LAST, after edit is locked):**
+1. Press play → drag lights around scene interactively to find moods
+2. Iterative per-shot lighting improvement
+3. **Final render**: increase MRQ quality settings + high-quality preset + one-click compositing template for VFX shots
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Sequencer** — add characters as actors; assign animation takes per character; align in scene center; multi-camera setup
+- **Level Sequences + Camera Cuts track** — per-shot camera setups with Look At Tracking enabled
+- **Look At Tracking** — camera component constraint; follows target actor automatically; keeps action in frame during early filmmaking cycle
+- **MRQ → Playblast QuickTime preset** — fast .mov renders for editing pipeline; long take output; Burn-In overlay (frame number + sequence name)
+- **MRQ Burn-In** — add burn-in option in render config; displays frame number + sequence name on render; enables fast jumping between NLE and UE sequences
+- **Bake to Control Rig** — Sequencer right-click animation clip → Bake to Control Rig → select rig type; converts mocap take to editable Control Rig keyframes
+- **Additive tracks** — Sequencer animation layers; add bone overrides on top of baked animation
+- **IK Retargeter** — source rig (Rococo/Mixamo) → target rig (custom character); create retargeting assets in UE; preview animations on final character before textures are done
+- **Look Dev Turntable** — character center scene, rotate asset 360° under fixed lights, then rotate lights under fixed character; stress-tests material authenticity
+- **Rococo Studio** — Rococo's capture software; WiFi data routing; actor profiles; Locomotion filter; Drift Fix; FBX X-Porter export; real-time preview per take
+- **Locomotion filter** (Rococo) — foot-plant detection; green = left, blue = right; manual bar adjustment; REQUIRED to prevent foot drift/sliding
+- **Drift Fix filter** (Rococo) — world-space start/end position correction; compensates for inertial sensor drift over time; use reference footage for placement
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate. Requires Rococo mocap hardware + Substance Painter for full pipeline. UE portion (Sequencer, MRQ, IK retargeting, Control Rig) is documented elsewhere; this tutorial provides the production philosophy and mocap-specific workflow.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (UE5 Sequencer, MRQ, Control Rig, IK Retargeting — no specific minor version mentioned)
 
 ### Tags
-[PENDING EXTRACTION]
+mocap, motion-capture, rococo, workflow, sequencer, retargeting, control-rig, filmmaking, cinematics, indie-production
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `motion-blending-bone-matching-for-unreal-engine---make-films-in-unreal-ep2-inter.md` — Dean Yurke bone matching for root-motion blending; Layered FK Control Rig
+- `make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta.md` — beginner filmmaking pipeline; Sequencer + MRQ + camera; no mocap hardware required
+- `motion-capture-sword-fighting-cinematic-in-unreal-engine-5---moveai-and-metahua.md` — Move.AI-based mocap cinematic (if present)
+- `metahuman-realtime-animator-best-practices-unreal-engine-animation-hub.md` — webcam face capture; alternative to mocap suits for facial animation
+- `live-link-hub-tips-unreal-engine-animation-hub.md` — mocap streaming via Live Link Hub; body + face combined; recording
