@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=QUyznLlnchA
 author: William Faucher
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE4.26"
+tags: [stencil-layers, render-layers, movie-render-queue, compositing, alpha, exr, nuke, depth-of-field, motion-blur, vfx, pipeline]
+extraction_status: complete
 frames_dir: tutorials/frames/why-you-should-be-using-stencil-render-layers---unreal-engine-426/
 frame_count: 10
 ---
@@ -78,27 +78,70 @@ frame_count: 10
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Stencil / Render Layers via Movie Render Queue: assign actors to named layers in the Layers panel, then configure MRQ Deferred Rendering → Stencil Clip Layers. Each named layer renders as a separate EXR pass with alpha. **Key advantage over cryptomat/object ID**: stencil layers support depth of field, motion blur, and all post process effects. Default Layer checkbox = everything not in a named layer = free background layer. Compositing requirement: merge layers with **plus** (add), not over, in Nuke/Fusion. Epic confirms perfect pixel match is not achievable.
 
 ### Summary
-[PENDING EXTRACTION]
+16m57s William Faucher stencil/render layers tutorial using UE4.26 Movie Render Queue. Workflow: create layer (Layers panel → right-click → new layer → name "foreground") → assign actors → configure MRQ Deferred Rendering → Stencil Clip Layers → assign layer → enable "Add Default Layer" for background + Accumulator Includes Alpha + Tone Curve OFF + EXR only. Caveats: +100% render time per layer + 30% for alpha. Nuke compositing: shuffle nodes per layer → merge with plus (not over) → grade layers using alpha as mask. Epic confirmed: not a perfect match to beauty pass but acceptable. Advantages over cryptomat: DOF + motion blur support; full control over actor assignment.
 
 ### Key Steps
-[PENDING EXTRACTION]
+**Create layer and assign actors:**
+1. Window → Layers (or right-click in Outliner) → Layers panel appears
+2. Right-click in Layers panel → Create → name it "foreground"
+3. Select all actors you want in foreground (plants, books, props, etc.)
+4. In Layers panel → right-click layer → **Add Selected Actors to Layer**
+5. Toggle layer visibility (eye icon) to verify all intended actors are assigned
+
+**MRQ setup:**
+6. Window → Cinematics → Movie Render Queue → add level sequence → click Settings
+7. Deferred Rendering tab → **Stencil Clip Layers** section → click + → click "None" → **Browse Layers** → select "foreground" layer
+8. Check **Add Default Layer** → background = everything not in a named layer (no need to manually assign all background objects)
+9. Check **Accumulator Includes Alpha** ⚠️ required; may prompt to update project settings
+10. Add **Color Output** tab → disable **Tone Curve** ⚠️ required (without this: black halo around layer edges in composite)
+11. Set **EXR Sequence (multi-layer)** as output format ⚠️ PNG/JPEG will not work
+12. **Disable Auto Exposure** in Post Process Volume
+13. **Screen Percentage = 100** (resizing breaks alpha channel passthrough)
+14. Anti-Aliasing → TSR, sample count 8+; AA override = None
+15. Render Local → EXR file contains both layers as separate channels
+
+**Nuke compositing:**
+16. Import EXR → add two **Shuffle** nodes (one per layer): input layer RGB → "Final Image: foreground" / "Final Image: default"
+17. Alpha channel in each shuffle = perfect alpha mask per layer (supports DOF/motion blur blending)
+18. Add **Merge** node → A = foreground, B = background → ⚠️ set operation to **plus** (add) not "over" → "over" causes black halo around edges
+19. To grade layer separately: add Shuffle node (foreground alpha) → Grade node → connect alpha output to mask input → grade only affects masked area
+20. When using plus merge: must use alpha masks on all color correction nodes (not automatic as with over)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Layers panel** — UE actor grouping system; Window → Layers; right-click to create layers; assign actors via right-click menu
+- **Stencil Clip Layers** (MRQ Deferred Rendering tab) — add per-layer EXR output; each named layer = full scene render with that layer isolated
+- **Add Default Layer** (MRQ) — automatically renders everything not in a named layer as its own pass; avoids manual assignment of all background objects
+- **Accumulator Includes Alpha** (MRQ) — required for alpha mask in output EXR; prompts project settings update on first use
+- **Tone Curve = OFF** (MRQ Color Output) — required for correct layer compositing; with tone curve on, layers have incorrect luminance and black halos appear at edges
+- **EXR multi-layer** — only format that supports stencil layer passes; PNG/JPEG incompatible
+- **Screen Percentage = 100** — rescaling in MRQ breaks alpha channel propagation through render layers
+- **Merge with Plus/Add** (Nuke/Fusion) — Epic-specified requirement; "over" compositing causes black halos; plus = additive blend that reconstructs original correctly
+- **Render time cost** — +100% per additional named layer; +30% for alpha channel; plan accordingly for multi-layer renders
+
+**Pros vs cryptomat:**
+- Supports DOF, motion blur, post process effects (cryptomat does NOT)
+- Full manual control over which actors go in which layer
+- Perfect alpha in EXR without separate depth/motion vector passes
+
+**Cons:**
+- Significant render time increase per layer
+- Not a pixel-perfect match to original beauty pass (Epic confirmed)
+- Requires EXR workflow
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate. Setup is straightforward; compositing in Nuke/Fusion requires understanding of merge modes and alpha masks.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE4.26 (also applicable in UE5 — process is the same)
 
 ### Tags
-[PENDING EXTRACTION]
+stencil-layers, render-layers, movie-render-queue, compositing, alpha, exr, nuke, depth-of-field, motion-blur, vfx, pipeline
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `unreal-to-davinci-resolve-workflow---aces-srgb.md` — color pipeline from UE to DaVinci (Tone Curve OFF same requirement)
+- `the-movie-render-queue-explained.md` — MRQ setup fundamentals

@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=akHCbIECFX8
 author: Aziel Arts
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5.6"
+tags: [water, river, simulation, baking, buoyancy, niagara, landscape, environment, shallow-water, VFX, UE5-6]
+extraction_status: complete
 frames_dir: tutorials/frames/witcher-4-baked-water-simulation-tutorial-in-unreal-engine-56/
 frame_count: 4
 ---
@@ -33,27 +33,92 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+UE5.6 baked shallow water simulation for rivers: enable Water + Buoyancy + Water Advanced plugins → Water Body River (spline-based landscape deformation) → Shallow Water River Blueprint (connected to river source) → Reset to simulate → Bake to lock simulation → Render State: "Water Component + Bake Sim" preserves ripples on character walk-through. Rock mesh interaction via actor tags matching bottom contour actor tags. Buoyancy via Simulate Physics + Buoyancy physical material + Water Body collision preset.
 
 ### Summary
-[PENDING EXTRACTION]
+22m34s Aziel Arts comprehensive tutorial on UE5.6 baked river simulation. Plugins: Water + Buoyancy + Water Advanced (with collision profile fix on first enable). Water Body River: spline with per-point depth/width controls; curl noise for variation; landscape deformation. Shallow Water River Blueprint: source → River; Reset = simulate; Bake = bake; Render State = Water Component + Bake Sim. Fix overflow: remove outside of spline amount + Z offset in water height map. Rock tags for bed interaction. Character ripples: Project Settings → shallow water subsystem. Buoyancy: Simulate Physics + Buoyancy physical material + custom collision on water body. Material tuning: Absorption (deep color) + Scattering (shallow light color) via Global Vector Parameters. River + lake blend: one shallow water river for river only; apply river material to all surfaces; enable "Lake Transition" switch in material.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Plugin setup:**
+1. Edit → Plugins → enable: **Water**, **Buoyancy**, **Water Advanced** → Restart
+2. ⚠️ On first water plugin enable: pop-up says "water body collision profile not in DefaultEngine.ini" → click **"Add Entry to DefaultEngine.ini file"** → restart again (skipping this breaks collision)
+
+**Add Water Body River:**
+3. Place Actors → + → search "water" → **Water Body River** → drag into level (auto-deforms landscape)
+4. Click spline points → Details → Water section: adjust **Depth** + **Width** per point
+5. To edit all points together: click "Select All Spline Points" → change depth once for whole river
+6. Add more spline points: **Alt+click+drag** on spline
+7. Parent actor (Water Body River) → Details → Effects → **Curl Noise Amount = 0.2** → adds organic variation to river banks
+
+**Shallow Water Simulation:**
+8. + → search "water" → **Shallow Water River** Blueprint → drag into level
+9. Select Shallow Water River → Details → Water section → Source River Water Body → + → pick your Water Body River → material updates to simulation material
+10. Click **Reset** button → simulation runs (water flows down river); observe any overflow
+11. Fix overflow option A: Water Body River → Simulation → **Remove Outside of Spline Amount = 100–200**
+12. Fix overflow option B: Water Body River → Water Height Map Settings → **Z Offset = 200** + increase Falloff
+
+**Bake the simulation:**
+13. With simulation looking correct → click **Bake** button on Shallow Water River
+14. Details → Render State dropdown → set to **"Water Component + Bake Sim"** (keeps bake + preserves character ripples)
+15. To re-bake: set Render State back to Live Sim → adjust → Bake again
+
+**Rock/mesh interaction:**
+16. Shallow Water River → Details → Collisions → Bottom Contour Actors → + → add tag string (e.g., "river_rock")
+17. Select rock mesh(es) in level → Details → Actor Tag (not component tag) → + → type "river_rock" (must exactly match)
+18. Shallow Water River → **Reset** to update simulation with new collision objects
+19. Duplicate rocks → tags carry over; just Reset simulation again
+
+**Character ripples:**
+20. Edit → Project Settings → search "shallow water" → enable **"Use Default Shallow Water Subsystem"**
+21. Play → character now creates ripples walking through river (any actor with physics body does too)
+
+**Floating objects (buoyancy):**
+22. Place mesh (e.g., cube) above river water surface
+23. Details → **Simulate Physics = ON**
+24. Details → Collision → Physical Material → **Default Buoyancy Physical Material** (from Water plugin; may need gear icon → Show Plugin Content)
+25. Select Water Body River → Details → Collision → Collision Presets → **Custom**; Collision Enabled = **Query and Probe**; ensure Physics Bodies = Blocking
+26. Simulate or Play → object floats downstream
+
+**Material tuning:**
+27. Shallow Water River → Details → Baked Sim Material → find in Explorer → duplicate → drag duplicate back in
+28. Open duplicate material → Global Vector Parameter Values:
+    - **Absorption**: deep water color (RGB + alpha = color contribution depth factor; higher alpha = more faded at depth)
+    - **Scattering**: shallow water light color (what you see where light penetrates)
+29. Adjust values and iterate; no right/wrong
+
+**River + Lake blend:**
+30. Add Water Body Lake + shallow water river; plug source = Water Body River only (not lake; avoids bidirectional simulation)
+31. Bake simulation → lake material may not match river material (UE5.6 issue)
+32. Fix: apply same river material to: baked sim material slot + baked sim river-to-lake transition slot + Water Body Lake material slot
+33. Open that material → Global Switch Parameter Values → enable **"Lake Transition"** → blend corrects
+34. Detail Normal section → increase Detail Normal Strength V to 1 + Strength Near to 1 → adds wave normals to lake that blend with river normals
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Water plugin** — Water Body River (spline-based); Water Body Lake; Water Body Ocean; each deforms landscape on place
+- **Water Advanced plugin** — adds Shallow Water simulation (shallow body physics sim that can be baked)
+- **Buoyancy plugin** — Default Buoyancy Physical Material; enables physics objects to float on water surfaces
+- **Water Body River** — spline actor; per-point depth/width; curl noise variation; water height map Z offset fixes overflow; deforms landscape
+- **Shallow Water River Blueprint** — simulation driver; Source River Water Body = river to simulate; Reset = run sim; Bake = bake to texture; Remove Outside of Spline Amount = fix overflow
+- **Render State** options: Live Sim / Bake Sim / Water Component + Bake Sim (recommended; combines bake with live ripple interaction)
+- **Bottom Contour Actors** (tag-based) — Shallow Water River tag list; objects with matching Actor Tag interact with simulation river bed; requires Reset after adding
+- **Default Shallow Water Subsystem** (Project Settings) — enables character/physics actor ripple interaction with simulated water
+- **Default Buoyancy Physical Material** — show Plugin Content to access; controls how object floats; duplicate before editing
+- **Water Body River collision** — must be set to Custom + Query and Probe + Physics Bodies = Block for buoyancy to work
+- **Baked Sim Material** — Global Vector Parameters: Absorption (deep), Scattering (shallow); fully customizable
+- **Lake Transition switch** (material) — Global Switch Parameter → enable in material to correctly blend river bake into lake; needed when using same material for both
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate. Multi-plugin setup; first-time plugin collision profile fix is tricky. River + Lake blend requires material editing.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5.6 (Water Advanced / shallow water baking is UE5.6 feature)
 
 ### Tags
-[PENDING EXTRACTION]
+water, river, simulation, baking, buoyancy, niagara, landscape, environment, shallow-water, VFX, UE5-6
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `unreal-engine-masterclass-animate-environments-the-easy-way.md` — environment animation techniques (Niagara steam on moving actors)
+- `volumetric-cloud-secrets-unreal-engine-4-5-works-in-ue5.md` — other environment secrets by same ecosystem of tutorials
