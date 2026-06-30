@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=JoxgvwNFc8g
 author: arthur tasquin
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [lighting, pbl, physically-based-lighting, lux, lumen, candela, ev100, theory, workflow, hdr-viewmode]
+extraction_status: complete
 frames_dir: tutorials/frames/realistic-and-physical-lighting-in-ue5-what-is-pbl/
 frame_count: 6
 ---
@@ -58,27 +58,68 @@ frame_count: 6
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Physically Based Lighting (PBL) theory: use real-world photometric units (Lux, Lumen, cd/m²) to set light intensities in UE5 so that the ratio between lights matches the real world's massive dynamic range. Key argument: arbitrary values create inconsistent light ratios; PBL ensures coherent relationships between all sources. Combine with matching EV100 camera exposure to the intended scenario. Validate with HDR Viewmode's Illuminance/Luminance meters.
 
 ### Summary
-[PENDING EXTRACTION]
+16-minute Arthur Tasquin introductory theory video (Part 1 of 2). Answers: what is PBL, why use real-world values, what units are used, how to find real-world data. Covers Arthur's personal journey: lighting studies → reflector technique → need for real-world light values → building PBL database with physical light meter (MT912 Lux meter) for 1 year across many scenarios → developing the PBL Database plugin. Core content: four photometric units and their UE5 equivalent; light intensity range (indoor ~300 Lux vs clear noon ~100,000 Lux); EV100 concept; why arbitrary values produce inconsistent results; the "scale is everything" principle. Prerequisite to Part 2 (actual workflow in UE5).
 
 ### Key Steps
-[PENDING EXTRACTION]
+**The four photometric units used in UE5 digital lighting:**
+
+| Unit | What it measures | UE5 actor |
+|------|-----------------|-----------|
+| Candela (cd) | Light intensity in a specific direction (accounts for beam angle); lower for wider beams | Local lights (alternate unit) |
+| Lumen (lm) | Total light emitted from a source regardless of angle; found on real-world light bulbs | Local lights (preferred default) |
+| Lux (lx) | Illuminance: amount of light hitting a surface (cd/m² × solid angle, integrated) | Directional Light (sun) |
+| cd/m² (nit) | Luminance: amount of light emitted FROM a surface in a given direction | Emissive surfaces, skydome, screens |
+
+**Key principle:** real-world lighting spans 5+ orders of magnitude (0.001 lux at night → 100,000 lux at noon); arbitrary values destroy those ratios; PBL preserves the natural scale relationships between sources.
+
+**EV100 (Exposure Value):**
+- Camera exposure system; combines aperture, shutter speed, ISO into a single number
+- EV100 reference ranges: dark interior ~1-3; dim interior ~5-7; sunset/dawn ~6-10; overcast outdoor ~10-12; bright sun ~13-15
+- Set in UE5: Post Process Volume → Exposure → Manual metering → set EV100 directly
+
+**Finding real-world data:**
+- Light bulb packaging → Lumen output
+- Architectural standards documents → Lux levels per room type
+- Photography/filmmaking resources → EV100 reference tables
+- Arthur's PBL Database plugin (Fab) — contains measured Lux/Lumen/cd/m² data for many scenarios
+- Own light meter (incident type / Lux meter) for custom sampling
+- timeanddate.com → sun altitude at historical capture times
+
+**Project Settings for PBL (UE5):**
+- Project Settings → Engine → Rendering → **Extend default luminance range in Auto Exposure settings** → ON
+- **Default Lighting Units** → Lumen (so all local lights default to Lumens)
+- **Allow Static Lighting** → true (affects light baking options)
+
+**HDR Viewmode (UE5):**
+- Viewport → Visualize → **HDR (Eye Adaptation)**
+- Two probe squares: Illuminance (Lux, incident light at surface) + Luminance (cd/m², emitted from surface)
+- Place gray sphere at sample location → read meters to validate against reference data
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Directional Light** — measured in Lux (incident illuminance at surface); sun values range 1,000-100,000 Lux depending on time/conditions
+- **Local Lights (Point/Spot/Rect)** — Lumen or Candela; set Default Lighting Units → Lumen in Project Settings; household fluorescent: 500-5,000 Lm
+- **Emissive Materials** — measured in cd/m² (Luminance/Nits); emissive surfaces contribute Lumen via Lumen engine if enabled
+- **HDR Eye Adaptation Viewmode** — two built-in light meters: Illuminance (Lux) + Luminance (cd/m²)
+- **Extend default luminance range** — required project setting; unlocks UE5 to handle real-world intensity values without clamping
+- **EV100** — single number exposure control; replaces manual aperture/shutter/ISO; match to real-world scenario EV tables
+- **PBL Database plugin** — Arthur Tasquin's Fab plugin; contains curated Lux/Lumen/cd/m² reference data, EV100 ranges, and EV converter tool
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner (concepts). Intermediate to apply correctly. The photometric math is not required — just understanding the approximate ranges and using the HDR meters to validate.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (also valid for UE4.27+ with Lumen emissive; photometric units available since UE4)
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, pbl, physically-based-lighting, lux, lumen, candela, ev100, theory, workflow, hdr-viewmode
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `realistic-and-physical-lighting-in-ue5-the-pbl-workflow.md` — Part 2: actual PBL workflow in UE5 with four lighting studies (required follow-up)
+- `lighting-in-unreal-engine-5-for-beginners.md` — beginner lighting setup; Lumen basics
+- `path-tracer-explained---unreal-engines-underrated-tool.md` — Path Tracer; useful alongside PBL for ground-truth validation
+- `the-1-skill-you-need-for-lighting-in-ue5.md` — complementary lighting theory for UE5

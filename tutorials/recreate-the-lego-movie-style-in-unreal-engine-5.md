@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=TufXrvN5Ei0
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [lighting, cinematics, rim-light, fog, depth, niagara, character-lighting, compositing, stylized, workflow]
+extraction_status: complete
 frames_dir: tutorials/frames/recreate-the-lego-movie-style-in-unreal-engine-5/
 frame_count: 10
 ---
@@ -78,27 +78,93 @@ frame_count: 10
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Cinematic lighting for stylized CG characters: 8 principles from a professional LEGO Horizon Adventures music video production. Core: "hot dog lighting" (strong bilateral rim lights wrapping both sides of character); colored shadows (lift blacks to a hue, never pure black in BG); fog layers BEHIND characters not in front; Gladiator Effect (particles between camera and subjects); animated lights parented to characters for dynamic shots.
 
 ### Summary
-[PENDING EXTRACTION]
+15-minute Josh Toonen (Hollywood VFX, Spider-Verse, Star Wars 9) breakdown of 8 cinematic lighting principles used on the LEGO Horizon Adventures music video in UE5. Not a technical settings tutorial — a creative director-level breakdown. Techniques: (1) Hot dog lighting — two strong rim lights wrapping both sides, exaggerated; (2) colored shadows — BG elements lift from black into a hue (blue, purple), characters stay black for contrast; (3) fog layering — depth fog behind characters, zero contamination in front (fog cards + compositing push); (4) LEGO specular reflection management — move lights to edge of inclines to avoid face reflections; (5) animate lights and parent to character hips for dynamic shots; (6) Gladiator Effect — particles/fog/debris between camera and subjects, not just behind; (7) environment hot dog lighting (rim wrap for environment geometry too); (8) reference everything in real life first (built physical LEGO set, photographed it).
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Hot dog lighting (bilateral rim wrap)**:
+   - Place two large rectangle lights BEHIND the character on both sides, wrapping edges
+   - Push intensity high — bright white outlines on character silhouette
+   - Add two colors: daylight side warm, opposite side cool/blue
+   - Larger light → softer/larger reflection; position to avoid face reflections
+   - Apply to environment geometry too, not just characters
+
+2. **Colored shadows (never pure black in BG)**:
+   - Background shadows should be a hue (blue, purple, etc.) — NOT black
+   - Only the character's outline/inclines should be black (maximum contrast = character pops forward)
+   - Lift background fog/atmosphere to a saturated color: increases depth, pushes characters forward
+   - Fog cards behind characters (zero contamination on foreground character)
+   - Push this further in compositing (mist/fog exaggeration)
+
+3. **LEGO/shiny character reflection management**:
+   - Keep all lights positioned at the edges/sides of inclines — never crossing over face/eyes
+   - Larger light = larger reflection; push lights further away + make them bigger
+   - For dynamic shots: separate blue hair light from neutral face light (two different sources)
+   - For jumping/dancing characters: animate lights to track movement
+
+4. **Animating lights (dynamic shots)**:
+   - Parent rectangle light to character's hip bone
+   - Light follows character through space — eliminates need to re-light every pose
+   - Manually keyframe light transformations for extreme moves
+
+5. **Gladiator Effect (foreground particles)**:
+   - Standard approach: particles behind characters
+   - Gladiator approach: Niagara particles between camera and characters
+   - Close-to-camera particles = faster movement, larger apparent size, more depth/parallax
+   - Used: confetti, fog/smoke, embers, candles near camera lens
+   - Not about how to build Niagara systems — about WHERE to place them
+
+6. **Real-life reference**:
+   - Build/acquire physical object (LEGO set) → photograph under different colored lights
+   - Reveals material behavior, reflection angles, color interaction before committing to CG
+   - Especially valuable for non-photorealistic materials (plastic, LEGO)
+
+7. **Environment lighting** (wide shots):
+   - Apply hot dog lighting to set geometry (watchtowers, trees, bridges)
+   - Saturate fog (avoid dark grey → push to blue/purple)
+   - Add volumetric fog under bridges/arches for depth
+   - Floodlight active areas (stage, dance floor) → push audience's eye to center
+   - Use additional local lights to reveal geometry planes not lit by main source
+
+8. **Cinematic movement**:
+   - Animate lights in sync with music
+   - Animate background elements: speakers, torches, crowd, dance floor
+   - Camera shake when large character (Thunderjaw) moves
+   - Balance: background motion should enhance, not compete with, foreground performance
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Rectangle Lights** — primary tool for bilateral character rim wrapping; position behind character on both sides; size affects reflection sharpness; parent to character bones for dynamic shots
+- **Niagara Particle Systems** — confetti, embers, smoke/fog particles; placement BETWEEN camera and subjects (Gladiator Effect); key insight: placement > build quality
+- **Fog Cards / Atmosphere layers** — place fog/mist elements behind character in Z-space to avoid contaminating foreground; layer saturation increases in distance
+- **Exponential Height Fog** — environment fog; push saturation (e.g., blue moon scene); shape with volumetric fog for architectural depth
+- **Light parenting to characters** — attach light actor to skeletal mesh bone (hips); light follows character motion automatically
+- **Keyframed lights** — animate light Transform in Sequencer to compensate for character movement in close-up shots
+
+**8 techniques summary:**
+1. Hot dog lighting (bilateral rim wrap) — bilateral rim lights on both sides
+2. Colored shadows — lift BG blacks to a hue; keep character inclines black
+3. Fog layering — fog behind characters, not in front; compositing push
+4. LEGO reflections — position lights at incline edges; size up and push back for clean faces
+5. Animated lights — parent to hip bone; keyframe for extreme shots
+6. Gladiator Effect — particles IN FRONT of characters, near lens
+7. Environment rim lighting — apply hot dog technique to set geometry
+8. Real-life reference — shoot physical reference under colored lights
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner (concepts). All principles are cinematography-level creative direction applicable in any render engine. UE5-specific only for Niagara particle placement context.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (no specific minor version; principles apply broadly)
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, cinematics, rim-light, fog, depth, niagara, character-lighting, compositing, stylized, workflow
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `realistic-and-physical-lighting-in-ue5-the-pbl-workflow.md` — PBL data-driven lighting workflow; technical counterpart to this creative approach
+- `lumen-explained---important-tips-for-ue5.md` — Lumen GI; understanding real-time lighting behavior for cinematic work
+- `master-cinematic-fog-volumetric-god-rays-in-ue5.md` — fog and volumetric lighting in UE5 (technical implementation)
+- `motion-capture-sword-fighting-cinematic-in-unreal-engine-5---moveai-and-metahuma.md` — Josh Toonen; action cinematics (same author/director)
