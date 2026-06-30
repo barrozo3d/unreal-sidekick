@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=7ENEextL1n8
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [physics, ragdoll, physics-asset, sequencer, niagara, cinematics, simulation, camera-tracking, constraints, character]
+extraction_status: complete
 frames_dir: tutorials/frames/ragdoll-physics-are-insanely-easy-in-unreal-5/
 frame_count: 12
 ---
@@ -88,27 +88,76 @@ frame_count: 12
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Ragdoll physics in UE5 cinematics: import character → configure Physics Asset (rigid body capsules + angular limit constraints per bone) → keyframe `Simulate Physics` ON mid-animation in Sequencer → use invisible scaled sphere to fake explosion force → add Niagara explosion for visuals → camera with Look At Tracking + Auto Focus for dynamic follow.
 
 ### Summary
-[PENDING EXTRACTION]
+16-minute Josh Toonen (Hollywood VFX) tutorial for ragdoll physics in UE5 cinematics without animating by hand. Five-step framework: (1) import character FBX → Physics Asset auto-generated; (2) adjust constraints (angular limits: twist/swing 1/swing 2 per joint) and rigid body capsules (size/orientation) for realistic physics; (3) keyframe `Simulate Physics` ON at a frame in Sequencer; (4) use invisible expanding sphere to simulate explosion force; (5) add Niagara explosion VFX timed via Sequencer lifecycle track. Bonus: auto-focus + Look At Tracking camera setup (empty actor parented to character head bone → camera tracks that actor).
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Import character**:
+   - Drag FBX/OBJ into Content Browser → Import All → generates 3 assets: Skeletal Mesh, Skeleton, Physics Asset
+2. **Configure Physics Asset** (double-click the Physics Asset):
+   - Preview: Simulate button → character falls; identify badly-bending joints
+   - **Adjust constraints** (click joint in Physics Graph → F to zoom):
+     - Details panel → Angular Limits: **Swing 1**, **Swing 2**, **Twist** limits
+     - Enable Rotation Snapping → rotate constraint orientation 90° increments to match joint axis
+     - Low values = tighter limits (knee: Twist=5, Swing2=10, Swing1=20; angle backward ~40°)
+     - Iterate: simulate → observe → adjust → repeat
+   - **Adjust rigid bodies** (purple capsules):
+     - Select capsule → R to scale down; fit tightly to limb/torso
+     - Details → Body Setup → Primitives → Radius/Length/Rotation per capsule
+3. **Set up ragdoll trigger in Sequencer**:
+   - Add character to Level Sequence with animation clip
+   - Select character in viewport → Details → find **Simulate Physics**
+   - At frame BEFORE impact: set keyframe on Simulate Physics = OFF
+   - Step forward 1 frame → enable Simulate Physics = ON → keyframe again
+   - To preview: click 3 dots in play options → **Simulate** (NOT Play) — physics only works in Simulate mode
+4. **Drag Sequencer into 3D scene** → enable **Auto Play** on the level sequence clapperboard icon → Simulate auto-plays it
+5. **Invisible sphere explosion trick**:
+   - Add Actor → **Sphere** → disable Simulate Physics on sphere
+   - In Sequencer: add Transform track → scale keyframes: small at frame BEFORE impact → large at frame AFTER impact
+   - Set keyframes to **Linear** (press 4) for fast movement
+   - Position sphere at explosion origin → character collides with expanding sphere
+   - Create material: Blend Mode = Masked; Opacity Mask = 0 → **MM_Invisible** material → apply to sphere
+6. **Add Niagara explosion**:
+   - Drag Niagara system into Sequencer
+   - Add track → Niagara Component → **Niagara System Life Cycle** track
+   - Align lifecycle track start to physics trigger frame
+   - Position Niagara system at explosion origin in viewport
+7. **Camera with auto-tracking**:
+   - Add → Actor (Basic) → position on character's head → right-click in Outliner → Attach To → Master Chief → Bone: **head**
+   - Reset location/rotation → rename (e.g., "auto_focus")
+   - Select Cine Camera → Details → **Focus Method**: Tracking → Actor: "auto_focus"
+   - Enable **Look At Tracking** → Actor: "auto_focus"
+   - Set **Look At Interpolation**: 16 (smooths tracking lag)
+   - Camera Component → offset Pitch (e.g., -4°) for slight downward angle
+8. **Render**: Cinematics viewport → look through camera → clapperboard → Movie Render Queue
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Physics Asset** — auto-generated on FBX import; edit in Physics Asset Editor; contains rigid bodies (colliders) + constraints (joint limits)
+- **Rigid Bodies (purple capsules)** — collision shapes per bone; adjust radius/length/rotation via Details → Body Setup → Primitives; scale with R
+- **Angular Limits (constraints)** — per-joint rotation limits: Twist (along bone axis), Swing 1 (lateral), Swing 2 (forward/back); lower = more realistic; iterate for each joint
+- **Simulate Physics (Details panel)** — keyframeable boolean; when ON, character switches from animation to physics simulation at that frame in Sequencer
+- **Physics Simulate mode** — three-dots play menu → Simulate; required to see physics in viewport (regular Play doesn't simulate physics in Sequencer context)
+- **Auto Play (Level Sequence)** — drag sequence into scene → enable Auto Play → sequence plays automatically when Simulate starts
+- **Invisible Sphere trick** — Static mesh sphere; no Simulate Physics; scale animated via Sequencer (small → large); creates expansion force collision; MM_Invisible material (Blend Mode=Masked, Opacity Mask=0) hides it
+- **Niagara System Life Cycle track** — Sequencer track type for Niagara components; defines start/stop frames for particle emission
+- **Look At Tracking** — Cine Camera detail; tracks a designated actor to keep it in frame center; uses interpolation for smooth follow
+- **Auto Focus (Tracking mode)** — Cine Camera focus method; maintains focus on tracked actor regardless of camera position/rotation
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate. Physics Asset configuration (constraint tuning) requires iteration and understanding of joint anatomy. The Sequencer + simulate workflow is straightforward once the asset is configured.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (Lumen, Niagara, Sequencer physics keyframing; no specific minor version)
 
 ### Tags
-[PENDING EXTRACTION]
+physics, ragdoll, physics-asset, sequencer, niagara, cinematics, simulation, camera-tracking, constraints, character
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `new-physics-tool-for-unreal-engine-5.md` — Dash physics tool for environment assets (simpler workflow, no constraint setup)
+- `motion-capture-isnt-just-for-hollywood-any-more.md` — Josh Toonen; mocap pipeline (same author)
+- `orc-vs-knight-cgi-swordfight---ue5.md` — combat cinematics in UE5; complement to ragdoll for fight scenes
+- `master-cinematic-fog-volumetric-god-rays-in-ue5.md` — cinematic VFX in UE5; Niagara + volumetric compositing

@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=GsE0mDtxtiQ
 author: arthur tasquin
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [lighting, pbl, physically-based-lighting, hdri, lumen, exposure, ev100, directional-light, hdr-viewmode, workflow]
+extraction_status: complete
 frames_dir: tutorials/frames/realistic-and-physical-lighting-in-ue5-the-pbl-workflow/
 frame_count: 10
 ---
@@ -78,27 +78,91 @@ frame_count: 10
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Physically Based Lighting (PBL) in UE5: use real-world illuminance/luminance data (Lux/Lumens/cd/m²) to set light intensities, then validate with the HDR Eye Adaptation Viewmode (light meter probes). Core workflow: select scenario in data source → find Lux/Lumen range → set lights to that range → place gray sphere → enable HDR Viewmode → sample with Illuminance (incident) or Luminance (emitted) meter → adjust until reading matches reference → set EV100 exposure to match camera settings.
 
 ### Summary
-[PENDING EXTRACTION]
+28-minute Arthur Tasquin (VFX artist) PBL workflow tutorial (Part 2 of 2 — Part 1 covers PBL theory). Uses the BMS Tokyo Bacalys pack + the author's "PBL Database" plugin (not required to follow along). Project Settings: enable **Extend default luminance range** + **Allow Static Lighting = true** + **Default Lighting Units = Lumen**. HDR Eye Adaptation Viewmode: two light meter probes (Illuminance = incident light hitting surface; Luminance = emitted light from surface). Four lighting studies: (1) warm morning interior (single directional light, low angle); (2) sunny afternoon HDRI (HDRI Backdrop + directional light + skylight, luminance meter for sky calibration); (3) stormy sunset (inverse sphere sky mesh + sky material alternative to HDRI Backdrop, for Path Tracer); (4) photo replication (EXIF metadata → EV100 → manual exposure mode). Key insight: physically accurate ≠ visually pleasing; use PBL as starting point then creatively iterate.
 
 ### Key Steps
-[PENDING EXTRACTION]
+**Project Settings (required):**
+1. Project Settings → Engine → Rendering → **Extend default luminance range in Auto Exposure settings** → ON
+2. **Allow Static Lighting** → true
+3. **Default Lighting Units** → Lumen
+
+**HDR Viewmode:**
+- Viewport → View Modes → Visualize → **HDR (Eye Adaptation)**
+- Two square probes appear:
+  - **Illuminance meter** (left): light hitting a surface (incident) — for measuring how bright a surface is lit (Lux)
+  - **Luminance meter** (right): light emitted by a surface (cd/m²) — for emissive materials, sky, screens
+- Place gray sphere in scene to sample (plugin shortcut or manually spawn)
+
+**Lighting Study 1 — Interior, warm morning sun:**
+1. Retrieve directional light data: natural → Lux → clear sky, post-sunrise → range 9,700–67,900 lux
+2. Set directional light to high-end sample (unoccluded sun = highest value in range)
+3. Validate with Illuminance meter (gray sphere, outdoor area = nearly matches directional light intensity)
+4. EV100: check EV cheat sheet → scene is between night and day → try EV 10-13 depending on which exposure point (exterior: EV 13; interior: lower for practical look)
+5. Color temp: 3,500 K (warm orange just after sunrise)
+6. Add minor volumetric fog for depth near windows
+
+**Lighting Study 2 — Sunny afternoon HDRI (recommended workflow):**
+1. Find HDRI from polyhaven/LocationTexture.com → note capture time + location
+2. Look up sun altitude at capture time on timeanddate.com → match UE5 directional light angle
+3. HDRI Backdrop actor: select sky image, increase dome size, lower ground, adjust intensity
+4. Set sky intensity: Luminance → cd/m² modifier → Sky → clear sky → read range → adjust HDRI intensity until luminance meter matches on sky area
+5. Directional light: Lux → clear sky → early afternoon → ~75,000 Lux
+6. EV100: EV 13-14 (sunny day outdoor)
+7. Disable Skylight or set intensity carefully (avoid double-lighting from HDRI + skylight)
+
+**Lighting Study 3 — Stormy sunset (Path Tracer compatible; no HDRI Backdrop):**
+1. Giant sphere mesh → inverse normals sphere → scale 15,000; disable Cast Shadows
+2. Create sky material: Shading Model = Unlit; check **Is Sky** checkbox; TextureSampleParameterCube × ScalarParameter → UV from HDRI Backdrop material source; apply to sphere
+3. Place Skylight → Real-time Capture → Recapture when sky changes (manually, since no sky atmosphere)
+4. Directional light: find nearest sunset sample → use Luminance data (sky values from NovaCast: 50-600 lux) → calibrate sky sphere intensity first; directional: no direct sunlight data → estimate 50k+ lux
+5. EV100: stormy sunset → try EV 9 until HDRI sky looks cohesive
+
+**Lighting Study 4 — Photo replication with EXIF:**
+1. Open photo in Windows file properties → find: capture date, shutter speed, aperture, ISO
+2. Convert to EV100: EV = log2(aperture² / shutter speed × ISO/100) — or use tool
+3. Set Post Process Volume → **Metering Mode: Manual** → camera settings section drives exposure
+4. Check timeanddate.com with capture date/time → find sun altitude → match directional light angle
+5. Use skydome (sky sphere + sky material) for blue shadow fill even in clear sky scenarios
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Extend default luminance range** — Project Settings; critical for PBL; allows UE to handle real-world brightness values; ON by default in recent UE versions but verify on project migration
+- **Default Lighting Units = Lumen** — ensures all local lights use Lumen instead of Candela by default
+- **HDR Eye Adaptation Viewmode** — Viewport → Visualize → HDR (Eye Adaptation); shows two light meters:
+  - **Illuminance probe**: Lux (lx); incident light at a surface; used for outdoor sunlight, room brightness
+  - **Luminance probe**: cd/m²; emitted light; used for sky, screens, emissive bulbs, HDRI calibration
+- **Auto Exposure (EV100 manual mode)** — Post Process Volume → Exposure → Metering Mode: Manual → set Min EV100 = Max EV100 to exact value; enables full camera exposure control for cinematics
+- **EV100 ranges**: Interior artificial ~5-7; exterior sunny ~12-14; post-sunrise ~10-13; sunset/sunrise ~6-10; overcast ~9-11
+- **Directional Light intensity (Lux)**:
+  - Overcast: ~1,000-5,000 lux; clear sky (post-sunrise): 9,700-67,900 lux; clear midday: 50,000-100,000 lux
+  - Sky Atmosphere auto-calculation → set to 120,000 lux (solar constant) — do NOT manually adjust when using Sky Atmosphere
+- **Point/Spot/Rect Lights (Lumens)**: fluorescent/CFL household: 500-5,000 Lumen (avg 2,000)
+- **HDRI Backdrop plugin** — actor with built-in HDRI sky sphere; quick setup; not Path Tracer compatible
+- **Inverse normals sphere sky** — SM_Sky_Sphere with inverse normals; scale 15,000; Unlit material + Is Sky checkbox; custom HDRI texture; Path Tracer compatible (alternative to HDRI Backdrop)
+- **Skylight Real-time Capture** — captures current sky into cubemap each recapture; must manually recapture when lighting changes (no sky atmosphere = no auto-update)
+- **Is Sky material flag** — checkbox on material; makes Unreal treat this object as the sky for indirect lighting calculations
+
+**Key limitations of UE PBL:**
+- Emissive materials cast light via Lumen but cannot be controlled independently of emissive value → filament emissive values cause unpredictable results
+- Sky Atmosphere links sun rotation and atmospheric attenuation → loses color/intensity control; directional light must be 120,000 lux
+- HDRI Backdrop not compatible with Path Tracer → use inverse sphere sky instead
+- HDR view mode meters jitter at extreme EV100 values → can become unreliable
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced. Requires understanding of photometric units (Lux, Lumen, cd/m², EV100), real-world lighting physics, and UE5 rendering approximations. Beginner-facing but deep material.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (Lumen required for emissive light contribution; Path Tracer compatible via study 3 workflow)
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, pbl, physically-based-lighting, hdri, lumen, exposure, ev100, directional-light, hdr-viewmode, workflow
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `realistic-and-physical-lighting-in-ue5-what-is-pbl.md` — Part 1: PBL theory (what is PBL, photometric units) — required prerequisite
+- `lighting-in-unreal-engine-5-for-beginners.md` — Lumen lighting beginner setup
+- `path-tracer-explained---unreal-engines-underrated-tool.md` — Path Tracer setup; PBL Study 3 workflow is Path Tracer compatible
+- `lumen-explained---important-tips-for-ue5.md` — Lumen limitations affecting PBL accuracy (surface cache, 200m range)
