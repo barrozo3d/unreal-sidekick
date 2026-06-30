@@ -17,6 +17,8 @@ Checks performed:
   6. Every tutorial file on disk appears in INDEX.md exactly once
   7. Every INDEX.md file reference points to a file that exists on disk
   8. Every tutorial with a YouTube source has non-trivial structured notes (> 200 chars)
+  9. YouTube videos with duration > 3 min have a non-empty transcript
+     (catches failed/truncated ingest where yt-dlp or Whisper returned nothing)
 """
 
 import os
@@ -27,6 +29,12 @@ TUTORIALS_DIR = os.path.join(os.path.dirname(__file__), "tutorials")
 INDEX_PATH = os.path.join(TUTORIALS_DIR, "INDEX.md")
 
 NOTES_MIN_CHARS = 200
+# Minimum chars expected per second of video.  Very conservative — real speech
+# averages ~10 chars/sec; we flag only if under 3 chars/sec.
+TRANSCRIPT_CHARS_PER_SEC = 3
+# Videos shorter than this are not checked for transcript length.
+TRANSCRIPT_MIN_DURATION_SECS = 180  # 3 minutes
+
 TEMPLATE_REFS = {"filename.md"}  # placeholder in INDEX.md header — not real entries
 
 failures = []
@@ -67,8 +75,50 @@ def is_youtube_source(content):
     return "youtube" in m.group(1).lower()
 
 
+def parse_duration_secs(content):
+    """Return video duration in seconds from '**Duration:** Xm Ys | ...' line, or 0."""
+    m = re.search(r"\*\*Duration:\*\*\s+(?:(\d+)h\s*)?(?:(\d+)m\s*)?(?:(\d+)s)?", content)
+    if not m:
+        return 0
+    hours = int(m.group(1) or 0)
+    mins = int(m.group(2) or 0)
+    secs = int(m.group(3) or 0)
+    return hours * 3600 + mins * 60 + secs
+
+
+def get_transcript_text(content):
+    """
+    Return the raw transcript text from the Raw Data section.
+    Strips frame references and the '[...raw data omitted...]' compact marker.
+    Returns empty string for legitimate no-transcript files.
+    """
+    raw_section = re.search(r"## Raw Data.*?(?=\n---|\n## Structured Notes|$)", content, re.DOTALL)
+    if not raw_section:
+        return None  # No Raw Data section at all
+
+    raw = raw_section.group(0)
+
+    # Legitimate compact format — notes were extracted, raw omitted intentionally
+    if "[...raw data omitted" in raw:
+        return None
+
+    # Strip frame references, leaving only actual transcript lines
+    transcript_lines = []
+    for line in raw.splitlines():
+        stripped = line.strip()
+        if stripped.startswith("**Transcript:**"):
+            transcript_lines.append(stripped[len("**Transcript:**"):].strip())
+        elif stripped.startswith("**Frame:**") or stripped.startswith("**Source:**"):
+            continue
+        elif stripped.startswith("**") and stripped.endswith("**"):
+            continue  # section header
+        # plain transcript continuation lines (no prefix after first line)
+
+    return " ".join(transcript_lines)
+
+
 def check_tutorials():
-    print("\n[1] Checking tutorial files for PENDING markers and frontmatter issues...")
+    print("\n[1] Checking tutorial files for PENDING markers, frontmatter issues, and transcript health...")
     files = get_tutorial_files()
     for fname in files:
         path = os.path.join(TUTORIALS_DIR, fname)
@@ -91,14 +141,37 @@ def check_tutorials():
         if re.search(r"tags:\s*\[\s*\]", content):
             fail(f"{fname}: tags array is empty")
 
-        # Check 8: YouTube source needs non-trivial structured notes
         if is_youtube_source(content):
+            # Check 8: non-trivial structured notes
             notes = get_notes_content(content)
             if len(notes) < NOTES_MIN_CHARS:
                 fail(
                     f"{fname}: YouTube source but structured notes are too short "
                     f"({len(notes)} chars, minimum {NOTES_MIN_CHARS})"
                 )
+
+            # Check 9: transcript not empty/truncated relative to video duration.
+            # Skip if the structured notes explicitly acknowledge the missing transcript
+            # (e.g. "transcript not captured", "no transcript available").
+            duration_secs = parse_duration_secs(content)
+            if duration_secs >= TRANSCRIPT_MIN_DURATION_SECS:
+                transcript = get_transcript_text(content)
+                if transcript is not None:  # None = legitimately omitted (compact format)
+                    notes = get_notes_content(content)
+                    no_transcript_ack = bool(re.search(
+                        r"transcript\s+(not\s+captured|not\s+available|unavailable|was\s+not\s+captured"
+                        r"|could\s+not\s+be\s+captured|quality\s+degrades)",
+                        notes, re.IGNORECASE,
+                    ))
+                    if not no_transcript_ack:
+                        min_expected = int(duration_secs * TRANSCRIPT_CHARS_PER_SEC)
+                        if len(transcript) < min_expected:
+                            fail(
+                                f"{fname}: transcript appears truncated or empty -- "
+                                f"{len(transcript)} chars for a {duration_secs}s video "
+                                f"(expected >= {min_expected} chars at "
+                                f"{TRANSCRIPT_CHARS_PER_SEC} chars/sec)"
+                            )
 
     print(f"  Checked {len(files)} files.")
 
@@ -151,12 +224,12 @@ def main():
 
     print("\n" + "=" * 60)
     if failures:
-        print(f"RESULT: FAIL — {len(failures)} issue(s) found:")
+        print(f"RESULT: FAIL -- {len(failures)} issue(s) found:")
         for f in failures:
-            print(f"  • {f}")
+            print(f"  - {f}")
         sys.exit(1)
     else:
-        print("RESULT: PASS — all checks clean.")
+        print("RESULT: PASS -- all checks clean.")
         sys.exit(0)
 
 
