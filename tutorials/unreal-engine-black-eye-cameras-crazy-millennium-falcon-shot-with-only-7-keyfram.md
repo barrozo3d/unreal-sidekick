@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=7jNy5snGOJM
 author: Black Eye Technologies
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [black-eye-cameras, cinematics, spaceship, follow, composition, keyframes, camera-shake, bake, workflow]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-crazy-millennium-falcon-shot-with-only-7-keyfram/
 frame_count: 4
 ---
@@ -33,27 +33,46 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Recreate the Force Awakens Millennium Falcon flyby shot in ~2 minutes with only 7 keyframes. BEC workflow: Follow (Subject Locked) + Look At for procedural tracking; key frame only Screen Space Composition (where ship appears on screen) and a few Roll keys; add noise-based camera shake; optionally bake to static CineCameraActor for pipeline consistency.
 
 ### Summary
-[PENDING EXTRACTION]
+2m24s Black Eye Technologies tutorial recreating a famous Force Awakens Millennium Falcon shot with minimal keyframes. Assets from Fab. Process: quick animation on the Millennium Falcon → drop BEC camera → Follow mode: Subject Locked (camera follows subject's all transforms) → Look At → fine tune distance and damping → small amount of width/distance damping. Key frame only: Screen Space Composition (ship on screen at center → left → right = 3 composition keys) + Roll (minimal) = 7 total keyframes. Camera shake: attach noise profile from Black Eye content → Duration=0 (infinite). Compare with/without roll. Bake: drop static CineCameraActor → link to BEC camera → Sequencer → Bake → all procedural motion becomes standard keyframes for pipeline export.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Get Millennium Falcon (or any vehicle) from Fab; create quick animation in Sequencer
+2. Drop BEC **Simple Look At** camera → set Follow mode: **Subject Locked** (camera follows subject's position, rotation, and all transforms)
+3. Enable **Look At** → pick Falcon → camera tracks it
+4. Set follow distance (close = more damping mojo); add **distance damping** for buttery movement
+5. Enable **debug** to see the look-at point and composition markers
+6. In Sequencer: add **Subject Screen Space Position track** → keyframe where the Falcon should appear on screen:
+   - Frame 0: center screen
+   - Mid-flight: left screen
+   - End: right screen
+   → Only 3-4 composition keyframes; BEC handles all rotation math
+7. Add a few **Roll keyframes** (minimal) for ship banking feel
+8. Add **Camera Shake track** → drag BEC noise profile (from Black Eye content) → set Duration = 0 (infinite); tune amplitude
+9. Toggle Roll off in BEC settings to test "pillow-y damping" effect without roll
+10. **Optional bake**: drop standard CineCameraActor → link to BEC camera → add to Sequencer → hit Bake → all motion baked to dense keyframes for consistent/pipeline-safe playback
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Subject Locked** (Follow mode) — camera follows all transforms of subject (position + rotation + roll); tightest follow mode
+- **Screen Space Composition track** — Sequencer track; X/Y position of subject on screen; key frame desired framing per moment; BEC handles camera rotation to achieve it
+- **Distance Damping / Width Damping** — separate positional damping axes; affects how the camera's offset distance feels ("soft" vs "rigid")
+- **Camera Shake track** (BEC) — add noise profile from Black Eye content (show plugin content to find); Duration=0 = infinite; tune amplitude and frequency; noise-based (acknowledged as limited; better system coming)
+- **Camera Bake** — link BEC camera to a destination CineCameraActor → Sequencer → Bake → produces dense standard keyframes; good for: (a) locking down a good take, (b) DCC export, (c) render layers
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner. Demonstrates just how few keyframes are needed with BEC's procedural system.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (Black Eye Cameras)
 
 ### Tags
-[PENDING EXTRACTION]
+black-eye-cameras, cinematics, spaceship, follow, composition, keyframes, camera-shake, bake, workflow
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `unreal-engine-black-eye-cameras-bake-down-cam-anims.md` — full camera bake tutorial; DCC round-trip
+- `unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics.md` — similar Screen Space Composition keyframing for vehicle shots
+- `unreal-engine-black-eye-cameras-overview-tutorial.md` — BEC full system overview

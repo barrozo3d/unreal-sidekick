@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=MFrmcgQHGJk
 author: Black Eye Technologies
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [black-eye-cameras, gameplay, top-down, velocity-lookahead, follow, damping, workflow, installation]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-for-gameplay-top-down/
 frame_count: 4
 ---
@@ -33,27 +33,57 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Black Eye top-down gameplay camera with **Velocity Look Ahead** — prevents character from packing to screen edge by moving the camera's look-at point forward in the direction of movement. Key insight: default Epic top-down camera has no look ahead; BEC adds it in under a minute.
 
 ### Summary
-[PENDING EXTRACTION]
+3m25s Adam (Black Eye Technologies) top-down gameplay camera tutorial using the Epic top-down example scene. Compares default Epic camera (character packs to screen edge) vs. BEC camera with velocity look ahead (camera leads composition ahead of character). Steps: install BEC plugin → drop camera → Target Player 0 → Look At (World Space Center) + Follow → Save and Play → tune offsets + lens. Add Follow Damping (1 = significant weight). Velocity Look Ahead: punch in values; debug shows dot moving forward as character speeds up, centering when slowing down. Look At Offset in local space to move look-at point forward (warning: can feel nausea-inducing at high offset). Works for any top-down genre; iterates in seconds.
 
 ### Key Steps
-[PENDING EXTRACTION]
+**Install:**
+1. Edit → Plugins → search "Black Eye" → enable → restart UE
+
+**Camera setup:**
+2. Black Eye content folder → drag camera into scene
+3. Details: **Auto Assign: Player 0** → binds to player character automatically at runtime
+4. Enable **Look At** → set mode: **World Space Center** (looks at character's world-space center)
+5. Enable **Follow** → camera follows character position
+6. **Save and Play** → settings persist through PIE sessions; tune while game runs
+
+**Tune:**
+7. Default position not ideal → punch in offsets (X/Y/Z) and change lens to match scene scale
+8. Enable **Debug** to see look-ahead dot and composition markers
+9. Add **Follow Damping** (start ~1 = quite a bit of weight; adjust to feel)
+
+**Velocity Look Ahead:**
+10. Look At module → **Velocity Look Ahead**: set a value → look-at point moves forward in character's movement direction based on speed
+11. As character speeds up: dot moves ahead of character (leading composition)
+12. As character slows/stops: dot returns to character center
+13. Tune the value: too much = nauseating camera swing; find the sweet spot
+
+**Optional: Look At Offset (local space):**
+14. Look At Offset in local space → push look-at forward of character center → alternative to velocity look ahead for simpler offset; can feel motion-sick-inducing at high values
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Auto Assign: Player 0** — automatically targets the player-controlled character; no manual subject assignment needed in gameplay
+- **Look At: World Space Center** — targets the character's world-space center point for rotation; stable for top-down
+- **Save and Play** — preserves BEC settings made during PIE back to the asset; enables live iteration
+- **Follow Damping** — positional decoupling; adds weight/lag to camera follow; "1" is quite a lot; tune to game feel
+- **Velocity Look Ahead** — moves look-at pivot forward proportional to character velocity; prevents character packing to screen edge; centers at rest; tune amount carefully
+- **Look At Offset (local space)** — static offset of look-at point relative to subject; simpler than velocity look ahead but less responsive to speed changes
+- **Debug mode** — shows look-ahead dot, composition markers, tracking lines in viewport during PIE
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner. Plugin install + 5 settings = top-down camera in under 1 minute.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (Black Eye Cameras)
 
 ### Tags
-[PENDING EXTRACTION]
+black-eye-cameras, gameplay, top-down, velocity-lookahead, follow, damping, workflow, installation
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `unreal-engine-black-eye-cameras-overview-tutorial.md` — full BEC plugin overview; all follow modes
+- `unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics.md` — velocity look ahead used extensively for car cameras
+- `unreal-engine-black-eye-cameras-start-here-tutorial.md` — BEC beginner intro
