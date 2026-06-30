@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=oUPOBsCrWwE
 author: Unreal Engine
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [animation, sequencer, curves-editor, tween-tool, keyframing, polish, workflow, animator-tools, blend, overshoot]
+extraction_status: complete
 frames_dir: tutorials/frames/mastering-the-ue5-tweener-tool-push-pull-overshoot-animation/
 frame_count: 4
 ---
@@ -33,27 +33,84 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+UE5 Sequencer Tween Tool: 8 slider modes for adjusting keyframe values in the Curves Editor or viewport. Each mode treats the current key value differently as a base or override. Hotkey: **U** (hold + drag in active window); **Ctrl+U** = overshoot mode on/off; **Shift+U** = cycle modes. Works wherever the mouse cursor is (Curves Editor vs viewport).
 
 ### Summary
-[PENDING EXTRACTION]
+11-minute Unreal Engine tutorial covering all 8 modes of the Tween Tool in UE5 Sequencer. Demo uses a character throw animation (shot 65, Beta rig). Covers: Blend Neighbor (default, preserves current pose as base), Tween (snaps to 50% midpoint between neighbors), Blend Ease (ease in/out towards either adjacent key), Push Pull (amplify or de-amplify current curve direction), Overshoot Mode (exceed adjacent key value for exaggeration), Smooth/Rough (reduce or add contrast between keys), Time Offset (retime animation values without moving keyframe positions), Move Relative (reconnect offset animation data to adjacent keys). Essential for fast pose polish and blending in Sequencer.
 
 ### Key Steps
-[PENDING EXTRACTION]
+**Tween Modes (all available in Curves Editor bottom panel and viewport):**
+
+1. **Blend Neighbor** (default):
+   - Blends from *current* key value towards left or right adjacent keyframes
+   - Dragging left → blend toward previous key; right → blend toward next key
+   - Current pose stays as starting base — does NOT snap
+
+2. **Tween**:
+   - As soon as you touch the slider, every selected key *snaps to 50%* between its two adjacent keyframes
+   - Drag further to blend beyond 50% toward either neighbor
+   - Use when you want to override current pose and center it between neighbors
+
+3. **Blend Ease**:
+   - Generates ease keyframes that favor one adjacent key or the other
+   - Far right = ease *into* the right key; far left = ease *out of* the left key
+   - Middle range = softer/harder blend; use to create quick ease in/out moments
+
+4. **Push Pull**:
+   - Push (drag right) = amplifies the curve in the direction it was already traveling → more of current motion
+   - Pull (drag left) = de-amplifies → less of current motion, returns toward previous state
+   - Focus on curve data, not viewport pose; can break pose if pushed too far
+
+5. **Overshoot Mode** (Ctrl+U toggle, works with any slider):
+   - Normal slider max = adjacent key value; overshoot allows exceeding it
+   - Trick: blend to adjacent key then overshoot → delete original adjacent key and replace with overshooted key → cheap exaggerated pose
+   - Use with Blend Neighbor or Tween for quick secondary motion emphasis
+
+6. **Smooth / Rough**:
+   - Smooth (drag left) = reduces contrast between key values → softer/smoother motion
+   - Rough (drag right) = increases contrast → adds jitter/bumpiness
+   - Apply to a range of keys; great for cleaning up mocap or adding organic life
+
+7. **Time Offset**:
+   - Key *positions* in timeline stay fixed; key *values* shift to neighboring frames
+   - Effectively retimes the animation wave without moving actual keyframe positions
+   - Use to make an action happen sooner/later without touching keyframe timing
+
+8. **Move Relative**:
+   - Reconnects a selected block of animation to adjacent keyframes
+   - Use after copy-paste from elsewhere left an offset gap in the data
+   - "Connect to left" or "connect to right" — snaps data to continue from the neighbor
+
+**Hotkeys:**
+- **U** — activate tween slider in active window (Curves Editor or viewport)
+- **Ctrl+U** — toggle overshoot mode
+- **Shift+U** — cycle through all 8 modes
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Tween Tool** — Sequencer → Curves Editor bottom panel; 8 modes; also accessible in viewport while animating; hotkey U (hold + drag); mode switcher dropdown
+- **Blend Neighbor** — default mode; blends from current value toward left/right adjacent key; preserves current pose as base
+- **Tween** — snaps all selected keys to 50% between neighbors on first touch; overrides current pose
+- **Blend Ease** — generates ease-in/ease-out keyframes; favors either adjacent neighbor based on slider position
+- **Push Pull** — curve-direction amplifier; push = more; pull = less; operates on curve data not viewport pose
+- **Overshoot Mode** (Ctrl+U) — extends any slider's range past the adjacent key value; pairs with Blend Neighbor/Tween for exaggeration; works across all modes
+- **Smooth/Rough** — contrast adjuster across a key range; smooth = reduce jitter; rough = add jitter
+- **Time Offset** — value shifting within fixed keyframe positions; retimes animation without moving keys in timeline
+- **Move Relative** — reconnects offset animation data blocks to adjacent keyframes; resolves copy-paste gaps
+- **Curves Editor** — UE5 Sequencer sub-panel; shows curve data per bone/control; tween operations apply per-curve
+- **IK/FK rigs** — tutorial uses IK arm (requires pole vector) + FK hand; tween tool works identically on both; select all relevant controls before applying
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate. Requires familiarity with Sequencer, the Curves Editor, and basic animation concepts (keyframes, easing, IK/FK). The tool itself is straightforward — the nuance is knowing which mode to reach for and reading curve data vs viewport pose.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (Sequencer Curves Editor with Tween Tool as shown — UE5 feature set)
 
 ### Tags
-[PENDING EXTRACTION]
+animation, sequencer, curves-editor, tween-tool, keyframing, polish, workflow, animator-tools, blend, overshoot
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta.md` — beginner Sequencer/filmmaking pipeline; Curves Editor basics
+- `motion-blending-bone-matching-for-unreal-engine---make-films-in-unreal-ep2-inter.md` — motion blending techniques (if present)
+- `live-link-hub-tips-unreal-engine-animation-hub.md` — animation recording via Live Link Hub

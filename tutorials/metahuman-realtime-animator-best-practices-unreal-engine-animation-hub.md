@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=PgzSGQnWVcU
 author: Unreal Engine
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [metahuman, facial-animation, live-link, webcam, performance-capture, animation, real-time, virtual-production, motion-capture, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/metahuman-realtime-animator-best-practices-unreal-engine-animation-hub/
 frame_count: 4
 ---
@@ -33,27 +33,70 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Real-time MetaHuman facial capture using a webcam (Logitech Brio) and the MetaHuman Animator Live Link source. Key challenges: GPU contention (same GPU renders MetaHuman AND solves face); camera frame rate vs. exposure tradeoff; image noise → solve noise. Solution for high-quality capture: offload face solve to a second machine running Live Link Hub, send data over LAN to main workstation.
 
 ### Summary
-[PENDING EXTRACTION]
+9-minute Epic Animation Hub tutorial demonstrating best practices for webcam-based MetaHuman Animator (real-time facial capture) in UE5. Covers: plugin requirements; camera choice and USB bandwidth; 90fps vs 60fps tradeoff; viewport optimization to avoid GPU contention; Logi Tune camera settings (disable auto exposure, manual exposure for fps target, gain minimization for noise reduction); live face solve quality assessment (open jaw → check lower teeth noise); offloading the solve to a second machine via Live Link Hub over LAN (same-network UDP messaging, VPN gotchas); full-quality MetaHuman render while maintaining 90fps solve rate.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Plugin**: Enable MetaHuman Live Link plugin (Edit → Plugins)
+
+2. **Camera recommendation**: Logitech Brio; plug into **USB 3 port** (bandwidth-critical); choose **720p @ 90 FPS** over 1080p @ 60 FPS — extra frame rate benefits facial fidelity and lip sync more than resolution
+
+3. **Live Link setup (single machine)**:
+   - Window → Live Link → Add Source → MetaHuman Video → select camera → Connect
+   - Check Input Video tab to see live feed; watch FPS and "Dropping: Yes/No"
+   - Select MetaHuman in viewport → Details → Live Link → Subject → choose camera → "Use Live Link Source"
+
+4. **Fix frame drops (GPU contention)**:
+   - Same GPU renders MetaHuman and solves face → drops below target FPS
+   - Quick fix: turn off hair (heavy GPU cost) or other heavy viewport elements
+   - Goal: make viewport lightweight enough that Live Link shows 90fps with Dropping: No
+
+5. **Camera settings (Logi Tune app)**:
+   - Disable HDR
+   - Disable Auto Exposure (auto exposure changes sensor timing → frame rate instability)
+   - Set manual Exposure to **-6** (for Brio; darkest setting that still provides acceptable image at 90fps)
+   - Keep Gain as low as possible — noisy image = noisy facial solve
+
+6. **Assess solve quality**: Open jaw wide and hold still → observe lower teeth area; smooth = good solve; jittery = bad lighting or high gain
+
+7. **Lighting**: Bright, even lighting allows lowest gain setting → cleanest solve
+
+8. **Offload solve to second machine (ideal setup)**:
+   - On laptop: install Live Link Hub (Tools → Launch Live Link Hub, OR run `\Engine\Binaries\Win64\LiveLinkHub.exe` directly)
+   - Add MetaHuman Video source on laptop → Connect → laptop sends Live Link data over LAN
+   - On main workstation: Live Link Hub client connects automatically (same subnet); verify it appears as source in UE Live Link panel
+   - Result: face solve runs on laptop GPU; main workstation GPU only renders MetaHuman → full-quality MetaHuman at 90fps
+
+9. **UDP messaging / network troubleshooting**:
+   - Live Link Hub Settings → UDP Messaging → Unicast Endpoint: set to correct network interface
+   - UE: Project Settings → UDP Messaging → Unicast Endpoint: match same network
+   - VPN can cause port conflicts — disconnect VPN or configure unicast endpoint explicitly
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **MetaHuman Live Link Plugin** — required; enables MetaHuman Animator source in Live Link
+- **Live Link Window** — Window → Live Link; Add Source → MetaHuman Video; shows FPS, Dropping indicator, Input Video preview
+- **MetaHuman Animator Live Link Source** — type: MetaHuman Video; select camera; connect; appears as subject in Live Link panel
+- **Use Live Link Source** — MetaHuman Details panel → Live Link → Subject Name → select camera subject → enables real-time facial solve
+- **Live Link Hub (standalone)** — Tools → Launch Live Link Hub OR `Engine/Binaries/Win64/LiveLinkHub.exe`; runs on separate machine; adds MetaHuman Video source; sends data over LAN to main UE instance
+- **UDP Messaging** — Project Settings → UDP Messaging → Unicast Endpoint: must match correct NIC on network; also set in Live Link Hub Settings; critical for multi-machine Live Link Hub connectivity
+- **Logi Tune** (Logitech software) — camera configuration app; Exposure (manual -6 for Brio at 90fps), Gain (minimize), HDR (disable), Auto Exposure (disable)
+- **Camera FPS vs. Exposure tradeoff** — sensor exposure time limits max FPS; lower exposure value = shorter shutter = higher achievable fps; compensate brightness with gain (but gain adds noise)
+- **USB 3 port** — required for Brio at 90fps bandwidth; USB 2 will limit frame rate
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner-Intermediate. Conceptually accessible — mostly driver settings and Live Link source configuration. The two-machine Live Link Hub setup requires basic networking knowledge (same subnet, UDP port config). No Blueprint or C++ required.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (MetaHuman Animator + Live Link Hub — UE5 era features)
 
 ### Tags
-[PENDING EXTRACTION]
+metahuman, facial-animation, live-link, webcam, performance-capture, animation, real-time, virtual-production, motion-capture, beginner
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `live-link-hub-tips-unreal-engine-animation-hub.md` — Live Link Hub multi-source setup; Virtual Subject; recording; timecode
+- `lip-sync-in-unreal-engine.md` — lip-sync documentation (empty crawl; this tutorial provides practical implementation)
+- `metahuman-realtime-animator-best-practices...` — this file covers webcam-specific best practices; body capture in `live-link-hub-tips`
