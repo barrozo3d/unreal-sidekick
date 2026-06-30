@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=94UWBG7hKDI
 author: Black Eye Technologies
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [black-eye-cameras, sequencer, keyframes, weights, look-at, follow, multiple-subjects, v1-1-1]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-version-111-keyable-weights-in-sequencer/
 frame_count: 5
 ---
@@ -51,27 +51,51 @@ frame_count: 5
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+BEC v1.1.1: Look At and Follow subject weights are now **keyframeable in Sequencer**. One camera can Follow up to 4+ subjects and Look At 4+ subjects, each with independently keyframeable weight tracks. Keyframe weights 0→1 to shift camera attention between subjects over time. Debug: blue cubes appear/disappear matching weight value (0=cube gone). Enables sophisticated single-camera sequences switching between multiple targets without changing cameras.
 
 ### Summary
-[PENDING EXTRACTION]
+4m31s BEC v1.1.1 keyable weights in Sequencer announcement and tutorial. Demo: one camera following/looking at red car → yellow truck → cyan car → green car → plane. All on one camera via weight keyframes. Setup: BEC camera → Follow 4 subjects → Look At 4 subjects → Dynamic FOV → Sequencer → select camera → Look At → Add channel → "Camera Target Weight" per subject → keyframe weights. Blue debug cubes visible only when weight > 0; vanish when zero. Can still move camera after weight keyframes set up; all relationships preserved. "It's real. It's 1.1.1."
 
 ### Key Steps
-[PENDING EXTRACTION]
+**Setup (4 subjects):**
+1. Place Black Eye camera → enable **Follow** → set to multiple subjects → eyedropper subjects 1–4
+2. Enable **Look At** → eyedropper subjects 1–4 (same subjects as Follow or different)
+3. Enable **Dynamic FOV** → adjust screen space composition for combined box
+4. Place camera manually or grab and move to achieve rough shot position
+
+**Sequencer keyframing:**
+5. Drag clip to Camera Cuts track → camera active
+6. Select camera → in Sequencer: expand Look At module → **Add track → Camera Target Weight** (one per subject slot)
+7. Repeat for each subject: subjects 1, 2, 3, 4 each get their own weight track
+8. Go to frame 0 → keyframe: Subject 1 weight = 1, Subjects 2–4 weight = 0 → camera looks at only subject 1
+9. Scrub forward → keyframe: Subject 1 weight = 0, Subject 2 weight = 1 → camera transitions attention to subject 2
+10. Continue for each transition (S2→S3→S4→multi, etc.)
+11. Optionally adjust **damping** if weight transitions cause camera to jerk (e.g., increase pitch damping)
+12. Move camera position freely at any point; weight keyframes remain valid regardless of camera world position
+
+**Debug:**
+13. Blue cubes visible when weight > 0; vanish at weight = 0 → visual confirmation of which subjects are being considered in blending evaluation
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Camera Target Weight tracks** (Sequencer) — per-subject keyframe track on Look At (and Follow) modules; value 0–1; camera composites weighted bounding box of all > 0 subjects
+- **Multi-subject Follow** (4+ subjects) — camera follows averaged position of all subjects weighted above zero
+- **Multi-subject Look At** (4+ subjects) — camera composes on weighted aggregate of all subject cubes
+- **Dynamic FOV** — used here to automatically frame variable-size groups (single car = tight; group = wide)
+- **Blue debug cubes** — each subject has a blue cube visible when weight > 0; disappears at weight = 0; use to debug blending evaluation in viewport
+- **Weight keyframe approach** — replaces switching cameras; single camera does full sequence of attention shifts via weight animation; eliminates camera cuts for smooth transitions
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner to intermediate. Sequencer track setup is straightforward; weight keyframe strategy requires planning for multi-subject scenes.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (Black Eye Cameras v1.1.1+)
 
 ### Tags
-[PENDING EXTRACTION]
+black-eye-cameras, sequencer, keyframes, weights, look-at, follow, multiple-subjects, v1-1-1
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `unreal-engine-black-eye-cameras-version-11-new-features-multi-subject-lookat-wei.md` — v1.1 announcement; Blueprint-only weight control (predecessor)
+- `unreal-engine-black-eye-cameras-start-here-tutorial.md` — keyframe weights section with space vehicle sub-component targets
+- `unreal-engine-black-eye-cameras-version-111-keyable-weights-in-sequencer.md` — this file; canonical reference for weight keyframing in Sequencer
