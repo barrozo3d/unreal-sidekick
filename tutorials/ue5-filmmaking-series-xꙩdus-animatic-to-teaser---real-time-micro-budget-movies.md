@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=-9-Aq3z-wI4
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [filmmaking, pipeline, animatic, short-film, production, ai-video, micro-budget, workflow, teaser, vfx]
+extraction_status: complete
 frames_dir: tutorials/frames/ue5-filmmaking-series-xꙩdus-animatic-to-teaser---real-time-micro-budget-movies/
 frame_count: 4
 ---
@@ -33,27 +33,36 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+**⚠️ Channel update video — no tutorial content.** Dean Yurke shares a brief update on his micro-budget short film "xꙨdus." Pipeline described: UE5 animatic → teaser cut (by Joe) with music (by Shem) → planned upgrade to "final pixel" with live action actors replacing digital characters + environment polish. Also mentions an experimental video-to-video AI pipeline to be shared on the channel.
 
 ### Summary
-[PENDING EXTRACTION]
+1m51s brief Dean Yurke channel update — not a tutorial. Describes the production pipeline for his micro-budget film project "xꙨdus": animatic was created first in UE5, then cut into a teaser. Future plan: replace digital/MetaHuman characters with live action footage, upgrade environments to final-pixel quality, and experiment with video-to-video AI augmentation. No UE5 technical steps demonstrated. Interest value: illustrates the animatic-to-production pipeline approach he advocates for real-time filmmaking on a micro budget.
 
 ### Key Steps
-[PENDING EXTRACTION]
+*No tutorial steps — channel update video only.*
+
+**Production pipeline mentioned:**
+1. Create animatic in UE5 (rough animation, placeholder assets, timing established)
+2. Edit teaser cut from animatic footage
+3. Add music / sound (collaborator: Shem)
+4. Upgrade: replace digital actors with live action plates
+5. Polish environments to "final pixel" quality
+6. Experimental: video-to-video AI augmentation (unspecified tool; to be shared on channel)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+None demonstrated. Pipeline mention: UE5 animatic → live action compositing (Composure or similar implied). Video-to-video AI augmentation experiment planned but not shown.
 
 ### Difficulty
-[PENDING EXTRACTION]
+N/A (update video)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+filmmaking, pipeline, animatic, short-film, production, ai-video, micro-budget, workflow, teaser, vfx
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `survive-the-vfx-war-battle-ready-skills-you-need-for-virtual-production-in-2026-.md` — full Dean Yurke Q&A; iterative UE5 animatic-to-production pipeline; Composure compositing
+- `the-future-of-filmmaking-in-unreal-5-virtual-production.md` — Josh Toonen VP micro-budget film approach; LED volume; parallax

@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=OLwLqjBtSKk
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [animation, control-rig, mixamo, sequencer, ik-fk, workflow, pipeline, characters, free-download, filmmaking]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-5-animation-made-easy-free-download/
 frame_count: 2
 ---
@@ -38,27 +38,38 @@ frame_count: 2
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Short promotional intro for the free OneClick Control Rig plugin. Pipeline overview: Mixamo auto-rig → UE5 import → OneClick Rig install (Plugins folder) → bake animation to control rig → edit via IK/FK in Sequencer. Created by Camilla Bianchi (technical animator, Framestore London; Hellblade 2). See the full tutorial `this-free-plugin-changes-filmmaking-forever-unreal-5.md` for step-by-step details.
 
 ### Summary
-[PENDING EXTRACTION]
+3m2s Josh Toonen promo/intro video for the OneClick Control Rig. Short companion to the full tutorial. Covers the motivation (Mixamo animations can't be edited easily in UE5 without a control rig) and the solution (OneClick Rig converts Mixamo skeleton animations into editable control rig keyframes instantly). Install summary: download from unrealforvfx.com/rig → create Plugins folder in project → paste inside → Settings → Show Plugin Content → duplicate and assign per character. Bake animation → Sequencer editing with IK/FK. Use cases: fix feet clipping, adjust rifle aim, clean up mocap, animate from T-pose. Credit: plugin created by Camilla Bianchi (technical animator, Framestore London; Hellblade 2).
 
 ### Key Steps
-[PENDING EXTRACTION]
+*(Short promo — see `this-free-plugin-changes-filmmaking-forever-unreal-5.md` for full pipeline steps.)*
+
+**Quick install summary:**
+1. Download OneClick Rig at unrealforvfx.com/rig
+2. In project root: create a folder named exactly `Plugins` → paste downloaded plugin inside
+3. In UE5: Settings → **Show Plugin Content** → find OneClick Rig in Content Browser
+4. Duplicate the rig asset → place next to character → open → right-click background → Refresh → click character to assign
+5. Drag character into Sequencer → right-click → **Bake to Control Rig** → start editing
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **OneClick Control Rig** (by Camilla Bianchi, free) — auto-creates Control Rig for Mixamo-rigged characters; supports IK (endpoint goal) and FK (rotation chain) per limb; bakes animation clips into per-frame editable keyframes
+- **Plugins folder** — project-level plugin installation; must be named exactly `Plugins` (no dashes); plugin appears in Content Browser after enabling Show Plugin Content
+- **Bake to Control Rig** (right-click in Sequencer) — converts clip animation to Control Rig keyframes; enables frame-by-frame editing in Sequencer
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner. Three-minute overview; full workflow in companion tutorial.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+animation, control-rig, mixamo, sequencer, ik-fk, workflow, pipeline, characters, free-download, filmmaking
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `this-free-plugin-changes-filmmaking-forever-unreal-5.md` — full 16-minute step-by-step tutorial for the same OneClick Control Rig pipeline; constraints, additive tracks, motion blending
+- `stylized-animation-control-rig-characters-in-unreal-engine-5.md` — ACOM modular rig; UE's built-in Control Rig for MetaHumans
+- `ue5-constraints-are-easy-parent-constraint-workflow-for-animators.md` — parent constraints; hands-to-weapon workflow
