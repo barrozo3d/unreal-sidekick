@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=uUxE0gaOvnQ
 author: Black Eye Technologies
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [black-eye-cameras, cross-camera, dialogue, over-the-shoulder, follow, look-at, damping, orientation-damping, location-damping, v1-1]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-version-11-new-features-cross-camera/
 frame_count: 4
 ---
@@ -33,27 +33,50 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+BEC v1.1 Cross Camera introduction. Creates a camera that maintains a fixed angular relationship (heading) between two subjects. A "ray" is drawn between the subjects' pelvis/root bones; camera sits at the end of the ray at a configurable heading and height. As either subject moves, the camera swings to maintain the heading angle — perfect for over-the-shoulder dialogue shots that work regardless of character world position. Key two-damping distinction: **Orientation Damping** (angular, how smoothly camera rotates) and **Location Damping** (positional, lag along the ray arm) are fully independent.
 
 ### Summary
-[PENDING EXTRACTION]
+4m46s BEC v1.1 Cross Camera feature reveal. Shows a camera locked to the angular relationship between two characters. Heading control: spin camera around both people; always maintains configured over-the-shoulder angle. Even when one character moves forward, the camera swings to maintain heading. Setup: Place → Cross Camera actor → Perpendicular Follow Subject A + B → heading/distance/height dials → Look At one or both subjects + Dynamic FOV. Two damping systems: Orientation Damping (angular rotation viscosity) + Location Damping (positional arm-end lag) — both needed, independently tunable. Less is more on damping for active shots.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Place → Place Actors → search "Cross Camera" → drag into level
+2. Select Cross Camera → Details: **Perpendicular Follow**: Subject A → eyedropper → left character; Subject B → eyedropper → right character
+3. Camera auto-positions perpendicular to the two subjects (default heading = 90°)
+4. Adjust **heading** dial → spin camera around both subjects (0° = front; 90° = side; 180° = back)
+5. Adjust **distance** → camera moves closer or farther from subjects while maintaining heading
+6. Adjust **height** → camera rises or lowers
+7. Change Follow from root to **pelvis** bone → sometimes gives cleaner angle depending on character animation
+8. Enable **Look At** → pick one character head bone → adjust bounding radius to head size → adjust Focus Distance Offset to compensate for bone being inside geometry
+9. Optionally add second Look At subject for combined framing + Dynamic FOV
+10. Add to Sequencer Camera Cuts track → cut between this and other cameras
+11. Tune **Orientation Damping** (angular: how smoothly camera rotates when subjects move) → start low
+12. Tune **Location Damping** (positional: lag at end of arm between camera and target position) → start low
+13. Both damps needed: zero orientation = hard-pinned rotation (brittle on movement); zero location = hard-pinned position; combined = organic feel
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Cross Camera actor** — distinct from Look At/Follow camera; maintains heading angle between two subjects
+- **Perpendicular Follow: Subject A/B** — two subject slots; "ray" drawn between them; camera at configurable end point
+- **Heading** — angle of camera around the two-subject ray (0–360°); 90° = perpendicular; 180° = behind
+- **Distance** — how far camera sits at end of ray
+- **Height** — vertical offset of camera from ray midpoint
+- **Orientation Damping** — angular viscosity: how smoothly camera rotates to follow subjects; zero = hard-pin rotation (rigid); high = very goopy rotation
+- **Location Damping** — positional viscosity: lag between camera's target position and actual position; creates weight in following arm end; independent from orientation
+- **Two damping systems** — critical distinction: you need BOTH; one controls rotation, other controls position; tune separately; "less is more for active shots"
+- **Look At + bone targeting** — usual BEC look at on Cross Camera; set Focus Distance Offset to compensate for bone depth inside geometry
+- **Bounding Radius** — cube size around targeted bone; affects how camera frames partial subjects
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner to intermediate. Setup is fast; damping system requires understanding of two-component model.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (Black Eye Cameras v1.1+)
 
 ### Tags
-[PENDING EXTRACTION]
+black-eye-cameras, cross-camera, dialogue, over-the-shoulder, follow, look-at, damping, orientation-damping, location-damping, v1-1
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `unreal-engine-black-eye-cameras-start-here-tutorial.md` — Cross Camera used in dialogue system context (full workflow)
+- `unreal-engine-black-eye-cameras-overview-tutorial.md` — BEC overview including cross camera
+- `unreal-engine-black-eye-cameras-v2-start-here-tutorial.md` — v2 Cross Camera usage for gameplay (Interesting Cube demo)

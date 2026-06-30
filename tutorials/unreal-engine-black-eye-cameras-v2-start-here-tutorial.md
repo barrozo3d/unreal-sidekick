@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=vs6yjL-l_FQ
 author: Black Eye Technologies
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [black-eye-cameras, v2, gameplay, orbit-camera, camera-manager, blend-list, trigger-volume, save-and-play, cross-camera, dead-zone, dynamic-zoom, adaptive-cutscene, hybrid-workflow, modifiers, blueprints]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-v2-start-here-tutorial/
 frame_count: 24
 ---
@@ -148,27 +148,102 @@ frame_count: 24
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+BEC v2 comprehensive start-here. Major new systems: (1) **Camera Manager** — project-level or level-level controller that manages all camera blending, blend lists, and trigger volume camera transitions; (2) **Orbit Camera** — full-featured gameplay third-person camera with input speed, auto-recentering, pitch/radius clamps, collision, modifiers, and blueprint piping; (3) **Save and Play** — tune cameras live while game is running; settings persist back to asset; (4) **Adaptive Cutscenes** — hybrid mode: subject screen position + follow offset keyframes; camera adapts to character changes and "what ifs." Philosophy: work through the lens, not through numbers.
 
 ### Summary
-[PENDING EXTRACTION]
+43m5s Adam (Black Eye Technologies) v2 start-here covering all major new BEC2 features. Gameplay-focused first: gameplay camera + trigger volumes + tags → smooth world-relative camera changes during play; Save and Play = tune while game is running, changes persist. Camera Manager (BEC Panel → Manage): project vs level scope; blend lists (default, custom per-pair, wildcards). Demo scene = everything pre-built to study. Orbit Camera (deep-dive): input speed, auto-recentering (doubles as follow-camera behavior at high speed), pitch clamps, heading center, bone targeting, screen-space position for off-center orbit, collision (probe size + recenter time), dead zones (look + dwell radius), dynamic zoom (keep subject size on screen). Modifiers: graph-based (e.g., FOV vs orbit height) + Blueprint piping (recentering speed vs velocity). BEC Panel: Create tab (preview framing on selected character, lens packs, one-click create cameras); composition editing through lens; damping preview dots. Rig (plate/pedestal): pivot point offset for real-rig feel. Adaptive cutscenes: keyframe subject screen position + follow offset → camera adapts to character scale/position changes; "what if" shots are free.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Install + Demo:**
+1. Fab → buy Black Eye Cameras → add to project → Edit→Plugins→Black Eye → enable → restart
+2. Open demo scene: Engine Plugins content → Black Eye → Demos (turn on Show Plugin Content)
+
+**Save and Play:**
+3. BEC camera details → **Save and Play** toggle ON → Play → tune camera settings live → settings persist back to asset when stopped
+
+**Camera Manager Setup:**
+4. BEC Panel (Window → Black Eye Camera) → Manage tab → Create (project-scope or level-scope)
+5. Place an Orbit Camera in scene → set Auto Activate for player → set look-at bone
+6. Set project's look profile to match project visual settings (or load BEC demo look file)
+
+**Trigger Volume Camera Blending:**
+7. Place → Black Eye Trigger Volume → set Tag (e.g., "high", "tight_space", "aim")
+8. Duplicate gameplay camera → rename → turn off Auto Activate → configure differently (e.g., higher orbit, tighter lens)
+9. Set the duplicate camera's tag to match the trigger volume tag → on enter: blend to that camera; on exit: blend back
+10. With Save and Play: run into trigger, tune camera settings live until correct
+
+**Blend Lists:**
+11. BEC Panel → Manage tab → Blend List → Default blend (whole duration + blend type + exponent)
+12. Add custom blends: Camera A → Camera B (specific duration/type); Camera B → Camera A (different)
+13. Wildcards: any camera → this camera = always cut (e.g., security camera)
+
+**Orbit Camera:**
+14. Place orbit camera → attach to character root bone → set **Auto Activate for player**
+15. **Input Speed** — controls how fast player can orbit; tune in panel
+16. **Auto Recentering** — ON: camera springs back to heading center after input; OFF: stays where orbited; at high recenter speed + short delay = camera functions as a follow camera
+17. **Heading Center** — default: behind character; can set to any heading (used for "aim" → world direction)
+18. **Radius** — orbit distance; pairs with pitch clamps (min/max pitch to prevent gimbal at ±90°)
+19. **Look at bone** — recommend: root bone + Look At vertical offset (most stable); head bone = inherits animation bounce
+20. **Screen Space Position** — off-center orbit (e.g., for aim modes, peeking corners); compositional offset that the orbit rotates around
+21. **Collision**: Probe Size = sphere around camera; Recenter Time = spring-back speed after push-in; tune probe to avoid clipping without being too large
+22. **Look Dead Zone** — disregards subject motion within rectangular screen zone; good for high-frequency animation noise
+23. **Dwell Radius** (Follow) — sphere around camera; subject must leave sphere before camera follows; "dolly operator bubble"
+
+**Dynamic Zoom:**
+24. **Lens Pack mode** → automatically cycles between fixed lenses in pack based on subject
+25. **Dynamic Zoom mode** → subject size mode: camera adjusts FOV to maintain subject at desired screen size; adapts to subject scale changes
+
+**Modifiers + Blueprint Customization:**
+26. Orbit camera → Customization → add modifier graph: e.g., FOV controlled by orbit pitch (low=telephoto, high=wide)
+27. Level Blueprint → get BEC camera reference → push values into attributes; e.g., velocity → recentering time (fast running = camera follows; stopped = full orbit)
+
+**BEC Panel Create Tab:**
+28. BEC Panel → Create tab → select character in viewport → panel previews framing on character per lens
+29. Pick lens pack → click "Create Cameras" → cameras created at current view angle, targeting correct bones, lenses pre-set
+30. Adjust composition through lens in panel (drag to reposition subject on screen); white dots = damping preview
+
+**Rig (Plate/Pedestal in v2):**
+31. BEC camera → Rig section → adjust offset (forward/back, up/down) → moves camera pivot point away from sensor center → mimics steadicam/shoulder rig pivot
+
+**Adaptive Cutscenes (Hybrid Mode):**
+32. Place camera → Follow + Look At → drag to Sequencer
+33. Add **Subject Screen Position** track → keyframe composition A→B (where on screen at start vs end)
+34. Add **Follow Offset** track → keyframe offset A→B (start position vs end position; e.g., high → close)
+35. BEC handles all rotation math; camera produces correct shot even if character changes position or scale
+36. Move character anywhere → shot still works → "what if" shots are instant
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Camera Manager** — project or level scope; manages all camera priority, blending, and trigger transitions; required for gameplay camera system
+- **Save and Play** — camera detail setting; persist parameter changes made during PIE; essential for rapid gameplay camera iteration
+- **Trigger Volume + Tag** — Black Eye Trigger Volume actor; tag string matches camera tag string; no blueprint wiring needed; enter=blend to camera, exit=blend back
+- **Blend List** (Manage tab) — default blend + per-camera-pair custom + wildcard (any→camera or camera→any); each entry: duration, blend type, exponent
+- **Orbit Camera** — full gameplay third-person camera; auto-recentering + heading center + input speed; at extreme settings: functions as automated follow or aim camera
+- **Look at bone targeting** (Orbit) — recommend root + vertical offset for stability; head bone = inherits anim wobble
+- **Screen Space Position** (Orbit) — orbital center is offset from screen center; useful for aim modes and edge-peek compositions
+- **Collision** — probe sphere + recenter time; BEC camera targets selected look-at bone, not spring arm center; more control over framing during collision
+- **Look Dead Zone** (Look At) — rectangular screen-space dead zone; camera ignores subject motion inside it
+- **Dwell Radius** (Follow) — follow sphere; camera only follows when subject exits sphere; prevents micro-jitter following
+- **Dynamic Zoom** — subject size mode; FOV adapts to maintain constant screen size regardless of subject distance/scale
+- **Modifiers** (Customization) — curve-based attribute overrides: axis is orbit angle/speed/etc; output is any camera attribute (FOV, radius, etc.)
+- **Blueprint Modifier** — all camera attributes exposed for BP piping; old-school but very powerful; combine with Save and Play for tuned behavior
+- **Subject Screen Position** (Sequencer track) — keyframe where subject appears on screen; BEC computes all rotations; adaptive to changes in character animation/scale/position
+- **Follow Offset** (Sequencer track) — keyframe camera position relative to subject at different shot moments; combine with screen position for full hybrid cinematics
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate. V2 introduces camera manager and orbit camera; hybrid mode and adaptive cutscenes are more advanced.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (Black Eye Cameras v2)
 
 ### Tags
-[PENDING EXTRACTION]
+black-eye-cameras, v2, gameplay, orbit-camera, camera-manager, blend-list, trigger-volume, save-and-play, cross-camera, dead-zone, dynamic-zoom, adaptive-cutscene, hybrid-workflow, modifiers, blueprints
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `unreal-engine-black-eye-cameras-start-here-tutorial.md` — v1 start-here; covers Look At, Follow, Cross Camera, Switcher, Bake
+- `unreal-engine-black-eye-cameras-v2-gameplay-cameras-are-here.md` — BEC v2 gameplay cameras deep-dive
+- `unreal-engine-black-eye-cameras-version-11-new-features-cross-camera.md` — Cross Camera detailed setup
+- `unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics.md` — Save and Play tuning workflow for vehicles
+- `unreal-engine-black-eye-cameras-bake-down-cam-anims.md` — baking cinematic cameras for pipeline export
