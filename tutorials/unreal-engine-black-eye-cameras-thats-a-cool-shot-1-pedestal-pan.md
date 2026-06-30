@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=NOOpWzeC0Mg
 author: Black Eye Technologies
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [black-eye-cameras, pedestal, pan, hybrid-workflow, follow, look-at, composition, sequencer, keyframes, cinematics]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-thats-a-cool-shot-1-pedestal-pan/
 frame_count: 5
 ---
@@ -55,27 +55,47 @@ frame_count: 5
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Classic **pedestal pan** shot using BEC hybrid mode: Follow camera locks to a moving car (positional); Look At tracks two separate walking characters (rotational). Only 6 keyframes total — 2 on Follow Offset Z (camera height for pedestal move) + 2–4 on Subject Screen Position (composition shift left→right). BEC handles all the rotation math automatically.
 
 ### Summary
-[PENDING EXTRACTION]
+5m38s Black Eye Technologies "That's a Cool Shot #1" episode. Adam demonstrates how to build a cinematic pedestal pan using BEC hybrid mode. Setup: Follow car → Look At two people (multiple subjects) → 28mm lens → drag to Sequencer. Hybrid mode: keyframe Follow Offset Z channel for pedestal up (camera rises over car) + keyframe Subject Screen Position for composition change (starts left, ends right). Fine-tune keyframe curves for timing. Minimum keyframes, maximum procedural behavior. Shot still works if characters move/change.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Install BEC plugin (Fab → Edit→Plugins → Black Eye → enable → restart)
+2. Drop Black Eye camera into scene
+3. Enable **Follow** → eyedropper → pick car → camera jumps 300 units off side; drag to desired starting position (low, close to car)
+4. Enable **Look At → Multiple Subjects** → eyedropper subject 1: left character, subject 2: right character → white box tracks both
+5. Set lens: 28mm (wide gives dynamic feel for pedestal)
+6. **Drag camera onto Sequencer** (Camera Cuts track)
+
+**Hybrid mode:**
+7. In Sequencer: open Follow module → **Follow Offset Z channel** → scrub to shot start → keyframe Z at low position
+8. Scrub to moment camera should rise → keyframe Z at high position (pedestal up, camera wipes over car)
+9. Open Look At module → **Subject Screen Position track** → look through lens
+10. Keyframe composition at start (subject slightly left of center)
+11. Scrub to end → adjust X/Y to move composition right → keyframe
+12. Refine with Sequencer curve editor: check tangents on Z height + screen position to control timing of rise and composition shift
+13. Widen lens further if too cramped (e.g., 24mm) → grab camera and adjust offset to avoid clipping through car geometry
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Follow Offset channel** (Sequencer) — keyframe specific axes (Z only) while BEC handles lateral follow procedurally; Z channel = pedestal/crane move
+- **Subject Screen Position** (Sequencer track, under Look At) — X/Y position of subject on screen; keyframe composition shifts across shot duration
+- **Multiple Subjects** (Look At) — 2 subjects in white framing box; camera rotation tracks combined bounding box
+- **Hybrid mode** — mix of: procedural Follow (lateral + rotation) + manual Z keyframes + manual screen position keyframes; non-destructive blend
+- Total keyframes needed: 2 (height) + 2–4 (composition) = 4–6 keyframes for a fully polished complex moving shot
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner. Demonstrates BEC hybrid mode principles efficiently. Use as a template for any pedestal/crane move.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (Black Eye Cameras)
 
 ### Tags
-[PENDING EXTRACTION]
+black-eye-cameras, pedestal, pan, hybrid-workflow, follow, look-at, composition, sequencer, keyframes, cinematics
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `unreal-engine-black-eye-cameras-start-here-tutorial.md` — full BEC system overview; hybrid mode explained in detail
+- `unreal-engine-black-eye-cameras-overview-tutorial.md` — BEC overview; hybrid workflow section
+- `unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics.md` — car Follow + Subject Screen Position composition keyframing workflow

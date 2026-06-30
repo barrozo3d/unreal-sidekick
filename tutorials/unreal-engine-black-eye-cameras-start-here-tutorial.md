@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=3KxVyOQwTRo
 author: Black Eye Technologies
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [black-eye-cameras, look-at, follow, dynamic-fov, damping, plate-pedestal, multiple-subjects, bone-targeting, cross-camera, camera-switcher, keyframe-composition, bake, dialogue-camera, hybrid-workflow, gameplay, cinematics]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-start-here-tutorial/
 frame_count: 15
 ---
@@ -103,27 +103,98 @@ frame_count: 15
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Comprehensive 55-minute BEC onboarding tutorial. Philosophy: CG cameras should have a relationship with subjects like real-life camera operators. BEC achieves this via two core modules — **Look At** (controls rotation/composition) and **Follow** (controls position/translation) — each with per-axis damping to give cameras physical weight and viscosity. All BEC cameras can be used procedurally, keyframed traditionally, or in **hybrid mode** (mix keyframes and procedural modules on the same camera).
 
 ### Summary
-[PENDING EXTRACTION]
+Adam (Black Eye Technologies) full start-here tutorial covering every major BEC feature in sequence. Sections: (1) Philosophy; (2) Install; (3) Debug/CVARs; (4) Look At with Dynamic FOV, multi-target, bone targeting, composition screen guides; (5) Plate and Pedestal (pivot offset for real-rig feel); (6) Follow for characters with positional damping + dwell radius; (7) Follow for vehicles + lens limits on Dynamic FOV; (8) Follow + Keyframes (hybrid orbit via Extra Yaw channel); (9) Multiple Subjects (up to 4 sub-targets, bone-level targeting, weight blending in Sequencer); (10) Keyframe Weights on sub-components with per-target composition keyframing; (11) Cross Camera (over-the-shoulder dialogue system: cameras stay relative to characters no matter where they move); (12) Camera Switcher (keyboard bindings for live switching); (13) Keyframe Composition (Subject Screen Position track for blocking composition intent); (14) Baking cameras (Linked Cameras → Record).
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**Install:**
+1. Fab tab in UE → search "Black Eye Cameras" → buy → assign to project
+2. Edit → Plugins → Black Eye → enable → restart UE
+3. Debug: eyeball menu → Black Eye overlay; or Cvars: type "black eye" in console → granular control per feature
+
+**Look At:**
+4. Place → Black Eye → Look At camera → in Details: Look At module ON → eyedropper → pick character → instant dynamic composition
+5. Enable **Dynamic FOV** → camera auto-zooms to keep subject screen size; tune FOV Damping (higher = slower zoom, less pumping)
+6. Multiple subjects: click Subject 2, pick second actor → white box = combined frame; tune weights per subject
+7. **Bone targeting**: click subject → type bone name (e.g., "head", "pelvis", "FR_W") → disable Use Component Bounds → adjust Bounding Radius (cube size) + Offset so camera frames the geometry accurately
+8. **Screen Space Position** (look at composition guides): look through lens → adjust X/Y to set desired subject position on screen
+
+**Plate and Pedestal:**
+9. Plate Pedestal module → adjust camera body offset (up/down, forward/back) → changes pivot point of camera rotation → mimics fluid head / steadicam physics; "cameras never rotate around their sensor in real life"
+
+**Follow (character/vehicle):**
+10. Follow module ON → eyedropper → pick actor → camera jumps 300 units off side → grab and move to taste
+11. **Positional Damping** (per-axis: forward-back, side, up-down) → camera lags with viscosity; tune per shot
+12. **Dwell Radius** → sphere around camera; subject motion within sphere = camera doesn't move; combine with damping for smooth tracking shots
+13. **Follow Point** (toggle) → fixes flip/gimbal issues when camera rotates rapidly around subject
+14. **Look At Dead Zone** → ignore zone radius; camera ignores subject micro-jitter within zone; very useful for stable follow shots
+15. For vehicles: Follow + Look At on car → Dynamic FOV with lens limits (max/min FOV bounds to prevent goofy lens extremes)
+
+**Follow + Keyframes (Hybrid Orbit):**
+16. Add camera to Sequencer → add Follow Offset channel → keyframe different positions → camera follows subject but from keyframed offset relationships
+17. **Extra Yaw channel** → keyframe 0° → 360° over time → orbit around subject without fixed world pivot; camera stays relative to subject during orbit
+
+**Multiple Subjects + Keyframe Weights:**
+18. Add 4 subjects targeting different bones (e.g., head × 2, pelvis × 2) for accurate mid/cowboy shots
+19. Add **Look At Weight tracks** in Sequencer (one per subject) → keyframe weights to 0/1 = camera snaps attention to different body parts or different actors over time
+20. Add **Subject Screen Position track** per Sequencer clip → keyframe composition for each target point → dynamic look-at + keyframed composition per target
+
+**Cross Camera (Dialogue System):**
+21. Drag **Cross Camera actor** into level → set Perpendicular Follow: Subject Left + Subject Right (eyedropper each character) → camera positions itself perpendicular to the two subjects
+22. Enable Look At → pick one character's head bone → adjust heading angle to get over-the-shoulder framing
+23. Duplicate camera → flip heading → look at other character's head → second over-the-shoulder
+24. Add master: regular Look At camera on both heads + Dynamic FOV → composition adapts to character separation
+25. Move characters anywhere → all three cameras maintain correct relationship automatically; dialogue camera rig is location-agnostic
+
+**Camera Switcher:**
+26. Place **Camera Switcher actor** → Cameras array → add entry: pick keyboard key + pick BEC camera → repeat for all cameras
+27. Save and Play → press bound keys to cut between cameras live; add Text component to display camera name in viewport
+
+**Keyframe Composition:**
+28. Look At camera → add to Sequencer → right-click Look At module → Add track → Subject Screen Position
+29. Scrub to start → look through lens → set desired composition (left, center, right, etc.) → keyframe
+30. Scrub forward → change composition → keyframe → BEC handles all rotation math between keyframes
+31. Adjust curves (Sequencer curve editor) to fine-tune timing of composition transitions
+
+**Baking Cameras:**
+32. Place standard CineCameraActor → drag into Sequencer
+33. Select BEC camera → Details: Linked Cameras → add the CineCameraActor
+34. Hit **Record** → all procedural motion bakes to dense standard keyframes on CineCameraActor → DCC-exportable, pipeline-safe
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Look At module** — controls camera rotation + auto-composition; eyedropper subject binding; white box = combined multi-subject frame
+- **Dynamic FOV** — auto-adjusts focal length to maintain subject screen size; FOV Damping = zoom responsiveness
+- **Bone targeting** (Look At + Follow) — Use Component Bounds OFF → type bone name → Bounding Radius + Offset to frame geometry accurately
+- **Subject Screen Position** (Sequencer track) — keyframe X/Y position where subject should appear on screen; BEC computes all rotation
+- **Plate Pedestal** — offset camera pivot point to mimic real-world fluid head/steadicam physics; affects look-at rotation arc
+- **Positional Damping** (Follow) — per-axis (XYZ); camera trails subject through "viscous foam"; Delta between target and actual position = visible damping
+- **Dwell Radius** — sphere around camera position; subject inside sphere = camera freezes; decouples camera from micro-motion
+- **Follow Point** — reorders transform operations to prevent flip artifacts on rapid orbit
+- **Look At Dead Zone** — ignore-zone for subject jitter within radius; stable tracking without clamping
+- **Extra Yaw channel** (Sequencer) — keyframed orbit around Follow subject without world-space pivot
+- **Cross Camera** — Perpendicular Follow Two Subjects + per-character Look At; cameras maintain over-shoulder relationship regardless of world position
+- **Camera Switcher actor** — array of camera+key bindings; clips on Camera Cuts track must be cleared for switcher to work
+- **Look At Weight tracks** (Sequencer) — per-subject weight animated 0→1 to switch attention between sub-targets over time
+- **Linked Cameras** (BEC camera Details) — CineCameraActor slot; hit Record to bake procedural motion; DCC round-trip
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner to intermediate. Tutorial is structured to build from simple Look At to full dialogue + multi-subject + composition keyframing systems.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (Black Eye Cameras; note: debug panel location changed in UE5.6 — now under top-left Show button, not eyeball)
 
 ### Tags
-[PENDING EXTRACTION]
+black-eye-cameras, look-at, follow, dynamic-fov, damping, plate-pedestal, multiple-subjects, bone-targeting, cross-camera, camera-switcher, keyframe-composition, bake, dialogue-camera, hybrid-workflow, gameplay, cinematics
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `unreal-engine-black-eye-cameras-overview-tutorial.md` — alternate comprehensive overview (different content emphasis)
+- `unreal-engine-black-eye-cameras-v2-start-here-tutorial.md` — updated V2 start-here tutorial
+- `unreal-engine-black-eye-cameras-version-11-new-features-cross-camera.md` — Cross Camera deep-dive
+- `unreal-engine-black-eye-cameras-cam-switcher-tutorial.md` — Camera Switcher detailed setup
+- `unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics.md` — vehicle Follow + cinematic composition keyframing
+- `unreal-engine-black-eye-cameras-bake-down-cam-anims.md` — full bake workflow for DCC export
