@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=bJIPlvmoTVw
 author: Smart Poly
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5.8"
+tags: [metahuman, crowd, mass-ai, lod, performance, npcs, plugin, characters, simulation, experimental]
+extraction_status: complete
 frames_dir: tutorials/frames/new-unreal-engine-58-metahuman-crowd-plugin/
 frame_count: 4
 ---
@@ -33,27 +33,53 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+MetaHuman Crowd Plugin (UE5.8, experimental): spawns 1000+ MetaHuman characters using Mass AI for navigation/avoidance. Automatic LOD transition — close-up = high-fidelity MetaHuman actor; far away = low-fidelity instanced skeletal mesh. Characters have randomized modular outfits (head/hair/clothing/shoes all swappable). Sample project available free on Fab. All geometry Nanite-enabled.
 
 ### Summary
-[PENDING EXTRACTION]
+9-minute Smart Poly showcase of the UE5.8 MetaHuman Crowd Plugin. Demo runs 1000 MetaHumans simultaneously (~50-60 FPS in editor with overhead). Highlights: Mass AI system drives navigation/avoidance; seamless LOD transition between high-fidelity MetaHuman actors (close) and low-fidelity ISM instances (distant); Crowd Collection Asset defines randomized modular outfit options (heads/hair/clothing/colors); Nanite enabled on all crowd meshes; `O` key opens simulation widget (speed/freeze). Get it: claim MetaHuman Crowd sample project free from Fab → add to UE5.8 → enable "MetaHuman Crowd" + "MetaHuman Crowd Content" plugins.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Get the plugin**:
+   - Go to Fab.com → search "MetaHuman Crowd Sample Project" → Add to Library (free)
+   - Add to UE5.8 install
+2. **Enable plugins** (Edit → Plugins):
+   - **MetaHuman Crowd** (experimental)
+   - **MetaHuman Crowd Content** (the sample project content)
+   - Restart
+3. **Open sample project**: comes with pre-configured level with 1000 MetaHumans spawned
+4. **Simulation widget**: press **O** in viewport → widget appears; adjust:
+   - **Time** (simulation speed)
+   - **Movement Speed** (crowd movement rate)
+   - Set to 0 to freeze and inspect characters
+5. **Crowd Collection Asset**: open in Content Browser; define modular outfit options:
+   - Head presets, hair options, clothing (shirts/pants/shoes), color parameters (stitch color, shirt color, etc.)
+   - Changes apply to all randomly generated crowd characters
+6. **LOD behavior**: zoom in → crowds stream to high-fidelity MetaHuman actors; zoom out → revert to ISM instances (clusters cull in/out automatically)
+7. **Nanite check**: console → `r.Nanite.Visualize triangles` → confirms all crowd meshes are Nanite-enabled
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **MetaHuman Crowd Plugin** — experimental UE5.8 plugin; assembles and renders 1000+ MetaHuman characters at runtime; free sample project on Fab
+- **Mass AI / Mass Entity System** — underlying simulation system for crowd navigation and avoidance; same tech as City Sample; characters follow paths + avoid each other independently
+- **Crowd Collection Asset** — defines the pool of randomized modular MetaHuman outfits for crowd characters; configure: head presets, hair, tops, bottoms, shoes, material color params
+- **LOD transition** — automatic: close proximity = high-fidelity MetaHuman actor (full mesh + groom + materials); distance = low-fidelity Instanced Skeletal Mesh (ISM); transition is seamless
+- **ISM (Instanced Skeletal Mesh)** — low-LOD crowd representation at distance; efficient GPU instancing; driven by Mass AI simulation
+- **Nanite** — all crowd character geometry is Nanite-enabled; verified via `r.Nanite.Visualize triangles` console command
+- **`O` key** — opens simulation control widget in viewport: Time scale and Movement Speed sliders; can freeze simulation for inspection
+- **Performance context** — 1000 chars at ~50-60 FPS is in-editor with recording overhead; actual game build performance will be higher
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner (Setup + Showcase). Enabling the plugin and using the sample project is trivial. Building custom crowd assemblies with your own MetaHumans would be Intermediate-Advanced.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5.8 (MetaHuman Crowd Plugin is UE5.8-specific; experimental)
 
 ### Tags
-[PENDING EXTRACTION]
+metahuman, crowd, mass-ai, lod, performance, npcs, plugin, characters, simulation, experimental
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `metahumans-in-unreal-engine.md` — MetaHuman Blueprint structure, LODs, groom — underlying tech behind crowd plugin characters
+- `metahumans-for-mocap-unreal-engine-animation-hub.md` — MetaHuman for MoCap; individual high-fidelity MetaHuman pipeline
+- `new-unreal-engine-58-mcp-tutorial-quickstart-guide.md` — other UE5.8 feature by same author; MCP AI integration
+- `procedural-content-generation-framework-in-unreal-engine.md` — PCG framework; complements crowd plugin for environment population

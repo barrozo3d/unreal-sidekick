@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=PqrKqhkj3gQ
 author: Smart Poly
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5.8"
+tags: [mcp, ai-agent, claude-code, blueprint, pcg, workflow, automation, plugin, setup, tool]
+extraction_status: complete
 frames_dir: tutorials/frames/new-unreal-engine-58-mcp-tutorial-quickstart-guide/
 frame_count: 4
 ---
@@ -33,27 +33,65 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+UE5.8 MCP (Model Context Protocol) plugin setup: enables AI agents (Claude Code, ChatGPT, etc.) to connect directly into Unreal Engine with full project context — blueprints, PCG, materials, C++, level design, asset management. Three required plugins: **Unreal MCP**, **Terminal**, **Editor Toolset**. Configure Editor Preferences → Model Context Protocol. Generate `.mcp.json` via console command. Works by running Claude Code (or other AI CLI) in UE's built-in Terminal panel.
 
 ### Summary
-[PENDING EXTRACTION]
+12-minute Smart Poly quickstart guide for the UE5.8 Model Context Protocol plugin. AI agents connect to UE5.8 through the MCP plugin to understand and modify the entire project. Setup involves: enabling three plugins (Unreal MCP + Terminal + Editor Toolset), configuring auto-start and terminal startup commands (set color, CD to project path, launch `claude`), installing Claude Code CLI on Windows (via CMD; requires Git for Windows for bash), setting PATH environment variable, generating `.mcp.json` via console command, restarting. Demo: Claude Code creates 5 colored cubes in a new level — creates static mesh actors + distinct material instances per cube. Epic Unreal Fest demo showed MCP creating a full PCG-based city.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Install UE5.8**: MCP plugin requires UE5.8 specifically
+2. **Enable three plugins** (Edit → Plugins):
+   - **Unreal MCP** (search "MCP")
+   - **Terminal** (for AI communication)
+   - **Editor Toolset** (bridges editor + AI; gives context over blueprints/actors/PCG/materials)
+   - Restart when prompted
+3. **Configure MCP**:
+   - Edit → Editor Preferences → scroll to **Model Context Protocol**
+   - Check **Auto Start Server** → server starts automatically on project open
+4. **Configure Terminal startup commands** (Window → Terminal):
+   - Add entry: `set term=256color`
+   - Add entry: `cd "C:\path\to\your\project"` (find path: right-click Content folder → Show in Explorer, copy up to project name)
+   - Add entry: `claude` (or your AI CLI command)
+5. **Install Claude Code on Windows**:
+   - Open CMD → paste install command from claude.ai docs
+   - If prompted about bash: install **Git for Windows** (Git SCM) first, then re-run install command
+   - After install: "Claude Code successfully installed"
+6. **Set PATH environment variable**:
+   - Win+R → `sysdm.cpl` → Advanced → Environment Variables
+   - User variables → Path → Edit → New → add: `C:\Users\<username>\AppData\Local\bin`
+   - OK → OK → OK; re-open CMD to verify `claude` command works
+7. **Log in to Claude**:
+   - Type `claude` in CMD → `/login` → follow browser login
+   - After login, CMD shows Claude Code ready
+8. **Generate MCP config file**:
+   - In UE console command field: paste the MCP config generation command (from Epic docs; different per AI agent: Claude, Cursor, VS Code, Gemini, ChatGPT, Codex all have separate commands)
+   - Check project folder: `.mcp.json` file created with server URL/port
+9. **Restart project**: close and reopen from Epic Games Launcher
+10. **Connect**: Tools → Terminal → trust folder → "New MCP server found" prompt → accept → Claude Code appears in terminal, ready for commands
+11. **Change model**: can select different Claude models in terminal (default may be Sonnet; Opus 4.8 for higher capability)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Unreal MCP Plugin** — core MCP server plugin; runs a local server that AI agents connect to; UE5.8 required
+- **Terminal Plugin** — built-in UE terminal panel; startup commands run when Terminal first opens; hosts the AI CLI session
+- **Editor Toolset Plugin** — gives AI agent context over and control of: Blueprints, actors, PCG graphs, materials, C++, level design, asset management
+- **Model Context Protocol (MCP)** — open protocol enabling AI agents to query/modify external tools with full context; Editor Preferences → Model Context Protocol; server port configurable; Auto Start Server option
+- **`.mcp.json`** — config file in project root; generated via UE console command; contains server URL; required for AI agent to connect
+- **Claude Code CLI** — Anthropic's CLI; used as the AI agent in this tutorial; installed via CMD/PowerShell; requires Git for Windows on Windows; set PATH manually
+- **PCG (Procedural Content Generation)** — primary showcase use case for MCP; Epic demo created a full city PCG graph via AI agent
+- **Model selection** — can switch Claude models within the terminal session (Sonnet, Opus 4.8, etc.); free plan limited to lower-tier models
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate (Setup). The actual usage post-setup is beginner-friendly. Setup involves CLI installation, PATH editing, and multi-plugin configuration — not beginner territory. Once running, commanding the AI is conversational.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5.8 (MCP plugin is UE5.8-specific; will not work with earlier versions per tutorial)
 
 ### Tags
-[PENDING EXTRACTION]
+mcp, ai-agent, claude-code, blueprint, pcg, workflow, automation, plugin, setup, tool
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `procedural-content-generation-framework-in-unreal-engine.md` — PCG framework; primary use case for MCP AI automation (city generation demo)
+- `new-unreal-engine-58-metahuman-crowd-plugin.md` — another UE5.8 new feature from same author/time period
+- `new-unreal-engine-58-metahuman-markerless-mocap-tutorial.md` — UE5.8 markerless mocap (third UE5.8 feature from Smart Poly)
