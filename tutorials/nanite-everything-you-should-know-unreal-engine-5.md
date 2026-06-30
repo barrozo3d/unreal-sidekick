@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=P65cADzsP8Q
 author: William Faucher
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [nanite, performance, rendering, lod, virtual-geometry, optimization, static-mesh, foliage, cluster-culling, draw-calls]
+extraction_status: complete
 frames_dir: tutorials/frames/nanite-everything-you-should-know-unreal-engine-5/
 frame_count: 5
 ---
@@ -53,27 +53,75 @@ frame_count: 5
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Nanite is UE5's virtual geometry system: cluster-based LOD that provides near-pixel-level detail across millions of triangles in a single draw call. Clusters of ~128 triangles each independently LOD based on screen size, distance, and resolution. Enable per mesh (non-destructive). Not suitable for: translucent/masked materials, skeletal meshes, tessellation/displacement, or aggregate fine-detail geometry (hair/grass/foliage).
 
 ### Summary
-[PENDING EXTRACTION]
+10-minute William Faucher overview covering Nanite's setup, internals, pros, cons, and usage rules. Nanite replaces traditional LOD systems with cluster-based virtual geometry: each mesh is split into ~128-triangle clusters that independently LOD and cull. All opaque Nanite geometry renders in a single draw call; only changes update per frame. Compression is exceptional (1M tri mesh ≈ 14MB — smaller than a 4K normal map). Key limitation: overdraw (stacked geometry layers) costs up to 2× performance at glancing angles. Not supported: translucency, masked materials, skeletal meshes, tessellation, foliage/hair/fur.
 
 ### Key Steps
-[PENDING EXTRACTION]
+**Enable Nanite:**
+1. **On import**: FBX import dialog → check **Build Nanite** checkbox
+2. **On existing mesh**: Content Browser → double-click static mesh → Static Mesh Editor → Nanite Settings → check **Enabled**
+3. Disable by unchecking the same box at any time (non-destructive)
+
+**Diagnose Nanite performance:**
+- Console: `nanite.stats list` — shows all Nanite rendering statistics
+- Viewport → View Modes → **Nanite Cluster View** — visualizes clusters by color
+- Viewport → View Modes → **Overdraw View Mode** — heat map: hotter = more overdraw = worse performance
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Nanite Virtualized Geometry** — cluster-based virtual LOD; per-cluster culling (~128 triangles each); view-dependent; single draw call for all opaque Nanite geometry; only delta updates per frame
+- **Cluster Culling** — each cluster independently visible/hidden based on screen size, distance, resolution; enables near-pixel-level LOD without manually authored LOD levels
+- **Build Nanite** — import FBX dialog checkbox; OR Static Mesh Editor → Nanite Settings → Enable; toggle off at any time
+- **`nanite.stats list`** — console command; prints live Nanite rendering statistics
+- **Nanite Cluster View Mode** — viewport diagnostic; shows cluster boundaries by color
+- **Overdraw View Mode** — heat map diagnostic; identifies geometry stacking causing overdraw; hottest areas = worst performance
+
+**Nanite PROS:**
+| Feature | Details |
+|---------|---------|
+| Triangle density | Millions of triangles; near-pixel-level LOD |
+| Single draw call | All opaque Nanite geometry in one call (vs. per-object in UE4) |
+| Landscape overhangs | Nanite landscape supports caves/overhangs (impossible with heightmap landscape) |
+| Kit-bashing | Buried/occluded geometry clusters called away; massive performance improvement |
+| Compression | 1M triangle mesh ≈ 14MB on disk (smaller than a 4K normal map) |
+| Delta updates | Only renders changed parts of frame each tick |
+
+**Nanite CONS / Limitations:**
+| Issue | Details |
+|-------|---------|
+| High-resolution cost | Gets exponentially more expensive as resolution increases |
+| Overdraw | Stacked geometry layers → up to 2× performance hit; worst at glancing angles |
+| No translucency | Translucent materials not supported by Nanite |
+| No masked materials | Masked (alpha-cut) materials not supported |
+| No skeletal meshes | Deforming meshes (characters, cloth) not supported |
+| No tessellation | Displacement/tessellation not supported |
+| Aggregate geometry | Hair, fur, grass, leaves, foliage — Nanite tears apart trying to LOD; not recommended |
+
+**When to USE Nanite:**
+- Mesh has many triangles or triangles tiny on screen
+- Many instances of the mesh in scene
+- Mesh acts as major occluder (cliff face, large closed-wall geometry)
+- Example: large rock formations, architectural kit-bash walls, terrain
+
+**When NOT to use Nanite:**
+- Foliage, grass, leaves, trees (aggregate geometry)
+- Characters/skeletal meshes
+- Translucent or masked materials (glass, vegetation cards)
+- Anything requiring tessellation or displacement
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner. Enabling Nanite is a checkbox. Understanding the limitations and when to apply it correctly is intermediate-level. Diagnosing overdraw with view modes requires some performance awareness.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (Nanite introduced in UE5.0; improved across 5.x versions)
 
 ### Tags
-[PENDING EXTRACTION]
+nanite, performance, rendering, lod, virtual-geometry, optimization, static-mesh, foliage, cluster-culling, draw-calls
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `lumen-explained---important-tips-for-ue5.md` — Lumen GI system; limitations (no WPO, no translucency, 200m range); pairs with Nanite for UE5 next-gen rendering
+- `lighting-in-unreal-engine-5-for-beginners.md` — Lumen lighting setup; VSM (requires Nanite for best quality)
+- `procedural-content-generation-framework-in-unreal-engine.md` — PCG commonly uses Nanite meshes for large-scale environment population

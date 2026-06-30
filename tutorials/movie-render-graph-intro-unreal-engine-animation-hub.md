@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=0c8-8NSarDI
 author: Unreal Engine
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [mrq, movie-render-graph, rendering, compositing, layers, hold-out, aov, nuke, vfx, cinematics]
+extraction_status: complete
 frames_dir: tutorials/frames/movie-render-graph-intro-unreal-engine-animation-hub/
 frame_count: 4
 ---
@@ -33,27 +33,68 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Movie Render Graph (MRG): node-based rendering layer system for splitting a shot into separate comp-ready passes. Key concepts: **Collections** (actor groups selected by name/tag/layer/type) → **Modifiers** (Hold Out or Hidden with options) → **Layers** (named render outputs). Subtract condition groups exclude lights so lighting is consistent across all layers. Each layer outputs independently for Nuke compositing while maintaining shadow/reflection contributions from held-out elements.
 
 ### Summary
-[PENDING EXTRACTION]
+11-minute Epic Animation Hub tutorial by "Sean" demonstrating Movie Render Graph for multi-layer rendering. Uses a creature fight scene (Beta + Gamma + effects). Shows: creating an MRG asset; setting up EXR output; building collections (actor name wildcard `*`); subtract condition group to exclude lights; building modifiers (Hold Out vs Is Hidden with Cast Shadow / Affect Indirect options); constructing 4 render layers (BG, Beta, Gamma, Effects); unique naming requirement; MRQ integration; final Nuke composite showing each element isolated while maintaining shadow/reflection continuity.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Create MRG**: right-click in Content Browser (or Sequencer) → Cinematics → Movie Render Graph; double-click to open
+
+2. **Set output format**: delete JPEG node; add **EXR** node instead
+
+3. **Collections** (actor groupings):
+   - Drag into graph → type "collection" → add Collection node
+   - Add **Condition Group**: select actors by Actor Name (`*` = all), Tag, Type, Layer, or Sublevel
+   - **Name every collection uniquely** (name concatenates into output filename; duplicates = last one wins)
+   - Example collections: `all`, `beta`, `gamma`, `effects`
+
+4. **Exclude lights from "all" collection** (so lighting is identical across every layer):
+   - Add second Condition Group to "all" collection → set to **Subtract** mode
+   - Filter by Actor Type → add: Point Light, Skylight, Back Light (all light types in scene)
+
+5. **Modifiers**:
+   - Feed a collection into a Modifier node
+   - **Hold Out**: primary rays = black; actor still casts shadows and appears in reflections/GI
+   - **Is Hidden**: fully invisible; sub-options: **Cast Shadow While Hidden** (yes/no), **Affect Indirect While Hidden** (keeps actor in Lumen GI/reflections)
+
+6. **Build layers** (each layer = one render output):
+   - **BG Layer** (`sbg`): beta = Hold Out; gamma = Hold Out; effects = Is Hidden + Cast Shadow + Affect Indirect
+   - **Beta Layer** (`biz beta`): all = Hold Out; beta = Hold Out OFF (back on); effects = Is Hidden + Affect Indirect only
+   - **Gamma Layer**: same as Beta but swap beta ↔ gamma in assignments
+   - **Effects Layer**: all on; effects = Is Hidden OFF (visible)
+   - Tip: drag output pin downward to auto-create additional layer outputs
+
+7. **MRQ integration**:
+   - Movie Render Queue → switch config to **Movie Render Graph** → Load Graph
+   - Hit Render → all 4 layers render simultaneously in sequence
+
+8. **Nuke composite**: import all EXR sequences; each element is isolated (primary = black where held out) but contributes shadows/reflections to other layers
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Movie Render Graph (MRG)** — node-based successor to legacy MRQ configs; right-click → Cinematics → Movie Render Graph; right-click → Movie Render Graph in Sequencer
+- **Render Globals** — global settings node: warmup frames, game overrides, output resolution, output path
+- **Collections** — actor group nodes; condition groups select by: Actor Name (wildcard `*`), Tag, Type, Layer, Sublevel; Subtract mode to exclude; must be uniquely named
+- **Modifiers** — hold out or visibility state applied to a collection for a specific layer:
+  - **Hold Out**: actor renders black in beauty pass; still visible to shadows, reflections, Lumen GI
+  - **Is Hidden** → **Cast Shadow While Hidden**: actor invisible in beauty; still casts shadows
+  - **Is Hidden** → **Affect Indirect While Hidden**: actor invisible; still contributes to Lumen GI/reflections
+- **Layers** — named render pass outputs; unique names required to avoid output filename collision; output concatenated left to right from collection → modifier → layer
+- **EXR output node** — add in place of JPEG; per-layer EXR sequences for Nuke compositing
+- **MRQ (Movie Render Queue)** — load MRG asset in MRQ render config via "Movie Render Graph" option; standard MRQ launch and settings apply
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate-Advanced. Requires understanding of compositing concepts (hold out, shadow pass, GI contribution). The node graph UI is straightforward once the mental model is clear. Most complexity is in correctly assigning Hold Out vs. Is Hidden per layer.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (Movie Render Graph introduced in UE5.4 as successor to legacy MRQ configs)
 
 ### Tags
-[PENDING EXTRACTION]
+mrq, movie-render-graph, rendering, compositing, layers, hold-out, aov, nuke, vfx, cinematics
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta.md` — MRQ basics (legacy EXR/TSR workflow); beginner filmmaking pipeline
+- `master-cinematic-fog-volumetric-god-rays-in-ue5.md` — AOV pipeline via MRQ (3 passes → Nuke: Detailed Lighting − Lighting Only)
+- `lumen-explained---important-tips-for-ue5.md` — Lumen GI; MRQ warmup frames required for Lumen accuracy; surface cache behavior
