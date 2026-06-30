@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=5cpjK7kKASU
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [level-blueprint, keyboard-trigger, niagara, vfx, sound, virtual-production, live-streaming, blueprint]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-virtual-production-trigger-explosions-and-sound-effects-with-your-/
 frame_count: 5
 ---
@@ -53,27 +53,45 @@ frame_count: 5
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Level Blueprint keyboard trigger → activate Niagara VFX + spawn sound. No Sequencer, no animation tracks — pure runtime Blueprint triggering. Designed for live virtual production / live streaming where operator hits a key to fire a practical-style VFX event. Niagara Reset = true allows repeated triggering from same key without waiting for system to finish.
 
 ### Summary
-[PENDING EXTRACTION]
+6m37s Dean Yurke casual Level Blueprint tutorial. Goal: press a keyboard key during Play in Engine to trigger a Niagara explosion/confetti effect + play a sound. Setup: Level Blueprint → Keyboard Event node → Activate node (turn off Context Sensitive to find it) → Get Niagara Component → drag Niagara actor from outliner into BP graph → connect; enable Reset. Add sound: Spawn Sound at Location node → pick sound asset. Compile + Save → Play in Engine → press key → VFX + sound fires. Notes: in PIE mode webcam turns off (live streaming concern); F11 for fullscreen PIE.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Place Niagara VFX actor in scene (explosion, confetti, etc.) and note its name in Outliner
+2. Toolbar → Blueprint menu (three dots icon) → **Open Level Blueprint**
+3. In event graph: **right-click → Keyboard Events → pick key** (e.g., "4", "D") → Keyboard Event node placed
+4. Drag from Pressed pin → release → search for **Activate** → ⚠️ disable **Context Sensitive** if not found → click Activate
+5. From Target pin on Activate node → drag → search **Get Niagara Component** → connect
+6. In Outliner: find Niagara actor → drag into Blueprint graph → connect to Get Niagara Component's Object pin
+7. On Activate node: set **Reset = true** → allows repeated key presses without waiting for VFX to finish
+8. Hit **Compile** → **Save**
+9. To add sound: after Activate → drag from Exec out → search **Spawn Sound at Location** → connect; set Sound = desired SoundAsset
+10. Compile + Save → **Play in Engine (PIE)** → click inside viewport to make window active → press bound key → VFX fires
+11. Fullscreen PIE: press **F11** while PIE is active
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Level Blueprint** — world-scoped Blueprint; accessed via toolbar → three-dot menu → Open Level Blueprint; one per level
+- **Keyboard Event node** — fires on key press/release/hold; find via right-click → Keyboard Events → pick key
+- **Context Sensitive toggle** — must be disabled to find some nodes like Activate in Blueprint search
+- **Activate node** — activates a component (including Niagara particle systems); Reset=true re-triggers without waiting
+- **Get Niagara Component** — gets reference to Niagara component; drag Niagara actor from Outliner into graph to provide Object pin
+- **Reset = true** — on Activate node; allows keyboard mashing without waiting for previous VFX to complete
+- **Spawn Sound at Location** — Blueprint node; takes Sound asset + Location vector; plays 2D or 3D sound at world position
+- **Play in Engine (PIE)** — required to test keyboard triggers; click viewport to focus window first; F11 for fullscreen
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner. Minimal nodes; visual production entry-point.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (compatible with UE4 as well)
 
 ### Tags
-[PENDING EXTRACTION]
+level-blueprint, keyboard-trigger, niagara, vfx, sound, virtual-production, live-streaming, blueprint
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `niagara-magic-effects-with-geometry-trails.md` — Niagara VFX systems
+- `unreal-engine-masterclass-animate-environments-the-easy-way.md` — Niagara user parameters and environment VFX placement

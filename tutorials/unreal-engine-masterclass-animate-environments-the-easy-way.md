@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=4-_mXW1Vwuo
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [environment-animation, sequencer, niagara, camera-shake, character-animation, mixamo, ultra-dynamic-sky, sprite-sheets, user-parameters, movie-render-queue, cinematics, workflow]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-masterclass-animate-environments-the-easy-way/
 frame_count: 10
 ---
@@ -78,27 +78,98 @@ frame_count: 10
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+8 repeatable environment animation techniques for UE5 cinematics: (1) Object animation via empty actor parents + linear Sequencer keyframes; (2) Static → Skeletal mesh character via Blender rig removal + Mixamo auto-rig; (3) Cloud movement via Ultra Dynamic Sky plugin; (4) Niagara sprite-sheet smoke (random selection vs animated playback); (5) Niagara User Parameters for per-instance customization; (6) Bird swarm particles; (7) Parenting Niagara systems to moving actors; (8) Camera shake via Blueprint + Sequencer track; plus Movie Render Queue camera shake frequency fix.
 
 ### Summary
-[PENDING EXTRACTION]
+22m52s Josh Toonen masterclass on adding animation and life to UE5 environments. Uses an underground temple scene (hard-surface). 8 techniques: (1) Ships — empty actor parent + Movable + Sequencer location keyframes + linear conversion (press 4); (2) Characters — static→skeletal via Mixamo (Blender strip rig → Mixamo auto-rig → UE import new skeleton + animation); (3) Ultra Dynamic Sky clouds (Cloud Movement = 1; Randomize = false; Simulate mode + K key to keep changes); (4) Niagara smoke sprites — method A: random sprite from 4×4 sheet (sub-image index 0–15 + Particle Sub-UV material node); method B: animated through 8×8 sheet (Sub-UV Animation node); (5) User Parameters — float variables in Niagara + link to attributes → per-instance control without editing system; (6) Bird particles from Marketplace (Cascade OK here); (7) Parent Niagara to ship actor; (8) Camera shake — Blueprint DefaultCameraShakeBase + Perlin noise; Sequencer Camera Shake track; duration 150s; tune rotation amplitude (1° = visible); avoid roll; add dolly translation + foreground smoke; Movie Render Queue frequency fix for multi-sample renders.
 
 ### Key Steps
-[PENDING EXTRACTION]
+
+**1. Animate rigid objects:**
+1. Select mesh objects → change mobility to **Movable**
+2. Create empty actor → parent both ship meshes to it → rename ("ship one", "ship two")
+3. Select empty actors → Sequencer → Add Track → Add Current Selection
+4. Frame 0 → plus icon = keyframe; frame 150 → move in Sequencer value field (+40,000 X units) → keyframe
+5. Select keyframes → press **4** to convert to Linear (removes auto-Bezier ease in/out)
+
+**2. Animate characters (no existing animation):**
+6. Export static mesh as FBX → import into Blender → delete armature → re-export FBX (mesh only)
+7. Upload to Mixamo.com → auto-rig → pick animation → export with skin at 24 fps
+8. Import into UE5: Skeletal Mesh → new skeleton → Don't Create Materials → Import All
+9. Drag skeletal mesh into scene → add to Sequencer → animation track auto-assigns animation
+
+**3. Animate clouds (Ultra Dynamic Sky):**
+10. Select Ultra Dynamic Sky actor → Cloud Movement = **1** (or desired speed)
+11. Disable **Randomize Cloud Formation** → clouds start from same position every preview
+12. Press **Simulate** (not Play) to see correct cloud animation; adjust settings live
+13. Press **K** during Simulate to keep setting changes when stopping simulation
+
+**4. Niagara smoke — sprite sheet (random):**
+14. Material: use **Particle Sub-UV** node (not regular Texture Sample) with sprite sheet texture
+15. Niagara: set **Sub-Image Index** = random float 0–15 per particle
+16. Sprite Renderer: **Sub-Image Size** = 4×4 (must match sprite sheet grid)
+17. → Each particle picks one random image; fast spawn rate obscures repetition
+
+**4b. Niagara smoke — animated sprite sheet:**
+18. Same setup but use **Sub-UV Animation** node instead of Sub-Image Index → animates through sheet in order
+19. Set Sub-Image Size = 8×8 (for converted video clip); result = video playback feel at 2K memory cost
+
+**5. Niagara User Parameters:**
+20. Niagara editor → User Parameters section → add Float parameter (e.g., "lifetime")
+21. In Initialize Particle module → change Lifetime setting to use the new User Parameter
+22. Back in scene: each placed emitter now shows "lifetime" property → override per-instance without editing system
+
+**6. Birds:**
+23. Marketplace → bird particle packs (Cascade/legacy is fine) → drag into scene
+24. Adjust color (dark to cut against sky), slow speed; populate in different scene areas
+
+**7. Parent Niagara to moving actor:**
+25. Drag Niagara emitter in Outliner onto ship actor → parented → smoke travels with ship
+
+**8. Camera shake:**
+26. Content Browser → right-click → Blueprint Class → DefaultCameraShakeBase → name "VP_CameraShake_Medium"
+27. Open BP → PerlinNoiseCameraShakePattern → set Location Amplitude (20+ for large scenes) + Rotation Amplitude (~1° = visible, 5° = intense) + Frequency (0.5 = floaty, 1 = default)
+28. ⚠️ Remove or set Roll to 0 — roll makes shake most nauseating
+29. Sequencer: camera track → right-click → Add → Camera Shake track → pick the BP class → expand clip → set Duration = 150 seconds
+30. Add translation keyframes (dolly in) for depth/parallax
+31. Add foreground smoke near camera for extra depth
+
+**Movie Render Queue — camera shake fix:**
+32. Enable plugin: Plugins → search "Movie Render Queue" → enable both → restart
+33. MRQ settings: Anti-aliasing → Temporal Super Resolution → Temporal Sample Count = 8–16
+34. ⚠️ Camera shake plays at sample rate speed: open shake BP → Frequency ÷ sample count (e.g., 1÷16 = 0.0625) → set all frequency values to that
+35. Engine Warmup Count = 512+ (particles need frames to boot up; not rendered, just fast)
+36. Add Game Overrides → Force Cinematic Quality → Render Local
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Movable mobility** — required before adding any object to Sequencer for animation
+- **Empty Actor as parent** — group multiple meshes for single transform keyframe; standard UE grouping technique
+- **Linear keyframe (press 4)** — overrides auto-Bezier; use for mechanical/constant-speed motion like vehicles
+- **Sequencer Add Current Selection** — add selected Outliner objects to timeline at once
+- **Ultra Dynamic Sky** — third-party plugin; Cloud Movement float + Randomize Cloud Formation bool; preview requires Simulate mode
+- **K key during Simulate** — keep changes made during Simulate back to object; avoids losing live edits
+- **Particle Sub-UV node** (material) — required for Niagara to control sprite sheet sampling; Texture Sample alone won't work
+- **Sub-Image Index** (Niagara) — set to random float per particle; picks single frame from sprite sheet
+- **Sub-UV Animation** (Niagara) — animates through sprite sheet sequentially; emulates video without video texture overhead
+- **Sub-Image Size** (Sprite Renderer) — must match sprite sheet grid (4×4, 8×8)
+- **Niagara User Parameters** — float (or other) variables at system level; exposes per-instance overrides in scene Details panel; link via parameter name
+- **DefaultCameraShakeBase** (Blueprint) → PerlinNoiseCameraShakePattern — built-in UE camera shake class; Location/Rotation/Roll amplitude + Frequency
+- **Camera Shake track** (Sequencer) — add to camera track; Duration field in seconds not frames; must be long enough to cover shot
+- **MRQ camera shake frequency fix** — multi-sample AA runs game ticks per sample → shake plays N× faster; compensate by setting Frequency = 1÷N in shake BP
+- **Engine Warmup Count** (MRQ) — pre-simulate ticks before first render frame; essential for Niagara particles to reach correct state; free (not rendered)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate. Multiple techniques combined; most individually beginner-level.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+environment-animation, sequencer, niagara, camera-shake, character-animation, mixamo, ultra-dynamic-sky, sprite-sheets, user-parameters, movie-render-queue, cinematics, workflow
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `niagara-magic-effects-with-geometry-trails.md` — Niagara advanced techniques
+- `this-free-plugin-changes-filmmaking-forever-unreal-5.md` — OneClick Control Rig for character animation
+- `unreal-5-secrets-every-filmmaker-must-know.md` — camera shake + DOF + Niagara bokeh techniques
