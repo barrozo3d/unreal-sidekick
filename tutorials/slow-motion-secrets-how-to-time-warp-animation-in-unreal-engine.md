@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=d-_hv7IXjkM
 author: Unreal Engine
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [animation, sequencer, time-warp, slow-motion, play-rate, curves, timing, workflow, animator-tools, post-production]
+extraction_status: complete
 frames_dir: tutorials/frames/slow-motion-secrets-how-to-time-warp-animation-in-unreal-engine/
 frame_count: 4
 ---
@@ -33,27 +33,67 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Time Warp in UE5 Sequencer: add a Time Warp track to a sequence → control playback speed over time without touching animation keyframes. Two modes: **Play Rate Curve** (speed multiplier; 1.0=normal, 0.2=20% speed) vs **Time Warp Curve** (direct frame number control — keyframe which frame number to show at which timeline position). Best practice: keep time warp track at the shot level (not animation keyframe level, not top-level sequence) for clean organization.
 
 ### Summary
-[PENDING EXTRACTION]
+10-minute Epic Animation Hub tutorial (Sir Wade / ACOM project, fight sequence Shot 60). Demonstrates adding non-destructive slow motion to a fully animated sequence by adding a Time Warp track at the sequence level. Compares two modes: Play Rate Curve (intuitive speed percentage; orange secondary playhead shows modified time; set to 0.1 for 10% speed then key back to 1.0) and Time Warp Curve (direct frame number keying; similar to Maya's retime video reference tool). Advises against: placing time warp on animation keyframe tracks (conflicting keys) or at top-level sequence (hard to organize). Tradeoff: time warp interpolates between keyframes — animation intended for normal speed may show artifacts (e.g., duplicate arms) at extreme slow motion and may require additional cleanup.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Add Time Warp track** to Level Sequence:
+   - In Sequencer → **+ Track** → **Time Warp** (not Time Dilation — that's a separate system)
+2. **Choose mode**:
+   - **Play Rate Curve**: Add Time Warp → **Play Rate Curve**
+   - **Time Warp Curve**: Add Time Warp → **Time Warp Curve**
+3. **Play Rate Curve** (recommended for most use cases):
+   - Track shows a curve with value 1.0 (normal speed) and an orange secondary playhead
+   - Scrub to frame just BEFORE desired slow-mo point → set key (value = 1.0)
+   - Advance 1-2 frames → set key at target speed (e.g., 0.2 = 20% speed, 0.1 = 10% speed)
+   - At end of slow-mo moment → set key back to 1.0
+   - Orange playhead shows the modified time position vs original playhead position
+   - Use Curve Editor to smooth/adjust key tangents and timing
+4. **Time Warp Curve** (frame-number-based):
+   - Track shows actual frame numbers at each timeline position
+   - Key a specific frame number at a specific point in time → interpolates between keyed frame numbers
+   - Similar to Maya's retime video reference tool
+   - More confusing; better for precise frame-level control
+5. **Organization best practice**:
+   - Avoid placing time warp at the **animation keyframe** level (time conflicts with actual keys)
+   - Avoid placing at the very **top-level sequence** (harder to find/manage)
+   - Best: place at the **shot/subsequence level** (self-contained; reads clean from parent sequence)
+6. **Check for artifacts**:
+   - Preview slow-mo: step through frame-by-frame
+   - Animation interpolated between original keyframes — may show IK artifacts, arm duplication, missed contact frames
+   - If artifacts unacceptable: either reduce slow-mo amount OR manually add extra keyframes in the animation to support the interpolation
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Time Warp track** — Sequencer track type; Add Track → Time Warp; two sub-types:
+  - **Play Rate Curve**: speed multiplier; value 1.0=normal; value 0.1=10% speed; set ramp keys for gradual acceleration/deceleration
+  - **Time Warp Curve**: direct frame-number control; key which frame # to display at each timeline position; more like video retiming
+- **Time Dilation track** — different track also available; not covered in this video; system-wide time dilation
+- **Orange playhead** — secondary playhead in Play Rate Curve mode; shows where in the original animation the current (time-warped) frame corresponds to
+- **Curve Editor** — view time warp keys and adjust tangents; access via right-click on track or dedicated Curve Editor panel
+- **Non-destructive**: original animation keyframes unchanged; time warp track adds a layer on top; delete track to restore normal speed
+
+**Tradeoffs:**
+| Method | Pros | Cons |
+|--------|------|------|
+| Play Rate Curve | Intuitive (speed %) | Orange/real playhead relationship can be confusing |
+| Time Warp Curve | Precise frame control | Complex; harder to conceptualize |
+| Manual animation (no time warp) | Full control; no artifacts | Must animate keyframes at slow speed from the start |
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner-Intermediate. Adding the track is trivial. Understanding Play Rate vs Time Warp curve behavior requires a bit of mental model building. Managing interpolation artifacts at extreme slow-mo is intermediate.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (ACOM project; same animation hub tutorial series; feature available in UE4 as well)
 
 ### Tags
-[PENDING EXTRACTION]
+animation, sequencer, time-warp, slow-motion, play-rate, curves, timing, workflow, animator-tools, post-production
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `mastering-the-ue5-tweener-tool-push-pull-overshoot-animation.md` — Tween Tool; timing polish at the keyframe level (different approach to timing adjustment)
+- `ue5-curve-editor-20-new-lattice-tool-curve-scaling-hacks-ue-56.md` — Curve Editor 2.0; manages animation timing at keyframe level (complementary to time warp)
+- `non-destructive-animation-in-ue5-layered-control-rigs-explained.md` — other non-destructive animation overlay techniques in Sequencer
+- `motion-blending-bone-matching-for-unreal-engine---make-films-in-unreal-ep2-inter.md` — animation timing/blending; clip-level timing tools

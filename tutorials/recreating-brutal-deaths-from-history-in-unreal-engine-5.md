@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=2t3c1KJbBe8
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [metahuman, mocap, move-ai, eleven-labs, short-film, cinematics, crowd, fab, production-pipeline, virtual-production]
+extraction_status: complete
 frames_dir: tutorials/frames/recreating-brutal-deaths-from-history-in-unreal-engine-5/
 frame_count: 9
 ---
@@ -73,27 +73,56 @@ frame_count: 9
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+End-to-end professional UE5 filmmaking pipeline for a commercial historical reenactment project (Sharp Entertainment "Die Like a Legend" proof of concept). Stack: Move Pro (6× GoPro 4K60 multicam markerless body mocap) + Rococo head rig (facial) + iPhone 13 MetaHuman Animator + ElevenLabs voice morphing + Fab environment/wardrobe assets + MetaTailor (clothing fit) + OverCrowd plugin (crowd) + Niagara (VFX).
 
 ### Summary
-[PENDING EXTRACTION]
+7-minute Charlie Driscoll production breakdown for a paid commercial client (Sharp Entertainment). Historical reenactment of Emperor Valerian's execution in Roman/Persian setting. Primarily a showcase + tool inventory. Key elements: (1) green screen reference from client served as story roadmap; (2) dialogue added via MetaHuman Animator + ElevenLabs voice morph for multiple characters from single performer; (3) Fab environments (Valarian's Villa) + wardrobe from multiple sources (Polyphoria/Fab/CG Trader) fit with MetaTailor; (4) Move Pro (6-GoPro multicam) for body mocap, single performer playing all roles; (5) stuntman swordfighting mocap sold as Fab assets; (6) OverCrowd plugin for crowd background; (7) Olympic meshes (boiling crucible) + Niagara (gold stream) for execution VFX. Commercial-grade result achieved in 1 month solo.
 
 ### Key Steps
-[PENDING EXTRACTION]
+- **Pre-production** (week 1): green screen reference from client → story structure + shot list
+- **Decision: add dialogue** — MetaHuman Animator captures facial performance; ElevenLabs morphs voice for Valerian and Shapur from single performer's voice
+- **Assets**:
+  - Environments: Fab (Valerian's Villa) — switch Directional Light to moonlight for edge; add point lights at lamps/torches
+  - Wardrobe: Polyphoria Medieval Oriental Armor Pack (Fab) for Persians; additional armor from Fab + CG Trader for Romans; **MetaTailor** to fit clothing to MetaHuman bodies
+- **Performance capture**:
+  - Body: **Move Pro** (MoveAI multicam solution) — 6× GoPro 10 at 4K60FPS; single performer plays all characters (Valarian, Shapur, guards, mob)
+  - Face: iPhone 13 + **Rococo head rig** → MetaHuman Animator
+  - Stuntmen: swordfighting mocap purchased separately; available on Fab; drops directly onto two MetaHumans in Sequencer
+- **Crowd**: **OverCrowd plugin** (Charlie's own plugin, on Fab) — quick crowd background for battles (early internal build; basic placement, no advanced AI behavior)
+- **VFX**: execution scene — Olympic meshes (boiling crucible); Niagara waterfall effect (molten gold stream); combined with lighting + smoke
+- **Cinematography**: explored shots after scene assembly; camera placement informed by story beat and action energy
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Move Pro (MoveAI)** — 6× GoPro 10, 4K60FPS multicam markerless body mocap; more robust than single-cam Move.AI; professional-tier solution
+- **Rococo head rig** — head-mounted iPhone for facial reference during body capture; synced with MetaHuman Animator
+- **MetaHuman Animator** — facial capture from iPhone reference; lip sync driven by performer; ElevenLabs voice used post-facto
+- **ElevenLabs** — AI voice morphing/cloning; single performer voice morphed into two distinct character voices (Valerian + Shapur)
+- **MetaTailor** — third-party plugin; fits marketplace clothing assets to MetaHuman bodies without manual rigging
+- **OverCrowd plugin** — Charlie Driscoll's crowd system plugin; fast background crowd placement (on Fab); used for Roman formations, Persian warriors, angry mobs, background fighters
+- **Fab** — all environments, wardrobe, and mocap assets sourced here; includes stuntman swordfighting animation packs (two-MetaHuman Sequencer ready)
+- **Olympic meshes** — used for boiling crucible (presumably third-party mesh pack from Fab)
+- **Niagara** — waterfall effect for molten gold stream; combined with lighting/smoke for execution VFX
+
+**Production context:**
+- 1-month timeline, solo production (Charlie)
+- Client: Sharp Entertainment (Doomsday Preppers, 90 Day Fiance creators)
+- One performer played ALL roles (Valarian, Shapur, all guards, mob)
+- Green screen reference from client served as story roadmap
+- Completed POC on Sharp's YouTube channel
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced (Production). This is a professional pipeline showcasing multiple integrated tools. Understanding the stack requires familiarity with MetaHuman, mocap, VFX, and Sequencer. No step-by-step technical instruction — production breakdown format.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (no specific minor version; MetaHuman Animator + Move Pro ecosystem)
 
 ### Tags
-[PENDING EXTRACTION]
+metahuman, mocap, move-ai, eleven-labs, short-film, cinematics, crowd, fab, production-pipeline, virtual-production
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `moveai-and-unreal-engine-5-metahuman-short-film---gigantic-joe.md` — Charlie Driscoll; same pipeline (Move.AI + MetaHuman Animator + ElevenLabs); Gigantic Joe showcase
+- `motion-capture-sword-fighting-cinematic-in-unreal-engine-5---moveai-and-metahuma.md` — Charlie Driscoll; Move.AI sword fight breakdown (more technical detail)
+- `metahuman-realtime-animator-best-practices-unreal-engine-animation-hub.md` — MetaHuman Animator webcam best practices
+- `new-unreal-engine-58-metahuman-crowd-plugin.md` — MetaHuman Crowd Plugin (alternative crowd solution for UE5.8)
