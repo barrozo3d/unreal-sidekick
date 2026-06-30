@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=1e6oOiKh91U
 author: William Faucher
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [lumen, global-illumination, reflections, surface-cache, nanite, performance, ray-tracing, materials, best-practices, rendering]
+extraction_status: complete
 frames_dir: tutorials/frames/lumen-explained---important-tips-for-ue5/
 frame_count: 10
 ---
@@ -78,27 +78,87 @@ frame_count: 10
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Lumen is a hybrid software ray tracing pipeline: screen traces (depth buffer) → distance field traces → surface cache lighting. Surface Cache splits meshes into cards and captures material properties at low resolution into an atlas. Critical rule: individual walls/floors/ceilings must be separate meshes (not one combined mesh) for surface cache to work correctly; pack into a Blueprint for convenience. Ray-traced reflections + Lumen GI both: set PPV Lumen Reflection Quality = 4. Lumen scene view mode is the primary debug tool — black objects = only screen space GI.
 
 ### Summary
-[PENDING EXTRACTION]
+16-minute William Faucher deep-dive on Lumen in UE5: project settings, capabilities, how it works (hybrid RT pipeline, surface cache, mesh distance fields), Surface Cache limitations (separate meshes required), Lumen Scene view mode debugging, full limitations list, how to combine ray-traced reflections with Lumen (PPV Reflection Quality = 4), and best practices (emissive sources, albedo values, material compatibility). Key context: Epic's Lumen livestream condensed. Originally written close to UE5 launch but updated with latest Epic guidance.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Project Settings** (critical for UE4→UE5 migrations):
+   - Dynamic Global Illumination: Lumen
+   - Reflection Method: Lumen
+   - Generate Mesh Distance Fields: ON
+   - PPV: Final Gather Quality, Lumen Reflection Quality (quality control levers)
+2. **What Lumen provides**:
+   - Real-time indirect lighting (emissive materials contribute to GI)
+   - GI-integrated reflections (ray-traced reflections in UE4 didn't capture GI)
+   - Clear coat support (two reflections)
+   - Fully shadowed Skylight (movable → auto-shadows everything)
+   - Dynamic GI + sky shadowing on translucency and volumetric fog (lower quality)
+3. **How it works internally**:
+   - Screen traces (depth buffer) → distance field traces → surface cache applies lighting at ray hits
+   - Mesh distance fields in UE5: MIP maps, streamed from disk, 50% less memory vs UE4, 10× faster to build
+4. **Surface Cache — CRITICAL for artists**:
+   - Splits meshes into "cards"; captures color, roughness at very low res into atlas
+   - Non-Nanite meshes: slow recaptures → frame rate drops
+   - **Walls/floors/ceilings MUST be separate individual meshes** — one combined interior mesh breaks surface cache
+   - Fix: put separate mesh components into a single Blueprint Actor for assembly convenience
+   - Visualize: console command for Surface Cache visualization
+5. **Lumen Scene view mode** (most important debugging tool):
+   - Toggle via Lit dropdown → Lumen Scene
+   - Must roughly match main scene; if different → view-dependent GI artifacts
+   - **Black objects = only screen space GI** (not contributing to bounces) → check material
+   - Common causes: Megascans Transmission master material breaks Lumen; combined meshes; unsupported material domains
+   - Use G shortcut to hide UI while A/B comparing viewports
+6. **Limitations**:
+   - Static Meshes + Instanced Static Meshes only (no Landscape at UE5 launch, later added)
+   - World Position Offset (wind, cloth) causes artifacts
+   - Translucent materials: not supported for Lumen reflections or dynamic GI (glass looks wrong)
+   - Subsurface Scattering: not supported; **Subsurface Profile**: supported
+   - Relies on Temporal Super Resolution (TSR): renders at 1080p, upscales to 4K
+   - Hardware ray tracing: traces against Nanite proxy geometry only → may need to raise proxy triangle count; avoid heavy kitbashing/overlapping meshes (massive perf cost)
+   - **Lighting Channels**: NOT supported (design constraint, will not be added)
+   - MRQ: Lumen needs many frames to converge → set 250–500 warm-up frames (MRQ → Anti-Aliasing tab)
+   - Active range: ~200 meters; beyond = screen space only (relevant for telephoto/long focal length shots)
+   - Detail tracing default: first 2 meters; switch to Global Tracing for FPS boost in dense GI scenes
+7. **Ray-traced reflections + Lumen GI together**:
+   - Project Settings → Support Hardware Ray Tracing: ON + Hardware Ray Tracing When Available: ON
+   - Default RHI: DirectX 12; restart engine
+   - PPV → Lumen Reflection Quality: **4** (magic number — enables both RT reflections + Lumen GI)
+8. **Best practices**:
+   - Emissive as accent only: noisy + disappears at distance; keep emissive sources large + dim; add actual light for brightness
+   - Never albedo/base color = 1 (pure white → reflects 100% light = physically impossible); keep 0.04–0.85
+   - Dark albedo kills indirect — bright materials = more free bounce light
+   - Check Lumen Scene after importing any asset; Megascans Transmission material is a known Lumen breaker
+   - High-poly assets essentially require Nanite for good Lumen performance
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Lumen** — UE5 default dynamic GI system; hybrid software RT; Project Settings → Dynamic Global Illumination = Lumen; Reflection Method = Lumen
+- **Surface Cache** — low-res card-based material property atlas; requires separate mesh components for interiors; recaptures slowly on non-Nanite; fundamental reason Nanite + Lumen pair well
+- **Mesh Distance Fields** — UE5 rewrite: MIP maps, disk streaming, 50% less memory, 10× faster build vs UE4; `Generate Mesh Distance Fields` Project Setting
+- **Lumen Scene view mode** — Lit dropdown → Lumen Scene; primary debug view; black objects = screen-space only GI; must match main scene
+- **Hardware Ray Tracing (Lumen)** — Project Settings → Support Hardware Ray Tracing + Hardware Ray Tracing When Available; DirectX 12 only; traces Nanite proxy geometry; massive perf cost with overlapping meshes
+- **Lumen Reflection Quality (PPV)** — values 1–4; set to 4 to activate ray-traced reflections while keeping Lumen GI (both work together at 4)
+- **Final Gather Quality (PPV)** — controls Lumen GI sample quality; higher = less noise/flickering
+- **Temporal Super Resolution (TSR)** — UE5 upscaling tech; Lumen depends on it; renders 1080p → upscales to 4K
+- **Warm-up Frames (MRQ)** — MRQ → Anti-Aliasing tab; 250–500 for Lumen to converge before first frame is captured
+- **Subsurface Profile** — works with Lumen; Subsurface Scattering shading model does NOT work with Lumen
+- **Lighting Channels** — NOT supported with Lumen (by design)
+- **Global Tracing** — skip per-mesh distance field tracing; FPS boost in dense scenes with heavy GI; sacrifice some detail tracing quality
+- **Detail Tracing** — default; traces mesh distance fields in first 2 meters; highest quality short-range GI
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate-Advanced. Technical deep-dive requiring knowledge of UE's rendering pipeline. Most important practical takeaways (separate meshes, Lumen Scene debugging, albedo values) apply at all skill levels. Hardware RT + Lumen reflection quality = 4 is the key practical trick for archviz/film artists.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (recorded at UE5.0 launch timeframe; surface cache, TSR, and Lumen are UE5-only; some limitations noted as temporary were addressed in later UE5 point releases)
 
 ### Tags
-[PENDING EXTRACTION]
+lumen, global-illumination, reflections, surface-cache, nanite, performance, ray-tracing, materials, best-practices, rendering
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `lighting-in-unreal-engine-5-for-beginners.md` — Lumen used in practice; beginner lighting workflow
+- `lighting-interiors-in-unreal-engine-5.md` — interior Lumen setup; path tracer comparison
+- `lighting-a-night-time-exterior-in-unreal.md` — nighttime Lumen + volumetric fog workflow

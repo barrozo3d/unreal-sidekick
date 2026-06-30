@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=RBtlrRP2fvs
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [decals, materials, cinematics, environment-building, animation, sequencer, flipbook, panner, virtual-production, workflow]
+extraction_status: complete
 frames_dir: tutorials/frames/make-films-10x-faster-in-unreal-engine/
 frame_count: 6
 ---
@@ -58,27 +58,80 @@ frame_count: 6
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Decals are the fastest way to texture environments and add cinematic detail in UE5 — drag and drop onto any surface, no UV unwrapping. Five progression levels: (1) Free Quixel decals from Fab, (2) Custom decals from Photoshop (PNG with alpha), (3) Bone-attached decals on characters animated via Sequencer visibility, (4) Animated caustics decal using Panner nodes + distortion texture, (5) Flipbook animated decal with Sequencer material parameter keyframing for Sequencer-controlled timing control.
 
 ### Summary
-[PENDING EXTRACTION]
+20-minute Josh Toonen tutorial on decals in UE5 for fast environment building and cinematic work. Draws on virtual production experience (Star Trek Discovery, Avatar the Last Airbender, War of Being). Five techniques at increasing complexity: free Fab decals (damage/grunge), custom decals from Photoshop (alpha → material domain: Deferred Decal, blend: Translucent), character-attached decals with bone parenting and Sequencer visibility tracks, animated caustics using dual Panner nodes + texture distortion + radial gradient fade, and flipbook sprite sheets (After Effects animation → Nuke Contact Sheet node → 8×8 sprite → Flipbook material function → Sequencer material parameter keyframing for shot-controlled animation timing).
 
 ### Key Steps
-[PENDING EXTRACTION]
+**Level 1: Free decals from Fab**
+1. Content Browser (Ctrl+Space) → Open Fab → filter: Quixel publisher + price = free → Decals category
+2. Drag decal material instance into viewport → orient blue arrow toward surface
+3. Details panel → Sort Order → layer multiple decals
+4. Alt+drag to duplicate; select multiple + Alt+drag to duplicate group
+
+**Level 3: Custom decal from Photoshop**
+1. Find source image → Object Select tool → click object → Layers panel → Mask icon (punch out background, creates transparency)
+2. File → Export → PNG with transparency; square resolution (512×512 or 1024×1024)
+3. UE: right-click Content Browser → New Material → Domain: **Deferred Decal**; Blend Mode: **Translucent**
+4. Import PNG → drag into material graph → RGB → Base Color; Alpha (A) → Opacity
+5. Optional extras: add Constant (roughness 0.5) → Roughness; add normal map (use SmartNormal website: load image → adjust bias → save) → Normal
+
+**Level 5: Attach decal to character + Sequencer visibility**
+1. Drag decal into scene → scale/rotate to character
+2. Outliner: drag decal onto character → choose bone from picker (e.g., spine_01) → decal follows character
+3. Drag decal into Sequencer timeline → select decal → Details → Rendering tab → "Hidden In Game" property → add track
+4. After action: keyframe Hidden In Game = false (visible); one frame before: keyframe = true (hidden)
+5. Visual: red bar = hidden, green bar = visible in Sequencer
+
+**Level 7: Animated caustics (Panner node)**
+1. Create tiling noise texture (tiled edges critical for seamless panning)
+2. Material (standard opaque for preview): Ctrl+Space → drag texture in → Panner node → connect texture UV input; set Speed X/Y (e.g., -0.25, 0.25)
+3. Duplicate Panner + texture → invert X and Y speeds (e.g., 0.25, -0.25); add both texture samples together → random non-repeating pattern
+4. Distortion: Texture Coordinate node → plug into Panner UV input; add blurry version of same texture → Multiply by 0.5; add another Panner (different speed) on distortion texture → fluid distortion
+5. Duplicate distortion setup for second layer; add both distorted layers together
+6. Soft edges: Multiply final by radial gradient texture (light center, dark edges)
+7. Convert to decal: Material Domain = Deferred Decal; Blend Mode = Translucent
+8. Color swatch → Emissive Color (not Base Color); black/white caustic map → Opacity
+
+**Level 10: Flipbook animated decal + Sequencer material parameter**
+1. Create animation in After Effects → export video
+2. In Nuke: Contact Sheet node → Rows/Columns = 8×8; resolution 2048×2048; Row Order: top-to-bottom; Column Order: left-to-right; Frames 0–63 (64 total); Retime node to fit frame range → export as texture
+3. UE material: right-click → search "flip book" → Flipbook material function; connect Texture input + Rows=8, Columns=8
+4. Animation Phase input:
+   - Real-time loop: Time node (directly or ×0.5 for half speed, ×2 for double speed)
+   - Sequencer control: Scalar Parameter (press S in graph) → name "Animation Phase" → value 0–1 maps to start–end of animation
+5. Domain: Deferred Decal; Blend Mode: Translucent (or Emissive)
+6. Drag decal into Sequencer → Add Track → Decal Component → Material Parameters → Animation Phase → keyframe 0 at start; keyframe 1 at end
+7. Move keyframes to control speed; lower value to zero after peak to reverse animation
+8. Exclude characters: select character → Details → search "Receives Decals" → uncheck
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Decal** — texture projected onto any surface without UVs; Domain: Deferred Decal; direction controlled by blue arrow gizmo; Sort Order controls layer stacking
+- **Material Domain: Deferred Decal** — makes a material project as a decal; required for all decal materials; pair with Blend Mode: Translucent for alpha support
+- **Opacity input (decal material)** — connected to alpha channel of PNG; white = opaque, black = transparent, gray = semi-transparent
+- **Panner node** — animates UV coordinates over time; Speed X/Y inputs; connect to texture UV; duplicate + invert speeds to create non-repeating pattern
+- **Texture Coordinates node** — explicit UV input for textures; manipulate before Panner to add distortion
+- **Flipbook material function** — right-click graph → "flip book"; inputs: Texture, Rows, Columns, Animation Phase (0–1); plays sprite sheet frames
+- **Scalar Parameter (material)** — press S in material graph; creates an animatable/overridable float parameter; exposes to Sequencer material parameter tracks
+- **Sequencer: Material Parameter track** — Add Track → Component → Material Parameters → choose parameter; keyframe any Scalar/Vector Parameter on a decal material actor; enables shot-driven animation timing
+- **Sequencer: Hidden In Game** — Details panel → Rendering → Hidden In Game; animatable via track; false = visible, true = hidden; red bar = hidden, green = visible in timeline
+- **Bone attachment (Outliner)** — drag child Actor onto parent skeletal mesh Actor in Outliner → bone picker; child follows bone in animation and simulation
+- **Receives Decals** — Actor Details panel → search "Receives Decals"; uncheck to exclude specific objects (e.g., characters) from receiving scene decals
+- **Nuke Contact Sheet node** — converts video sequence to sprite sheet grid (N×N); set Rows, Columns, Row Order, Column Order, frame range; standard workflow for flipbook texture creation
+- **Smart Normal** — web tool (external); converts any image to a normal map; useful for giving decals 3D surface relief without custom normal painting
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner (Levels 1–3) to Intermediate (Levels 5–7) to Advanced (Level 10 flipbook + Sequencer material parameter). Each technique is self-contained — start at the level appropriate to the task. The flipbook + Sequencer parameter track combination is particularly powerful for shot-specific animated material timing.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (Fab/Quixel integration, Sequencer decal component material parameter tracks; all techniques work in UE4 except Fab access)
 
 ### Tags
-[PENDING EXTRACTION]
+decals, materials, cinematics, environment-building, animation, sequencer, flipbook, panner, virtual-production, workflow
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `master-cinematic-fog-volumetric-god-rays-in-ue5.md` — volumetric fog for cinematic atmosphere (complementary to decal lighting)
+- `level-management-sub-levels-spawnables-possessibles-in-ue5.md` — Sequencer spawnables for managing decal actors
