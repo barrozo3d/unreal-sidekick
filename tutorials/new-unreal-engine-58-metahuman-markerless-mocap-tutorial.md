@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=b2i1aZbhxAU
 author: Smart Poly
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5.8"
+tags: [metahuman, mocap, markerless, live-link, body-tracking, facial-capture, retargeting, plugin, workflow, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/new-unreal-engine-58-metahuman-markerless-mocap-tutorial/
 frame_count: 4
 ---
@@ -33,27 +33,88 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+UE5.8 Markerless Mocap Plugin: ingest video footage (iPhone/any camera) → Live Link Hub processes via ML → MetaHuman Performance asset → body + face tracking baked to MetaHuman → export animation sequence → retarget to UE5 skeleton. No suit, no markers, no external software. Full body + hands + face in one pass. Processing time significant (≈1 hour for 2-minute clip in author's test).
 
 ### Summary
-[PENDING EXTRACTION]
+15-minute Smart Poly walkthrough of the UE5.8 MetaHuman Markerless Mocap Plugin. Record yourself on iPhone → convert MOV to compatible format → ingest via Live Link Hub (Mono Video Ingest) → create MetaHuman Performance asset → assign video + enable body tracking + assign MetaHuman Character BP → click Process (ML-based; takes ~1 hour for 2min clip) → preview in performance editor → Export Animation → retarget to UE5 skeleton. Results: good body/arm tracking, decent hand tracking, some finger detail, wrist twist artifacts at low camera quality. Facial capture included if performer speaks. Final output: retargeted animation sequence usable in games/projects. Plugin setup requires: 7 MetaHuman plugins + MetaHuman Core Data downloaded at install time.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Prerequisites**:
+   - UE5.8 required
+   - When downloading UE5.8: enable **MetaHuman Creator Core Data** in Options (or Modify later)
+2. **Enable 7 plugins** (Edit → Plugins → search "metahuman"):
+   - MetaHuman Animator
+   - MetaHuman Animator Markerless Motion Capture
+   - MetaHuman Core Tech
+   - MetaHuman Core and L
+   - MetaHuman Creator
+   - MetaHuman Live Link
+   - MetaHuman SDK
+   - Restart
+3. **Prepare video**:
+   - Film performer with any camera (iPhone, 4K camera, etc.)
+   - Convert if needed (MOV → compatible format); higher quality = better results
+4. **Open Live Link Hub**:
+   - Tools → Virtual Production → **Live Link Hub**
+   - Under **Live Data** dropdown → **Capture Manager**
+5. **Add Mono Video Ingest**:
+   - Click **+** (Add Device) → **Mono Video Ingest**
+   - Click the 3-dot folder icon → navigate to folder containing your video
+   - Select video → click **Add to Queue**
+   - Click **Start** → waits for processing (creates UE-format capture data file)
+   - When status = 100% → close Live Link Hub
+6. **Find imported files**:
+   - Content Browser → Capture Manager Imports → Mono Video Ingest → [video name folder]
+   - Three assets: **Capture Data**, Image Media Source, Sound
+7. **Create MetaHuman Character** (if needed):
+   - Right-click Content Browser → MetaHuman → **MetaHuman Character**
+   - Double-click → opens MetaHuman Creator in-editor
+   - Choose preset → customize → **Assembly** → **Create Full Rig** → **Download Texture Sources** → click **Assemble**
+   - MetaHuman Blueprint created in content browser
+8. **Create MetaHuman Performance asset**:
+   - Right-click → MetaHuman → **MetaHuman Performance**
+   - Double-click to open
+9. **Configure MetaHuman Performance**:
+   - Details panel → **Footage** → select the Capture Data asset from step 6
+   - Enable **Body Tracking** checkbox
+   - **Visualization**: select your MetaHuman Character BP from dropdown → click Yes if prompted about audio clock source
+10. **Process**:
+    - Click **Process** button (top left)
+    - ML processing begins — expect ~1 hour for 2-minute clip (varies by hardware + clip length/resolution)
+11. **Preview**: after processing, click Play → MetaHuman performs the captured animation including body + hands + face
+12. **Export**:
+    - Click **Export Animation** → set name + save location → click Create
+    - Animation sequence created in content browser
+13. **Retarget** (optional, for games):
+    - Right-click animation asset → **Retarget** → select target skeleton (e.g., SKM_Manny for UE5 third person) → Export Animations → save location
+    - Retargeted animation now usable in any UE5 character
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **MetaHuman Markerless Mocap Plugin** — UE5.8 experimental plugin; ML-based body + hand + face tracking from video; no suit or markers required; UE5.8 only
+- **Live Link Hub** — separate application (Tools → Virtual Production → Live Link Hub); manages capture sources; here used as offline video ingest processor
+- **Mono Video Ingest** — Live Link Hub device type for single-camera video; outputs Capture Data asset + media source + audio
+- **MetaHuman Performance Asset** — editor asset tying Capture Data → MetaHuman Character; contains visualization, body tracking toggle, and Process button
+- **MetaHuman Creator (in-editor)** — UE5.8 includes MetaHuman Creator inside UE Editor (previously web-only); requires MetaHuman Creator Core Data download at install
+- **Body Tracking** — enable in MetaHuman Performance details; shows skeleton overlay on video; required for full body animation output
+- **Export Animation** — bakes MetaHuman Performance to standard Animation Sequence asset
+- **Retarget** — right-click animation → retarget to any skeleton; e.g., UE5 Mannequin for game projects
+- **Processing time** — ML-based; ~1 hour per 2 minutes of video (author's hardware/quality); varies significantly
+- **Camera quality impact** — iPhone MOV quality yielded good body/arm, some wrist twist artifacts; better camera = better results, especially hands/fingers/face
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner-Intermediate (Setup is plugin-heavy; processing is fully automated; cleanup/retargeting is standard workflow).
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5.8 (Markerless Mocap Plugin UE5.8-specific)
 
 ### Tags
-[PENDING EXTRACTION]
+metahuman, mocap, markerless, live-link, body-tracking, facial-capture, retargeting, plugin, workflow, beginner
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `metahuman-realtime-animator-best-practices-unreal-engine-animation-hub.md` — real-time webcam face capture (alternative/complementary to markerless)
+- `metahumans-for-mocap-unreal-engine-animation-hub.md` — MetaHuman for MoCap Manager; suit-based hardware mocap + MetaHuman
+- `unreal-engine-58-new-markerless-motion-capture-tutorial.md` — another UE5.8 markerless tutorial (different author, same feature)
+- `motion-capture-isnt-just-for-hollywood-any-more.md` — Rococo suit-based mocap pipeline; comparison: suit vs markerless
+- `new-unreal-engine-58-metahuman-crowd-plugin.md` — other UE5.8 MetaHuman feature

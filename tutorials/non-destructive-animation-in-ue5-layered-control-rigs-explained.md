@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=A8U_8iPc5hA
 author: Unreal Engine
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5.4+"
+tags: [animation, control-rig, layered-animation, non-destructive, sequencer, anim-sequence, workflow, animator-tools, ue5-4, blend]
+extraction_status: complete
 frames_dir: tutorials/frames/non-destructive-animation-in-ue5-layered-control-rigs-explained/
 frame_count: 4
 ---
@@ -33,27 +33,65 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Layered Control Rigs (UE5.4+): add a Control Rig to a skeletal mesh in Sequencer using the **Layered** checkbox → the rig evaluates ON TOP of the existing animation sequence without overriding it. The rig starts with zero keys — only the changes you add are stored. Mute the rig track to compare before/after non-destructively. The original animation sequence data is never touched.
 
 ### Summary
-[PENDING EXTRACTION]
+9-minute Epic Animation Hub tutorial (same "Sir Wade" ACOM project, robot laser fight scene Shot 52). Demonstrates the key difference between adding a normal Control Rig (overrides animation) vs. a Layered Control Rig (additive, non-destructive). Shows: muting baked vs. live anim subsequences to understand existing data structure; adding Control Rig without Layered → character loses animation; adding with Layered checkbox → animation preserved + rig adds on top; setting initial S-key best practice; math operations in UE rotation fields (`+=360`); muting rig track to A/B compare; right-click Convert to Layered option. Feature introduced in UE5.4.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Understand existing animation structure**:
+   - Baked animation = animation sequence clip driving character (no editable keyframes)
+   - Live anim = subsequence with full Control Rig keyframes (for original animator edits)
+   - Select the baked animation version for non-destructive overlay
+2. **Add a normal Control Rig (wrong way — for context)**:
+   - Select skeletal mesh in Sequencer → **+ Track** → **Control Rig** → pick rig class
+   - Result: animation sequence is ignored; character goes to origin with empty rig
+   - Delete the rig → character reverts to animation sequence
+3. **Add a Layered Control Rig (correct way)**:
+   - Select skeletal mesh in Sequencer → **+ Track** → **Control Rig**
+   - Before confirming, check the **Layered** checkbox at the top of the rig picker
+   - Control Rig is added ON TOP of existing animation; character continues playing original animation
+   - All rig controls start with zero keys → only your additions are stored
+4. **Initial key best practice**:
+   - Select all controls → press **S** to set a key on the full rig at frame 0
+   - Ensures Auto Key is primed and won't miss any changes you make
+5. **Add animation overrides**:
+   - Select control (e.g., head) → scrub to target frame → set a key (S)
+   - Adjust as needed; example: spin head 360° in Z rotation
+6. **Prevent 360° cancellation bug**:
+   - UE auto-corrects identical start/end poses (removes apparent 360° spins)
+   - Fix: select the keyframe → in the value field, use `+=360` math operation instead of dragging the rotation handle
+   - This adds 360 degrees to the stored value rather than relying on the drag which UE may interpret as no net change
+7. **A/B compare**:
+   - Right-click the Control Rig track in Sequencer → **Mute** → original animation plays without overlay
+   - Un-mute → layered changes reapply
+8. **Convert after-the-fact**:
+   - Right-click existing Control Rig track → **Convert to Layered** checkbox available
+   - Note: adding as Layered from the start is more reliable; some rigs behave unexpectedly on conversion
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Layered Control Rig** — Control Rig added with "Layered" checkbox; evaluates additively on top of existing animation sequence; zero keys by default; introduced UE5.4; works across all UE5.4+ projects
+- **Layered checkbox** — appears in the Control Rig picker dialog when adding via Sequencer → Track menu; must check BEFORE adding the rig
+- **Normal Control Rig (non-layered)** — completely overrides animation sequence; character loses existing animation; starts from bind pose
+- **Mute track** — right-click Control Rig track → Mute; toggles rig on/off for non-destructive A/B comparison; original animation sequence is never affected
+- **`+=360` math operation** — type `+=360` in UE rotation field to add 360 degrees to current value; works as `+= N` or `-= N` for any numeric field; prevents UE's anti-gimbal-lock from canceling full-rotation spins
+- **S key** — sets keyframe on all selected controls at current frame; use at frame 0 on full rig as best practice for auto-key priming
+- **Convert to Layered** — right-click existing CR track; can convert post-hoc but may have rig-specific issues; prefer choosing at creation time
+- **Animation Subsequence** — Sequencer hierarchy: main sequence → subsequence (baked anim / live anim); baked subsequence contains animation sequences per body part; add layered CR inside baked subsequence for cleanest separation
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner-Intermediate. The concept is simple (one checkbox), but understanding why it's needed (vs. normal CR) and the `+=360` workaround for full rotations are non-obvious.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5.4+ (Layered Control Rigs introduced in UE5.4)
 
 ### Tags
-[PENDING EXTRACTION]
+animation, control-rig, layered-animation, non-destructive, sequencer, anim-sequence, workflow, animator-tools, ue5-4, blend
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `motion-blending-bone-matching-for-unreal-engine---make-films-in-unreal-ep2-inter.md` — bone matching + Layered FK Control Rig additive; related non-destructive workflow
+- `mastering-the-ue5-tweener-tool-push-pull-overshoot-animation.md` — animation polish tools; pairs with layered CR for non-destructive tweening
+- `ue5-animation-layers-non-destructive-camera-shake-character-tweaks.md` — animation layers for camera shake and character tweaks (related non-destructive topic)
+- `new-ue5-motion-trails-20-heat-map-camera-space-stabilization.md` — Motion Trails for reviewing layered animation arc quality
