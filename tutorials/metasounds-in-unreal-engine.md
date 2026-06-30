@@ -3,9 +3,9 @@ title: MetaSounds in Unreal Engine
 source: Epic Documentation
 url: https://dev.epicgames.com/documentation/en-us/unreal-engine/metasounds-in-unreal-engine
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [audio, metasounds, dsp, sound-design, procedural-audio, blueprint, wave-player, synthesis, game-audio, sample-accurate]
+extraction_status: complete
 page_count: 19
 ---
 
@@ -121,24 +121,156 @@ Animation Curve Editor in Unreal Engine | Unreal Engine 5.8 Documentation | Epic
 ## Structured Notes
 
 ### Core Topics
-[PENDING EXTRACTION]
+MetaSound system overview; Quick Start (bomb SFX + ambient wind); Procedural Music; MetaSound Pages (Experimental); Builder API (Beta); Reference Guide (asset types, pin types, interfaces, nodes); Function Nodes reference; WaveTables; Blueprint integration; C++ node API
 
 ### Summary
-[PENDING EXTRACTION]
+19-page Epic docs crawl covering the full MetaSound system in UE5. MetaSounds replace Sound Cues with a DSP flow-graph system offering sample-accurate timing, parallel rendering, preset/graph reuse, and rich gameplay parameter integration. Asset types: **MetaSound Source** (plays audio) and **MetaSound Patch** (graph reuse inside other MetaSounds). Key differentiators from Sound Cues: fully procedural DSP rendering, audio-rate modulation, sample-accurate triggers/concatenation, per-format independent rendering, C++ node extension API. Workflow is node-based in the MetaSound Editor with real-time preview, in-graph knobs/sliders, and live output watching.
 
 ### Key Concepts & Systems
-[PENDING EXTRACTION]
+
+| Concept | Description |
+|---------|-------------|
+| **MetaSound Source** | Asset that generates audio; can play standalone via Audio Component |
+| **MetaSound Patch** | Graph-only asset; reused as a node inside other MetaSounds |
+| **Preset** | Inherits parent MetaSound graph read-only; overrides default Input values; auto-propagates parent changes |
+| **Graph Composition** | Embed MetaSound Patches as nodes inside other MetaSound graphs |
+| **Sample Accuracy** | Triggers, Wave Player concatenation, and cue points fire at exact sample index (not block rate) |
+| **Audio-Rate Modulation** | Float pins can be modulated at audio buffer rate (e.g., frequency modulation synthesis) |
+| **On Play / On Finished** | Default Input/Output nodes from `UE.Source.OneShot` interface; remove for persistent sounds (music/ambience) |
+| **UE.Source.OneShot** | Interface that adds On Finished Output; remove for loops/ambience |
+| **UE.Attenuation** | Interface that adds Distance Input from listener |
+| **UE.Spatialization** | Interface that adds Azimuth + Elevation Inputs |
+| **Constructor Pins** | Diamond-shaped; read-only at runtime; improve performance; cannot be Trigger or Audio type |
+| **Variable Nodes** | Get Variable, Get Delayed Variable, Set Variable; not accessible from Blueprint; use Inputs for runtime changes |
+| **Output Watching** | Watch Output (Blueprint) → fire event + get value when output changes; watchable types: Float, Int32, Bool, Time, FString, Trigger |
+| **MetaSound Pages** | Experimental; platform-specific graph or input default variations; defined in Project Settings → MetaSounds → Pages; fallback by array index order |
+| **Builder API** | Beta; UMetaSoundBuilderSubsystem; create/modify MetaSounds procedurally from Blueprint or C++ without editor |
+| **WaveTable Banks** | Fixed Resolution (for oscillating/enveloping, lockstep mixing) vs Fixed Sample Rate (for discrete playback/sampling) |
+| **Live Updates** (Builder) | Audition changes to graph topology in real-time with crossfade (UE 5.5+, beta) |
+
+**Quick Start — Bomb SFX graph pattern:**
+```
+On Play → Wave Player (looping sparks)
+         → Mono Mixer (2)
+         → On Finished Output
+
+Explode Trigger → Random Get (WaveAsset:Array) → Wave Player (one-shot explosion)
+                                                 → Mono Mixer In 1
+```
+
+**Quick Start — Wind Ambience (persistent stereo):**
+```
+Remove UE.Source.OneShot; Output Format = Stereo
+2x Noise → 2x One-Pole LPF → Stereo Mixer (2)
+LFO (0.1 Hz, 20–80 Hz cutoff) → both LPF Cutoff Frequency pins
+PawnSpeed input → Multiply × 3 → Add + 2 → InterpTo → Stereo Mixer Gain
+```
+
+**Procedural Music pattern:**
+- Tempo: TriggerRepeat + BPM To Seconds (16th note divisions) → Trigger Counter (8 resets)
+- Melody: Random Get (Float:Array) ← Scale To Note Array ← Scale (Enum input); Add 48 (offset 4 octaves)
+- Synthesis: MIDI To Frequency → Sine + Saw nodes; Crossfade (Sine:Saw blend)
+- Filter: Ladder Filter + LFO (0.5 Hz, 500–5000 Hz cutoff)
+- Envelope: AD Envelope (Decay 0.1) → Multiply against Ladder Filter output
+- Effects: Delay 0.02s + Stereo Delay (PingPong, 0.2s) → Out Left/Right
 
 ### UE Systems / Settings / Code
-[PENDING EXTRACTION]
+
+**Asset Types:**
+- **MetaSound Source** — Content Browser → Add → Audio → MetaSound Source; plays standalone
+- **MetaSound Patch** — Content Browser → Add → Audio → MetaSounds → MetaSound Patch; graph-only node
+- **MetaSound Preset** — right-click MetaSound → Create MetaSound Preset; overrides Input defaults
+
+**Pin Types:**
+| Type | Description |
+|------|-------------|
+| Trigger | Sample-accurate execution; comparable to modular synth gate; can fan-out to multiple nodes |
+| Audio | Audio buffer; audio-rate modulation when used as parameter input |
+| Time | Time value in seconds |
+| Float | Block-rate float value; supports slider/knob widget in editor |
+| Int32 | Integer |
+| Bool | Boolean |
+| Enum | Enumerated value |
+| UObject | Supported UObject reference (e.g., USoundWave for Wave Player) |
+| String | Debugging/labeling only; not used during playback |
+
+**Key Nodes:**
+| Node | Usage |
+|------|-------|
+| Wave Player (Mono/Stereo/etc.) | Play Sound Wave; Loop; Seek; Pitch Shift; sample-accurate cue points; On Nearly Finished for pre-queuing |
+| Random Get (WaveAsset:Array) | Randomly select sound variation; No Repeats; Shared State to avoid simultaneous repeats |
+| Shuffle | Shuffle array playback; Auto Shuffle; Shared State |
+| BPM To Seconds | Convert BPM + Divisions of Whole Note to beat duration in seconds |
+| Trigger Repeat | Fire trigger at regular Period intervals |
+| Trigger Counter | Count trigger firings; fire On Trigger and On Reset at Reset Count |
+| Scale to Note Array | Generate MIDI note array from music scale + root |
+| MIDI To Frequency | Convert MIDI note to Hz |
+| AD Envelope (Audio) | Attack-Decay envelope; audio-rate output |
+| LFO | Low-frequency oscillator; Min/Max Value; Frequency |
+| Ladder Filter | Resonant lowpass filter; Resonance; Cutoff Frequency |
+| Stereo Delay | Ping Pong mode; Delay Time; Wet/Dry; Feedback; Delay Ratio |
+| InterpTo | Smooth float value towards target over Interp Time |
+| WaveTable Player | Playback from WaveTable Bank at given index (Fixed Sample Rate bank) |
+| WaveTable Oscillator | Oscillate at given frequency from WaveTable Bank (Fixed Resolution bank) |
+| WaveTable Envelope | Reads WaveTable over duration as envelope (Fixed Resolution bank) |
+
+**Blueprint Integration (Audio Component parameter interface):**
+```blueprint
+// Set float parameter on playing MetaSound:
+Set Float Parameter → In Name: "PawnSpeed", In Float: [value]
+
+// Trigger a named trigger:
+Execute Trigger Parameter → In Name: "Explode"
+
+// Watch an output value:
+Watch Output → Output Name: "MyOutput" → On Output Value Changed delegate
+```
+
+**Spawn Audio:**
+- `Spawn Sound Attached` — 3D spatialized; attach to component
+- `Spawn Sound 2D` — non-spatialized (music, ambience)
+
+**MetaSound Pages (Experimental):**
+- Project Settings → MetaSounds → Pages (Experimental) → add Page Settings entries (Name, Targetable, Exclude from Cook)
+- In MetaSound Editor: Pages tab → Add Page Graph dropdown → edit focused page
+- Paged Inputs: Members panel → select input → Details → Default Value → Add Page Default Value
+- Set active page: `cvar au.MetaSound.Pages.SetTarget [PAGE_NAME]` or Project Settings or platform .ini
+
+**Builder API (Beta) — UMetaSoundBuilderSubsystem:**
+```blueprint
+// Create a source builder:
+UMetaSoundBuilderSubsystem → Create Source Builder → returns SourceBuilder + handle
+
+// Add node:
+SourceBuilder → Add Node (class name or UObject ref)
+
+// Connect nodes:
+SourceBuilder → Connect Nodes (output handle, input handle)
+
+// Audition live:
+SourceBuilder → Audition (AudioComponent) → Enable Live Updates
+```
+
+**WaveTable Bank Creation:**
+- Content Browser → Add → Audio → WaveTable → WaveTable Bank
+- Sample Mode: Fixed Resolution (oscillating/enveloping) or Fixed Sample Rate (sampling)
+- Entries: Curve Type (Sine, Linear Ramp In/Out, Custom, File), Duration (Fixed Sample Rate only)
+- Bipolar: true = -1 to 1 (waveforms); false = 0 to 1 (envelopes)
+
+**Output Format (Stereo/Surround):**
+- MetaSound Editor Toolbar → MetaSound button → Details → MetaSound Output Format → Mono / Stereo / Quad / 5.1 / 7.1
+- Replaces Out Mono with Out Left + Out Right (stereo); Quad/5.1/7.1 add more channels
+- For persistent sounds (music/ambience): remove UE.Source.OneShot interface in Interfaces panel
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (MetaSounds introduced UE5.0; Pages = Experimental UE5.5+; Builder API = Beta UE5.5+; WaveTables = Beta/UE5.x; docs version 5.8)
 
 ### Tags
-[PENDING EXTRACTION]
+audio, metasounds, dsp, sound-design, procedural-audio, blueprint, wave-player, synthesis, game-audio, sample-accurate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/metasounds-in-unreal-engine.md` — this file (docs reference)
+- `tutorials/master-cinematic-fog-volumetric-god-rays-in-ue5.md` — AOV pipeline (audio not covered, but adjacent cinematic pipeline knowledge)
+- `tutorials/make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta.md` — filmmaking pipeline; MRQ; no audio-specific MetaSound content

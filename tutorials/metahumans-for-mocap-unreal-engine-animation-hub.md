@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=myxrzJiLc6I
 author: Unreal Engine
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [metahuman, mocap, motion-capture, live-link, capture-character, virtual-production, facial-animation, blueprint, construction-script, leader-pose]
+extraction_status: complete
 frames_dir: tutorials/frames/metahumans-for-mocap-unreal-engine-animation-hub/
 frame_count: 4
 ---
@@ -33,27 +33,69 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+MetaHumans cannot be used directly with MoCap Manager — they must be wrapped in a new Blueprint that inherits from the **Capture Character** class. Skeletal mesh components and grooms are copied from the original MH Blueprint. Clothing meshes require a **Set Leader Pose Component** in the Construction Script to follow body animation. Face capture is handled separately via Live Link MetaHuman Video source; head orientation/translation must be disabled to avoid double transforms; a **Virtual Live Link Subject** combines body + face into a single stream.
 
 ### Summary
-[PENDING EXTRACTION]
+6-minute Epic Animation Hub tutorial showing how to integrate a MetaHuman into MoCap Manager for full-body + face performance capture (Captury body + webcam face). Covers: creating a Capture Character Blueprint wrapper by copying MH components; setting up the character in MoCap Manager (source + class + mesh); fixing clothing follower meshes via Set Leader Pose Component in the Construction Script; adding MetaHuman Video Live Link source for face; disabling head orientation/translation (prevents double neck transforms when body capture already drives head); creating a Virtual Live Link Subject that combines body + face; switching MoCap Manager to use the combined virtual subject.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Create Capture Character Blueprint**:
+   - Content Browser → New Blueprint → Parent Class: **Capture Character**
+   - Name it (e.g., `CaptureCharacter_MH_CharacterName`)
+   - Open both the new BP and the original MH Blueprint side by side
+   - From original MH BP → copy Body Skeletal Mesh → paste into new BP's top Skeletal Mesh slot (arms/legs)
+   - Select remaining Skeletal Meshes + Grooms from original MH BP → Ctrl+C → paste into new BP
+
+2. **Set up character in MoCap Manager**:
+   - MoCap Manager → Create New Character
+   - Name: give it a capture name (e.g., `Capture_MH01`)
+   - Source: set to Captury Skeletal (pre-configured source)
+   - **Character Class**: select the new Capture Character BP created in step 1
+   - **Character Mesh**: select the character's body mesh
+   - Create Character Asset → Spawn
+
+3. **Fix clothing follower (Construction Script)**:
+   - Problem: clothing meshes (shorts, t-shirt) don't follow body animation automatically
+   - Open the Capture Character BP → Construction Script
+   - From Construction node: add **Set Leader Pose Component**
+   - Target: shorts mesh; Leader: body mesh; check both tick boxes
+   - Add a second Set Leader Pose Component node for each additional clothing mesh
+   - Compile + Save → delete and re-spawn character to verify fix
+
+4. **Add face capture via webcam**:
+   - Window → Live Link → Add Source → **MetaHuman Video** (requires MetaHuman Live Link plugin)
+   - Select webcam → Connect
+   - **CRITICAL**: Disable **Head Orientation**, **Translation**, and **Stabilization** from the face Live Link source — body capture already drives head/neck; leaving these on causes double transforms
+
+5. **Combine body + face via Virtual Subject**:
+   - Live Link → Add Source → **Virtual Subject** → name it (e.g., `body and face`)
+   - Add both subjects: body capture subject + webcam face subject → combine
+
+6. **Apply to MoCap Manager**:
+   - In MoCap Manager, switch character's source from plain body capture → select the **Virtual Live Link Subject**
+   - Character now drives body from Captury + facial expressions from webcam simultaneously
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **MoCap Manager** — Epic plugin for real-time performance capture management; requires Captury or similar body system as source; spawns Capture Character Blueprints in level
+- **Capture Character class** — parent class required for MoCap Manager characters; MetaHuman must be wrapped in a BP inheriting this class (not the default MH parent)
+- **Set Leader Pose Component** — Blueprint node (Construction Script); sets a clothing/secondary mesh to follow another mesh's animation; prevents de-sync between body and clothing; both boxes must be checked; add one node per secondary mesh
+- **Live Link → MetaHuman Video** — Live Link source type for webcam face capture; requires MetaHuman Live Link plugin; outputs head orientation + translation + facial expression data
+- **Head Orientation / Translation / Stabilization** — disable all three on the face Live Link source when body capture system already drives neck/head bones; otherwise neck gets double transforms
+- **Virtual Live Link Subject** — combines multiple Live Link sources (body + face) into a single subject; enables MoCap Manager to receive combined stream; equivalent to virtual subject in Live Link Hub
+- **Captury Skeletal** — body mocap source type in MoCap Manager; full-body skeleton streaming from Captury system
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate. Requires MoCap Manager + Captury hardware setup. Blueprint skills needed for Construction Script fix. Core workflow is procedural once hardware is configured.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (MoCap Manager + MetaHuman + Live Link Hub ecosystem — UE5 era)
 
 ### Tags
-[PENDING EXTRACTION]
+metahuman, mocap, motion-capture, live-link, capture-character, virtual-production, facial-animation, blueprint, construction-script, leader-pose
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `live-link-hub-tips-unreal-engine-animation-hub.md` — Live Link Hub for multi-source mocap routing; Virtual Subject setup; recording
+- `metahuman-realtime-animator-best-practices-unreal-engine-animation-hub.md` — webcam face capture best practices; camera FPS/exposure settings; two-machine offload
+- `metahumans-in-unreal-engine.md` — complete MetaHuman Blueprint structure, LODs, animation pipeline, Control Rig
