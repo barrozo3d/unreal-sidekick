@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=kxsncXh8hhM
 author: World Of VFX
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5.8"
+tags: [mocap, markerless, metahuman, live-link, body-tracking, animation, pipeline, workflow, characters, performance-capture]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-58-new-markerless-motion-capture-tutorial/
 frame_count: 4
 ---
@@ -33,27 +33,75 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+UE5.8 markerless motion capture using the **MetaHuman Animator Markerless** plugin from Fab. No suit, no markers, no external hardware — only video footage. Pipeline: install plugin from Fab → enable MetaHuman + LiveLink + Control Link plugins → open Live Link Hub → Capture Manager → Video Ingest → browse footage → process → export animation → import into Level Sequence on MetaHuman character.
 
 ### Summary
-[PENDING EXTRACTION]
+4m51s World of VFX quickstart tutorial for UE5.8's built-in markerless mocap. Plugin: MetaHuman Animator Markerless (search in Fab); only available in UE5.8. Required plugins: MetaHuman (all), Live Link, Control Link for Live Link. Workflow: Tools → Live Link Hub → Live Data → Capture Manager → Video Ingest → select footage folder → Add to Queue → Start; audio detected automatically. After processing (~20 min for long footage): import result as MetaHuman Performance asset → configure body tracking → select target MetaHuman character → Process. Export animation via Export Animation button (processing range, existing skeleton, SMKY body). Import into Level Sequence: drag MetaHuman to scene → select body → + → Animation → select exported asset.
 
 ### Key Steps
-[PENDING EXTRACTION]
+**Install plugin:**
+1. Open Fab (in-engine or fab.com) → search "MetaHuman Animator Markerless" → Install Plugin
+2. Plugin is only available for **UE5.8** — requires UE5.8 or later
+
+**Enable plugins:**
+3. Edit → Plugins → search "MetaHuman" → enable all MetaHuman plugins
+4. Search "Live Link" → enable **Live Link** and **Control Link for Live Link** → Restart Unreal
+
+**Import a MetaHuman:**
+5. Bring a MetaHuman character into the project (via Bridge or existing asset)
+
+**Live Link Hub — Ingest footage:**
+6. Tools → search "Live Link" → open **Live Link Hub** (opens in a new window)
+7. Go to **Live Data** → click **Capture Manager** → select **Video Ingest**
+8. Click Browse → select footage folder → footage appears; audio files auto-detected
+9. Select footage → **Add to Queue** → **Start** → processing begins (allow ~20 min for long clips)
+10. Minimize hub while processing
+
+**Create MetaHuman Performance:**
+11. After processing: Content Browser → Capture Manager → import folder with results
+12. Right-click → MetaHuman → **MetaHuman Performance** → rename (e.g., "meta")
+13. Double-click MetaHuman Performance asset → select **Footage Calibration Data**
+14. Scroll down → **Body Tracking** → expand (this is the main config section)
+15. Select target character (the MetaHuman you imported) → **Process**
+16. Wait for processing (~variable duration); facial tracking can be enabled if needed
+
+**Export animation:**
+17. Click **Export Animation** → choose folder → Save
+18. Export Range: **Processing Range**; Skeleton: **Existing Skeleton**; Body: **SMKY body** → Create → Add
+19. Animation asset is now in Content Browser
+
+**Apply animation in Level Sequence:**
+20. Create new Level Sequence → name and save
+21. Drag MetaHuman character from Content Browser into viewport/Sequencer
+22. Select character → click the body section → **+** button → Animation → select the exported meta animation
+23. Set frame range as needed → animation plays on character
+
+**Fix body type if wrong:**
+24. If character shows wrong gender body: select the body mesh in Sequencer → change from female to male (or vice versa) using the dropdown
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **MetaHuman Animator Markerless** (plugin, Fab) — video-based markerless mocap; no suit required; UE5.8+ only; face + body tracking from regular video
+- **Live Link Hub** — UE5.8 standalone mocap ingest tool; accessed via Tools menu; Video Ingest mode for footage; queue-based batch processing
+- **Capture Manager** → **Video Ingest** — select folder of footage; auto-detects audio files; queues for processing
+- **MetaHuman Performance asset** — created from processed mocap data; links footage calibration to target character; Body Tracking section controls body solve
+- **SMKY body** — body skeleton export target in MetaHuman Performance; standard MetaHuman body skeleton
+- **LiveLink + Control Link** — required plugins for Live Link Hub communication with UE5 editor
+- **Body Tracking** — main setting in MetaHuman Performance; choose target MetaHuman character; enable/disable face tracking separately
+
+**⚠️ Version note:** Tutorial targets UE5.8; plugin not available in earlier versions.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner. Simple plugin workflow; no rigging knowledge needed. Processing time is the main cost.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5.8 (plugin unavailable in earlier versions)
 
 ### Tags
-[PENDING EXTRACTION]
+mocap, markerless, metahuman, live-link, body-tracking, animation, pipeline, workflow, characters, performance-capture
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `the-easiest-and-cheapest-motion-capture-setup-for-metahumans-in-unreal-engine-56.md` — comparison of 4 mocap solutions (UE5.6); MetaHuman Animator Mono Video Ingest (similar but requires calibration video); pricing comparison
+- `unreal-engine-58-release-notes.md` — UE5.8 release notes; context for what else is new in 5.8
+- `this-free-plugin-changes-filmmaking-forever-unreal-5.md` — alternative animation approach: Mixamo + OneClick Control Rig (no mocap required)

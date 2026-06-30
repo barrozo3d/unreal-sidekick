@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=ywtvn1uncZo
 author: Unreal Engine
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [animation, sequencer, cinematic, pipeline, production, acom, sub-sequences, workflow, overview, project-structure]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-5-animation-cinematic-production-overview/
 frame_count: 4
 ---
@@ -33,27 +33,69 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Orientation video for the ACOM (Agora Characters Open Movie) animation sample project. Covers the cinematic production folder structure, the animatic-to-3D pipeline, and how to use Sequencer to explore and edit the master cinematic. Key workflow insights: sub-sequence architecture (animation + lighting + set animation are separate muted/unmuted sub-sequences per shot); duplicate level sequence before editing; use revision control (Perforce/Diversion) in production; G key toggles editor icon visibility.
 
 ### Summary
-[PENDING EXTRACTION]
+11m17s Sir Wade (official Unreal Engine) orientation tutorial for the ACOM animation sample project. Covers project structure: Assets folder (characters, environments), Episodes folder (intro beta shots), Animatic folder (storyboard on 3D media planes with audio), and Intro Beta Edit level sequence (the actual 3D cinematic with full animation, lighting, FX). Shows how to preview the cinematic: lock to camera view, mute audio tracks, G for game mode. Sub-sequence architecture: each shot has sub-sequences for animation, lighting, set animation (cracked floor) — can be individually muted/unmuted to see contribution of each layer. Level sequence editing workflow: drag shot tracks to reorder, right-click → Trim/Split, duplicate before editing. Revision control brief mention: Perforce/Diversion for version history and rollback in team production. Animatic technique: artwork placed on media planes with physical position in 3D space — planes with X on back, visible artwork on front.
 
 ### Key Steps
-[PENDING EXTRACTION]
+**Project navigation:**
+1. Open project → Welcome Level → Ctrl+Space → Content Drawer
+2. Navigate: Assets (characters, environments) → Episodes → intro_beta folder
+3. Open **Master Level** for the environment (gym, warehouse, hallway, beta's room)
+
+**Viewing the animatic:**
+4. Episodes → intro_beta → Animatic folder → open `ODY_beta_intro_converted` level sequence
+5. Lock camera view → play → storyboard artwork appears on flat media planes positioned in 3D space
+6. Media planes: X visible from back (editor-side), artwork visible from front (camera-side) — moves through 3D space during playback
+7. Mute audio track for silent review
+
+**Viewing the 3D cinematic:**
+8. Close animatic sequence → Content Drawer → Episodes → intro_beta → open `intro_beta_edit` level sequence
+9. Lock camera view → play → real-time 3D cinematic (shader warmup on first play is expected)
+10. First playback may be choppy at shot boundaries (unloading/loading per-shot data); subsequent plays smoother
+11. **G** key — toggle editor icons/gizmos visibility (cameras, lights); use if camera isn't showing
+
+**Sub-sequence architecture:**
+12. Inside any shot level sequence → twirl open → find sub-sequences:
+    - Animation sub-sequence (character rigs, motion)
+    - Lighting sub-sequence (lighting changes per shot)
+    - Set animation sub-sequence (environmental anim, e.g., cracked floor)
+13. Mute individual sub-sequences to isolate each layer's contribution
+14. Double-click into any sub-sequence to go deeper
+
+**Editing the master cinematic:**
+15. **Always duplicate the level sequence first** (right-click in Content Browser → Duplicate → rename) before making edits
+16. Check top-right corner of Sequencer window to confirm which sequence you're in (shows the name)
+17. Drag shot tracks to reorder; right-click → **Trim Left / Trim Right / Split** to cut clips
+18. Can intercut shots: split + move sections to create new edit rhythm
+
+**Revision control (team production):**
+19. Bottom-right corner of UE5 = Revision Control status
+20. Connect to Perforce, Diversion, or other VCS → tracks who's editing which files → version history → rollback possible even after Save
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **ACOM (Agora Characters Open Movie)** — official UE5 animation sample project; characters by Agora Studio (Beta, Gamma quadruped, Delta, robots); free download
+- **Media planes** — flat meshes with a 2D image/video texture in the emissive channel; animatic uses these; X visible from editor-side, artwork from camera-side; can be positioned and animated in 3D
+- **Sub-sequence architecture** — each shot level sequence contains sub-sequences (animation, lighting, set FX); each can be independently muted; allows layer isolation and pipeline separation by discipline
+- **Master level sequence** — top-level timeline containing all shot clips as sections; functions as editing timeline (trim, drag, split); can duplicate for non-destructive editing
+- **G key** — game mode toggle; shows/hides editor gizmos (cameras, lights, etc.); essential when searching for camera actors
+- **Revision control** — Perforce/Diversion; per-file check-in/check-out; version history; rollback after save; standard in UE5 professional production
+- **Lock to camera view** — Camera Cuts track → press lock icon → viewport shows camera output; press Shift+C or unlock to exit
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner. Project orientation video — no technical implementation required.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (ACOM project; official Unreal Engine tutorial series)
 
 ### Tags
-[PENDING EXTRACTION]
+animation, sequencer, cinematic, pipeline, production, acom, sub-sequences, workflow, overview, project-structure
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `stylized-animation-control-rig-characters-in-unreal-engine-5.md` — ACOM modular rig tutorial; same project/instructor
+- `ue5-animation-layers-non-destructive-camera-shake-character-tweaks.md` — ACOM animation layers; same project (Shot 55, Shot 70)
+- `ue5-constraints-are-easy-parent-constraint-workflow-for-animators.md` — ACOM constraints; same project (Shot 50)
+- `ue5-curve-editor-20-new-lattice-tool-curve-scaling-hacks-ue-56.md` — ACOM curve editor; same project (Shot 10)
