@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=W4UZ4-vLxxw
 author: Black Eye Technologies
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [black-eye-cameras, camera, multi-subject, follow, look-at, automatic-zoom, cinematics, gameplay, damping, workflow]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-2-person-combat-side-camera-tutorial/
 frame_count: 4
 ---
@@ -33,27 +33,49 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Black Eye Cameras plugin — 2-person side-camera setup using **Simple Look At** camera with **Multiple Subjects** on both Follow and Look At modules. No keyframes: camera automatically moves, rotates, and zooms to keep both subjects framed. Key controls: blue cube = per-subject frame target; white cube = combined frame; FOV Damping = zoom smoothness; Follow Damping = movement viscosity.
 
 ### Summary
-[PENDING EXTRACTION]
+4m10s Black Eye Technologies tutorial (Adam) — 2-character combat side-camera in ~30 seconds, zero keyframes. Uses the Simple Look At camera prefab from the Black Eye folder. Follow module → Multiple Subjects → eyedropper select both characters → red tracking line appears. Look At module → same two subjects. Enable Automatic Zoom → camera zooms to keep white cube (combined subject bounding box) in frame. Drag camera position backward manually. Add to Camera Cuts track. Adjust FOV Damping (1 = moderate broadcast feel; higher = more erratic/reactive). Follow Damping (viscosity) set high for heavy, "catching-up" camera feel. Final result: dynamic multi-subject camera that tracks position, rotation, and zoom simultaneously.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Content Browser → Black Eye folder → enable **Show Plugin Content** if folder not visible → drag **Simple Look At** camera into scene
+2. Select camera → Details panel: **Follow** module → enable **Multiple Subjects** → click **Add** → use eyedropper to pick Subject 1 (left character); Add again → pick Subject 2 (right character); red tracking line connects both
+3. Move camera manually to desired side position (drag in viewport)
+4. **Look At** module → Add → eyedropper → left character; Add → right character → camera rotates to face both
+5. Enable **Automatic Zoom** → camera will auto-zoom to keep white cube (combined frame) visible at all times
+6. Drag camera onto **Camera Cuts track** in Sequencer to activate it for rendering/preview
+7. Adjust **FOV Damping** (zoom speed): lower = snappier; ~1 = broadcast/smooth; higher = erratic/reactive
+8. Adjust **Follow Damping** (movement viscosity): "lots" = heavy, camera catches up with a lag; lower = immediate
+
+**Reading the debug visualization:**
+- **Blue cubes** (one per character) = each subject's desired frame box
+- **White cube** = combined desired frame for both characters; camera zooms to fit this
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Black Eye Cameras plugin** (by Black Eye Technologies) — procedural camera system; no-keyframe follow/look-at/zoom cameras; plugin installs into UE5 content browser under "Black Eye" folder
+- **Simple Look At** — single camera prefab with configurable Follow + Look At modules; supports single or multiple subjects
+- **Follow module** — handles camera position; Multiple Subjects mode; eyedropper subject selection; Damping (viscosity = movement lag/smoothness)
+- **Look At module** — handles camera rotation; separate subject list from Follow (can track different subjects); Add per subject
+- **Multiple Subjects** — enables Follow or Look At to track more than one actor simultaneously; each subject gets a blue bounding cube in debug view
+- **Automatic Zoom** — automatically adjusts FOV/zoom to keep white box (combined subject frame) in the camera's viewport; replaces manual focal length keyframing
+- **FOV Damping** — controls speed of zoom changes; low (1) = broadcast/smooth; high = erratic/live-action feel
+- **Follow Damping** — controls position/rotation momentum; high = heavy, lagging camera feel; low = immediate tracking
+- **Camera Cuts track** — add camera to Sequencer Camera Cuts track to activate it as the active camera for rendering
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner. 30-second setup with no keyframes required.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (Black Eye Cameras plugin)
 
 ### Tags
-[PENDING EXTRACTION]
+black-eye-cameras, camera, multi-subject, follow, look-at, automatic-zoom, cinematics, gameplay, damping, workflow
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `unreal-engine-black-eye-cameras-overview-tutorial.md` — full BEC plugin overview; all camera types
+- `unreal-engine-black-eye-cameras-start-here-tutorial.md` — BEC beginner intro
+- `unreal-engine-black-eye-cameras-multiple-targets-on-a-character.md` — related multi-target configuration
+- `unreal-engine-black-eye-cameras-multiple-follow-and-look-at-modules.md` — advanced multi-module setup

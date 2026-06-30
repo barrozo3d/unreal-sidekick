@@ -3,9 +3,9 @@ title: unreal-engine-5.8-release-notes
 source: Epic Documentation
 url: https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-engine-5.8-release-notes
 ingested: 2026-06-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5.8"
+tags: [release-notes, ue5-8, features, updates, changelog, engine, overview]
+extraction_status: complete
 page_count: 1
 ---
 
@@ -31,24 +31,29 @@ Table of Contents
 ## Structured Notes
 
 ### Core Topics
-[PENDING EXTRACTION]
+**⚠️ Documentation crawl captured only the Table of Contents — no actual release note content was saved.** This file cannot be used for feature reference. See the Epic documentation directly at dev.epicgames.com/documentation/en-us/unreal-engine/unreal-engine-5.8-release-notes for the full UE5.8 changelog. Known UE5.8 features from other tutorials in this index: MetaHuman Animator Markerless mocap plugin (see `unreal-engine-58-new-markerless-motion-capture-tutorial.md`).
 
 ### Summary
-[PENDING EXTRACTION]
+UE5.8 official Epic release notes page — crawl only captured the Table of Contents, no content. **Cannot be used as a reference.** Consult Epic's documentation directly.
 
 ### Key Concepts & Systems
-[PENDING EXTRACTION]
+*Content not captured. See Epic documentation at the source URL.*
+
+Known UE5.8 features referenced in other tutorials in this index:
+- MetaHuman Animator Markerless plugin (no suit/marker mocap from video)
+- Curve Editor Smart Snap and Lattice tool (referenced in `ue5-curve-editor-20-new-lattice-tool-curve-scaling-hacks-ue-56.md` as UE5.6 features — some may be UE5.7/5.8)
 
 ### UE Systems / Settings / Code
-[PENDING EXTRACTION]
+*Content not captured.*
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5.8
 
 ### Tags
-[PENDING EXTRACTION]
+release-notes, ue5-8, features, updates, changelog, engine, overview
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `unreal-engine-58-new-markerless-motion-capture-tutorial.md` — UE5.8 MetaHuman Animator Markerless; markerless mocap workflow
+- `ue5-curve-editor-20-new-lattice-tool-curve-scaling-hacks-ue-56.md` — Curve Editor 2.0 Lattice + Smart Snap (UE5.6)
