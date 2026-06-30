@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=dT4Vl3PGe08
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [lighting, exterior, environment, workflow, technique, skylight, hdri, fog, cinematics, lighting-study]
+extraction_status: complete
 frames_dir: tutorials/frames/the-fastest-way-to-learn-lighting-in-ue5/
 frame_count: 9
 ---
@@ -73,27 +73,75 @@ frame_count: 9
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+**Lighting studies** — the fastest way to improve lighting: take one environment and relight it 5-10 times matching stills from favorite movies, instead of building new environments each time. **Four-element matching framework**: Direction, Size, Color, Intensity. Applied to both exterior daylight (directional light + skylight + sky setup) and cinematic night exteriors (hidden overhead spotlight reflecting on wet ground).
 
 ### Summary
-[PENDING EXTRACTION]
+17-minute Josh Toonen tutorial (Hollywood VFX supervisor; Star Wars, Avatar: The Last Airbender VP set at Pixamundo). Argues lighting studies (re-lighting the same environment with different movie references) beat building new environments for learning speed. Demonstrates exterior lighting fundamentals (directional light + skylight + sky options) then a full lighting study demo matching Girl with the Dragon Tattoo's nighttime exterior. Covers night-exterior "movie trick" (hidden top-of-frame spotlight + wet ground reflection), smoke card color pops, and tracer fire (Point Light Source Length + emissive cylinder mesh). Fog cutoff distance trick for separating foreground from sky dome. Separate levels for effects/lighting toggle.
 
 ### Key Steps
-[PENDING EXTRACTION]
+**Exterior lighting system (minimum 3 actors):**
+1. **Directional Light** (sun) → enable **Atmosphere and Fog → Atmosphere Sun Light** in Details panel
+2. **Skylight** (fill/bounce) → Real Time Capture or enable → Disable after HDRI setup to lock
+3. **Sky** — three options:
+   - Sky Atmosphere + Directional Light (Atmosphere Sun Light) + optional Volumetric Clouds → dynamic procedural sky
+   - **HDRI inverse sphere**: Content Browser (show All folder) → search "sphere inverse normals" (built-in engine mesh) → apply material with HDRI texture on Emissive input → rotate to match directional light
+   - **HDRI Backdrop plugin**: enable plugin → Quick Add Actors → Lights → HDRI Backdrop → auto-includes skylight + sliders for intensity/size; only want ONE skylight total
+4. **Exponential Height Fog**: adds depth separation between foreground and background
+   - Set **In-scattering Color** to match sky color (use eyedropper to sample sky color)
+   - **Fog Cutoff Distance**: set to limit how far fog applies (e.g., set so it affects background buildings but not sky sphere at greater distance)
+
+**Four-element framework for matching any lighting:**
+5. **Direction**: read shadows in reference image — they point back to light source; trace shadow perspective to find light position off-screen
+   - In UE: rotate/translate Directional Light; moving position is more impactful than rotating (especially for spotlights)
+6. **Size**: Directional Light → **Source Angle** (diffuse/shadow softness) + **Source Soft Angle** (specular/reflection):
+   - Sunny hard shadows = default Source Angle (~0.5)
+   - Overcast soft shadows = Source Angle 100; desaturate directional light color
+7. **Color**: match hue AND saturation; don't over-saturate (tints all materials) 
+8. **Intensity**: match brightness relationships between lit/shadowed areas
+
+**Night exterior cinematic trick (Girl with Dragon Tattoo method):**
+9. Create a very bright **Spotlight** hidden at top of frame (outside camera view)
+10. Point it down toward scene; set intensity extremely high (1000+) to blast and clip highlights
+11. Ensure ground material has **roughness < 0.2** (or add **wetness decals**) for wet-ground reflection
+12. Adjust cone angle and position until getting large ground reflection + character silhouette
+13. Create rim light for subject separation from background
+14. Add depth layers with **smoke cards** (plane meshes with animated smoke textures, tinted different colors) — adds color pops without casting light
+15. Enable Volumetric Fog for overhead light god rays
+
+**Tracer fire effect:**
+16. Add **Point Light** → set **Source Length** (converts to tube light)
+17. Attach **cylinder mesh** with **emissive texture** to same actor
+18. Animate both together = tracer that illuminates smoke particles as it passes through
+    - Note: Lumen requires the paired mesh+light approach (not just the light alone) for full effect
+
+**Organization:**
+19. Create separate **levels** (sublevel system) for lighting and effects → toggle on/off independently; geometry stays constant; enables quick A/B comparison between lighting scenarios
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Four-element lighting framework** — Direction, Size, Color, Intensity; apply to any reference image; direction from shadow perspective; size from shadow softness
+- **Atmosphere Sun Light** — Directional Light Detail panel option; connects it to Sky Atmosphere for procedural sky rendering
+- **Sphere Inverse Normals** — built-in UE5 mesh (search "inverse" in Content Browser with All Folders visible); renders from inside out; perfect for sky/HDRI dome
+- **HDRI Backdrop plugin** — adds HDRI Backdrop actor (includes its own skylight); auto-updates skylight when HDRI changes; quicker setup than manual inverse sphere
+- **Source Angle** — Directional Light setting controlling diffuse shadow softness; think of it as the angular size of the sun disk (larger = softer shadows); cloudy day = 100
+- **Source Soft Angle** — Directional Light setting controlling specular/reflection softness; independent from shadow
+- **Fog Cutoff Distance** — Exponential Height Fog setting; limits how far from camera the fog is visible; use to apply fog to background buildings but exclude sky dome at further distance
+- **Wetness decals** — add to ground geometry to lower roughness to < 0.2; enables wet-ground light reflections for night exterior
+- **Source Length** (Point Light) — extends point light into a tube light; changes specular shape but not shadow direction; tracer fire trick pairs it with an emissive cylinder mesh
+- **Separate levels (sublevel)** — effects and lighting in their own Level files; toggle on/off from World settings; geometry in main level stays stable
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner-Intermediate. The three-actor exterior system is simple. The four-element framework is conceptual (no complex settings). Night exterior and tracer tricks are slightly more advanced.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (Lumen implied; Volumetric Fog; techniques apply to UE4+ as well)
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, exterior, environment, workflow, technique, skylight, hdri, fog, cinematics, lighting-study
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `the-1-skill-you-need-for-lighting-in-ue5.md` — companion Josh Toonen tutorial; upstage character lighting technique
+- `realistic-and-physical-lighting-in-ue5-what-is-pbl.md` — PBL theory (units, EV100); pairs with exterior lighting calibration
+- `if-i-have-40-mins-to-light-an-environment-in-unreal-engine-5---ill-do-this.md` — practical 40-min exterior PBL pass (Karim Yasser); more detailed technical calibration
+- `tips-for-sky-atmosphere-fog---unreal-engine-5-ue4.md` — Sky Atmosphere + fog system deep dive
