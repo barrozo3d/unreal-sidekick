@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=YSrYqx19_Y0
 author: Unreal Engine
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [animation, pose-library, additive, hands, face, blend, control-rig, workflow, animator-tools, selection-sets]
+extraction_status: complete
 frames_dir: tutorials/frames/pose-library-additive-mode-layer-animation-poses-in-unreal-engine/
 frame_count: 4
 ---
@@ -33,27 +33,58 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Pose Library in UE5: save/recall preset poses per rig; blend between them with a slider; **Additive Mode** adds the pose delta on top of the current pose without replacing it (blend from A toward B normally; additive stacks the A→B delta on whatever pose you already have). Also works as a "Select Controls" shortcut — clicking any saved pose → Select Controls instantly selects all controls that pose used, without applying it.
 
 ### Summary
-[PENDING EXTRACTION]
+9-minute Epic Animation Hub tutorial (same Sir Wade / ACOM series) demonstrating the Pose Library in animation mode. Covers: accessing via Poses button in animation mode; saving hand poses (select controls → Create Pose → name → Capture Thumbnail); applying poses by double-click (also sets keys if auto-key is on); blend slider (0–1 between current and target pose); normal blend (replaces current pose going to target); **Additive Mode** (new feature: applies pose delta on top of existing pose — curl more fist on top of any current hand position, push eyelids closed past blink, etc.); Mirror settings for L/R symmetry; face pose workflow (same system, works on eye/mouth/jaw controls); Select Controls shortcut (single click → selects relevant controls); practical studio use case (build pose library from existing animation data across shots).
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Open Pose Library**: Animation mode → top menu → **Poses** button → Pose Library panel appears (dock it)
+2. **Save a pose**:
+   - Select specific controls (e.g., all right-hand bone controls) in Anim Outliner
+   - Pose Library → **Create Pose** → name it (e.g., `fist_R`)
+   - Click **Capture Thumbnail** to update the preview image to any desired frame
+   - Repeat for as many poses as needed
+3. **Apply a pose**: double-click any saved pose → applies pose to selected controls; auto-key may also set a key
+4. **Blend slider**: click+drag or single-click a pose → drag the slider (0=current, 1=full pose); blends from current state toward target pose; normal mode replaces current with target
+5. **Additive Mode**:
+   - Click the **Additive** button in the Pose Library panel
+   - Slider now adds the pose's delta (from default to pose) on top of your existing pose
+   - Example: have `grip` pose applied → go additive on `fist_R` → fingers curl MORE without losing grip
+   - Example: blink pose at 0.5 → additive → slider past 1.0 → overshoots eyelids closed (like overshoot control)
+   - Warning: can break mesh by pushing beyond physical limits; use carefully
+6. **Select Controls shortcut**:
+   - Click (single click, not double) any pose → **Select Controls** button → selects all controls that pose used
+   - Use to quickly grab hand/face control sets without manually hunting through anim outliner
+7. **Mirror settings**: Mirror table in settings → define naming convention (bone name L/R suffix) → Pose Library can mirror right-hand poses to left hand
+8. **Face poses**: same workflow — select eye/mouth/jaw controls → Create Pose → apply to face rigs; selection-based (nothing selected = nothing applies)
+9. **Build library from existing animation**: scrub through shots to find good-looking poses → Capture and save them without manually posing from scratch
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Pose Library** — Animation mode panel; access via Poses button; saves/recalls Control Rig poses; asset-based (each pose is a saved asset)
+- **Create Pose** — saves current control selection state + transforms as a named pose asset
+- **Capture Thumbnail** — updates pose preview image to current viewport frame
+- **Double-click** — applies pose AND sets keyframe (if Auto Key active)
+- **Blend Slider (normal mode)** — 0 to 1; interpolates from current position toward saved pose; replaces existing values at 1.0
+- **Additive Mode** — toggle in Pose Library panel; changes blend behavior: adds the pose's transformation delta on top of the existing pose; slider can go past 1.0 for overshoot; applies to body and face equally
+- **Select Controls** — click pose (single) → button appears; selects all controls used in that pose without applying transforms; fastest way to select complex control sets
+- **Mirror Settings** — configure bone naming convention in Pose Library settings → enable L/R mirroring of saved poses
+- **Auto Key** — if enabled, double-clicking a pose also inserts a keyframe at current frame for all affected controls
+- **Selection-based application** — pose only applies to selected controls; nothing selected = nothing happens
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner-Intermediate. Creating and applying poses is trivial. Additive mode behavior and its use cases (overshoot, layering) require understanding of pose mathematics.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (Pose Library with Additive Mode; specific version not stated but part of UE5 animation toolset)
 
 ### Tags
-[PENDING EXTRACTION]
+animation, pose-library, additive, hands, face, blend, control-rig, workflow, animator-tools, selection-sets
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `non-destructive-animation-in-ue5-layered-control-rigs-explained.md` — Layered Control Rigs; additive animation on top of sequences (related non-destructive workflow)
+- `mastering-the-ue5-tweener-tool-push-pull-overshoot-animation.md` — Tween Tool for polish; complements Pose Library for pose refinement
+- `ue5-animation-layers-non-destructive-camera-shake-character-tweaks.md` — animation layers; another approach to additive/non-destructive changes
+- `new-ue5-motion-trails-20-heat-map-camera-space-stabilization.md` — Motion Trails; visualize arc quality after Pose Library adjustments

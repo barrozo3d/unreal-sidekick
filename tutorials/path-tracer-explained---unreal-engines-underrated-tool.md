@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=X5zVhc5ahl0
 author: William Faucher
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE4.27+"
+tags: [path-tracer, rendering, ray-tracing, mrq, materials, glass, subsurface-scattering, denoiser, samples, lighting]
+extraction_status: complete
 frames_dir: tutorials/frames/path-tracer-explained---unreal-engines-underrated-tool/
 frame_count: 13
 ---
@@ -93,27 +93,91 @@ frame_count: 13
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Path Tracer: ground-truth physically accurate renderer in UE; switch in viewport via Lit → Path Tracer; all settings via Post Process Volume → search "Path"; Samples Per Pixel drives quality (10 for preview + denoiser, 500 for quality); spatial × temporal samples multiply in MRQ. Key UE4.27+ improvements: subsurface scattering, proper glass (caustics), frosted glass, thin translucent, emissive HDRI lighting. NOT real-time — for still renders and quality comparison against Lumen.
 
 ### Summary
-[PENDING EXTRACTION]
+26-minute William Faucher deep-dive on the UE4.27 Path Tracer (remains fully applicable to UE5). Covers: what Path Tracing is (ground truth, physically accurate; compares to V-Ray/Arnold); enabling (DirectX12 + Ray Tracing project setting); switching on in viewport; Samples Per Pixel vs denoiser trade-off (low samples = denoiser destroys fine detail); progress bar console command; max bounces (7 typical, ≥10 for glass); filter width; emissive HDRI lighting (no skylight needed); material support — subsurface scattering, glass (caustics), frosted glass, thin translucent; skylight limitation (no volumetric clouds; fix: Real-time Capture + cube map resolution 1024); MRQ setup (spatial × temporal samples multiply; override AA to None; delete Deferred Rendering, add Path Tracer tab); recommended settings (16 spatial × 16 temporal, NO denoiser — denoise in post in DaVinci Resolve instead).
 
 ### Key Steps
-[PENDING EXTRACTION]
+**Enable Path Tracer:**
+1. Edit → Project Settings → Platforms → Windows → Default RHI: **DirectX 12**
+2. Details panel search: **Ray Tracing** → enable; accept Support Compute Skin Cache prompt
+3. Restart engine
+
+**Activate in viewport:**
+- Click **Lit** dropdown → **Path Tracer** → scene begins accumulating samples progressively
+
+**Key settings (Post Process Volume → search "Path"):**
+- **Samples Per Pixel**: default 16,384 (slow); set to 10-100 for preview; 500+ for quality
+- **Denoiser**: toggle; aggressive at low sample counts (destroys fine detail); disable for final renders
+- **Max Bounces**: 7 recommended for general use; 10+ required for glass/refractive materials; each bounce adds indirect light
+- **Filter Width**: anti-aliasing filter; lower = sharper/more aliased; higher = softer
+- **Emissive Materials**: toggle; enables emissive textures (HDRI) to cast light; useful for HDRI-only lighting without skylight
+
+**Progress bar console command:**
+- `r.PathTracing.ProgressDisplay 1` → shows render progress bar at bottom of viewport
+
+**Skylight fix for volumetric clouds:**
+- Select Skylight → set to **Real-time Capture** → set **Cube Map Resolution** to 1024 (or higher) → captures sky into cubemap usable by Path Tracer
+
+**HDRI alternatives:**
+- HDRI Backdrop actor: place in scene → disable its associated Skylight to avoid double-lighting
+- OR: Skylight → Source Type: **SLS Specified Cube Map** → select HDRI cubemap
+
+**MRQ setup for Path Tracer renders:**
+1. Open MRQ → Settings
+2. Add **Anti-Aliasing** tab:
+   - Spatial Sample Count: divide total target samples by temporal count (e.g., 100 spatial × 5 temporal = 500 total)
+   - Temporal Sample Count: drives motion blur quality (5-16 recommended)
+   - Override AA → **None**
+3. Delete **Deferred Rendering** tab
+4. Add **Path Tracer** tab (same settings as Deferred; replaces render method)
+5. Hit Render
+
+**Recommended settings:**
+- 16 spatial × 16 temporal = 256 total samples per pixel
+- Denoiser: **OFF** — denoise in post (DaVinci Resolve, Nuke) for more control and less detail loss
+- Albedo values: keep below 0.8 (no pure-white materials; improves render performance)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Path Tracer** — ground-truth physically based renderer; viewport Lit dropdown → Path Tracer; requires DX12 + Ray Tracing enabled; not real-time; accumulates progressively
+- **Samples Per Pixel (Post Process Volume)** — controls render quality; low = fast + noisy; high = slow + clean; multiplied by temporal in MRQ
+- **Denoiser (Path Tracer)** — aggressive; destroys fine detail at low samples; non-temporal (causes flicker in animation); disable for final renders; denoise in post instead
+- **Max Bounces** — number of light bounces; 7 for general use; 10+ for glass/refractive materials; diminishing returns beyond 12-15
+- **Emissive Materials toggle** — allows emissive textures to contribute lighting; enables HDRI-only lighting without any skylight or directional lights
+- **`r.PathTracing.ProgressDisplay 1`** — console command; shows render progress bar in viewport
+- **Skylight Real-time Capture** — captures current sky (including volumetric clouds) into cubemap; workaround for path tracer not supporting volumetric clouds natively; set Cube Map Resolution 1024+
+- **HDRI Backdrop plugin** — place actor in scene; emissive HDRI lights scene; disable associated skylight to avoid double-lighting
+- **MRQ Path Tracer tab** — add in MRQ settings to switch render method to path tracer; remove Deferred Rendering tab; samples controlled by AA tab (not PPV)
+- **Temporal Sample Count (MRQ)** — multiplies with spatial samples; improves motion blur; 5-16 recommended
+- **Glass material setup** — Blend Mode: Translucent; Lighting Mode: Surface Forward Shading; Roughness: 0 (clear) or >0 (frosted); IOR: 1.5; requires ≥10 bounces
+- **Thin Translucent material** — Blend Mode: Translucent; Shading Model: Thin Translucent; add Thin Translucent Material Output node; shadow/material color from that node; use for plastic wrap/bubbles (not glass)
+- **Subsurface Scattering** — supported in Path Tracer since UE4.27; Shading Model: Subsurface; random walk method; no plugins needed
+
+**Limitations (UE4.27 era, some addressed in UE5):**
+- Hair strands: not supported
+- Cascade particle systems: not supported
+- Spline meshes: not supported
+- Decals: not supported
+- Volumetric/exponential height fog: not supported
+- Light functions: not supported
+- Single layer water: not supported
+- No multi-GPU support
+- Depth of field: uses regular PP DOF (not path-traced); some jitter at extreme settings
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate. Enabling is straightforward. Understanding sample counts, denoiser trade-offs, and MRQ setup for animation requires experience. MRQ spatial × temporal math is a key concept.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE4.27+ (originally released UE4.27; all features apply to UE5; some limitations resolved across UE5.x versions)
 
 ### Tags
-[PENDING EXTRACTION]
+path-tracer, rendering, ray-tracing, mrq, materials, glass, subsurface-scattering, denoiser, samples, lighting
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `lumen-explained---important-tips-for-ue5.md` — Lumen real-time GI; use Path Tracer to validate/compare against Lumen approximations
+- `lighting-in-unreal-engine-5-for-beginners.md` — Lumen lighting setup; Path Tracer is the quality benchmark for comparing
+- `the-2025-guide-to-rendering-in-unreal-engine-5.md` — broader rendering overview; Path Tracer as one of the render modes covered
+- `make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta.md` — MRQ basics; Path Tracer as alternative render output method
