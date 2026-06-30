@@ -2087,16 +2087,6 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **File:** tutorials/recreating-brutal-deaths-from-history-in-unreal-engine-5.md
 
 
-### Recreating BRUTAL Deaths from History in Unreal Engine 5
-- **Source:** YouTube
-- **URL:** https://www.youtube.com/watch?v=2t3c1KJbBe8
-- **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** UE5 (MetaHuman Animator, OverCrowd, FAB marketplace)
-- **Tags:** production-breakdown, cinematics, metahuman, move-pro, overcrowd, niagara, sequencer, historical-drama, client-work, mocap, metahuman-animator, voice-ai, ue5
-- **Summary:** Production breakdown of Charlie Driscoll's client project for Sharp Entertainment (Doomsday Preppers, 90 Day Fiance producers) — a proof-of-concept for "Die Like a Legend," an historical drama series recreating famous deaths in UE5. The project (Emperor Valerian vs. Persian King Shapur) was completed solo in one month. Key workflow decisions: source pre-lit FAB environments and modify lighting ...
-- **File:** tutorials/recreating-brutal-deaths-from-history-in-unreal-engine-5.md
-
-
 ### The EASIEST and CHEAPEST Motion Capture Setup for Metahumans in Unreal Engine 5.6 (No Headrig)
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=M799eoMK4tw
@@ -2106,15 +2096,6 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** 4-way single-camera AI mocap shootout (QuickMagic/Meshcapade/Move One/Marionette) for full pirate short film — Android phone only, no head rig. MetaHuman Animator Monocular Footage for face (Head Movement Disabled). Hybrid winner: QuickMagic (.94/min, dialogue) + Meshcapade (0.80/min, movement) = 4 total. Per-shot spawnable Sequencer setup, OverCrowd 5k zombies.
 - **File:** tutorials/the-easiest-and-cheapest-motion-capture-setup-for-metahumans-in-unreal-engine-56.md
 
-
-### The EASIEST and CHEAPEST Motion Capture Setup for Metahumans in Unreal Engine 5.6 (No Headrig)
-- **Source:** YouTube
-- **URL:** https://www.youtube.com/watch?v=M799eoMK4tw
-- **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** 5.6 (MetaHuman Creator integrated; UE5.6 mannequin skeleton export option in QuickMagic)
-- **Tags:** mocap, single-camera, metahuman, metahuman-animator, quickmagic, meshcapade, move-one, marionette, overcrowd, sequencer, cinematics, budget-mocap, ai-mocap, face-capture, ue5-6
-- **Summary:** Charlie Driscoll compares 4 single-camera AI mocap systems head-to-head for a full 5-minute pirate short film "Cavern of the Damned" using only a Samsung Note S23 Ultra at 4K 60fps. Results: QuickMagic ($2.94/min, max 60s clips, best for subtle acting, upper-body mode available) wins for dialogue; Meshcapade ($10.80/min, 2-actor support, best spatial accuracy) wins for walking/complex blocking....
-- **File:** tutorials/the-easiest-and-cheapest-motion-capture-setup-for-metahumans-in-unreal-engine-56.md
 
 
 ### How to Generate Custom Metahuman Bodies with AI - YVO3D, Faceform Wrap, 2DNAX - Unreal Engine 5
@@ -2701,16 +2682,6 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Tags:** compositing, vfx, cinematics, pipeline, intermediate
 - **Summary:** Josh Toonen breaks down the VFX for his viral Last of Us fan film "Stay" — over 90% of shots contain visual effects, mostly invisible. Covers full-CG zombie head replacement (frame-by-frame 3D animation matching to live actor), layered matte painting for destruction and fungus, camera tracking workflow, atmospheric particle systems, sky replacement with matching light, and complete location rep...
 - **File:** tutorials/how-we-made-the-last-of-us-stay-vfx-breakdown.md
-
-
-### Realistic and Physical Lighting in UE5: What is PBL ?
-- **Source:** YouTube
-- **URL:** https://www.youtube.com/watch?v=JoxgvwNFc8g
-- **Author:** arthur tasquin
-- **UE Version:** UE5
-- **Tags:** lighting, rendering, intermediate
-- **Summary:** Arthur Tasquin, a real-time artist from the VFX industry, introduces PBL: using real-world light intensities in CG lighting for consistency and coherence. Covers the 4 lighting units mapped to UE light types, how to sample data with a light meter, multi-scenario projects using Sub-Levels + Level Sequences, and his PBL Database FAB plugin. Part 1 of 2.
-- **File:** tutorials/realistic-and-physical-lighting-in-ue5-what-is-pbl.md
 
 
 ### Realistic and Physical Lighting in UE5: The PBL Workflow
