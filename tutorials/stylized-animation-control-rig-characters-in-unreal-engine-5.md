@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=WMKvwVIuFS4
 author: Unreal Engine
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [animation, control-rig, modular-rig, characters, sequencer, ik-fk, face-rig, workflow, animator-tools, acom]
+extraction_status: complete
 frames_dir: tutorials/frames/stylized-animation-control-rig-characters-in-unreal-engine-5/
 frame_count: 4
 ---
@@ -33,27 +33,65 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Tour of the ACOM (Agora) stylized character rig in UE5 Sequencer. Characters (Beta, Delta) use a three-asset system: Skeletal Mesh + Control Rig Corrective (keep-on-model deformations) + Modular Rig (the actual animation controls). Drag the Modular Rig asset into a viewport to auto-generate a Level Sequence with the character ready to animate. Key everything at frame 0 (S key). Use mid-arm control's **IK Solve** attribute to toggle IK↔FK. Face controls hidden by default — enable via head control's **Control Visibility** + **Head Dynamic Visibility**. Alt+click in Anim Outliner to select an entire hierarchy branch instantly.
 
 ### Summary
-[PENDING EXTRACTION]
+13-minute Unreal Engine / Epic ACOM tutorial series video (Sir Wade). Walks through the Beta Agora character rig — three-asset architecture (Corrective, Modular Rig, Control Rig); drops modular rig asset into viewport to auto-generate a Level Sequence; sets a key on everything (S key) at frame 0 as best practice to prime IK/FK snapping; demonstrates global/COG/body control hierarchy; IK↔FK toggle via mid arm control attribute; face controls (jaw, lip shapers, mouth main, zipper controls) hidden by default and enabled via head control visibility attributes; Alt+click in Anim Outliner for hierarchy-branch selection of fingers, legs, eyelids. All ACOM characters (Beta, Delta, others) share the same modular conventions so skills transfer across the set.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Find the character assets** — Content Browser → Assets → Characters → Beta (or Delta)
+   - Three key assets: Skeletal Mesh (purple), Control Rig Corrective (deformation logic), Modular Rig (animation controls)
+2. **Drop Modular Rig into viewport** → auto-creates a Level Sequence with the character and control rig ready
+   - If a Level Sequence was already open: character adds to that sequence
+   - If none open: new sequence generated automatically
+3. **Key everything at frame 0** (best practice):
+   - In Sequencer → Control Rig track → **Set Key on Everything** button
+   - Also enable **Auto Key**
+   - Reason: primes IK/FK snapping and auto-key evaluation logic
+4. **Navigate the Anim Outliner hierarchy**: Global → Local → Body (COG) → Spine → Clavicle → Arm…
+   - Control Visibility attribute on root: toggles all control visibility and shows tweaker/hidden controls
+5. **Switch arm IK → FK**:
+   - Select **Left/Right Arm Mid** control
+   - In Item Details panel: uncheck **Left Arm IK Solve** (or Right)
+   - FK controls become visible; arm follows body
+6. **Foot/leg FK**: same pattern — **Left/Right Leg Mid** control → IK Solve attribute
+7. **Enable face controls**:
+   - Select the **Head Control** (main yellow control at top)
+   - Item Details → enable **Head Dynamic Visibility** (reveals hair controls)
+   - Enable **Control Visibility** (reveals full face rig)
+   - Face controls: jaw (rotation), lip shapers, mouth main mover, zipper controls (lip seal)
+   - Alt+click eyelid group in Anim Outliner to select all eyelid controls
+8. **Hierarchy selection shortcut**:
+   - In Anim Outliner: **Alt+click** on any group (e.g. thumb, meta, leg) selects entire branch
+   - **Alt+Shift+click** adds branch to existing selection
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Modular Rig** — rigging editor where custom rig modules (finger, foot, hind leg, etc.) are stacked on sockets; Agora provides custom modules for these characters; reusable across characters with consistent naming conventions
+- **Control Rig Corrective** — forward solve asset that keeps character on-model during posing; runs deformation logic on top of Control Rig
+- **Set Key on Everything** — Sequencer Control Rig track button; sets a keyframe on every control at current frame; critical first step
+- **Auto Key** — automatically creates keys on any control you move; must be enabled for smooth workflow
+- **Item Details panel** — equivalent of Maya's Channel Box; shows per-control attributes (IK Solve, Stretch, Softness, Pole Vector, etc.)
+- **Anim Outliner** — hierarchy view of all rig controls; Alt+click selects full branch; functions as a selection-set system
+- **IK Solve attribute** (on arm/leg mid controls) — checkbox that toggles IK vs FK; must have a key on frame 0 for snapping to work correctly
+- **Control Visibility** (head control attribute) — shows/hides face controls overlay
+- **Head Dynamic Visibility** (head control attribute) — shows/hides hair controls
+- **Zipper controls** — face rig lip-seal controls; essential for keeping lips together during jaw movement
+- **Tweaker controls** — hidden by default; exposed via Control Visibility attribute on global root; small offset controls for fine-tuning
+- **ACOM Sample Project** — free Epic Games sample project containing Beta, Delta, and other Agora characters; all share the same modular rig conventions
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner-Intermediate. Dropping the modular rig and keying everything is trivial. Understanding the three-asset architecture (Skeletal/Corrective/Modular) and the IK↔FK attribute system requires a mental model shift if coming from Maya or other DCCs.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (ACOM Sample Project; Modular Rig system introduced in UE5)
 
 ### Tags
-[PENDING EXTRACTION]
+animation, control-rig, modular-rig, characters, sequencer, ik-fk, face-rig, workflow, animator-tools, acom
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `non-destructive-animation-in-ue5-layered-control-rigs-explained.md` — Layered Control Rigs; non-destructive additive animation on top of sequences (same ACOM series context)
+- `slow-motion-secrets-how-to-time-warp-animation-in-unreal-engine.md` — Time Warp sequencer track; used in same ACOM cinematic project (Shot 60)
+- `pose-library-additive-mode-layer-animation-poses-in-unreal-engine.md` — Pose Library additive mode; face + body pose workflow; Select Controls shortcut
+- `ue5-constraints-are-easy-parent-constraint-workflow-for-animators.md` — Constraint system in UE5 Sequencer; complements the modular rig character workflow

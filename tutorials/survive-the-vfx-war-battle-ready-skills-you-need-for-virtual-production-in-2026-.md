@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=1kcelYQLkP0
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [career, virtual-production, industry, vfx, compositing, pipeline, workflow, advice, interview, filmmaking]
+extraction_status: complete
 frames_dir: tutorials/frames/survive-the-vfx-war-battle-ready-skills-you-need-for-virtual-production-in-2026-/
 frame_count: 26
 ---
@@ -158,27 +158,72 @@ frame_count: 26
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+**Industry / Career Q&A — no step-by-step UE technical content.** Dean Yurke (ILM compositor/generalist; Loki, Hawkeye, Mandalorian, Exodus Mega Grant) as NCSU MADtech guest lecturer. Key actionable takeaways: (1) Showreel beats degree — build discipline-specific work samples; (2) Top 3 tools outside UE: **Nuke** (compositing essential across every discipline), **3D modeling/topology/UVs** (real-time optimization), **Substance Painter** (kitbashing/repurposing assets); (3) Storytelling first — story > actors > design/VFX; (4) UE5 animatic-to-final iterative pipeline (same project, same assets, leveled up). UE-specific mentions: Composure for blue-screen extraction + UE composite; Path Tracer for key shots; real-time viewport with live plates.
 
 ### Summary
-[PENDING EXTRACTION]
+60-minute NCSU MADtech guest lecture Q&A with Dean Yurke, cut to the Q&A mid-section. No tutorial steps. Industry career advice for students entering VFX/virtual production. Dean's background: Peerless Camera (Loch Ness film, early digital) → ILM (Star Wars Episode 1, then environments on Loki/Hawkeye/Mandalorian during COVID) → UE5 discovery → Exodus feature film (Epic Mega Grant). Channel started as personal learning-doc videos for his film. Storytelling-first philosophy throughout. AI discussion: use generative tools but keep story and actors as the anchor. Iterative animatic pipeline using UE as the backbone from first pass to live action finish — nothing is thrown away.
 
 ### Key Steps
-[PENDING EXTRACTION]
+*No procedural UE steps in this video. Key career and workflow principles:*
+
+**Getting into the industry:**
+- Showreel is more important than degree — make discipline-specific work (compositing, effects, etc.)
+- Work on spec shots or collaborations if you lack professional samples
+- Attitude and collaboration skills are as important as technical skill (you can be let go for being difficult)
+- College group projects simulate the collaborative reality of studio work
+- Recommendations from classmates/colleagues get you jobs; degree proves you can work with others
+
+**Top tools to learn (outside UE):**
+1. **Nuke** — compositing is useful in every discipline; present work in context to supervisors; handle rough comps for live action integration
+2. **3D modeling / topology / UVs** — efficient models are critical for LED volume / real-time; baking and optimization matter
+3. **Substance Painter** — kitbashing, repurposing, retexturing existing assets for environments
+
+**AI / generative tools:**
+- Great time to enter the industry — level playing field vs. established artists when new tools emerge
+- Use all new AI tools; understand *why* you're using them (always in service of story)
+- Current useful AI: texturing, modeling assist, camera tracking, blue screen extraction
+- Limitation: AI-generated story content lacks human connection; audience needs characters to care about
+
+**Storytelling philosophy:**
+- Story first → actors → design/VFX (verisimilitude beats historical accuracy)
+- Director's vision always overrides your aesthetic preferences — understand the whole story context of each shot
+- Audience is in the story when it's good; they don't analyze historical accuracy or visual effects technique
+- Iterative workflow: make an animatic, come back and refine; don't lock live action until you're ready
+- Neil Blevins "Art of Soulburn" YouTube channel — composition, tangents, big/medium/small, tertiary objects, lighting theory
+
+**Dean's UE pipeline:**
+- Discovered UE5 while working on Exodus; previous pipelines (V-Ray/3ds Max) were 20 min/frame
+- "Mouth hit the floor" moment: real-time + bring in live-action plates + adjust lighting in context
+- Composure: blue-screen film → camera track → extraction → bring into UE → rebalance + render
+- Animatic pipeline: UE5 animatic → same project leveled up to live action; same camera, same assets, nothing thrown away
+- Can fork to volume wall, Path Tracer key shots, or 3ds Max/V-Ray for ultra-high-fidelity from same UE base
+
+**Soft skills:**
+- "CBB" (Could Be Better): don't react to late-night creative notes in the moment; say "let me think about that"
+- Presenting work to supervisors is ~50% of the job
+- Sharing workflows encourages community reciprocity; a rising tide lifts all boats
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Composure** — UE's built-in compositing system; Dean uses it for blue-screen extraction + UE5 environment composite (quality has improved significantly; less need for heavy post-treatment)
+- **Path Tracer** — used for leveling up key shots from animatic to final-render quality within the same UE project
+- **UE5 real-time viewport with live plates** — ability to bring in filmed plates and light-match them in real time was the "mouth hit the floor" discovery for Dean
+- **Iterative animatic pipeline** — UE5 project as the single backbone from first animatic to live action finish; same Level Sequence, same assets, same camera progressively leveled up; nothing is thrown away
+
+*Note: This video contains no hands-on UE tutorial steps. Refer to other entries in this index for technical implementations.*
 
 ### Difficulty
-[PENDING EXTRACTION]
+N/A (career Q&A / industry lecture, not a technical tutorial)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (Composure, real-time compositing, animatic pipeline; no version-specific features discussed)
 
 ### Tags
-[PENDING EXTRACTION]
+career, virtual-production, industry, vfx, compositing, pipeline, workflow, advice, interview, filmmaking
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `no-cost-virtual-production-is-here---and-its-changing-filmmaking.md` — virtual production overview / accessible pipeline (thematic overlap with Dean's pipeline philosophy)
+- `the-future-of-filmmaking-in-unreal-5-virtual-production.md` — virtual production for filmmakers; similar scope
+- `path-tracer-explained---unreal-engines-underrated-tool.md` — Path Tracer deep-dive (mentioned by Dean for high-fidelity key shots)
+- `ue5-filmmaking-series-xꙩdus-animatic-to-teaser---real-time-micro-budget-movies.md` — Dean Yurke's own Exodus animatic-to-teaser breakdown (same pipeline described here)
