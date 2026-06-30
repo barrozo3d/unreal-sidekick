@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=I3GzRdnFEIw
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [metahuman, move-ai, mocap, short-film, virtual-production, metahuman-animator, eleven-labs, scale, indie-studio, cinematics]
+extraction_status: complete
 frames_dir: tutorials/frames/moveai-and-unreal-engine-5-metahuman-short-film---gigantic-joe/
 frame_count: 2
 ---
@@ -33,27 +33,39 @@ frame_count: 2
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Move.AI (suitless markerless mocap) + MetaHuman Animator (face) + ElevenLabs (AI voice) + UE5 MetaHuman scale manipulation — three-character dialogue scene where one character is scaled to giant size. Demonstrates creative use of UE5's real-time scale flexibility (a feature impractical in live-action production). Primarily a short film showcase with brief production commentary.
 
 ### Summary
-[PENDING EXTRACTION]
+5-minute Charlie Driscoll short film "Gigantic Joe" — a sci-fi/fantasy dialogue scene between two normal-sized characters and one gigantic genetically-altered character. Minimal technical instruction (mostly the film itself). Post-film commentary confirms stack: UE5 + Move.AI (suitless mocap) + ElevenLabs voice morphing + MetaHuman Animator. Author notes that after initial technical hurdles the pipeline becomes intuitive; key advantage is "puppeting" characters with your own performance via MetaHuman Animator. Creative learning goal: playing with scale (giant character framing/lighting) — something impractical in live action. One-person or small indie studio production; made in a few days.
 
 ### Key Steps
-[PENDING EXTRACTION]
+- Source/create custom MetaHumans (includes a giant-scaled version)
+- Move.AI capture for body performance → import animation to UE5
+- MetaHuman Animator for facial capture (driven by performer's own performance)
+- ElevenLabs for AI voice morphing to give giant character a distinctive voice
+- Scale one MetaHuman character to giant size in UE5 (standard Actor Scale property)
+- Film the three-character dialogue scene in Sequencer with appropriate camera framing for scale contrast
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Move.AI** — markerless suitless mocap system; body capture; no suit required for performers
+- **MetaHuman Animator** — facial capture using performer's own facial expressions; driven via Live Link
+- **MetaHuman scaling** — scale Actor Transform to make MetaHuman giant; UE5 handles lighting/shadow/physics at any scale; useful for characters impractical to do in live action
+- **ElevenLabs** — AI voice morphing/synthesis; used to create distinct character voice separate from performer's real voice
+- **UE5 real-time lighting** — lighting a giant character requires no special workflow; Lumen handles global illumination automatically at any character scale
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate-Advanced. Requires Move.AI hardware and familiarity with MetaHuman Animator pipeline. The technical stack (Move.AI + MetaHuman Animator + ElevenLabs) involves multiple software integrations. Content is mostly a film showcase rather than a step-by-step tutorial.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (no specific minor version; MetaHuman Animator + Move.AI ecosystem)
 
 ### Tags
-[PENDING EXTRACTION]
+metahuman, move-ai, mocap, short-film, virtual-production, metahuman-animator, eleven-labs, scale, indie-studio, cinematics
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `motion-capture-sword-fighting-cinematic-in-unreal-engine-5---moveai-and-metahuma.md` — Charlie Driscoll Move.AI sword fight breakdown (more technical detail)
+- `moveai-and-unreal-engine-5-metahuman-cinematic---hacker.md` — Charlie Driscoll Move.AI + MetaHuman Animator cinematic (same pipeline, more breakdown)
+- `metahuman-realtime-animator-best-practices-unreal-engine-animation-hub.md` — MetaHuman Animator webcam best practices; FPS/exposure settings
+- `metahumans-in-unreal-engine.md` — MetaHuman Blueprint structure, LODs, Control Rig animation

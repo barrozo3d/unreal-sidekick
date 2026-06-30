@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=ukk4vw-bIpA
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [mocap, move-ai, metahuman, swordfight, cinematics, sequencer, control-rig, short-film, choreography, handheld-camera]
+extraction_status: complete
 frames_dir: tutorials/frames/motion-capture-sword-fighting-cinematic-in-unreal-engine-5---moveai-and-metahuma/
 frame_count: 5
 ---
@@ -53,27 +53,59 @@ frame_count: 5
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+"Lego pieces" fight choreography approach: capture many short (5-10s) paired combat animations with Move.AI (markerless mocap, no suits) → chop and mix/match in UE5 Sequencer to assemble any fight scene. Two actors simultaneously in the Move.AI volume. Bake to Control Rig for wrist/weapon alignment cleanup. Manual hand-animated cameras with intentional "camera bump" timing for impact feel.
 
 ### Summary
-[PENDING EXTRACTION]
+8-minute Charlie Driscoll film breakdown of a Move.AI-powered two-actor sword fight cinematic in UE5. Workflow: hired two professional stuntmen for 2 hours → Move.AI captured full range of improv + blocked combat animations → imported into UE5, assigned to two MetaHumans with Medieval Armor pack → chopped animations into Sequencer → baked to Control Rig for cleanup (removed hand tracking on sword hand, adjusted wrist angles for sword contact) → two manually-keyframed handheld cameras (one per fighter, opposite sides) with camera bump effects at impact moments. Entire animation cleanup ≈ 2 hours; each camera ≈ 20-30 minutes.
 
 ### Key Steps
-[PENDING EXTRACTION]
+**Mocap Shoot (Move.AI):**
+1. Hire choreographers/stuntmen; 2-hour shoot is sufficient for many usable clips
+2. Move.AI: markerless, suitless — no setup per actor; just wardrobe that works with capture
+3. Two actors simultaneously in the volume; improv + blocked choreography
+4. Preview clips immediately in Move.AI; select best performances
+
+**UE5 Assembly:**
+1. Source environment from library (cathedral); evaluate existing lighting — minimal changes if it's already good
+2. Drop in two MetaHumans; apply **Medieval Armor pack from Polyphoria** for clothing
+3. Chop desired animations → Sequencer → assign to each MetaHuman
+4. Right-click animation → **Bake to Control Rig** for manual cleanup
+
+**Animation Cleanup (Control Rig):**
+- Remove hand tracking on sword-holding hand (no need for hand animation when gripping weapon)
+- Manually adjust wrist rotation keyframes so weapons actually make contact at correct angles
+- Rough cleanup acceptable if camera angles + shaky cam will hide imperfections
+- ~2 hours total cleanup time for a full fight scene
+
+**Camera Work:**
+1. Two cameras: one per fighter, placed on roughly opposite sides
+2. Manual keyframe camera tracking: advance timeline → reframe → add keyframe; repeat
+3. ~20-30 minutes per camera
+4. Handheld shakiness (small constant camera motion) to sell realism
+5. "Camera bump" — instead of screen shake at sword hits, animate camera position itself slightly when fighters pass close to camera (more realistic than digital shake)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Move.AI / Move Pro** — markerless suitless mocap; two actors simultaneously; no suit setup; wardrobe-friendly; previews clips in Move.AI app before export to UE
+- **Bake to Control Rig** — Sequencer right-click animation → Bake to Control Rig; converts mocap to editable keyframe curves; required for weapon alignment cleanup
+- **MetaHuman** — two custom MetaHumans as fighters; Medieval Armor (Polyphoria) attached as clothing
+- **Weapon / prop attachment** — sword attached to hand bone; no automatic wrist tracking accuracy → must manually correct in Control Rig after baking
+- **Paired animations** — 5-10s combat interaction clips where both characters perform matching moves; more useful than single-character animations for fight scenes
+- **Handheld camera keyframing** — manual camera position keyframing in Sequencer; advance a few frames, reframe viewport, set key; gives organic camera movement
+- **Camera bump effect** — animated camera position shift when characters pass near camera; simulates accidental physical contact vs. synthetic digital shake
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate. Requires Move.AI system (markerless mocap hardware/software). UE5 portion is straightforward Sequencer + Control Rig cleanup. Camera work is time-consuming but procedural. Most effort is in animation cleanup (wrist angles for weapon contact).
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (no specific minor version; Move.AI + MetaHuman Sequencer workflow)
 
 ### Tags
-[PENDING EXTRACTION]
+mocap, move-ai, metahuman, swordfight, cinematics, sequencer, control-rig, short-film, choreography, handheld-camera
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `moveai-and-unreal-engine-5-metahuman-cinematic---hacker.md` — Charlie Driscoll Move.AI + MetaHuman Animator cinematic pipeline
+- `moveai-and-unreal-engine-5-metahuman-short-film---gigantic-joe.md` — Gigantic Joe: Move.AI + ElevenLabs + scale character short film
+- `motion-capture-isnt-just-for-hollywood-any-more.md` — Josh Toonen Rococo suit mocap pipeline; similar filmmaking cycle but with different mocap system
+- `metahumans-in-unreal-engine.md` — MetaHuman Blueprint structure, animation, Control Rig setup
