@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=4X16gnNVD1E
 author: Black Eye Technologies
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [black-eye-cameras, car-camera, driving, cinematics, gameplay, velocity-lookahead, follow, damping, sequencer, workflow]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics/
 frame_count: 8
 ---
@@ -33,27 +33,83 @@ frame_count: 8
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Full Black Eye car camera tutorial — two sections: (1) gameplay driving camera (procedural, no keyframes) with positional/rotational damping, velocity look ahead, and dynamic FOV; (2) cinematic car shots using BEC + Sequencer with subject screen-space position keyframing, follow offset tracks, extra yaw tracks, and look at offset for targeting sub-regions of the car. Core principle: **work through the lens** — adjust what you see in the viewport and BEC auto-keys it.
 
 ### Summary
-[PENDING EXTRACTION]
+24m45s comprehensive Adam (Black Eye Technologies) car camera tutorial. Two major sections. **Gameplay driving cameras:** Simple Look At + Auto Assign Player 0 → Follow + Look At modules → Save and Play; tune Positional Damping (braking/accel feel), Orientation Damping (rotational decoupling), Look At Offset (pivot point on car — front feels heavier), Velocity Look Ahead (pivot shifts forward with speed), Screen Space Composition (car position on screen), Look At Yaw Damping (car moves on screen based on steering). Camera shake: Camera Shake track + Black Eye noise profiles (Duration=0 for infinite; acknowledged as non-ideal; better system coming). **Cinematic shots:** BEC camera + Sequencer; Look At + pick car; add Transform track; key frame camera position (2-3 keys for flyby); Subject Screen Space Position track → key frame car's X/Y screen position at each frame (BEC handles all rotation math); Look At Offset for targeting logo/part; Follow mode for tracking shots + Follow Offset track; Extra Yaw track for swinging around car; Dynamic FOV + Velocity Look Ahead for speed feel. "Work through the lens" workflow: auto-key mode = adjust viewport, BEC records it.
 
 ### Key Steps
-[PENDING EXTRACTION]
+**GAMEPLAY DRIVING CAMERA:**
+1. Drop **Simple Look At** camera → Auto Assign: **Player 0** (binds to player-controlled pawn)
+2. Enable **Follow** → pick car; enable **Look At** → pick car → camera attaches procedurally
+3. **Save and Play** — settings saved during runtime so you can tune while game runs
+
+**Position + composition:**
+4. **Follow Offset**: set camera distance from car (X/Y/Z)
+5. **Screen Space Composition**: adjust to put car in desired screen position
+6. Switch Follow mode to **World Space** to enable Velocity Look Ahead
+
+**Damping controls:**
+7. **Follow Positional Damping** — decouples braking/acceleration; 0 = hard-pinned (no feel); high = car gets away from camera; find middle for weight feel
+8. **Orientation Damping** — decouples rotation; 0 = camera rigidly follows car's heading; high = car can spin while camera slowly catches up; controls that "drifting" camera feel
+9. **Look At Yaw Damping** (Screen Space Damping) — lets car move on screen based on steering speed; blue dot shows car's screen position
+
+**Pivot point:**
+10. **Look At Offset**: move pivot point forward (front of bumper) = camera pivots around front = more sense of weight; backward = pivots around center = old-school video game feel
+11. **Velocity Look Ahead**: when high speed → pivot point moves forward ahead of car; when stopped → pivot returns to car center; creates real sense of speed progression
+
+**Camera shake:**
+12. Add **Camera Shake track** in Sequencer → drag Black Eye noise profile (in Black Eye content, Examples) → Duration = 0 for infinite; tune amplitude/frequency; noise-based = imperfect but functional
+
+---
+
+**CINEMATIC CAR SHOTS:**
+13. Drop BEC camera → enable **Look At** → eyedropper → car; move camera to desired position
+14. Drag camera to Sequencer → add **Transform track** + **Camera Cuts track**
+15. Key frame camera position (just 2-3 keys for sweeping motion); BEC handles all look-at rotation automatically
+
+**Composition key framing:**
+16. Add **Subject Screen Space Position track** (X/Y) in Sequencer → key frame where you want the car on screen at each point; BEC recalculates rotation to match — no manual rotation keyframing
+17. To track specific part of car: **Look At Offset** → move to car logo or front bumper → camera now tracks that sub-region
+
+**Follow for tracking shots:**
+18. Enable **Follow** → pick car → camera snaps behind car (default 300 side offset)
+19. Add **Follow Offset track** → key frame the camera's positional relationship over time (side → front → other side for sweeping orbit)
+20. Add **Extra Yaw track** → key frame camera yaw around car for cinematic swings
+
+**Work through the lens:**
+21. Enable Auto Key mode in BEC → adjust what you see in viewport → BEC automatically records the desired composition/position key → no manual number entry needed
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Simple Look At** (Black Eye) — main camera prefab; Follow + Look At modules; all settings described below
+- **Auto Assign: Player 0** — binds BEC camera automatically to player-controlled pawn at runtime; removes need for manual subject assignment in gameplay
+- **Save and Play** — BEC setting: preserves runtime tuning to the saved asset; enables live tuning during PIE
+- **World Space** (Follow mode) — required for Velocity Look Ahead; Screen Space mode disables velocity lookahead
+- **Follow Positional Damping** — 0 = rigid; high = sluggish camera feels left behind; tune for braking/acceleration feel
+- **Orientation Damping** — 0 = camera rotates instantly with car; high = camera rotates slowly (drifting feel)
+- **Look At Offset** — moves the pivot/focus point relative to subject; offset to front bumper for "weight" feel; offset to logo for product shots
+- **Velocity Look Ahead** — moves pivot point forward proportional to speed; centers at rest; creates strong sense of speed; tune amount
+- **Look At Yaw Damping / Screen Space Damping** — camera rotation decoupled in screen space; car can drift left/right on screen during hard steering; blue dot debug shows car's screen position
+- **Dynamic FOV** — auto-zoom; useful for drone/replay cameras; keep character/subject a consistent % of frame
+- **Subject Screen Space Position track** — Sequencer track; key frame car's desired X/Y position on screen; BEC handles all camera rotation math automatically per frame
+- **Follow Offset track** — Sequencer track; key frame camera's offset from followed subject; enables sweeping orbit shots
+- **Extra Yaw track** — Sequencer track; key frame camera's yaw rotation around look-at point; good for swinging behind car or dramatic reveal
+- **Camera Shake track** — Sequencer track; attach Black Eye noise profiles; Duration=0 = infinite; noise-based (not ideal; better BEC shake system coming)
+- **Auto Key mode** — BEC records composition changes as key frames automatically while you work in viewport
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate. Gameplay setup is beginner-simple; cinematic composition keyframing is intermediate but becomes fast once mastered.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (Black Eye Cameras)
 
 ### Tags
-[PENDING EXTRACTION]
+black-eye-cameras, car-camera, driving, cinematics, gameplay, velocity-lookahead, follow, damping, sequencer, workflow
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `unreal-engine-black-eye-cameras-car-camera-intro.md` — promo intro for this tutorial
+- `unreal-engine-black-eye-cameras-overview-tutorial.md` — full BEC plugin overview
+- `unreal-engine-black-eye-cameras-follow-component-dwell-radius.md` — Follow module advanced: dwell radius
+- `unreal-engine-black-eye-cameras-supercharge-your-workflow.md` — BEC rapid workflow tips

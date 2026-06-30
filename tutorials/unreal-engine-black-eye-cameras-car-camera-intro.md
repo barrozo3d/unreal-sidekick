@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=Wh-QAH49C70
 author: Black Eye Technologies
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [black-eye-cameras, car-camera, driving, cinematics, follow, damping, velocity-lookahead, gameplay]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-car-camera-intro/
 frame_count: 4
 ---
@@ -33,27 +33,34 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+**Promo/intro video for the Black Eye car camera tutorial.** No technical steps — previews features covered in the full tutorial: rotational damping, positional damping, velocity look ahead (pivot point moves forward with speed), variable pivot position, drone cameras, cinematic flyby shots, and procedural composition key framing. See `unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics.md` for full details.
 
 ### Summary
-[PENDING EXTRACTION]
+1m17s teaser by Adam (Black Eye Technologies) promoting the full car cameras tutorial. Demonstrates the difference between rigid 1996-style car cameras vs. Black Eye's physics-responsive driving cameras. Highlights: rotational damping control, velocity look ahead (pivot shifts forward when speeding, back when slowing), drone-style elevated cameras, cinematic sweeping flyby shots. No technical steps.
 
 ### Key Steps
-[PENDING EXTRACTION]
+*Promo video — see `unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics.md` for full workflow.*
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+*Not detailed in this video — see companion tutorial.*
+
+Key capabilities teased:
+- **Rotational damping** — controls how quickly camera rotates to track subject
+- **Velocity Look Ahead** — pivot point moves forward with speed; centers at rest
+- **Variable pivot position** — offset look-at point from car center to front/rear
+- **Dynamic FOV** — auto-zoom for drone/replay cameras
+- **Cinematic composition key framing** — just key frame desired composition; BEC handles rotation
 
 ### Difficulty
-[PENDING EXTRACTION]
+N/A (promo)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5
 
 ### Tags
-[PENDING EXTRACTION]
+black-eye-cameras, car-camera, driving, cinematics, follow, damping, velocity-lookahead, gameplay
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics.md` — full 24-minute car camera tutorial; all settings explained
