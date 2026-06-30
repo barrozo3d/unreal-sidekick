@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=LUoUVC5tXCo
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5.3+"
+tags: [animation, control-rig, mixamo, sequencer, ik-fk, constraints, characters, workflow, pipeline, filmmaking]
+extraction_status: complete
 frames_dir: tutorials/frames/this-free-plugin-changes-filmmaking-forever-unreal-5/
 frame_count: 4
 ---
@@ -48,27 +48,94 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+End-to-end pipeline for animating any 3D character in UE5 using a free OneClick Control Rig plugin: import any mesh → Blender rig removal → Mixamo auto-rig → UE5 skeletal mesh import → OneClick Control Rig (UE5.3+) → Sequencer animation with IK/FK, additive tracks, and parent constraints. Key finishing techniques: motion blending between animation clips (aligning to hip bone), constraining IK hand to a weapon prop, baking constraints before final render.
 
 ### Summary
-[PENDING EXTRACTION]
+16-minute Josh Toonen tutorial on animating characters using the free OneClick Control Rig at unrealforvfx.com/rig. Covers the full pipeline: sourcing 3D models (ArtStation, TurboSquid, CGTrader), preparing in Blender (removing existing rig, scaling to real-world height, exporting as FBX), uploading to Mixamo for free auto-rigging (chin/wrists/elbows/knees/groin markers; finger detail options; in-place motion for running), importing skeletal mesh + animations into UE5, installing the OneClick Rig plugin (copy to project's Plugins folder, enable Show Plugin Content in settings), creating per-character control rig duplicate, baking Mixamo animation to control rig in Sequencer. Animation editing: motion blending between clips (match hip bone), additive animation track (non-destructive offset), IK/FK switch per limb, arc ball rotate in editor preferences. Parent constraint: IK hand constrained to gun prop → bake constraint to keyframes before rendering. Shift+C to lock viewport to camera cut for shot-centric editing.
 
 ### Key Steps
-[PENDING EXTRACTION]
+**Blender prep:**
+1. In Blender: separate mesh from armature hierarchy → delete armature → remove armature modifier
+2. Measure character height with ruler tool (front Y-axis view) → scale to correct real-world height (e.g., 1.82m = 6ft)
+3. Export as .fbx (selected objects only); or .obj if issues arise; multiply scene scale by 10 units before export
+
+**Mixamo auto-rigging:**
+4. Log in to Mixamo.com (free Adobe account) → upload .fbx
+5. Auto-rigger: place chin, wrists, elbows, knees, groin markers → choose hand detail (2-finger for simple characters, 3-finger for TMNT-style, standard for humans)
+6. Preview + download animations at 24 FPS; for running → enable **In Place** checkbox
+7. Search animation packs (shooter pack, light rifle pack) for bulk download
+
+**UE5 skeletal mesh import:**
+8. Drag .fbx into Content Browser → FBX Import Options:
+   - Skeletal Mesh: yes; Import Mesh: yes (first import only)
+   - Skeleton: blank (auto-create new); Import Animations: checked
+9. Double-click Skeletal Mesh → assign materials + verify Mixamo naming conventions (critical: control rig depends on bone names)
+10. Drag character into scene → create Level Sequence
+
+**OneClick Control Rig install (UE5.3+):**
+11. Download from unrealforvfx.com/rig → right-click Content folder → Show in Explorer → create `Plugins` folder (exact name, no dashes)
+12. Paste plugin into Plugins folder → in UE5: Settings → enable **Show Plugin Content**
+13. Find OneClick Controller Rig in Content Browser → **duplicate** it → rename (e.g., `CR_MasterChief`) → copy to character folder
+14. Open duplicated rig → right-click background → Refresh → click character to assign
+15. Click **Forward Solve** button → Compile → Save (places controls at correct positions)
+
+**Sequencer animation setup:**
+16. Add character to Level Sequence → drag animation clips into Sequencer
+17. Set Sequencer FPS to 24 for film look
+
+**Motion blending between clips (fixing teleport/pop):**
+18. Move playhead to last frame of first clip → right-click second animation clip → **Motion Blending Options** → align to hip bone of previous clip → drag clips to overlap for smooth transition
+
+**Bake animation to Control Rig:**
+19. Right-click Skeletal Mesh in Outliner → **Bake to Control Rig** → OneClick Control Rig; now all Mixamo keyframes become editable control rig keyframes
+
+**IK/FK switching:**
+20. Sequencer → expand Control Rig → find IK/FK switch per limb (arm/leg at bottom of controls)
+21. FK = rotate-only (good for punching/running); IK = position-endpoint goal (good for grabbing weapons)
+22. Modify IK pole vector (pivot) to control knee/elbow bend direction
+
+**Additive animation track:**
+23. Right-click animation track → Add Additive Track → add offset keyframes (non-destructive; e.g., offset gun position across entire shot)
+24. Right-click → Disable (toggle off additive track) to preview without offset; re-enable anytime
+
+**Hand-to-weapon constraint:**
+25. Switch left arm to IK mode → position IK hand control at gun grip location
+26. Go to **Animation** tab → Add Constraint → select IK hand control → **Parent Constraint** → constrain to gun prop
+27. Now gun movement auto-drives left hand position
+28. Before rendering: **Constraints tab → Bake** → bakes constraint to keyframes (guarantees render accuracy)
+
+**Editor preference:**
+29. Edit → Editor Preferences → search "arc ball" → set **Enable Arc Ball Rotate** to True (enables freeform rotation with middle-click drag)
+
+**Shot-centric editing:**
+30. Press **Shift+C** (or lock Camera Cut track in Sequencer) → viewport locked to camera; edit animation through the lens
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **OneClick Control Rig** (Josh Toonen, free) — pre-built Control Rig for Mixamo skeleton; supports IK/FK per-limb switching; requires Mixamo bone naming; UE5.3+ only
+- **Skeletal Mesh** — character with Mixamo skeleton; duplicate rig per character (don't share across different skeletons)
+- **Sequencer** — animation timeline; animation clips are draggable, overlappable tracks; supports baked keyframes, additive tracks, constraint tracks
+- **Motion Blending Options** (right-click animation clip) — match animation continuity between clips; align by bone (hip bone most reliable); prevents character teleporting at clip transitions
+- **IK/FK Switch** — per-limb toggle inside Control Rig track at bottom of Sequencer; IK = position goal; FK = rotation chain
+- **Additive Animation Track** — non-destructive offset layer on top of base animation; good for secondary motion (gun sway, torso offset) without disrupting keyframe timing
+- **Parent Constraint** — locks one control (IK hand) to another object (gun prop); available in Animation tab while in animation mode; must be baked to keyframes before rendering
+- **Bake to Control Rig** — converts imported animation to per-frame control rig keyframes; enables full control over every joint at any frame
+- **Bake Constraints** (Constraints tab) — converts live constraints to baked keyframes; guarantees render parity with viewport
+- **Arc Ball Rotate** (Editor Prefs) — enables 3D freeform rotation drag on controls (not limited to X/Y/Z axes)
+- **Shift+C** — lock viewport to Camera Cut; edit animation in camera-framing context
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner-Intermediate. Pipeline is guided step by step. Mixamo auto-rigging is beginner-accessible. Control rig editing and constraints are intermediate.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5.3+ (OneClick Control Rig minimum version; tutorial targets UE5.3 and UE5.4)
 
 ### Tags
-[PENDING EXTRACTION]
+animation, control-rig, mixamo, sequencer, ik-fk, constraints, characters, workflow, pipeline, filmmaking
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `stylized-animation-control-rig-characters-in-unreal-engine-5.md` — ACOM modular rig; IK/FK switching on mid arm control; Sequencer integration
+- `ue5-animation-layers-non-destructive-camera-shake-character-tweaks.md` — Sequencer animation layers; non-destructive tweaks
+- `ue5-constraints-are-easy-parent-constraint-workflow-for-animators.md` — parent constraint workflow in depth
+- `unreal-5-animation-made-easy-free-download.md` — companion Josh Toonen resource for UE5 animation workflow
