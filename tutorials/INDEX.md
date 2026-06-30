@@ -1977,24 +1977,24 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **File:** tutorials/how-to-use-the-movie-render-graph-in-unreal-engine-58---simple-setup-for-filmmak.md
 
 
-### Create SPECTACULAR Depth of Field in Unreal Engine 5.8 with the new ACCUMULATION DOF
+### Create SPECTACULAR Accumulation Depth of Field in Unreal Engine 5.8
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=H3OfTUhMmmc
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
-- **UE Version:** 5.8
-- **Tags:** `#depth` `#of` `#field` `#accumulation` `#DOF` `#bokeh` `#cinematic` `#camera` `#anamorphic` `#Movie`
-- **Summary:** Dean Yurke demonstrates UE 5.8's experimental Accumulation DOF plugin as a faster alternative to path tracing for high-quality shallow depth of field on close-up shots with complex hair, groom, and tr
-- **File:** tutorials/create-spectacular-depth-of-field-in-unreal-engine-58-with-the-new-accumulation-.md
+- **UE Version:** UE 5.8
+- **Tags:** `#depth-of-field` `#accumulation-dof` `#bokeh` `#cinematics` `#camera` `#groom` `#hair` `#movie-render-graph` `#exr` `#anamorphic` `#lens-distortion` `#rendering` `#experimental` `#intermediate`
+- **Summary:** UE 5.8 Accumulation DOF plugin (experimental): per-pixel accurate bokeh for hair/groom/transparents. Plugin setup, Camera Component, sample quality tuning (250 recommended), custom bokeh textures, anamorphic squeeze, Movie Render Graph integration (temporal sampling + DWAA EXR), and Panini lens distortion CVars.
+- **File:** tutorials/create-spectacular-accumulation-depth-of-field-in-unreal-engine-58.md
 
 
-### Where are my Animation Curves!? This MYSTERIOUS SYMBOL will save you HOURS of Frustration!
+### Animate FASTER with Custom Filters in Unreal Engine (4 Minute Tutorial)
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=WenSYKg08Uc
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
-- **UE Version:** 5.x
-- **Tags:** `#sequencer` `#animation` `#curves` `#custom` `#filter` `#Curves` `#Editor` `#quick` `#tip` `#workflow`
-- **Summary:** A quick 4-minute tip for Unreal Engine Sequencer users who spend too much time hunting for animation curves. The Sequencer's search bar reveals a small plus-circle button when text is entered — this i
-- **File:** tutorials/where-are-my-animation-curves-this-mysterious-symbol-will-save-you-hours-of-frus.md
+- **UE Version:** UE5
+- **Tags:** `#sequencer` `#animation` `#custom-filters` `#curves` `#workflow` `#productivity` `#beginner`
+- **Summary:** 4-minute quick tip: use the Sequencer search bar's hidden "+" circle button to save named Custom Filters for each actor (camera, sun, etc.) — single-click switching between curve sets without scrolling or re-selecting in the Outliner.
+- **File:** tutorials/animate-faster-with-custom-filters-in-unreal-engine-4-minute-tutorial.md
 
 
 ### Creating Cinematics in Unreal Engine with KitBash3D's Secrets of the Luminara

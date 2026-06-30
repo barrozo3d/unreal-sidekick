@@ -211,24 +211,44 @@ System and Emitter Module Reference for Niagara Effects in Unreal Engine | Unrea
 ## Structured Notes
 
 ### Core Topics
-[PENDING EXTRACTION]
+37-page Epic documentation hub for the Niagara VFX system covering: Getting Started (overview, key concepts, architecture, quickstart); Level 1 Beginner tutorials (sprite smoke, dark smoke, steam, sparks, balloon mesh, light-emitting particles, ribbon, beam/lightning); Level 2 Intermediate (GPU sprite, multi-emitter); Niagara Features (Fluids plugin, Data Channels, Lightweight Emitters, GPU Raytracing Collisions, Custom Modules); Audio effects (Play Audio, Play Persistent Audio, Audio Component Renderer, Export Particle Data to BP); Debugging & Optimization (Niagara Debugger, Effect Types); Niagara for Linear Content; Reference (Editor UI, Module Reference, Script Editor Reference).
 
 ### Summary
-[PENDING EXTRACTION]
+Comprehensive UE 5.7 reference hub for the Niagara VFX system — the primary particle/effects tool in UE5. Covers the full stack from enabling the plugin through beginner sprite/smoke/ribbon how-tos to advanced topics: GPU simulation, Niagara Fluids (fire/smoke/gas with 2D game and 3D cinematic templates), Data Channels for cross-system particle communication, stateless Lightweight Emitters for tick minimization, GPU Raytracing Collisions, and the Script Editor for custom module authoring. Audio integration covers four methods with explicit performance trade-offs. Debugging section details the real-time Niagara Debugger HUD and Effect Types for distance-culling performance budgeting.
 
 ### Key Concepts & Systems
-[PENDING EXTRACTION]
+- **Emitter vs System**: Emitter is the atomic building block (one effect type); System groups emitters into a complete VFX asset. Recommended workflow: create System from emitter templates.
+- **Stack execution order**: Emitter Properties → Emitter State → Emitter Update → Particle Spawn → Particle Update → Render
+- **Simulation targets**: CPU (default) vs GPUComputeSim; GPU requires Fixed Bounds set (CPU cannot read GPU particle bounds at runtime)
+- **Life Cycle Mode**: Self (emitter controls its own loop/duration) vs System (system manages timing — generally preferred for performance)
+- **Fluids**: Niagara Fluids plugin; 2D templates (games, performance) + 3D templates (cinematics); built on Niagara infrastructure; results can be baked to flipbook for lightweight playback; graphically intensive (GPU crash risk on Windows — TDR registry fix available)
+- **Audio integration tiers** (fastest→slowest): (1) Play Audio module — one-shot, cheapest, position not updated; (2) Play Persistent Audio — updateable volume/pitch/position, needs paired Update module with shared audio player ref; (3) Audio Component Renderer (experimental) — most flexible but feature-sparse; (4) Export Particle Data to Blueprint — most flexible, works on GPU emitters (with latency), slowest
+- **Data Channels (NDCs)**: Niagara Data Channels facilitate game code ↔ Niagara System communication and cross-system particle data sharing; can merge multiple systems into one large shared simulation for optimization
+- **Lightweight/Stateless Emitters**: minimize or eliminate tick overhead; optimized for high particle counts; tradeoff: fewer features than standard emitters
+- **GPU Raytracing Collisions (Experimental)**: hardware ray tracing for accurate GPU particle collisions; more accurate than standard collision module
+- **Custom Modules**: authored in the Niagara Script Editor; module versioning prevents breaking scenes on update; Content Samples project contains reference examples
+- **Effect Types**: asset that defines performance budget rules (distance culling, scalability thresholds) applied to all Niagara Systems using that type
 
 ### UE Systems / Settings / Code
-[PENDING EXTRACTION]
+- **Niagara Editor panels**: System Overview (emitter stack), Selection Panel (module settings), Parameters Panel (user-exposed variables), Scratch Pad (inline dynamic input scripting), Script Editor (HLSL-like visual scripting for custom modules)
+- **Key modules**: Emitter State (life cycle, loops), Spawn Rate / Spawn Burst Instantaneous, Initialize Particle (lifetime, size, color, sprite/mesh attributes), Add Velocity, Sphere/Box/Point/Cylinder Location, Acceleration Force, Scale Sprite Size (Float from Curve), Color (Color from Curve), Scale Color (alpha fade-in/out), Curl Noise Force, Point Attraction Force, Jitter Position, Beam Emitter Setup + Spawn Beam + Beam Width + Update Beam (beam chain)
+- **Render modules**: Sprite Renderer, Mesh Renderer, Ribbon Renderer (Curve Tension for arc), Component Renderer (Audio Component Renderer)
+- **Niagara Debugger**: Window → Niagara Debugger; real-time HUD toggle (particle counts, memory usage, system list); capture snapshots for offline analysis
+- **Effect Type asset**: configure in asset settings → assign to Niagara Systems → distance culling + scalability rules auto-applied
+- **Beam scratch pad pattern**: Beam End position → dropdown → New Dynamic Scratch Input → Actor Component Interface pin → Get Transform → Position output → Apply; exposes user parameter for actor-linked beam endpoint in Level Editor
+- **GPU sprite workflow**: Sim Target = GPUComputeSim (in Emitter Properties); Fixed Bounds required; combine Spawn Burst + Spawn Rate; Sphere Location; Curl Noise Force + Point Attraction Force for swirling behavior; Scale Sprite Size with Float from Curve (Ramp Up Down)
+- **Niagara for Linear Content**: MRQ-aware Niagara settings for cinematic rendering; Engine Warmup frames for particle simulation warm-up
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.7
 
 ### Tags
-[PENDING EXTRACTION]
+[niagara, vfx, particles, gpu-particles, fluids, rendering, blueprints, audio, epic-docs, intermediate, advanced]
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- unreal-engine-masterclass-animate-environments-the-easy-way.md (Niagara sprite sub-UV + User Parameters + parenting to moving actors)
+- unreal-engine-virtual-production-trigger-explosions-and-sound-effects-with-your-.md (Level Blueprint → Niagara Activate trigger)
+- designing-visuals-rendering-and-graphics-with-unreal-engine.md (rendering pipeline that Niagara integrates with)
+- animating-characters-and-objects-in-unreal-engine.md (animation system docs; Niagara used for environment and character VFX)
