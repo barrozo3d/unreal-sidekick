@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=Kjg6kCW2BtY
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [volumetric-fog, god-rays, lighting, cinematics, gobo, compositing, nuke, aov, rendering, atmosphere]
+extraction_status: complete
 frames_dir: tutorials/frames/master-cinematic-fog-volumetric-god-rays-in-ue5/
 frame_count: 12
 ---
@@ -88,27 +88,73 @@ frame_count: 12
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Volumetric fog in UE5 lives inside Exponential Height Fog (checkbox: Volumetric Fog) but is a completely separate system. Per-light control: Volumetric Scattering Intensity (brightness contribution) + Cast Volumetric Shadow (required for spotlights; default OFF). Shape god rays with light blockers (cubes/planes) and gobo materials (Domain: Surface, Blend: Masked, noise → Opacity Mask). Quality dial: console `r.VolumetricFog.GridPixelSize` (default 16; set 4 for good quality/perf balance). Volume fog material (Domain: Volume, Blend: Additive) creates localized fog pockets on any mesh.
 
 ### Summary
-[PENDING EXTRACTION]
+17-minute Josh Toonen tutorial on volumetric fog and cinematic god rays in UE5. Covers: enabling volumetric fog (EHF checkbox), the critical distinction between EHF fog and volumetric fog, per-light Volumetric Scattering Intensity and Cast Volumetric Shadow settings, breaking up light with blockers and gobo materials (noise texture as Opacity Mask), quality control via `r.VolumetricFog.GridPixelSize` CVar (stat gpu monitoring), four art direction settings (albedo tint, extinction scale, fog density, height falloff), volume fog material for localized 3D animated fog pockets (Domain: Volume, animated noise via Time + WorldPosition). Also covers Hollywood-level AOV workflow: render 3 passes (no light / volumetric light only × 2 pass types) → Nuke subtract → isolated volumetric composited with live action/practical elements over path traced beauty. Camera FBX export from Sequencer for comp.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Add Exponential Height Fog** — Quick Add Actors → Visual Effects → Exponential Height Fog → drag into scene
+2. **Enable Volumetric Fog** — select EHF actor → Details → scroll down → Volumetric Fog: ON; this is a SEPARATE system from EHF's own fog
+3. **Verify directional light** — god rays driven by Directional Light; select it → Details → search "volumetric":
+   - Volumetric Scattering Intensity: controls this light's contribution (default 1 is good)
+   - Cast Volumetric Shadow: ON (OFF = light ignores geometry, floods everything — keep ON)
+4. **Shape god rays with blockers** — place cubes/planes to block sun; move in real time to sculpt light shafts
+5. **Gobo material** (cookie cutter for shaping shadows):
+   - New Material → Domain: Surface; Blend Mode: **Masked** (Two Sided: ON)
+   - Add Texture Sample → T_Noise_01 (or any noise) → plug into **Opacity Mask** (not color)
+   - Place as plane in scene → move in front of sun source; move out of camera view
+6. **Spotlight volumetric rays**:
+   - Add Spotlight → Cast Volumetric Shadow: ON (default is OFF — must enable)
+   - Outer Cone Angle: narrow (e.g., 20°) for focused beam; but needs wide enough cone to affect enough voxels
+   - Volumetric Scattering Intensity: adjust per spotlight (e.g., 10 for interior shots)
+7. **Quality control** (console):
+   - Output Log → type: `r.VolumetricFog.GridPixelSize ?` to see current value (default 16)
+   - Set to 4: `r.VolumetricFog.GridPixelSize 4` — good quality/perf balance
+   - Set to 2: very high quality but expensive
+   - Monitor: type `stat gpu` → watch VolumetricFog ms cost (~0.27ms at 16, ~6ms at 2)
+8. **Four art direction settings** (EHF Details):
+   - Albedo: fog color tint (rarely use; grade in post instead)
+   - Extinction Scale: makes god rays more prominent
+   - Fog Density: affects both EHF and volumetrics simultaneously (EHF density = 0.02 default)
+   - Fog Height Falloff: higher = more fog localized near ground
+9. **Volume fog material** (localized animated fog pocket):
+   - New Material → Domain: **Volume**; Blend Mode: **Additive** (enables Extinction output)
+   - Sphere Mask node: base shape of fog volume
+   - Animated noise: Time node → Add → World Position → feed into Noise node → plug into sphere mask; creates 3D noise moving through world space
+   - Connect to Extinction (controls light passage through material)
+   - Apply to any mesh (sphere, etc.) → that mesh becomes a fog pocket; drag around scene
+10. **Render AOVs for Hollywood-level comp** (3 passes):
+    - Pass 1: disable volumetric light (MUST uncheck "Affects World" or "Visible" in Details — hiding in Outliner is NOT enough for MRQ) → render beauty
+    - Pass 2: enable volumetric light + disable ALL other lights → render **Lighting Only** pass + **Detailed Lighting** pass from MRQ Add Settings
+    - In Nuke: Detailed Lighting − Lighting Only = isolated volumetrics; combine with live action/practical elements using Merge (Multiply or Over); layer over path traced beauty
+    - Depth pass → wrap stock elements around scene by depth for added realism
+11. **Export camera for Nuke** — Sequencer → right-click camera → Export → FBX → import in Nuke as Camera node
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Exponential Height Fog (EHF)** — hosts the Volumetric Fog system; Fog Density and Fog Height Falloff in EHF ALSO affect volumetrics; reset inscattering colors to non-zero for regular fog visibility
+- **Volumetric Fog** — EHF Details → Volumetric Fog checkbox; separate system from EHF's regular fog; requires directional or spot/point lights to appear; driven by voxel grid
+- **Volumetric Scattering Intensity** — per-light setting; multiplies that light's contribution to volumetrics; default 1; crank to 10–60 for dramatic interior shots
+- **Cast Volumetric Shadow** — per-light; Directional Light: keep ON (OFF floods scene); Spotlight: default OFF — MUST enable for spotlight rays to respect geometry
+- **r.VolumetricFog.GridPixelSize** — console variable; controls voxel size; lower = higher resolution; default 16; use 4 for renders; 2 for final quality; monitor with `stat gpu` → VolumetricFog row
+- **stat gpu** — console command; shows per-system GPU cost in ms; VolumetricFog cost visible here
+- **Gobo material** — Domain: Surface; Blend Mode: Masked; Two Sided: ON; noise texture → Opacity Mask; placed as plane in scene to sculpt shadow shapes from light source
+- **Volume material** (fog pocket) — Domain: Volume; Blend Mode: Additive; Extinction input (light penetration); Sphere Mask (base shape); Time + WorldPosition → Noise (animated 3D noise); apply to mesh → localized fog
+- **MRQ AOV passes** — "Affects World" / actor visibility properties must be changed in Details panel (not Outliner) to hide/show for MRQ renders; Add Settings → Lighting Only + Detailed Lighting pass types
+- **Camera FBX export** — right-click camera in Sequencer → Export → FBX; imports into Nuke as animating camera
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate (setup + art direction) to Advanced (Volume material, AOV pipeline, Nuke composite). Most useful god ray tricks (blockers, gobos, per-light scattering, CVar quality) accessible to anyone. AOV workflow requires Nuke knowledge.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (Lumen; ICVFX sample project referenced; all techniques apply to UE4 with some CVar name differences)
 
 ### Tags
-[PENDING EXTRACTION]
+volumetric-fog, god-rays, lighting, cinematics, gobo, compositing, nuke, aov, rendering, atmosphere
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `lighting-a-night-time-exterior-in-unreal.md` — nighttime exterior; same volumetric fog principles + shadow blockers
+- `lighting-in-unreal-engine-5-for-beginners.md` — volumetric fog in beginner context; scattering distribution setting
+- `improve-your-vfx-with-lens-flares-anamorphic-tutorial.md` — anamorphic lens flares in Nuke (same comp pipeline approach)

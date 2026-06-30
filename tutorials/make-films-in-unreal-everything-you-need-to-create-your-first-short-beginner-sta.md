@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=PPRugNC7POA
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [filmmaking, sequencer, cinematic, camera, mrq, animation, workflow, beginner, exr, depth-of-field]
+extraction_status: complete
 frames_dir: tutorials/frames/make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta/
 frame_count: 17
 ---
@@ -113,27 +113,68 @@ frame_count: 17
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Complete beginner filmmaking pipeline in UE5: blank project → add character assets → create Level Sequence → add FBX animations → keyframe character transforms → set up Cine Camera Actors with DoF → multi-camera cuts track → render EXR via MRQ (DWAA compression, TSR anti-aliasing, Disable Tone Curve for comp-ready output) → import into DaVinci Resolve with colorspace transform (sRGB/Linear) to restore look. Start timeline at frame 1001, not 0, to avoid negative frame numbers.
 
 ### Summary
-[PENDING EXTRACTION]
+31-minute beginner UE5 filmmaking tutorial by Dean Yurke. Covers the full pipeline from blank project to edited sequence. Starts with third person template assets for characters and stock animations (walk cycles), creates a Level Sequence, animates characters with FBX clips (blend animations by overlapping tracks) and transform keyframes (using auto-key and curves editor), stages props and a door animation, sets up two Cine Camera Actors (wide + long) with DoF and animated focus distance, cuts between them using the Camera Cuts track, then renders via MRQ to EXR with DWAA compression. Discusses color science: Disable Tone Curve for log-like output → apply colorspace transform in DaVinci Resolve. Pro tip: always start at frame 1001 to avoid negative frame issues in NLE.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Project setup** — blank project + Starter Content ON; add Third Person template (+ button → Add Feature or Content Pack → Third Person) for mannequin characters + stock animations
+2. **File organization** — Content Browser → new folder "Levels/Film"; File → Save Current Level As → save as "P_Film" (P = persistent)
+3. **Add characters** — Content Browser → Mannequins → Meshes → drag Manny/Quinn into viewport
+4. **Create Level Sequence** — right-click viewport → Cinematics → Create Level Sequence → name "LS_Film"; double-click to open Sequencer
+5. **Sequencer setup** — Settings cog → Start Frame: 1001, End Frame: 1200 (24fps); adjust time bar to zoom
+   - **Start at 1001 always** — prevents negative frames when extending shot head in NLE
+6. **Add FBX animation to character** — drag character from Outliner into Sequencer → deletes default Control Rig → Animation track → + button → search and select animation (e.g., "MM_Walk"); drag clip to start frame; drag clip end to loop
+7. **Blend animations** — drag second animation clip on top of first in same track → UE blends automatically in overlap zone
+8. **Character transform keyframing**:
+   - Select character → keyframe button (+ on transform track) OR auto-key button (saves key on any change)
+   - Go to end frame → move character → save key; S key shortcut on individual transform sub-track
+   - Curves Editor (button in Sequencer) → select curve → move points; Hold Shift to lock axis; right-click point → Break to separate tangents for arc control; right-click → Linear for constant speed
+   - Default curve type: click diamond → set default interpolation type for future keys
+9. **Animate object** (door example) — drag object from Outliner into Sequencer → Transform → Rotation tracks → keyframe open/close with overlap for secondary motion
+10. **Add Cine Camera Actor** — frame shot in viewport → three-dot menu (viewport overlay) → Create Camera Here → Cine Camera Actor; rename (e.g., CM_Wide, CM_Long)
+11. **Camera DoF**:
+    - Drag camera into Sequencer → Camera Cuts track appears
+    - Select camera → Details → Lens Settings → Min f-stop: override to 0.2 (lower = shallower DoF)
+    - Focus Settings → Draw Debug Focus Plane: ON (purple wall shows focal plane) → Focus Distance: drag to subject
+    - Turn off Draw Debug Focus Plane for final render; press G to hide UI icons
+    - Animate focal distance: keyframe Focus Distance in Sequencer
+12. **Multi-camera editing** — Camera Cuts track → + button → pick camera; right-click cut section → change camera; hover over cut boundary → arrow appears → drag to move cut point; camera icon next to track = solo that camera view throughout timeline
+13. **MRQ render**:
+    - Window → Cinematics → Movie Render Queue (or clapper icon)
+    - Delete JPEG sequence → add **EXR Sequence** (16-bit, high dynamic range)
+    - EXR → Compression: **DWAA** (smaller files than PIZ); Multi-layer: OFF
+    - **Anti-Aliasing** → Temporal Super Resolution: YES; **Temporal Sample Count: 7** (motion blur quality; higher = slower)
+    - Output → set directory; File Name Format: `{camera_name}_{frame_number}` (use metadata variables in brackets)
+    - **Color Output → Disable Tone Curve: ON** (preserves full dynamic range for comp; frames appear dark/flat)
+    - Save config: unsaved config dropdown → Save As Preset → create "mrq" subfolder → name preset
+14. **DaVinci Resolve import** — import EXR sequence → Color page → add serial node (Alt+S) → drag Color Space Transform effect onto node → Input Color Space: sRGB; Input Gamma: Linear → image matches UE viewport
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Level Sequence** — right-click → Cinematics → Create Level Sequence; Sequencer is the NLE for cinematics in UE; timeline with animation tracks per asset
+- **Sequencer frame rate** — Settings cog; set to 24fps for film; start at 1001 not 0 to avoid NLE negative frame issues
+- **Animation track** — drag character into Sequencer → animation + button → pick FBX compatible animation; drag overlap = automatic blend; drag end = loop
+- **Transform track** — keyframe actor position/rotation/scale; auto-key button; S shortcut; Curves Editor for spline control; right-click → Break separates tangent handles; right-click → Linear sets linear interpolation
+- **Cine Camera Actor** — three-dot menu → Create Camera Here → Cine Camera Actor (vs regular camera: more lens/DoF controls); Lens Settings → Min F-Stop override; Focus Settings → Draw Debug Focus Plane; Focus Distance; Current Aperture
+- **Camera Cuts track** — controls which camera is active during playback; + button adds camera at current frame; right-click → change camera; drag cut point; camera icon = solo view
+- **MRQ (Movie Render Queue)** — Window → Cinematics → Movie Render Queue; EXR Sequence + DWAA compression recommended; Anti-Aliasing → Temporal Super Resolution + Temporal Sample Count; Color Output → Disable Tone Curve for comp-ready output
+- **Disable Tone Curve** — MRQ → Color Output; removes UE's default tone mapping; output is linear/log-like; requires colorspace transform in NLE to restore correct look
+- **Metadata variables (MRQ)** — `{camera_name}`, `{frame_number}`, etc. in File Name Format field; auto-names files per camera
+- **DaVinci Resolve: Color Space Transform** — effect on color node; Input: sRGB / Linear restores UE linear output to display-ready image
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner. Explicitly targeted at UE beginners making their first short film. Uses only built-in templates and starter content — no external assets required. All major filmmaking pipeline steps covered end-to-end.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (Lumen, Fab marketplace, third person template; all techniques also applicable in UE4 except some UI differences)
 
 ### Tags
-[PENDING EXTRACTION]
+filmmaking, sequencer, cinematic, camera, mrq, animation, workflow, beginner, exr, depth-of-field
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `improve-your-renders-with-movie-render-queue-part-1---goodbye-sequencer-4.md` — deeper MRQ setup and quality settings
+- `level-management-sub-levels-spawnables-possessibles-in-ue5.md` — Sequencer spawnables for multi-level film organization
+- `learning-unreal-5-in-one-year-progression-lessons.md` — complementary beginner progression guide
