@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=CFKNoeUPQGQ
 author: William Faucher
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [lumen, global-illumination, reflections, shadows, nanite, debugging, performance, project-settings, workflow, emissive]
+extraction_status: complete
 frames_dir: tutorials/frames/things-to-know-about-lumen-unreal-engine-5/
 frame_count: 4
 ---
@@ -48,27 +48,67 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Early UE5 Lumen crash course and troubleshooting guide. **⚠️ Note: recorded during UE5 early access — some information may be outdated.** Three specific issues addressed: (1) Nanite thin-mesh foliage breaks Lumen shadows → disable Nanite on foliage; (2) noisy/harsh local light shadows → VSM console commands `r.shadow.virtual.smrt.raycount.local` + `smrt.sample.raylocal`; (3) HDRI dome mesh blocks Lumen GI rays even when casting no shadow → delete the dome.
 
 ### Summary
-[PENDING EXTRACTION]
+13-minute William Faucher early UE5 release crash course on Lumen. **⚠️ Early access era — treat as foundational but verify current behavior.** Covers enabling Lumen in project settings, controlling indirect lighting via `Indirect Lighting Intensity` on lights and PPV Lumen settings, emissive materials as light emitters (highlight moment — Lumen casts GI from emissive), and Lumen reflections (uses HLODs; ray trace reflections better for shiny). Three troubleshooting scenarios in depth: Nanite+Lumen incompatibility on thin meshes, noisy VSM shadows (two console var fixes), and HDRI dome silently blocking all Lumen GI for interiors. Author acknowledges this is early days and recommends checking Epic's documentation.
 
 ### Key Steps
-[PENDING EXTRACTION]
+**Enable Lumen:**
+1. Edit → Project Settings → Rendering → Global Illumination: **Lumen**; Reflections: **Lumen**
+2. Scene needs at minimum: Directional Light + Skylight
+
+**Control indirect lighting:**
+3. Select Directional Light → Details → search **Indirect** → **Indirect Lighting Intensity** (0 = no GI from this light, 1 = default, 10 = blown out GI)
+4. Post Process Volume → search **Lumen** → set GI type and Reflections type (Screen Space / Lumen / Ray Tracing)
+
+**Emissive materials as lights:**
+5. Apply emissive material to any mesh → it emits both direct and indirect light via Lumen automatically (no light actor needed); scale emissive multiplier for brightness
+
+**Troubleshoot 1 — Nanite thin-mesh shadows (foliage):**
+6. If shadows disappear or geometry breaks when zooming out on foliage → mesh is Nanite-enabled
+   - Fix: select Static Mesh asset → uncheck **Enable Nanite** (or import without Nanite)
+   - Regular Static Mesh without Nanite works correctly with Lumen lighting + shadows
+
+**Troubleshoot 2 — Noisy/harsh local light shadows:**
+7. Open console (bottom-left) → type console vars:
+   - `r.shadow.virtual.smrt.raycount.local 8` → reduces noise in virtual shadow maps for local lights
+   - `smrt.sample.raylocal 8` → softens shadows from local lights
+   - If shadows still look weird: reduce light size or move camera further from the light; this is a VSM limitation in early UE5
+
+**Troubleshoot 3 — HDRI dome blocking Lumen GI:**
+8. Scene has exterior light + interior room + HDRI dome mesh for sky background
+9. Even if dome mesh has **no shadow casting** enabled, Lumen's ray tracing still treats it as an occluder → no GI bounce reaches the interior
+10. Fix options: (A) delete the HDRI dome; (B) use Sky Atmosphere + Sky Light instead (Lumen understands sky systems natively); (C) ensure HDRI dome material has `Is Sky` flag enabled
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Indirect Lighting Intensity** (per-light) — how much this light contributes to Lumen GI/bounce; 0 = no indirect from this light; useful to control which lights drive the GI
+- **PPV Lumen settings** — Post Process Volume → search "Lumen"; choose GI method (Screen Space GI / Lumen / Ray Tracing); reflections method; control per-scene
+- **Emissive lights via Lumen** — any mesh with an emissive material emits GI automatically; Lumen calculates full indirect lighting from emissive surfaces; revolutionary vs baked-only pipelines
+- **Lumen reflections** — approximated using HLODs; blurry at distance/on movement; for clean sharp reflections on glossy surfaces use Ray Trace Reflections instead
+- **Nanite + Lumen thin-mesh incompatibility** — Lumen uses mesh distance fields for GI; thin meshes (foliage, leaves) don't generate usable distance fields with Nanite; shadows disappear as camera moves away; fix: disable Nanite on thin/foliage meshes
+- **Virtual Shadow Maps (VSM)** — Lumen's shadow system for local lights; can be noisy; `r.shadow.virtual.smrt.raycount.local` (noise) + `smrt.sample.raylocal` (softness) console vars improve quality; fundamental limitation in early UE5
+- **HDRI dome GI occlusion bug** — HDRI sky meshes block Lumen ray paths even with shadow casting disabled; Lumen cannot distinguish "I should ignore this for GI" without the `Is Sky` material flag; using Sky Atmosphere + Skylight is the safe alternative
+
+**⚠️ Early Access Caveats:**
+- This video is from UE5 initial early access release
+- VSM console variables may have changed names or may now have UI equivalents
+- Nanite + foliage situation has improved significantly in UE5.1+
+- HDRI dome GI occlusion fix (Is Sky flag) is the modern solution
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner-Intermediate. Project settings and basic setup are simple. Troubleshooting requires console command familiarity.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (early access; UE5.0; some fixes have been incorporated into later versions)
 
 ### Tags
-[PENDING EXTRACTION]
+lumen, global-illumination, reflections, shadows, nanite, debugging, performance, project-settings, workflow, emissive
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `it-took-me-7-years-to-get-interior-lighting-that-easy-in-unreal-engine-5.md` — modern interior Lumen setup; Lumen + hardware ray tracing; console vars for flickering fix
+- `if-i-have-40-mins-to-light-an-environment-in-unreal-engine-5---ill-do-this.md` — PBL exterior with Lumen sky color boost and skylight leaking settings
+- `realistic-and-physical-lighting-in-ue5-the-pbl-workflow.md` — PBL workflow using Lumen for physically-based results
+- `the-perfect-sky-light-in-unreal-engine-5.md` — skylight setup (ambient + reflections); `Is Sky` flag for HDRI dome fix

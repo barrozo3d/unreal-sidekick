@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=mKZUlyM9oZQ
 author: Karim Yasser
 ingested: 2026-06-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [lighting, skylight, hdri, ambient, reflections, workflow, technique, pbl, performance, debugging]
+extraction_status: complete
 frames_dir: tutorials/frames/the-perfect-sky-light-in-unreal-engine-5/
 frame_count: 15
 ---
@@ -103,27 +103,60 @@ frame_count: 15
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Deep dive into UE5 Skylight: two source types (Captured Scene vs Specified Cubemap), Real Time Capture behavior, `Is Sky` material flag, Sky Distance Threshold (must be smaller than sky sphere size), cubemap resolution/rotation, Lower Hemisphere Solid Color, and calibration with Detail Lighting viewmode.
 
 ### Summary
-[PENDING EXTRACTION]
+16-minute Karim Yasser tutorial explaining how Skylight works under the hood in UE5. Chrome ball used throughout to visualize reflections. Covers: Skylight as ambient+reflection reprojection from environment; Source Type: Captured Scene (best) vs Specified Cubemap; Real Time Capture (efficient, requires `Is Sky` material flag) vs manual Recapture (~120ms cost); Sky Distance Threshold (black skylight fix — must be smaller than sky sphere mesh scale); cubemap resolution (128-512, power of 2); Source Cubemap Angle for rotating cubemap; Lower Hemisphere Solid Color (keep ON for interiors); PBL intensity (keep at 1 for accurate, adjust slightly as artistic control). Calibration: use Detail Lighting viewmode to compare skylight brightness against sky mesh brightness.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Understand what Skylight does**: captures environment around it (colors, brightness, indirect data) and reprojects as ambient fill light + reflections
+2. **Source Type** — two methods:
+   - **Captured Scene** (default): captures sky mesh/environment in the scene; most accurate; requires a sky to be visible in the scene
+   - **Specified Cubemap**: uses a cubemap texture directly; not tied to scene; good when no dynamic sky; use neutral/overcast textures (avoid high-contrast textures — bright spots will appear as harsh blotches on meshes)
+3. **Real Time Capture**:
+   - Enable for automatic recapture when sky changes; more efficient than manual Recapture (~120ms per recapture)
+   - **Requirement**: sky sphere mesh material must have **Is Sky** property enabled; without it → skylight goes black with Real Time Capture
+   - Fix: open sky material → search `Is Sky` → enable; marks mesh as "sky component" that skylight recognizes
+4. **Sky Distance Threshold** (critical for black skylight fix):
+   - Default: 150,000 (cm units); skylight only captures data BEYOND this distance
+   - If sky sphere mesh scale < 150,000 → skylight sees no sky → appears black
+   - Fix options: (A) increase sky sphere mesh scale to exceed threshold; (B) decrease Sky Distance Threshold to match sky sphere size (e.g., if sky sphere is scale 15,000 → set threshold to 14,000)
+   - Set to very low (e.g., 1) to capture all details around it (including nearby objects)
+5. **Cubemap Resolution**: power of 2 (128/256/512); sweet spot is 256 or 512; higher = sharper reflections + more GPU memory; 128 fine for colors/ambient, 512 for reflective surfaces
+6. **Source Cubemap Angle**: rotate cubemap independently; use to align hottest cubemap spot with directional light direction
+7. **Lower Hemisphere Solid Color**: keep ON (default = black) for interiors; prevents flat over-brightening from underside sky; turning OFF = sky captured on underside = brighter/flatter ambient; can change from black to white for brighter underside fill
+8. **Mobility**: Movable recommended; adds Distance Field AO; Lumen handles DFAO automatically so less critical with Lumen enabled
+9. **PBL intensity**: 1.0 = accurate to captured sky brightness; increase slightly for artistic ambient boost; don't over-brighten
+10. **Calibration method** (Debug → Detail Lighting viewmode):
+    - Switch to Detail Lighting to remove texture distraction and see pure diffuse+ambient
+    - Skylight brightness should roughly match the sky mesh's own apparent brightness
+    - If skylight is much brighter than sky mesh → reduce intensity; if too dark → increase
+    - This viewmode is the cleanest way to see how skylight contributes relative to sky
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Source Type: Captured Scene** — skylight reads the sky mesh/environment; preferred for exterior scenes with dynamic sky; requires `Is Sky` material flag on sky mesh for Real Time Capture
+- **Source Type: Specified Cubemap** — uses a cubemap texture asset; independent of scene sky; adjust Source Cubemap Angle to rotate; use neutral textures; best for indoor scenes without dynamic sky
+- **Real Time Capture** — continuous sky capture at minimal performance cost; requires `Is Sky` material tag; compare: manual Recapture = ~120ms per update
+- **Is Sky (material flag)** — per-material boolean; marks this mesh as a sky dome; enables Real Time Capture to see it; search `Is Sky` in material editor to find
+- **Sky Distance Threshold** — minimum distance from skylight before it captures data; default 150,000 cm; must be < sky sphere mesh world scale; most common cause of mysteriously black skylights
+- **Cubemap Resolution** — 128, 256, 512 (power of 2); affects quality of reflections and ambient lighting; 512 recommended when scene has shiny/reflective surfaces
+- **Lower Hemisphere Solid Color** — ON (solid color, default black): prevents underside sky from brightening interiors; OFF: captures below too (brighter/flatter result); keep ON for interiors
+- **Intensity Scale** — multiplier on captured brightness; 1.0 = true to capture; can be slightly increased for artistic purposes; higher values = brighter ambient but more washed out
+- **Detail Lighting viewmode** — Editor viewport mode; strips all textures/colors; shows only direct + indirect light contribution; ideal for comparing skylight brightness against sky mesh
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner-Intermediate. Most settings can stay default but the Sky Distance Threshold and `Is Sky` material flag are critical non-obvious settings that cause common black-skylight issues.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (Lumen referenced; Real Time Capture behavior as of UE5)
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, skylight, hdri, ambient, reflections, workflow, technique, pbl, performance, debugging
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `if-i-have-40-mins-to-light-an-environment-in-unreal-engine-5---ill-do-this.md` — Karim Yasser exterior PBL; uses skylight as one of 5 global actors; Real Time Capture setup
+- `realistic-and-physical-lighting-in-ue5-what-is-pbl.md` — PBL theory (EV100, units); pairs with skylight calibration
+- `the-fastest-way-to-learn-lighting-in-ue5.md` — Josh Toonen; exterior lighting system (directional + skylight + sky); mentions HDRI Backdrop plugin as skylight alternative
+- `tips-for-sky-atmosphere-fog---unreal-engine-5-ue4.md` — Sky Atmosphere + fog (skylight's companion systems for exterior scenes)
