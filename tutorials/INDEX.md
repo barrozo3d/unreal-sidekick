@@ -2975,9 +2975,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=EZuBtnS4eMk
 - **Author:** Proj Prod
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.8
+- **Tags:** skeletal-mesh, skinning, morph-targets, weight-painting, selection-tools, rigging, joints, ue5, intermediate
+- **Summary:** UE 5.8 Skeletal Mesh Editor QoL highlights: non-destructive change stack; Vertex/Edge/Face/Polygroup sub-object selection with expand-connected, soft selection, and weight-editing isolation; joint locking so auto-normalization only redistributes among unlocked joints; one-click unused joint removal; in-editor morph target sculpting with right-click mirror/flip. Morph Target Editing Tools plugin (experimental) required for sculpt toolbar.
 - **File:** tutorials/whats-new-in-the-skeletal-mesh-editor-unreal-engine-58.md
 
 ---

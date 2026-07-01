@@ -1,12 +1,12 @@
 ---
-title: What's NEW in the Skeletal Mesh Editor | Unreal Engine 5.8
+title: "What's NEW in the Skeletal Mesh Editor | Unreal Engine 5.8"
 source: YouTube
 url: https://www.youtube.com/watch?v=EZuBtnS4eMk
 author: Proj Prod
 ingested: 2026-07-01
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.8"
+tags: [skeletal-mesh, skinning, morph-targets, weight-painting, selection-tools, rigging, joints, ue5, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/whats-new-in-the-skeletal-mesh-editor-unreal-engine-58/
 frame_count: 7
 ---
@@ -63,27 +63,46 @@ frame_count: 7
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Overview of UE 5.8 quality-of-life additions to the Skeletal Mesh Editor: non-destructive change stacking, sub-object selection modes (Vertex/Edge/Face/Polygroups), joint locking for safe auto-normalized weight painting, one-click unused joint removal, and in-editor morph target sculpting with mirror/flip support. All workflows stay inside UE — no round-tripping to external DCCs.
 
 ### Summary
-[PENDING EXTRACTION]
+7m55s Proj Prod highlight reel of the Skeletal Mesh Editor changes in UE 5.8. Covers four main areas: (1) non-destructive asset editing via a change stack with deferred apply/save; (2) sub-object selection modes (Vertex/Edge/Face/Polygroups) with a side panel for expand-connected, soft selection, isolate, and weight-editing isolation — plus a new customizable keyboard shortcuts window; (3) joint locking so auto-normalization only redistributes weights across explicitly unlocked joints; (4) morph target sculpting with right-click mirror/flip directly in-editor. Also notes the Morph Target Editing Tools plugin (experimental, enables Morf icon) and the roadmap for upcoming improvements.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Change stack (non-destructive editing)**: Make modifications in the Skeletal Mesh Editor — changes queue in a stack visible bottom-left. Choose Apply to commit or defer; Ctrl+Z is now more robust throughout.
+2. **Sub-object selection**: Toolbar icons switch between Object (default), Vertex, Edge, Face, and Polygroup selection modes. Side panel appears with selection actions.
+3. **Selection side panel actions**: Expand Selection (grow adjacent elements), Grow Connected (flood-fill connected topology), Soft Selection (organic falloff), Isolate (Ctrl+H), and Isolate for Weight Editing (separate mode for skinning focus).
+4. **Custom keyboard shortcuts**: New Shortcuts window (accessible from toolbar) — assign any action. Example: Alt+E for Expand, Ctrl+H for Isolate. Uses the same system as Modeling Mode.
+5. **Hierarchy display**: Shift+click the hierarchy icon to toggle displaying the bone hierarchy alongside an isolated object.
+6. **Enable Morph Target plugin**: Edit → Plugins → enable "Morph Target Editing Tools" (experimental) to get the Morf icon and sculpt tools in the editor toolbar.
+7. **Lock joints for safe skinning**: In weight paint / skeleton panel, right-click a joint → Lock Joint. With auto-normalization ON, weight changes on any joint only redistribute among unlocked joints — prevents unintended influence spillover.
+8. **Remove unused joints**: Right-click joint → Remove All Unused Joints. Clears joints with no skinned weight (they still cost performance).
+9. **Morph target sculpting**: Select mesh area → Expand Connected → Isolate → open Morph section → New Morph Target → sculpt in scope mode. Improved Move brush for natural feel.
+10. **Mirror/Flip morph targets**: After sculpting, right-click the morph target → Mirror (creates mirrored copy), Flip (flips existing), or Merge/Apply Weights to Morph Target. Handles symmetry automatically without export/reimport.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Skeletal Mesh Editor** — main editor; change stack at bottom-left
+- **Change Stack** — non-destructive pending changes queue; Apply or discard individually
+- **Object / Vertex / Edge / Face / Polygroup selection modes** — toolbar toggle icons
+- **Selection Side Panel** — context actions: Expand Selection, Grow Connected, Soft Selection, Isolate, Isolate for Weight Editing
+- **Keyboard Shortcuts window** — custom bindings; reuses Modeling Mode shortcut system
+- **Morph Target Editing Tools plugin** — experimental; enables in-editor sculpt toolbar (Morf icon)
+- **Lock Joints** — right-click → Lock Joint; controls auto-normalization scope during weight paint
+- **Auto-Normalization** — redistributes weight only among unlocked joints when Lock Joints active
+- **Remove All Unused Joints** — right-click → removes zero-weight joints to reduce performance cost
+- **Morph Target panel** → New Morph Target → scope sculpt mode
+- **Morph Target right-click actions**: Mirror, Flip, Merge, Apply Weights to Morph Target
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.8
 
 ### Tags
-[PENDING EXTRACTION]
+skeletal-mesh, skinning, morph-targets, weight-painting, selection-tools, rigging, joints, ue5, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+None identified in current skill library — first skeletal mesh editor tutorial ingested.
