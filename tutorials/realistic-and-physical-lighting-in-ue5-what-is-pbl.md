@@ -23,7 +23,7 @@ frame_count: 6
 
 
 ### Intro [0:00]
-**Transcript:** Hey everyone, my name is Arthur and I'm a real-time artist with past experience in the  VFX industry.  This is the first video of a two-part tutorial series in which we'll be talking about  lighting and most specifically the science behind it.  While I will be using and relinging to demonstrate my points, what I'm seeing here can be applied  to many different cases.  Whether you're lighting for films, animations, games or cinematics, I'm convinced it can  take something out of these tutorials.  In this video, I'll go through my own journey learning physically based lighting and break  it down in a way that makes sense for digital artists.  As I share my experience, including the hiccups along the way, we'll dive into the basics  and how it all fits in an relangion.
+**Transcript:** Hey everyone, my name is Arthur and I'm a real-time artist with past experience in the  vfx industry.  This is the first video of a two-part tutorial series in which we'll be talking about  lighting and most specifically the science behind it.  While I will be using and relinging to demonstrate my points, what I'm seeing here can be applied  to many different cases.  Whether you're lighting for films, animations, games or cinematics, I'm convinced it can  take something out of these tutorials.  In this video, I'll go through my own journey learning physically based lighting and break  it down in a way that makes sense for digital artists.  As I share my experience, including the hiccups along the way, we'll dive into the basics  and how it all fits in an relangion.
 
 **Frame:** tutorials\frames\realistic-and-physical-lighting-in-ue5-what-is-pbl\frame_000.jpg
 

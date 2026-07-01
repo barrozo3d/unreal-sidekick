@@ -1,4 +1,4 @@
-﻿---
+---
 title: Why Modern VFX Suck (And How to Make Yours Not Suck)
 source: YouTube
 url: https://www.youtube.com/watch?v=qPVS75PM5eU
@@ -12,7 +12,7 @@ frames_dir: tutorials/frames/why-modern-vfx-suck-and-how-to-make-yours-not-suck/
 frame_count: 6
 ---
 
-# Why Modern VFX Suck (And How to Make Yours Not Suck)
+# Why Modern vfx Suck (And How to Make Yours Not Suck)
 
 **Source:** [YouTube](https://www.youtube.com/watch?v=qPVS75PM5eU)
 **Author:** Boundless Entertainment

@@ -14,7 +14,7 @@ frame_count: 4
 # Unreal Engine 5.8 NEW Markerless Motion Capture Tutorial
 
 **Source:** [YouTube](https://www.youtube.com/watch?v=kxsncXh8hhM)
-**Author:** World Of VFX
+**Author:** World Of vfx
 **Duration:** 4m51s | 1 section(s)
 
 ---

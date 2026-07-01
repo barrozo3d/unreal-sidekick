@@ -14,7 +14,7 @@ frame_count: 4
 # UE5 Filmmaking Series | xꙨdus | Animatic to Teaser - Real-Time Micro Budget Movies
 
 **Source:** [YouTube](https://www.youtube.com/watch?v=-9-Aq3z-wI4)
-**Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+**Author:** Dean Yurke - Unreal Engine and vfx Filmmaking
 **Duration:** 1m51s | 1 section(s)
 
 ---

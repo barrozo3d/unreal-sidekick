@@ -1,4 +1,4 @@
-﻿---
+---
 title: Why Modern VFX Suck (And How to Make Yours Not Suck) PART 2 - Transformers vs Marvel
 source: YouTube
 url: https://www.youtube.com/watch?v=zOcXC-imA5U
@@ -12,7 +12,7 @@ frames_dir: tutorials/frames/why-modern-vfx-suck-and-how-to-make-yours-not-suck-
 frame_count: 6
 ---
 
-# Why Modern VFX Suck (And How to Make Yours Not Suck) PART 2 - Transformers vs Marvel
+# Why Modern vfx Suck (And How to Make Yours Not Suck) PART 2 - Transformers vs Marvel
 
 **Source:** [YouTube](https://www.youtube.com/watch?v=zOcXC-imA5U)
 **Author:** Boundless Entertainment
@@ -23,10 +23,10 @@ frame_count: 6
 ## Structured Notes
 
 ### Core Technique
-Part 2 of the modern VFX quality analysis series. Case study comparison: Transformers (ILM, on-location, practical-CG blend) vs. Marvel (studio, blue/green screen, fully digital) — the practical-digital blend in Transformers produces far more convincing VFX despite lower per-shot VFX budget than Marvel's all-digital approach.
+Part 2 of the modern VFX quality analysis series. Case study comparison: Transformers (ILM, on-location, practical-CG blend) vs. Marvel (studio, blue/green-screen, fully digital) — the practical-digital blend in Transformers produces far more convincing VFX despite lower per-shot VFX budget than Marvel's all-digital approach.
 
 ### Summary
-7-minute case study comparison of Transformers and Marvel VFX philosophies. Transformers (Michael Bay / ILM): shot on real locations with practical effects; only the CG robots are digital — everything else (bus, fire, environment) is real; the CG robot interacting with real objects makes the digital element impossible to dismiss; ILM VFX supervisor describes capturing 360-degree HDR reference of every location so robot reflections match exactly ("the secret is keep it dark and out of focus" — they prefer having controllable lighting conditions). Marvel Black Widow counter-example: actress on blue screen, fully digital background, flat overcast lighting, unconvincing composition — every bad VFX practice in one shot. Conclusion: always anchor digital elements in practical reality; never let the digital be the only real thing in the frame; good cinematography makes VFX more convincing, bad cinematography exposes every VFX flaw.
+7-minute case study comparison of Transformers and Marvel VFX philosophies. Transformers (Michael Bay / ILM): shot on real locations with practical effects; only the CG robots are digital — everything else (bus, fire, environment) is real; the CG robot interacting with real objects makes the digital element impossible to dismiss; ILM VFX supervisor describes capturing 360-degree HDR reference of every location so robot reflections match exactly ("the secret is keep it dark and out of focus" — they prefer having controllable lighting conditions). Marvel Black Widow counter-example: actress on blue-screen, fully digital background, flat overcast lighting, unconvincing composition — every bad VFX practice in one shot. Conclusion: always anchor digital elements in practical reality; never let the digital be the only real thing in the frame; good cinematography makes VFX more convincing, bad cinematography exposes every VFX flaw.
 
 ### Key Principles Demonstrated
 1. **On-location = built-in realism** — shooting in a real environment grounds all CG elements; reflections, shadows, lighting all come from reality not from guessing; Transformers principle: the CG robot is the only thing that isn't real
@@ -38,7 +38,7 @@ Part 2 of the modern VFX quality analysis series. Case study comparison: Transfo
 ### UE / Filmmaker Application
 - When compositing with Genesis/UE5: always shoot on a real location with reference HDRIs captured on set
 - Apply HDRI as lighting reference in UE5 (Sky Light > HDRI) for accurate CG-to-footage integration
-- Avoid blue/green screen unless absolutely necessary; add practical elements at the shoot (real props, practical lights, real foreground elements)
+- Avoid blue/green-screen unless absolutely necessary; add practical elements at the shoot (real props, practical lights, real foreground elements)
 - Motivated lighting (direction + color from a logical source) is easier to match in UE5 than flat ambience
 - Keep CG camera angles dynamic and constrained by real-world lens choices — avoid the "floating camera" look of fully CG shots
 
@@ -57,4 +57,4 @@ UE 5.x
 - [[why-modern-vfx-suck-and-how-to-make-yours-not-suck]] — Part 1 of this series
 - [[why-modern-vfx-dont-suck---low-budget-virtual-production-everything-everywhere-a]] — Part 3 (positive counterpart)
 - [[these-simple-mistakes-are-ruining-your-vfx]] — VFX mistakes Part 1 (related philosophy)
-- [[3d-tracking-natively-in-unreal-engine---full-tutorial]] — Genesis: UE5 camera tracking for compositing
+- [[3d-tracking-natively-in-unreal-engine---full-tutorial]] — Genesis: UE5 camera-tracking for compositing

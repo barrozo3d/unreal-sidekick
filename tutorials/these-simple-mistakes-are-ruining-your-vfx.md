@@ -1,4 +1,4 @@
-﻿---
+---
 title: These Simple Mistakes Are RUINING Your VFX
 source: YouTube
 url: https://www.youtube.com/watch?v=oGZJ4PcKqBE
@@ -12,7 +12,7 @@ frames_dir: tutorials/frames/these-simple-mistakes-are-ruining-your-vfx/
 frame_count: 5
 ---
 
-# These Simple Mistakes Are RUINING Your VFX
+# These Simple Mistakes Are RUINING Your vfx
 
 **Source:** [YouTube](https://www.youtube.com/watch?v=oGZJ4PcKqBE)
 **Author:** Boundless Entertainment

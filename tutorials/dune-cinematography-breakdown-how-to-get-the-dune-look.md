@@ -1,4 +1,4 @@
-﻿---
+---
 title: DUNE Cinematography Breakdown | HOW TO GET THE DUNE LOOK
 source: YouTube
 url: https://www.youtube.com/watch?v=ibAyJjNbnpo
@@ -59,7 +59,7 @@ Shot-by-shot cinematography breakdown of the Dune (2021) trailer by Greig Fraser
 - Works as base fill for interior and exterior scenes
 - Add diffusion to overhead source to control spill on background
 
-#### 6. CG/VFX Elements: Use Harder Light
+#### 6. CG/vfx Elements: Use Harder Light
 - For CG objects (buildings, ships, robots): directional/harder light brings out surface roughness, texture detail, scratches, grime
 - Soft light on CG = flat/plasticky appearance
 - Hard directional key = shape, shadow, tactile surface feel = more believable integration

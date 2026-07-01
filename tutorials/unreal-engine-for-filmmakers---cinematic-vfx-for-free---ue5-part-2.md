@@ -1,4 +1,4 @@
-﻿---
+---
 title: Unreal Engine for Filmmakers - Cinematic VFX for FREE - UE5 [PART 2]
 source: YouTube
 url: https://www.youtube.com/watch?v=5zJktaYwK-I
@@ -12,7 +12,7 @@ frames_dir: tutorials/frames/unreal-engine-for-filmmakers---cinematic-vfx-for-fr
 frame_count: 5
 ---
 
-# Unreal Engine for Filmmakers - Cinematic VFX for FREE - UE5 [PART 2]
+# Unreal Engine for Filmmakers - Cinematic vfx for FREE - UE5 [PART 2]
 
 **Source:** [YouTube](https://www.youtube.com/watch?v=5zJktaYwK-I)
 **Author:** Boundless Entertainment

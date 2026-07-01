@@ -1,4 +1,4 @@
-﻿---
+---
 title: Unreal Engine for Filmmakers - Add Cinematic VFX to your Films for FREE - UE5 [PART 1]
 source: YouTube
 url: https://www.youtube.com/watch?v=Yl_VJqmll-E
@@ -12,7 +12,7 @@ frames_dir: tutorials/frames/unreal-engine-for-filmmakers---add-cinematic-vfx-to
 frame_count: 8
 ---
 
-# Unreal Engine for Filmmakers - Add Cinematic VFX to your Films for FREE - UE5 [PART 1]
+# Unreal Engine for Filmmakers - Add Cinematic vfx to your Films for FREE - UE5 [PART 1]
 
 **Source:** [YouTube](https://www.youtube.com/watch?v=Yl_VJqmll-E)
 **Author:** Boundless Entertainment

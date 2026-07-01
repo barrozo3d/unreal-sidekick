@@ -40,7 +40,7 @@ Full cinematography workflow in UE 5.5: film back (35mm VistaVision) + focal len
 
 ### Key Steps
 1. **Focus tracker**: add small sphere (scale 0.5); add to sequencer; Attach Track → headbone; reset location; "Actor Hidden in Game" → ON; use as focus/look-at target
-2. **Film back**: Camera > Film Back > 35mm VistaVision (full-frame); larger sensor = wider FOV + shallower DOF; can match real camera sensor exactly for previs/VFX match
+2. **Film back**: Camera > Film Back > 35mm VistaVision (full-frame); larger sensor = wider FOV + shallower DOF; can match real camera sensor exactly for previs/vfx match
 3. **Focal length**: 24mm (wide, all-purpose), 35mm (neutral), 50mm (portrait/OTS), 85mm (closeup); keyframe to create snap-zoom effect (2 frames = snappy, many frames = slow)
 4. **Aperture**: 2.8 default; lower = shallower DOF; UE doesn't change brightness with aperture (unlike real cameras — adjust exposure separately)
 5. **Focus Settings**: Tracking → select sphere actor for auto-follow; enable "Draw Debug Focus Plane" (purple plane) for visualization; Manual → keyframe "Focus Distance" for rack focus

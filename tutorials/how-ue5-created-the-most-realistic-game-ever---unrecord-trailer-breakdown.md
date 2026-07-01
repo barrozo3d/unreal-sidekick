@@ -76,7 +76,7 @@ Breakdown of six realism techniques from the Unrecord game trailer (body-cam FPS
    - Auto exposure shifts compensation as camera moves indoor/outdoor → visible exposure shift
    - In UE: Post Process Volume → Auto Exposure settings; tune min/max EV to simulate the narrow band
    - Overcast day = no hard shadows; exposure still shifts with environment light level changes
-3. **Camera movement** — body cam rolls left/right (not just pitch/yaw); adds disorienting realism; hands are not centered; use **Unreal Remote** (free Epic iPhone app) to generate physical camera tracking data with real-world randomness
+3. **Camera movement** — body cam rolls left/right (not just pitch/yaw); adds disorienting realism; hands are not centered; use **Unreal Remote** (free Epic iPhone app) to generate physical camera-tracking data with real-world randomness
 4. **IES flashlight**:
    - Import real-world IES light profile (light distribution data file)
    - Apply to spotlight → flashlight cone becomes non-uniform (brighter center, rings from glass imperfections)
@@ -90,7 +90,7 @@ Breakdown of six realism techniques from the Unrecord game trailer (body-cam FPS
 ### UE Systems / Blueprints / Settings
 - **Post-process material (fisheye)** — custom material with barrel distortion UV math; assign to Post Process Volume; free example in tutorial description
 - **Post Process Volume → Auto Exposure** — min/max EV settings; tune to simulate limited body cam dynamic range; exposure shifts automatically with environment luminance
-- **Unreal Remote** — free Epic iPhone app; generates physical camera tracking data with real-world device motion; adds roll, micro-jitter, and physical randomness to in-engine camera
+- **Unreal Remote** — free Epic iPhone app; generates physical camera-tracking data with real-world device motion; adds roll, micro-jitter, and physical randomness to in-engine camera
 - **IES light profile** — real-world light distribution data file; import to UE → apply to spotlight → replaces uniform cone with measured non-uniform distribution from actual flashlight glass patterns; available free online for many fixture types
 - **Niagara smoke particles** — 3D volumetric particle emission from gun barrel; each particle has velocity and persists in world space as player moves; use Mesh Renderer or Sprite Renderer with low count for subtle effect
 - **Dynamic Range simulation** — Lumen renders full HDR; Post Process Volume compresses to SDR clip range to simulate camera limitation; sky overexposure + shadow underexposure = believable body cam effect

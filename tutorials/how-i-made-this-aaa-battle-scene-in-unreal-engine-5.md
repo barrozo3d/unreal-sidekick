@@ -123,7 +123,7 @@ Charlie Driscoll builds a Spanish Armada battle cinematic from scratch in UE5. P
 3. For rigging climb: set up physical ladder in capture volume → works with light cleanup
 4. Import to Sequencer; additive layer on Control Rig for any needed cleanup
 
-**Battle VFX:**
+**Battle vfx:**
 1. Marketplace: artillery muzzle flash particle effect → duplicate at each cannon position
 2. Sequencer: Niagara Component Track → stagger activation time per cannon → broadside effect
 3. Ocean spray particle: place along ship hull line in duplicates

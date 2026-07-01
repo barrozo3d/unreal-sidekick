@@ -5,7 +5,7 @@ url: https://www.youtube.com/watch?v=XeeIY_fvbq0
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-17
 ue_version: "UE5"
-tags: ["UI scaling", "Widget Reflector", "application scale", "demo mode", "hotkey", "quick tip", "4K monitor", "tutorial recording"]
+tags: ["ui-scaling", "widget-reflector", "application-scale", "demo-mode", "hotkey", "quick-tip", "4k-monitor", "tutorial-recording"]
 extraction_status: complete
 frames_dir: tutorials/frames/scale-unreal-engines-user-interface-squint-no-more-great-for-recording-ue5-tutor/
 frame_count: 5
@@ -14,7 +14,7 @@ frame_count: 5
 # Scale Unreal Engine's User Interface! SQUINT no more! Great for recording UE5 tutorials too!
 
 **Source:** [YouTube](https://www.youtube.com/watch?v=XeeIY_fvbq0)
-**Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+**Author:** Dean Yurke - Unreal Engine and vfx Filmmaking
 **Duration:** 1m31s | 5 section(s)
 
 ---
@@ -28,12 +28,12 @@ frame_count: 5
 **Frame:** tutorials\frames\scale-unreal-engines-user-interface-squint-no-more-great-for-recording-ue5-tutor\frame_000.jpg
 
 ### Hotkey to call up menu size in default unreal engine CTRL SHIFT +W [0:14]
-**Transcript:** Debug and widget reflector so that's that's where you find it there  And then what this does is when you click on this application scale
+**Transcript:** Debug and widget reflector so that's that's where you find it there  And then what this does is when you click on this application-scale
 
 **Frame:** tutorials\frames\scale-unreal-engines-user-interface-squint-no-more-great-for-recording-ue5-tutor\frame_001.jpg
 
-### Drag the application scale slider to increase UI size [0:29]
-**Transcript:** It scales up all of your menus and your icons and everything so if you're using like a nice new fancy 4k monitor and everything's like tiny  You can do this and set it up how you like it and then if I was gonna do a tick tock video and I'd have it  Let's set like this and then really I can dock this as well  So I'm just gonna put it over here since I'm doing demos if you're going to demo mode here
+### Drag the application-scale slider to increase UI size [0:29]
+**Transcript:** It scales up all of your menus and your icons and everything so if you're using like a nice new fancy 4k monitor and everything's like tiny  You can do this and set it up how you like it and then if I was gonna do a tick tock video and I'd have it  Let's set like this and then really I can dock this as well  So I'm just gonna put it over here since I'm doing demos if you're going to demo-mode here
 
 **Frame:** tutorials\frames\scale-unreal-engines-user-interface-squint-no-more-great-for-recording-ue5-tutor\frame_002.jpg
 
@@ -42,8 +42,8 @@ frame_count: 5
 
 **Frame:** tutorials\frames\scale-unreal-engines-user-interface-squint-no-more-great-for-recording-ue5-tutor\frame_003.jpg
 
-### Watch my virtual production tutorials on my channel [1:22]
-**Transcript:** And I talk a lot about virtual production and video and filmmaking inside of Unreal Engine  So join me there. Thanks for watching. Bye
+### Watch my virtual-production tutorials on my channel [1:22]
+**Transcript:** And I talk a lot about virtual-production and video and filmmaking inside of Unreal Engine  So join me there. Thanks for watching. Bye
 
 **Frame:** tutorials\frames\scale-unreal-engines-user-interface-squint-no-more-great-for-recording-ue5-tutor\frame_004.jpg
 
@@ -53,10 +53,10 @@ frame_count: 5
 ## Structured Notes
 
 ### Core Technique
-Using the Widget Reflector's Application Scale slider (Ctrl+Shift+W) in Unreal Engine to globally scale all UI menus and icons for high-DPI monitors or tutorial recording, plus enabling Demo Mode (mouse click and hotkey visualizer overlay).
+Using the Widget Reflector's Application Scale slider (Ctrl+Shift+W) in Unreal Engine to globally scale all UI menus and icons for high-DPI monitors or tutorial-recording, plus enabling Demo Mode (mouse click and hotkey visualizer overlay).
 
 ### Summary
-A 90-second quick tip showing how to make the Unreal Engine editor UI larger. The Widget Reflector (Ctrl+Shift+W, or Tools > Debug > Widget Reflector) contains an Application Scale slider that scales all UE editor menus, icons, and panels uniformly — useful for 4K monitors where the default UI is tiny, or for recording tutorial videos. He also shows Demo Mode in the Widget Reflector: enabling "Mouse Click" and "Key" toggles shows a visual indicator of mouse clicks and keyboard hotkey presses in the corner of the screen, which is helpful for screen-recorded tutorials.
+A 90-second quick-tip showing how to make the Unreal Engine editor UI larger. The Widget Reflector (Ctrl+Shift+W, or Tools > Debug > Widget Reflector) contains an Application Scale slider that scales all UE editor menus, icons, and panels uniformly — useful for 4K monitors where the default UI is tiny, or for recording tutorial videos. He also shows Demo Mode in the Widget Reflector: enabling "Mouse Click" and "Key" toggles shows a visual indicator of mouse clicks and keyboard hotkey presses in the corner of the screen, which is helpful for screen-recorded tutorials.
 
 ### Key Steps
 1. Press Ctrl+Shift+W to open Widget Reflector (or via Tools > Debug > Widget Reflector).
@@ -77,11 +77,11 @@ Beginner
 5.x (no specific sub-version)
 
 ### Tags
-UI scaling, Widget Reflector, application scale, demo mode, hotkey, quick tip, 4K monitor, tutorial recording
+UI scaling, Widget Reflector, application-scale, demo-mode, hotkey, quick-tip, 4K monitor, tutorial-recording
 
 ---
 
 ## Related Entries
 - `make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta.md` — beginner UE filmmaking series where readable UI is important
 - `how-to-use-the-movie-render-graph-in-unreal-engine-58---simple-setup-for-filmmak.md` — another beginner-friendly UE setup tutorial
-- `animate-faster-with-custom-filters-in-unreal-engine-4-minute-tutorial.md` — another UE editor QoL/usability quick tip
+- `animate-faster-with-custom-filters-in-unreal-engine-4-minute-tutorial.md` — another UE editor QoL/usability quick-tip

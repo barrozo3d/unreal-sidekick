@@ -14,7 +14,7 @@ frame_count: 7
 # Animate FASTER with Custom Filters in Unreal Engine (4 Minute Tutorial)
 
 **Source:** [YouTube](https://www.youtube.com/watch?v=WenSYKg08Uc)
-**Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+**Author:** Dean Yurke - Unreal Engine and vfx Filmmaking
 **Duration:** 3m58s | 7 section(s)
 
 ---
@@ -66,7 +66,7 @@ frame_count: 7
 Sequencer Custom Filters for fast switching between animated objects: type search term in Sequencer search bar → a "+" circle button appears → click to name and save a filter (e.g. "cam", "sun") → toggle saved filters with one click to jump between curve views for different objects without scrolling or re-selecting.
 
 ### Summary
-3m58s quick tip by Dean Yurke. Solves the common problem of wasting time finding objects in Sequencer to view their animation curves. Solution: use the hidden "Create Custom Filter" button (the "+" circle in the Sequencer search bar). Type an object's name → it appears as a filter button; name it short (e.g. "cam"); press to apply — Sequencer highlights just that object and the Curve Editor shows only its curves. Create one per frequently-edited object (camera, sun, etc.). Toggle between them to hop instantly between animation curve views without re-selecting in the outliner or scrolling the sequence.
+3m58s quick-tip by Dean Yurke. Solves the common problem of wasting time finding objects in Sequencer to view their animation curves. Solution: use the hidden "Create Custom Filter" button (the "+" circle in the Sequencer search bar). Type an object's name → it appears as a filter button; name it short (e.g. "cam"); press to apply — Sequencer highlights just that object and the Curve Editor shows only its curves. Create one per frequently-edited object (camera, sun, etc.). Toggle between them to hop instantly between animation curve views without re-selecting in the outliner or scrolling the sequence.
 
 ### Key Steps
 1. **Problem**: scrolling/re-selecting in Sequencer to find objects whose curves you want to edit is slow

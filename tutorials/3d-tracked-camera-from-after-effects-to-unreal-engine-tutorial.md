@@ -74,10 +74,10 @@ frame_count: 9
 ## Structured Notes
 
 ### Core Technique
-Pre-Genesis AE-to-UE4 camera tracking pipeline: 3D track in After Effects → AE-to-Blend addon bridges camera to Blender → Blender-to-UE4 addon exports the Sequencer-ready camera animation into Unreal Engine 4 → composite UE render back in AE.
+Pre-Genesis AE-to-UE4 camera-tracking pipeline: 3D track in After Effects → AE-to-Blend addon bridges camera to Blender → Blender-to-UE4 addon exports the Sequencer-ready camera animation into Unreal Engine 4 → composite UE render back in AE.
 
 ### Summary
-14-minute tutorial showing the full AE → Blender → UE4 camera tracking pipeline, motivated by Quixel Megascans access (free only through UE). The workflow uses two community Blender addons as bridges: "AE to Blend" to paste AE camera keyframes into Blender, and "Blender for Unreal Engine" to export the camera as a UE Sequencer track. The final composite is assembled back in AE using log-format UE renders + masking + Video Copilot atmosphere effects.
+14-minute tutorial showing the full AE → Blender → UE4 camera-tracking pipeline, motivated by Quixel Megascans access (free only through UE). The workflow uses two community Blender addons as bridges: "AE to Blend" to paste AE camera keyframes into Blender, and "Blender for Unreal Engine" to export the camera as a UE Sequencer track. The final composite is assembled back in AE using log-format UE renders + masking + Video Copilot atmosphere effects.
 
 ### Key Steps
 1. **After Effects — 3D Camera Track**: Track > 3D Camera Tracker; place track points on a foreground surface and a distant surface; right-click 3+ points > Create Solid and Camera; verify tracking by previewing render.

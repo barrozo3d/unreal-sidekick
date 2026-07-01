@@ -5,7 +5,7 @@ url: https://www.youtube.com/watch?v=akHCbIECFX8
 author: Aziel Arts
 ingested: 2026-06-23
 ue_version: "UE5.6"
-tags: [water, river, simulation, baking, buoyancy, niagara, landscape, environment, shallow-water, VFX, UE5-6]
+tags: [water, river, simulation, baking, buoyancy, niagara, landscape, environment, shallow-water, vfx, ue5-ue6]
 extraction_status: complete
 frames_dir: tutorials/frames/witcher-4-baked-water-simulation-tutorial-in-unreal-engine-56/
 frame_count: 4

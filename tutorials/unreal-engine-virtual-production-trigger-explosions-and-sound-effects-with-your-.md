@@ -14,7 +14,7 @@ frame_count: 5
 # Unreal Engine Virtual Production: Trigger Explosions and Sound Effects with your Keyboard (Tutorial)
 
 **Source:** [YouTube](https://www.youtube.com/watch?v=5cpjK7kKASU)
-**Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+**Author:** Dean Yurke - Unreal Engine and vfx Filmmaking
 **Duration:** 6m37s | 5 section(s)
 
 ---
@@ -43,7 +43,7 @@ frame_count: 5
 **Frame:** tutorials\frames\unreal-engine-virtual-production-trigger-explosions-and-sound-effects-with-your-\frame_003.jpg
 
 ### How to Spawn Sound Effects at Location [5:13]
-**Transcript:** now we're back in here I'm going to go and look for a spawn sound at location.  Spawn sound at location and so this now will look for a sound asset so we're going to  open this up and then look for a bang sound.  What's that sound like?  We'll find out and then again compile this then go back into play in engine and I'll  have to reset my camera but it's be worth it.  Alright so we're full screen mode and we're going to now press our keyboard.  Are you ready?  3, 2, 1.  It's a bit loud for confetti but it's super confetti and that's what you get with  Unreal.  Alright so that's a lot for now and I will go over another video how to set up this  live virtual production system using your webcam so you can have some fun and I'm going  to make it simple, simple in Unreal.  As simple as I can so that you can kind of get you into playing around with virtual  production in Unreal Engine so make sure you subscribe so that you won't miss that  video and in the meantime I'm going to have some fun.  Good egg.
+**Transcript:** now we're back in here I'm going to go and look for a spawn sound at location.  Spawn sound at location and so this now will look for a sound asset so we're going to  open this up and then look for a bang sound.  What's that sound like?  We'll find out and then again compile this then go back into play in engine and I'll  have to reset my camera but it's be worth it.  Alright so we're full screen mode and we're going to now press our keyboard.  Are you ready?  3, 2, 1.  It's a bit loud for confetti but it's super confetti and that's what you get with  Unreal.  Alright so that's a lot for now and I will go over another video how to set up this  live virtual-production system using your webcam so you can have some fun and I'm going  to make it simple, simple in Unreal.  As simple as I can so that you can kind of get you into playing around with virtual  production in Unreal Engine so make sure you subscribe so that you won't miss that  video and in the meantime I'm going to have some fun.  Good egg.
 
 **Frame:** tutorials\frames\unreal-engine-virtual-production-trigger-explosions-and-sound-effects-with-your-\frame_004.jpg
 
@@ -53,7 +53,7 @@ frame_count: 5
 ## Structured Notes
 
 ### Core Technique
-Level Blueprint keyboard trigger → activate Niagara VFX + spawn sound. No Sequencer, no animation tracks — pure runtime Blueprint triggering. Designed for live virtual production / live streaming where operator hits a key to fire a practical-style VFX event. Niagara Reset = true allows repeated triggering from same key without waiting for system to finish.
+Level Blueprint keyboard trigger → activate Niagara VFX + spawn sound. No Sequencer, no animation tracks — pure runtime Blueprint triggering. Designed for live virtual-production / live streaming where operator hits a key to fire a practical-style VFX event. Niagara Reset = true allows repeated triggering from same key without waiting for system to finish.
 
 ### Summary
 6m37s Dean Yurke casual Level Blueprint tutorial. Goal: press a keyboard key during Play in Engine to trigger a Niagara explosion/confetti effect + play a sound. Setup: Level Blueprint → Keyboard Event node → Activate node (turn off Context Sensitive to find it) → Get Niagara Component → drag Niagara actor from outliner into BP graph → connect; enable Reset. Add sound: Spawn Sound at Location node → pick sound asset. Compile + Save → Play in Engine → press key → VFX + sound fires. Notes: in PIE mode webcam turns off (live streaming concern); F11 for fullscreen PIE.

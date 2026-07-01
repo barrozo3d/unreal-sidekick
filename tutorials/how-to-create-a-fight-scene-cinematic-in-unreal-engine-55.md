@@ -91,7 +91,7 @@ Charlie Driscoll builds a Kung Fu film using Reallusion's 68-animation hand-to-h
 
 **Environment and lighting:**
 1. Fab: destroyed burning temple asset
-2. Fire particle/VFX as primary key light motivation for the scene
+2. Fire particle/vfx as primary key light motivation for the scene
 3. Background: add ember, smoke, fire particles for depth/atmosphere
 4. Easy Rain: add rain for drama and ambiance
 

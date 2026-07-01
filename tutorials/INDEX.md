@@ -11,19 +11,6 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 ## How to Read This Index
 
 ```
-### [Title]
-- **Source:** YouTube / Epic Documentation / Article
-- **URL:** link
-- **Author / Pages:** creator or page count
-- **UE Version:** version shown
-- **Tags:** #system #technique #level
-- **Summary:** 2-3 sentence description
-- **File:** tutorials/filename.md
-```
-
----
-
-## Entries
 
 ### Creating Visual Effects in Niagara for Unreal Engine
 - **Source:** Epic Documentation

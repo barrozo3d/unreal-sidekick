@@ -1,4 +1,4 @@
-﻿---
+---
 title: NEW UE5 ASSET MANAGEMENT PLUGIN - NOW FREE ON FAB
 source: YouTube
 url: https://www.youtube.com/watch?v=MwjUZJ7qkIk
@@ -32,7 +32,7 @@ frame_count: 13
 Promotional overview of the free Dash Content Browser tier on Fab — install free plugin → get access to Polyhaven (HDRIs/textures/3D assets), Quixel Megascans (downloaded assets from Bridge/Fab), Amazon Berkeley Objects, ambientCG (PBR textures/atluses/HDRIs), IES library, Base Mesh Library, Project Assets with AI tagging (1000 assets/month free), Collections, and cross-project asset access.
 
 ### Summary
-6-minute promotional video introducing the free Dash Content Browser tier available on Fab. Covers all built-in libraries available in the free tier: Polyhaven (HDRIs + textures + 3D assets for environment art + realistic lighting), Quixel Megascans (shows previously downloaded Bridge/Fab assets), Amazon Berkeley Objects (photorealistic scanned everyday items), ambientCG (free PBR textures + atlases + decals + HDRIs covering concrete/asphalt/wood/metal/fabric), IES Library (photometric light profiles for realistic fixture emission), Base Mesh Library (simple block art for prototyping). Also covers: Project Assets AI tagging (free tier = 1000 assets/month), Collections (custom asset groups for projects/teams), cross-project access (click to access tagged assets from other UE projects). Full paid Dash adds world building tools; Content Browser is available free or via "free license" mode inside standard Dash install.
+6-minute promotional video introducing the free Dash Content Browser tier available on Fab. Covers all built-in libraries available in the free tier: Polyhaven (HDRIs + textures + 3D assets for environment art + realistic lighting), Quixel Megascans (shows previously downloaded Bridge/fab-assets), Amazon Berkeley Objects (photorealistic scanned everyday items), ambientCG (free PBR textures + atlases + decals + HDRIs covering concrete/asphalt/wood/metal/fabric), IES Library (photometric light profiles for realistic fixture emission), Base Mesh Library (simple block art for prototyping). Also covers: Project Assets AI tagging (free tier = 1000 assets/month), Collections (custom asset groups for projects/teams), cross-project access (click to access tagged assets from other UE projects). Full paid Dash adds world building tools; Content Browser is available free or via "free license" mode inside standard Dash install.
 
 ### Key Steps
 1. **Install** — install free Dash from Fab → enable plugin → Unreal restart → Dash icon appears in toolbar center → click → Content Browser opens

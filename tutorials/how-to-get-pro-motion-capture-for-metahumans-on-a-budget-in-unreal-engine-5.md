@@ -123,7 +123,7 @@ frame_count: 25
 **Frame:** tutorials\frames\how-to-get-pro-motion-capture-for-metahumans-on-a-budget-in-unreal-engine-5\frame_019.jpg
 
 ### GoPro remote recording tip [10:14]
-**Transcript:** One quick tip. If you are recording with GoPro's you can use an app called camera tools for  GoPro heroes from toolsforgopro.com. This allows you to connect all your GoPro's to an iPad or  PC and control them all remotely so you can start and stop their recording at the same time.  So overall I am extremely impressed by memeum including the ease of use price and performance.
+**Transcript:** One quick-tip. If you are recording with GoPro's you can use an app called camera tools for  GoPro heroes from toolsforgopro.com. This allows you to connect all your GoPro's to an iPad or  PC and control them all remotely so you can start and stop their recording at the same time.  So overall I am extremely impressed by memeum including the ease of use price and performance.
 
 **Frame:** tutorials\frames\how-to-get-pro-motion-capture-for-metahumans-on-a-budget-in-unreal-engine-5\frame_020.jpg
 

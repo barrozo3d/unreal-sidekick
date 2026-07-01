@@ -14,7 +14,7 @@ frame_count: 10
 # How to Transform TEXTURE COORDINATES in Unreal Engine Materials (Tutorial)
 
 **Source:** [YouTube](https://www.youtube.com/watch?v=Wb9hJqPcAwQ)
-**Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+**Author:** Dean Yurke - Unreal Engine and vfx Filmmaking
 **Duration:** 15m51s | 10 section(s)
 
 ---

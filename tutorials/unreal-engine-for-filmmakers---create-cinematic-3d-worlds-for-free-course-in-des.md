@@ -1,4 +1,4 @@
-﻿---
+---
 title: Unreal Engine for Filmmakers - Create Cinematic 3D Worlds for Free [Course in Description!]
 source: YouTube
 url: https://www.youtube.com/watch?v=IUkD87VSmyg
@@ -34,7 +34,7 @@ Channel introduction video / UE5 evangelist piece for filmmakers. Explains what 
 3. **Not a modeling tool** — UE cannot create complex geometry; import FBX from Blender for custom objects
 4. **Quixel Bridge workflow** — open Quixel Bridge (or Fab); browse 3D Assets; set resolution; download; export to UE project path; drag from Content Browser into viewport; drag Megascans asset in = done
 5. **Basic lighting** — Place Actors > Directional Light (sun/moon); Sky Light with HDRI; Point Light for practicals; rotate Directional Light with E key to set sun angle
-6. **Virtual production context** — UE used on Mandalorian for LED volume virtual production; camera tracking + UE = real-time parallax-correct backgrounds
+6. **Virtual production context** — UE used on Mandalorian for LED volume virtual-production; camera-tracking + UE = real-time parallax-correct backgrounds
 
 ### Course Note
 This video mentions "course in description" — Boundless Entertainment's paid "Unreal Engine for Filmmakers" course at boundless-resource.com. This appears to be one of the earliest channel videos, before the free beginner course was created.

@@ -11,7 +11,7 @@ frames_dir: tutorials/frames/green-screen-overscan-secrets-and-a-lie---your-ulti
 frame_count: 14
 ---
 
-# Green Screen OVERSCAN SECRETS (and a LIE!) - Your Ultimate VFX Save! (SERIES BONUS)
+# Green Screen OVERSCAN SECRETS (and a LIE!) - Your Ultimate vfx Save! (SERIES BONUS)
 
 **Source:** [YouTube](https://www.youtube.com/watch?v=qe2x-puqVl0)
 **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
@@ -27,7 +27,7 @@ frame_count: 14
 
 **Frame:** tutorials\frames\green-screen-overscan-secrets-and-a-lie---your-ultimate-vfx-save-series-bonus\frame_000.jpg
 
-### The Problem with DaVinci Resolve Media Pool [0:55]
+### The Problem with davinci-resolve Media Pool [0:55]
 **Transcript:** There is an issue that I've got currently with DaVinci Resolve  in that if you bring in images with extra data,  when you bring those into the edit page,  it will throw that data away.  So we have to trick Unreal using a blueprint  into rendering the display window to match the data window.  And that's something that I'll show you later on.  So let's just start with the basic how to use Overscan with regular  Unreal Engine and I'll show you that now.  And then also there's absolutely no reason  why you need to be in a flying car for this.  It was just bored and wanted to play.  So see you in a second.
 
 **Frame:** tutorials\frames\green-screen-overscan-secrets-and-a-lie---your-ultimate-vfx-save-series-bonus\frame_001.jpg
@@ -37,7 +37,7 @@ frame_count: 14
 
 **Frame:** tutorials\frames\green-screen-overscan-secrets-and-a-lie---your-ultimate-vfx-save-series-bonus\frame_002.jpg
 
-### Overscan Renders in Fusion versus the Media Pool [4:36]
+### Overscan Renders in fusion versus the Media Pool [4:36]
 **Transcript:** So that little opening sequence was rendered with Unreal Engine.  And I used the overscan function of the camera.  And I made that point too, which gave it 20% overscan.  And so I'm going to bring those into a fusion composition  using Control-Space and then Loader.  And then you navigate to your first frame,  and you click Open.  And so here it's put this image over this background, like that.  So there's my actual render size, but it's got 20% extra outside of this area.  This is called your display window.  And then your data window is that overscan area.  So now if I grab my merge node and just move this,  you can see there's extra data.  There's actually an image outside of there.  And that's great.  So you can apply it, you can do a little camera shakes,  and you can put some lenders distortion on this and all those sort of things.  But the trouble with that is that you have to do it through fusion.  So for every single shot, and I'm doing a feature film,  so I don't want to have to do 1,000 shots in fusion.  So I want to do it in the regular edit page.  But if I bring in a regular edit, so I go into my Media Pool,  and then I go right mouse button, Import Media,  and I'm going to bring in that same clip.  So choose the first frame, and then you have to choose the last frame,  and then you hit Open.  And so now it's in the Media Pool, like normal clips.  So I'm going to grab my clip, drag it into my fusion,  copy that background image, and then merge it on top,  and just press 2 to see the result.  And now if I move this one, you can see that it's not bringing  any of that extra data.  It's the same frames.  So it's like if you bring it in with a loader,  you get your data window.  But if you bring it in with the Media Pool, then you don't get that.  So here we are back inside of Unreal Engine.  And then if you're just rendering a couple of shots,  and you're going to play with them inside a fusion or Nuke,  and you want some overscan, then you  should use the traditional built-in overscan option.  So set overscan to your desired amount,  and scale resolution with overscan, and then crop overscan.
 
 **Frame:** tutorials\frames\green-screen-overscan-secrets-and-a-lie---your-ultimate-vfx-save-series-bonus\frame_003.jpg
@@ -101,7 +101,7 @@ frame_count: 14
 Overscan in UE5 for VFX: render extra pixel data outside the visible frame so lens distortion, camera shake, and reframing in post don't hit black edges. Two methods — built-in cine camera Overscan property (works in Fusion Loader, not DaVinci Media Pool) or Blueprint sensor-width scale trick (works everywhere). Blueprint: Event Begin Play → Get All Actors (Cine Camera Actor) → For Each → Set Film Back → multiply sensor W and H by overscan factor. MRQ output resolution must be scaled by same factor.
 
 ### Summary
-Dean Yurke explains UE5 overscan and why it matters for virtual production and offline VFX. Built-in overscan (cine camera → Overscan + Crop Overscan + Scale Resolution With Overscan) works fine for Fusion Loader workflow but DaVinci Media Pool throws away the data window. Workaround: Blueprint Actor that scales the sensor dimensions at Begin Play (PIE) so the camera renders wider without touching FOV math. MRQ output resolution also scaled by same factor. DaVinci workflow: timeline mismatch = "Scale Entire Image to Fit", Frame Display = Sequence, Color Space Transform (sRGB linear) with saturation compensation gamut mapping, Transform node ×1.5 to zoom back in, then lens distortion + camera shake on cropped-in version. Lumen benefit: screen-space artifacts pushed to overscan edges instead of appearing in frame.
+Dean Yurke explains UE5 overscan and why it matters for virtual-production and offline VFX. Built-in overscan (cine camera → Overscan + Crop Overscan + Scale Resolution With Overscan) works fine for Fusion Loader workflow but DaVinci Media Pool throws away the data window. Workaround: Blueprint Actor that scales the sensor dimensions at Begin Play (PIE) so the camera renders wider without touching FOV math. MRQ output resolution also scaled by same factor. DaVinci workflow: timeline mismatch = "Scale Entire Image to Fit", Frame Display = Sequence, Color Space Transform (sRGB linear) with saturation compensation gamut mapping, Transform node ×1.5 to zoom back in, then lens distortion + camera shake on cropped-in version. Lumen benefit: screen-space artifacts pushed to overscan edges instead of appearing in frame.
 
 ### Key Steps
 
@@ -155,6 +155,6 @@ UE5
 ---
 
 ## Related Entries
-- green-screen-cards-are-dead-camera-projections-in-unreal-engine-change-everythin.md (same author Composure series — offline virtual production context)
+- green-screen-cards-are-dead-camera-projections-in-unreal-engine-change-everythin.md (same author Composure series — offline virtual-production context)
 - create-spectacular-accumulation-depth-of-field-in-unreal-engine-58.md (another render quality technique using MRQ)
 - fixing-common-ue5-issues-changes-in-50.md (MRQ + rendering settings context)

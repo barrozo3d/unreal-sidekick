@@ -5,7 +5,7 @@ url: https://www.youtube.com/watch?v=yolGEIrhu0s
 author: William Faucher
 ingested: 2026-06-23
 ue_version: "UE4/UE5"
-tags: [volumetric-clouds, sky, environment, art-direction, cloud-mask, engine-content, materials, rendering, VFX]
+tags: [volumetric-clouds, sky, environment, art-direction, cloud-mask, engine-content, materials, rendering, vfx]
 extraction_status: complete
 frames_dir: tutorials/frames/volumetric-cloud-secrets-unreal-engine-4-5-works-in-ue5/
 frame_count: 4

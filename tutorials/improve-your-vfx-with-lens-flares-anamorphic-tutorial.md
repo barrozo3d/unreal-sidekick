@@ -11,7 +11,7 @@ frames_dir: tutorials/frames/improve-your-vfx-with-lens-flares-anamorphic-tutori
 frame_count: 13
 ---
 
-# Improve Your VFX with Lens Flares (Anamorphic Tutorial)
+# Improve Your vfx with Lens Flares (Anamorphic Tutorial)
 
 **Source:** [YouTube](https://www.youtube.com/watch?v=hFM_jGd46as)
 **Author:** Josh Toonen
@@ -23,7 +23,7 @@ frame_count: 13
 
 
 ### The Secret to Cinematic Hollywood films [0:00]
-**Transcript:** What if you could make your visual effects look as cinematic as the Hollywood classics?  We're talking alien,  Blade Runner, and Raiders of the Lost are.  How can you recreate the look of these iconic films?  Umm...  The hidden secret is they're filmed on an anamorphic lens.  Anamorphic lenses define the look of the 80s and 90s and they're still used today.  Even this lens, it has all the imperfections of a real anamorphic lens.  So what goes behind this iconic look and how can you recreate it for your own films?  Believe it or not, it's never been easier by taking your CG renders and transforming them  to look like they were shot through an anamorphic lens.  What's up?  My name's Josh Tunin and for the last 8 years I've worked on Hollywood visual effects  as an artist and supervisor on movies like Star Wars, Dungeons & Dragons, and across the  Spider-Verse.  And I started using Unreal Engine on set for the virtual production of TV shows like Avatar  the Last Airbender.  I started off as a self-taught visual effects artist learning right here on YouTube.  And I want to give away all the secrets I've learned along the way and teach you the  three steps to recreate the classic anamorphic look every single time.  So let's dive into the anamorphic masterclass.  Now there's two key features of every anamorphic lens, the Boka and the lens flares.
+**Transcript:** What if you could make your visual effects look as cinematic as the Hollywood classics?  We're talking alien,  Blade Runner, and Raiders of the Lost are.  How can you recreate the look of these iconic films?  Umm...  The hidden secret is they're filmed on an anamorphic lens.  Anamorphic lenses define the look of the 80s and 90s and they're still used today.  Even this lens, it has all the imperfections of a real anamorphic lens.  So what goes behind this iconic look and how can you recreate it for your own films?  Believe it or not, it's never been easier by taking your CG renders and transforming them  to look like they were shot through an anamorphic lens.  What's up?  My name's Josh Tunin and for the last 8 years I've worked on Hollywood visual effects  as an artist and supervisor on movies like Star Wars, Dungeons & Dragons, and across the  Spider-Verse.  And I started using Unreal Engine on set for the virtual-production of TV shows like Avatar  the Last Airbender.  I started off as a self-taught visual effects artist learning right here on YouTube.  And I want to give away all the secrets I've learned along the way and teach you the  three steps to recreate the classic anamorphic look every single time.  So let's dive into the anamorphic masterclass.  Now there's two key features of every anamorphic lens, the Boka and the lens flares.
 
 **Frame:** tutorials\frames\improve-your-vfx-with-lens-flares-anamorphic-tutorial\frame_000.jpg
 

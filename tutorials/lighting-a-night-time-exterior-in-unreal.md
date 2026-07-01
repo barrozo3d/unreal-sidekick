@@ -83,7 +83,7 @@ frame_count: 14
 **Frame:** tutorials\frames\lighting-a-night-time-exterior-in-unreal\frame_011.jpg
 
 ### Additional Tips [28:37]
-**Transcript:** Now the last thing I would do here is render this shot out using the movie render queue,  which I have the tutorial for right here.  And from there, I would just color grade this a little bit in DaVinci Resolve.  Now I do have a tutorial on color grading in DaVinci Resolve coming soon, so be sure  you subscribe so you don't miss it.  Because at the end of the day, the only thing that matters is the end result.  If your shot looks gorgeous, the client is happy, you're good to go.
+**Transcript:** Now the last thing I would do here is render this shot out using the movie render queue,  which I have the tutorial for right here.  And from there, I would just color grade this a little bit in davinci-resolve.  Now I do have a tutorial on color grading in davinci-resolve coming soon, so be sure  you subscribe so you don't miss it.  Because at the end of the day, the only thing that matters is the end result.  If your shot looks gorgeous, the client is happy, you're good to go.
 
 **Frame:** tutorials\frames\lighting-a-night-time-exterior-in-unreal\frame_012.jpg
 

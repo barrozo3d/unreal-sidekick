@@ -11,7 +11,7 @@ frames_dir: tutorials/frames/how-i-remade-the-backrooms-using-vfx/
 frame_count: 6
 ---
 
-# How I Remade the BACKROOMS using VFX
+# How I Remade the BACKROOMS using vfx
 
 **Source:** [YouTube](https://www.youtube.com/watch?v=N4hq0WUaPmk)
 **Author:** Josh Toonen

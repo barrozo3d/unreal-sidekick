@@ -1,4 +1,4 @@
-﻿---
+---
 title: DASH 1.8.5 - BIG UPDATE FOR UE5 WORLD BUILDING
 source: YouTube
 url: https://www.youtube.com/watch?v=lHZwUtS6hyE
@@ -35,7 +35,7 @@ Dash 1.8.5 release overview by Tomáš — major additions: Fab plugin support i
 8-minute release video covering Dash 1.8.5. Key additions: (1) Fab Integration — assets downloaded from the Fab plugin now appear in a dedicated Fab tab in Dash Content Browser; supports Megascans, FBX, and GLTF; asset tags auto-imported; Material Edit and Blend Material tools work on Fab Megascans assets. (2) AI Assistant (SOFI) — more accurate, generates action buttons to call tools directly, links to documentation, supports multi-turn conversations, accepts image uploads. (3) Terrain Deformation — deform terrain mesh with curves (Falloff + Tapering); add via + button in Curve Properties; experimental height map support. (4) Incremental Spin — scatter rotation restricted to specific discrete values (e.g. 0° and 90°), ordered or randomized. (5) Data Tables — stack multiple layers of density, proximity, landscape masking, or terrain curves; click Edit Table → + to add layers. (6) Proximity Width — single control to create a strip of scatter without needing multiple proximity masks or references. (7) Texture Repetition Breakup — enable in Material Edit or Blend Material to eliminate tiling repetition; first iteration.
 
 ### Key Steps
-1. **Fab Integration** — download asset via Fab plugin → it appears in Dash Content Browser → Fab tab; supports Megascans, FBX, GLTF; search via keyword tags; Material Edit + Blend Material work on Fab Megascans; scatter/physics from Fab assets same as any other asset
+1. **Fab Integration** — download asset via Fab plugin → it appears in Dash Content Browser → Fab tab; supports Megascans, FBX, GLTF; search via keyword tags; Material Edit + Blend Material work on Fab Megascans; scatter/physics from fab-assets same as any other asset
 2. **AI Assistant (SOFI)** — open from Dash toolbar; type question → get workflow outline with action buttons for each tool; upload image → SOFI suggests workflow for that scene; supports multi-turn conversation
 3. **Terrain Deformation with Curves** — place terrain + a curve; in terrain tool → Curve Properties → + to assign curve; reshape curve to deform terrain; multiple curves supported on one mesh
 4. **Height Map Support (Experimental)** — select height map in UE Content Browser → + icon in terrain tool → assigns to terrain → adjust Intensity → creates realistic canyon/mountain shapes

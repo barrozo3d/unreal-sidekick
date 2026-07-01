@@ -11,7 +11,7 @@ frames_dir: tutorials/frames/how-to-actually-improve-your-films-vfx-dune-in-unre
 frame_count: 9
 ---
 
-# How to ACTUALLY Improve Your Films + VFX (Dune in Unreal 5)
+# How to ACTUALLY Improve Your Films + vfx (Dune in Unreal 5)
 
 **Source:** [YouTube](https://www.youtube.com/watch?v=Qun6BB6Q2tg)
 **Author:** Josh Toonen
@@ -23,7 +23,7 @@ frame_count: 9
 
 
 ### Intro [0:00]
-**Transcript:** Are you struggling to make your visual effects look as cinematic as your favorite Hollywood movies?  Well, don't worry, because all you need are these three shortcuts that I learned  recreating this war on a rackess from Doom Part 2.  Made entirely in Unreal Engine.  What's up, my name's Josh Tunin, and for the last eight years of work as a visual effects  artist and supervisor on movies like Star Wars, Dungeons & Dragons, and across the Spider-Verse.  And I started using Unreal Engine every day on set for the virtual production of Netflix's  Avatar the Last Airbender. And today, all you need are these three secrets to create cinematic  visual effects that you can start applying right after this video. Subscribe to the channel,  and let's get started.
+**Transcript:** Are you struggling to make your visual effects look as cinematic as your favorite Hollywood movies?  Well, don't worry, because all you need are these three shortcuts that I learned  recreating this war on a rackess from Doom Part 2.  Made entirely in Unreal Engine.  What's up, my name's Josh Tunin, and for the last eight years of work as a visual effects  artist and supervisor on movies like Star Wars, Dungeons & Dragons, and across the Spider-Verse.  And I started using Unreal Engine every day on set for the virtual-production of Netflix's  Avatar the Last Airbender. And today, all you need are these three secrets to create cinematic  visual effects that you can start applying right after this video. Subscribe to the channel,  and let's get started.
 
 **Frame:** tutorials\frames\how-to-actually-improve-your-films-vfx-dune-in-unreal-5\frame_000.jpg
 
@@ -38,7 +38,7 @@ frame_count: 9
 **Frame:** tutorials\frames\how-to-actually-improve-your-films-vfx-dune-in-unreal-5\frame_002.jpg
 
 ### Photography vs Cinematography [2:33]
-**Transcript:** But let's stop right there. What's the difference between photography and cinematography? Photography  is only dealing with still images. But cinematography is all about making images that move. After all,  we're creating movies. Looking at the sequence from Dune, there's not a single shot here where the  camera isn't moving. And I think this is the biggest difference between static environment renders  and creating visual effect shots that look right out of your favorite Hollywood movies.  And I think this becomes obvious if we go look back at the original Star Wars pre-puls. These were  some of the first movies where they were experimenting with full green screen stages and digital environments.  You're doing lines against a blue curtain and it's really hard work. It's difficult to make that  believable. I don't know if I have. Pretty much every set has blue screen even if it's just out of  window or something. It's everywhere. People say why am I doing it? Is it the real question? Why not?  I think the biggest reason some of these shots don't hold up isn't because of bad visual effects.  It's because we have two actors standing still in the middle of this room with a static camera.  So let's start by animating our cameras and our characters. First, I'm going to start by animating
+**Transcript:** But let's stop right there. What's the difference between photography and cinematography? Photography  is only dealing with still images. But cinematography is all about making images that move. After all,  we're creating movies. Looking at the sequence from Dune, there's not a single shot here where the  camera isn't moving. And I think this is the biggest difference between static environment renders  and creating visual effect shots that look right out of your favorite Hollywood movies.  And I think this becomes obvious if we go look back at the original Star Wars pre-puls. These were  some of the first movies where they were experimenting with full green-screen stages and digital environments.  You're doing lines against a blue curtain and it's really hard work. It's difficult to make that  believable. I don't know if I have. Pretty much every set has blue-screen even if it's just out of  window or something. It's everywhere. People say why am I doing it? Is it the real question? Why not?  I think the biggest reason some of these shots don't hold up isn't because of bad visual effects.  It's because we have two actors standing still in the middle of this room with a static camera.  So let's start by animating our cameras and our characters. First, I'm going to start by animating
 
 **Frame:** tutorials\frames\how-to-actually-improve-your-films-vfx-dune-in-unreal-5\frame_003.jpg
 

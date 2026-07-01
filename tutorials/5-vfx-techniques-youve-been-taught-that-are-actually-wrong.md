@@ -1,4 +1,4 @@
-﻿---
+---
 title: 5 VFX Techniques You've Been Taught That Are ACTUALLY Wrong
 source: YouTube
 url: https://www.youtube.com/watch?v=rUZxS3IwZhQ
@@ -12,7 +12,7 @@ frames_dir: tutorials/frames/5-vfx-techniques-youve-been-taught-that-are-actuall
 frame_count: 5
 ---
 
-# 5 VFX Techniques You've Been Taught That Are ACTUALLY Wrong
+# 5 vfx Techniques You've Been Taught That Are ACTUALLY Wrong
 
 **Source:** [YouTube](https://www.youtube.com/watch?v=rUZxS3IwZhQ)
 **Author:** Boundless Entertainment

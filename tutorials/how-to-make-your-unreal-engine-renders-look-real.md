@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to Make Your Unreal Engine Renders Look REAL
 source: YouTube
 url: https://www.youtube.com/watch?v=o5ZInDwU73I
@@ -26,7 +26,7 @@ frame_count: 4
 Film emulation workflow for UE5: processing digital renders to mimic film stock characteristics (halation, grain, gate weave, film breath, color density) using LightForge and/or post-processing tools to add organic imperfections that make digital renders read as photographed rather than computer-generated.
 
 ### Summary
-32-minute deep-dive on why digital renders look "plasticky" and how to fix it via film emulation. The gap between digital and film is not lighting or geometry — it's the physical imperfections of film stock that analog cinema inherits from its chemical process: halation (light blooming around emulsion grains), film grain (photochemical noise pattern), gate weave (subtle frame-to-frame positional drift from film gate tolerances), film breath (rack-focus micro-drift), and characteristic contrast/color density curves that differ from digital colorspaces. Sam demonstrates applying film emulation in UE5 using PPV settings and LightForge controls, then extending the result in post (DaVinci Resolve or AE). Key insight: LightForge exposes the critical film emulation parameters in one panel rather than requiring PPV + engine console variable hunting.
+32-minute deep-dive on why digital renders look "plasticky" and how to fix it via film emulation. The gap between digital and film is not lighting or geometry — it's the physical imperfections of film stock that analog cinema inherits from its chemical process: halation (light blooming around emulsion grains), film grain (photochemical noise pattern), gate weave (subtle frame-to-frame positional drift from film gate tolerances), film breath (rack-focus micro-drift), and characteristic contrast/color density curves that differ from digital colorspaces. Sam demonstrates applying film emulation in UE5 using PPV settings and LightForge controls, then extending the result in post (davinci-resolve or AE). Key insight: LightForge exposes the critical film emulation parameters in one panel rather than requiring PPV + engine console variable hunting.
 
 ### Film Emulation Characteristics
 - **Halation** — film-specific: light from bright sources bleeds through the emulsion base and scatters back, creating a warm red/orange glow around highlights; digital has no equivalent naturally; emulate with bloom (asymmetric, colored) in PPV
@@ -40,11 +40,11 @@ Film emulation workflow for UE5: processing digital renders to mimic film stock 
 1. **Enable Path Tracing** — LightForge: Path Tracing toggle (or Project Settings > Rendering); cleanest base for film emulation
 2. **Set film tone curve** — LightForge cinematic preset OR PPV > Film > Toe/Shoulder/Slope sliders to create S-curve (vs. ACES/linear default)
 3. **Add halation** — PPV > Bloom: Method = Convolution; tint slightly warm (orange/red); Threshold = higher values focus bloom on specular highlights; combine with custom convolution kernel for anamorphic streak if needed
-4. **Film grain** — PPV > Lens > Film Grain Intensity: start at 0.3–0.5; Film Grain Shadows Max: controls grain visibility in shadows; for more accurate grain: overlay film grain footage (Lens Distortions, ActionVFX, etc.) in composite
+4. **Film grain** — PPV > Lens > Film Grain Intensity: start at 0.3–0.5; Film Grain Shadows Max: controls grain visibility in shadows; for more accurate grain: overlay film grain footage (Lens Distortions, Actionvfx, etc.) in composite
 5. **Gate weave** — not native in UE; apply in AE/Resolve: position noise expression (AE) or Motion > Camera Shake preset (Resolve) with very low amplitude (0.2–0.5px), low frequency
 6. **Film breath** — Sequencer: add slight animated Focus Distance variation (+/- 2–5cm) with slow noise key; keep subtle so it reads as organic not distracting
 7. **Color grade** — LightForge color presets OR PPV > Color Grading > Film Wheel; lift shadows slightly warm, push mids cool, roll highlights; classic film look contrasts warm shadows vs cool mids
-8. **Composite in post** — LightForge render preset (MRQ): EXR output; bring into DaVinci Resolve or AE for final film grain overlay + gate weave + halation fine-tuning
+8. **Composite in post** — LightForge render preset (MRQ): EXR output; bring into davinci-resolve or AE for final film grain overlay + gate weave + halation fine-tuning
 
 ### UE Systems / Plugins / Settings
 - **LightForge** — exposes all film emulation parameters in one panel: tone curve, bloom, grain, color grading presets; saves navigating PPV + engine settings separately

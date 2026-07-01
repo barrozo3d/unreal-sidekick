@@ -1,4 +1,4 @@
-﻿---
+---
 title: 3D Tracking Natively in Unreal Engine - FULL TUTORIAL
 source: YouTube
 url: https://www.youtube.com/watch?v=z9t4XIoNsHY
@@ -29,13 +29,13 @@ frame_count: 7
 ## Structured Notes
 
 ### Core Technique
-Full end-to-end walkthrough of Genesis (Boundless Entertainment 3D camera tracking plugin): automated tracking from masked footage, 3D reconstruction import, scene scale/orientation calibration via two-point measurement, and automatic distortion compensation via Lens Component - all done natively inside Unreal Engine with zero manual tracking work.
+Full end-to-end walkthrough of Genesis (Boundless Entertainment 3D camera-tracking plugin): automated tracking from masked footage, 3D reconstruction import, scene scale/orientation calibration via two-point measurement, and automatic distortion compensation via Lens Component - all done natively inside Unreal Engine with zero manual tracking work.
 
 ### Summary
-14-minute full tutorial covering all three Genesis processes. Workflow: mask subject in AE/DaVinci/Fusion (gray solid fill) to eliminate moving actors from tracking footage → Genesis window: Choose Footage → automated tracking (no manual work) → import tracking scene (Choose Directory from Genesis output folder) → set frame rate (e.g. 23.976) + sensor width (e.g. 27.03mm from RED camera) → activate Set Scale Mode (two-point click on mesh, enter measured distance) → set orientation → review camera + distortion: Genesis auto-creates Lens Component with distortion parameters; toggling Apply Distortion shows the alignment difference. Genesis Perpetual License option available (buy outright + 1 year updates).
+14-minute full tutorial covering all three Genesis processes. Workflow: mask subject in AE/DaVinci/fusion (gray solid fill) to eliminate moving actors from tracking footage → Genesis window: Choose Footage → automated tracking (no manual work) → import tracking scene (Choose Directory from Genesis output folder) → set frame rate (e.g. 23.976) + sensor width (e.g. 27.03mm from RED camera) → activate Set Scale Mode (two-point click on mesh, enter measured distance) → set orientation → review camera + distortion: Genesis auto-creates Lens Component with distortion parameters; toggling Apply Distortion shows the alignment difference. Genesis Perpetual License option available (buy outright + 1 year updates).
 
 ### Key Steps
-1. **Mask subject** - in AE/DaVinci/Fusion: create mask around moving subject, fill with gray solid, render; eliminates moving actors from tracker
+1. **Mask subject** - in AE/DaVinci/fusion: create mask around moving subject, fill with gray solid, render; eliminates moving actors from tracker
 2. **Enable Genesis** - Edit > Plugins > search Genesis > enable > restart; open Genesis window (dock it)
 3. **Choose Footage** - Click Choose Footage in Genesis panel; select the masked tracking footage
 4. **Automated tracking** - Genesis tracks automatically; wait for completion (point cloud + dense mesh reconstructed)

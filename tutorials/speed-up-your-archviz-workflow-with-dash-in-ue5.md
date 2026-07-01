@@ -1,4 +1,4 @@
-﻿---
+---
 title: Speed Up Your Archviz Workflow with Dash in UE5
 source: YouTube
 url: https://www.youtube.com/watch?v=PLACEHOLDER
@@ -32,7 +32,7 @@ frame_count: 16
 Tomáš Nod (external contributor, Budapest) builds a kitchen archviz scene using Dash 1.4's newly integrated Polyhaven HDRI lighting, Material Adjustment for all surfaces, Physics Tool (Complex collision) for natural fruit pile composition, Dash Camera with post-processing controls, Megascans decals, Level Sequence + Movie Render Queue with Path Tracer.
 
 ### Summary
-14-minute archviz workflow: Blender kitchen model (FBX) → drag to UE5 scene → Polyhaven HDRI drag-to-scene (brand new 1.4 integration; Quixel + Megascans also available) → PPV (Unbound, exposure) → type `camera` → create CineCameraActor + set focal length + composition → Megascans material drag-to-mesh (saturation/roughness/brightness tweaks) → emissive cube as under-counter light → Physics Tool for fruit pile (Complex collision + Set Dynamic + duplicate while simulating) → additional props from Polyhaven model library → Megascans decals via Dash CB → Camera post-processing panel (bloom, fringe, temperature) → Level Sequence camera animation (25 FPS, linear keys) → Path Tracer via PPV → Movie Render Queue (anti-aliasing, path tracer, EXR, game overrides, 4K) → DaVinci Resolve noise reduction + dust layer.
+14-minute archviz workflow: Blender kitchen model (FBX) → drag to UE5 scene → Polyhaven HDRI drag-to-scene (brand new 1.4 integration; Quixel + Megascans also available) → PPV (Unbound, exposure) → type `camera` → create CineCameraActor + set focal length + composition → Megascans material drag-to-mesh (saturation/roughness/brightness tweaks) → emissive cube as under-counter light → Physics Tool for fruit pile (Complex collision + Set Dynamic + duplicate while simulating) → additional props from Polyhaven model library → Megascans decals via Dash CB → Camera post-processing panel (bloom, fringe, temperature) → Level Sequence camera animation (25 FPS, linear keys) → Path Tracer via PPV → Movie Render Queue (anti-aliasing, path tracer, EXR, game overrides, 4K) → davinci-resolve noise reduction + dust layer.
 
 ### Key Steps
 1. **HDRI Lighting** — Dash CB → Polyhaven tab → pick HDRI → drag to scene; Quixel + Megascans also in same CB; adjust intensity + rotation
@@ -50,8 +50,8 @@ Tomáš Nod (external contributor, Budapest) builds a kitchen archviz scene usin
 - **Polyhaven CB (brand new, 1.4)** — HDRI resolution picker → drag to scene; also Polyhaven 3D models available
 - **Physics Tool — Complex collision** — select ground mesh → Complex collision option; prevents dynamic objects falling through; critical for props landing on irregular surfaces
 - **Level Sequence** — standard UE Level Sequence; set keys to Linear mode for consistent camera speed
-- **MRQ (Path Tracer)** — denoiser disabled for Path Tracer (cannot fine-tune); sample count override in AA settings; EXR extension for post work in DaVinci Resolve
-- **DaVinci Resolve post** — noise reduction + dust layer added externally
+- **MRQ (Path Tracer)** — denoiser disabled for Path Tracer (cannot fine-tune); sample count override in AA settings; EXR extension for post work in davinci-resolve
+- **davinci-resolve post** — noise reduction + dust layer added externally
 
 ### Difficulty
 Intermediate

@@ -53,7 +53,7 @@ frame_count: 7
 **Frame:** tutorials\frames\how-i-made-this-shot-in-unreal-engine-5\frame_005.jpg
 
 ### Davinci Resolve Denoising [13:04]
-**Transcript:** 6 hours later.  Now, I've talked about this in many videos.  I even have a whole video dedicated to color grading and vintage resolve, but really,  this part of the process is where you really make your render shine.  Color grading is entirely subjective.  What one person might like, another person won't.  There isn't a good or bad way to grade.  It's all about the taste and getting to look you want.  I don't want to spend too much time on nitty-gritty here, because again, I've made two whole videos  on color grading and resolve already.  The one thing I do want to show you, however, is denoising and resolve.  Because the path tracer by nature is going to be substantially grainyer than when you use  the deferred rendering.  In the free version of resolve, select your imported clip and go to the Fusion page, press  SHIFT, space, and add the noise reduction tool.  From there, your denoise setting will be on the right.  If you own the $300 studio version of resolve, you can add the noise reduction in the color  page, which is, by far, my preferred way of working.  I generally don't really enjoy using Fusion.  So here's a quick before and after of each of the three final renders I did.  You may or may not like the direction I took, and that's okay.  But that being said, I hope you found this video helpful.  I hope I hit with able to shed a little bit more light on my rendering workflow.  Thanks so much for watching, and as always, happy rendering.
+**Transcript:** 6 hours later.  Now, I've talked about this in many videos.  I even have a whole video dedicated to color grading and vintage resolve, but really,  this part of the process is where you really make your render shine.  Color grading is entirely subjective.  What one person might like, another person won't.  There isn't a good or bad way to grade.  It's all about the taste and getting to look you want.  I don't want to spend too much time on nitty-gritty here, because again, I've made two whole videos  on color grading and resolve already.  The one thing I do want to show you, however, is denoising and resolve.  Because the path tracer by nature is going to be substantially grainyer than when you use  the deferred rendering.  In the free version of resolve, select your imported clip and go to the fusion page, press  SHIFT, space, and add the noise reduction tool.  From there, your denoise setting will be on the right.  If you own the $300 studio version of resolve, you can add the noise reduction in the color  page, which is, by far, my preferred way of working.  I generally don't really enjoy using fusion.  So here's a quick before and after of each of the three final renders I did.  You may or may not like the direction I took, and that's okay.  But that being said, I hope you found this video helpful.  I hope I hit with able to shed a little bit more light on my rendering workflow.  Thanks so much for watching, and as always, happy rendering.
 
 **Frame:** tutorials\frames\how-i-made-this-shot-in-unreal-engine-5\frame_006.jpg
 
@@ -63,10 +63,10 @@ frame_count: 7
 ## Structured Notes
 
 ### Core Technique
-Axe hero shot workflow: Reality Capture photogrammetry (cross-polarized + scanning spray for shiny metal) → ZBrush retopo → Substance Painter PBR → UE5 Path Tracer (Nanite disabled) → MRQ 16-bit EXR, no denoiser, 16×16 samples → DaVinci Resolve denoising + color grade. Environment built camera-first; scaled-down Megascans rocks used as sand/pebbles; large-scale bushes as shadow-casting "trees."
+Axe hero shot workflow: Reality Capture photogrammetry (cross-polarized + scanning spray for shiny metal) → ZBrush retopo → Substance Painter PBR → UE5 Path Tracer (Nanite disabled) → MRQ 16-bit EXR, no denoiser, 16×16 samples → davinci-resolve denoising + color grade. Environment built camera-first; scaled-down Megascans rocks used as sand/pebbles; large-scale bushes as shadow-casting "trees."
 
 ### Summary
-William Faucher's full production breakdown for three axe hero shots in UE5. 3D scanning: cross-polarized flash rig on tripod, axe mounted on ceiling with rotating arm (5° increments); subscan spray for shiny blade edge; ZBrush retopo and cleanup; Boolean for separate leather strap geometry; textures baked from Reality Capture, refined in Substance Painter (wood/steel/leather/brass PBR). UE5: camera and composition first; Path Tracer (not Lumen) for sub-pixel shadow and GI quality; Nanite must be disabled for Path Tracer compatibility. Environment scaling trick: giant Megascans rocks scaled down to sand-sized; large bushes scaled up for tree-shadow effect without needing actual large trees. MRQ: delete deferred rendering, add Path Tracer tab, 16-bit EXR, no tone curve, AA=none, 16×16 PT samples, disable denoiser. DaVinci: Fusion Noise Reduction (free) or Color page (Studio).
+William Faucher's full production breakdown for three axe hero shots in UE5. 3D scanning: cross-polarized flash rig on tripod, axe mounted on ceiling with rotating arm (5° increments); subscan spray for shiny blade edge; ZBrush retopo and cleanup; Boolean for separate leather strap geometry; textures baked from Reality Capture, refined in Substance Painter (wood/steel/leather/brass PBR). UE5: camera and composition first; Path Tracer (not Lumen) for sub-pixel shadow and GI quality; Nanite must be disabled for Path Tracer compatibility. Environment scaling trick: giant Megascans rocks scaled down to sand-sized; large bushes scaled up for tree-shadow effect without needing actual large trees. MRQ: delete deferred rendering, add Path Tracer tab, 16-bit EXR, no tone curve, AA=none, 16×16 PT samples, disable denoiser. DaVinci: fusion Noise Reduction (free) or Color page (Studio).
 
 ### Key Steps
 
@@ -100,8 +100,8 @@ William Faucher's full production breakdown for three axe hero shots in UE5. 3D 
 4. Post Process Volume → Path Tracing → disable Denoiser (denoise in DaVinci instead)
 5. Output: 4K resolution → Render Local → wait hours
 
-**DaVinci Resolve:**
-1. Free version: Fusion page → Shift+Space → Noise Reduction tool → adjust settings
+**davinci-resolve:**
+1. Free version: fusion page → Shift+Space → Noise Reduction tool → adjust settings
 2. Studio version: Color page → Noise Reduction (preferred)
 3. Color grade to taste; experiment with different times of day (overcast, night)
 

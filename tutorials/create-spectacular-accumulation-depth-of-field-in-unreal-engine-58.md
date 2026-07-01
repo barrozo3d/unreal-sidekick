@@ -14,7 +14,7 @@ frame_count: 15
 # Create SPECTACULAR Accumulation Depth of Field in Unreal Engine 5.8
 
 **Source:** [YouTube](https://www.youtube.com/watch?v=H3OfTUhMmmc)
-**Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+**Author:** Dean Yurke - Unreal Engine and vfx Filmmaking
 **Duration:** 14m58s | 15 section(s)
 
 ---
@@ -92,7 +92,7 @@ frame_count: 15
 
 **Frame:** tutorials\frames\create-spectacular-accumulation-depth-of-field-in-unreal-engine-58\frame_013.jpg
 
-### Coming Next: Composure Updates in 5.8 [14:40]
+### Coming Next: composure Updates in 5.8 [14:40]
 **Transcript:** I'm going to be doing one on the new updates in composure for 5.8.  And there's some really cool little things and some big things too.  So make sure that you subscribe because you don't want to miss that.  And if you've already subscribed, thank you.  I really appreciate it.  And I'll see you on that one.
 
 **Frame:** tutorials\frames\create-spectacular-accumulation-depth-of-field-in-unreal-engine-58\frame_014.jpg

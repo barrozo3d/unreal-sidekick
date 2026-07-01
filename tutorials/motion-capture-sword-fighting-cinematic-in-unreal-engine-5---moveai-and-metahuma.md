@@ -79,7 +79,7 @@ frame_count: 5
 
 **Camera Work:**
 1. Two cameras: one per fighter, placed on roughly opposite sides
-2. Manual keyframe camera tracking: advance timeline → reframe → add keyframe; repeat
+2. Manual keyframe camera-tracking: advance timeline → reframe → add keyframe; repeat
 3. ~20-30 minutes per camera
 4. Handheld shakiness (small constant camera motion) to sell realism
 5. "Camera bump" — instead of screen shake at sword hits, animate camera position itself slightly when fighters pass close to camera (more realistic than digital shake)

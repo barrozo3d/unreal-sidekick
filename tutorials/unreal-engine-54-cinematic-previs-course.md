@@ -1,4 +1,4 @@
-﻿---
+---
 title: Unreal Engine 5.4 Cinematic PREVIS Course
 source: YouTube
 url: https://www.youtube.com/watch?v=BW0oesmih9I
@@ -26,10 +26,10 @@ frame_count: 4
 Short promo/teaser for a full cinematic previsualization course in Unreal Engine 5.4. Shows the channel's previs workflow: blocking sequences in Sequencer before committing to final renders.
 
 ### Summary
-48-second promo teaser for the Boundless Entertainment Cinematic Previs Course for UE 5.4. No narration transcript recovered — visual-only short. Previsualization in UE 5.4 means using Sequencer to rough out camera moves, timing, lighting intent, and VFX placement before the final render pass, saving significant iteration time. For full course content see the channel's linked course materials. The promo demonstrates the real-time feedback loop that makes UE5 previs practical for indie filmmakers: layout → rough lighting → camera → export reference. Companion context: see how-unreal-engine-is-changing-filmmaking-forever for editorial context on why previs matters.
+48-second promo teaser for the Boundless Entertainment Cinematic Previs Course for UE 5.4. No narration transcript recovered — visual-only short. Previsualization in UE 5.4 means using Sequencer to rough out camera moves, timing, lighting intent, and vfx placement before the final render pass, saving significant iteration time. For full course content see the channel's linked course materials. The promo demonstrates the real-time feedback loop that makes UE5 previs practical for indie filmmakers: layout → rough lighting → camera → export reference. Companion context: see how-unreal-engine-is-changing-filmmaking-forever for editorial context on why previs matters.
 
 ### Key Concepts (Previs in UE5)
-- **What previs is** — low-fidelity planning pass: rough camera angles, timing, rough lighting, VFX intent — before committing to full Path Tracer renders
+- **What previs is** — low-fidelity planning pass: rough camera angles, timing, rough lighting, vfx intent — before committing to full Path Tracer renders
 - **Sequencer as previs tool** — create Level Sequences, block camera moves, set rough timings with temp lighting before fine-tuning
 - **Previs lighting** — use Lumen (fast) for previs, switch to Path Tracing only for final renders; saves hours per iteration
 - **UE5 advantage for previs** — real-time viewport shows accurate lighting and approximate final look; traditional previs software (Shotvis, FrameForge) cannot match this

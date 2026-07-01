@@ -1,4 +1,4 @@
-﻿---
+---
 title: The Simplest Rendering Trick 90% of Unreal Artists Miss
 source: YouTube
 url: https://www.youtube.com/watch?v=YqPy2yM7X-s
@@ -35,7 +35,7 @@ Sam reveals a simple but high-impact rendering trick (applying physical camera i
 Short video on the single most impactful rendering trick for making Unreal renders look photorealistic rather than CG. Transcript is partially captured; the key insight is that highly detailed textures and good lighting are not enough - there is a simple overlay technique (physical camera characteristics such as chromatic aberration, vignette, film grain, or lens distortion) that can be applied either in Unreal's post process settings or in a video editing application. Sam notes this was discovered through extensive study and experimentation after years of puzzlement at CG-looking results. LightForge 2.0 likely provides a streamlined way to apply these settings given the channel context.
 
 ### Key Steps
-N/A - short tip video; transcript truncated. Core recommendation: add physical camera imperfections (post process effects) to renders either in UE Post Process Volume settings or in editing software (DaVinci Resolve, Premiere, etc.).
+N/A - short tip video; transcript truncated. Core recommendation: add physical camera imperfections (post process effects) to renders either in UE Post Process Volume settings or in editing software (davinci-resolve, Premiere, etc.).
 
 ### UE Systems / Blueprints / Settings
 - **Post Process Volume (camera imperfections)** - Chromatic Aberration (CA), Vignette, Film Grain, Lens Distortion; these settings mimic real camera optics and are the key to making CG look photographic

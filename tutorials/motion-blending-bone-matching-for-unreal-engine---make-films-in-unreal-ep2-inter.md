@@ -14,7 +14,7 @@ frame_count: 8
 # Motion Blending / Bone Matching for Unreal Engine - Make Films in Unreal : (ep2) (Intermediate)
 
 **Source:** [YouTube](https://www.youtube.com/watch?v=JxHYt9vFQD8)
-**Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+**Author:** Dean Yurke - Unreal Engine and vfx Filmmaking
 **Duration:** 14m32s | 8 section(s)
 
 ---

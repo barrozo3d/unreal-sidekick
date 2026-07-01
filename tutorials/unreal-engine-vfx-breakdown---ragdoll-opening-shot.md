@@ -5,7 +5,7 @@ url: https://www.youtube.com/watch?v=rzMRSDxg33Q
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-17
 ue_version: "UE5"
-tags: ["VFX breakdown", "ragdoll", "green screen", "blue screen", "camera tracking", "media texture", "virtual production", "Composure", "DaVinci Resolve", "Fusion", "digital double", "filmmaking", "Fab assets"]
+tags: ["vfx-breakdown", "ragdoll", "green-screen", "blue-screen", "camera-tracking", "media-texture", "virtual-production", "composure", "davinci-resolve", "fusion", "digital-double", "filmmaking", "fab-assets"]
 extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-vfx-breakdown---ragdoll-opening-shot/
 frame_count: 12
@@ -23,7 +23,7 @@ frame_count: 12
 
 
 ### Virtual Production in Unreal Engine Overview [0:00]
-**Transcript:** So in this video, in this video, I'm going to show you how I took this guy and then I  put him on a card in 3D inside of Unreal and then put him into this environment.  So first thing is I took me and I shot me against a blue screen and then I had a camera,
+**Transcript:** So in this video, in this video, I'm going to show you how I took this guy and then I  put him on a card in 3D inside of Unreal and then put him into this environment.  So first thing is I took me and I shot me against a blue-screen and then I had a camera,
 
 **Frame:** tutorials\frames\unreal-engine-vfx-breakdown---ragdoll-opening-shot\frame_000.jpg
 
@@ -38,7 +38,7 @@ frame_count: 12
 **Frame:** tutorials\frames\unreal-engine-vfx-breakdown---ragdoll-opening-shot\frame_002.jpg
 
 ### Green Screen extraction in Davinci Resolve [0:45]
-**Transcript:** So an extraction is basically cutting out anything that's blue and replacing it with black  and anything that's white is something that will be solid and will actually see inside  of Unreal Engine.  And once I've got my blue screen, I then do a camera match move so basically track where
+**Transcript:** So an extraction is basically cutting out anything that's blue and replacing it with black  and anything that's white is something that will be solid and will actually see inside  of Unreal Engine.  And once I've got my blue-screen, I then do a camera match move so basically track where
 
 **Frame:** tutorials\frames\unreal-engine-vfx-breakdown---ragdoll-opening-shot\frame_003.jpg
 
@@ -63,7 +63,7 @@ frame_count: 12
 **Frame:** tutorials\frames\unreal-engine-vfx-breakdown---ragdoll-opening-shot\frame_007.jpg
 
 ### Virtual Location Scouting and Real-time lighting [1:48]
-**Transcript:** move this about and kind of get it to look good until the plates kind of sitting better  to the environment.  The next thing was to bring in my digital double and I've applied some ragdoll physics to  that and I'm assuming that you've watched the last video about ragdoll physics and I had
+**Transcript:** move this about and kind of get it to look good until the plates kind of sitting better  to the environment.  The next thing was to bring in my digital-double and I've applied some ragdoll physics to  that and I'm assuming that you've watched the last video about ragdoll physics and I had
 
 **Frame:** tutorials\frames\unreal-engine-vfx-breakdown---ragdoll-opening-shot\frame_008.jpg
 
@@ -88,29 +88,29 @@ frame_count: 12
 ## Structured Notes
 
 ### Core Technique
-A 3-minute VFX breakdown of the ragdoll opening shot from Dean Yurke's film: blue screen capture on a treadmill with a slider camera, DaVinci Resolve extraction and camera tracking, bringing the live action plate into Unreal Engine as a Media Texture on a card, matching environment/lighting, adding a ragdoll digital double, rendering, and finishing in DaVinci Fusion.
+A 3-minute VFX breakdown of the ragdoll opening shot from Dean Yurke's film: blue-screen capture on a treadmill with a slider camera, DaVinci Resolve extraction and camera-tracking, bringing the live action plate into Unreal Engine as a Media Texture on a card, matching environment/lighting, adding a ragdoll digital-double, rendering, and finishing in DaVinci Fusion.
 
 ### Summary
-This is a VFX breakdown / making-of video (not a step-by-step tutorial) showing Dean Yurke's full virtual production pipeline applied to a specific opening shot where he walks on a beam and falls via ragdoll physics. He filmed himself against a blue screen on a treadmill (to simulate traveling through an environment) with a camera slider ("second shooter") for an orbiting move. The footage was brought into DaVinci Resolve for extraction and 3D camera tracking (DaVinci Studio). The tracked plate and camera were imported into Unreal Engine, and the live action was placed on a media texture card locked to the tracked camera, with world-space depth adjustment for foot contact. A Fab marketplace "Legendary Caves and Dungeons" environment was used, plus "Animated Traps" (swinging logs). The digital double had ragdoll physics applied from the tutorial in the companion video. After rendering, DaVinci Fusion was used to paint out the transition between live action and digital double, and the DaVinci Resolve Color Page Film Look treatment added grain and color for the final look.
+This is a VFX breakdown / making-of video (not a step-by-step tutorial) showing Dean Yurke's full virtual-production pipeline applied to a specific opening shot where he walks on a beam and falls via ragdoll physics. He filmed himself against a blue-screen on a treadmill (to simulate traveling through an environment) with a camera slider ("second shooter") for an orbiting move. The footage was brought into DaVinci Resolve for extraction and 3D camera-tracking (DaVinci Studio). The tracked plate and camera were imported into Unreal Engine, and the live action was placed on a media-texture card locked to the tracked camera, with world-space depth adjustment for foot contact. A Fab marketplace "Legendary Caves and Dungeons" environment was used, plus "Animated Traps" (swinging logs). The digital-double had ragdoll physics applied from the tutorial in the companion video. After rendering, DaVinci Fusion was used to paint out the transition between live action and digital-double, and the DaVinci Resolve Color Page Film Look treatment added grain and color for the final look.
 
 ### Key Steps
-1. Film subject against blue screen on a treadmill; use a camera slider for an orbiting or sliding camera move.
-2. Import footage into DaVinci Resolve; perform blue screen extraction to create a matte/EXR sequence.
+1. Film subject against blue-screen on a treadmill; use a camera slider for an orbiting or sliding camera move.
+2. Import footage into DaVinci Resolve; perform blue-screen extraction to create a matte/EXR sequence.
 3. Use DaVinci Resolve Studio's 3D Camera Tracker on the plate; export FBX with tracked camera.
-4. Import FBX into Unreal Engine (File > Import Into Level); put the media texture plate on a card locked to the tracked camera.
+4. Import FBX into Unreal Engine (File > Import Into Level); put the media-texture plate on a card locked to the tracked camera.
 5. Translate the card/camera forward in 3D space until the subject's feet appear grounded.
 6. Download and place Fab marketplace environment assets (e.g., Legendary Caves and Dungeons, Animated Traps).
 7. Move environment lights to match plate lighting; virtual scout to find the best camera position.
-8. Add a digital double character with ragdoll physics applied (see companion ragdoll tutorial); blend live action to digital double at the fall point.
+8. Add a digital-double character with ragdoll physics applied (see companion ragdoll tutorial); blend live action to digital-double at the fall point.
 9. Render out of Unreal Engine.
-10. In DaVinci Fusion: use Paint node to blend between live action and digital double at the cut point.
+10. In DaVinci Fusion: use Paint node to blend between live action and digital-double at the cut point.
 11. In DaVinci Resolve Color Page: apply Film Look treatment; add grain and color correction.
 
 ### UE Systems / Blueprints / Settings
 - Media Texture / Media Player on plane card (live action plate)
 - Cine Camera Actor (matched to DaVinci tracked camera FBX)
 - File > Import Into Level (tracked camera FBX)
-- Skeletal Mesh with Ragdoll Physics Asset (digital double)
+- Skeletal Mesh with Ragdoll Physics Asset (digital-double)
 - Fab marketplace assets: Legendary Caves and Dungeons, Animated Traps (external)
 - DaVinci Resolve Studio: Blue Screen extraction, 3D Camera Tracker, Film Look treatment, Color Page (external)
 - DaVinci Fusion: Paint node (external)
@@ -122,11 +122,11 @@ Intermediate
 5.x (no specific sub-version)
 
 ### Tags
-VFX breakdown, ragdoll, green screen, blue screen, camera tracking, media texture, virtual production, Composure, DaVinci Resolve, Fusion, digital double, filmmaking, Fab assets
+VFX breakdown, ragdoll, green-screen, blue-screen, camera-tracking, media-texture, virtual-production, Composure, DaVinci Resolve, Fusion, digital-double, filmmaking, Fab assets
 
 ---
 
 ## Related Entries
-- `beat-yourself-up-with-unreal-ragdoll-physics-for-filmmaking-made-easy-or-hard-in.md` — the ragdoll physics tutorial that produced the digital double used in this shot
-- `green-screen-cards-are-dead-camera-projections-in-unreal-engine-change-everythin.md` — more advanced version of the camera projection + green screen workflow shown here
-- `green-screen-edge-wrap-secrets-and-a-lie---advanced-davinci-to-unreal-engine-wor.md` — the detailed DaVinci camera tracking and extraction pipeline used in this breakdown
+- `beat-yourself-up-with-unreal-ragdoll-physics-for-filmmaking-made-easy-or-hard-in.md` — the ragdoll physics tutorial that produced the digital-double used in this shot
+- `green-screen-cards-are-dead-camera-projections-in-unreal-engine-change-everythin.md` — more advanced version of the camera projection + green-screen workflow shown here
+- `green-screen-edge-wrap-secrets-and-a-lie---advanced-davinci-to-unreal-engine-wor.md` — the detailed DaVinci camera-tracking and extraction pipeline used in this breakdown

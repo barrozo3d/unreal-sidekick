@@ -23,7 +23,7 @@ frame_count: 4
 
 
 ### Download the One-Click Control Rig for Free! [0:00]
-**Transcript:** Introducing the one-click control rig. With this free plugin, you can add animations to any 3D character and design your own action scenes in Unreal Engine 5.  And don't worry, you don't have to Brig, Model, or animate anything yourself.  Just follow along, and I'll show you how to start with any 3D model and end by creating your own action scene from scratch.  Download the one-click rig right now at Unreal for VFX.com slash Rig. You can get started with any 3D model that you can find online.  My favorite resources for this are ArtStation, TurboSquid, and CGTrader. But as long as you have a .fbx or .obj file, you're ready to get started.
+**Transcript:** Introducing the one-click control rig. With this free plugin, you can add animations to any 3D character and design your own action scenes in Unreal Engine 5.  And don't worry, you don't have to Brig, Model, or animate anything yourself.  Just follow along, and I'll show you how to start with any 3D model and end by creating your own action scene from scratch.  Download the one-click rig right now at Unreal for vfx.com slash Rig. You can get started with any 3D model that you can find online.  My favorite resources for this are ArtStation, TurboSquid, and CGTrader. But as long as you have a .fbx or .obj file, you're ready to get started.
 
 **Frame:** tutorials\frames\this-free-plugin-changes-filmmaking-forever-unreal-5\frame_000.jpg
 

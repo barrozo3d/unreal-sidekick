@@ -14,7 +14,7 @@ frame_count: 17
 # Make Films in Unreal : Everything you need to create your first short (Beginner) Start Here (ep1)
 
 **Source:** [YouTube](https://www.youtube.com/watch?v=PPRugNC7POA)
-**Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+**Author:** Dean Yurke - Unreal Engine and vfx Filmmaking
 **Duration:** 31m0s | 17 section(s)
 
 ---
@@ -98,12 +98,12 @@ frame_count: 17
 **Frame:** tutorials\frames\make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta\frame_014.jpg
 
 ### Applying Colorspace Transform in Your NLE [29:22]
-**Transcript:** so those frames are now rendered and so I'm going to bring them into my editing package and I'm  using DaVinci Resolve but use what you love and then I'm just going to select first frame  and the last frame and then just drag those put them into here and then it makes them into a  little sequence so let's just grab my long shot drag it into my timeline and then take my white shot  put it in there so now I've got them and as you can see they're a lot darker because this is  not to mapped so I need to apply a color space transform onto it and then DaVinci you go into the color  page and then you select your node I'm going to add a serial alt s to add a serial select that node
+**Transcript:** so those frames are now rendered and so I'm going to bring them into my editing package and I'm  using davinci-resolve but use what you love and then I'm just going to select first frame  and the last frame and then just drag those put them into here and then it makes them into a  little sequence so let's just grab my long shot drag it into my timeline and then take my white shot  put it in there so now I've got them and as you can see they're a lot darker because this is  not to mapped so I need to apply a color space transform onto it and then DaVinci you go into the color  page and then you select your node I'm going to add a serial alt s to add a serial select that node
 
 **Frame:** tutorials\frames\make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta\frame_015.jpg
 
 ### Next Steps - Subscribe for Next in the Series [30:00]
-**Transcript:** look for color space transform and you drag that onto that node and then we change it in put  color space to srgb and then input gamma to linear and now it looks like it does on the  on inside of Unreal so there you are back to that but now you've got more range to play around  with your colors and things like that and you kind of nerd stuff that compositors like to do  all right well well fun well hopefully that's enough to kind of get you started and kind of point  in the right direction and then make sure that you like and subscribe by page so that you can  follow along for like more advanced versions of this and then get into the thing that I really  love which is virtual production where I use Unreal for making the environments but then use live  action on plates put that into the shots anyway all right nerd you know see you next time bye
+**Transcript:** look for color space transform and you drag that onto that node and then we change it in put  color space to srgb and then input gamma to linear and now it looks like it does on the  on inside of Unreal so there you are back to that but now you've got more range to play around  with your colors and things like that and you kind of nerd stuff that compositors like to do  all right well well fun well hopefully that's enough to kind of get you started and kind of point  in the right direction and then make sure that you like and subscribe by page so that you can  follow along for like more advanced versions of this and then get into the thing that I really  love which is virtual-production where I use Unreal for making the environments but then use live  action on plates put that into the shots anyway all right nerd you know see you next time bye
 
 **Frame:** tutorials\frames\make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta\frame_016.jpg
 

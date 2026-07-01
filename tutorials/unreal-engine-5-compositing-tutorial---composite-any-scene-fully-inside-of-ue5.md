@@ -1,4 +1,4 @@
-﻿---
+---
 title: Unreal Engine 5 Compositing Tutorial - Composite Any Scene Fully Inside of UE5
 source: YouTube
 url: https://www.youtube.com/watch?v=OvvtTYB46b8
@@ -26,7 +26,7 @@ frame_count: 4
 Pre-Genesis compositing workflow: 3D track footage in After Effects → export camera → import into UE5 → rotoscope subject in AE → export as alpha image sequence → load as Image Plate in UE5 → build CG scene around the live-action plate for an in-engine composite.
 
 ### Summary
-7-minute tutorial on compositing live-action footage entirely inside UE5 without leaving the engine (except for camera tracking and roto). Pre-Genesis era technique. Workflow: shoot footage → 3D track in After Effects (or similar) → export camera data → import camera into UE5 as a tracked camera → in AE, remove the background around the actor (rotoscope) → export the isolated actor as an image sequence with alpha channel → import into UE5 as an Image Plate in Sequencer → the actor plate plays back on a 2D plane in the 3D scene → build the CG environment around it in UE5 using the plate as reference → render the full composite in MRQ. Note: This technique is superseded by Genesis (see 3d-tracking-natively-in-unreal-engine tutorial) which handles camera tracking natively in UE5.
+7-minute tutorial on compositing live-action footage entirely inside UE5 without leaving the engine (except for camera-tracking and roto). Pre-Genesis era technique. Workflow: shoot footage → 3D track in After Effects (or similar) → export camera data → import camera into UE5 as a tracked camera → in AE, remove the background around the actor (rotoscope) → export the isolated actor as an image sequence with alpha channel → import into UE5 as an Image Plate in Sequencer → the actor plate plays back on a 2D plane in the 3D scene → build the CG environment around it in UE5 using the plate as reference → render the full composite in MRQ. Note: This technique is superseded by Genesis (see 3d-tracking-natively-in-unreal-engine tutorial) which handles camera-tracking natively in UE5.
 
 ### Key Steps
 1. **Shoot footage** — record video of actor/subject with tracking markers if needed (textured surfaces, dots)
@@ -57,7 +57,7 @@ UE 5.x (pre-Genesis era)
 ---
 
 ## Related Entries
-- [[3d-tracking-natively-in-unreal-engine---full-tutorial]] — Genesis: automated camera tracking natively in UE (supersedes this workflow)
+- [[3d-tracking-natively-in-unreal-engine---full-tutorial]] — Genesis: automated camera-tracking natively in UE (supersedes this workflow)
 - [[unreal-engine-for-filmmakers---add-cinematic-vfx-to-your-films-for-free---ue5-pa]] — beginner compositing series Part 1
 - [[unreal-engine-for-filmmakers---cinematic-vfx-for-free---ue5-part-2]] — beginner compositing Part 2
 - [[unreal-engine-compositing-tutorial---unreal-engine-for-filmmakers-course-link-in]] — compositing tutorial with course link

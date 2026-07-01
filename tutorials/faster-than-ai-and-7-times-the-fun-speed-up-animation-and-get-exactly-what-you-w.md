@@ -14,7 +14,7 @@ frame_count: 16
 # Faster than AI and 7 times the fun! Speed up Animation and get exactly what you want with Rokoko
 
 **Source:** [YouTube](https://www.youtube.com/watch?v=o_AE2kUsF3E)
-**Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+**Author:** Dean Yurke - Unreal Engine and vfx Filmmaking
 **Duration:** 14m44s | 16 section(s)
 
 ---
@@ -87,7 +87,7 @@ frame_count: 16
 
 **Frame:** tutorials\frames\faster-than-ai-and-7-times-the-fun-speed-up-animation-and-get-exactly-what-you-w\frame_012.jpg
 
-### 3D Compositing with Composure [12:18]
+### 3D Compositing with composure [12:18]
 **Transcript:** characters and it will light the environment and this is called composure and it's fantastic  So there's my scene. There's me in a 3D scene. I'm going to now put that animation onto these robots  So I've got my robot here  And I'm going to go animation plus and I'm going to grab my animation  There we are and I'm going to slip the animation  So that it fits here and I'm also going to move the character. So let's go into his  Transforms  And select him where is he there is and let's bring him forward over here  Like that and let's come and bring him back  And then where's the scene where I've started talking about I go hello like this  So if anyone knows who's used Rikoko  Is it possible to record the audio from your computer mic along with your motion capture at the same time in the same piece of software
 
 **Frame:** tutorials\frames\faster-than-ai-and-7-times-the-fun-speed-up-animation-and-get-exactly-what-you-w\frame_013.jpg
