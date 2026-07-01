@@ -2970,6 +2970,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Overview of UE 5.8's experimental MetaHuman Crowd plugin, which uses Mass to simulate optimized crowds of MetaHuman characters from tens to thousands, with automatic high-fidelity/low-fidelity LOD transitions based on camera distance, plus the free Fab sample project.
 - **File:** tutorials/new-unreal-engine-58-metahuman-crowd-plugin.md
 
+
+### What's NEW in the Skeletal Mesh Editor | Unreal Engine 5.8
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=EZuBtnS4eMk
+- **Author:** Proj Prod
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/whats-new-in-the-skeletal-mesh-editor-unreal-engine-58.md
+
 ---
 
 ## Tag Reference
