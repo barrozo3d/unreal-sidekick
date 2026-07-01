@@ -4,7 +4,7 @@ source: YouTube
 url: https://www.youtube.com/watch?v=iJmOO0NS0Mk
 author: Josh Toonen
 ingested: 2026-06-23
-ue_version: "5.x"
+ue_version: "UE5"
 tags: ["lighting", "volumetrics", "fog", "materials", "shaders", "cinematics", "intermediate"]
 extraction_status: complete
 frames_dir: tutorials/frames/cinematic-lighting-masterclass-alien-in-unreal-5/

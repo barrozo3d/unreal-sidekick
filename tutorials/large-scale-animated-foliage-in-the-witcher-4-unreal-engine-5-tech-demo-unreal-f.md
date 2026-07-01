@@ -97,4 +97,3 @@ foliage, nanite, assemblies, wind, skinning, performance, witcher4, tech-demo, l
 
 ## Related Entries
 - `nanite-everything-you-should-know-unreal-engine-5.md` — Nanite deep-dive; Preserve Area flag; fundamentals for understanding assemblies
-- `large-scale-world-building-in-unreal-engine-5.md` — open-world scale techniques complement to this foliage system

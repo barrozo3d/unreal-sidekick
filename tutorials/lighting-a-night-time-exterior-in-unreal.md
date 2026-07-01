@@ -169,4 +169,4 @@ lighting, night-time, volumetric-fog, directional-light, skylight, practical-lig
 ## Related Entries
 - `lighting-in-unreal-engine-5-for-beginners.md` — beginner daytime/interior lighting fundamentals
 - `lighting-interiors-in-unreal-engine-5.md` — interior lighting counterpart
-- `improve-your-renders-with-movie-render-queue-part-1---goodbye-sequencer-4.md` — MRQ setup for final render output referenced at end of tutorial
+- `improve-your-renders-with-unreal-movie-render-queue-part-1---goodbye-sequencer-4.md` — MRQ setup for final render output referenced at end of tutorial

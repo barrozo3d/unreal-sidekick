@@ -4,7 +4,7 @@ source: YouTube
 url: https://www.youtube.com/watch?v=rzMRSDxg33Q
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-17
-ue_version: "5.x"
+ue_version: "UE5"
 tags: ["VFX breakdown", "ragdoll", "green screen", "blue screen", "camera tracking", "media texture", "virtual production", "Composure", "DaVinci Resolve", "Fusion", "digital double", "filmmaking", "Fab assets"]
 extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-vfx-breakdown---ragdoll-opening-shot/

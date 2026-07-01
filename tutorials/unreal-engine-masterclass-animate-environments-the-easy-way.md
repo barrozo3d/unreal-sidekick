@@ -170,6 +170,5 @@ environment-animation, sequencer, niagara, camera-shake, character-animation, mi
 ---
 
 ## Related Entries
-- `niagara-magic-effects-with-geometry-trails.md` — Niagara advanced techniques
 - `this-free-plugin-changes-filmmaking-forever-unreal-5.md` — OneClick Control Rig for character animation
 - `unreal-5-secrets-every-filmmaker-must-know.md` — camera shake + DOF + Niagara bokeh techniques

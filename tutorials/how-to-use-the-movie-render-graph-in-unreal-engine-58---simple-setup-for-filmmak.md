@@ -98,7 +98,7 @@ movie-render-graph, mrg, mrq, rendering, exr, multi-camera, sequencer, filmmakin
 ---
 
 ## Related Entries
-- `improve-your-renders-with-movie-render-queue-part-1---goodbye-sequencer-4.md` — original MRQ setup tutorial (now legacy in UE5.7+)
+- `improve-your-renders-with-unreal-movie-render-queue-part-1---goodbye-sequencer-4.md` — original MRQ setup tutorial (now legacy in UE5.7+)
 - `improve-your-renders-with-movie-render-queue-part-2---five-things-you-need-to-kn.md` — MRQ tips
 - `the-2025-guide-to-rendering-in-unreal-engine-5.md` — comprehensive UE5 rendering overview
 - `movie-render-graph-intro-unreal-engine-animation-hub.md` — likely another MRG intro tutorial

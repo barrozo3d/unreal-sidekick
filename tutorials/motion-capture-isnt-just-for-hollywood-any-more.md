@@ -169,6 +169,6 @@ mocap, motion-capture, rococo, workflow, sequencer, retargeting, control-rig, fi
 ## Related Entries
 - `motion-blending-bone-matching-for-unreal-engine---make-films-in-unreal-ep2-inter.md` — Dean Yurke bone matching for root-motion blending; Layered FK Control Rig
 - `make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta.md` — beginner filmmaking pipeline; Sequencer + MRQ + camera; no mocap hardware required
-- `motion-capture-sword-fighting-cinematic-in-unreal-engine-5---moveai-and-metahua.md` — Move.AI-based mocap cinematic (if present)
+- `motion-capture-sword-fighting-cinematic-in-unreal-engine-5---moveai-and-metahuma.md` — Move.AI-based mocap cinematic (if present)
 - `metahuman-realtime-animator-best-practices-unreal-engine-animation-hub.md` — webcam face capture; alternative to mocap suits for facial animation
 - `live-link-hub-tips-unreal-engine-animation-hub.md` — mocap streaming via Live Link Hub; body + face combined; recording

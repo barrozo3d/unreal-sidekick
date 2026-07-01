@@ -175,6 +175,6 @@ filmmaking, sequencer, cinematic, camera, mrq, animation, workflow, beginner, ex
 ---
 
 ## Related Entries
-- `improve-your-renders-with-movie-render-queue-part-1---goodbye-sequencer-4.md` — deeper MRQ setup and quality settings
+- `improve-your-renders-with-unreal-movie-render-queue-part-1---goodbye-sequencer-4.md` — deeper MRQ setup and quality settings
 - `level-management-sub-levels-spawnables-possessibles-in-ue5.md` — Sequencer spawnables for multi-level film organization
 - `learning-unreal-5-in-one-year-progression-lessons.md` — complementary beginner progression guide

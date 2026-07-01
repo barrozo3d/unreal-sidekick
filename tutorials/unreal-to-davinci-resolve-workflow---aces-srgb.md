@@ -184,6 +184,4 @@ color-grading, davinci-resolve, aces, ocio, movie-render-queue, exr, color-scien
 ---
 
 ## Related Entries
-- `how-to-get-a-cinematic-look-in-unreal-engine-5.md` — in-engine cinematic look settings
 - `unreal-5-secrets-every-filmmaker-must-know.md` — chromatic aberration technique (scale not translate)
-- `the-movie-render-queue-explained.md` — MRQ detailed setup

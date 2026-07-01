@@ -4,7 +4,7 @@ source: YouTube
 url: https://www.youtube.com/watch?v=mDEliLixziU
 author: Unreal Engine
 ingested: 2026-06-23
-ue_version: "5.x"
+ue_version: "UE5"
 tags: ["animation", "rigging", "control-rig", "sequencer", "intermediate"]
 extraction_status: complete
 frames_dir: tutorials/frames/baking-animation-in-ue5-control-rig-to-animation-sequence-back/

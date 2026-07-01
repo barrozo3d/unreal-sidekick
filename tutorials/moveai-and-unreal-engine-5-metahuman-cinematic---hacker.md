@@ -4,7 +4,7 @@ source: YouTube
 url: https://www.youtube.com/watch?v=pq5iEvcntwE
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-17
-ue_version: "5.x"
+ue_version: "UE5"
 tags: [mocap, metahuman, metahuman-animator, move-ai, short-film, sci-fi, performance-capture, ue5]
 extraction_status: complete
 frames_dir: tutorials/frames/moveai-and-unreal-engine-5-metahuman-cinematic---hacker/

@@ -4,7 +4,7 @@ source: YouTube
 url: https://www.youtube.com/watch?v=NLVMJX-5ahc
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-23
-ue_version: "Not specified"
+ue_version: "UE5"
 tags: ["metahuman", "mocap", "animation", "crowds", "intermediate"]
 extraction_status: complete
 frames_dir: tutorials/frames/can-ai-replace-metahumans-in-unreal-engine-cinematics/

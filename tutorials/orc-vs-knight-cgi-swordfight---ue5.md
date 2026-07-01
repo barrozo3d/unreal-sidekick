@@ -4,7 +4,7 @@ source: YouTube
 url: https://www.youtube.com/watch?v=iRPYgNrF8BY
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-17
-ue_version: "5.x"
+ue_version: "UE5"
 tags: [mocap, metahuman, move-ai, custom-metahuman, orc, sword-fighting, short-film, performance-capture, ue5]
 extraction_status: complete
 frames_dir: tutorials/frames/orc-vs-knight-cgi-swordfight---ue5/

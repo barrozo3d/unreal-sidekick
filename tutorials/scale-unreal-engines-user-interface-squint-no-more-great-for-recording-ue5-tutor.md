@@ -4,7 +4,7 @@ source: YouTube
 url: https://www.youtube.com/watch?v=XeeIY_fvbq0
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-17
-ue_version: "5.x"
+ue_version: "UE5"
 tags: ["UI scaling", "Widget Reflector", "application scale", "demo mode", "hotkey", "quick tip", "4K monitor", "tutorial recording"]
 extraction_status: complete
 frames_dir: tutorials/frames/scale-unreal-engines-user-interface-squint-no-more-great-for-recording-ue5-tutor/
@@ -84,4 +84,4 @@ UI scaling, Widget Reflector, application scale, demo mode, hotkey, quick tip, 4
 ## Related Entries
 - `make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta.md` — beginner UE filmmaking series where readable UI is important
 - `how-to-use-the-movie-render-graph-in-unreal-engine-58---simple-setup-for-filmmak.md` — another beginner-friendly UE setup tutorial
-- `where-are-my-animation-curves-this-mysterious-symbol-will-save-you-hours-of-frus.md` — another UE editor QoL/usability quick tip
+- `animate-faster-with-custom-filters-in-unreal-engine-4-minute-tutorial.md` — another UE editor QoL/usability quick tip

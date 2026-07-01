@@ -93,5 +93,4 @@ level-blueprint, keyboard-trigger, niagara, vfx, sound, virtual-production, live
 ---
 
 ## Related Entries
-- `niagara-magic-effects-with-geometry-trails.md` — Niagara VFX systems
 - `unreal-engine-masterclass-animate-environments-the-easy-way.md` — Niagara user parameters and environment VFX placement

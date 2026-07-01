@@ -144,4 +144,3 @@ stencil-layers, render-layers, movie-render-queue, compositing, alpha, exr, nuke
 
 ## Related Entries
 - `unreal-to-davinci-resolve-workflow---aces-srgb.md` — color pipeline from UE to DaVinci (Tone Curve OFF same requirement)
-- `the-movie-render-queue-explained.md` — MRQ setup fundamentals

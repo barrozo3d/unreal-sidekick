@@ -475,5 +475,4 @@ chaos, physics, destruction, cloth, ragdoll, vehicles, fluids, collision, animat
 ## Related Entries
 - `tutorials/animating-characters-and-objects-in-unreal-engine.md` — Ragdoll + Physical Animation, Skeletal Mesh
 - `tutorials/creating-visual-effects-in-niagara-for-unreal-engine.md` — Niagara + Chaos Destruction events
-- `references/niagara-vfx.md` — Niagara BreakEvents data channel for destruction
-- `recipes/metahuman-sequencer-mrq.md` — MetaHuman physics in cinematics
+- `references/creating-visual-effects-in-niagara-for-unreal-engine.md` — Niagara BreakEvents data channel for destruction

@@ -209,4 +209,4 @@ pcg, procedural-generation, environment, modelling, geometry, blueprints, gpu, h
 ## Related Entries
 - `tutorials/world-partition-in-unreal-engine.md` — World Partition integration with PCG Runtime Generation
 - `tutorials/understanding-the-basics-of-unreal-engine.md` — Actor/Component/Blueprint fundamentals
-- `references/blueprints-scripting.md` — Blueprint patterns used in PCG nodes
+- `references/blueprints-visual-scripting-in-unreal-engine.md` — Blueprint patterns used in PCG nodes

@@ -85,4 +85,3 @@ live-link, motion-capture, metahuman, virtual-production, facial-animation, anim
 
 ## Related Entries
 - `lip-sync-in-unreal-engine.md` — lip-sync documentation (empty crawl)
-- `live-link-in-unreal-engine-5.md` — general Live Link setup in UE5 (if exists)

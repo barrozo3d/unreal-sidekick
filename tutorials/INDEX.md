@@ -1,4 +1,4 @@
-﻿# Unreal Sidekick â€” Tutorial & Documentation Index
+# Unreal Sidekick â€” Tutorial & Documentation Index
 
 This is the skill's growing knowledge base. Every ingested tutorial, article, and Epic documentation section is listed here.
 
@@ -1793,7 +1793,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
 - **UE Version:** N/A
 - **Tags:** `#DaVinci` `#Resolve` `#Fusion` `#data` `#burn-in` `#text` `#node` `#expression` `#compositing` `#metadata`
-- **Summary:** This is a quick tip (under 4 minutes) for DaVinci Resolve Fusion users, not an Unreal Engine tutorial. Dean Yurke demonstrates how to use Fusion's expression system on a Text node to pull the ClipName
+- **Summary:** This is a quick tip (under 4 minutes) for DaVinci Resolve Fusion users, not an Unreal Engine tutorial.
 - **File:** tutorials/burn-clip-names-onto-davinci-resolve-and-fusion-video-quick-fusion-tip.md
 
 
@@ -1803,7 +1803,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
 - **UE Version:** 5.x
 - **Tags:** `#overscan` `#cine` `#camera` `#sensor` `#width` `#blueprint` `#Movie` `#Render` `#Queue` `#EXR`
-- **Summary:** This bonus video in Dean Yurke's VFX series explains overscan — rendering extra pixel data beyond the visible frame boundary — and its benefits for digital filmmaking. He covers the built-in Overscan 
+- **Summary:** Dean Yurke explains UE5 overscan and why it matters for virtual production and offline VFX.
 - **File:** tutorials/green-screen-overscan-secrets-and-a-lie---your-ultimate-vfx-save-series-bonus.md
 
 
@@ -1813,7 +1813,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
 - **UE Version:** 5.x
 - **Tags:** `#filmmaking` `#beginner` `#sequencer` `#cine` `#camera` `#depth` `#of` `#field` `#FBX` `#animation`
-- **Summary:** Episode 1 of Dean Yurke's "Make Films in Unreal" series, aimed at beginners who have some UE familiarity but have never made a film. He covers creating a blank project, adding the Third Person Templat
+- **Summary:** 31-minute beginner UE5 filmmaking tutorial by Dean Yurke.
 - **File:** tutorials/make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta.md
 
 
@@ -1823,7 +1823,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
 - **UE Version:** 5.x
 - **Tags:** `#UI` `#scaling` `#Widget` `#Reflector` `#application` `#scale` `#demo` `#mode` `#hotkey` `#quick`
-- **Summary:** A 90-second quick tip showing how to make the Unreal Engine editor UI larger. The Widget Reflector (Ctrl+Shift+W, or Tools > Debug > Widget Reflector) contains an Application Scale slider that scales 
+- **Summary:** A 90-second quick tip showing how to make the Unreal Engine editor UI larger.
 - **File:** tutorials/scale-unreal-engines-user-interface-squint-no-more-great-for-recording-ue5-tutor.md
 
 
@@ -1833,7 +1833,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
 - **UE Version:** 5.x
 - **Tags:** `#filmmaking` `#animatic` `#teaser` `#micro-budget` `#xodus` `#virtual` `#production` `#AI` `#video` `#indie`
-- **Summary:** This is a brief project update / showcase video for Dean Yurke's feature film project "xodus," his 20-year-in-the-making sci-fi script now being produced as a real-time micro-budget virtual production
+- **Summary:** 1m51s brief Dean Yurke channel update — not a tutorial.
 - **File:** tutorials/ue5-filmmaking-series-xꙩdus-animatic-to-teaser---real-time-micro-budget-movies.md
 
 
@@ -1853,7 +1853,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
 - **UE Version:** N/A
 - **Tags:** `#DaVinci` `#Resolve` `#precision` `#control` `#shift` `#drag` `#audio` `#volume` `#inspector` `#quick`
-- **Summary:** This is a 38-second micro-tip. Dean Yurke shares that holding Shift while dragging any draggable control in DaVinci Resolve (audio volume bar in the timeline, parameter sliders in the Inspector) activ
+- **Summary:** This is a 38-second micro-tip.
 - **File:** tutorials/how-to-get-precision-control-in-davinci-resolve---use-shift-drag.md
 
 
@@ -1863,7 +1863,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
 - **UE Version:** 5.6
 - **Tags:** `#ragdoll` `#physics` `#asset` `#physics` `#simulation` `#skeletal` `#mesh` `#take` `#recorder` `#animation`
-- **Summary:** Dean Yurke shows how to incorporate ragdoll physics into cinematic sequences in UE 5.6.1. The preferred Method 1 leverages the Third Person Template's Manny character (which has a production-ready Phy
+- **Summary:** 62m43s comprehensive tutorial by Dean Yurke.
 - **File:** tutorials/beat-yourself-up-with-unreal-ragdoll-physics-for-filmmaking-made-easy-or-hard-in.md
 
 
@@ -1873,7 +1873,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
 - **UE Version:** 5.x
 - **Tags:** `#animation` `#blending` `#bone` `#matching` `#Mixamo` `#FBX` `#import` `#root` `#motion` `#sequencer`
-- **Summary:** Episode 2 of Dean Yurke's "Make Films in Unreal" series, addressing a viewer question (from Brock) about blending Mixamo animations that have root motion baked in (translation built into the animation
+- **Summary:** 14-minute Dean Yurke tutorial (Make Films in Unreal, ep2) addressing root-motion animation blending in Sequencer.
 - **File:** tutorials/motion-blending-bone-matching-for-unreal-engine---make-films-in-unreal-ep2-inter.md
 
 
@@ -1883,7 +1883,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
 - **UE Version:** 5.x
 - **Tags:** `#VFX` `#breakdown` `#ragdoll` `#green` `#screen` `#blue` `#screen` `#camera` `#tracking` `#media`
-- **Summary:** This is a VFX breakdown / making-of video (not a step-by-step tutorial) showing Dean Yurke's full virtual production pipeline applied to a specific opening shot where he walks on a beam and falls via 
+- **Summary:** This is a VFX breakdown / making-of video (not a step-by-step tutorial) showing Dean Yurke's full virtual production pipeline applied to a specific opening shot where he walks on a beam and falls via ragdoll physics.
 - **File:** tutorials/unreal-engine-vfx-breakdown---ragdoll-opening-shot.md
 
 
@@ -1893,7 +1893,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
 - **UE Version:** 5.7
 - **Tags:** `#Composure` `#composite` `#mesh` `#actor` `#camera` `#projection` `#virtual` `#production` `#media` `#profile`
-- **Summary:** This is Composure Episode 1 from Dean Yurke's virtual production series. He introduces the Composure workflow in UE 5.7 where a camera feed (live USB or pre-recorded image sequence) is projected from 
+- **Summary:** Dean Yurke walks through the new UE 5.7 Composure system (Composite Mesh Actors approach) — a real-time camera projection pipeline for virtual production without expensive camera tracking hardware.
 - **File:** tutorials/easiest-vfx-pipeline-ever-with-composite-mesh-actors-in-unreal-engine-57-composu.md
 
 
@@ -1903,7 +1903,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
 - **UE Version:** 5.7
 - **Tags:** `#Composure` `#camera` `#projection` `#green` `#screen` `#blue` `#screen` `#chroma` `#key` `#composite`
-- **Summary:** Dean Yurke builds on the Composure EP1 foundation to show how to key a blue screen subject and integrate them into a 3D Unreal environment via camera projection. He covers the practical blue screen li
+- **Summary:** Dean Yurke demonstrates Composure EP2: using Composite Mesh Actors instead of flat green-screen cards.
 - **File:** tutorials/green-screen-cards-are-dead-camera-projections-in-unreal-engine-change-everythin.md
 
 
@@ -1913,7 +1913,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
 - **UE Version:** 5.7
 - **Tags:** `#Composure` `#composite` `#mesh` `#actor` `#lit` `#mass` `#material` `#green` `#screen` `#blue`
-- **Summary:** Dean Yurke presents three key improvements to the Composure virtual production workflow in UE 5.7. First, he refines the DaVinci Fusion extraction pipeline: using the Delta Keyer (with its built-in di
+- **Summary:** Dean Yurke's Composure EP3 addresses two years of frustration with cross-hatching artifacts in the lit-mask dithered edge and adds environment-light interaction.
 - **File:** tutorials/green-screen-integration-in-unreal-engine-57-virtual-production-got-even-better-.md
 
 
@@ -1933,7 +1933,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
 - **UE Version:** 5.x
 - **Tags:** `#materials` `#texture` `#coordinates` `#UV` `#texture` `#transform` `#translation` `#rotation` `#scale` `#material`
-- **Summary:** Dean Yurke walks through how to set up a full UV transform material node chain for independent control over texture translation, rotation, and scale in Unreal Engine's material editor. He uses scalar 
+- **Summary:** 15-minute tutorial by Dean Yurke on animating texture coordinates (translate, rotate, scale) in UE materials and driving them via Sequencer.
 - **File:** tutorials/how-to-transform-texture-coordinates-in-unreal-engine-materials-tutorial.md
 
 
@@ -1943,7 +1943,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
 - **UE Version:** 5.x
 - **Tags:** `#Rokoko` `#mocap` `#motion` `#capture` `#Smartsuit` `#Pro` `#II` `#Smartgloves` `#Coil` `#Pro`
-- **Summary:** Dean Yurke reviews Rokoko's Smartsuit Pro II inertial mocap suit (provided as a sponsored review) and demonstrates his full pipeline for using it in a cinematic project. He shows setup of the suit, sm
+- **Summary:** Dean Yurke unboxing and first-use review of the Rokoko Smartsuit Pro II.
 - **File:** tutorials/faster-than-ai-and-7-times-the-fun-speed-up-animation-and-get-exactly-what-you-w.md
 
 
@@ -1953,7 +1953,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
 - **UE Version:** 5.x
 - **Tags:** `#level` `#blueprint` `#Niagara` `#particle` `#system` `#keyboard` `#input` `#sound` `#effects` `#virtual`
-- **Summary:** Dean Yurke shows how to set up a Level Blueprint to trigger explosions (Niagara particle systems) and sound effects interactively via keyboard keys, useful for live streaming virtual production or rea
+- **Summary:** 6m37s Dean Yurke casual Level Blueprint tutorial.
 - **File:** tutorials/unreal-engine-virtual-production-trigger-explosions-and-sound-effects-with-your-.md
 
 
@@ -1963,7 +1963,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
 - **UE Version:** 5.x
 - **Tags:** `#career` `#advice` `#VFX` `#industry` `#virtual` `#production` `#AI` `#in` `#VFX` `#compositing`
-- **Summary:** This is a 60-minute industry Q&A/career talk from Dean Yurke's guest lecture at NC State's MADtech program. He covers: what employers actually value (show reel quality and attitude over degrees); top 
+- **Summary:** 60-minute NCSU MADtech guest lecture Q&A with Dean Yurke, cut to the Q&A mid-section.
 - **File:** tutorials/survive-the-vfx-war-battle-ready-skills-you-need-for-virtual-production-in-2026-.md
 
 
@@ -1973,7 +1973,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
 - **UE Version:** 5.8
 - **Tags:** `#Movie` `#Render` `#Graph` `#Movie` `#Render` `#Queue` `#EXR` `#DWAA` `#linear` `#sRGB`
-- **Summary:** Dean Yurke explains why he moved to the Movie Render Graph: a bug in the legacy Movie Render Queue in UE 5.7/5.8 silently skips rendering frames for the second and subsequent cameras in a multi-camera
+- **Summary:** 11-minute tutorial by Dean Yurke on migrating from Movie Render Queue to Movie Render Graph in UE5.8.
 - **File:** tutorials/how-to-use-the-movie-render-graph-in-unreal-engine-58---simple-setup-for-filmmak.md
 
 
@@ -2003,7 +2003,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** The Gnomon Workshop
 - **UE Version:** 5.4
 - **Tags:** `#cinematics` `#kitbash3d` `#sequencer` `#volumetric-lighting` `#god-rays` `#character-animation` `#asset-migration` `#blueprints` `#cargo-plugin` `#electric-dreams`
-- **Summary:** Mini-course by Koskyo Saki (Gnomon Workshop) walking through a full cinematic pipeline using KitBash3D's "Secrets of the Luminara" kit. Covers UE5.4 project creation with ray tracing, installing the K
+- **Summary:** Kyosuke Saki (Gnomon Workshop instructor) guides a beginner through a complete cinematic from empty project to rendered shot using KitBash3D's Secrets of the Luminara kit.
 - **File:** tutorials/creating-cinematics-in-unreal-engine-with-kitbash3ds-secrets-of-the-luminara.md
 
 
@@ -2104,7 +2104,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
 - **UE Version:** 5.5
 - **Tags:** `#custom-metahuman` `#ai-character` `#yvo3d` `#faceform-wrap` `#2dnax` `#maya` `#metahuman-creator` `#body-generation` `#ai-pipeline` `#ue5`
-- **Summary:** Part 2 of Charlie Driscoll and community member Zen's AI MetaHuman pipeline, focusing on generating a custom body mesh to accompany the AI-generated head from Part 1 (creature tutorial). The core chal
+- **Summary:** 35-minute intermediate/advanced tutorial by Charlie Driscoll (collaboration with community member Zen) showing how to create a fully rigged custom MetaHuman body from AI-generated images.
 - **File:** tutorials/how-to-generate-custom-metahuman-bodies-with-ai---yvo3d-faceform-wrap-2dnax---un.md
 
 
@@ -2114,7 +2114,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
 - **UE Version:** 5.6
 - **Tags:** `#custom-metahuman` `#ai-character` `#yvo3d` `#faceform-wrap` `#metahuman-creator` `#creature` `#fantasy` `#ai-pipeline` `#metahuman-animator` `#ue5`
-- **Summary:** Part 1 of Charlie Driscoll and community member Zen's AI MetaHuman creature pipeline for Unreal Engine 5.6. The tutorial focuses on head generation only: use ChatGPT 4.0 with a specific prompt (includ
+- **Summary:** 43-minute tutorial (with community member Zen) showing how to convert AI-generated character images into fully rigged custom MetaHuman creatures in UE5.6, for free or near-free.
 - **File:** tutorials/how-to-generate-custom-metahuman-creatures-with-ai---yvo3d-faceform-wrap-unreal-.md
 
 
@@ -2124,7 +2124,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
 - **UE Version:** 5.6
 - **Tags:** `#mocap` `#real-time-mocap` `#captury` `#captive-devices` `#metahuman-animator` `#overcrowd` `#markerless` `#performance-capture` `#unreal-fest` `#ue5`
-- **Summary:** Charlie Driscoll reports from Unreal Fest where he demoed the Captury CaptureLive + Captive Devices Core HMC system — a fully markerless, real-time performance capture setup (body and face) streaming 
+- **Summary:** Charlie Driscoll reports from Unreal Fest where he demoed the Captury CaptureLive + Captive Devices Core HMC system — a fully markerless, real-time performance capture setup (body and face) streaming directly into Unreal Engine 5.6 onto MetaHumans.
 - **File:** tutorials/the-best-real-time-mocap-i-have-ever-seen---captury-captive-devices-and-metahuma.md
 
 
@@ -2134,7 +2134,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
 - **UE Version:** 5.x
 - **Tags:** `#overcrowd` `#crowd-simulation` `#niagara` `#vat` `#metahuman` `#modular-characters` `#battle-scene` `#weapons-accessories` `#spline` `#neighbor-grid`
-- **Summary:** Charlie Driscoll presents a full walkthrough of OverCrowd (a crowd simulation plugin for UE5 he co-developed), covering both the basic Manny skeleton workflow and advanced modular MetaHuman army setup
+- **Summary:** Comprehensive 113-minute tutorial on building massive battle crowds in UE5 using the OverCrowd beta plugin.
 - **File:** tutorials/how-to-create-massive-crowds-and-battle-scenes-in-unreal-engine-5---niagara-and-.md
 
 
@@ -2144,7 +2144,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
 - **UE Version:** 5.x
 - **Tags:** `#overcrowd` `#crowd-simulation` `#metahuman` `#mocap` `#move-ai` `#gladiator` `#battle-scene` `#vat` `#elevenlabs` `#ue5`
-- **Summary:** Charlie Driscoll breaks down his gladiator-themed short film made in one week using Unreal Engine 5. The stadium crowd of thousands is powered by OverCrowd, a custom crowd simulation plugin he co-deve
+- **Summary:** Charlie Driscoll breaks down a one-week gladiator short film made in UE5.
 - **File:** tutorials/how-i-created-a-massive-crowd-of-metahumans-for-a-brutal-gladiator-film---unreal.md
 
 
@@ -2154,7 +2154,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
 - **UE Version:** 5.x
 - **Tags:** `#mocap` `#metahuman` `#move-ai` `#sword-fighting` `#two-actor-capture` `#animation-pack` `#fight-choreography` `#control-rig` `#ue5`
-- **Summary:** Charlie Driscoll captures two actors doing choreographed sword fighting using Move.AI Pro (multi-camera system). The key challenge motivating this video is the lack of quality paired sword-fight anima
+- **Summary:** 8-minute Charlie Driscoll film breakdown of a Move.AI-powered two-actor sword fight cinematic in UE5.
 - **File:** tutorials/motion-capture-sword-fighting-cinematic-in-unreal-engine-5---moveai-and-metahuma.md
 
 
@@ -2164,7 +2164,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
 - **UE Version:** 5.5
 - **Tags:** `#cinematography` `#camera-settings` `#film-back` `#lens` `#aperture` `#depth-of-field` `#movie-render-queue` `#color-grading` `#camera-shake` `#sequencer`
-- **Summary:** Charlie Driscoll uses a pre-built motion-captured scene (warrior vs. troll on a bridge) as a sandbox to teach cinematography fundamentals and their UE5 equivalents to complete beginners. Over ~128 min
+- **Summary:** 128m2s comprehensive beginner cinematography tutorial by Charlie Driscoll.
 - **File:** tutorials/cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un.md
 
 
@@ -2174,7 +2174,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
 - **UE Version:** 5.5
 - **Tags:** `#mocap` `#metahuman` `#metahuman-animator` `#move-ai` `#fight-scene` `#kung-fu` `#reallusion` `#animation-pack` `#dubbing` `#elevenlabs`
-- **Summary:** Charlie Driscoll creates a Kung Fu fight scene cinematic in UE 5.5 by building around Reallusion's paired hand-to-hand combat animation pack (~68 animations), which provides choreography "Lego pieces"
+- **Summary:** Charlie Driscoll builds a Kung Fu film using Reallusion's 68-animation hand-to-hand combat asset pack (Fab, ~$110) as the choreography base — retargeted to MetaHumans.
 - **File:** tutorials/how-to-create-a-fight-scene-cinematic-in-unreal-engine-55.md
 
 
@@ -2184,7 +2184,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
 - **UE Version:** 5.5
 - **Tags:** `#niagara` `#crowd-simulation` `#vat` `#anim-to-texture` `#zombies` `#particles` `#static-mesh` `#material-instance` `#ue5`
-- **Summary:** Charlie Driscoll's step-by-step tutorial for creating massive zombie hordes in UE 5.5.1 using the AnimToTexture plugin and a Niagara particle system. The technique converts skeletal mesh zombies into 
+- **Summary:** Charlie Driscoll builds a massive zombie horde using Niagara particle simulation + Vertex Animation Textures (VAT) in UE5.5.
 - **File:** tutorials/how-to-create-a-massive-zombie-horde-in-unreal-engine-55---niagara-crowd-simulat.md
 
 
@@ -2194,7 +2194,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
 - **UE Version:** 5.x
 - **Tags:** `#mocap` `#metahuman` `#metahuman-animator` `#quickmagic-ai` `#frame-mancer` `#budget-mocap` `#elevenlabs` `#android` `#performance-capture` `#ue5`
-- **Summary:** Charlie Driscoll demonstrates the cheapest viable full-performance-capture pipeline for Unreal Engine filmmaking. He uses QuickMagic AI (~$2 in credits) for body mocap from a single Android camera, an
+- **Summary:** 12m40s production diary by Charlie Driscoll.
 - **File:** tutorials/budget-mocap-tutorial---quickmagicai-and-metahuman-animator-androidframe-mancer-.md
 
 
@@ -2204,7 +2204,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
 - **UE Version:** 5.x
 - **Tags:** `#mocap` `#metahuman` `#quickmagic-ai` `#chaos-destruction` `#battle-scene` `#tracking-shot` `#animation-retargeting` `#sora` `#ue5`
-- **Summary:** Charlie Driscoll explores QuickMagic AI's standout feature: moving-camera tracking shots that capture full-body animation over large distances, overcoming the small-volume limitation of setups like Mo
+- **Summary:** 19m43s production diary by Charlie Driscoll.
 - **File:** tutorials/cheap-ai-mocap-that-actually-works---quickmagicai-chaos-destruction-and-metahuma.md
 
 
@@ -2214,7 +2214,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
 - **UE Version:** 5.x
 - **Tags:** `#mocap` `#metahuman` `#metahuman-animator` `#move-ai` `#short-film` `#mafia` `#custom-metahuman` `#scan-store` `#hand-pose-library` `#ue5`
-- **Summary:** Charlie Driscoll presents a behind-the-scenes breakdown of a mafia-themed game teaser cinematic made in approximately 40 hours using Unreal Engine 5. Move.AI Pro ($7,000/year license) captures up to t
+- **Summary:** Charlie Driscoll's Mafia-themed game teaser breakdown demonstrates the full performance-capture pipeline using commercially available tools.
 - **File:** tutorials/how-i-made-this-aaa-cinematic-in-unreal-engine-5---moveai-and-metahuman-animator.md
 
 
@@ -2224,7 +2224,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
 - **UE Version:** 5.x
 - **Tags:** `#previz` `#polycam` `#lidar-scan` `#metahuman` `#move-ai` `#mocap` `#pre-production` `#digital-set` `#short-film` `#ue5`
-- **Summary:** Charlie Driscoll's production company uses Unreal Engine 5 as a full previz tool for an Alzheimer's short film requiring complex camera movements, dance sequences, and memory transitions. The real hou
+- **Summary:** Charlie Driscoll's 9-minute tutorial shows how to scan a real filming location with Polycam on an iPhone (~25 min scan, ~15 min process), import it into Unreal Engine at 100x scale, light it with rectangular lights at windows, and then populate it with MetaHuman performances captured via Move AI + MetaHuman Animator.
 - **File:** tutorials/how-to-create-the-ultimate-previz-with-polycam-metahumans-and-moveai-in-unreal-e.md
 
 
@@ -2234,7 +2234,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
 - **UE Version:** 5.x
 - **Tags:** `#mocap` `#metahuman` `#move-ai` `#naval-battle` `#battle-scene` `#ocean` `#vfx-particles` `#sequencer` `#elevenlabs` `#ue5`
-- **Summary:** Charlie Driscoll chronicles the creative process behind a 1588 Spanish Armada battle scene in Unreal Engine 5. Inspired by the Epic History YouTube channel, he builds the scene iteratively: placing an
+- **Summary:** Charlie Driscoll builds a Spanish Armada battle cinematic from scratch in UE5.
 - **File:** tutorials/how-i-made-this-aaa-battle-scene-in-unreal-engine-5.md
 
 
@@ -2254,7 +2254,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
 - **UE Version:** 5.x
 - **Tags:** `#mocap` `#metahuman` `#metahuman-animator` `#move-ai` `#short-film` `#custom-metahuman` `#scale` `#elevenlabs` `#performance-capture` `#ue5`
-- **Summary:** "Gigantic Joe" is a short film by Charlie Driscoll featuring three characters: two humans (Marvin and a companion) and a giant Sasquatch MetaHuman (Gigantic Joe). The film explores scale as a creative
+- **Summary:** 5-minute Charlie Driscoll short film "Gigantic Joe" — a sci-fi/fantasy dialogue scene between two normal-sized characters and one gigantic genetically-altered character.
 - **File:** tutorials/moveai-and-unreal-engine-5-metahuman-short-film---gigantic-joe.md
 
 
@@ -2264,7 +2264,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
 - **UE Version:** 5.4
 - **Tags:** `#mocap` `#metahuman` `#metahuman-animator` `#move-ai` `#two-actor-capture` `#animation-cleanup` `#butterworth-filter` `#performance-capture` `#ue5`
-- **Summary:** Charlie Driscoll demonstrates his team's pipeline for capturing two actors simultaneously using Move.AI Pro and MetaHuman Animator. Six GoPro cameras in a ring cover ~100 sq ft; each actor wears a hea
+- **Summary:** Charlie Driscoll tests simultaneous two-actor Move AI capture in a garage with 6 GoPros covering ~100 sq ft.
 - **File:** tutorials/how-i-use-moveai-and-metahumans-to-achieve-aaa-character-animation-in-unreal-eng.md
 
 
@@ -2274,7 +2274,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
 - **UE Version:** 5.x
 - **Tags:** `#mocap` `#metahuman` `#metahuman-animator` `#move-ai` `#short-film` `#sci-fi` `#performance-capture` `#ue5`
-- **Summary:** "Hacker" is a short cinematic by Charlie Driscoll featuring the character Marvin (a talking pig MetaHuman) in a sci-fi setting, asking a hacker character for help bypassing an orbital blockade in exch
+- **Summary:** "Hacker" is a short cinematic by Charlie Driscoll featuring the character Marvin (a talking pig MetaHuman) in a sci-fi setting, asking a hacker character for help bypassing an orbital blockade in exchange for a rare crystal.
 - **File:** tutorials/moveai-and-unreal-engine-5-metahuman-cinematic---hacker.md
 
 
@@ -2284,7 +2284,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
 - **UE Version:** 5.x
 - **Tags:** `#mocap` `#metahuman` `#move-ai` `#custom-metahuman` `#orc` `#sword-fighting` `#short-film` `#performance-capture` `#ue5`
-- **Summary:** "Orc vs. Knight CGI Swordfight" is a 67-second CGI short film by Charlie Driscoll showcasing two custom MetaHumans (orc and knight characters) engaged in a sword duel in an Unreal Engine 5 environment
+- **Summary:** 67-second CGI short film by Charlie Driscoll: two custom MetaHumans (orc and knight) engaged in a sword duel in UE5. Showcases the custom orc MetaHumans across multiple Driscoll projects.
 - **File:** tutorials/orc-vs-knight-cgi-swordfight---ue5.md
 
 
@@ -2294,7 +2294,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
 - **UE Version:** 5.4
 - **Tags:** `#mocap` `#metahuman` `#move-ai` `#custom-metahuman` `#orc` `#short-film` `#performance-capture` `#ue5`
-- **Summary:** "Encounter" is a very short (52-second) short film by Charlie Driscoll featuring two custom orc MetaHumans in an eerie forest location. The orcs are the professional-pipeline custom MetaHumans mention
+- **Summary:** "Encounter" is a very short (52-second) short film by Charlie Driscoll featuring two custom orc MetaHumans in an eerie forest location.
 - **File:** tutorials/moveai-unreal-engine-54-motion-capture-short-film-using-custom-orc-metahumans---.md
 
 
@@ -2304,7 +2304,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
 - **UE Version:** 5.x
 - **Tags:** `#mocap` `#metahuman` `#move-ai` `#short-film` `#historical` `#performance-capture` `#elevenlabs` `#ue5`
-- **Summary:** "William Wallace" is a very short (1m25s) period CGI short film by Charlie Driscoll recreating the iconic Braveheart "Freedom" speech with a custom William Wallace MetaHuman in a medieval Scottish bat
+- **Summary:** "William Wallace" is a very short (1m25s) period CGI short film by Charlie Driscoll recreating the iconic Braveheart "Freedom" speech with a custom William Wallace MetaHuman in a medieval Scottish battlefield environment.
 - **File:** tutorials/william-wallace---moveai-and-metahuman-short-film-in-unreal-engine-5.md
 
 

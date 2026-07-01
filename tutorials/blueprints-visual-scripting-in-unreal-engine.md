@@ -318,7 +318,6 @@ blueprints, visual-scripting, blueprint-types, event-graph, variables, functions
 ---
 
 ## Related Entries
-- `references/blueprints-scripting.md` — Blueprint patterns, common nodes, VFX/cinematics Blueprint examples
 - `tutorials/understanding-the-basics-of-unreal-engine.md` — Blueprint context in core editors
 - `tutorials/animating-characters-and-objects-in-unreal-engine.md` — Animation Blueprints state machines
 - `tutorials/procedural-content-generation-framework-in-unreal-engine.md` — Blueprint nodes in PCG graphs

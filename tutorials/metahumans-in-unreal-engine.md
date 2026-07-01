@@ -263,7 +263,5 @@ metahuman, character, lod, groom, hair, animation, control-rig, sequencer, live-
 ---
 
 ## Related Entries
-- `recipes/metahuman-sequencer-mrq.md` — Full MetaHuman → Sequencer → MRQ render pipeline
 - `tutorials/animating-characters-and-objects-in-unreal-engine.md` — Sequencer, Control Rig, IK fundamentals
-- `tutorials/rendering-and-post-process-effects-in-unreal-engine.md` — Groom strand rendering, hair path tracing
 - `tutorials/ndisplay-overview-for-unreal-engine.md` — MetaHuman on LED wall stage with nDisplay

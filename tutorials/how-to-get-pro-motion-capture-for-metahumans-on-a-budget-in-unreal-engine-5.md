@@ -4,7 +4,7 @@ source: YouTube
 url: https://www.youtube.com/watch?v=wys5jEhtpY0
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-17
-ue_version: "5.x"
+ue_version: "UE5"
 tags: [mocap, markerless-mocap, mimem-ai, metahuman, animation-retargeter, fbx-import, multi-camera, budget-mocap, overcrowd, head-rig, gopro, ue5]
 extraction_status: complete
 frames_dir: tutorials/frames/how-to-get-pro-motion-capture-for-metahumans-on-a-budget-in-unreal-engine-5/

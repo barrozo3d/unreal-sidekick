@@ -3,7 +3,7 @@ title: lip-sync-in-unreal-engine
 source: Epic Documentation
 url: https://dev.epicgames.com/documentation/en-us/unreal-engine/lip-sync-in-unreal-engine
 ingested: 2026-06-18
-ue_version: "N/A"
+ue_version: "UE5"
 tags: [lip-sync, animation, audio, facial-animation]
 extraction_status: complete
 page_count: 1
@@ -55,4 +55,3 @@ lip-sync, animation, audio, facial-animation
 
 ## Related Entries
 - `live-link-hub-tips-unreal-engine-animation-hub.md` — Live Link Hub for face + body mocap streaming to UE
-- `metahuman-animator-on-iphone-to-unreal-in-5-minutes.md` — facial animation capture pipeline

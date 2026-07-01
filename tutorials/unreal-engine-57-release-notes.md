@@ -77,4 +77,3 @@ release-notes, rendering, animation, nanite, lumen, substrate, motion-design, vi
 - `tutorials/designing-visuals-rendering-and-graphics-with-unreal-engine.md` — Lumen, Nanite, Substrate, Path Tracer
 - `tutorials/animating-characters-and-objects-in-unreal-engine.md` — Modular Control Rig, Animation Layers
 - `tutorials/ndisplay-overview-for-unreal-engine.md` — nDisplay/ICVFX improvements
-- `references/version-tracker.md` — All UE version comparison

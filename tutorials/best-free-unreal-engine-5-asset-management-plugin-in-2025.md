@@ -4,7 +4,7 @@ source: YouTube
 url: https://www.youtube.com/watch?v=bsy4xZvhOqs
 author: Polygonflow Dash
 ingested: 2026-06-23
-ue_version: "Not specified"
+ue_version: "UE5"
 tags: ["pipeline", "automation", "beginner"]
 extraction_status: complete
 frames_dir: tutorials/frames/best-free-unreal-engine-5-asset-management-plugin-in-2025/

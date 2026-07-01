@@ -78,4 +78,3 @@ release-notes, motion-design, pcg, rendering, animation, niagara, nanite, lumen,
 - `tutorials/procedural-content-generation-framework-in-unreal-engine.md` — PCG system in depth
 - `tutorials/animating-characters-and-objects-in-unreal-engine.md` — Sequencer, MRQ details
 - `tutorials/designing-visuals-rendering-and-graphics-with-unreal-engine.md` — Nanite, Lumen, Path Tracer
-- `references/version-tracker.md` — All UE version comparison

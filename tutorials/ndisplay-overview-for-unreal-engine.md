@@ -243,7 +243,5 @@ ndisplay, icvfx, led-wall, virtual-production, switchboard, live-link, multi-dis
 ---
 
 ## Related Entries
-- `recipes/mrq-multipass-exr.md` — MRQ render passes; nDisplay uses separate rendering path but similar quality CVars
-- `recipes/path-tracer-nfor-delivery.md` — Path Tracer; nDisplay uses rasterizer + inner frustum, not path tracer
 - `tutorials/animating-characters-and-objects-in-unreal-engine.md` — Sequencer + Live Link for ICVFX shoots
 - `tutorials/metahumans-in-unreal-engine.md` — MetaHuman on LED wall stage setups

@@ -85,4 +85,3 @@ release-notes, animation, sequencer, control-rig, metahuman, lumen, path-tracer,
 - `tutorials/animating-characters-and-objects-in-unreal-engine.md` — Sequencer, Control Rig, Animation Layers details
 - `tutorials/metahumans-in-unreal-engine.md` — MetaHuman Component, Optimized pipeline in depth
 - `tutorials/designing-visuals-rendering-and-graphics-with-unreal-engine.md` — Lumen, Path Tracer, MegaLights details
-- `references/version-tracker.md` — All UE version comparison

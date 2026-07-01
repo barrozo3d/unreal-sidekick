@@ -4,7 +4,7 @@ source: YouTube
 url: https://www.youtube.com/watch?v=PYTu-rLyPro
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-17
-ue_version: "5.x"
+ue_version: "UE5"
 tags: [mocap, metahuman, move-ai, short-film, historical, performance-capture, elevenlabs, ue5]
 extraction_status: complete
 frames_dir: tutorials/frames/william-wallace---moveai-and-metahuman-short-film-in-unreal-engine-5/
