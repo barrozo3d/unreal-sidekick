@@ -2980,6 +2980,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** UE 5.8 Skeletal Mesh Editor QoL highlights: non-destructive change stack; Vertex/Edge/Face/Polygroup sub-object selection with expand-connected, soft selection, and weight-editing isolation; joint locking so auto-normalization only redistributes among unlocked joints; one-click unused joint removal; in-editor morph target sculpting with right-click mirror/flip. Morph Target Editing Tools plugin (experimental) required for sculpt toolbar.
 - **File:** tutorials/whats-new-in-the-skeletal-mesh-editor-unreal-engine-58.md
 
+
+### How to Create Fight Scenes with Mocap and AI in Unreal Engine 5.8 - Seedance 2, MetaHuman Animator
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=W1jg61P1r4s
+- **Author:** Charlie Driscoll - Unreal Engine Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-to-create-fight-scenes-with-mocap-and-ai-in-unreal-engine-58---seedance-2-me.md
+
 ---
 
 ## Tag Reference
