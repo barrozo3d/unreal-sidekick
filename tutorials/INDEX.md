@@ -2985,9 +2985,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=W1jg61P1r4s
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.8
+- **Tags:** metahuman, mocap, motion-capture, markerless, metahuman-animator, seedance, fight-scene, control-rig, sequencer, live-link-hub, butterworth-filter, additive-control-rig, multi-character, ai-reference, animation-cleanup, polyphoria, ue5, advanced
+- **Summary:** Full pipeline: Seedance 2.0 AI fight choreography reference → UE 5.8 MetaHuman Animator (free, formerly Meshcapade) markerless mocap → Sequencer cleanup. Key technique: two-performer occlusion hack — run same video twice with each actor briefly masked so MetaHuman Animator locks onto one performer per pass, yielding two synced captures from one clip. Cleanup via Butterworth low-pass filter on bone curves and additive Control Rig layers. Free Claude skill (Remote Control API + Python + ffmpeg) automates full multi-character batch: masking, Live Link Hub ingestion, performance creation, export, MetaHuman retargeting, sequence assembly.
 - **File:** tutorials/how-to-create-fight-scenes-with-mocap-and-ai-in-unreal-engine-58---seedance-2-me.md
 
 ---

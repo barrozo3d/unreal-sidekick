@@ -1,12 +1,12 @@
 ---
-title: How to Create Fight Scenes with Mocap and AI in Unreal Engine 5.8 - Seedance 2, MetaHuman Animator
+title: "How to Create Fight Scenes with Mocap and AI in Unreal Engine 5.8 - Seedance 2, MetaHuman Animator"
 source: YouTube
 url: https://www.youtube.com/watch?v=W1jg61P1r4s
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-07-03
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.8"
+tags: [metahuman, mocap, motion-capture, markerless, metahuman-animator, seedance, fight-scene, control-rig, sequencer, live-link-hub, butterworth-filter, additive-control-rig, multi-character, ai-reference, animation-cleanup, polyphoria, ue5, advanced]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-create-fight-scenes-with-mocap-and-ai-in-unreal-engine-58---seedance-2-me/
 frame_count: 28
 ---
@@ -168,27 +168,58 @@ frame_count: 28
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+End-to-end pipeline for AI-generated fight choreography → single-camera markerless mocap → MetaHuman animation cleanup entirely in UE 5.8. The key insight is a **two-performer occlusion hack**: MetaHuman Animator locks onto whichever actor is visible in the opening frames; by running the same Seedance-generated video twice with each performer briefly masked, both actors are captured in sync from a single source clip. Cleanup uses **Butterworth low-pass filter** on specific bone curves in the Sequencer curve editor and an **additive Control Rig** layer for targeted positional corrections. A free Claude skill automates the entire multi-character batch pipeline (masking, Live Link Hub ingestion, performance creation, export, retargeting, sequence building).
 
 ### Summary
-[PENDING EXTRACTION]
+61m4s Charlie Driscoll (Unreal Engine Filmmaking) full pipeline tutorial: generate fight choreography with Seedance 2.0 via Higgsfield → capture markerless mocap using UE 5.8 MetaHuman Animator (formerly Meshcapade, now free in-engine) → clean animations with Butterworth filter and additive control rig in Sequencer → assemble a cinematic nightclub fight scene. Covers the two-performer occlusion hack for capturing paired choreography from a single video, MetaHuman creation with Polyphoria clothing assets, Live Link Hub footage ingestion, body+face performance processing and export (two separate passes), baking to Control Rig, and a free downloadable Claude skill that automates the full multi-character batch workflow via UE's Remote Control API + Python.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Generate AI fight reference footage (Seedance 2.0 via Higgsfield)**: Start from a single T-Pose reference image of two men in contrasting form-fitting clothing (generate with Nano Banana Pro). Use general directional prompts rather than blow-by-blow descriptions. Add explicit language for: static locked-off camera, T-Pose/A-Pose start, vigorous/violent action. 720p sufficient for mocap quality; saves ~$4/clip vs 1080p (~$6).
+2. **Record own performance footage**: Vertical framing, 4K/60fps preferred, neutral (non-wide) lens to avoid distortion. DJI lapel mic for sync dialogue. Phone camera is sufficient.
+3. **UE 5.8 setup**: Epic Games Launcher → Options → install **MetaHuman Creator Core Data**. In project: Edit → Plugins → search "metahuman" → install MetaHuman Creator, Core Tech, Core ML, and all related plugins. Restart.
+4. **Create MetaHuman**: Right-click Content Browser → MetaHuman → MetaHuman Character. Open MetaHuman Creator, select a preset. For **Polyphoria clothing**: open wardrobe in MetaHuman Creator, drag in a wardrobe item (orange icon = MetaHuman Creator compatible), double-click to auto-fit. Create Full Rig → Download Textures → Assembly at **UE Cinny** quality. In MetaHuman BP → LOD Sync → force LOD to **0**.
+5. **Compatibility mode for older clothing assets**: Edit → Project Settings → search "show compatible" → enable **Show Compatibility Mode Bodies**. In MetaHuman Creator → Body Params → Fixed Compatibility tab → select Male Tall Normal (or other standard body type).
+6. **Import footage — Live Link Hub**: Tools → **Live Link Hub** → switch to **Capture Manager** → Data Devices → Add → **Mono Video Ingest** → set Take Directory to footage folder. Ctrl+click clips → **Add to Queue**. Set rotation correction (270° CW or 90° CW based on phone orientation). Click **Start**.
+7. **Two-performer occlusion hack**: Run the same video twice. Pass 1: mask (black square) performer B for first few frames → MetaHuman Animator locks onto A, tracks A for full clip. Pass 2: mask performer A for first few frames → captures B. Both captures share the same source clip so they stay frame-synchronized. The free Claude skill automates the masking via ffmpeg.
+8. **Create MetaHuman Performance**: Right-click → **MetaHuman Performance**. Select capture data (ingested clip). Set in-point (green button) and out-point (red button). Set Visualization Object to your MetaHuman BP. Enable **Body Tracking** and **Facial Tracking** (disable Solve Tongue to save time). Default smoothing. Click **Process** (runs 5 steps; GPU-dependent; keep clips under ~2 min).
+9. **Export animations — two passes**: Click **Export Animation**. Pass 1: export **body + face together** (default settings) → creates combined animation. Pass 2: export **face only** — uncheck Export Body, uncheck **Enable Head Movement**, set Target Skeleton to a MetaHuman skeletal head mesh. This gives separate body and face tracks for independent control rig editing.
+10. **Sequencer setup + bake to Control Rig**: Add Level Sequence. Drag MetaHuman BP into scene → Add Actor to Track. Delete existing control rigs. Add body animation track → add face animation track. Expand timeline to cover full clip length. Right-click body → **Bake to Control Rig** → select MetaHuman Control Rig → Create.
+11. **Cleanup — Butterworth low-pass filter**: Open Sequencer curve editor. Select curves for the specific bone causing jitter (e.g. Body Control → Location Y for forward movement wobble). Top menu → **Filter** → **For Your Transform** → **Low Pass** → **Butterworth**. Lower cutoff frequency and apply iteratively. Warning: smoothing body position curves causes foot sliding — frame the shot to hide feet if needed.
+12. **Cleanup — Additive Control Rig**: Right-click Control Rig track → **Additive**. Set two boundary keyframes around the section to fix. Scrub to the middle, adjust bone position/rotation with transform gizmo. Keyframe. Changes are additive over the base animation — won't affect anything outside the keyframed range.
+13. **Edit face animation**: Right-click face animation → **Bake to Control Rig** → select **Face Control Board** rig. Add Additive track. Grab eye controls → keyframe gaze direction as needed.
+14. **Export edited animations**: Right-click body track → **Bake Animation Sequence** → name and save. Repeat for face. Produces standalone animation sequences usable in other contexts.
+15. **Free Claude skill for multi-character batch automation**: Download 3 files from Charlie's description link → add to UE project folder → tell Claude Code to read the skill file. Requires: **Remote Control API** plugin + **Python Editor Script** plugin + **ffmpeg** in PATH. Claude will: mask each performer in source clips, run Live Link Hub ingestion, create MetaHuman Performances, export animations, retarget to MetaHuman skeleton, build Sequencer sequences. Characters land on top of each other in the scene — manually separate to match reference image spacing.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **MetaHuman Animator** (UE 5.8, formerly Meshcapade) — single-camera full-body + face markerless mocap; free in-engine
+- **Live Link Hub** (Tools menu) — Capture Manager mode; Mono Video Ingest data device; Take Directory; rotation correction
+- **MetaHuman Performance asset** — capture data selector; in/out points; body + facial tracking toggles; Solve Tongue toggle; smoothing presets; Process button
+- **Export Animation** — combined body+face or face-only export; Enable Head Movement checkbox; target skeleton selector
+- **MetaHuman Creator** — in-engine character creation; wardrobe drag-drop; Full Rig → Download Textures → Assembly (UE Cinny recommended)
+- **MetaHuman BP → LOD Sync** — force to **0** to disable auto-LOD switching (prevents clothing pop)
+- **Project Settings → Show Compatibility Mode Bodies** — restores Male/Female Tall Normal standard body types for older clothing assets
+- **Polyphoria Citizen NPC Pack** — MetaHuman Creator-compatible clothing (orange icon); parametric body support
+- **Sequencer → Bake to Control Rig** — MetaHuman Control Rig; bakes animation to editable keyframes
+- **Sequencer → Curve Editor → Filter → For Your Transform → Low Pass → Butterworth** — curve smoothing filter; cutoff frequency controls aggressiveness
+- **Sequencer → Additive Control Rig** — layered corrections over base baked rig; range-bounded by keyframes
+- **Sequencer → Bake Animation Sequence** — exports edited animation as standalone AnimSequence
+- **Face Control Board Control Rig** — face-specific rig for gaze/expression editing
+- **Remote Control API plugin + Python Editor Script plugin** — required for Charlie's Claude automation skill
+- **ffmpeg** — required by Claude skill for video masking (black square per performer)
+- **Seedance 2.0 via Higgsfield** — AI video generation for fight choreography reference (~$2–6/clip)
+- **Nano Banana Pro (Higgsfield)** — image generation for T-Pose reference frame
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.8
 
 ### Tags
-[PENDING EXTRACTION]
+metahuman, mocap, motion-capture, markerless, metahuman-animator, seedance, fight-scene, control-rig, sequencer, live-link-hub, butterworth-filter, additive-control-rig, multi-character, ai-reference, animation-cleanup, polyphoria, ue5, advanced
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `unreal-engine-58-new-markerless-motion-capture-tutorial.md` — UE 5.8 markerless mocap overview (single character, same MetaHuman Animator system)
+- `new-unreal-engine-58-metahuman-markerless-mocap-tutorial.md` — MetaHuman Markerless Mocap deep-dive (full-body + face, same Live Link Hub pipeline)
