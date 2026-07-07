@@ -2990,6 +2990,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Full pipeline: Seedance 2.0 AI fight choreography reference → UE 5.8 MetaHuman Animator (free, formerly Meshcapade) markerless mocap → Sequencer cleanup. Key technique: two-performer occlusion hack — run same video twice with each actor briefly masked so MetaHuman Animator locks onto one performer per pass, yielding two synced captures from one clip. Cleanup via Butterworth low-pass filter on bone curves and additive Control Rig layers. Free Claude skill (Remote Control API + Python + ffmpeg) automates full multi-character batch: masking, Live Link Hub ingestion, performance creation, export, MetaHuman retargeting, sequence assembly.
 - **File:** tutorials/how-to-create-fight-scenes-with-mocap-and-ai-in-unreal-engine-58---seedance-2-me.md
 
+
+### This One Setting Will Fix Lumen Noise in Unreal Engine 5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=WeKkHe_3KMI
+- **Author:** Karim Yasser
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/this-one-setting-will-fix-lumen-noise-in-unreal-engine-5.md
+
 ---
 
 ## Tag Reference
