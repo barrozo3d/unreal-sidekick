@@ -2995,9 +2995,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=WeKkHe_3KMI
 - **Author:** Karim Yasser
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5 (version unspecified)
+- **Tags:** `#lumen` `#global-illumination` `#console-commands` `#rendering` `#lighting` `#beginner` `#youtube` `#ue5`
+- **Summary:** 28-second tip: single console command `r.LumenScene.Radiosity.Temporal.MaxFramesAccumulated 128` eliminates Lumen GI flickering/noise by increasing the radiosity temporal accumulation window. Demonstrated on a sci-fi corridor with visible noise before and a clean stable result after. Trade-off: slower response to dynamic light changes at high values. *(Whisper mistranscribed the command — correct command confirmed externally.)*
 - **File:** tutorials/this-one-setting-will-fix-lumen-noise-in-unreal-engine-5.md
 
 ---
