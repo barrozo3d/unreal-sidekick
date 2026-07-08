@@ -1,4 +1,4 @@
-# Unreal Sidekick â€” Tutorial & Documentation Index
+﻿# Unreal Sidekick â€” Tutorial & Documentation Index
 
 This is the skill's growing knowledge base. Every ingested tutorial, article, and Epic documentation section is listed here.
 
@@ -3005,9 +3005,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=ZvTJBAkx_lY
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.8 (Dash 1.12)
+- **Tags:** dash-1.12, vine-tool, cable-tool, grid-scatter, placement-tools, camera-tool, vertical-stack, performance, ue5.8, release-notes
+- **Summary:** 6m40s, 12-chapter Dash 1.12 release-notes video by Polygonflow Dash. Covers: UE 5.8 support (early, may have bugs); Vine Tool growing across scattered meshes via additional-surface assignment; Cable Tool scatter-mode input + cable-to-cable settings + hidden-irrelevant-controls UI cleanup; Grid Scatter 2D projection onto uneven surfaces; new Placing Grid / Placing Circle one-click layout actions...
 - **File:** tutorials/dash-112---improved-ue5-world-building-tools.md
 
 ---

@@ -4,9 +4,10 @@ source: YouTube
 url: https://www.youtube.com/watch?v=ZvTJBAkx_lY
 author: Polygonflow Dash
 ingested: 2026-07-08
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: dash-1.12
+ue_version: "UE 5.8"
+tags: [dash-1.12, vine-tool, cable-tool, grid-scatter, placement-tools, camera-tool, vertical-stack, performance, ue5.8, release-notes]
+extraction_status: complete
 frames_dir: tutorials/frames/dash-112---improved-ue5-world-building-tools/
 frame_count: 12
 ---
@@ -88,27 +89,48 @@ frame_count: 12
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Dash 1.12 release-notes overview: adds UE 5.8 support plus 8 feature/QoL updates — Vine Tool now grows across scattered objects (assign the scatter as an additional surface), Cable Tool gains scatter-mode generation + a cleaned-up context-sensitive UI, Grid Scatter supports surface projection for conforming 2D grids to uneven terrain, two new one-click Placement actions (Placing Grid / Placing Circle), Camera Tool V2 unlocks native CineCameraActor focus controls + full Sequencer animation of Dash camera settings, a new Vertical Stack tool auto-builds bottom/middle/top prop stacks, a new Debounce execution mode (100ms default) trades instant feedback for editor performance in heavy scenes, plus scatter-slot dropdown expansion and persistent window layout.
 
 ### Summary
-[PENDING EXTRACTION]
+6m40s, 12-chapter Dash 1.12 release-notes video by Polygonflow Dash. Covers: UE 5.8 support (early, may have bugs); Vine Tool growing across scattered meshes via additional-surface assignment; Cable Tool scatter-mode input + cable-to-cable settings + hidden-irrelevant-controls UI cleanup; Grid Scatter 2D projection onto uneven surfaces; new Placing Grid / Placing Circle one-click layout actions; Camera Tool V2 (native focus unlock + full Sequencer keyframing of Dash camera params); new Vertical Stack tool (bottom/middle/top meshes, jitter, random removal, offset); new Debounce execution mode as an alternative to default Runtime mode for heavy-scene performance; scatter table slot dropdown expansion (inspect/remove individual meshes without rebuild); Dash windows now remember size/position across sessions.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **UE 5.8 support** [0:16] — Dash 1.12 adds UE 5.8 compatibility; flagged as early/new, report bugs upstream.
+2. **Vine Tool + scattered surfaces** [0:32] — assign an existing scatter as an *additional surface* in the Vine Tool; vines then naturally spread onto the scattered meshes (blends vegetation/clutter/procedural scattering).
+3. **Cable Tool scatter mode** [1:07] — Cable Tool now accepts scatter (test cutters) as inputs; in scatter mode it generates cables between scattered objects; all existing cable settings still apply. UI cleaned up — irrelevant controls auto-hide per mode.
+4. **Grid Scatter projection** [1:50] — Grid Scatter now supports projection for 2D scatters, letting grid layouts conform to uneven terrain/rough ground while keeping the grid's clean structure.
+5. **Placement Tools** [2:31] — two new one-click actions: **Placing Grid** and **Placing Circle** — select any number of meshes, run the action, Dash auto-organizes them into a clean layout.
+6. **Camera Tool V2** [2:53] — unlock standard UE CineCameraActor settings including native focus controls via a toggle in the Dash camera panel; familiar UE camera settings/effects now accessible alongside Dash-specific ones; all Dash camera settings (custom + native) can now be keyframed/animated directly in Sequencer.
+7. **Vertical Stack Tool (new)** [4:24] — generates stacks of objects on selected root actors; define bottom/middle/top meshes; controls for jitter, random removal, offset — built for piles/stacked-asset dressing.
+8. **Debounce execution mode (new)** [5:00] — alternative to default **Runtime** mode (instant update on every change, can hurt perf in large/demanding scenes). Debounce waits until edits pause before updating the tool; default delay 100ms, adjustable in Dash preferences.
+9. **Scatter Dropdown expansion** [5:35] — when multiple meshes are assigned to one scatter table slot, the dropdown can now expand to show/select/remove individual meshes without rebuilding the whole scatter.
+10. **Window Locations** [5:49] — Dash windows now remember size and position; layout restores automatically across project sessions.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Vine Tool → Additional Surface** — assign a Surface Scatter as a secondary growth surface so vines spread onto scattered meshes, not just the base mesh.
+- **Cable Tool → Scatter Mode** — new input type (test cutters / scattered objects) generates cable networks between scatter instances; existing Divisions/Radius/Gravity settings carry over.
+- **Grid Scatter → Projection** — new toggle for 2D-scatter conforming to non-flat surfaces.
+- **Placing Grid / Placing Circle** — new one-click Placement Tool actions in the mesh-selection context.
+- **Camera Tool V2** — toggle in Dash camera panel unlocks native CineCameraActor focus controls; Dash camera params (custom + native) now fully Sequencer-animatable.
+- **Vertical Stack Tool** — new tool; params: bottom/middle/top mesh slots, jitter, random removal, offset.
+- **Execution Mode: Runtime vs Debounce** — Dash Preferences setting; Runtime = instant per-change update (default); Debounce = waits ~100ms (adjustable) after edits stop before updating, for heavy-scene performance.
+- **Scatter table slot dropdown** — expandable per-slot mesh list for inspect/select/remove without full rebuild.
+- **Window persistence** — Dash tool windows now save/restore size + position.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner (release-notes overview, no hands-on build)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.8 (Dash 1.12)
 
 ### Tags
-[PENDING EXTRACTION]
+`#dash-1.12` `#vine-tool` `#cable-tool` `#grid-scatter` `#placement-tools` `#camera-tool` `#vertical-stack` `#performance` `#ue5.8` `#release-notes`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[dash-111---unreal-engine-world-building-just-got-easier]] — prior Dash 1.11 release-notes video (Drawable Presets, Content Browser filters)
+- [[dash-170---massive-ue5-world-building-tool]] — prior major release-notes overview format (Dash 1.7, 15 features)
+- [[how-to-create-vines-procedurally-in-unreal-engine-5]] — original Vine Tool tutorial, precedes the 1.12 scattered-surface update
+- [[how-to-create-procedural-cables-in-ue5---world-building-plugin]] — original Cable Tool guide (Objects/Curve/Mixed modes), precedes the 1.12 scatter-mode update
+- [[beginner-guide-to-ue5-co-pilot-dash-camera-settings]] — original Dash Camera Tool guide (1.3), precedes Camera Tool V2's native focus + Sequencer animation

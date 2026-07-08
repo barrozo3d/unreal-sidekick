@@ -22,12 +22,30 @@
 | 1.9.3 | UE 5.x | UE 5.6 | New Asset Marketplace |
 | 1.10.0 | UE 5.x | UE 5.6 | Preset system; requires 5.4+ for Tiling Y fix |
 | 1.11.0 | UE 5.x | UE 5.6+ | Drawable presets; 50+ built-in presets |
+| 1.12.0 | UE 5.x | **UE 5.8** | Vine/Cable/Grid Scatter scatter-integration; Camera Tool V2; new Vertical Stack tool; Debounce execution mode |
 
 > **Compatibility rule:** Always check the Dash version shown in a tutorial against this table. Features from 1.8+ (Data Tables, FAB support) won't exist in older installs. Preset system (save/share setups) requires 1.10+. Drawable viewport presets require 1.11+.
 
 ---
 
 ## Release Notes
+
+### Dash 1.12.0
+**Theme:** "Improved UE5 world building tools" — deeper scatter integration + performance
+
+**New Features:**
+- **UE 5.8 support** — early support, may have bugs; report issues upstream
+- **Vine Tool + Scattered Surfaces** — assign a scatter as an additional surface; vines grow naturally onto scattered meshes
+- **Cable Tool Scatter Mode** — cables now generate between scattered objects (scatter as input); UI cleaned up, irrelevant controls auto-hide per mode
+- **Grid Scatter Projection** — 2D grid scatters can now conform/project onto uneven terrain while keeping grid structure
+- **Placement Tools** — new one-click **Placing Grid** and **Placing Circle** actions to auto-organize selected meshes
+- **Camera Tool V2** — unlocks native CineCameraActor focus controls in-panel; all Dash camera settings (custom + native) now Sequencer-animatable
+- **Vertical Stack Tool (new)** — auto-generates bottom/middle/top prop stacks with jitter/random removal/offset controls
+- **Debounce Execution Mode (new)** — alternative to default Runtime mode; waits ~100ms (adjustable in preferences) after edits stop before updating, for better performance in heavy scenes
+- **Scatter Table Dropdown** — expand a multi-mesh slot to inspect/select/remove individual meshes without a full rebuild
+- **Window Persistence** — Dash tool windows remember size/position across sessions
+
+---
 
 ### Dash 1.11.0 (Released ~May 2026)
 **Theme:** "Drawable presets, new presets and a faster, more flexible Content Browser"
@@ -172,3 +190,4 @@ When extracting a Dash tutorial:
 - `dash-1.9+` — Free Content Browser, Advanced Water Shader, AI Search
 - `dash-1.10+` — Preset System (save/share setups)
 - `dash-1.11+` — Drawable Presets (Ctrl+Drag in viewport)
+- `dash-1.12+` — Vine/Cable Tool scattered-surface integration, Grid Scatter projection, Camera Tool V2 (native focus + Sequencer), Vertical Stack Tool, Debounce execution mode
