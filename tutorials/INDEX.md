@@ -3020,6 +3020,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** 25m7s overview/walkthrough by William Faucher covering the full feature set of his EasyWaterscape plugin (FAB marketplace). Everything is controlled from a single organized Blueprint with tooltips on every variable and a `BP` suffix marking any material parameter already driven by the Blueprint. Core wave controls are Wind Speed/Fetch (size/energy/frequency), Amplitude/Height/Normals (displacem...
 - **File:** tutorials/introducing-easywaterscape-for-unreal-engine-5.md
 
+
+### Lumen in UE5 Under 10 Mins
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=RSImMVfCnYQ
+- **Author:** Karim Yasser
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/lumen-in-ue5-under-10-mins.md
+
 ---
 
 ## Tag Reference
