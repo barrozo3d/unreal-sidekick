@@ -3000,6 +3000,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** 28-second tip: single console command `r.LumenScene.Radiosity.Temporal.MaxFramesAccumulated 128` eliminates Lumen GI flickering/noise by increasing the radiosity temporal accumulation window. Demonstrated on a sci-fi corridor with visible noise before and a clean stable result after. Trade-off: slower response to dynamic light changes at high values. *(Whisper mistranscribed the command — correct command confirmed externally.)*
 - **File:** tutorials/this-one-setting-will-fix-lumen-noise-in-unreal-engine-5.md
 
+
+### DASH 1.12 - IMPROVED UE5 WORLD BUILDING TOOLS
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=ZvTJBAkx_lY
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/dash-112---improved-ue5-world-building-tools.md
+
 ---
 
 ## Tag Reference
