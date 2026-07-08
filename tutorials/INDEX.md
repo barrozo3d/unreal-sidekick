@@ -3015,9 +3015,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=dXuwb4PpodQ
 - **Author:** William Faucher
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.8 (also targets earlier UE5.x; author confirms years of continued UE5/Blueprint support ahead of eventual UE6 migration)
+- **Tags:** easywaterscape, water, ocean, waves, foam, coastmaker, buoyancy, niagara, single-layer-water, tsr, movie-render-queue, performance, plugin, intermediate
+- **Summary:** 25m7s overview/walkthrough by William Faucher covering the full feature set of his EasyWaterscape plugin (FAB marketplace). Everything is controlled from a single organized Blueprint with tooltips on every variable and a `BP` suffix marking any material parameter already driven by the Blueprint. Core wave controls are Wind Speed/Fetch (size/energy/frequency), Amplitude/Height/Normals (displacem...
 - **File:** tutorials/introducing-easywaterscape-for-unreal-engine-5.md
 
 ---
