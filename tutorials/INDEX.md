@@ -3010,6 +3010,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** 6m40s, 12-chapter Dash 1.12 release-notes video by Polygonflow Dash. Covers: UE 5.8 support (early, may have bugs); Vine Tool growing across scattered meshes via additional-surface assignment; Cable Tool scatter-mode input + cable-to-cable settings + hidden-irrelevant-controls UI cleanup; Grid Scatter 2D projection onto uneven surfaces; new Placing Grid / Placing Circle one-click layout actions...
 - **File:** tutorials/dash-112---improved-ue5-world-building-tools.md
 
+
+### Introducing EasyWaterscape for Unreal Engine 5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=dXuwb4PpodQ
+- **Author:** William Faucher
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/introducing-easywaterscape-for-unreal-engine-5.md
+
 ---
 
 ## Tag Reference
