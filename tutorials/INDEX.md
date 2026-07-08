@@ -3025,9 +3025,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=RSImMVfCnYQ
 - **Author:** Karim Yasser
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5 (version not stated in video)
+- **Tags:** lumen, global-illumination, hardware-ray-tracing, software-ray-tracing, surface-cache, hit-lighting, ambient-occlusion, reflections, post-process, console-commands, project-settings, intermediate
+- **Summary:** 9m19s rapid-fire Lumen settings guide by Karim Yasser, framed around the idea that misconfigured Lumen is silently killing scene performance without visibly explaining why. Starts in Project Settings → Rendering: confirm Dynamic Global Illumination Method and Reflection Method are both set to Lumen. Explains **Software Ray Tracing** (cheapest, works on low-end hardware, uses Mesh Distance Field...
 - **File:** tutorials/lumen-in-ue5-under-10-mins.md
 
 ---

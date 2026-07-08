@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=RSImMVfCnYQ
 author: Karim Yasser
 ingested: 2026-07-08
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5 (version unspecified)"
+tags: [lumen, global-illumination, hardware-ray-tracing, software-ray-tracing, surface-cache, hit-lighting, ambient-occlusion, reflections, post-process, console-commands, project-settings, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/lumen-in-ue5-under-10-mins/
 frame_count: 12
 ---
@@ -88,27 +88,45 @@ frame_count: 12
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+A settings-only Lumen quality/performance pass: choose Software vs Hardware Ray Tracing correctly in Project Settings, pick the right Ray Lighting Mode (Surface Cache vs Hit Lighting for Reflections vs full Hit Lighting) per shot, hand Lumen's Ambient Occlusion over to Screen Space AO via two console variables when needed, and tune a handful of Post Process Volume Lumen knobs (Diffuse Color Boost, Sky Light Leaking, High Quality Translucency Reflections, Max Roughness to Trace, Max Reflection/Refraction Bounces) — each knob traded explicitly against its performance cost.
 
 ### Summary
-[PENDING EXTRACTION]
+9m19s rapid-fire Lumen settings guide by Karim Yasser, framed around the idea that misconfigured Lumen is silently killing scene performance without visibly explaining why. Starts in Project Settings → Rendering: confirm Dynamic Global Illumination Method and Reflection Method are both set to Lumen. Explains **Software Ray Tracing** (cheapest, works on low-end hardware, uses Mesh Distance Fields for detailed tracing within the first 2m then falls back to the Global Distance Field) — enabled via Generate Mesh Distance Fields ON, Support/Use Hardware Ray Tracing OFF, plus Shader Model 6 enabled under Windows platform settings; limitations: unsupported for some mesh types, requires ≥10cm mesh thickness to avoid light leaking, doesn't support World Position Offset or several other materials/shaders. Explains **Hardware Ray Tracing** (best quality, traces actual triangles instead of distance fields) — enabled via Generate Mesh Distance Fields OFF (skips the SWRT fallback, saves perf) plus Support/Use Hardware Ray Tracing ON. Covers the three **Ray Lighting Modes** visible under Lumen → Lumen Scene: **Surface Cache** (default, cheapest, lower-resolution mesh representation for indirect lighting/reflections, no hardware ray tracing), **Hit Lighting for Reflections** (uses hardware rays specifically for the reflection pass, much better mirror/shiny-surface quality, but falls back to Surface Cache on second bounces), and full **Hit Lighting** (uses hardware rays for indirect lighting bounces *and* reflections — highest quality, highest cost, closest to path tracing). Ambient Occlusion: Lumen calculates its own AO by default (Allow Static Lighting must stay OFF, and the AO buffer visualization shows white/inactive by default because it's Lumen-driven, not SSAO); to override with Screen Space AO instead, set console variables `r.Lumen.ScreenProbeGather.ShortRangeAO 0` and `r.Lumen.DiffuseIndirect.SSAO 1`, then tune AO in the Post Process Volume as normal (power, intensity). Screen Tracing: switch from default Scene Color to **Scene Color: Anti-Aliased** for better translucency support and less flicker from small emissive sources. Post Process Volume Lumen knobs: **Diffuse Color Boost** (multiplies material base/diffuse color to fake extra indirect bounce light — physically incorrect but useful and closer to path-traced results; recommended range 1–2, max 4, very bright at 4). **Sky Light Leaking** (brightens dark interiors lit by a Skylight; author calls it subtle and advises using it sparingly, only in specific spots). **High Quality Translucency Reflections** (significantly improves reflections on glass/translucent surfaces; visibly worse without it under Surface Cache mode). **Max Roughness to Trace** (visualized via Lumen → Lumen Scene → "Reflection Rays" debug view — anything not shown in red isn't getting Lumen reflection rays; raising this value includes more/rougher meshes in reflection tracing for much better quality, at real performance cost; meshes with lower roughness values via roughness maps/multipliers cost more here even without realizing it). **Max Reflection Bounces** and **Max Refraction Bounces** (more bounces = better detail on small objects, closer to path-traced accuracy, but pricier). Video closes pointing to a free ~4-hour deep-dive session available to the author's community.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Project Settings baseline** [0:12] — Rendering tab: confirm Dynamic Global Illumination Method = Lumen and Reflection Method = Lumen.
+2. **Choose Software Ray Tracing** [0:26] — for low-end hardware / cheapest cost: `Generate Mesh Distance Fields` = ON, `Support Hardware Ray Tracing` = OFF, `Use Hardware Ray Tracing when available` = OFF; also enable Shader Model 6 under Platforms → Windows. Caveats: needs ≥10cm mesh thickness (else light leaking), unsupported for some meshes/materials (e.g. World Position Offset).
+3. **Choose Hardware Ray Tracing** [1:29] — for best quality: `Generate Mesh Distance Fields` = OFF (skips falling back to SWRT, saves perf), `Support Hardware Ray Tracing` = ON, `Use Hardware Ray Tracing when available` = ON. Traces actual triangles for more accurate per-pixel detail.
+4. **Pick a Ray Lighting Mode** [4:19] — Lumen → Lumen Scene panel: Surface Cache (cheapest default) → Hit Lighting for Reflections (better mirror/shiny reflections, still Surface Cache on 2nd bounce) → full Hit Lighting (best quality: HWRT for both indirect lighting and reflections, highest cost). Visualize the difference live in the Lumen Scene debug view.
+5. **Ambient Occlusion source** [2:34] — leave `Allow Static Lighting` OFF so Lumen computes its own AO (buffer visualization will show white/appear "off" — that's expected, it's Lumen-driven). To use Screen Space AO instead: console commands `r.Lumen.ScreenProbeGather.ShortRangeAO 0` and `r.Lumen.DiffuseIndirect.SSAO 1`, then adjust AO power/intensity in the Post Process Volume.
+6. **Screen Tracing mode** [4:01] — Post Process Volume → set Screen Tracing to **Scene Color: Anti-Aliased** (instead of default Scene Color) for better translucency handling and reduced flicker from small emissive light sources.
+7. **Diffuse Color Boost** [5:45] — Post Process Volume → Lumen (Advanced) → multiplies base/diffuse color to inject extra fake indirect bounce light; keep between 1–2 in most cases (max value 4, visibly overblown at that extreme); useful for under-lit areas without adding more actual lights.
+8. **Sky Light Leaking** [6:47] — brightens dark interiors under a Skylight; subtle effect, author recommends targeted use rather than scene-wide.
+9. **High Quality Translucency Reflections** [7:06] — enable for meaningfully better reflections on glass/translucent surfaces; without it (Surface Cache mode) reflections on those surfaces look noticeably worse.
+10. **Max Roughness to Trace** [7:37] — debug-visualize via Lumen → Lumen Scene → Reflection Rays (non-red = excluded from Lumen reflections); raising this value includes more/rougher surfaces in reflection tracing for a big quality jump at a real performance cost — lower it if targeting performance; watch for meshes with low roughness values (via maps/multipliers) silently costing more here.
+11. **Max Reflection / Refraction Bounces** [8:40] — raise for slightly better detail on small objects / more accurate multi-bounce reflections and refractions, closer to path-tracing results, at added cost.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Project Settings → Rendering** — Dynamic Global Illumination Method / Reflection Method = Lumen; Generate Mesh Distance Fields; Support/Use Hardware Ray Tracing when available.
+- **Platforms → Windows** — Shader Model 6 must be enabled to use Software Ray Tracing.
+- **Software Ray Tracing** — Mesh Distance Field-based; cheap; ≥10cm mesh thickness required; unsupported for WPO and some materials/mesh types.
+- **Hardware Ray Tracing** — triangle-accurate; best quality; higher cost.
+- **Lumen → Lumen Scene panel** — Ray Lighting Mode selector: Surface Cache / Hit Lighting for Reflections / Hit Lighting; also hosts the Reflection Rays debug visualization.
+- **Console variables** — `r.Lumen.ScreenProbeGather.ShortRangeAO 0` + `r.Lumen.DiffuseIndirect.SSAO 1` to hand AO to Screen Space AO instead of Lumen's own calculation.
+- **Post Process Volume → Lumen settings** — Diffuse Color Boost (1–2 typical, 4 max), Sky Light Leaking, Screen Tracing mode (Scene Color: Anti-Aliased recommended), High Quality Translucency Reflections, Max Roughness to Trace, Max Reflection Bounces, Max Refraction Bounces.
+- **Buffer Visualization → Ambient Occlusion** — shows white by default under Lumen-driven AO; only reflects real values once SSAO override console vars are set.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate (assumes familiarity with Project Settings, Post Process Volumes, and console variables)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (version not stated in video)
 
 ### Tags
-[PENDING EXTRACTION]
+`#lumen` `#global-illumination` `#hardware-ray-tracing` `#software-ray-tracing` `#surface-cache` `#hit-lighting` `#ambient-occlusion` `#reflections` `#post-process` `#console-commands` `#project-settings` `#intermediate`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[how-i-use-lumen-in-aaa-projects-unreal-engine-5]] — same author's deeper AAA-workflow Lumen guide covering HWRT/SWRT selection by project type and additional Post Process quality knobs — natural follow-up/companion to this settings overview
+- [[this-one-setting-will-fix-lumen-noise-in-unreal-engine-5]] — same author, single console-command fix for Lumen GI flicker/noise; pairs well with this video's console-variable AO override tip
