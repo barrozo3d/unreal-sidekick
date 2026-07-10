@@ -3030,6 +3030,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** 9m19s rapid-fire Lumen settings guide by Karim Yasser, framed around the idea that misconfigured Lumen is silently killing scene performance without visibly explaining why. Starts in Project Settings → Rendering: confirm Dynamic Global Illumination Method and Reflection Method are both set to Lumen. Explains **Software Ray Tracing** (cheapest, works on low-end hardware, uses Mesh Distance Field...
 - **File:** tutorials/lumen-in-ue5-under-10-mins.md
 
+
+### Unreal Engine 5.8 Mesh Terrain — Full Deep Dive
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=JzQrUAVPmr4
+- **Author:** Aziel Arts
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-58-mesh-terrain-full-deep-dive.md
+
 ---
 
 ## Tag Reference
