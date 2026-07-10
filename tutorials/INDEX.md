@@ -3040,6 +3040,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-58-mesh-terrain-full-deep-dive.md
 
+
+### Unreal 5.8 - Add 3D Characters into Real Life WAY Easier with Masking! (Composure EP4)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=6b607k3F0pc
+- **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-58---add-3d-characters-into-real-life-way-easier-with-masking-composure-e.md
+
 ---
 
 ## Tag Reference
