@@ -3035,9 +3035,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=JzQrUAVPmr4
 - **Author:** Aziel Arts
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.8 (Mesh Terrain is new in 5.8, explicitly early access/beta — not recommended for shipping projects yet)
+- **Tags:** mesh-terrain, world-partition, nanite, landscape, sculpting, procedural, terrain-modifiers, early-access
+- **Summary:** 47-minute coaching-call excerpt (Aziel Arts Academy) covering the new Mesh Terrain system introduced in UE 5.8. Unlike landscapes (a height-map-based surface that can only displace vertically), Mesh Terrain is a true partitioned Nanite mesh that can form caves, overhangs, and arbitrary 3D shapes. It's built from a stack of modular, reorderable modifiers — sculpt brushes, procedural noise, splin...
 - **File:** tutorials/unreal-engine-58-mesh-terrain-full-deep-dive.md
 
 
@@ -3045,9 +3045,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=6b607k3F0pc
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.8 (Composure Masking pass is new in this version; Composure itself introduced ~6 months prior per the video)
+- **Tags:** composure, virtual-production, masking, camera-projection, davinci-resolve, magic-mask, matchmove, shadow-catcher, movie-render-graph, augmented-reality
+- **Summary:** 66-minute full augmented-reality/virtual-production pipeline (Composure EP4): scan a real room with a phone LiDAR app (Scaniverse), camera-track handheld footage in DaVinci Resolve Studio (Fusion camera tracker + magic-mask-assisted tracking), export a matchmove FBX + undistorted/color-corrected background plate, then rebuild the shoot in Unreal Engine 5.8 with Composure: project the video plat...
 - **File:** tutorials/unreal-58---add-3d-characters-into-real-life-way-easier-with-masking-composure-e.md
 
 ---

@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=6b607k3F0pc
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-07-10
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.8"
+tags: [composure, virtual-production, masking, camera-projection, davinci-resolve, magic-mask, matchmove, shadow-catcher, movie-render-graph, augmented-reality]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-58---add-3d-characters-into-real-life-way-easier-with-masking-composure-e/
 frame_count: 21
 ---
@@ -133,27 +133,56 @@ frame_count: 21
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+UE 5.8 Composure's new **2D image masking pass** lets a live-action performer walk in front of AND behind a CGI character using flat 2D mattes generated in DaVinci Resolve (Magic Mask), replacing the old workflow of hand-modeling 3D holdout geometry to match a person's silhouette frame-by-frame.
 
 ### Summary
-[PENDING EXTRACTION]
+66-minute full augmented-reality/virtual-production pipeline (Composure EP4): scan a real room with a phone LiDAR app (Scaniverse), camera-track handheld footage in DaVinci Resolve Studio (Fusion camera tracker + magic-mask-assisted tracking), export a matchmove FBX + undistorted/color-corrected background plate, then rebuild the shoot in Unreal Engine 5.8 with Composure: project the video plate onto the 3D scan geometry via a Cine Camera Actor, add CGI characters with shadow/reflection catchers, and — the new part — generate 2D "Magic Mask" mattes in Resolve (packed as RGBA channels into a single EXR sequence) to holdout the CGI behind real foreground objects/people without needing precise 3D stand-in geometry. Finishes with mask blur/erode/dithering cleanup, per-actor color correction via stencil-enabled Color Correction Regions, and final render through Movie Render Graph (EXR/DWA, correct shutter timing, temporal AA samples).
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Scan the location** — use Scaniverse (free LiDAR scanning app) in "Large Object" mode, walk the room, mark the camera-rig start position while scanning for later alignment
+2. **Film the plate** — shoot the live-action background/performer footage (ProRes, wide dynamic range, matching frame rate)
+3. **Camera-track in DaVinci Resolve Studio (Fusion page)** — add a Camera Tracker node on the base clip; use Magic Mask (`+` eyedropper → click subject → Track Forward/Backward) to isolate any moving performer, invert + dilate + bitmap that matte, and feed it into the tracker's Track Mask input so the tracker ignores the moving subject
+4. **Solve the camera track** — set focal length/film gate to match the physical camera, enable Lens Parameters, adjust Accept Solve Error to avoid infinite-loop solves, run Solve (aim for average solve error < 1)
+5. **Export the 3D scene** — 3D Scene Transform node → set Unreal-friendly scale (~50) → Export creates a Lens Distort node + a 3D point cloud/camera scene
+6. **Align point cloud to floor** — parent a Transform3D to both camera and point cloud (via Paste Instance) so nudging one moves both together for floor-alignment; use Replicate3D + Shape3D to make the point cloud visible/scaled
+7. **Flatten + color-correct the background plate** — apply the Lens Distort node to the plate to undistort it, then add a Color Space Transform (source: your camera's native color space, e.g. Blackmagic Design 4.6K Film → output linear sRGB, which is UE's expected working space) before rendering an EXR sequence (DWAA compression)
+8. **Export camera as FBX** — Merge3D → Export FBX Exporter, Render Range = animation on, no unit scaling (already scaled upstream)
+9. **Bring scan + plate into UE 5.8** — import the Scaniverse FBX as a static mesh; create lights (converted to Ray Traced Lights, since Composure integrates better with them) to replace the flat projected footage's lack of real emissive light; delete the default Directional Light
+10. **Set up Sequencer + Media Track** — Media → Image Media Source pointing at the exported plate EXRs; create a Level Sequence, Add Media Track → assign the Image Media Source → "Create Texture" auto-generates the Media Texture (no manual Media Player/Texture setup needed anymore, unlike pre-5.8)
+11. **Import the matchmove camera** — import the tracking-marker FBX with Import Materials OFF (avoids hundreds of per-cube materials); select all tracker-point meshes → Merge Actors; import the camera separately via Sequencer's Import (wrench icon) to bring in the animated camera; parent/align the merged tracker mesh + camera to the 3D scan
+12. **Build the Composure setup** — Window → Virtual Production → Composure → place a Composite Actor; swap the matchmove camera for a Cine Camera Actor (parented to it) for DOF/Iris control; adjust Near Clipping Plane to exclude foreground geometry; assign the Cine Camera Actor to the Composite Actor, and assign the plate's Media Texture as the projection source onto the scanned room geometry
+13. **Add CGI + shadow/reflection catching** — add a character/prop; drag it into the Composite Actor's Shadow Reflection Catcher list so it receives shadows/reflections from the room's ray-traced lights; expose material params (Roughness etc.) via Sequencer track to dial out unwanted reflections
+14. **Old-style 3D holdout (fallback)** — rough stand-in geometry (e.g. two spheres) placed/animated in Sequencer to represent the performer in 3D space, used as a projection surface so the CGI can appear to go behind them approximately
+15. **Generate 2D Magic Mask holdouts (the new technique)** — in Resolve, run Magic Mask per object/subject that needs to hold out the CGI (sofa split into two masks, foreground camera rig, performer, etc.), pack up to 4 separate mattes into R/G/B/A channels of one EXR via a Channel Boolean node (Copy op per channel), export as a single multi-channel EXR sequence
+16. **Import mattes into UE + assign to a Masking pass** — Media → Image Media Source for the matte sequence (can be lower resolution than the plate); on each Composure Plate layer needing a holdout, add a **Masking pass**, assign the matte Media Texture, and pick the correct **Mask Source channel** (R/G/B/A) matching that object's packed channel
+17. **Split objects onto separate Plate layers** — each holdout object (sofa, foreground camera prop, chair) gets its own Composure Plate layer with the empty/background plate reassigned as its projection texture plus its own Masking pass — enables the CGI to interleave in front of/behind multiple real objects independently
+18. **Deform patch geometry to fit masks** — Modeling tab → Deform → Lattice to reshape simple projection-patch geometry (e.g. a cut-out sofa mesh) so it fully covers its corresponding 2D mask area
+19. **Clean up mask edges** — on the Plate layer, add a **Blur** pass set to Alpha Only (avoids darkening RGB) and an **Erode/Dilate** pass (also alpha-only) to tighten/soften the holdout edge; if a dark halo appears, disable "Input is Pre-multiplied" in the masking pass settings
+20. **Per-actor color correction** — add a Color Correction Region, enable "Enable Per-Actor CC," add the target character/skeletal mesh to its actor list; requires Project Settings → search "stencil" → set Custom Depth Stencil Pass to **Enabled with Stencil** or per-actor CC silently does nothing
+21. **Fix camera shutter timing** — in Movie Render Graph globals, add Camera Settings → set Shutter Timing to **Frame Open** (default center-shutter timing causes half-frame/ghosting motion blur artifacts when combined with a real matchmove camera)
+22. **Render via Movie Render Graph** — duplicate/save a copy of the default render graph, set output directory + EXR format (DWA compression, adjustable compression level for file size), disable unneeded render layer name suffix, add Sampling Method → set Temporal Sample count (e.g. 7) for motion blur quality, then Render Local
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Composure (UE 5.1+, enhanced 5.8)** — real-time 3D compositing plugin for AR/camera-projection work; Composite Actor holds a Camera Actor, Plate layers, and passes
+- **Masking pass (new in 5.8)** — per-Plate-layer pass that reads an external 2D texture as a holdout matte, with a selectable Mask Source channel (R/G/B/A); eliminates needing precise 3D geometry to hide CGI behind real subjects
+- **Shadow Reflection Catcher** — Composite Actor list of scene objects that receive shadows/reflections from CGI without themselves rendering as visible geometry beyond the projected plate
+- **Cine Camera Actor** — swapped in place of the raw matchmove camera for DOF, Iris, Focal Distance, Lens Settings (min f-stop), and "Draw Debug Focal Plane" visualization
+- **Blur / Erode / Dilate passes** — per-layer, toggleable "Alpha Only" to avoid affecting RGB; dithered/automatic masking prevents banding
+- **Color Correction Region** — 3D power-window color grading; "Enable Per-Actor CC" restricts the effect to specific actors, but requires Project Settings → Custom Depth Stencil Pass = "Enabled with Stencil"
+- **Movie Render Graph** — successor to Movie Render Queue ("legacy preset"); node-graph based, globals for shutter timing / sampling method / output format, per-layer renderer settings (deferred, spatial sample count, anti-aliasing)
+- **Ray Traced Shadows per-light override** — Light → Ray Traced Shadows set to Enabled (not "Use Project Settings") ensures consistent raytraced shadow contact for Composure-lit scenes
+- **DaVinci Resolve Fusion: Magic Mask, Camera Tracker, Channel Boolean, Color Space Transform, Lens Distort** — external prep pipeline feeding UE
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced — multi-application VFX/virtual-production pipeline (photogrammetry scanning, Fusion camera tracking + rotoscoping, color management, Composure layer/mask stacking, Movie Render Graph); assumes comfort with both DaVinci Resolve Fusion and Unreal's Composure/Sequencer workflow.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.8 (Composure Masking pass is new in this version; Composure itself introduced ~6 months prior per the video)
 
 ### Tags
-[PENDING EXTRACTION]
+`#composure` `#virtual-production` `#masking` `#camera-projection` `#davinci-resolve` `#magic-mask` `#matchmove` `#shadow-catcher` `#movie-render-graph` `#augmented-reality`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+[[3d-tracking-natively-in-unreal-engine---full-tutorial]] — alternative native UE camera tracking approach vs. this DaVinci Resolve-based matchmove workflow

@@ -4,9 +4,9 @@ source: YouTube
 url: https://www.youtube.com/watch?v=JzQrUAVPmr4
 author: Aziel Arts
 ingested: 2026-07-10
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.8"
+tags: [mesh-terrain, world-partition, nanite, landscape, sculpting, procedural, terrain-modifiers, early-access]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-58-mesh-terrain-full-deep-dive/
 frame_count: 4
 ---
@@ -36,27 +36,51 @@ frame_count: 4
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Mesh Terrain (UE 5.8+) is Epic's Nanite-mesh-based replacement for the legacy landscape system — a partitioned, dynamically-subdividing Nanite mesh sculpted with modular, non-destructive "modifiers" (brush, noise, spline, texture, mesh, boolean, remesh) instead of destructive height-map painting.
 
 ### Summary
-[PENDING EXTRACTION]
+47-minute coaching-call excerpt (Aziel Arts Academy) covering the new Mesh Terrain system introduced in UE 5.8. Unlike landscapes (a height-map-based surface that can only displace vertically), Mesh Terrain is a true partitioned Nanite mesh that can form caves, overhangs, and arbitrary 3D shapes. It's built from a stack of modular, reorderable modifiers — sculpt brushes, procedural noise, splines (roads/rivers), height-map/mesh projection patches, boolean grafting of static meshes, and selective remesh/tessellation — each with its own priority and blend mode (normal/min/max). Material painting uses "channels" (the new name for landscape layers) defined in a shared data asset, and water bodies (rivers/lakes) attach via a dedicated modifier. Marked explicitly as early-access/beta — crash-prone, no official partition-sizing guidance yet, not recommended for shipping projects.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Enable plugins** — Edit → Plugins → search "terrain" → enable Mesh Terrain mode (+ Mesh PCG / Mesh Partition Water if needed) → restart engine
+2. **Start from a partitioned/open-world level** — Mesh Terrain requires World Partition; regular levels won't work
+3. **Create the base terrain** — Mesh Terrain mode dropdown → choose a creation method: flat rectangle (size in cm, resolution = quad density), import height map, convert an existing static mesh, or draw a spline
+4. **Choose generation type** — Automatic (auto-splits into partitions based on resolution) or Explicit (manually set partition count × per-partition resolution)
+5. **Open the Mesh Partition Outliner** — Tools → Miscellaneous → Mesh Partitioned Outliner; shows every modifier applied, in stacked priority order
+6. **Sculpt via Brush modifier** — add a Brush modifier (not direct sculpt tools) so edits stay modular/movable/duplicable; sub-tools: Sculpt (3D, Ctrl to invert/bore caves), Move, Smooth, Pinch, Flatten, Erase, plus height-locked variants (Height Sculpt/Smooth/Flatten) and Erosion brush
+7. **Add procedural detail with Noise modifier** — intensity, coverage, world-space vs. patch-space scaling
+8. **Add roads/rivers with Spline modifier** — Positions + Weights, Follow-up Distance (blend width), Plateau Distance (flat road bed); increase Max Z Distance if the 3D modifier volume clips the effect
+9. **Project height maps/meshes** — Texture modifier (projects a height-map texture down, with Falloff for edge blending and optional Adaptive Tessellation) or Mesh modifier (projects an existing static mesh's shape down, e.g. mountains)
+10. **Graft geometry with Boolean modifier** — Mesh Source = Static Mesh, Union/Subtract; visualize with wireframe toggle before committing; creates real geometric attachment (e.g., rock outcrops with proper mesh edges), can be sculpted/blended afterward
+11. **Add local detail with Remesh modifier** — Remesh mode (uniform target edge length across the modifier volume) or Tessellate mode (adaptive; levels + edge length + smoothing) to add resolution only where needed
+12. **Control stacking order** — each modifier has a Priority value (lower stacks earlier); reorder by editing the number (no drag-and-drop yet) when sculpt/paint layers aren't respecting layers beneath them
+13. **Set Blending Mode per modifier** — Normal (blend), Minimum (only push down), Maximum (only push up) — e.g. force a spline road to only carve down, never add material above
+14. **Assign the landscape material** — select the Mesh Partition → Details → MPD (Mesh Partition Definition) data asset → assign a material built for Mesh Terrain (auto-material / triplanar / angle-based blending works the same as legacy landscape materials)
+15. **Paint with Channels** — define channels in the MPD data asset (1:1 replacement for landscape layers) → add a Brush modifier → switch to Paint mode → pick a channel → paint; Boolean/other modifiers can also target a channel via their Weight Channel setting so placed meshes auto-paint the terrain
+16. **Add water** — place a Water Body River/Lake actor → Details → Add → "River Modifier" (or Lake Modifier) → assign the target Mesh Partition actor
+17. **Exit edit mode to rebuild** — clicking off the partition triggers a Nanite rebuild pass (frame-rate dip while rebuilding is normal); shadow artifacts sometimes need "Build → Precompute Static Visibility" or a zoom in/out to clear
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Mesh Terrain mode** — new editor mode (5.8+), requires World Partition/open-world level; replaces the legacy Landscape workflow long-term
+- **Mesh Partitioned Actor** — the outliner object created per Mesh Terrain instance; multiple can coexist in one world, each subdividable into World Partition grid cells (visible/loadable/unloadable in the World Partition window)
+- **Nanite** — Mesh Terrain renders as a true Nanite mesh (dynamic triangle subdivision), unlike the older Nanite Landscape mode
+- **Mesh Partition Outliner** (Tools → Miscellaneous) — lists all modifiers as children of the partition, in priority/stack order
+- **Modifier types** — Brush, Noise, Spline, Texture (height-map patch), Mesh (static-mesh patch), Boolean (union/subtract graft), Remesh/Tessellate, plus a basic shape tool
+- **Blending Mode** — Normal / Minimum / Maximum per modifier (Photoshop-style layer blend)
+- **Channels** — data-asset-defined paint layers, replacing landscape layer info assets; read directly by the material
+- **20 km floating-point limit** — very large mesh terrains start hitting float-precision (origin-rebasing) issues past ~20 km, though Mesh Terrain scales further than legacy landscapes (which cap around 8–16 km depending on RAM)
+- **River/Lake Modifier** — bridges Water System actors to Mesh Terrain (must be manually added via the water actor's Details panel; not automatic like with legacy landscapes)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate — assumes familiarity with the legacy Landscape workflow; conceptually straightforward but the tool is beta-buggy and modifier stacking/priority takes practice.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.8 (Mesh Terrain is new in 5.8, explicitly early access/beta — not recommended for shipping projects yet)
 
 ### Tags
-[PENDING EXTRACTION]
+`#mesh-terrain` `#world-partition` `#nanite` `#landscape` `#sculpting` `#procedural` `#terrain-modifiers` `#early-access`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+[[world-partition-in-unreal-engine]] — World Partition fundamentals required as a prerequisite for Mesh Terrain
