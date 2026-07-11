@@ -8,8 +8,8 @@ When the user says "set up this skill" or "new machine":
 2. Check yt-dlp: `python -m yt_dlp --version`
 3. Check Whisper: `python -c "import whisper; print('ok')" 2>&1`
 4. Check ffmpeg: `ffmpeg -version`
-5. Check git: `git -C C:/Users/KABUM/.claude/skills/unreal-sidekick status`
-6. Check GitHub remote: `git -C C:/Users/KABUM/.claude/skills/unreal-sidekick remote -v`
+5. Check git: `git -C %USERPROFILE%/.claude/skills/unreal-sidekick status`
+6. Check GitHub remote: `git -C %USERPROFILE%/.claude/skills/unreal-sidekick remote -v`
 7. For anything missing: run `setup.ps1`
 
 ---
@@ -18,12 +18,12 @@ When the user says "set up this skill" or "new machine":
 
 ### 1. Clone the repo
 ```powershell
-git clone https://github.com/barrozo3d/unreal-sidekick C:/Users/KABUM/.claude/skills/unreal-sidekick
+git clone https://github.com/barrozo3d/unreal-sidekick %USERPROFILE%/.claude/skills/unreal-sidekick
 ```
 
 ### 2. Install dependencies
 ```powershell
-cd C:/Users/KABUM/.claude/skills/unreal-sidekick
+cd %USERPROFILE%/.claude/skills/unreal-sidekick
 pip install -r requirements.txt
 ```
 

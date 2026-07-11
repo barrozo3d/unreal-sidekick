@@ -1,9 +1,9 @@
 # William Faucher YouTube Tutorial Batch Ingestion
-# Run from: C:\Users\KABUM\.claude\skills\unreal-sidekick\
+# Run from this skill's own directory (any machine)
 # Usage: .\ingest_william_faucher.ps1
 
 $ErrorActionPreference = "Continue"
-$skillDir = "C:\Users\KABUM\.claude\skills\unreal-sidekick"
+$skillDir = $PSScriptRoot
 Set-Location $skillDir
 
 $videos = @(

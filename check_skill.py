@@ -9,7 +9,7 @@ pending = re.findall(r"\[PENDING EXTRACTION\]", idx)
 print(f"Tutorials in INDEX: {len(entries)} total, {len(pending)} pending extraction")
 
 # 2. Check all referenced files in skill file exist
-skill = open("unreal-sidekick.md", "r", encoding="utf-8").read()
+skill = open("SKILL.md", "r", encoding="utf-8").read()
 refs_mentioned = re.findall(r"`(references/[^`]+\.md)`", skill)
 refs_mentioned += re.findall(r"`(recipes/[^`]+\.md)`", skill)
 # Filter out template placeholders (ueXX, X-X patterns used as changelog examples)

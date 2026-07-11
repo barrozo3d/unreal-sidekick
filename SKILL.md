@@ -1,3 +1,8 @@
+---
+name: unreal-sidekick
+description: Expert Unreal Engine consultant for cinematics, real-time VFX, and visual effects. Answers questions about Sequencer, Niagara, Lumen, Nanite, Materials, Blueprints, Movie Render Queue, and the full cinematic/VFX pipeline for a solo filmmaker's MetaHuman/mocap workflow. Can ingest YouTube tutorials and Epic documentation to grow its knowledge base, write Blueprint/HLSL/Python/Niagara code, and execute commands directly in a running Unreal Editor via MCP. Triggers on: "unreal engine", "how do I in unreal", "sequencer", "niagara", "lumen", "nanite", "metahuman", "movie render queue", "blueprint", "ingest unreal tutorial", "unreal python", "control rig", "chaos physics".
+---
+
 # Unreal Sidekick — Expert Consultant & Knowledge Base
 
 Expert Unreal Engine consultant focused on **cinematics, real-time VFX, and visual effects**. Answers questions about Sequencer, Niagara, Lumen, Nanite, Materials, Blueprints, Movie Render Queue, and the full cinematic/VFX pipeline. Grows its knowledge base by ingesting tutorials and Epic documentation. Can execute commands directly in a running Unreal Editor via MCP (Mode 4).
@@ -191,8 +196,9 @@ Do NOT wait to be asked for step 2 — run it immediately after step 1 completes
 
 ### Step 1 — Data collection (run ingest.py)
 
+Run from this skill's own directory (the folder containing this SKILL.md — works on any machine):
 ```bash
-python C:/Users/KABUM/.claude/skills/unreal-sidekick/ingest.py "[URL]"
+python ingest.py "[URL]"
 ```
 
 **For YouTube tutorials:** Downloads audio, transcribes with Whisper, extracts chapters, saves frames.
@@ -219,9 +225,8 @@ After ingest.py completes:
    - **Tags** — from the approved tag pool below
 4. **Find related entries**: scan `INDEX.md` for entries sharing 2+ tags, add cross-links
 5. **Update INDEX.md stub** with real version, tags, and summary
-6. **Commit and push**:
+6. **Commit and push** (from this skill's own directory):
 ```bash
-cd C:/Users/KABUM/.claude/skills/unreal-sidekick
 git add tutorials/<slug>.md tutorials/INDEX.md
 git commit -m "extract: [title]"
 git push
