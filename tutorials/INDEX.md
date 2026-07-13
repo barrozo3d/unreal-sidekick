@@ -3015,9 +3015,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=dXuwb4PpodQ
 - **Author:** William Faucher
-- **UE Version:** UE 5.8 (also targets earlier UE5.x; author confirms years of continued UE5/Blueprint support ahead of eventual UE6 migration)
-- **Tags:** easywaterscape, water, ocean, waves, foam, coastmaker, buoyancy, niagara, single-layer-water, tsr, movie-render-queue, performance, plugin, intermediate
-- **Summary:** 25m7s overview/walkthrough by William Faucher covering the full feature set of his EasyWaterscape plugin (FAB marketplace). Everything is controlled from a single organized Blueprint with tooltips on every variable and a `BP` suffix marking any material parameter already driven by the Blueprint. Core wave controls are Wind Speed/Fetch (size/energy/frequency), Amplitude/Height/Normals (displacem...
+- **UE Version:** UE 5.8
+- **Tags:** #easywaterscape #water #ocean #waves #foam #coastmaker #buoyancy #niagara #single-layer-water #tsr #mrq #materials #lighting #plugin #intermediate
+- **Summary:** Full feature tour of EasyWaterscape (Fab plugin) by its author: single-Blueprint control with tooltipped variables; wave shaping (wind/fetch, amplitude/height/normals, choppiness, directionality/spread); tile-breaking for large water planes; physically-driven foam (from wave steepness, not random spawns); automatic CoastMaker shoreline generation (bounding-box capture, windward masking, UE 5.8 overhang handling); three buoyancy methods (material function, GPU Niagara blueprint, gameplay Blueprint component); swells/currents/wind-gust surface detail; beta underwater/lake modes; a shoreline wetness material function; Single Layer Water vs Default Lit shading tradeoffs; performance tuning; fixes for Lumen reflection-trace black artifacts and TSR-driven water smearing (it's a viewport screen-percentage issue); and Movie Render Queue guidance for smooth cinematic wave motion blur.
 - **File:** tutorials/introducing-easywaterscape-for-unreal-engine-5.md
 
 

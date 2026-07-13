@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=dXuwb4PpodQ
 author: William Faucher
 ingested: 2026-07-13
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.8"
+tags: [easywaterscape, water, ocean, waves, foam, coastmaker, buoyancy, niagara, single-layer-water, tsr, mrq, materials, lighting, plugin, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/introducing-easywaterscape-for-unreal-engine-5/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Introducing EasyWaterscape for Unreal Engine 5
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py introducing-easywaterscape-for-unreal-engine-5 <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Intro [0:00]
@@ -525,30 +521,58 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [1:38] tutorials/frames/introducing-easywaterscape-for-unreal-engine-5/frame_000.jpg
+- [5:03] tutorials/frames/introducing-easywaterscape-for-unreal-engine-5/frame_001.jpg
+- [6:14] tutorials/frames/introducing-easywaterscape-for-unreal-engine-5/frame_002.jpg
+- [8:35] tutorials/frames/introducing-easywaterscape-for-unreal-engine-5/frame_003.jpg
+- [9:36] tutorials/frames/introducing-easywaterscape-for-unreal-engine-5/frame_004.jpg
+- [14:35] tutorials/frames/introducing-easywaterscape-for-unreal-engine-5/frame_005.jpg
+- [17:44] tutorials/frames/introducing-easywaterscape-for-unreal-engine-5/frame_006.jpg
+- [21:30] tutorials/frames/introducing-easywaterscape-for-unreal-engine-5/frame_007.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Overview/promo walkthrough of EasyWaterscape, a Fab marketplace plugin that drives a full ocean + coastline water system (waves, foam, buoyancy, coast generation) from a single Blueprint, with all art-direction controls exposed as tooltipped variables rather than requiring material edits.
 
 ### Summary
-[PENDING EXTRACTION]
+William Faucher (the plugin's author) tours every feature of EasyWaterscape 1.0: the single-Blueprint workflow and presets, wave shape controls (wind speed/fetch, amplitude/height/normals, choppiness, directionality/spread), tile-breaking for large water planes, physically-motivated foam (generated from wave steepness/choppiness, not randomly spawned), the automatic CoastMaker shoreline-generation tool, three buoyancy methods with different cost/quality tradeoffs, surface detail layers (swells/currents/wind gusts), beta underwater and lake modes, a wetness material function for shoreline meshes, Single Layer Water vs Default Lit shading tradeoffs, performance tuning, and fixes for two common UE gotchas (Lumen reflection-trace black artifacts and TSR-caused water smearing). Ends with Movie Render Queue guidance for smooth cinematic wave motion blur and rough performance benchmarks (RTX 5090 vs 3080 Ti).
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Install & run**: download from Fab, drag the `BP_EasyWaterscape` blueprint into the level, then in its Details panel under the "0-1 Easy Water" tab click **Run Easy Water** (and **Stop Easy Water** to disable). All settings live in this one Details panel, organized into Easy Water / CoastMaker / Optimizations & Troubleshooting tabs, plus two beta tabs (Underwater, Lake Mode).
+2. **Presets**: pick a preset from the dropdown for a starting look; an active preset locks the Blueprint settings — click to remove the preset to unlock and keep tweaking. If changes don't seem to apply, check whether a preset is still active.
+3. **Wave shaping**: Wind Speed/Fetch control wave size/energy/frequency; Amplitude affects both vertical+horizontal displacement while Height affects only vertical (and thus normal strength) — tip: normal intensity often looks better dialed to 0.5-0.75. Choppiness sharpens wave crests and directly drives foam amount. Wave Directionality (best around 0.75-0.95) moves waves from omnidirectional to directional; Wave Spread needs Directionality near 1 to have any visible effect, producing long straight waves; Wave Speed controls travel speed.
+4. **Tiling control**: Patch Size and Tiling Scale trade off area-of-ocean captured vs per-wave resolution/tiling — raising Patch Size covers more area at lower per-wave resolution (bumping ocean resolution offsets this); lowering it gives bigger/more-detailed waves but much worse tiling. The Tile Breaking section (offset ~-1500, blend range ~1500 as a worst-case fix, defaults are usually fine) and Cell Size mitigate the remaining tiling/"cell bombing" pattern (most visible from high camera angles on smooth water) — a better tile-breaking system is on the plugin's roadmap.
+5. **Foam**: whitewater is generated physically (from wave steepness/collapse), not spawned randomly, driven primarily by Choppiness. Foam Intensity/Threshold/Decay/Smoothing give independent control (Threshold: higher = only crest tips foam; Decay: how long foam lingers; Smoothing: softens foam edges, useful at high water resolution e.g. 4K). Open Ocean and Coast foam are configured separately (same parameter set) under their respective sub-tabs.
+6. **CoastMaker**: run from its own tab — captures all landscape inside a resizable bounding-box gizmo into auto-generated maps (resolution adjustable), runs once at runtime (no ongoing perf cost), can be disabled entirely, and **Clear CoastMaker** wipes stale bake data (useful when switching levels). Coastline wave params (intensity, amount, speed, breaking foam) sit under the Coastline section; Distortion/Distance-From-Shore/Wave-Amount need re-tuning if you change capture area size or resolution (density-per-area matters — e.g. cramming 50 waves into 5m looks wrong). In UE 5.8, landscapes with overhangs/caves need the capture height Z lowered below the overhang or the tool captures the top surface instead; static meshes can be excluded via **Hidden in Scene Capture** in their Scene Capture settings. An Advanced section can blur the generated maps (raise the blur values) to smooth wave arrival in tight bays. A windward mask keeps coast waves/foam only on the wind-facing side of landmasses so the leeward side isn't lit by waves from the "wrong" direction. Caveat (author's own admission): shoreline wave crash/break quality is the weakest part of the tool, especially for long shallow-beach breaking waves; it performs better on steep rocky coasts where a bundled Niagara splash system adds convincing distance detail.
+7. **Surface detail layers**: Swells (large-scale distant wave pattern, 3 selectable normal maps), Currents (noise-based swirly surface pattern, cheap since it avoids 3D noise), and Wind Gusts (breaks up repetition) — stacking all three is what pushes the water from "repeating texture" to feeling alive.
+8. **Buoyancy — 3 methods**: (a) a Material Function on the World Position Offset pin — cheapest, no real physics, fine for background motion only; (b) a Niagara Blueprint — drop into the level, assign a static mesh, configure count/radius/scale/variation; GPU-driven, most performant, recommended for scattering debris/rubble; (c) a Blueprint Component addable to any actor (static mesh, anim BP, camera) for a "hero" object needing gameplay logic — same controls as the Niagara Blueprint, requires the object set to Immovable, has a tick-rate limiter for performance (test in PIE/Simulate). Buoyancy is called out as the area most likely to change based on user feedback.
+9. **Beta features**: Underwater mode (early-stage foundation; god rays/caustics/bubbles/distortion planned) and Lake Mode (checkbox to shape/rotate a bounded, non-infinite water body instead of an endless ocean) — both still maturing.
+10. **Custom mesh & wetness**: a custom water mesh can replace the default plane (disable Camera Follow to keep it fixed in place). A bundled wetness Material Function (add to your master material; supports both Material Attributes and regular pins via a static bool switch) darkens/wets meshes near the runtime water level automatically — exposed per-instance as a Wetness variable.
+11. **Shading model choice**: Single Layer Water is UE's standard (gives translucency/caustics) but only casts/receives shadows from the primary directional light — breaks down for multi-light dramatic setups (demoed: a spotlit rock scene loses its grounding shadow). Default Lit works better there at the cost of translucency (author also bumped Metallic to 1 in that shot); pick per-shot, not universally — toggle via the water material instance's Shading Model parameter.
+12. **Performance tuning**: a dedicated Optimization section in the material instance centralizes toggles for swells/currents/coast-waves (all raise instruction count) instead of scattering them; the two main dials are simulation Resolution and Frame Rate (10-15 FPS is often plenty for aerial/distant shots — huge perf win); Resolution 256-2048 covers most needs (4K is usually overkill); disable the Underwater feature and set the material's Two Sided to false if unused; water mesh LOD 2-4 is recommended for games (LOD 0/1 are cinematic-only overkill, LOD 4 can show artifacts depending on wave size); disable Coast/Open-Ocean foam checkboxes entirely for an extra boost if foam isn't needed.
+13. **Known-issue fixes**: (a) black artifacts appear if Lumen hardware ray tracing is disabled alongside disabled reflection screen traces — fix is to disable "Evaluate WPO / Ray Tracing" and apply the plugin's Lumen offset fix (pushes height above zero to avoid negative displacement); screen traces are recommended when available for better results. (b) TSR-caused ghosting/smearing/pixelation is really a **viewport screen-percentage** problem (viewport commonly renders at 80-90%, not 100%) — set Screen Percentage to 100% (or 125-200% for extra sharpness) to confirm; if TSR itself must be avoided, switch the anti-aliasing method via console variable or the EasyToolbag shortcut (5 alternative AA methods available), and/or use the Tonemapper Sharpen variable (~0.5-1) to reduce remaining smear.
+14. **Movie Render Queue / cinematics**: the plugin's internal simulation frame rate (not your render FPS) determines wave sub-stepping — setting it equal to your render FPS (e.g. 24) removes inter-frame motion even with MRQ temporal samples enabled, producing choppy-looking waves; set it to 5-10x your target render frame rate instead so temporal sampling has real in-between motion to blend, giving smooth motion blur on the water.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+`BP_EasyWaterscape` (single control Blueprint: Easy Water / CoastMaker / Optimization & Troubleshooting tabs, plus beta Underwater/Lake Mode tabs) · Presets dropdown · wave params (Wind Speed, Fetch, Amplitude, Height, Normal Strength, Choppiness, Wave Directionality, Wave Spread, Wave Speed) · Patch Size / Tiling Scale · Tile Breaking (Offset, Blend Range, Cell Size) · Foam params (Intensity, Threshold, Decay, Smoothing) per Open-Ocean/Coast · **CoastMaker** (bounding-box gizmo, Coverage/Resolution, Run/Clear buttons, Coastline wave params, Distortion/Distance-From-Shore/Wave-Amount, Capture Height Z, Scene Capture "Hidden in Scene Capture", Advanced blur controls, windward mask) · Buoyancy: Material Function (World Position Offset), Niagara Blueprint (GPU particles), Blueprint Component · Surface details: Swells (+3 normal maps), Currents, Wind Gusts · Wetness Material Function (Material Attributes / regular pin toggle) · Shading Model switch (Single Layer Water vs Default Lit) on the water Material Instance · Material Instance Optimization section (swells/currents/coast-waves toggles, Two Sided) · Water Mesh LOD 0-4 · Lumen offset fix + "Evaluate WPO/Ray Tracing" toggle · Viewport **Screen Percentage** (Custom Override) · Anti-aliasing method console variable / EasyToolbag AA shortcut · Tonemapper Sharpen · MRQ simulation frame-rate setting.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate — no code/Blueprint-graph editing required to use the plugin day-to-day (everything is exposed as tooltipped variables), but getting good results (tiling, foam balance, coast wave tuning, TSR/Lumen gotchas) requires understanding *why* each control matters, not just where it is.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.8 (the CoastMaker section explicitly calls out new UE 5.8 mesh-terrain overhang/cave handling; author also notes UE5/Blueprints remain relevant for ~5 more years ahead of any eventual UE6 Blueprint deprecation).
 
 ### Tags
-[PENDING EXTRACTION]
+#easywaterscape #water #ocean #waves #foam #coastmaker #buoyancy #niagara #single-layer-water #tsr #mrq #materials #lighting #plugin #intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [The 2025 Guide to Rendering in Unreal Engine 5](the-2025-guide-to-rendering-in-unreal-engine-5.md) — shares #mrq #tsr #william-faucher (same author); its MRQ Game-Overrides-tab guidance and TSR/temporal-vs-spatial sample rules are the deeper reference behind this video's MRQ frame-rate and TSR-smearing fixes.
+- [Witcher 4 Baked Water Simulation Tutorial in Unreal Engine 5.6](witcher-4-baked-water-simulation-tutorial-in-unreal-engine-56.md) — shares #water #buoyancy; an alternative approach using UE's native Water + Water Advanced + Buoyancy plugins (baked shallow-body sim) instead of EasyWaterscape's real-time procedural ocean — useful contrast for choosing a water solution.
+- [Beginner Water Tool Tutorial for UE5](beginner-water-tool-tutorial-for-ue5.md) — shares #water; a much simpler Dash-plugin water material workflow, good beginner alternative if EasyWaterscape's full feature set (CoastMaker, buoyancy methods, foam tuning) is more than a project needs.
