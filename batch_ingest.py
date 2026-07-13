@@ -2,6 +2,15 @@
 Batch ingest script for Unreal Sidekick skill.
 Runs ingest.py on each URL sequentially, logging progress and errors.
 Usage: python batch_ingest.py
+
+NOTE: for YouTube URLs this only runs Step 1 (ingest.py) — transcript
+collection, no video/frame download (that's deferred to Step 2, content-aware,
+see select_frames.py). After this script finishes, tell Claude Code: "extract
+all pending tutorials" — for each one, Claude reads the timestamped
+transcript, picks real technique/result moments (even inside official
+chapters — don't trust chapter_start+5s blindly), runs
+`select_frames.py <slug> <ts...>`, then writes the Structured Notes and
+commits. (Epic documentation URLs are unaffected — no video/frames involved.)
 """
 import subprocess
 import sys
