@@ -191,8 +191,12 @@ DirectWrites.MyAttr = result;
 
 ## Mode 3: Ingest
 
-**Both steps happen automatically** when the user says "ingest this: [URL]".
-Do NOT wait to be asked for step 2 — run it immediately after step 1 completes.
+Three steps happen when the user says "ingest this: [URL]". Do NOT wait to be
+asked for step 2 or step 3 — run each immediately after the previous one
+completes. For YouTube tutorials, frame capture is deliberately **not**
+automatic — it requires judgment about which moments in the video are worth a
+still, which is why it's a separate step done by Claude reading the
+transcript, not something ingest.py guesses at with blind percentages.
 
 ### Step 1 — Data collection (run ingest.py)
 
@@ -201,20 +205,28 @@ Run from this skill's own directory (the folder containing this SKILL.md — wor
 python ingest.py "[URL]"
 ```
 
-**For YouTube tutorials:** Downloads audio, transcribes with Whisper, extracts chapters, saves frames.
+**For YouTube tutorials:** Downloads audio, transcribes with Whisper (per-sentence timestamps preserved even inside chapters), extracts chapters. No video download, no frames yet (`frame_status: pending-selection`) — that's Step 2.
 
-**For Epic documentation pages (`dev.epicgames.com/documentation`):** Crawls the hub page + all linked sub-pages up to 2 levels deep, assembles into a single structured markdown file. No audio/frames needed.
+**For Epic documentation pages (`dev.epicgames.com/documentation`):** Crawls the hub page + all linked sub-pages up to 2 levels deep, assembles into a single structured markdown file. No audio/frames needed — skip Step 2, go straight to Step 3.
 
-**For Epic community pages (`dev.epicgames.com/community`):** Auto-resolves to the embedded YouTube URL and ingests as a tutorial.
+**For Epic community pages (`dev.epicgames.com/community`):** Auto-resolves to the embedded YouTube URL and ingests as a tutorial (frame capture applies — do Step 2).
 
-The script prints the tutorial file path at the end.
+The script prints the tutorial file path at the end, plus a reminder to run `select_frames.py` next if the content is a YouTube tutorial.
 
-### Step 2 — Extraction (done by Claude Code immediately after)
+### Step 2 — Frame selection (YouTube tutorials only — run select_frames.py)
 
-After ingest.py completes:
+1. **Read the timestamped transcript** in the tutorial file's `## Raw Data` section.
+2. **Pick 4-8 moments** that actually show a technique/result worth a still — not blind percentages of the runtime, and not just chapter-start + a few seconds. Verify each pick against the transcript's own timestamps.
+3. **Run the script** with those timestamps (seconds or mm:ss, mixed freely):
+```bash
+python select_frames.py <slug> <ts1> <ts2> ...
+```
+This downloads the low-quality video, extracts exactly those frames to `tutorials/frames/<slug>/` (local only, not in git), appends a `## Captured Frames` section to the tutorial file, and sets `frame_status: complete` in the frontmatter. It does **not** commit — that happens together with the Structured Notes in Step 3.
 
-1. **Read the tutorial/doc file** printed by ingest.py
-2. **For YouTube tutorials:** Read each frame → analyze viewport content, settings, node graphs
+### Step 3 — Extraction (done by Claude Code immediately after)
+
+1. **Read the tutorial/doc file**
+2. **For YouTube tutorials:** Read each frame listed in `## Captured Frames` → analyze viewport content, settings, node graphs, Blueprint code
 3. **Fill in ALL Structured Notes** (replace every `[PENDING EXTRACTION]`):
    - **Core Technique** — one sentence, the main UE technique
    - **Summary** — 2-3 sentences, what the viewer learns and the end result
@@ -231,6 +243,9 @@ git add tutorials/<slug>.md tutorials/INDEX.md
 git commit -m "extract: [title]"
 git push
 ```
+
+### Re-ingesting an existing tutorial
+`ingest.py --force` re-collects transcript-only data and refuses to overwrite a file that's already `extraction_status: complete` unless `--force` is passed. `select_frames.py --force` re-captures frames even if `frame_status` is already `complete`.
 
 ### Approved tag pool
 ```

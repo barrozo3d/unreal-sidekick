@@ -117,27 +117,36 @@ git clone https://github.com/chongdashu/unreal-mcp
 
 ## Ingest Commands
 
+The pipeline is two scripts, run in sequence — frame capture is a deliberate,
+content-aware step done by Claude Code, not something either script guesses
+at. Step 1 never downloads video or extracts frames anymore; it only collects
+transcript/metadata (or crawled doc text) and pushes a pending stub.
+
 ```powershell
-# YouTube tutorial
+# Step 1 — YouTube tutorial (transcript only, no video/frames yet)
 python ingest.py "https://www.youtube.com/watch?v=..."
 
-# Epic documentation section (crawls 2 levels deep)
+# Step 1 — Epic documentation section (crawls 2 levels deep, no frames needed)
 python ingest.py "https://dev.epicgames.com/documentation/unreal-engine/..."
 
-# Epic documentation — shallow crawl (1 level only)
+# Step 1 — Epic documentation — shallow crawl (1 level only)
 python ingest.py "https://dev.epicgames.com/documentation/unreal-engine/..." --doc-depth 1
 
-# Epic community talk (auto-resolves to YouTube)
+# Step 1 — Epic community talk (auto-resolves to YouTube)
 python ingest.py "https://dev.epicgames.com/community/learning/..."
 
-# Epic community — override if wrong YouTube video found
+# Step 1 — Epic community — override if wrong YouTube video found
 python ingest.py "https://dev.epicgames.com/community/..." --youtube-url "https://youtu.be/CORRECT_ID"
 
-# YouTube — skip video download (text-only extraction)
+# Step 1 — YouTube — mark as permanently frame-less (text-only extraction, skips Step 2 entirely)
 python ingest.py "https://www.youtube.com/watch?v=..." --skip-video
 
-# Re-collect a tutorial/doc-hub that was already fully extracted (overwrites Structured Notes)
+# Step 1 — Re-collect a tutorial/doc-hub that was already fully extracted (overwrites Structured Notes)
 python ingest.py "<url>" --force
+
+# Step 2 — YouTube tutorials only: after reading the timestamped transcript, capture the chosen moments
+python select_frames.py <slug> <ts1> <ts2> ...   seconds or mm:ss, e.g. 10 60 4:20 8:05
+python select_frames.py <slug> ... --force       re-capture even if frame_status: complete
 ```
 
-`ingest.py` refuses to overwrite a tutorial or doc-hub `.md` whose frontmatter already has `extraction_status: complete`, to protect hand-written Structured Notes from being wiped by an accidental re-ingest. Pass `--force` only when you intend to discard the existing extraction and will re-run the extraction pass afterward.
+`ingest.py` refuses to overwrite a tutorial or doc-hub `.md` whose frontmatter already has `extraction_status: complete`, to protect hand-written Structured Notes from being wiped by an accidental re-ingest. Pass `--force` only when you intend to discard the existing extraction and will re-run the extraction pass afterward. `select_frames.py` has the same guard on `frame_status: complete`. Epic documentation pages have no video/frames at all — skip Step 2 for those and go straight to extraction.
