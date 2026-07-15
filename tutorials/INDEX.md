@@ -3050,6 +3050,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** 66-minute full augmented-reality/virtual-production pipeline (Composure EP4): scan a real room with a phone LiDAR app (Scaniverse), camera-track handheld footage in DaVinci Resolve Studio (Fusion camera tracker + magic-mask-assisted tracking), export a matchmove FBX + undistorted/color-corrected background plate, then rebuild the shoot in Unreal Engine 5.8 with Composure: project the video plat...
 - **File:** tutorials/unreal-58---add-3d-characters-into-real-life-way-easier-with-masking-composure-e.md
 
+
+### Render separate SHADOWS from Unreal Engine 5.8 with the Shadow Reflection Catcher (Composure EP5)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=HrAWf7b8vww
+- **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/render-separate-shadows-from-unreal-engine-58-with-the-shadow-reflection-catcher.md
+
 ---
 
 ## Tag Reference
