@@ -3055,9 +3055,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=HrAWf7b8vww
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.8
+- **Tags:** `#composure` `#shadow-catcher` `#movie-render-graph` `#deferred-rendering` `#dilation-pass` `#compositing` `#davinci-resolve` `#fusion` `#ar`
+- **Summary:** Breaks a Composure AR composite into separate Beauty/Shadow-Reflection/background render layers for traditional compositing, using UE 5.8's new Dilation pass (alpha-only erosion) to fix edge-eating artifacts when a masked character's occlusion edge doesn't align with its separately-rendered shadow contribution.
 - **File:** tutorials/render-separate-shadows-from-unreal-engine-58-with-the-shadow-reflection-catcher.md
 
 ---

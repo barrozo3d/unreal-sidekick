@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=HrAWf7b8vww
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-07-15
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.8"
+tags: [composure, shadow-catcher, movie-render-graph, deferred-rendering, dilation-pass, compositing, davinci-resolve, fusion, ar]
+extraction_status: complete
 frames_dir: tutorials/frames/render-separate-shadows-from-unreal-engine-58-with-the-shadow-reflection-catcher/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 10
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Render separate SHADOWS from Unreal Engine 5.8 with the Shadow Reflection Catcher (Composure EP5)
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py render-separate-shadows-from-unreal-engine-58-with-the-shadow-reflection-catcher <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Intro: The power of Unreal Engine's viewport recording vs. traditional compositing [0:00]
@@ -325,30 +321,55 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [0:32] tutorials/frames/render-separate-shadows-from-unreal-engine-58-with-the-shadow-reflection-catcher/frame_000.jpg
+- [1:04] tutorials/frames/render-separate-shadows-from-unreal-engine-58-with-the-shadow-reflection-catcher/frame_001.jpg
+- [2:33] tutorials/frames/render-separate-shadows-from-unreal-engine-58-with-the-shadow-reflection-catcher/frame_002.jpg
+- [3:53] tutorials/frames/render-separate-shadows-from-unreal-engine-58-with-the-shadow-reflection-catcher/frame_003.jpg
+- [4:26] tutorials/frames/render-separate-shadows-from-unreal-engine-58-with-the-shadow-reflection-catcher/frame_004.jpg
+- [6:03] tutorials/frames/render-separate-shadows-from-unreal-engine-58-with-the-shadow-reflection-catcher/frame_005.jpg
+- [7:18] tutorials/frames/render-separate-shadows-from-unreal-engine-58-with-the-shadow-reflection-catcher/frame_006.jpg
+- [7:58] tutorials/frames/render-separate-shadows-from-unreal-engine-58-with-the-shadow-reflection-catcher/frame_007.jpg
+- [8:19] tutorials/frames/render-separate-shadows-from-unreal-engine-58-with-the-shadow-reflection-catcher/frame_008.jpg
+- [9:33] tutorials/frames/render-separate-shadows-from-unreal-engine-58-with-the-shadow-reflection-catcher/frame_009.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Break Unreal Engine's real-time, in-viewport Composure AR composite (which normally bakes character, shadow/reflection, and background together directly in 3D) back apart into **separate renderable layers** — a Beauty pass (character only, alpha-masked), a Shadow Reflection Catcher pass (baked lighting/shadow/GI influence as a multiply layer), and the background plate — so a traditional compositor can recombine and finesse them frame-accurately in Resolve/Fusion/Nuke, using Unreal 5.8's new **Dilation pass** to fix edge-eating artifacts that occur when a masked character and its separately-rendered shadow don't align pixel-perfectly.
 
 ### Summary
-[PENDING EXTRACTION]
+The starting point is a Composure-based AR setup (from a prior video) where a live-action character is re-projected in 3D onto a **Composite Mesh Actor** and re-filmed by a virtual camera, with a **Shadow Reflection Catcher** layer providing the ground/environment shadow and reflection contribution. For a traditional VFX compositor used to working with separated render layers (as opposed to games' baked, single-pass **deferred rendering** — where an Unlit render is near-instant but a fully Lit render bakes in all lighting/GI/bounce as one multiply-mode layer for real-time speed), this baked single-layer approach is too rigid for comp-side lighting adjustments. The Shadow Reflection Catcher layer, when toggled from **Multiply to Over** blend mode in Composure, reveals what it actually contains: a mostly-white multiply layer where value 1 leaves the background unchanged, and darker/tinted regions subtract light or add color influence from bounce lighting — this is why flipping it to Over mode looks like a ghostly white silhouette rather than a normal image. Before rendering, render fidelity is bumped by raising the Shadow Reflection Catcher's **Render Target Resolution** from the 540p default up to 1440p (independent of the final Movie Render Graph output resolution) for visibly cleaner shadow/reflection detail. The Shadow Catcher pass is then rendered via **Movie Render Graph**, configuring a named output layer ("shadow catcher"), an output directory, and an EXR image-sequence naming pattern, then hitting Render. Rendering the **character separately** exposes an occlusion problem: since the character is a camera-projected texture cut out with a mask on a piece of 3D geometry, when the character passes behind another object in the scene, disabling the character layer to get a clean occlusion edge also removes the character's contribution to the shadow/reflection pass — losing the correct "character casts a shadow on this surface" interaction. The fix is Unreal 5.8's new **Dilation pass**: added under a layer's Media Passes, set to operate on the Alpha channel only (not RGBA), it shrinks/erodes the character's alpha mask by a controllable amount (e.g. by -20) so the mask edge sits a few pixels inside the character's true silhouette — this keeps enough of the character present to preserve correct shadow-casting influence on the Shadow Catcher pass while still leaving a small enough footprint that a separately-rendered foreground layer can be composited cleanly on top without edge artifacts; disabling **Carry RGB with Alpha** on the same pass removes an additional thin white fringe. This Dilation setup is applied to every relevant camera/layer combination that needs it. The **Main/Beauty render** pass has its blend operation changed from Over to **None** (so it renders with a clean alpha channel rather than pre-composited against the background) and is rendered through Movie Render Graph as a named "beauty" output — its render preview shows a checkerboard pattern confirming the alpha channel exported correctly. In compositing (demonstrated in **DaVinci Resolve** first, then **Fusion**), the three separately-rendered EXR sequences — background plate, character/beauty foreground, and shadow-reflection layer — are recombined: the Shadow Reflection layer's composite mode is changed from Normal to **Multiply** against the background (recreating the same lighting interaction Unreal was doing internally), then the character foreground is placed on top. In Fusion specifically, since the foreground uses the eroded/dilated alpha, an additional **Channel Booleum** node repurposes the blue channel from an earlier "magic mask" pass as a cleaner alpha, followed by an erode and blur to soften the mask edge before merging the character back on top of the shadow-multiplied background — restoring correct occlusion when the character passes in front of or behind other scene elements (with manual masking or animated transparency needed for partial-occlusion cases like a hand crossing in front of another object). Beyond the base film application, the same three-layer (plate / character-or-object / shadow-reflection-multiply) technique is shown applied to a stylized "UFO with shadow" composite for title cards and call-to-action graphics, where the shadow-reflection layer's opacity can simply be animated/mixed to taste against any arbitrary background.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Start from an existing Composure-based AR/3D-composite setup with a Composite Mesh Actor (camera-projected character re-filmed in 3D) and a **Shadow Reflection Catcher** layer providing baked shadow/reflection/GI influence.
+2. Understand why this baked single-multiply-layer approach exists: it's the deferred-rendering trick games use for real-time speed (Unlit = instant, Lit = fully baked lighting as one multiply channel) — flip the Shadow Reflection Catcher from Multiply to Over mode to visually inspect what's actually baked into that layer (mostly-white = no change, darker/tinted = subtracted/added light influence).
+3. Increase the **Shadow Reflection Catcher's Render Target Resolution** (e.g. 540p default → 1440p) for higher-fidelity shadow/reflection detail before final render (independent of the Movie Render Graph output resolution).
+4. Render the **Shadow Catcher pass** via Movie Render Graph: configure a named output layer, output directory, and EXR sequence naming, then render.
+5. Identify the occlusion problem when preparing to render the character separately: disabling the character to get a clean edge against occluding objects also removes its shadow-casting contribution to the Shadow Catcher pass.
+6. Add Unreal 5.8's new **Dilation pass** (under the layer's Media Passes) set to operate on **Alpha only**; shrink/erode the mask (e.g. -20) so it sits slightly inside the true character silhouette, preserving enough presence for correct shadow influence while minimizing edge artifacts; disable **Carry RGB with Alpha** to remove a residual white fringe. Apply this to every camera/layer combination that needs it.
+7. Set the **Main/Beauty render** pass's blend operation from Over to **None** so it exports with a usable alpha channel rather than being pre-composited; render via Movie Render Graph as a named "beauty" pass and confirm the checkerboard alpha pattern in the render preview.
+8. In a compositing package (DaVinci Resolve or Fusion), bring in the three rendered EXR sequences: background plate, character/beauty foreground, and shadow-reflection layer.
+9. Change the shadow-reflection layer's composite/merge mode from Normal to **Multiply** against the background to recreate the correct lighting interaction, then place the character foreground on top.
+10. (Fusion-specific) Since the foreground uses the eroded/dilated alpha, use a **Channel Booleum** to repurpose a "magic mask" pass's blue channel as a cleaner alpha, then erode + blur it before the final merge to restore clean occlusion behavior as the character passes in front of/behind other elements.
+11. Apply the same three-layer (plate / subject / shadow-multiply) technique to non-character use cases (e.g. a floating object with a shadow) for title cards, transitions, or call-to-action graphics by simply animating the shadow layer's opacity/mix over an arbitrary background.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+Composure (Compositing Element pipeline), Composite Mesh Actor, Shadow Reflection Catcher layer (Multiply/Over blend modes, Render Target Resolution), Movie Render Graph (named output layers, EXR sequence output, per-layer blend operation override to None for alpha export), Media Passes → Dilation pass (Alpha-only channel targeting, erosion amount), Carry RGB with Alpha toggle, deferred rendering / baked lighting concept (Unlit vs. Lit render modes).
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate (requires prior familiarity with the Composure AR/compositing pipeline from an earlier video in the series; the Dilation-pass edge-fix workflow and cross-application compositing setup are approachable once that foundation is in place).
 
 ### UE Version
-[PENDING EXTRACTION]
+5.8 (per video title; new Dilation pass feature confirmed as introduced in this version).
 
 ### Tags
-[PENDING EXTRACTION]
+composure, shadow-catcher, movie-render-graph, deferred-rendering, dilation-pass, compositing, davinci-resolve, fusion, ar
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+[No related entries yet — first Composure/AR-compositing tutorial ingested into this knowledge base; future Composure episodes (e.g. the referenced "composite depth for measure actors" follow-up) should cross-link here once ingested.]
