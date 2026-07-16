@@ -3060,6 +3060,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Breaks a Composure AR composite into separate Beauty/Shadow-Reflection/background render layers for traditional compositing, using UE 5.8's new Dilation pass (alpha-only erosion) to fix edge-eating artifacts when a masked character's occlusion edge doesn't align with its separately-rendered shadow contribution.
 - **File:** tutorials/render-separate-shadows-from-unreal-engine-58-with-the-shadow-reflection-catcher.md
 
+
+### Unreal Engine 5.8 Beginner Tutorial - UE5 Starter Course 2026#unrealengine5  #megascans #cgi
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=FAo9nfWYPSE
+- **Author:** Magnet VFX
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-58-beginner-tutorial---ue5-starter-course-2026unrealengine5-megasc.md
+
 ---
 
 ## Tag Reference
