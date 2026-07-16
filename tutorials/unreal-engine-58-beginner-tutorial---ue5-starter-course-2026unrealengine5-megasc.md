@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=FAo9nfWYPSE
 author: Magnet VFX
 ingested: 2026-07-16
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.8"
+tags: [beginner, ue5-starter-course, environment-art, megascans, fab-marketplace, blend-material, mesh-paint, foliage-tool, level-instance, sequencer, movie-render-queue, lighting-setup]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-58-beginner-tutorial---ue5-starter-course-2026unrealengine5-megasc/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 11
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Unreal Engine 5.8 Beginner Tutorial - UE5 Starter Course 2026#unrealengine5  #megascans #cgi
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py unreal-engine-58-beginner-tutorial---ue5-starter-course-2026unrealengine5-megasc <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -1256,30 +1252,60 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [2:10] tutorials/frames/unreal-engine-58-beginner-tutorial---ue5-starter-course-2026unrealengine5-megasc/frame_000.jpg
+- [2:32] tutorials/frames/unreal-engine-58-beginner-tutorial---ue5-starter-course-2026unrealengine5-megasc/frame_001.jpg
+- [3:24] tutorials/frames/unreal-engine-58-beginner-tutorial---ue5-starter-course-2026unrealengine5-megasc/frame_002.jpg
+- [8:53] tutorials/frames/unreal-engine-58-beginner-tutorial---ue5-starter-course-2026unrealengine5-megasc/frame_003.jpg
+- [10:26] tutorials/frames/unreal-engine-58-beginner-tutorial---ue5-starter-course-2026unrealengine5-megasc/frame_004.jpg
+- [20:34] tutorials/frames/unreal-engine-58-beginner-tutorial---ue5-starter-course-2026unrealengine5-megasc/frame_005.jpg
+- [25:38] tutorials/frames/unreal-engine-58-beginner-tutorial---ue5-starter-course-2026unrealengine5-megasc/frame_006.jpg
+- [30:10] tutorials/frames/unreal-engine-58-beginner-tutorial---ue5-starter-course-2026unrealengine5-megasc/frame_007.jpg
+- [41:03] tutorials/frames/unreal-engine-58-beginner-tutorial---ue5-starter-course-2026unrealengine5-megasc/frame_008.jpg
+- [76:15] tutorials/frames/unreal-engine-58-beginner-tutorial---ue5-starter-course-2026unrealengine5-megasc/frame_009.jpg
+- [84:03] tutorials/frames/unreal-engine-58-beginner-tutorial---ue5-starter-course-2026unrealengine5-megasc/frame_010.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+A full beginner onboarding course that walks a total newcomer through Unreal Engine 5.8 end-to-end by building one complete project — a rain-soaked ruined-city environment — rather than teaching isolated concepts. Every UI panel, tool, and workflow (project creation, lighting, landscape, blend materials, mesh paint, foliage, level instancing, Sequencer/camera, character animation, and Movie Render Queue) is introduced in the order a beginner would actually need it, in service of the one scene.
 
 ### Summary
-[PENDING EXTRACTION]
+88-minute single-session tutorial by Magnet VFX (Omith) titled "UE5 Starter Course 2026." There are no official chapter markers — the whole video is one continuous build — but it naturally surveys nearly every system a UE5.8 beginner touches in their first project: launching the Engine, creating a Third Person template project, setting up sky/lighting actors via the Environment Light Mixer, sculpting a road mesh in Modeling Mode, building a multi-layer blend material downloaded from unrealsensei.com, texturing via Fab/Megascans assets, mesh-painting moss/puddle layers with vertex color channels, dressing ruined buildings and vehicles bought from Fab, scattering foliage (ivy, ferns, roots), grouping dressed clusters into Level Instances for reuse, animating a character with retargeted Mocap Online animations in Sequencer, building a basic camera rig with post-process (bloom, chromatic aberration, vignette, film grain), and finally rendering stills/EXR sequences with Movie Render Queue. It is aimed at absolute beginners who want a single project to copy along with rather than a menu-by-menu reference, and it deliberately relies on free/paid Fab marketplace content instead of hand-modeling assets.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Project & level setup** [2:10-2:30] — Launch Unreal Engine from the Epic Games Launcher (5.7/5.8 installed side by side), click New Project > Games > Third Person template, name the project "tutorial," then File > New Level > Empty Level.
+2. **Base lighting rig** [2:32-2:49] — Window > Environment Light Mixer > buttons to Create Skylight, Create Directional Light, Create Sky Atmosphere, Create Volumetric Cloud, Create Height Fog; scroll down and enable Volumetric Fog from the same panel.
+3. **Landscape + scale reference** [2:53-3:19] — Selection Mode toolbar > Landscape tool > Create (default settings); drag in a Mannequin skeletal mesh from Characters/Mannequins/Meshes as a human-scale reference.
+4. **Road base mesh (Modeling Mode)** [3:21-4:11] — Selection Mode > Modeling > Rectangle primitive, set Width/Depth Subdivisions to 200/200, Accept; right-click the new static mesh > Nanite > Enable Nanite; scale up with R.
+5. **Blend material build** [4:14-16:22] — Download the free "unrealsensei" blend master material from unrealsensei.com, copy its Content folder into the project via right-click > Show in Explorer; create a Material Instance; enable the Second/Third Material Layer switches on the master material to add B and C texture slots (Albedo/Height/Normal/ORM per slot), each fed by Fab-downloaded materials (road asphalt, Mossy Concrete Wall, Military Trench Ground Dirt); tune Displacement Amount per layer to fix warping artifacts.
+6. **Mesh Paint (vertex color blending)** [10:26-17:43] — Selection Mode > Mesh Paint > Texture Color; isolate R/G/B channels to paint moss and puddle layers independently, raise Strength to 1.0, decrease Brush Size for detail work, hold Shift to erase a layer; a dedicated "Puddle Layer" toggle plus Liquid Opacity/Water Height controls in the material simulate standing water.
+7. **Buildings & Level Instances** [17:53-29:02] — Add a free/paid "Ruined Modern Buildings" pack and the "Electric Dim Environment" mega-pack from Fab; migrate blueprint assets between projects via right-click > Asset Actions > Migrate; dress each building with ivy (Foliage tool) and root blueprints, edit individual root Blueprints (open Blueprint > Viewport > delete unwanted static mesh components > Compile) to declutter overly complex assets; select a finished cluster of meshes, right-click > Level > Create Level Instance to save it as a reusable prefab under a Levels folder, then duplicate that instance to populate the street.
+8. **Camera & sequence setup** [30:05-32:11] — Place Actors panel > Cinematic > Cine Camera Actor; Sequencer tab > create a Level Sequence ("tutorial_sequence"); drag the camera into the sequence; set Focal Length (15mm) and Film Back preset (16:9 SLR) on the Camera Component; switch Metering Mode to Manual and raise Exposure Compensation (~10) under the camera's Exposure settings; boost Sky Light Intensity Scale for ambient fill.
+9. **Vehicles & props dressing** [38:15-73:22] — Add City Sample Vehicles, Old Abandoned Rustic Cars, Junkyard, and Industry Props packs from Fab; reuse the same blend-material workflow (duplicate material instance, swap textures, enable Two-Sided under Material Property Overrides to fix backface culling) to rust/moss vehicles and props; scatter rails, rubble, concrete barriers, lamp posts (fixing pivot via Modeling > XForm > Edit Pivot > set to bottom), ferns, rocks, and electrical line poles/wires (Foliage tool and manual placement, reusing the earlier mossy blend material each time).
+10. **Character & animation** [73:32-78:05] — Add an "Adventure Characters" pack; drop a character into the scene, add it to Sequencer via Add > Add Actor Track, apply an Idle animation from the Animation track; download the Mocap Online free animation pack, open the IK Retargeter (Retarget Animations dialog, Mannequin source > Adventure Character target), export the retargeted walk animation, swap it into the Sequencer track, then keyframe the character's Transform (first/last frame, Auto Key enabled, Linear interpolation) to walk it across the set.
+11. **Camera post-process & lighting polish** [78:52-83:55] — On the Cine Camera's Camera Component, raise Lens > Squeeze Factor and halve Sensor Width, set Focus Method to a pick-and-click Focus Distance on the character, enable Bloom (Convolution method), Chromatic Aberration (~0.5 with Start Offset 0.5), Lens Flare (~0.1 intensity), Vignette, and Film Grain (~0.5); adjust Directional Light source angle and Volumetric Fog density for mood; keyframe a simple camera move.
+12. **Rendering with Movie Render Queue** [83:55-86:09] — Enable the Movie Render Queue and Movie Render Queue Additional Render Passes plugins (restart required); Window > Cinematics > Movie Render Queue > Add the Level Sequence; under the Unsaved Config, remove the default JPEG output, add Anti-Aliasing (Temporal Sample Count 16) with camera-cut warm-up frames enabled, enable Subsurface Scattering under High-Resolution settings, set output format to EXR, choose a custom frame rate (24fps), then Render (Local).
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+**Environment Light Mixer** (Skylight, Directional Light, Sky Atmosphere, Volumetric Cloud, Height/Volumetric Fog), **Landscape** tool, **Modeling Mode** (Rectangle primitive, Subdivisions, Nanite enable, XForm/Edit Pivot), **Content Browser** (Fab integration, Migrate Asset Actions, folder filters for Static Mesh/Blueprint Class), **Material Editor / blend master material** (multi-layer A/B/C texture slots, Displacement Amount, Puddle Layer, Two-Sided material property override), **Mesh Paint mode** (Texture/Vertex Color channels, brush Strength/Size), **Foliage tool** (density, brush size, slope angle painting), **Level Instances** (grouping actors into reusable sub-levels), **Sequencer** (Level Sequence, Add Actor Track, keyframing, Auto Key, camera cuts), **Cine Camera Actor** (Focal Length, Film Back, Exposure/Metering Mode, Lens post-process: Bloom, Chromatic Aberration, Lens Flare, Vignette, Film Grain, Squeeze Factor), **IK Retargeter / Retarget Animations** dialog, **Movie Render Queue** (Anti-Aliasing, High-Resolution/Subsurface Scattering, EXR output, custom frame rate), **Fab marketplace / Megascans** asset packs.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner. Explicitly framed as a starter/onboarding course ("today we are going to create...") that assumes zero prior UE knowledge — every menu path is spelled out (e.g. "we go to the window, go to the environment light mixer") and no scripting/Blueprint logic is authored, only asset placement, material parameter tweaking, and using built-in tools. The one exception is the light Blueprint editing to delete unwanted static mesh components inside a downloaded asset, which is still simple deletion rather than logic.
 
 ### UE Version
-[PENDING EXTRACTION]
+5.8 — confirmed from the video title and from the Epic Games Launcher frame (frame_000.jpg) showing Engine Versions 5.7.4 and 5.8.0 installed side by side, with the "tutorial" project associated with the 5.8.0 install used throughout.
 
 ### Tags
-[PENDING EXTRACTION]
+#beginner #ue5-starter-course #environment-art #megascans #fab-marketplace #blend-material #mesh-paint #foliage-tool #level-instance #sequencer #movie-render-queue #lighting-setup
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [[creating-a-blend-material-in-unreal-engine-5-just-got-easier]] — Polygonflow Dash's faster/easier take on the same multi-layer blend-material workflow built manually here.
+- [[lighting-in-unreal-engine-5-for-beginners]] — William Faucher's dedicated lighting deep-dive, a natural next step after this course's quick Environment Light Mixer setup.
+- [[unreal-engine-54-cinematic-previs-course]] — goes deeper on Sequencer, camera rigs, and previs than this course's brief camera/animation section.
+- [[how-to-use-the-movie-render-graph-in-unreal-engine-58---simple-setup-for-filmmak]] — same UE5.8 version; covers the newer Movie Render Graph as a follow-on to the Movie Render Queue workflow used here.

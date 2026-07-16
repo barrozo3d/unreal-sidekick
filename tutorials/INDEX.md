@@ -3065,9 +3065,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=FAo9nfWYPSE
 - **Author:** Magnet VFX
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.8 — confirmed from the video title and from the Epic Games Launcher frame (frame_000.jpg) showing Engine Versions 5.7.4 and 5.8.0 installed side by side, with the "tutorial" project associated with the 5.8.0 install used throughout.
+- **Tags:** beginner, ue5-starter-course, environment-art, megascans, fab-marketplace, blend-material, mesh-paint, foliage-tool, level-instance, sequencer, movie-render-queue, lighting-setup
+- **Summary:** 88-minute single-session tutorial by Magnet VFX (Omith) titled "UE5 Starter Course 2026." There are no official chapter markers — the whole video is one continuous build — but it naturally surveys nearly every system a UE5.8 beginner touches in their first project: launching the Engine, creating a Third Person template project, setting up sky/lighting actors via the Environment Light Mixer, scu...
 - **File:** tutorials/unreal-engine-58-beginner-tutorial---ue5-starter-course-2026unrealengine5-megasc.md
 
 ---
