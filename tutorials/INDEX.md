@@ -3085,9 +3085,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=ZmiTuYglaRI
 - **Author:** Unreal - X - Tutorials
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.8
+- **Tags:** metahuman, rigging, animation, materials, pipeline-tools, intermediate, advanced
+- **Summary:** Turn a static mesh (Sketchfab Darth Maul) into a rigged MetaHuman. Pipeline: isolate the head in Modeling mode (Tri Select by material), align/scale against the Creator's exported default MetaHuman, solve via From Custom Mesh (Trace Facial Features → Auto-Solve; fix trace failures by removing the material or changing camera angle) and immediately Save Pose to get the DNA file. Texture transfer: Generate Skeletal Mesh from the DNA, bake original→DNA UVs in Blender (Cycles Selected-to-Active diffuse bake, extrusion 0.2), load via Creator Texture Overrides. Protruding parts the solver ignores (horns): temporarily copy DNA bone-chain transforms onto a backed-up MetaHuman base skeleton (Shift+RClick/LClick transform copy-paste root→head), convert horns to a skeletal mesh bound to root with skin weights flooded 1.0 to the head bone, attach in the Blueprint, then restore the original reference pose from the backup.
 - **File:** tutorials/ue-58---any-mesh-to-metahuman---tutorial.md
 
 

@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=ZmiTuYglaRI
 author: Unreal - X - Tutorials
 ingested: 2026-07-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.8"
+tags: [metahuman, rigging, animation, materials, pipeline-tools, intermediate, advanced]
+extraction_status: complete
 frames_dir: tutorials/frames/ue-58---any-mesh-to-metahuman---tutorial/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # UE 5.8 - Any Mesh To MetaHuman - Tutorial
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py ue-58---any-mesh-to-metahuman---tutorial <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -162,30 +158,60 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [1:41] tutorials/frames/ue-58---any-mesh-to-metahuman---tutorial/frame_000.jpg
+- [2:12] tutorials/frames/ue-58---any-mesh-to-metahuman---tutorial/frame_001.jpg
+- [3:13] tutorials/frames/ue-58---any-mesh-to-metahuman---tutorial/frame_002.jpg
+- [3:40] tutorials/frames/ue-58---any-mesh-to-metahuman---tutorial/frame_003.jpg
+- [6:56] tutorials/frames/ue-58---any-mesh-to-metahuman---tutorial/frame_004.jpg
+- [8:02] tutorials/frames/ue-58---any-mesh-to-metahuman---tutorial/frame_005.jpg
+- [11:20] tutorials/frames/ue-58---any-mesh-to-metahuman---tutorial/frame_006.jpg
+- [12:26] tutorials/frames/ue-58---any-mesh-to-metahuman---tutorial/frame_007.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Converting a static mesh (Sketchfab Darth Maul) into a fully rigged, animatable MetaHuman: MetaHuman Creator's From Custom Mesh solve + Blender bake-based texture transfer + reattaching un-solvable protruding parts (horns) via DNA-pose skeleton matching and single-bone skin weights.
 
 ### Summary
-[PENDING EXTRACTION]
+The solver ignores anything extending far beyond a human head (horns, big ears), so the pipeline is: solve the head, save the DNA pose, transfer the original texture by baking in Blender (DNA skeletal mesh vs original mesh, Selected-to-Active diffuse bake), then align the horns by temporarily copying the DNA skeleton's bone-chain transforms onto the MetaHuman base skeleton (after backing it up), convert the horns to a skeletal mesh skinned 100% to the head bone, attach in the Blueprint, and restore the original reference pose.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Import GLB with **Combine All** (static meshes). Isolate the head: Modeling mode → Select Mesh → Tri Select → **By Material All** → click head+eyes → Invert → Delete → Accept.
+2. Scale reference: MetaHuman Creator always wraps against its default MetaHuman → Export → Geometry Export → **Full Scale Until Mesh**; zero both meshes in the level, align the head mesh to the MetaHuman head; Modeling → XForm → Edit Pivot → zero XYZ.
+3. Creator: Import → **From Custom Mesh** → Head and Body → drop the mesh in the slot → frame it frontal/centered → Manual Solve Actions → **Trace Facial Features**. Error "Failed to trace facial features"? → remove the material from the static mesh and/or adjust camera angle, retry. Then **Auto-Solve**.
+4. **Save Pose immediately** — creates the DNA file needed for texture transfer and horn alignment. Tweak body/teeth/eyes params afterwards.
+5. Texture transfer exports: original head mesh (Asset Actions → Export, LODs+collision off); right-click DNA file → **Generate Skeletal Mesh** → export it too; export the original face texture.
+6. Blender bake: import DNA skeletal mesh, separate the head part via UV sync selection (select head UVs → P → Separate by Selection); import original mesh (lines up exactly). Original mesh gets a material with the face texture; DNA mesh gets a new blank 4096² image. Cycles → Bake: **Diffuse**, direct+indirect OFF, **Selected to Active**, extrusion 0.2 (try 0.1–0.5). Select original then Ctrl-select DNA mesh → Bake → save image.
+7. In the Creator plugin: Materials → Texture and Material Overrides → enable Texture Overrides → add Face element → Base Color → assign imported texture. Body skin from asset's texture; create full rig (UE-optimized High), download + assemble.
+8. Horns: duplicate head mesh → Modeling → Tri Select → Select by Material Connected → delete everything but horns → reassign original material. Horns fit the **DNA pose**, not the MetaHuman pose.
+9. Skeleton pose swap (with safety backup): duplicate `metahuman_base_skeleton` (Common/Female/Medium/NormalWeight/Body) → "backup"; duplicate the character's body skeletal mesh → "backup2" → Assign Skeleton → backup. Open original body mesh + DNA skeletal mesh side-by-side → **Edit Skeleton** on both → copy bone transforms root→pelvis→…→head (hover transform: **Shift+RightClick copies, Shift+LeftClick pastes**) → Apply to Asset.
+10. Horns → right-click → **Convert to Skeletal Mesh** → Use Existing Skeletal Mesh (the body mesh), binding bone: root. Open it → head bone → **Edit Skin Weights** → select all faces → Flood → weight = 1 (head bone 1, all others 0) → Apply to Asset.
+11. Drag skeletal horn mesh into the MetaHuman Blueprint as a child of the Body component — follows head animation.
+12. Restore: copy the bone chain back from backup2 to the original skeleton the same way.
+13. (Part 2 teased: full-body meshes, extra tracking points, MetaHuman head on a different skeletal body.)
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- MetaHuman Creator plugin — From Custom Mesh, Manual Solve Actions (Trace Facial Features / Auto-Solve), Save Pose (DNA), Texture Overrides, full-rig assembly (UE-optimized High)
+- DNA file → Generate Skeletal Mesh
+- Modeling mode: Tri Select, By Material All / Select by Material Connected, XForm Edit Pivot
+- Skeletal editing: Edit Skeleton, Shift+RClick/LClick transform copy-paste, Assign Skeleton, Convert to Skeletal Mesh (bind bone root), Edit Skin Weights → Flood 1.0
+- Blender: UV sync separate, Cycles Selected-to-Active diffuse bake, extrusion 0.2 (0.1–0.5)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate–Advanced
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.8
 
 ### Tags
-[PENDING EXTRACTION]
+#metahuman #rigging #animation #materials #pipeline-tools #intermediate #advanced
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [New Unreal Engine 5.8 Metahuman Crowd Plugin](new-unreal-engine-58-metahuman-crowd-plugin.md) — shares #metahuman
+- [William Wallace - MoveAI and Metahuman short film in Unreal Engine 5](william-wallace---moveai-and-metahuman-short-film-in-unreal-engine-5.md) — MetaHuman production usage
