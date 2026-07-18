@@ -108,6 +108,10 @@ def get_transcript_text(content):
         stripped = line.strip()
         if stripped.startswith("**Transcript:**"):
             transcript_lines.append(stripped[len("**Transcript:**"):].strip())
+        elif re.match(r"\[\d+:\d{2}\] ", stripped):
+            # timestamped per-sentence format ("[m:ss] text") written by ingest.py
+            # since the chapter-timestamp update — count the text after the stamp
+            transcript_lines.append(stripped.split("] ", 1)[1])
         elif stripped.startswith("**Frame:**") or stripped.startswith("**Source:**"):
             continue
         elif stripped.startswith("**") and stripped.endswith("**"):
