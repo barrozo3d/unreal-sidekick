@@ -3070,6 +3070,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** 88-minute single-session tutorial by Magnet VFX (Omith) titled "UE5 Starter Course 2026." There are no official chapter markers — the whole video is one continuous build — but it naturally surveys nearly every system a UE5.8 beginner touches in their first project: launching the Engine, creating a Third Person template project, setting up sky/lighting actors via the Environment Light Mixer, scu...
 - **File:** tutorials/unreal-engine-58-beginner-tutorial---ue5-starter-course-2026unrealengine5-megasc.md
 
+
+### Introducing Mesh Terrain: Craft Large Complex Worlds | Unreal Fest Chicago 2026
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=QJwTTmNez3k
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/introducing-mesh-terrain-craft-large-complex-worlds-unreal-fest-chicago-2026.md
+
 ---
 
 ## Tag Reference
