@@ -3074,10 +3074,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 ### Introducing Mesh Terrain: Craft Large Complex Worlds | Unreal Fest Chicago 2026
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=QJwTTmNez3k
-- **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Author:** Unreal Engine (official — Michael Balzer & Etienne Carrier, Unreal Fest Chicago 2026)
+- **UE Version:** UE 5.8 (experimental; production-ready targeted late 2027)
+- **Tags:** landscape, nanite, pcg, worldbuilding, open-world, performance, advanced
+- **Summary:** Official architecture talk on Mesh Terrain: a true triangle-mesh terrain replacing heightmap limits (no overhangs/tunnels, uniform grids, 8K landscape ceiling, proxy file contention), built on the generic Mesh Partition stack — arbitrary streamed "sections" with partial load/edit and seam-free holistic processing. Non-destructive modifier components (Mesh/Texture with auto-tessellation/Spline/Brush with sublayers/Noise/Boolean union-subtract-trim/Remesh) ordered by priority layers + sub-priorities in a Mesh Partition Definition, inspected in the Mesh Terrain Outliner; per-vertex weight channels bake to per-section textures and drive materials, PCG scattering (PCG Mesh Partition Interop: Query + Mesh Projection Instance Spawner), and tool masks. Runtime compiles source → Transformer Pipelines → Build Variants → Platform Settings into purely generic systems (Nanite high-end, static-mesh LODs low-end, simplified Chaos tri-mesh collision ~90% smaller, RVT pending post-5.8). Fortnite-data testing: performance on par with or better than landscape, lower memory. Builds are manual/commandlet with checked-in artifacts; Shift+6 mode.
 - **File:** tutorials/introducing-mesh-terrain-craft-large-complex-worlds-unreal-fest-chicago-2026.md
 
 

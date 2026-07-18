@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=QJwTTmNez3k
 author: Unreal Engine
 ingested: 2026-07-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.8 (experimental; production-ready targeted late 2027)"
+tags: [landscape, nanite, pcg, worldbuilding, open-world, performance, advanced]
+extraction_status: complete
 frames_dir: tutorials/frames/introducing-mesh-terrain-craft-large-complex-worlds-unreal-fest-chicago-2026/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Introducing Mesh Terrain: Craft Large Complex Worlds | Unreal Fest Chicago 2026
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py introducing-mesh-terrain-craft-large-complex-worlds-unreal-fest-chicago-2026 <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -730,30 +726,59 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [1:33] tutorials/frames/introducing-mesh-terrain-craft-large-complex-worlds-unreal-fest-chicago-2026/frame_000.jpg
+- [9:42] tutorials/frames/introducing-mesh-terrain-craft-large-complex-worlds-unreal-fest-chicago-2026/frame_001.jpg
+- [19:20] tutorials/frames/introducing-mesh-terrain-craft-large-complex-worlds-unreal-fest-chicago-2026/frame_002.jpg
+- [22:12] tutorials/frames/introducing-mesh-terrain-craft-large-complex-worlds-unreal-fest-chicago-2026/frame_003.jpg
+- [24:23] tutorials/frames/introducing-mesh-terrain-craft-large-complex-worlds-unreal-fest-chicago-2026/frame_004.jpg
+- [27:04] tutorials/frames/introducing-mesh-terrain-craft-large-complex-worlds-unreal-fest-chicago-2026/frame_005.jpg
+- [30:44] tutorials/frames/introducing-mesh-terrain-craft-large-complex-worlds-unreal-fest-chicago-2026/frame_006.jpg
+- [36:42] tutorials/frames/introducing-mesh-terrain-craft-large-complex-worlds-unreal-fest-chicago-2026/frame_007.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Official Epic deep-dive into **Mesh Terrain** (experimental in UE 5.8): a true triangle-mesh terrain system built on the generic **Mesh Partition** stack — non-destructive modifiers over streamed base sections, compiled per-platform via transformer pipelines into standard runtime systems (Nanite, RVT, Chaos, Lumen).
 
 ### Summary
-[PENDING EXTRACTION]
+Michael Balzer (engineering director) and Etienne Carrier (senior TA) present the motivation (heightmap limits: normal-only displacement, no overhangs/tunnels, uniform grid resolution, jagged diagonals, ~8K landscape limit, proxy file contention), why not voxels ("3D heightmap" with the same grid limits; would still need triangle conversion), and the architecture: **Mesh Partition** = authoring/managing meshes across streaming cell boundaries (arbitrary "sections", partial load/edit, holistic processing without seams; also works for e.g. a city-sized spaceship). **Mesh Terrain** = the terrain toolset on top (Shift+6 mode). Modifiers (all non-destructive components attachable to any actor): Mesh (project verts onto static/dynamic mesh), Texture (displacement + auto-tessellation), Spline (open/closed, any direction), Brush (sublayers; paints weight channels too), Boolean (union/subtract/trim, true geometry fusion), Remesh (target edge length, smoothing, weight-channel masked), Noise. Ordering via priority layers + sub-priorities in the **Mesh Partition Definition** data asset (Photoshop-layer mental model), inspected in the **Mesh Terrain Outliner** (execution times, build-up-to-here dot). Weight channels (gravel/mud/sand…) live per-vertex during editing, bake to one texture per section, and drive materials, PCG scattering, and tool masks. Runtime: source → intermediate (background async preview builds) → runtime data via **Transformer Pipelines → Build Variants → Platform Settings** (e.g. Nanite for high-end, static-mesh LODs for mobile/Switch, shared collision pipeline). Collision via simplified Chaos tri-mesh (~90% reduction, near-landscape sizes). Perf testing on live Fortnite data: on par with or better than landscape, less memory. Builds are manual/commandlet (artifacts checked into source control, DDC-supported), auto-triggered on PIE. RVT projection for mesh terrain (3D UV unwrap) missed 5.8, landing soon. Development in the open on GitHub.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Enable Mesh Terrain mode (**Shift+6**). Regular modeling tools work on the base mesh but bypass the non-destructive modifier stack.
+2. Create the actor: from a flat rectangle, an imported heightmap, or **convert a static mesh to Mesh Partition** (demo: 1 km mesh split 4×4 → ~250 m sections); assign a **Mesh Partition Definition** (priority layers, material sections, weight channels + channel texture size).
+3. Paint base materials with Brush modifiers writing weight channels (rock all-over; grass on top).
+4. Shape with **Boolean union** modifiers; use the source static mesh's **vertex colors** to auto-apply weight channels (red→rock, green→grass); duplicate modifier + swap mesh to iterate. Booleans fuse into one continuous surface.
+5. Mountain: **Texture modifier** (heightmap) masked by the grass weight channel so only grass deforms; put a **Remesh modifier** on the same layer at sub-priority 0 and the texture at sub-priority 1 (remesh first); second texture modifier remapped by a curve asset *erases* the grass channel on the peak to reveal rock.
+6. Tunnel: **Boolean subtract** writing the rock channel onto interior faces → Remesh with smoothing to round edges → Noise modifier to naturalize.
+7. Flatten terrain under POIs: modifiers are components — add a **Spline modifier** to the POI actor (falloff distance set), then move the whole actor and the terrain follows.
+8. PCG: enable the **PCG Mesh Partition Interop** plugin; paint an attribute channel; `Mesh Partition Query` node reads geometry+attributes; **Mesh Projection Instance Spawner** scatters projection modifiers (any projection angle, e.g. 30–45°) — rock formations with collision; reuse material weight channels (grass) to spawn grass.
+9. Runtime setup: define **Transformers** (Nanite geometry, RVT, collision, far-field) → group into **Transformer Pipelines** (high-end / low-end / common) → assign to **Build Variants** → combine per **Platform Settings**. Editor preview is its own build variant.
+10. Build manually in-editor or via commandlet; check artifacts into source control; DDC accelerates; PIE triggers a minimal incremental build. Inspect compiled sections via outliner filters ("Show Built Mesh Partition Sections"), selectively load via right-click.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Mesh Partition: sections (arbitrary triangle subdivisions), partial load/edit, dependency-graph build with caching/parallelization
+- Modifiers: Mesh / Texture (auto-tessellation) / Spline / Brush (sublayers) / Noise / Boolean (union-subtract-trim) / Remesh (edge length, smoothing, masked) — all components, all non-destructive
+- Mesh Partition Definition data asset: priority layers + sub-priorities, material sections, weight channels (per-vertex → baked texture per section)
+- Mesh Terrain Outliner: layer stack, per-modifier execution time, build-up-to-here dot
+- Transformer Pipelines → Build Variants → Platform Settings; Nanite / static-mesh LOD / RVT / Chaos tri-mesh (simplified ~90%) / Lumen — all generic runtime systems, nothing bespoke
+- PCG Mesh Partition Interop plugin: Mesh Partition Query, Mesh Projection Instance Spawner
+- Status: experimental 5.8, no back-compat promises, production target late 2027, source on GitHub
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.8 (experimental)
 
 ### Tags
-[PENDING EXTRACTION]
+#landscape #nanite #pcg #worldbuilding #open-world #performance #advanced
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [Unreal Engine 5.8 Mesh Terrain — Full Deep Dive](unreal-engine-58-mesh-terrain-full-deep-dive.md) — hands-on coaching-call walkthrough of the same system; this talk is the official architecture view
+- Unreal Engine 5.8 Release Notes (Epic Documentation) — see INDEX.md for the 5.8 feature context
