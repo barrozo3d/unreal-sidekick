@@ -3080,6 +3080,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/introducing-mesh-terrain-craft-large-complex-worlds-unreal-fest-chicago-2026.md
 
+
+### UE 5.8 - Any Mesh To MetaHuman - Tutorial
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=ZmiTuYglaRI
+- **Author:** Unreal - X - Tutorials
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/ue-58---any-mesh-to-metahuman---tutorial.md
+
 ---
 
 ## Tag Reference
