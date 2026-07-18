@@ -3090,6 +3090,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/ue-58---any-mesh-to-metahuman---tutorial.md
 
+
+### How to Build Scalable MetaHuman Crowds in Unreal Engine | Unreal Fest Chicago 2026
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=wQoa1j4Rgss
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-to-build-scalable-metahuman-crowds-in-unreal-engine-unreal-fest-chicago-2026.md
+
 ---
 
 ## Tag Reference
