@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=wQoa1j4Rgss
 author: Unreal Engine
 ingested: 2026-07-18
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.8 (MetaHuman Crowds + Collections both experimental)"
+tags: [metahuman, animation, performance, blueprint, cpp, worldbuilding, advanced]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-build-scalable-metahuman-crowds-in-unreal-engine-unreal-fest-chicago-2026/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # How to Build Scalable MetaHuman Crowds in Unreal Engine | Unreal Fest Chicago 2026
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py how-to-build-scalable-metahuman-crowds-in-unreal-engine-unreal-fest-chicago-2026 <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -448,30 +444,61 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [1:49] tutorials/frames/how-to-build-scalable-metahuman-crowds-in-unreal-engine-unreal-fest-chicago-2026/frame_000.jpg
+- [3:54] tutorials/frames/how-to-build-scalable-metahuman-crowds-in-unreal-engine-unreal-fest-chicago-2026/frame_001.jpg
+- [7:51] tutorials/frames/how-to-build-scalable-metahuman-crowds-in-unreal-engine-unreal-fest-chicago-2026/frame_002.jpg
+- [11:14] tutorials/frames/how-to-build-scalable-metahuman-crowds-in-unreal-engine-unreal-fest-chicago-2026/frame_003.jpg
+- [17:21] tutorials/frames/how-to-build-scalable-metahuman-crowds-in-unreal-engine-unreal-fest-chicago-2026/frame_004.jpg
+- [26:46] tutorials/frames/how-to-build-scalable-metahuman-crowds-in-unreal-engine-unreal-fest-chicago-2026/frame_005.jpg
+- [32:18] tutorials/frames/how-to-build-scalable-metahuman-crowds-in-unreal-engine-unreal-fest-chicago-2026/frame_006.jpg
+- [41:07] tutorials/frames/how-to-build-scalable-metahuman-crowds-in-unreal-engine-unreal-fest-chicago-2026/frame_007.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Building 1,000-MetaHuman crowds at 60 fps using **Mass** (entities + StateTree behavior), a two-tier visualization (nearby high-quality actors swapping pose-matched with **Instanced Skinned Meshes/ISKM**), and the new **MetaHuman Collection / Instance / Pipeline** asset system.
 
 ### Summary
-[PENDING EXTRACTION]
+Henry Falconer (principal engine programmer, MetaHuman team; crowds + collections lead) presents the Fab **MetaHuman Crowd Sample** (1,000 diverse MetaHumans: 16 heads, 8 bodies, per-character clothing colors). Performance (approx.): current-gen consoles 60 fps / 1000 MH / 9 ms game / 7 ms render / 16 ms GPU / 70% res / +2.3 GB; recent mobile 30 fps / 500 MH / 720p / +0.4 GB; last-gen consoles and current handheld 60 fps / 200 MH; last-gen handheld 30 fps. ISKMs are fully GPU-skinned meshes (not vertex-animation textures), Nanite-compatible (10,000 instances at 80-90 fps demoed; Nanite stabilizes frame rate). Animation via **Anim Sequence Transform Provider** (richer than AnimBank: layered blending, translation retargeting, per-instance offsets — 100 unique walk offsets). Grooms have no instanced component: card/helmet grooms are converted to skeletal meshes skinned to each face; short styles use baked (texture) grooms; no groom physics. Characters split into instanceable meshes (top/bottom garment, shoes; body geometry merged into clothing since clothing is per-body unique); crowd actors keep Rig Logic (LOD2 top), instance meshes use LOD4 with rig-logic-baked joint facial animation, translucent parts (eye moisture/saliva) removed, 8 to 4 bone influences, teeth optionally disabled.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Get the sample**: Fab "MetaHuman Crowd Sample" — migrate its **Starter Kit** folder (pre-made Mass config with ~15 traits, anim config, EQS asset).
+2. **Create a MetaHuman Collection** (right-click in content browser) — set Pipeline = MetaHuman Crowd Pipeline — assign the Starter Kit anim config.
+3. Add clothing/hair: same asset types as MetaHuman Creator (Chaos outfits incl. resizable, skeletal-mesh clothing, groom bindings). Existing wardrobe items carry over hidden-surface maps + material params (hidden-surface maps determine which body parts merge into clothing — keep them accurate). External wardrobe items (dragged asset, read-only props, shared across collections) vs internal (dragged raw asset, editable in-collection). Item pipelines with "Crowd" in the name format sources for the collection pipeline — the slot data format is an API boundary, so custom pipelines interoperate both ways.
+4. Heads/bodies: MetaHuman Character assets. Duplicate a character and edit only the head to share one body across heads (fewer clothing meshes). **Assemble in MetaHuman Creator with the joints-only rig** (full rig's blend shapes only serve LOD0, unused by crowds) and **strip all hair/clothing first** (they contaminate skin textures / body geometry). For bodies, export a **Full Body Skeletal Mesh** (Creator: Export - Geometry Export) — required for clothing resize.
+5. Drag heads into the Head zone, bodies into Body; set their internal wardrobe items to the character item pipeline and point face/body mesh at the assembled assets.
+6. **Build the collection** (Apply): generates fitted clothing per body, groom skeletal meshes skinned to faces; DDC-cached (first build minutes, rebuilds much faster). Source-asset changes need a manual Rebuild. Preview by double-click-equipping items.
+7. **Create MetaHuman Instances** (right-click collection): pick built items + set color/material parameters — "material instances" of the collection's possibility space; can also be generated at runtime.
+8. **Mass setup**: multi-select instances and drag onto the Mass config's Character Instances array; place a Mass Spawner actor + NavMesh Bounds Volume; set spawn count, Mass config, EQS asset, Auto Spawn On Begin Play.
+9. **Advanced**: multiple Mass configs render as one crowd if their LOD params struct matches; procedural appearances via the config's Appearance Provider class (BP/C++ per-spawn instance generation); collections are one big asset (sample: 1.2 GB, no granular loading yet) — split disjoint character types into separate collections (instances stay interchangeable if pipelines match); unpack generated assets for debugging/profiling (rebuild discards); per-instance colors via **Per Instance Custom Data** (ISKM) + material parameter (actor) with a switch, mapped in the wardrobe item — one instance parameter drives both, plus an instancing-efficiency debug display; custom anim selection = add anims to the anim config + replace the ~70-line Mass anim-selection processor (project C++, no engine changes); actor AnimBP has full control but must sync pose/position bidirectionally on actor-instance swaps; real interactivity should use StateTree/Mass (the demo's ABP hack does not persist across instancing).
+10. **Known issues (5.8)**: motion-vector pop on instance-to-actor swap (sample ships with motion blur off); the new Mass processing queue caused problems — disabled.
+11. **Collections beyond crowds**: custom pipelines (own slots: hats, eyepatches...; own optimizations, non-destructively reapplied on rebuild); items can be any asset type (voices, walk styles, tattoos); instances work without Mass — an actor BP calls Get Assembly Output for a pipeline-defined struct (face/body meshes, materials); drag an instance into the level, animate in Sequencer, live-edit colors/items. vs **Mutable**: Mutable is mature/battle-tested (Fortnite) with granular loading; collections allow more powerful C++ pipeline transformations but are experimental.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Mass + StateTree (wander), Mass Spawner (spawn count, config, EQS, auto-spawn), NavMesh Bounds
+- Instanced Skinned Mesh (ISKM) — GPU skinning, Nanite-capable; Anim Sequence Transform Provider (layered blending, retargeting, per-instance offsets)
+- MetaHuman Collection / Crowd Pipeline / Wardrobe Items (item pipelines, hidden-surface maps) / MetaHuman Instance (runtime-generatable)
+- MetaHuman Creator: joints-only rig, Full Body Skeletal Mesh export
+- Per Instance Custom Data material node + actor parameter switch
+- Optimizations: LOD2 actors / LOD4 instances, rig-logic-to-joint baking, 4 bone influences, translucent-section removal
+- Perf table (approx): consoles 60fps@1000MH (9/7/16 ms, 70%, +2.3 GB), mobile 30fps@500MH (720p, +0.4 GB), last-gen/handheld 60fps@200MH, Switch1 30fps
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.8 (MetaHuman Crowds + Collections experimental)
 
 ### Tags
-[PENDING EXTRACTION]
+#metahuman #animation #performance #blueprint #cpp #worldbuilding #advanced
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [New Unreal Engine 5.8 Metahuman Crowd Plugin](new-unreal-engine-58-metahuman-crowd-plugin.md) — short overview of the same plugin; this talk is the full engineering deep dive
+- [UE 5.8 - Any Mesh To MetaHuman - Tutorial](ue-58---any-mesh-to-metahuman---tutorial.md) — shares #metahuman; custom characters that could feed a collection
+- Unreal Engine 5.8 Release Notes (tutorials/unreal-engine-58-release-notes.md) — 5.8 context (MetaHuman Crowd listed as experimental)

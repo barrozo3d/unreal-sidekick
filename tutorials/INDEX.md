@@ -3094,10 +3094,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 ### How to Build Scalable MetaHuman Crowds in Unreal Engine | Unreal Fest Chicago 2026
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=wQoa1j4Rgss
-- **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Author:** Unreal Engine (official — Henry Falconer, Unreal Fest Chicago 2026)
+- **UE Version:** UE 5.8 (MetaHuman Crowds + Collections experimental)
+- **Tags:** metahuman, animation, performance, blueprint, cpp, worldbuilding, advanced
+- **Summary:** Engineering deep dive on the Fab MetaHuman Crowd Sample: 1,000 MetaHumans at 60 fps on consoles (9 ms game / 7 ms render / 16 ms GPU, +2.3 GB; 500 at 30 fps on mobile) via Mass + StateTree entities with two-tier visualization — nearby actors (LOD2, Rig Logic) swapping pose-matched with GPU-skinned Instanced Skinned Meshes (LOD4, rig-logic baked to joints, 4 bone influences, Nanite-capable, Anim Sequence Transform Provider with per-instance offsets). Grooms become skeletal meshes skinned per face (no physics). Workflow: Fab Starter Kit, MetaHuman Collection + Crowd Pipeline, wardrobe items (hidden-surface maps drive body-into-clothing merging), joints-only-rig assembled heads/bodies + Full Body Skeletal Mesh export, build (DDC-cached), Instances (the "material instances" of characters), Mass config + spawner + navmesh. Advanced: procedural Appearance Provider, Per Instance Custom Data colors, custom ~70-line anim-selection processor, multi-collection splitting (1.2 GB single-asset caveat), collections beyond crowds (custom pipelines, any asset type, Sequencer-animatable instances without Mass), Mutable comparison, and 5.8 known issues (motion-vector pop on swap, Mass processing queue disabled).
 - **File:** tutorials/how-to-build-scalable-metahuman-crowds-in-unreal-engine-unreal-fest-chicago-2026.md
 
 ---
