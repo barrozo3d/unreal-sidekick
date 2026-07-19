@@ -45,9 +45,11 @@ import sys, os, re, json, subprocess, tempfile, shutil, argparse, time
 from datetime import datetime
 from pathlib import Path
 
-# Ensure stdout handles Unicode on Windows
+# Ensure stdout handles Unicode on Windows (cp1252 default breaks non-ASCII titles)
+# and flushes per line — block-buffered prints otherwise arrive after subprocess
+# (git/yt-dlp) output when both are captured, scrambling the step order in logs.
 if hasattr(sys.stdout, 'reconfigure'):
-    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace', line_buffering=True)
 
 # ── Configuration ─────────────────────────────────────────────────────────────
 
@@ -126,9 +128,24 @@ def get_info(url):
 
 WHISPER_VOCAB_HINT = ("Unreal Engine, UE5, Nanite, Lumen, Niagara, MetaHuman, Sequencer, Movie Render Queue, Movie Render Graph, Blueprint, Control Rig, Chaos, Substrate, MegaLights, Landscape, World Partition, PCG, RVT, LOD, Fab")
 
+def _load_whisper_model(model_name):
+    """First use of a model downloads its weights, and tqdm floods captured
+    output with hundreds of progress-bar lines on stderr. Print one notice
+    instead; replay the captured stderr only if loading actually fails."""
+    import io, contextlib, whisper
+    cache_dir = Path(os.getenv("XDG_CACHE_HOME", str(Path.home() / ".cache"))) / "whisper"
+    if not (cache_dir / f"{model_name}.pt").exists():
+        print(f"      Whisper model '{model_name}' not cached yet - downloading weights (one-time)...")
+    captured = io.StringIO()
+    try:
+        with contextlib.redirect_stderr(captured):
+            return whisper.load_model(model_name)
+    except Exception:
+        sys.stderr.write(captured.getvalue())
+        raise
+
 def whisper_transcribe(audio_path, model_name):
-    import whisper
-    model = whisper.load_model(model_name)
+    model = _load_whisper_model(model_name)
     # initial_prompt biases decoding toward this skill's vocabulary — without it
     # Whisper mis-hears domain terms (e.g. "COPs" -> "cups", "Houdini" -> "Odini").
     return model.transcribe(str(audio_path), initial_prompt=WHISPER_VOCAB_HINT)
