@@ -3115,9 +3115,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=1DK46of-Syg
 - **Author:** SARKAMARI
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** Not specified (UE5.3-5.5 era Chaos Destruction UI)
+- **Tags:** `#chaos` `#destruction` `#vfx` `#fracture` `#cinematics` `#intermediate`
+- **Summary:** Full Chaos Destruction fracture-workflow walkthrough (Part 1 of 3) — plugin setup, Fracture Mode, Geometry Collection creation rules (watertight, no intersection), and all 7 fracture types (Uniform, Cluster, Radial, Planar, Slice, Brick, Mesh, Custom) with their key parameters, closing with the Damage Ratio rollout that actually controls breakage thresholds per fracture level.
 - **File:** tutorials/ue5-series-chaos-destruction-complete-guide-part-1.md
 
 

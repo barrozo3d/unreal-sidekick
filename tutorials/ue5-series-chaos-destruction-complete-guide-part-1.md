@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=1DK46of-Syg
 author: SARKAMARI
 ingested: 2026-07-20
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "Not specified (Chaos Destruction UI matches UE5.3-5.5 era; Brick fracture flagged experimental in-editor)"
+tags: [chaos, destruction, vfx, fracture, cinematics, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/ue5-series-chaos-destruction-complete-guide-part-1/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # #UE5 Series: Chaos Destruction | Complete Guide Part 1
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py ue5-series-chaos-destruction-complete-guide-part-1 <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -423,30 +419,66 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [2:00] tutorials/frames/ue5-series-chaos-destruction-complete-guide-part-1/frame_000.jpg
+- [3:06] tutorials/frames/ue5-series-chaos-destruction-complete-guide-part-1/frame_001.jpg
+- [5:00] tutorials/frames/ue5-series-chaos-destruction-complete-guide-part-1/frame_002.jpg
+- [9:49] tutorials/frames/ue5-series-chaos-destruction-complete-guide-part-1/frame_003.jpg
+- [17:14] tutorials/frames/ue5-series-chaos-destruction-complete-guide-part-1/frame_004.jpg
+- [19:33] tutorials/frames/ue5-series-chaos-destruction-complete-guide-part-1/frame_005.jpg
+- [27:13] tutorials/frames/ue5-series-chaos-destruction-complete-guide-part-1/frame_006.jpg
+- [40:53] tutorials/frames/ue5-series-chaos-destruction-complete-guide-part-1/frame_007.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+End-to-end foundations of **Chaos Destruction**: enabling the plugins, switching to **Fracture Mode**, building a **Geometry Collection**, applying each of the 7 fracture types (Uniform, Cluster, Radial, Planar, Slice, Brick, Mesh, Custom), and controlling breakage via the **Damage Ratio** (per-level threshold).
 
 ### Summary
-[PENDING EXTRACTION]
+Reza (SARKAMARI) opens Part 1 of a 3-part Chaos Destruction series with a deliberately simple scene (a statue + a rock/crate) so the focus stays on principles rather than a flashy demo. He covers plugin setup (Chaos Niagara, Chaos Solver, Chaos Caching, optionally Chaos Caching USD for cloth/Marvelous Designer work), the Fracture Mode workflow (`Shift+6`), creating a Geometry Collection from one or more static meshes (or nested Geometry Collections), the two conditions an asset needs to be a good GC candidate (watertight geometry; no intersection between adjacent GCs — leave a small gap), and a first uniform Voronoi fracture + simulate pass. The video then surveys all 7 fracture types in detail (their unique parameters, typical use, and pitfalls), and closes with the critical-but-easy-to-miss **Damage Ratio** rollout that actually controls whether/how a fractured object breaks apart on collision.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Enable plugins**: Edit -> Plugins -> search "chaos" -> enable **Chaos Niagara**, **Chaos Solver**, **Chaos Caching** (add **Chaos Caching USD** if importing cloth/Marvelous Designer via USD) -> Restart editor.
+2. **Switch to Fracture Mode**: `Shift+6` (from Selection Mode) opens the Fracture Mode toolset with three panels that must stay open together: **View Settings**, **Level Statistics**, **Fracture Hierarchy**.
+3. **Create a Geometry Collection**: select one or more Static Mesh actors (or existing Geometry Collections to nest) -> Generate rollout -> **New** -> choose a save folder -> **Create Geometry Collection**. Two hard requirements for a good candidate: (a) the mesh must be **watertight** (no open faces/edges, or simulation performance suffers), (b) when combining multiple assets into one GC, leave a small gap between them — intersecting geometry causes objects to push each other apart oddly during simulation.
+4. Fresh GCs start at **Level 0** with 1 bone (the whole mesh, unfractured) — visible in the Level Statistics + Fracture Hierarchy panels.
+5. **Simulate without fracturing** first to confirm collision alone (four-dots icon -> Simulate -> Play) — any fracture-mode asset automatically gets collision.
+6. **First fracture**: select the GC -> **Uniform (Voronoi)** -> keep Min/Max Voronoi Sites low to start (high values + repeated fracture passes on every child piece can explode piece count and crash the editor from memory pressure) -> add a little **Noise** (Amplitude/Frequency) to break up perfectly straight Voronoi lines -> **Fracture**. `Shift+B` toggles bone-color visualization (or check "Show Bone Colors" under the GC) to preview cuts before simulating. **Reset** clears fracture levels to start over; fracturing again on an already-fractured GC adds a *second* level that fractures every child piece individually (multiplies piece count fast).
+7. **Fracture type survey** (each applied via the Generate/Fracture rollout on a selected GC):
+   - **Uniform** — Voronoi-based, evenly spaced pieces (classic window-crack look); add Noise for realism.
+   - **Cluster** — extends Uniform with randomized close-proximity islands ("Clusters" grouping rollout) for more varied results from the same site counts (e.g. 8x8 input still yielded 82 bones in the demo) — watch piece-count growth before adding extra fracture levels.
+   - **Radial** — Voronoi sites radiating from a movable center gizmo (never move the object itself, move the gizmo). Key attributes: **Angular Steps** (site count around the ring), **Angular Step** (rotational offset per ring), **Radius**, **Radial Steps** (ring count), **Radial Step Exponent** (lower = higher inner-ring resolution), **Radial Min Step** / **Radial Noise** (adds irregularity to ring spacing). **Per-point variability** trio — **Radial Variability**, **Angular Variability**, **Axis Variability** — is called out as the most effective way to break up an artificially uniform radial pattern; Angular Variability in particular gives strong chaotic results even at small values (~5-15).
+   - **Planar** — deliberate straight cuts via a rotatable/movable plane gizmo; **Center On Selection** toggle controls whether the gizmo re-centers after each fracture (turn off to keep cutting from a manually offset plane for successive deliberate cuts, building up Level 1/2/3 hierarchies).
+   - **Slice** — Planar's multi-cut big brother: set explicit cut counts per axis (X/Y/Z) for uniform grid-like breakups (demoed: 5 cuts X x 3 cuts Y x 1 cut Z = 48 pieces).
+   - **Brick** — experimental (flagged by Epic docs as subject to significant future changes); needs sufficient mesh depth to work (fails silently on a too-thin plane) — Brick Length/Height/Depth plus bond patterns (e.g. Stack, English) control the brick layout.
+   - **Mesh** — cuts using the silhouette of a separate static mesh as a cutting tool (e.g. a cylinder used as a "hole punch") — set the **Mesh Cutting Actor** to the tool mesh, choose **Single Cut**, then Fracture; produces two bones (the cutout + the remainder) — classic "door with a bullet hole / breach pattern" use case.
+   - **Custom** — most flexible; a **Pattern** dropdown (Uniform / Cluster-like / Grid / mesh-vertex-based) applied to independently selected bones, effectively re-deriving the other fracture types' looks under one tool.
+8. **Damage Ratio (breakage threshold)** — the actual on/off switch for whether a fracture reacts to collision: select the GC -> Details panel -> **Damage** rollout -> per-hierarchy-level **Index** entries (Index 0 = Level 0, Index 1 = Level 1, etc.). High values (millions — default around 5,000,000) = very resistant, low values (tens of thousands or less) = breaks apart on the slightest touch. Each level's index must be tuned independently — a low Index 0 with no Index 1 tuning means Level 1 children won't cascade-break further. Demonstrated on a 45-50 bone pot: Index 0 from 5,000,000 down to 500 made it shatter instantly; adding a second fracture level and lowering both Index 0 and Index 1 (e.g. to 5,000 and lower) produced cascading multi-level collapse.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Plugins: Chaos, Chaos Niagara, Chaos Solver, Chaos Caching, Chaos Caching USD
+- Fracture Mode (`Shift+6`) panels: View Settings, Level Statistics, Fracture Hierarchy
+- Geometry Collection asset (Generate -> New); nestable from multiple static meshes or other GCs
+- Fracture types: Uniform (Voronoi), Cluster, Radial (Angular Steps/Step, Radius, Radial Steps, Radial Step Exponent, Radial Min Step, Radial Noise, Radial/Angular/Axis Variability), Planar (Center On Selection), Slice (per-axis cut counts), Brick (experimental; Length/Height/Depth, bond pattern), Mesh (Mesh Cutting Actor, Single Cut), Custom (Pattern: Uniform/Cluster/Grid/vertex-based)
+- `Shift+B` — toggle bone-color visualization (or "Show Bone Colors" property)
+- Damage rollout: per-level **Index N** damage/breakage threshold (high = resistant, low = fragile); defaults around 5,000,000
+- Two GC-candidate rules: watertight geometry (no open faces/edges); no intersection when combining multiple assets into one GC (leave a small gap)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+Not stated by the narrator; editor UI (Fracture Mode toolset, Damage rollout, Brick-fracture "experimental" warning) matches the UE5.3-5.5 era Chaos Destruction toolset.
 
 ### Tags
-[PENDING EXTRACTION]
+#chaos #destruction #vfx #fracture #cinematics #intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- Physics in Unreal Engine (`tutorials/physics-in-unreal-engine.md`) — Epic documentation reference covering Chaos Destruction (fracture, fields, anchor constraints) at a higher level; this tutorial is the hands-on walkthrough companion (confirmed gap: only 2 tangential mentions existed before this ingest, no dedicated fracture-workflow video).
+- `references/chaos-physics.md` — the skill's synthesized Chaos notes; this entry supplies the concrete step-by-step fracture-type parameters that reference file summarizes.
+- Cheap AI Mocap that Actually Works (`tutorials/cheap-ai-mocap-that-actually-works---quickmagicai-chaos-destruction-and-metahuma.md`) — shares `#chaos` `#destruction`, uses Chaos Destruction tangentially inside a broader mocap pipeline.
