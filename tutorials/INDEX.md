@@ -3130,6 +3130,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-54-take-recoder-driven-cinematics.md
 
+
+### Unreal Engine: Understanding Subscenes in Sequencer
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=5pK6JmarYhM
+- **Author:** 3D Education with JC
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-understanding-subscenes-in-sequencer.md
+
 ---
 
 ## Tag Reference
