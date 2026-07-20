@@ -3135,9 +3135,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=5pK6JmarYhM
 - **Author:** 3D Education with JC
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** Not specified (general Sequencer UI)
+- **Tags:** `#sequencer` `#cinematics` `#level-sequence` `#camera` `#narrative` `#intermediate`
+- **Summary:** Two ways to cover one animation with multiple cameras: multiple spawnable cameras + Camera Cuts track switching within one Level Sequence, versus splitting animation into its own self-contained Level Sequence and pulling it into a master sequence via a Subscenes track (parallel, independently-editable department tracks vs. a linear shots-based master sequence). Covers retiming subscenes, editing nested content in place, and audio track placement.
 - **File:** tutorials/unreal-engine-understanding-subscenes-in-sequencer.md
 
 

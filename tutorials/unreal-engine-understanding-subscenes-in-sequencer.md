@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=5pK6JmarYhM
 author: 3D Education with JC
 ingested: 2026-07-20
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "Not specified (general Sequencer UI, applies broadly across UE5)"
+tags: [sequencer, cinematics, level-sequence, camera, narrative, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-understanding-subscenes-in-sequencer/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Unreal Engine: Understanding Subscenes in Sequencer
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py unreal-engine-understanding-subscenes-in-sequencer <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### <Untitled Chapter 1> [0:00]
@@ -316,30 +312,62 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [3:16] tutorials/frames/unreal-engine-understanding-subscenes-in-sequencer/frame_000.jpg
+- [4:22] tutorials/frames/unreal-engine-understanding-subscenes-in-sequencer/frame_001.jpg
+- [6:25] tutorials/frames/unreal-engine-understanding-subscenes-in-sequencer/frame_002.jpg
+- [8:39] tutorials/frames/unreal-engine-understanding-subscenes-in-sequencer/frame_003.jpg
+- [9:05] tutorials/frames/unreal-engine-understanding-subscenes-in-sequencer/frame_004.jpg
+- [10:27] tutorials/frames/unreal-engine-understanding-subscenes-in-sequencer/frame_005.jpg
+- [12:47] tutorials/frames/unreal-engine-understanding-subscenes-in-sequencer/frame_006.jpg
+- [13:44] tutorials/frames/unreal-engine-understanding-subscenes-in-sequencer/frame_007.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Two ways to cover one piece of animation with multiple cameras in Sequencer: (A) put several spawnable cameras directly in one Level Sequence and switch between them on the **Camera Cuts** track, or (B) split the animation into its own self-contained Level Sequence and pull it into a separate "master" Level Sequence via a **Subscene (Subsequence) track**, where multiple cameras can then be added around it independently.
 
 ### Summary
-[PENDING EXTRACTION]
+A follow-up to the creator's "Unreal Engine Jumpstart" video, building on a simple walking-character shot with a Look-At camera track. The video first shows adding a second **spawnable** camera (exists only inside that one Level Sequence, not added permanently to the level Outliner) and using the **Camera Cuts** track to define which camera actually renders at which point — critically, the *viewport* can be locked to any camera for scrubbing, but only the Camera Cuts track's assignments determine the final render output, and Camera Cuts is also what carries through into parent sequences. It then demonstrates the subscene workflow: strip a Level Sequence down to just character animation (no cameras) — a self-contained "char anim" sequence — then create a separate "scout game level" (master) sequence, add a **Subscenes track**, and pull the char anim sequence in as a subsequence. The master sequence can then host its own independent Camera Cuts track with multiple cameras covering the imported action, can retime the subscene's position/timing, and — the core value proposition — different collaborators (animation, effects, lighting) can each work in their own isolated Level Sequence and have them all composited together in parallel inside a master sequence, as opposed to a "master sequence of shots" which strings shots end-to-end sequentially. Double-clicking a subscene reference opens its underlying Level Sequence directly for editing, and changes propagate back up to the parent automatically. Audio tracks can be added either at the master level or inside the nested subscene.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Start from a simple shot: one spawnable Cine Camera Actor with a **Look At** tracking constraint (Camera Component -> Look At Tracking Settings -> Actor to Track + optional Z offset if the target's pivot is at its feet) and a character with an animation/transform track (assumed setup from the creator's prior "Jumpstart" video).
+2. **Multiple cameras in one shot (Camera Cuts approach)**: from Sequencer's camera toolbar, use the **spawnable camera button** (not "drag from Cinematics," which adds a persistent Outliner actor) to add a second camera scoped only to this Level Sequence. Rename it (F2) for clarity (e.g. "Top Cam").
+3. On the **Camera Cuts** track, click **Add Camera** at the playhead position to insert a new camera binding at that point — this defines a hard cut to that camera at that time. Repeat at each cut point to build up an edit (Camera 1 -> Camera 2 -> Camera 3...).
+4. Remember: whichever camera you're *viewing through* (via the little camera-icon toggle per track) is just a scrub/preview aid — the **Camera Cuts track's bindings are what actually renders**. Always verify Camera Cuts before rendering, not just what the viewport happens to show.
+5. **Subscene approach**: strip a Level Sequence down to only the animation you want to isolate (delete Camera Cuts and any camera actors from it) — this makes it "self-contained" and reusable/uncamerad. Rename the asset for clarity (e.g. `CharAnim`).
+6. Create a new, separate Level Sequence to act as the master/organizing sequence (e.g. `ScoutGameLevel`) — opens empty.
+7. In the master sequence, **Add Track -> Subscenes Track**, then add the `CharAnim` sequence asset into that track as a subsequence — it's inserted at the current playhead position (drag it back to the start if needed). Playing the master sequence now plays the nested animation, even though the master sequence itself holds no animation data directly — only a reference to the other Level Sequence.
+8. Because subscenes are just references, you can **retime** them (slide the block earlier/later, trim in/out) independently of the source sequence's internal timing — e.g. starting playback partway through the character's walk cycle.
+9. In the master sequence, add multiple camera actors around the imported action exactly as in Step 2-4 (their own Camera Cuts track, Add Camera at each cut point) — this is the main reason to split animation into its own subscene: cameras and animation are now decoupled, so multiple people (or multiple camera passes) can work against the same underlying performance independently.
+10. **Editing the nested content**: double-click the subscene block (or the reference in the track) to open the underlying Level Sequence (`CharAnim`) directly — make changes (e.g. reposition the character to fix a ground-clipping issue) and save; the fix is reflected automatically back in the parent/master sequence.
+11. **Subscenes vs. a "master sequence of shots"**: a shots-based master sequence plays Shot 1 -> Shot 2 -> Shot 3 sequentially (linear, end-to-end). A subscenes-based master sequence plays multiple subsequences **in parallel** at the same time (e.g. animation track + effects track + lighting track all running simultaneously, each independently editable) — pick whichever organizational model matches the production (collaborative multi-department work benefits most from subscenes).
+12. **Audio**: can be added as its own track either in the master sequence directly, or inside a nested subscene (e.g. inside `CharAnim`) — it will still play back correctly when the subscene is pulled into the master.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Sequencer: Camera Cuts track (defines actual render-time camera selection, distinct from viewport preview), spawnable vs. persistent (dragged-from-Cinematics) camera actors
+- Cine Camera Actor: Look At Tracking Settings (Actor to Track, offset)
+- **Subscenes track** (Add Track -> Subscenes Track) — references another Level Sequence asset as a nested subsequence; retimeable independently of the source
+- Master/organizing Level Sequence pattern: shots-based (linear, sequential shot playback) vs. subscenes-based (parallel, independently-editable department tracks)
+- Double-click a subsequence reference to open/edit the underlying Level Sequence directly; edits propagate up automatically
+- Audio track can live at master or nested-subscene level
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+Not stated by the narrator; general Sequencer UI shown applies broadly across UE5 versions (follow-up to the creator's separate "Unreal Engine Jumpstart" video, which should be watched first per the creator's own recommendation).
 
 ### Tags
-[PENDING EXTRACTION]
+#sequencer #cinematics #level-sequence #camera #narrative #intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+No existing tutorials in this knowledge base cover Subscenes/nested-sequence organization as a dedicated topic (confirmed gap before this ingest) despite general Sequencer coverage existing via `references/sequencer-cinematics.md`.
+- Unreal Engine 5.4: Take Recorder Driven Cinematics (`unreal-engine-54-take-recoder-driven-cinematics.md`) — shares `#sequencer` `#cinematics` `#camera`; that tutorial's "sub-sequence" mentioned when adding the proxy car Blueprint is exactly the Subscenes mechanism this tutorial explains in depth.
+- `references/sequencer-cinematics.md` — general Sequencer/Level Sequence/MRQ reference; this entry supplies the specific subscene organizational patterns (parallel department tracks vs. linear shot lists) that reference file would otherwise only summarize.
+- `references/narrative-blueprints.md` — Level streaming, Blueprint-triggered cinematics; a narrative project stringing multiple scout-level-style master sequences together would combine both topics.
