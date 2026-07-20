@@ -3125,9 +3125,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=h2aL7jEg_xw
 - **Author:** Reality Forge
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.4
+- **Tags:** `#sequencer` `#cinematics` `#camera` `#mrq` `#movie-render-graph` `#blueprint` `#animation` `#intermediate`
+- **Summary:** Captures live gameplay (an off-road vehicle) with Take Recorder into a Level Sequence, builds a Camera Crane + Cine Camera shot with manual and Auto-Key keyframing, animates a VDB smoke volume, then fixes the "floating car" problem by rebuilding a proxy Blueprint (body/suspension/wheels) and re-targeting the captured motion onto it via Create Linked Animation Sequence. Closes with MRQ + console-variable settings for correct wheel motion blur (`r.MotionBlurQuality=4`, `r.MotionBlurSeparable=1`).
 - **File:** tutorials/unreal-engine-54-take-recoder-driven-cinematics.md
 
 

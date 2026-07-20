@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=h2aL7jEg_xw
 author: Reality Forge
 ingested: 2026-07-20
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.4"
+tags: [sequencer, cinematics, camera, mrq, movie-render-graph, blueprint, animation, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-54-take-recoder-driven-cinematics/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Unreal Engine 5.4: Take Recoder Driven Cinematics
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py unreal-engine-54-take-recoder-driven-cinematics <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Introduction [0:00]
@@ -255,30 +251,63 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [1:47] tutorials/frames/unreal-engine-54-take-recoder-driven-cinematics/frame_000.jpg
+- [2:26] tutorials/frames/unreal-engine-54-take-recoder-driven-cinematics/frame_001.jpg
+- [2:51] tutorials/frames/unreal-engine-54-take-recoder-driven-cinematics/frame_002.jpg
+- [4:04] tutorials/frames/unreal-engine-54-take-recoder-driven-cinematics/frame_003.jpg
+- [6:02] tutorials/frames/unreal-engine-54-take-recoder-driven-cinematics/frame_004.jpg
+- [8:29] tutorials/frames/unreal-engine-54-take-recoder-driven-cinematics/frame_005.jpg
+- [8:46] tutorials/frames/unreal-engine-54-take-recoder-driven-cinematics/frame_006.jpg
+- [11:24] tutorials/frames/unreal-engine-54-take-recoder-driven-cinematics/frame_007.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Use **Take Recorder** to capture live gameplay (an off-road vehicle driving a track) straight into a Level Sequence, then build a hand-keyframed **Camera Crane + Cine Camera** shot around that captured motion using **Auto Key**, swap the captured vehicle for a rigged **proxy Blueprint** (so wheels/suspension animate instead of floating), and finish with Movie Render Queue + console-variable tweaks for correct wheel motion blur.
 
 ### Summary
-[PENDING EXTRACTION]
+Sean (RealityForge) reuses a canyon/volcano environment from an earlier video and has the viewer paste in a pre-made ring path (a text-file "spline of rings") to drive an off-road vehicle through as a repeatable, camera-friendly path. He records that drive with **Take Recorder** (Window -> Cinematics -> Take Recorder -> add the vehicle Pawn as a source -> Record -> drive -> Escape to stop), producing a Level Sequence under `Content/Cinematics/Takes/<date>/Scene1`. He then builds a camera move by parenting a **Cine Camera Actor** to a **Camera Crane**, keyframing the crane's Transform track by eye at several points along the timeline, then refining pitch/yaw/arm-length framing using **Auto Key** so every manual adjustment is captured as a keyframe automatically. A VDB volcano-smoke actor gets its own Frame track animated from 0 to its frame count (249), with eased keyframes switched to **Linear**. Because Take Recorder only captures the *vehicle Pawn's* root transform (not its suspension/wheel animation), the video shows building a separate proxy Blueprint actor (body + suspension + 4 named tires socketed to the suspension mesh) and re-targeting the captured transform + suspension animation onto it via **Create Linked Animation Sequence**, so the render shows working suspension instead of a floating car body. Finishes with Movie Render Queue setup and two settings needed for clean wheel motion blur: Anti-Aliasing override (Spatial Samples 2, Temporal Samples 4) and console variables `r.MotionBlurQuality=4` + `r.MotionBlurSeparable=1`.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Prep a repeatable drive path**: paste a provided text-file spline/ring-path onto the landscape (must be created at the same landscape height as the source project) so a driven vehicle produces a consistent, camera-blockable path through a "tunnel of rings."
+2. Override the map's **Game Mode** (World Settings -> Game Mode Override) to the off-road vehicle Game Mode so PIE spawns the drivable car (WASD); move the **Player Start** to the beginning of the ring tunnel.
+3. **Record with Take Recorder**: Window -> Cinematics -> Take Recorder -> Play In Editor -> in Take Recorder, **Add Source -> From Actor** -> select the off-road car Pawn -> **Record** -> click into the viewport (Shift+F1 recovers the mouse if lost) -> drive through the rings -> **Escape** to stop. Result lands in `Content/Cinematics/Takes/<today's date>/Scene1`, playable/lockable to its camera immediately.
+4. **Build the camera rig**: Place Actors panel -> search "camera" -> drag a **Camera Crane** next to the car -> drag a **Cine Camera Actor** onto the crane in the Outliner (parents it) -> reset the camera's location -> set crane arm/rotation (e.g. arm length 90, camera Z rotation 90 to face the car) -> position the crane in front-orthographic view just above the landscape -> switch viewport to the Cine Camera -> set **Field of View to 18** for a wider frame.
+5. Take-Recorder sequences are **read-only** by default — click the lock icon in Sequencer to unlock before adding tracks. With the crane selected, **Add Track -> Transform** on the crane.
+6. **Manual crane keyframing**: set sequence Start/End time (right-click the playhead at the point the car enters/exits frame -> Set Start/End Time) -> press **F** to frame that range -> move to several points along the range (start, 1/4, middle, 3/4, near-end, end — roughly 6+ keyframes), each time repositioning the crane so the car stays centered, then manually add a Transform keyframe at each.
+7. Add the Cine Camera Actor to Sequencer (**Add -> Actor to Sequencer**) and make sure it replaces the existing binding on the **Camera Cuts** track, stretched across the whole sequence length — this is the track that determines what actually renders.
+8. **Auto Key refinement pass**: add a keyframe track for only the camera's **Rotation** (under Transform) -> enable **Auto Key** (toolbar button) -> every manual pitch/yaw/crane-arm-length change while scrubbing is now recorded as a keyframe automatically — hold **Ctrl** while dragging gizmo values for finer precision. Used to: track the car over a jump (increase arm length, pitch down, aim at car), pull back to a side-profile shot at mid-sequence (reduce arm length, yaw ~90), and finish on a wide shot with the volcano and car both in frame (arm length back to its starting value ~500, pitch to 0) — plus a late "pan up and right of the volcano" flourish keyframed ~4 seconds before the end to leave negative space for a title.
+9. **Animate the VDB smoke volume**: select the VDB actor (in this case 249 frames long) -> compute `end_frame - 249` as its start point in the main sequence -> Add Track for the actor, then add its **Volume Component** track -> add a **Frame** track -> keyframe Frame=0 at the volume's start and Frame=249 at the sequence's end -> select both keyframes -> right-click -> set interpolation to **Linear** (removes Unreal's default eased-in/out keyframe behavior, which would make the smoke loop-sync incorrectly).
+10. **Enable Movie Render Queue** (Edit -> Plugins -> search "movie render queue" -> confirm enabled) -> open MRQ -> **Unsaved Config** -> set an output folder -> **Accept** -> **Render (Local)**.
+11. **Fix the floating-car problem** (Take Recorder only captured the Pawn's root transform, not wheel/suspension animation): create a new Blueprint (parent class **Actor**) named e.g. `BP_OffroadProxy` in the vehicle's content folder -> add the off-road body + suspension mesh + 4 copies of the tire mesh, renamed FR/FL/BR/BL -> socket each tire to the suspension's matching `Viz_Wheel_<FR/FL/BR/BL>` socket -> optionally add a headlight.
+12. **Re-target the captured motion onto the proxy**: drag the proxy Blueprint into the sub-sequence -> Add to Sequencer with a Transform track -> copy the Transform keyframes from the original captured Pawn's track and paste them onto the proxy's Transform track at sequence start (both actors now move identically) -> add a track for the proxy's suspension mesh (`SKM_OffRoad`) -> on the original captured Pawn's **Vehicle Mesh** track, right-click -> **Create Linked Animation Sequence** -> export it -> assign that generated Animation Sequence to the proxy's suspension track (Animation property) -> nudge its start offset to sync timing -> disable/hide the original captured Pawn -> lock viewport to camera and play to confirm the proxy now drives with animated wheels/suspension in place of the original floating body.
+13. **Fix wheel motion blur** in the MRQ render config: add **Anti-Aliasing** setting -> override, Spatial Samples = 2, Temporal Samples = 4 (adjust to taste); add **Console Variables** setting -> `r.MotionBlurQuality = 4` and `r.MotionBlurSeparable = 1` -> Accept -> Render (Local).
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Take Recorder (Window -> Cinematics -> Take Recorder): Add Source -> From Actor, Record/Stop, output to `Content/Cinematics/Takes/<date>/`
+- Camera Crane + Cine Camera Actor (parented in Outliner), Field of View, crane Pitch/Yaw/Arm Length properties
+- Sequencer: read-only lock on Take-Recorder-generated sequences, Transform track, Camera Cuts track (defines the actually-rendered camera), Set Start/End Time, Auto Key toggle, keyframe interpolation (Linear vs default eased)
+- Volume Component **Frame** track for VDB volumetric smoke animation
+- Blueprint proxy actor: Actor parent class, socket-based tire attachment (`Viz_Wheel_FL/FR/BL/BR`), **Create Linked Animation Sequence** (right-click a Sequencer skeletal mesh track) to convert captured motion into a reusable Animation Sequence
+- Movie Render Queue: Unsaved Config, output folder, Render (Local)
+- MRQ render settings for motion-blurred wheels: Anti-Aliasing (Spatial Samples 2 / Temporal Samples 4), Console Variables `r.MotionBlurQuality=4`, `r.MotionBlurSeparable=1`
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.4
 
 ### Tags
-[PENDING EXTRACTION]
+#sequencer #cinematics #camera #mrq #movie-render-graph #blueprint #animation #intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [How to Render Chaos Cloth Simulations with Motion Blur \[The RIGHT Way\]](how-to-render-chaos-cloth-simulations-with-motion-blur-the-right-way.md) — shares `#take-recorder` `#mrq` `#sequencer`; the only prior Take Recorder mention in this library, used there just to cache a cloth sim before MRQ render. This tutorial is the first dedicated Take Recorder-for-cinematics walkthrough (confirmed gap before this ingest).
+- Burn Clip Names onto DaVinci Resolve and Fusion (`tutorials/burn-clip-names-onto-davinci-resolve-and-fusion-video-quick-fusion-tip.md`) — downstream compositing step that would follow an MRQ render like the one this tutorial produces.
+- `references/sequencer-cinematics.md` — general Sequencer/Cine Camera/MRQ reference this tutorial's steps plug directly into.
