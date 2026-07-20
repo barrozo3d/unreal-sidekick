@@ -1,82 +1,36 @@
 ---
-title: Architectural Presentation Masterclass – Unreal Engine 5.7
-source: YouTube
-url: https://www.youtube.com/watch?v=78XwVuvXabw
-author: PolyBoost
+title: "[SUPERSEDED — bad auto-resolution, do not use]"
+source: N/A
+url: N/A
 ingested: 2026-07-20
-ue_version: "[PENDING]"
+ue_version: "N/A"
 tags: []
-extraction_status: pending
-frames_dir: tutorials/frames/architectural-presentation-masterclass-unreal-engine-57/
-frame_count: 0
-frame_status: pending-selection
+extraction_status: superseded
+frame_status: n/a
 ---
 
-# Architectural Presentation Masterclass – Unreal Engine 5.7
+# [SUPERSEDED — do not use]
 
-**Source:** [YouTube](https://www.youtube.com/watch?v=78XwVuvXabw)
-**Author:** PolyBoost
-**Duration:** 3m31s | 1 section(s)
+This file was created by an incorrect `ingest.py` auto-resolution. The
+target source was an Epic Developer Community "Learning" tutorial page:
 
----
+`https://dev.epicgames.com/community/learning/tutorials/x1pX/unreal-engine-5-7-landscape-series-from-sculpting-to-production-ready-environments`
 
-## Raw Data (for Claude Code extraction)
+`ingest.py`'s Epic-community routing treats **every** `dev.epicgames.com/community/`
+URL as a talk with an embedded YouTube video and auto-resolves it via a
+`ytsearch1:` query. For this specific URL that search matched an unrelated
+paid-course trailer ("Architectural Presentation Masterclass – Unreal Engine
+5.7" by PolyBoost, 3m31s) which has nothing to do with the actual Landscape
+Series tutorial (confirmed by content mismatch: this transcript is about a
+Villa archviz scene + Gaia terrain plugin + PCG foliage + first-person mode,
+not classic Landscape Sculpt/Paint/auto-material).
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py architectural-presentation-masterclass-unreal-engine-57 <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+The real target turned out to be a **written** (not video) Epic community
+tutorial. It is captured correctly at:
 
+`tutorials/unreal-engine-5-7-landscape-series-from-sculpting-to-production-ready-environments.md`
 
-### Full Content [0:00]
-**Transcript (timestamped):**
-[0:00] Welcome to the Architectural Presentation Masterclass.
-[0:06] This isn't just another rendering tutorial, and definitely not a repetitive course.
-[0:17] First, we import a clean, unwrapped Villa model that we've prepared for you, ready to drop straight into Unreal Engine.
-[0:25] In the next chapter, we'll build our level environment using two powerful Gaia methods.
-[0:32] One is a full landscape, and the other as fully customizable patches.
-[0:36] By combining these approaches, we'll create a dynamic landscape inside Unreal that we can modify anytime we want.
-[0:54] The next step is to create a full landscape.
-[1:13] Next, we'll dive into creating a fully dynamic landscape material that perfectly matches the masks we generated in Gaia,
-[1:19] and we'll fix common issues like displacement artifacts and texture tiling once and for all.
-[1:35] Next, we jump into a full PCG deep dive, starting from absolute basics with a built-in mini course for beginners.
-[1:42] Then we level up and explore all the powerful new PCG updates in Unreal Engine 5.7 to build a fully dynamic environment.
-[2:13] Next, we boost the realism by crafting a rich foliage setup, painting grasses, plants and shrubs,
-[2:21] and finally enhance the entire environment with additional Megascans meshes to make the scene feel fully alive and natural.
-[2:43] Next, we take architectural presentation to the next level, turning your scene into an interactive game-like experience.
-[2:51] You'll learn how to control the camera with the mouse, switch between multiple cinematic views, and explore the villa just like a real game.
-[3:12] Next, we build a full first-person mode, letting the user walk freely inside the environment and explore every corner of the villa just like in a real game.
-
-
-
----
-
-## Structured Notes
-
-### Core Technique
-[PENDING EXTRACTION]
-
-### Summary
-[PENDING EXTRACTION]
-
-### Key Steps
-[PENDING EXTRACTION]
-
-### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
-
-### Difficulty
-[PENDING EXTRACTION]
-
-### UE Version
-[PENDING EXTRACTION]
-
-### Tags
-[PENDING EXTRACTION]
-
----
-
-## Related Entries
-[PENDING EXTRACTION]
+This file is kept (rather than deleted) only because the ingest tooling in
+this environment does not permit removing/renaming files; it carries no
+INDEX.md entry and should be ignored. A human with delete access can remove
+this file safely at any time.

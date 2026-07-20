@@ -3151,14 +3151,13 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **File:** tutorials/how-to-use-500-motion-matching-animations-for-cinematics-in-unreal-engine-5.md
 
 
-### Architectural Presentation Masterclass – Unreal Engine 5.7
-- **Source:** YouTube
-- **URL:** https://www.youtube.com/watch?v=78XwVuvXabw
-- **Author:** PolyBoost
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
-- **File:** tutorials/architectural-presentation-masterclass-unreal-engine-57.md
+### Unreal Engine 5.7 Landscape Series: From Sculpting to Production-Ready Environments
+- **Source:** Epic Developer Community (written tutorial)
+- **URL:** https://dev.epicgames.com/community/learning/tutorials/x1pX/unreal-engine-5-7-landscape-series-from-sculpting-to-production-ready-environments
+- **UE Version:** UE 5.7
+- **Tags:** `#landscape` `#sculpting` `#materials` `#terrain` `#worldbuilding` `#epic-community` `#beginner` `#intermediate` `#ue5-7`
+- **Summary:** Written Epic community tutorial (Part 1 of a series) on the classic/traditional Landscape system in UE 5.7 — Sculpt mode and heightmap-based terrain creation, as a foundation toward a production-ready auto-material landscape. Page body is behind Cloudflare + Angular client-side rendering and could not be fully scraped; notes below are based on confirmed title/banner/meta-description plus this skill's own Landscape system knowledge — flagged `needs-review` for a human pass with the live page open.
+- **File:** tutorials/unreal-engine-5-7-landscape-series-from-sculpting-to-production-ready-environments.md
 
 ---
 
