@@ -3105,9 +3105,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=etkLE6BEKoM
 - **Author:** Shawnthebro
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.3.2 (any UE5 version; UE4 used Session Frontend)
+- **Tags:** `#profiling` `#insights` `#performance` `#blueprint` `#editor-scripting` `#beginner`
+- **Summary:** Basics of Unreal Insights — start a Trace from the editor Trace menu, play a representative session, stop the trace, open it from the Session Browser, then read the FPS/frame-time graph and drill into per-thread call hierarchies (Timers/Callers) to find the exact function eating frame budget. Live example: traces a fighting game HUD down to a specific `GetP1ComboRatingText` Blueprint node doing an expensive enum-to-string-to-text conversion every frame. 16.6ms/frame = 60fps target.
 - **File:** tutorials/performance-profiling-with-unreal-insights-basics-unreal-engine-4-unreal-engine-.md
 
 

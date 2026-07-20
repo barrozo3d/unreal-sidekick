@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=etkLE6BEKoM
 author: Shawnthebro
 ingested: 2026-07-20
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.3.2 (applies to any UE5 version; UE4 used Session Frontend, predecessor to Unreal Insights)"
+tags: [profiling, insights, performance, blueprint, editor-scripting, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/performance-profiling-with-unreal-insights-basics-unreal-engine-4-unreal-engine-/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 7
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Performance Profiling with Unreal Insights (Basics) | Unreal Engine 4 & Unreal Engine 5 Tutorial
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py performance-profiling-with-unreal-insights-basics-unreal-engine-4-unreal-engine- <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -184,30 +180,61 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [2:06] tutorials/frames/performance-profiling-with-unreal-insights-basics-unreal-engine-4-unreal-engine-/frame_000.jpg
+- [2:29] tutorials/frames/performance-profiling-with-unreal-insights-basics-unreal-engine-4-unreal-engine-/frame_001.jpg
+- [3:03] tutorials/frames/performance-profiling-with-unreal-insights-basics-unreal-engine-4-unreal-engine-/frame_002.jpg
+- [6:04] tutorials/frames/performance-profiling-with-unreal-insights-basics-unreal-engine-4-unreal-engine-/frame_003.jpg
+- [7:42] tutorials/frames/performance-profiling-with-unreal-insights-basics-unreal-engine-4-unreal-engine-/frame_004.jpg
+- [8:27] tutorials/frames/performance-profiling-with-unreal-insights-basics-unreal-engine-4-unreal-engine-/frame_005.jpg
+- [11:43] tutorials/frames/performance-profiling-with-unreal-insights-basics-unreal-engine-4-unreal-engine-/frame_006.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Using the **Trace** menu + **Unreal Insights Session Browser** to record a CPU/GPU trace of a live editor play session, then reading the resulting timeline (frame graph, thread rows, call-hierarchy "Callers" panel) to find exactly which function is eating a frame's time budget.
 
 ### Summary
-[PENDING EXTRACTION]
+Shawnthebro (Shawnthebro channel) profiles his own fighting game project in UE 5.3.2 to teach the *basics* of Unreal Insights: starting a trace from the editor's Trace dropdown, playing a representative session (spawning hitboxes, playing supers, etc. to generate real load), stopping the trace, then opening it from the Session Browser. He walks through the Insights timeline UI — the FPS/frame-time graph at top, per-thread rows (Game Thread, GPU, Render Thread), and the drill-down Timers/Callers panels — to find a real regression: a HUD Slate widget function (`GetP1ComboRatingText`) that was unusually expensive because it converts an enum to a string and then to displayable text every frame. He then jumps back into the Blueprint graph to show exactly which node was responsible, closing the loop from "the trace says this is slow" to "here's the node in my Blueprint." Target budget stated: 16.6 ms/frame for 60 fps.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. In the editor, click the **Trace** dropdown (bottom toolbar) — this pop-up holds trace preferences/storage location plus **Start Trace** / **Save Trace Snapshot**, and the **Unreal Insights (Session Browser)** launcher.
+2. Click **Unreal Insights (Session Browser)** to open the session list window (empty until you've captured at least one trace).
+3. Click **Start Trace** (or use the dropdown) to begin recording — a small notification confirms tracing has started, and it runs live while you stay in the editor.
+4. **Play In Editor** / launch the game and perform a representative slice of real gameplay (the tutorial spawns hitboxes, jumps, crouches, triggers collisions, VFX, SFX, throws, and a super move) — you want actual load, not an idle level.
+5. Stop the game, then **Stop Trace** (same button/menu toggles).
+6. Reopen **Unreal Insights** from the Trace menu — the Session Browser now lists the captured file (named by date/time, tagged with platform e.g. Windows 64, app name, **Build Config** — Debug Game is the in-editor default — and Build Target = Editor). Double-click or **Open Trace**.
+7. In the Insights window: the top graph is FPS/frame-time across the whole capture — mouse-hover any point to read exact fps and ms for that frame; zoom with the scroll wheel down to microsecond/nanosecond precision.
+8. Click a frame in the graph (e.g. a spike) to highlight that frame's full time slice in the thread rows below (Game Thread, GPU, etc.) — the width of the highlighted region equals the frame's total time (e.g. 19.92 ms).
+9. Drill into the **Game Thread** row's call hierarchy: `FEngineLoopTick` → `Frame` → `SlateTick` (screen drawing) → `Draw Windows` → `PrePass` → individual **text value** getters (Slate widget bindings), each showing its own µs cost in the **Timers** panel on the right (sortable by Count/Incl/Excl time).
+10. Identify the worst offender (here: `GetP1ComboRatingText`, taking the most µs among the HUD's many `Get*Text` functions — combo rating, damage, stun frames, startup/recovery frames, etc.) — expand it to see its internals: `Get Enumerator User Friendly Name` (34.6 µs) then a string→text conversion (3.1 µs).
+11. Go back to the editor, open the Base Character HUD Blueprint graph, and locate the exact function/node the trace pointed to (`GetP1ComboRatingText`) to plan the actual fix (e.g. avoid the enum→string round-trip, use a data table lookup instead).
+12. Rule of thumb: target **16.6 ms/frame for 60 fps** — anything consistently higher (the tutorial shows ~50–55 fps, 18–20 ms/frame) is worth investigating with this exact drill-down method.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Trace** menu (bottom toolbar): Channels, Trace Screenshot, Trace Bookmark, Stat Named Events, Trace Store (File/Start Trace/Save Trace Snapshot), Open Trace Store Directory, Open Profiling Directory, **Unreal Insights (Session Browser)**, Recent Traces
+- Session Browser columns: file name/date, Platform, App Name, **Build Config** (Debug Game = in-editor default; standalone/packaged builds run faster and are worth comparing against), Build Target, file size (traces grow fast — clean up storage location)
+- Insights trace window tabs: **Frames**, **Timing**, **Timers**, **Callers**, **Counters**, **Log**
+- Timeline: top FPS/frame-time graph, per-thread rows below (Game Thread, GPU, Render Thread, Background Thread Worker); click a frame to highlight its full time window in the rows
+- Call hierarchy example seen: `FEngineLoopTick` -> `Frame` -> `SlateTick` -> `Draw Windows` -> `PrePass` -> individual widget `Get*Text` bindings (HUD combo/damage/timer text getters) -> `Get Enumerator User Friendly Name` -> string-to-text conversion; also `Get Value` branch for image/brush widgets (combo counter visibility, character portraits) and widget invalidation/redraw cost
+- 60 fps budget reference: **16.6 ms/frame**
+- Packaged/standalone builds are expected to run meaningfully faster than in-editor Debug Game traces — a second planned episode covers packaged-project Insights specifically
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.3.2 (same workflow on any UE5 version); UE4 used the separate **Session Frontend** tool instead of Unreal Insights
 
 ### Tags
-[PENDING EXTRACTION]
+#profiling #insights #performance #blueprint #editor-scripting #beginner
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+No existing tutorials in this knowledge base share `#insights`/`#profiling` — this is the library's first dedicated profiling entry (confirmed via INDEX.md grep before ingesting; the gap this tutorial was chosen to fill). Loosely adjacent by general "editor tooling for debugging/optimization" theme:
+- Physics in Unreal Engine (`tutorials/physics-in-unreal-engine.md`) — mentions Chaos Visual Debugger (CVD), a different specialized profiler for physics specifically.
+- `references/rendering-pipeline.md` — general Lumen/Nanite/TSR performance traps that a profiling pass (this tutorial's method) would help diagnose in practice.
