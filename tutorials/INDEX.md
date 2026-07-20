@@ -3159,15 +3159,6 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Written Epic community tutorial (Part 1 of a series) on the classic/traditional Landscape system in UE 5.7 — Sculpt mode and heightmap-based terrain creation, as a foundation toward a production-ready auto-material landscape. Page body is behind Cloudflare + Angular client-side rendering and could not be fully scraped; notes below are based on confirmed title/banner/meta-description plus this skill's own Landscape system knowledge — flagged `needs-review` for a human pass with the live page open.
 - **File:** tutorials/unreal-engine-5-7-landscape-series-from-sculpting-to-production-ready-environments.md
 
-
-### [SUPERSEDED — do not use]
-- **Source:** N/A
-- **URL:** N/A
-- **UE Version:** N/A
-- **Tags:** `#superseded`
-- **Summary:** Wrong-video artifact from `ingest.py`'s Epic-community-URL auto-resolution (matched an unrelated PolyBoost trailer while trying to resolve the Landscape Series entry above). Kept only because this environment doesn't permit deleting/renaming files; carries no real content — see the real entry above instead.
-- **File:** tutorials/architectural-presentation-masterclass-unreal-engine-57.md
-
 ---
 
 ## Tag Reference
