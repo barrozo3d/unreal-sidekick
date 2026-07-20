@@ -2,3 +2,11 @@ tutorials/frames/
 cookies.txt
 cookies.txt.stale-disabled
 __pycache__/
+
+# batch/one-off artifacts
+batch_ingest_*.log
+batch_ingest_*.json
+batch_ingest_errors.log
+batch_ingest_output.log
+*_urls.txt
+batch_reingest.log

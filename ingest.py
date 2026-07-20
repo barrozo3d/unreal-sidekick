@@ -45,9 +45,11 @@ import sys, os, re, json, subprocess, tempfile, shutil, argparse, time
 from datetime import datetime
 from pathlib import Path
 
-# Ensure stdout handles Unicode on Windows
+# Ensure stdout handles Unicode on Windows (cp1252 default breaks non-ASCII titles)
+# and flushes per line — block-buffered prints otherwise arrive after subprocess
+# (git/yt-dlp) output when both are captured, scrambling the step order in logs.
 if hasattr(sys.stdout, 'reconfigure'):
-    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace', line_buffering=True)
 
 # ── Configuration ─────────────────────────────────────────────────────────────
 
@@ -55,7 +57,17 @@ SKILL_DIR     = Path(__file__).parent
 TUTORIALS_DIR = SKILL_DIR / "tutorials"
 FRAMES_DIR    = TUTORIALS_DIR / "frames"
 INDEX_FILE    = TUTORIALS_DIR / "INDEX.md"
-DEFAULT_WHISPER  = "base"
+def _default_whisper_model():
+    """small on GPU (better accuracy, still fast), base on CPU (speed matters more)."""
+    try:
+        import torch
+        if torch.cuda.is_available():
+            return "small"
+    except Exception:
+        pass
+    return "base"
+
+DEFAULT_WHISPER = _default_whisper_model()
 EPIC_DOC_BASE    = "https://dev.epicgames.com/documentation/unreal-engine/"
 EPIC_DOC_HOST    = "dev.epicgames.com"
 CRAWL_DELAY      = 0.4   # seconds between requests (be polite)
@@ -80,7 +92,7 @@ def _ytdlp_cmd():
     base = ["yt-dlp"] if shutil.which("yt-dlp") else [sys.executable, "-m", "yt_dlp"]
     cookies_file = SKILL_DIR / "cookies.txt"
     if cookies_file.exists():
-        return base + ["--cookies", str(cookies_file)]
+        return base + ["--cookies", str(cookies_file), "--remote-components", "ejs:github"]
     return base
 
 def check_prerequisites():
@@ -114,18 +126,45 @@ def get_info(url):
 
 # ── YouTube: Transcript ────────────────────────────────────────────────────────
 
+WHISPER_VOCAB_HINT = ("Unreal Engine, UE5, Nanite, Lumen, Niagara, MetaHuman, Sequencer, Movie Render Queue, Movie Render Graph, Blueprint, Control Rig, Chaos, Substrate, MegaLights, Landscape, World Partition, PCG, RVT, LOD, Fab")
+
+def _load_whisper_model(model_name):
+    """First use of a model downloads its weights, and tqdm floods captured
+    output with hundreds of progress-bar lines on stderr. Print one notice
+    instead; replay the captured stderr only if loading actually fails."""
+    import io, contextlib, whisper
+    cache_dir = Path(os.getenv("XDG_CACHE_HOME", str(Path.home() / ".cache"))) / "whisper"
+    if not (cache_dir / f"{model_name}.pt").exists():
+        print(f"      Whisper model '{model_name}' not cached yet - downloading weights (one-time)...")
+    captured = io.StringIO()
+    try:
+        with contextlib.redirect_stderr(captured):
+            return whisper.load_model(model_name)
+    except Exception:
+        sys.stderr.write(captured.getvalue())
+        raise
+
 def whisper_transcribe(audio_path, model_name):
-    import whisper
-    model = whisper.load_model(model_name)
-    return model.transcribe(str(audio_path))
+    model = _load_whisper_model(model_name)
+    # initial_prompt biases decoding toward this skill's vocabulary — without it
+    # Whisper mis-hears domain terms (e.g. "COPs" -> "cups", "Houdini" -> "Odini").
+    return model.transcribe(str(audio_path), initial_prompt=WHISPER_VOCAB_HINT)
 
 def download_audio(url, tmp):
     out = str(tmp / "audio.%(ext)s")
-    subprocess.run(
-        _ytdlp_cmd() + ["-x", "--audio-format", "mp3", "--audio-quality", "0",
-         "--no-playlist", "-o", out, url],
-        capture_output=True, timeout=300, check=True
-    )
+    cmd = _ytdlp_cmd() + ["-x", "--audio-format", "mp3", "--audio-quality", "0",
+         "--no-playlist", "-o", out, url]
+    # YouTube throttling makes one-off download failures common; a single retry
+    # usually recovers and preserves the timestamped Whisper transcript instead
+    # of degrading to the timestamp-less captions fallback.
+    for attempt in (1, 2):
+        try:
+            subprocess.run(cmd, capture_output=True, timeout=300, check=True)
+            break
+        except subprocess.CalledProcessError:
+            if attempt == 2:
+                raise
+            print("      Audio download failed - retrying once...")
     for f in tmp.iterdir():
         if f.suffix in (".mp3", ".m4a", ".ogg", ".webm"):
             return f
@@ -181,10 +220,17 @@ def segment_by_chapters(transcript, chapters):
 
 def download_video_low(url, tmp):
     out = str(tmp / "video.%(ext)s")
-    subprocess.run(
-        _ytdlp_cmd() + ["-f", "worst[ext=mp4]/worst", "--no-playlist", "-o", out, url],
-        capture_output=True, timeout=600, check=True
-    )
+    cmd = _ytdlp_cmd() + ["-f", "worst[ext=mp4]/worst", "--no-playlist", "-o", out, url]
+    # Same one-off YouTube throttling failures as the audio download in Step 1;
+    # a single retry usually recovers (select_frames.py depends on this helper).
+    for attempt in (1, 2):
+        try:
+            subprocess.run(cmd, capture_output=True, timeout=600, check=True)
+            break
+        except subprocess.CalledProcessError:
+            if attempt == 2:
+                raise
+            print("      Video download failed - retrying once...")
     for f in tmp.iterdir():
         if f.suffix in (".mp4", ".webm", ".mkv"):
             return f
@@ -694,6 +740,26 @@ def resolve_epic_community_url(url):
 
 # ── Main ───────────────────────────────────────────────────────────────────────
 
+def find_duplicate_by_video_id(video_id, exclude_name):
+    """Return the tutorial file that already references this YouTube video ID, if any.
+
+    Slug/URL checks miss re-ingests where the uploader changed the title (new slug,
+    new URL text) — the 11-char video ID is the stable identity, so search for it.
+    """
+    if not video_id:
+        return None
+    needle = f"v={video_id}"
+    for f in TUTORIALS_DIR.glob("*.md"):
+        if f.name in ("INDEX.md", exclude_name):
+            continue
+        try:
+            if needle in f.read_text(encoding="utf-8", errors="ignore"):
+                return f
+        except OSError:
+            continue
+    return None
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Unreal Sidekick data collection (Step 1 of 2)"
@@ -791,6 +857,14 @@ def main():
         slug      = slugify(title)
         out_md    = TUTORIALS_DIR / f"{slug}.md"
 
+        if is_yt and not args.force:
+            dup = find_duplicate_by_video_id(info.get("id", ""), out_md.name)
+            if dup:
+                print(f"      This video is already in the library under a different title:")
+                print(f"        {dup.name}")
+                print(f"      Skipping (same YouTube video ID). Pass --force to ingest anyway.")
+                return
+
         if out_md.exists() and not args.force and "extraction_status: complete" in out_md.read_text(encoding="utf-8"):
             print(f"      {out_md.name} is already fully extracted — refusing to overwrite.")
             print(f"      Pass --force to re-collect anyway (this will wipe the existing Structured Notes).")
@@ -798,6 +872,7 @@ def main():
 
         print(f"[2/4] Downloading audio + transcribing with Whisper ({args.whisper_model})...")
         ch_transcripts = []
+        used_captions_fallback = False
         if is_yt:
             if has_whisper:
                 try:
@@ -807,10 +882,12 @@ def main():
                     print(f"      {len(transcript.get('segments',[]))} segments -> {len(ch_transcripts)} sections")
                 except Exception as e:
                     print(f"      Whisper failed ({e}), using yt-dlp captions")
+                    used_captions_fallback = True
                     text = ytdlp_captions(args.url, tmp)
                     ch_transcripts = [{"title": "Full Content", "start": 0, "text": text, "segments": []}]
             else:
                 print("      Whisper not installed — using yt-dlp captions")
+                used_captions_fallback = True
                 text = ytdlp_captions(args.url, tmp)
                 ch_transcripts = [{"title": "Full Content", "start": 0, "text": text, "segments": []}]
         else:
@@ -833,6 +910,8 @@ def main():
         # Safeguard checks — transcript completeness/hallucination only; frame-count
         # validation now happens in select_frames.py once real timestamps are chosen.
         sg_warnings, sg_critical = run_safeguards(ch_transcripts)
+        if used_captions_fallback:
+            sg_warnings.append('Transcript came from the yt-dlp captions fallback - NO per-sentence timestamps. Content-anchored frame selection (select_frames.py) will have to estimate moments; consider re-running ingest.py to retry Whisper before extracting.')
         _print_safeguard_report(sg_warnings, sg_critical)
 
         print("[4/4] Writing raw tutorial file...")

@@ -68,7 +68,7 @@ Say: "I need the UE Remote Control MCP server running to do this. Check `SETUP.m
 ## Mode 1: Consultation Workflow
 
 ### Step 1 — Check the Tutorial & Documentation Library
-Before answering, read `tutorials/INDEX.md`. Search for entries matching the technique or topic. If found, cite the source.
+Before answering, search `tutorials/INDEX.md` for entries matching the technique or topic. The INDEX is 3000+ lines — do NOT read it top to bottom. Grep it by keyword/tag first (e.g. `niagara`, `#metahuman`, a system name), then read only the matching entry blocks. If found, cite the source.
 
 ### Step 2 — Check Reference Files
 

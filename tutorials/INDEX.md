@@ -3070,6 +3070,36 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** 88-minute single-session tutorial by Magnet VFX (Omith) titled "UE5 Starter Course 2026." There are no official chapter markers — the whole video is one continuous build — but it naturally surveys nearly every system a UE5.8 beginner touches in their first project: launching the Engine, creating a Third Person template project, setting up sky/lighting actors via the Environment Light Mixer, scu...
 - **File:** tutorials/unreal-engine-58-beginner-tutorial---ue5-starter-course-2026unrealengine5-megasc.md
 
+
+### Introducing Mesh Terrain: Craft Large Complex Worlds | Unreal Fest Chicago 2026
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=QJwTTmNez3k
+- **Author:** Unreal Engine (official — Michael Balzer & Etienne Carrier, Unreal Fest Chicago 2026)
+- **UE Version:** UE 5.8 (experimental; production-ready targeted late 2027)
+- **Tags:** landscape, nanite, pcg, worldbuilding, open-world, performance, advanced
+- **Summary:** Official architecture talk on Mesh Terrain: a true triangle-mesh terrain replacing heightmap limits (no overhangs/tunnels, uniform grids, 8K landscape ceiling, proxy file contention), built on the generic Mesh Partition stack — arbitrary streamed "sections" with partial load/edit and seam-free holistic processing. Non-destructive modifier components (Mesh/Texture with auto-tessellation/Spline/Brush with sublayers/Noise/Boolean union-subtract-trim/Remesh) ordered by priority layers + sub-priorities in a Mesh Partition Definition, inspected in the Mesh Terrain Outliner; per-vertex weight channels bake to per-section textures and drive materials, PCG scattering (PCG Mesh Partition Interop: Query + Mesh Projection Instance Spawner), and tool masks. Runtime compiles source → Transformer Pipelines → Build Variants → Platform Settings into purely generic systems (Nanite high-end, static-mesh LODs low-end, simplified Chaos tri-mesh collision ~90% smaller, RVT pending post-5.8). Fortnite-data testing: performance on par with or better than landscape, lower memory. Builds are manual/commandlet with checked-in artifacts; Shift+6 mode.
+- **File:** tutorials/introducing-mesh-terrain-craft-large-complex-worlds-unreal-fest-chicago-2026.md
+
+
+### UE 5.8 - Any Mesh To MetaHuman - Tutorial
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=ZmiTuYglaRI
+- **Author:** Unreal - X - Tutorials
+- **UE Version:** UE 5.8
+- **Tags:** metahuman, rigging, animation, materials, pipeline-tools, intermediate, advanced
+- **Summary:** Turn a static mesh (Sketchfab Darth Maul) into a rigged MetaHuman. Pipeline: isolate the head in Modeling mode (Tri Select by material), align/scale against the Creator's exported default MetaHuman, solve via From Custom Mesh (Trace Facial Features → Auto-Solve; fix trace failures by removing the material or changing camera angle) and immediately Save Pose to get the DNA file. Texture transfer: Generate Skeletal Mesh from the DNA, bake original→DNA UVs in Blender (Cycles Selected-to-Active diffuse bake, extrusion 0.2), load via Creator Texture Overrides. Protruding parts the solver ignores (horns): temporarily copy DNA bone-chain transforms onto a backed-up MetaHuman base skeleton (Shift+RClick/LClick transform copy-paste root→head), convert horns to a skeletal mesh bound to root with skin weights flooded 1.0 to the head bone, attach in the Blueprint, then restore the original reference pose from the backup.
+- **File:** tutorials/ue-58---any-mesh-to-metahuman---tutorial.md
+
+
+### How to Build Scalable MetaHuman Crowds in Unreal Engine | Unreal Fest Chicago 2026
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=wQoa1j4Rgss
+- **Author:** Unreal Engine (official — Henry Falconer, Unreal Fest Chicago 2026)
+- **UE Version:** UE 5.8 (MetaHuman Crowds + Collections experimental)
+- **Tags:** metahuman, animation, performance, blueprint, cpp, worldbuilding, advanced
+- **Summary:** Engineering deep dive on the Fab MetaHuman Crowd Sample: 1,000 MetaHumans at 60 fps on consoles (9 ms game / 7 ms render / 16 ms GPU, +2.3 GB; 500 at 30 fps on mobile) via Mass + StateTree entities with two-tier visualization — nearby actors (LOD2, Rig Logic) swapping pose-matched with GPU-skinned Instanced Skinned Meshes (LOD4, rig-logic baked to joints, 4 bone influences, Nanite-capable, Anim Sequence Transform Provider with per-instance offsets). Grooms become skeletal meshes skinned per face (no physics). Workflow: Fab Starter Kit, MetaHuman Collection + Crowd Pipeline, wardrobe items (hidden-surface maps drive body-into-clothing merging), joints-only-rig assembled heads/bodies + Full Body Skeletal Mesh export, build (DDC-cached), Instances (the "material instances" of characters), Mass config + spawner + navmesh. Advanced: procedural Appearance Provider, Per Instance Custom Data colors, custom ~70-line anim-selection processor, multi-collection splitting (1.2 GB single-asset caveat), collections beyond crowds (custom pipelines, any asset type, Sequencer-animatable instances without Mass), Mutable comparison, and 5.8 known issues (motion-vector pop on swap, Mass processing queue disabled).
+- **File:** tutorials/how-to-build-scalable-metahuman-crowds-in-unreal-engine-unreal-fest-chicago-2026.md
+
 ---
 
 ## Tag Reference

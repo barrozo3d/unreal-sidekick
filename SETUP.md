@@ -150,3 +150,17 @@ python select_frames.py <slug> ... --force       re-capture even if frame_status
 ```
 
 `ingest.py` refuses to overwrite a tutorial or doc-hub `.md` whose frontmatter already has `extraction_status: complete`, to protect hand-written Structured Notes from being wiped by an accidental re-ingest. Pass `--force` only when you intend to discard the existing extraction and will re-run the extraction pass afterward. `select_frames.py` has the same guard on `frame_status: complete`. Epic documentation pages have no video/frames at all — skip Step 2 for those and go straight to extraction.
+
+## Note: captured frames are local-only
+
+`tutorials/frames/` is gitignored — frame images never sync to GitHub. On a fresh
+clone, `frame_status: complete` in a tutorial's frontmatter refers to frames that
+existed on the machine that ingested it; the durable knowledge is the extracted
+Structured Notes, not the images. If you need the stills again on this machine,
+re-capture them with:
+
+```
+python select_frames.py <slug> <ts1> <ts2> ... --force
+```
+
+(timestamps are listed in the tutorial file's "Captured Frames" section).
