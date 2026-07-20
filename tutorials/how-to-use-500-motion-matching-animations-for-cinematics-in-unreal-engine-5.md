@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=d_YyHUk_C-4
 author: HUSSIN KHAN (UAI)
 ingested: 2026-07-20
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "Not specified (Game Animation Sample project era, UE5.4-5.5)"
+tags: [animation, mocap, metahuman, control-rig, rigging, cinematics, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-use-500-motion-matching-animations-for-cinematics-in-unreal-engine-5/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # How to use 500+ Motion Matching Animations for Cinematics in Unreal Engine 5
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py how-to-use-500-motion-matching-animations-for-cinematics-in-unreal-engine-5 <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -339,30 +335,61 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [2:04] tutorials/frames/how-to-use-500-motion-matching-animations-for-cinematics-in-unreal-engine-5/frame_000.jpg
+- [2:40] tutorials/frames/how-to-use-500-motion-matching-animations-for-cinematics-in-unreal-engine-5/frame_001.jpg
+- [3:06] tutorials/frames/how-to-use-500-motion-matching-animations-for-cinematics-in-unreal-engine-5/frame_002.jpg
+- [4:33] tutorials/frames/how-to-use-500-motion-matching-animations-for-cinematics-in-unreal-engine-5/frame_003.jpg
+- [5:53] tutorials/frames/how-to-use-500-motion-matching-animations-for-cinematics-in-unreal-engine-5/frame_004.jpg
+- [8:12] tutorials/frames/how-to-use-500-motion-matching-animations-for-cinematics-in-unreal-engine-5/frame_005.jpg
+- [9:41] tutorials/frames/how-to-use-500-motion-matching-animations-for-cinematics-in-unreal-engine-5/frame_006.jpg
+- [10:37] tutorials/frames/how-to-use-500-motion-matching-animations-for-cinematics-in-unreal-engine-5/frame_007.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Repurposing Epic's **Game Animation Sample** project (marketed around its Motion Matching gameplay demo, 500+ mocap clips) as a raw **mocap animation library for cinematics**: extract individual clips via **Export to FBX**, **retarget** them onto other skeletons/characters (including MetaHumans), and drop them straight onto Sequencer animation tracks — no Motion Matching database/pose-search node involved in the actual cinematic output, just harvesting the underlying clip library.
 
 ### Summary
-[PENDING EXTRACTION]
+Hussin Khan (UAI) notes that Epic's Game Animation Sample project (downloadable from the Samples tab, "Game Animation Samples") ships 500+ high-quality mocap animations intended for the real-time **Motion Matching** system, and asks whether that clip library can be reused for traditional keyframed cinematics instead. It can: the animations are buried in `Content > Characters > UEFN_Mannequin > Animations` (not obvious from the project root), viewable via the UEFN skeletal mesh's Asset Browser tab (551 items listed). Any clip can be right-clicked -> **Export to FBX** -> re-imported/assigned to a target skeleton via the FBX Export Options dialog, or more directly, right-click -> **Retarget Animation** to re-target it onto a different skeletal mesh's skeleton (demoed onto the pack's included Paragon "Twinblast" character, and onto a user-supplied MetaHuman) without leaving the editor. Retargeted/converted clips can then be dragged onto any Skeletal Mesh Actor's Animation track in Sequencer like ordinary animation assets. Covers three practical gotchas: (1) retargeted cloth-driven characters lose cloth simulation until the Sequencer animation track's **Simulate/Animation mode is switched to "Asset"**; (2) MetaHumans require **LOD Sync forced to 0** on the Blueprint to keep the full-detail face when driven this way, and the Face/Control Rig track can simply be disabled if unused; (3) two animation clips placed back-to-back on the same track can be blended smoothly and foot-sliding fixed via **right-click -> "Align With This Bone With Previous Clip"** on a chosen bone (e.g. the planted foot), and a clip can be flipped into a different-feeling shot by **right-click -> Properties -> Reverse Animation** (a landing-and-walking-backward clip reversed becomes a "flying/taking off" beat).
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Download and open Epic's **Game Animation Sample** project (Epic Games Launcher -> Samples tab -> Game Animation Samples).
+2. File -> New Level -> Basic Level (a clean slate to work in, separate from the sample's own gameplay level).
+3. Locate the animation library: `Content Browser > Characters > UEFN_Mannequin > Animations` (categorized into Idle/Jump/Run/etc.) — not obvious from the project root, has to be dug out.
+4. Open `SK_UEFN_Mannequin` (double-click the skeletal mesh) -> **Animation** tab -> **Asset Browser** sub-tab to preview all 551 bundled clips (playable with audio) before picking one.
+5. **Export a clip standalone**: right-click a clip in the Asset Browser -> **Export to FBX** -> choose a destination folder -> rename for clarity (e.g. `AA_Jump_Land`) -> Save -> in the **FBX Export Options** dialog, assign the target skeleton (e.g. `SK_UEFN_Mannequin`), leave export rate/time settings default -> **Import All** to bring it back in as a usable Animation Sequence asset.
+6. **Build a test Level Sequence**: Sequencer toolbar -> add a **Level Sequence** asset (save it in the animations folder so it also appears in the level Outliner for quick reopening) -> drag the target character into the level (zero its location, set Z rotation to face camera) -> drag its Skeletal Mesh Component into Sequencer -> **+** -> **Animation** -> pick the exported/converted clip -> it plays on the track.
+7. **Retarget directly onto a different character** (faster than the FBX round-trip for reuse): right-click the source clip in its Asset Browser (`Ctrl+B` jumps to it in the Content Browser) -> **Retarget Animation** -> set **Source Skeletal Mesh** to the origin mannequin and **Target Skeletal Mesh** to the destination character (demoed: the pack's Paragon "Twinblast" skeletal mesh) -> Export -> name/save the new retargeted clip -> drag the target character + its retargeted clip into Sequencer exactly as in Step 6.
+8. **Fix missing cloth simulation on a retargeted character**: select the animation section on the Sequencer track -> Details panel -> scroll to the animation-mode dropdown -> switch from its default to **"Asset"** — cloth sim resumes.
+9. **Retarget onto a MetaHuman** (not bundled with the sample — bring your own): drag the MetaHuman into the level; on its Blueprint, force **LOD Sync = 0** (Details panel) to keep full facial fidelity while animation-driven; when adding to Sequencer, disable the unused **Face**/Control Rig track if only body motion is needed. Retarget flow is identical to Step 7, targeting the MetaHuman's body skeletal mesh (e.g. `M_tall_narrow_body_mocap`).
+10. **Combine two clips on one track with a clean blend**: place a second animation clip directly after the first on the same Sequencer track -> right-click the *second* clip -> a bone-matching option (seen in the UI as **"Align/Match This Bone With Previous Clip"**) -> pick the planted/contact bone (e.g. the stepping foot) to remove foot-sliding at the blend seam.
+11. **Reuse a clip for a different beat via Reverse**: select the animation section -> right-click -> **Properties** -> **Reverse Animation** — e.g. a "land and walk backward" clip reversed reads as "takes off / flies away," letting one mocap clip serve two opposite narrative beats.
+12. Broader takeaway: this same export/retarget pipeline works for **Mixamo** animations too, meaning the sample project's 500+ clips plus Mixamo's few hundred effectively becomes one shared cinematic animation library across any skeleton in the project (UEFN mannequin, Paragon heroes, MetaHumans, Mixamo characters).
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Game Animation Sample project (Epic Games Launcher Samples tab) — `Content/Characters/UEFN_Mannequin/Animations`, Asset Browser tab on the skeletal mesh editor
+- Export to FBX (per-clip) + FBX Export Options (target skeleton assignment, export rate, skeletal mesh options)
+- **Retarget Animation** panel (Source Skeletal Mesh / Target Skeletal Mesh) — direct in-editor retargeting without an FBX round-trip
+- Sequencer: Level Sequence asset creation flow (save alongside content so it's reachable from the Outliner), Animation track, per-section animation-mode property (Asset vs. default, fixes cloth sim), bone-matching option for blending consecutive clips, **Reverse Animation** property
+- MetaHuman Blueprint: **LOD Sync** forced to 0 to retain full face detail when body-animation-driven outside the normal MetaHuman animation pipeline; Face/Control Rig track can be disabled if unused
+- Cross-skeleton reuse extends to Mixamo-sourced animations using the same export/retarget steps
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+Not explicitly stated; matches the Game Animation Sample project era (UE5.4-5.5, when Epic's Motion Matching sample/plugin was released)
 
 ### Tags
-[PENDING EXTRACTION]
+#animation #mocap #metahuman #control-rig #rigging #cinematics #intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- Animating Characters and Objects in Unreal Engine (`tutorials/animating-characters-and-objects-in-unreal-engine.md`) — Epic documentation entry whose summary mentions Motion Matching exactly once in passing inside a 162-page reference; this tutorial is the first dedicated, cinematics-framed treatment (confirmed gap before this ingest).
+- Baking Animation in UE5 (Control Rig to Animation Sequence & back) (`tutorials/baking-animation-in-ue5-control-rig-to-animation-sequence-back.md`) — shares `#animation` `#control-rig`; similar "convert between animation representations to make clips reusable in Sequencer" theme.
+- Budget Mocap Tutorial - QuickMagicAI and MetaHuman Animator (`tutorials/budget-mocap-tutorial---quickmagicai-and-metahuman-animator-androidframe-mancer-.md`) — shares `#metahuman` `#mocap`; alternate (AI-driven) source of MetaHuman body/face animation vs. this tutorial's "retarget a pre-made mocap library" approach.

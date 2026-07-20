@@ -3145,9 +3145,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=d_YyHUk_C-4
 - **Author:** HUSSIN KHAN (UAI)
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** Not specified (Game Animation Sample project era, ~UE5.4-5.5)
+- **Tags:** `#animation` `#mocap` `#metahuman` `#control-rig` `#rigging` `#cinematics` `#intermediate`
+- **Summary:** Repurposes Epic's Game Animation Sample project's 500+ Motion-Matching mocap clips as a raw cinematic animation library: Export to FBX or in-editor Retarget Animation onto other skeletons (Paragon Twinblast, MetaHumans, Mixamo), drop onto Sequencer Animation tracks, fix lost cloth sim (switch section to "Asset" mode), force MetaHuman LOD Sync=0 for full face detail, blend consecutive clips with bone-matching to stop foot sliding, and reuse clips via Reverse Animation for opposite narrative beats.
 - **File:** tutorials/how-to-use-500-motion-matching-animations-for-cinematics-in-unreal-engine-5.md
 
 
