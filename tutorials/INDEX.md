@@ -3110,6 +3110,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/performance-profiling-with-unreal-insights-basics-unreal-engine-4-unreal-engine-.md
 
+
+### #UE5 Series: Chaos Destruction | Complete Guide Part 1
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=1DK46of-Syg
+- **Author:** SARKAMARI
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/ue5-series-chaos-destruction-complete-guide-part-1.md
+
 ---
 
 ## Tag Reference
