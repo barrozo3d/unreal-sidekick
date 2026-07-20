@@ -3120,6 +3120,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/ue5-series-chaos-destruction-complete-guide-part-1.md
 
+
+### Unreal Engine 5.4: Take Recoder Driven Cinematics
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=h2aL7jEg_xw
+- **Author:** Reality Forge
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-54-take-recoder-driven-cinematics.md
+
 ---
 
 ## Tag Reference
