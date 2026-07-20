@@ -3150,6 +3150,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-to-use-500-motion-matching-animations-for-cinematics-in-unreal-engine-5.md
 
+
+### Architectural Presentation Masterclass – Unreal Engine 5.7
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=78XwVuvXabw
+- **Author:** PolyBoost
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/architectural-presentation-masterclass-unreal-engine-57.md
+
 ---
 
 ## Tag Reference
