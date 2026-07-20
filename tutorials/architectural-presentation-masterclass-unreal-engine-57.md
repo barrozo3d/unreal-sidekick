@@ -4,7 +4,7 @@ source: N/A
 url: N/A
 ingested: 2026-07-20
 ue_version: "N/A"
-tags: []
+tags: [superseded]
 extraction_status: superseded
 frame_status: n/a
 ---
