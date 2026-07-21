@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=rxUsQRcq168
 author: R SH
 ingested: 2026-07-20
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.7.3"
+tags: [landscape, sculpting, terrain, worldbuilding, beginner, ue5-7]
+extraction_status: complete
 frames_dir: tutorials/frames/landscape-mode-basics-unreal-engine-57-part-1/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 7
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Landscape Mode Basics (Unreal Engine 5.7) Part 1
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py landscape-mode-basics-unreal-engine-57-part-1 <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -218,30 +214,57 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [3:48] tutorials/frames/landscape-mode-basics-unreal-engine-57-part-1/frame_000.jpg
+- [6:05] tutorials/frames/landscape-mode-basics-unreal-engine-57-part-1/frame_001.jpg
+- [8:21] tutorials/frames/landscape-mode-basics-unreal-engine-57-part-1/frame_002.jpg
+- [10:56] tutorials/frames/landscape-mode-basics-unreal-engine-57-part-1/frame_003.jpg
+- [16:10] tutorials/frames/landscape-mode-basics-unreal-engine-57-part-1/frame_004.jpg
+- [19:06] tutorials/frames/landscape-mode-basics-unreal-engine-57-part-1/frame_005.jpg
+- [25:02] tutorials/frames/landscape-mode-basics-unreal-engine-57-part-1/frame_006.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Classic heightmap-based Landscape creation and hand-sculpting in UE 5.7's Landscape Mode: grid/component setup, the Sculpt tool family (brush types, Layers, Erase, Smooth, Flatten, Ramp, Erosion/Hydro Erosion, Noise, Visibility/Mirror), and alpha-texture brushes — Part 1 of a 4-episode series (Part 2: heightmap import; later parts: material painting and foliage).
 
 ### Summary
-[PENDING EXTRACTION]
+R SH (technical artist/educator) builds a landscape from scratch in UE 5.7.3, starting with a fresh level and the Third Person template character so falling-through-the-floor is visible feedback before terrain exists. Explains the Landscape creation grid before any geometry is committed: Location/Rotation should stay at 0,0,0, Scale Z of 100 sets max sculpt height headroom (directly relevant to heightmap import in Part 2), Section Size (63x63 vs 31x31) and Sections Per Component (1x1 vs 2x2) trade off component count vs. resolution, and Overall Resolution (e.g. 512x512) drives total component count and visible grid size — pressing Create with defaults yields a flat landscape. The rest of the video is a hands-on tour of every Sculpt Mode brush: Layers (named/toggleable/reorderable sculpt groups so effects can be isolated, hidden, or partially undone by hiding a layer), brush Strength/Size/Falloff, Clay Brush (additive-looking sculpt vs. the default that raises everything uniformly), Apply Without Moving toggle (click-and-hold continuous raise vs. requiring mouse movement), Erase (returns toward flat but only within the active layer, never below flat), Smooth, Flatten (brush size + falloff dramatically change blend hardness), Ramp (start/end-point tool for roads/paths, with falloff control and a Reset that resets the tool, not an undo), Erosion and Hydro Erosion (Threshold/Thickness/Iteration/Noise Mode/strength parameters, can target a single layer or all Combined Layers, but erosion always visually affects layers below it even when scoped to its own layer), Noise (Noise Scale + Strength), and Mirror (copies one side of the landscape to the other along a movable mirror plane, direction-aware positive-X-to-negative-X). Closes with alpha/texture-based sculpting: any grayscale texture can drive the brush (white = raise), demonstrated with imported black-and-white "brush alpha" textures (a Mudbox/ZBrush-style workflow) including a water-noise alpha with Auto Rotate to follow mouse-drag direction.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Project setup** — new Basic level; add the Third Person template/character via Add Feature or Content Pack so there's an immediate playable feedback loop (character falls through empty space with no landscape yet); set as Game Mode Override; save the level into an organized `Levels` folder.
+2. **Enter Landscape Mode** — toolbar mode dropdown → Landscape. Before pressing Create, understand the placement grid: Transform stays at Location/Rotation 0,0,0; **Scale Z = 100** defines max sculpt height headroom (critical once heightmaps are imported in Part 2 — determines how "tall" 0-255 heightmap values can go); **Section Size** (63x63 default, can drop to 31x31) and **Sections Per Component** (1x1 vs 2x2, doubles sections-per-component) trade detail density vs. component count; **Overall Resolution** (e.g. 512x512) sets total grid size and total component count (shown live, e.g. 64 components). Press **Create** → flat landscape mesh. [frame_000 3:48; frame_001 6:05 — the flat green Landscape placement grid at two resolution settings]
+3. **Sculpt tool basics** [frame_002, 8:21] — Sculpt sub-mode; Brush Type: Circle (simple round), **Alpha Brush** (grayscale-texture-driven, covered later), Pattern Brush, and a whole-component brush; adjust **Brush Size** (e.g. 1000-1500) and **Strength**; left-click raises geometry, **hold Shift to invert** (lower); **Clay Brush** toggle changes the sculpt to look additive/layered rather than uniformly raising everything; **Apply Without Moving** toggle — on: click-and-hold continuously raises; off: the brush requires mouse movement to have any effect.
+4. **Layers** [frame_003, 10:56] — create named Landscape Layers (e.g. "Mountains", "Side Mountains", "Valleys", "Ramps", "Erosion", "Alphas") to group sculpt work; must select a layer before sculpting into it; toggling a layer's visibility hides/shows only that layer's contribution live; each layer has an overall Alpha/effect-strength multiplier (1 = 100%, 0.5 = 50%, etc.) for after-the-fact intensity adjustment without re-sculpting.
+5. **Erase / Smooth / Flatten** [frame_004, 16:10] — Erase pulls terrain back toward flat but only within the currently active layer and never pushes below the flat baseline; Smooth softens sharp transitions (brush size controls affected area); Flatten's result is heavily controlled by **Brush Size + Falloff** together — e.g. size 2000 with falloff 1.0 blends very softly, falloff 0.5 flattens sharply wherever the brush touches.
+6. **Ramp** — a start/end-point tool (not a drag brush): click a start point, click an end point, adjust Falloff for edge softness, then **Reset** to clear the in-progress tool state (not an undo) before placing the next ramp; useful for roads/paths/consistent-grade features; keep ramps in their own layer for isolated editing.
+7. **Erosion / Hydro Erosion / Noise** [frame_005, 19:06] — Erosion params: Threshold (e.g. 64), Thickness (e.g. 250), Iterations, Noise Mode "Both" (raises and lowers), plus brush Size/Falloff/Strength; **Combined Layers** option applies erosion across all layers at once vs. scoping to one layer (note: even when scoped to a dedicated Erosion layer, the visual effect still reads across the layers beneath it). Hydro Erosion is a related water-carving variant. Noise tool: Noise Scale (e.g. 256 = very large/subtle, ~10 = fine-grained) + Strength (low values like 0.1 already visible) for organic surface variation.
+8. **Mirror** — pick a source side and mirror axis/plane (draggable across the landscape), choose direction (e.g. "positive X to negative X"), Apply to copy that side's sculpting to the opposite side; only copies the geometry actually present (an empty side mirrors as empty, clearing the target).
+9. **Alpha/texture-driven sculpting** [frame_006, 25:02] — the default sculpt "texture" is a checker placeholder; any grayscale image can be imported as a **brush alpha** (Content Browser → Import, organize into a `Textures/Alpha` folder) — white pixels raise geometry, black pixels don't (visually the panel can appear inverted from the source image, worth double-checking); **Auto Rotate** makes the alpha pattern follow the mouse-drag direction instead of staying screen-locked; demonstrated with a "water" noise-alpha texture layered into its own "Alphas" layer for fine surface detail after the main mountain/valley sculpt is done.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Landscape Mode** sub-modes referenced: Manage (component add/remove/select — deferred to a later part), Sculpt (this video's focus), Paint (deferred to a later part).
+- **Landscape creation settings:** Location/Rotation (0,0,0 default), Scale (X/Y/Z%, Z=100 controls sculpt height range), Section Size (63x63 / 31x31), Sections Per Component (1x1 / 2x2), Overall Resolution (e.g. 512x512), live Total Component count.
+- **Sculpt brush types:** Circle, Alpha Brush, Pattern Brush, Component brush.
+- **Sculpt tools:** Sculpt (raise/lower, Shift = invert), Clay Brush toggle, Apply Without Moving toggle, Erase, Smooth, Flatten (Brush Size + Falloff), Ramp (start/end + Falloff + Reset), Erosion (Threshold, Thickness, Iteration, Noise Mode, Combined Layers), Hydro Erosion, Noise (Noise Scale, Strength), Visibility, Mirror (axis/plane + direction + Apply).
+- **Landscape Editing Layers:** create/rename/select/toggle-visibility/reorder; per-layer Alpha (effect strength, 0-1).
+- **Alpha texture import:** Content Browser Import → grayscale "brush alpha" textures (Mudbox/ZBrush-style); Auto Rotate toggle for mouse-direction-following alpha patterns.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.7.3
 
 ### Tags
-[PENDING EXTRACTION]
+landscape, sculpting, terrain, worldbuilding, beginner, ue5-7
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/landscape-mode-unreal-engine-57-part-2.md` — direct sequel: importing a heightmap and generating terrain from it, referenced repeatedly in this video's closing minutes as "next session."
+- `tutorials/unreal-engine-5-7-landscape-series-from-sculpting-to-production-ready-environments.md` — the Epic Developer Community series page for this same 4-part series (this is Episode 1 of 4: Fundamentals of Landscape Modeling & Sculpting); the community page's own scraped-article version is superseded by this and the Part 2 entry for the episodes actually released so far.
+- `tutorials/introducing-mesh-terrain-craft-large-complex-worlds-unreal-fest-chicago-2026.md` — shares `#landscape` `#terrain` `#worldbuilding`; covers the newer Nanite-based Mesh Terrain system as an alternative/successor to the classic heightmap Landscape workflow taught here.

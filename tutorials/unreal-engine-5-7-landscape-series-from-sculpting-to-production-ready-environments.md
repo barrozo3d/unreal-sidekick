@@ -5,9 +5,33 @@ url: https://dev.epicgames.com/community/learning/tutorials/x1pX/unreal-engine-5
 ingested: 2026-07-20
 ue_version: "UE 5.7"
 tags: [landscape, sculpting, materials, terrain, worldbuilding, epic-community, beginner, intermediate, ue5-7]
-extraction_status: needs-review
+extraction_status: superseded-partial
 page_count: 1
 ---
+
+## Superseded notice (2026-07-21)
+
+This entry was originally `needs-review` because the community page sits behind
+Cloudflare + an Angular SPA that blocked every headless fetch attempt. A later
+session opened the page in a real browser (Claude in Chrome) and found the page
+is not text-only — it links a YouTube playlist
+(https://www.youtube.com/playlist?list=PLqw4sGRzmvyCs9F_hOSNeyUmFZ8xDBx6J)
+containing the actual episode recordings by author **RamTechies** (channel "R SH").
+
+The series has 4 planned episodes: Fundamentals of Landscape Modeling &
+Sculpting, Heightmap Principles + Terrain Generation, Landscape Materials for
+Painting, Foliage Principles + Placement on Landscapes. As of this check, only
+the first two are published:
+
+- Episode 1 → ingested properly with real transcript/frames: `tutorials/landscape-mode-basics-unreal-engine-57-part-1.md`
+- Episode 2 → ingested properly with real transcript/frames: `tutorials/landscape-mode-unreal-engine-57-part-2.md`
+- Episodes 3-4 (materials, foliage) are not published yet — re-check the playlist URL above once they are, and ingest them the same way (this article page will need another look too, since its "Mostrar mais" body likely lists them once added).
+
+The inferred Key Concepts notes below (written from title/meta-description only,
+before the real content was accessible) are now superseded by the real
+Structured Notes in the two entries above for Episodes 1-2, and are kept only
+for historical/Episode-3-4 context (auto-material/foliage inferences may still
+be directionally useful once those episodes are checked against this).
 
 # Unreal Engine 5.7 Landscape Series: From Sculpting to Production-Ready Environments
 

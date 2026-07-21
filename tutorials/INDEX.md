@@ -3156,8 +3156,28 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **URL:** https://dev.epicgames.com/community/learning/tutorials/x1pX/unreal-engine-5-7-landscape-series-from-sculpting-to-production-ready-environments
 - **UE Version:** UE 5.7
 - **Tags:** `#landscape` `#sculpting` `#materials` `#terrain` `#worldbuilding` `#epic-community` `#beginner` `#intermediate` `#ue5-7`
-- **Summary:** Written Epic community tutorial (Part 1 of a series) on the classic/traditional Landscape system in UE 5.7 — Sculpt mode and heightmap-based terrain creation, as a foundation toward a production-ready auto-material landscape. Page body is behind Cloudflare + Angular client-side rendering and could not be fully scraped; notes below are based on confirmed title/banner/meta-description plus this skill's own Landscape system knowledge — flagged `needs-review` for a human pass with the live page open.
+- **Summary:** SUPERSEDED for Episodes 1-2 by the real video entries below (this article-page stub was written when the page couldn't be scraped past Cloudflare; a later session opened it in a real browser and found it links a YouTube playlist with the actual episodes — see `landscape-mode-basics-unreal-engine-57-part-1.md` and `landscape-mode-unreal-engine-57-part-2.md`). Written Epic community tutorial (Part 1 of a 4-part series by RamTechies/"R SH": Fundamentals of Landscape Modeling & Sculpting, Heightmap Principles + Terrain Generation, Landscape Materials for Painting, Foliage Principles + Placement) on the classic/traditional Landscape system in UE 5.7. Only Episodes 1-2 are published as of this check (2026-07-21) — Episodes 3-4 (materials, foliage) aren't out yet; re-check the playlist (https://www.youtube.com/playlist?list=PLqw4sGRzmvyCs9F_hOSNeyUmFZ8xDBx6J) later for them.
 - **File:** tutorials/unreal-engine-5-7-landscape-series-from-sculpting-to-production-ready-environments.md
+
+
+### Landscape Mode Basics (Unreal Engine 5.7) Part 1
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=rxUsQRcq168
+- **Author:** R SH
+- **UE Version:** UE 5.7.3
+- **Tags:** landscape, sculpting, terrain, worldbuilding, beginner, ue5-7
+- **Summary:** Episode 1 of the "Landscape in UE5.7" series (Epic Developer Community page: `unreal-engine-5-7-landscape-series-from-sculpting-to-production-ready-environments.md`). Classic heightmap-based Landscape creation and hand-sculpting: grid/component/resolution setup, then a full tour of Sculpt Mode — brush types, Editing Layers, Clay Brush, Apply Without Moving, Erase, Smooth, Flatten, Ramp, Erosion/Hydro Erosion, Noise, Mirror, and grayscale alpha-texture sculpting.
+- **File:** tutorials/landscape-mode-basics-unreal-engine-57-part-1.md
+
+
+### Landscape Mode (Unreal Engine 5.7) Part 2
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=IADB2OR8XCk
+- **Author:** R SH
+- **UE Version:** UE 5.7
+- **Tags:** landscape, sculpting, terrain, worldbuilding, beginner, ue5-7
+- **Summary:** Episode 2 of the "Landscape in UE5.7" series, direct sequel to Part 1. Generating a real-world heightmap from a free web tool (location search, square-region crop, 16-bit PNG output, Topo preview) and importing it via Landscape Mode's Import from File, then tuning Scale Z for believable (non-exaggerated) elevation, refining with Part 1's Ramp/Smooth/alpha-noise tools, and organizing sculpt work into dedicated Editing Layers.
+- **File:** tutorials/landscape-mode-unreal-engine-57-part-2.md
 
 
 ### From Scan to Stream: Open Pipelines for Large-Scale 3D in Unreal Engine  | Unreal Fest Chicago 2026
@@ -3249,25 +3269,6 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** NOTE: demonstrated entirely in Blender/Cycles, not Unreal — kept as a materials-theory reference. Renderer-agnostic PBR research on why real metal shows a "reflection tail-off" (sharp core + soft halo) from microscopic scratch density/roughness variation, recreated by stacking multiple BSDF layers of increasing roughness/decreasing presence. Compares against Clearcoat (Unreal's Clear Coat shading model has the same distortion caveats) and GGX Tailoff control. Portable to Unreal via a layered Material Function blending Roughness passes with Lerp nodes.
 - **File:** tutorials/forgotten-metal-knowledge-vray-cycles-arnold.md
 
-
-### Landscape Mode Basics (Unreal Engine 5.7) Part 1
-- **Source:** YouTube
-- **URL:** https://www.youtube.com/watch?v=rxUsQRcq168
-- **Author:** R SH
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
-- **File:** tutorials/landscape-mode-basics-unreal-engine-57-part-1.md
-
-
-### Landscape Mode (Unreal Engine 5.7) Part 2
-- **Source:** YouTube
-- **URL:** https://www.youtube.com/watch?v=IADB2OR8XCk
-- **Author:** R SH
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
-- **File:** tutorials/landscape-mode-unreal-engine-57-part-2.md
 
 ---
 

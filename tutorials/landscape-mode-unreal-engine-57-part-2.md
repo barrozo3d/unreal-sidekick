@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=IADB2OR8XCk
 author: R SH
 ingested: 2026-07-20
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.7"
+tags: [landscape, sculpting, terrain, worldbuilding, beginner, ue5-7]
+extraction_status: complete
 frames_dir: tutorials/frames/landscape-mode-unreal-engine-57-part-2/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 7
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Landscape Mode (Unreal Engine 5.7) Part 2
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py landscape-mode-unreal-engine-57-part-2 <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -281,30 +277,56 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [2:13] tutorials/frames/landscape-mode-unreal-engine-57-part-2/frame_000.jpg
+- [4:20] tutorials/frames/landscape-mode-unreal-engine-57-part-2/frame_001.jpg
+- [6:28] tutorials/frames/landscape-mode-unreal-engine-57-part-2/frame_002.jpg
+- [7:47] tutorials/frames/landscape-mode-unreal-engine-57-part-2/frame_003.jpg
+- [9:08] tutorials/frames/landscape-mode-unreal-engine-57-part-2/frame_004.jpg
+- [10:13] tutorials/frames/landscape-mode-unreal-engine-57-part-2/frame_005.jpg
+- [13:19] tutorials/frames/landscape-mode-unreal-engine-57-part-2/frame_006.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Generating a real-world-based heightmap from a free web tool and importing it into UE 5.7's Landscape Mode to produce a realistic terrain base in seconds, then refining it with the Part 1 sculpt tools (Ramp, Smooth, alpha-driven noise) and Editing Layers. Part 2 of a 4-episode series (Part 1: manual sculpt fundamentals; later parts: material painting and foliage).
 
 ### Summary
-[PENDING EXTRACTION]
+R SH picks up where Part 1 left off (same "My Land" level, recapping Sculpt/Erase/Smooth/Flatten/brush strength/falloff/Layers), then starts a fresh level+landscape ("New Land Lake") specifically to demonstrate heightmap import. Before importing a real heightmap, revisits the alpha-brush PNG from Part 1 to establish the core principle heightmaps share with alpha brushes: **brightness = elevation** — white/bright pixels are high, black pixels are zero elevation/flat, and the file must be a square, 16-bit PNG. Since no heightmap exists yet, demonstrates a free browser-based heightmap generator site that lets you pick a real-world location (by map click or lat/long), crop a square region (example: 6.4km x 6.4km near Vancouver/Chilliwack, BC, deliberately chosen for its mix of mountains, a lake, and a river), configure Output Width/Height (upped to 2048x2048 for more resolution), Output Format (16-bit), and Norm Mode (Smart), switch the preview to a Topo view to evaluate terrain variety, then click **Generate Heightmap** (an Albedo/imagery map can also be generated from the same tool as a rough texture-painting reference). Back in Unreal, Landscape Mode's **Import from File** panel takes that PNG directly — the imported result immediately shows correct relative elevation, but the visual height is controlled by the landscape's **Scale Z** value: 100 (the value called out as significant in Part 1) wildly exaggerates elevation into unusably steep mountains and near-vertical drops, while dialing it down (tested at 40, settled around 50) produces a walkable, believable terrain — demonstrated by pressing Play and walking the Third Person character across it each time. Once a good base scale is found, the same Part 1 sculpt tools apply on top: a Ramp carved across the terrain for a path/road, Smooth to blend it in, and the Part 1 alpha-noise brush reused for fine surface detail while smoothing. Ends with a workflow correction — realizing the ramp should have gone into its own Landscape Editing Layer rather than the main sculpt — renames the base layer to "Main Terrain" and creates a dedicated "Ramps" layer, sets a wide ramp (brush/ramp size pushed up to ~15,000-25,000) as a demonstration. Closes by previewing Part 3: landscape material painting, explicitly flagged as structurally different from normal Unreal materials (built specifically for landscape layer-based painting).
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Recap of Part 1** — same sculpt tools (Sculpt, Erase, Smooth, Flatten), brush Strength/Size/Falloff, and Editing Layers apply; this episode builds on that foundation rather than replacing it.
+2. **New level + landscape for the heightmap demo** — new Basic level, delete default pawn, set Third Person as Game Mode Override, enter Landscape Mode, name the landscape asset (e.g. "New Land Lake") — Location/Rotation/Scale/Section settings from Part 1 aren't manually tuned here because they'll be driven by the heightmap import instead.
+3. **Understand the brightness-to-elevation principle** [frame_000, 2:13] — before importing, re-examine the Part 1 alpha-brush PNG (square, 1080x1080, 16-bit) to confirm: heightmaps follow the identical rule — bright/white = high elevation, black = zero elevation (flat) — this is the mental model for reading any heightmap before importing one.
+4. **Generate a real-world heightmap** [frame_001, 4:20] — using a free web-based heightmap generator: pick/search a real-world area (demoed: an area near Vancouver, BC / Chilliwack Lake, chosen for having mountains + a lake + a river for terrain variety), note the real-world size shown (6.4km x 6.4km for the selected tile), set Output Width/Height (e.g. 2048x2048 for extra resolution), Output Format to **16-bit**, Norm Mode to **Smart**, switch the preview to **Topo** view to sanity-check terrain variety, then click **Generate Heightmap** (a **Generate Albedo** option on the same tool produces a rough color/imagery reference map useful later for texture-painting reference).
+5. **Import into Unreal** [frame_002 6:28; frame_003 7:47 pre-scale-fix] — Landscape Mode → **Import from File** → select the downloaded heightmap PNG; the terrain populates immediately showing correct relative elevation shape. Import the same PNG into the project's Textures folder too, for later reference.
+6. **Tune Scale Z for believable height** [frame_004, 9:08] — Scale Z (called out as the critical heightmap-elevation multiplier in Part 1) at 100 produces wildly exaggerated, unwalkably steep terrain; undo and retry at 40 (better), then 50 (kept) — validated each time by pressing Play and walking the Third Person character across the terrain and adjusting the Player Start position so it doesn't spawn falling to its death or sliding uncontrollably.
+7. **Sculpt refinements on top of the heightmap base** [frame_005, 10:13] — switch back to Sculpt tools from Part 1: place a **Ramp** across the terrain (start/end points + width + falloff, **Add Ramp**) for a path, then **Smooth** to blend its edges into the surrounding terrain, then reuse the Part 1 alpha/noise brush stamp while smoothing to reintroduce fine surface detail so the smoothed area doesn't look artificially flat.
+8. **Layer correction** [frame_006, 13:19] — realizing the ramp should have been isolated in its own layer, renames the original sculpt layer to **"Main Terrain"**, creates a new Landscape Editing Layer named **"Ramps"**, and re-demonstrates a ramp there at a much larger brush/ramp size (pushed up to roughly 15,000-25,000) to show it can be freely hidden/removed independent of the main terrain now that it's isolated.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Landscape Mode → Import from File** — imports a heightmap PNG directly as the landscape's base geometry (square, 16-bit PNG required, matching the alpha-brush convention from Part 1: brightness = elevation).
+- **Scale Z** — the landscape transform's height multiplier against the 0-255/16-bit heightmap values; this episode's central lesson is tuning this value (100 = exaggerated/unusable, ~40-50 = walkable/believable) rather than any fixed "correct" number.
+- **Ramp tool** (from Part 1) — start/end points, ramp width, falloff, Add Ramp; demonstrated at both small and very large (~15,000-25,000) sizes.
+- **Smooth tool** (from Part 1) — used post-ramp to blend edges; combined with an alpha/noise brush stamp to avoid an unnaturally flat smoothed result.
+- **Landscape Editing Layers** (from Part 1) — renaming the base layer ("Main Terrain") and adding a dedicated layer ("Ramps") for isolated, independently toggle/removable ramp work — a workflow correction made mid-video.
+- **External tool:** a free web-based real-world heightmap generator (location search/lat-long, square-region crop, Output Width/Height, Output Format 16-bit, Norm Mode Smart, Topo preview mode, Generate Heightmap / Generate Albedo) — not named on-screen by exact product name in the transcript; identifiable by its UI (lat/long fields, Output Width/Height/Format/Norm Mode, Generate Heightmap/Generate Albedo buttons, Topo map view) if re-identifying it from a frame capture.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.7
 
 ### Tags
-[PENDING EXTRACTION]
+landscape, sculpting, terrain, worldbuilding, beginner, ue5-7
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/landscape-mode-basics-unreal-engine-57-part-1.md` — direct prequel: manual sculpt-tool fundamentals (Layers, Erase, Smooth, Flatten, Ramp, Erosion, alpha brushes) this episode builds on and reuses throughout.
+- `tutorials/unreal-engine-5-7-landscape-series-from-sculpting-to-production-ready-environments.md` — the Epic Developer Community series page for this same 4-part series (this is Episode 2 of 4: Heightmap Principles + Terrain Generation); the community page's own scraped-article version is superseded by this and the Part 1 entry for the episodes actually released so far.
+- `tutorials/introducing-mesh-terrain-craft-large-complex-worlds-unreal-fest-chicago-2026.md` — shares `#landscape` `#terrain` `#worldbuilding`; the newer Nanite-based Mesh Terrain alternative to the classic heightmap Landscape workflow taught in this series.
