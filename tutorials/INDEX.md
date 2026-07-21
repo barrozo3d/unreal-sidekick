@@ -3229,6 +3229,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Shader Graph Basics Episode 35: builds a from-scratch Hash23 Material Function (Vec2 in -> pseudo-random Vec3 out) using scrambled component masks, three magic-number dot products, Sine, a large multiplier, and Frac, then uses it to randomize wall selection and mirroring per room in an interior-cube-mapping shader (Floor/Round/Lerp/Swizzle). Ports the identical system to Unity Shader Graph and flags the hash as non-deterministic across GPU platforms.
 - **File:** tutorials/random-noise---shader-graph-basics---episode-35.md
 
+
+### Unreal Engine UMG Tutorial 🎮 Build HUD & UI Systems (Beginner to Pro Guide)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=cMPQ_W32VzI
+- **Author:** GameDev
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-umg-tutorial-build-hud-ui-systems-beginner-to-pro-guide.md
+
 ---
 
 ## Tag Reference
