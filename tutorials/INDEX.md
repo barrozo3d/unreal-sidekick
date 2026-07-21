@@ -3270,6 +3270,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **File:** tutorials/forgotten-metal-knowledge-vray-cycles-arnold.md
 
 
+
+### A Frame’s Life: Frame Timing, Synchronization, and Latency in UE | Unreal Fest Chicago 2026
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=dKSHw_8vz3I
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/a-frames-life-frame-timing-synchronization-and-latency-in-ue-unreal-fest-chicago.md
+
 ---
 
 ## Tag Reference
