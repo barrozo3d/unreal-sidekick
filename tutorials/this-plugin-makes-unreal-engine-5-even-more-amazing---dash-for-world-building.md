@@ -1,7 +1,7 @@
-﻿---
+---
 title: This Plugin Makes Unreal Engine 5 Even More Amazing - Dash for World Building
 source: YouTube
-url: https://www.youtube.com/watch?v=PLACEHOLDER
+url: https://www.youtube.com/watch?v=EezUW6MSqfE
 author: Polygonflow Dash
 ingested: 2026-06-16
 plugin_version: dash-1.5

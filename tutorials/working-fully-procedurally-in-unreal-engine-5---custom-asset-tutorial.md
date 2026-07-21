@@ -1,7 +1,7 @@
-﻿---
+---
 title: Working Fully Procedurally in Unreal Engine 5 - Custom Asset Tutorial
 source: YouTube
-url: https://www.youtube.com/watch?v=PLACEHOLDER
+url: https://www.youtube.com/watch?v=rdXL5PtsGnY
 author: Polygonflow Dash
 ingested: 2026-06-16
 plugin_version: dash-1.8

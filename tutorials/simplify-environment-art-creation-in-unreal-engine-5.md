@@ -1,7 +1,7 @@
-﻿---
+---
 title: Simplify Environment Art Creation in Unreal Engine 5
 source: YouTube
-url: https://www.youtube.com/watch?v=PLACEHOLDER
+url: https://www.youtube.com/watch?v=_7HfCCLiSec
 author: Polygonflow Dash
 ingested: 2026-06-16
 plugin_version: dash-early

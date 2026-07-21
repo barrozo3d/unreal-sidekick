@@ -19,6 +19,7 @@ Checks performed:
   8. Every tutorial with a YouTube source has non-trivial structured notes (> 200 chars)
   9. YouTube videos with duration > 3 min have a non-empty transcript
      (catches failed/truncated ingest where yt-dlp or Whisper returned nothing)
+  10. No PLACEHOLDER url: values in frontmatter
 """
 
 import os
@@ -155,8 +156,13 @@ def check_tutorials():
             fail(f"{fname}: ue_version is still a PENDING placeholder")
 
         # Check 4: empty tags
-        if re.search(r"tags:\s*\[\s*\]", content):
+        if re.search(r"tags:\s*\[\s*(?:\"\"|'')?\s*\]", content):
             fail(f"{fname}: tags array is empty")
+
+        # Check 10: url must not be a PLACEHOLDER (extract step once overwrote
+        # real URLs with the template value — 9 Dash tutorials, fixed 2026-07-21)
+        if re.search(r"^url:.*PLACEHOLDER", content, re.MULTILINE):
+            fail(f"{fname}: url is a PLACEHOLDER — recover the real URL from git history or batch_ingest.py")
 
         if is_youtube_source(content):
             # Check 8: non-trivial structured notes
@@ -224,6 +230,7 @@ def check_index():
 
 
 def main():
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     print("=" * 60)
     print("unreal-sidekick validate.py")
     print("=" * 60)

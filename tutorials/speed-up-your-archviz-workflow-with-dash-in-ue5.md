@@ -1,7 +1,7 @@
 ---
 title: Speed Up Your Archviz Workflow with Dash in UE5
 source: YouTube
-url: https://www.youtube.com/watch?v=PLACEHOLDER
+url: https://www.youtube.com/watch?v=cC0l3yZMt3M
 author: Polygonflow Dash
 ingested: 2026-06-16
 plugin_version: dash-1.4

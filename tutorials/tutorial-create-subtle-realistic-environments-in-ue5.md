@@ -1,7 +1,7 @@
-﻿---
+---
 title: Tutorial - Create Subtle Realistic Environments in UE5
 source: YouTube
-url: https://www.youtube.com/watch?v=PLACEHOLDER
+url: https://www.youtube.com/watch?v=hInAtC725VQ
 author: Polygonflow Dash
 ingested: 2026-06-16
 plugin_version: dash-early

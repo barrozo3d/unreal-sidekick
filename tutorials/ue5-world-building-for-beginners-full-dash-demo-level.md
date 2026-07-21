@@ -1,7 +1,7 @@
-﻿---
+---
 title: UE5 World Building for Beginners - Full Dash Demo Level
 source: YouTube
-url: https://www.youtube.com/watch?v=PLACEHOLDER
+url: https://www.youtube.com/watch?v=bxeocONsu1Y
 author: Polygonflow Dash
 ingested: 2026-06-16
 plugin_version: dash-1.9

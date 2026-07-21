@@ -1,7 +1,7 @@
-﻿---
+---
 title: Unreal Engine & Dash Medieval Environment Tutorial
 source: YouTube
-url: https://www.youtube.com/watch?v=PLACEHOLDER
+url: https://www.youtube.com/watch?v=_SKfQJ5pAAc
 author: Polygonflow Dash
 ingested: 2026-06-16
 plugin_version: dash-1.7

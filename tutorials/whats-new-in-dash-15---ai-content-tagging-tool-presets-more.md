@@ -1,7 +1,7 @@
-﻿---
+---
 title: "What's New in Dash 1.5 - AI Content Tagging, Tool Presets & More"
 source: YouTube
-url: https://www.youtube.com/watch?v=PLACEHOLDER
+url: https://www.youtube.com/watch?v=mYe43x2Dtg0
 author: Polygonflow Dash
 ingested: 2026-06-16
 plugin_version: dash-1.5

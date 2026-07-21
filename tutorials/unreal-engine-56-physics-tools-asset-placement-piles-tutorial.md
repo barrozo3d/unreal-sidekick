@@ -1,7 +1,7 @@
-﻿---
+---
 title: Unreal Engine 5.6 Physics Tools & Asset Placement Piles Tutorial
 source: YouTube
-url: https://www.youtube.com/watch?v=PLACEHOLDER
+url: https://www.youtube.com/watch?v=qxXQsMCMWfw
 author: Polygonflow Dash
 ingested: 2026-06-16
 plugin_version: dash-1.11
