@@ -92,11 +92,24 @@ def get_transcript_text(content):
     Strips frame references and the '[...raw data omitted...]' compact marker.
     Returns empty string for legitimate no-transcript files.
     """
-    raw_section = re.search(r"## Raw Data.*?(?=\n---|\n## Structured Notes|$)", content, re.DOTALL)
-    if not raw_section:
+    raw_start = content.find("## Raw Data")
+    if raw_start == -1:
         return None  # No Raw Data section at all
+    raw = content[raw_start:]
 
-    raw = raw_section.group(0)
+    notes_split = re.search(r"\n## Structured Notes", raw)
+    if notes_split:
+        raw = raw[:notes_split.start()]
+
+    # The Ingest Safeguard Report box (inserted by ingest.py/select_frames.py for
+    # needs-review files) ends with its own "\n---\n" divider that sits *before*
+    # the real transcript — strip the whole box out first so the boundary check
+    # below doesn't mistake it for the end of the Raw Data section.
+    raw = re.sub(r"\n## Ingest Safeguard Report\n.*?\n---\n", "\n", raw, flags=re.DOTALL)
+
+    boundary = re.search(r"\n---", raw)
+    if boundary:
+        raw = raw[:boundary.start()]
 
     # Legitimate compact format — notes were extracted, raw omitted intentionally
     if "[...raw data omitted" in raw:
