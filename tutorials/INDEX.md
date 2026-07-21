@@ -3194,9 +3194,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=3230-FwCts0
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5 Early Access
+- **Tags:** metasounds, audio, blueprint, pipeline, intermediate, advanced, ue5-0
+- **Summary:** Official Epic talk (Chris Murphy) framing MetaSounds as "audio shaders." Builds a layered minigun SFX rig (spin-up/loop/spin-down via Wave Player + Mixer + ADSR-driven Pitch Shift, randomized overlapping gunfire via Trigger Counter/Compare) and fully procedural generative sci-fi music (Square oscillator + Scale to Note Array + MIDI Note Quantizer/To Frequency, BPM-synced Bar/Beat/Quaver Send-Receive triggers, Ladder Filter, and a reactive Pickup Sound MetaSound layered in from world events).
 - **File:** tutorials/metasounds-in-ue5-from-miniguns-to-music-unreal-engine.md
 
 ---

@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=3230-FwCts0
 author: Unreal Engine
 ingested: 2026-07-20
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5 Early Access"
+tags: [metasounds, audio, blueprint, pipeline, intermediate, advanced, ue5-0]
+extraction_status: complete
 frames_dir: tutorials/frames/metasounds-in-ue5-from-miniguns-to-music-unreal-engine/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # MetaSounds in UE5: From Miniguns to Music | Unreal Engine
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py metasounds-in-ue5-from-miniguns-to-music-unreal-engine <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### <Untitled Chapter 1> [0:00]
@@ -484,30 +480,62 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [1:05] tutorials/frames/metasounds-in-ue5-from-miniguns-to-music-unreal-engine/frame_000.jpg
+- [2:20] tutorials/frames/metasounds-in-ue5-from-miniguns-to-music-unreal-engine/frame_001.jpg
+- [5:00] tutorials/frames/metasounds-in-ue5-from-miniguns-to-music-unreal-engine/frame_002.jpg
+- [8:30] tutorials/frames/metasounds-in-ue5-from-miniguns-to-music-unreal-engine/frame_003.jpg
+- [12:00] tutorials/frames/metasounds-in-ue5-from-miniguns-to-music-unreal-engine/frame_004.jpg
+- [16:30] tutorials/frames/metasounds-in-ue5-from-miniguns-to-music-unreal-engine/frame_005.jpg
+- [19:45] tutorials/frames/metasounds-in-ue5-from-miniguns-to-music-unreal-engine/frame_006.jpg
+- [23:20] tutorials/frames/metasounds-in-ue5-from-miniguns-to-music-unreal-engine/frame_007.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+MetaSounds graph-based procedural audio in UE5 Early Access — building a layered, triggerable minigun SFX rig (spin-up/loop/spin-down + randomized/pitch-varied overlapping gunfire) and, separately, fully procedural generative sci-fi music (square-wave oscillator driven by scale/note lookups, BPM-synced bar/beat/quaver triggers, envelope shaping, and a ladder filter) that reacts live to world events (touching pickups).
 
 ### Summary
-[PENDING EXTRACTION]
+Official Epic Games talk by Chris Murphy (technical artist) framing MetaSounds conceptually as "audio shaders" — node-graph audio synthesis analogous to material shader graphs. Part 1 builds a **Minigun** MetaSound: chain a Wave Player (On Play → spin-up "barrel wind start" sample) into a second looping Wave Player (On Finished → looping "barrel wind loop", Loop enabled) combined through a **Mixer**; add a **Pitch Shift** input and drive it over time with an **Envelope (ADSR Float)** node (multiplied/rescaled 0–1 to 0–2.5) so the spin-up pitch rises programmatically instead of via a hardcoded value; add custom graph **inputs** ("Spin Down"/"Spin Up" triggers) to play a spin-down stinger sample and stop the loop/mixer, and to restart the wind-up cleanly if fire resumes mid-spin-down. For the gunfire layer: a Wave Player firing one of 3 sample variants, driven by **Trigger Repeat** (configurable period, later expressed as a "Shots Per Minute" input converted to a repeat period) instead of raw On Play; randomize which sample plays via a **Random (Get) node reading an input array** ("Shot Array" of 3 wave assets) and randomize pitch via **Random Float** (range −0.5 to 2) into Pitch Shift; to allow overlapping/non-clipping shots, duplicate the whole play chain 3x gated by a **Trigger Counter + Trigger Compare (int32)** so shot 1/2/3 route to separate Wave Player instances mixed together, driven by "Start Fire"/"Stop Fire" graph inputs — then wire the whole MetaSound into the minigun's Blueprint by setting an Audio Component's Sound asset and calling the named trigger parameters via the Audio Component's Parameter Interface. Part 2 builds procedural **generative music**: a **Square** oscillator node driven by a frequency input; convert a random/derived note value into frequency via **Scale to Note Array** (Major/Minor scale degrees, Chord Tones Only toggle) → **MIDI Note Quantizer** → **MIDI To Frequency (Float)**; shape each note's amplitude with an **AD Envelope (Float)** (attack/decay durations expressed as fractions of a bar) multiplied into the Square's output, and drive note timing off a **BPM → Send Time (bar duration)** chain feeding parallel **Bar Trigger** / **Beat Trigger** (and later **Quaver Trigger**, an eighth-note subdivision) send/receive pairs so multiple layered elements can sync to the same tempo grid; broadcast the currently-playing note via a **Send/Receive "Current Note"** pair so other layers (e.g. a harmony line) can derive nearby chord tones by offsetting the current note by a random interval (3–8 semitones, chord-tones-only); add sci-fi character with a **Ladder Filter** whose cutoff frequency is itself modulated by another envelope (remapped via **Map Range**) triggered on its own bar-synced schedule; and demonstrate reactivity by broadcasting the ladder-filter/envelope value out as a Send so a separate **Pickup Sound** MetaSound (built by copying the note-generation subgraph and re-triggering it on Quaver instead of Bar/Beat) can layer extra procedurally-pitched notes on top of the music in real time whenever the player touches a world pickup actor — capped with a Trigger Counter comparing against a max quaver count (≤8) before a delayed Finish, so the extra layer doesn't play forever.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Minigun setup:** Content Browser → right-click → Sound → MetaSound (requires the MetaSounds plugin enabled) → build the spin-up/loop chain: Wave Player (On Play → spin-up sample) → On Finished drives a second looping Wave Player (Loop = true) → combine both through a **Mixer** node → route to the graph's Audio output.
+2. Add a **Pitch Shift** float input on the loop's Wave Player; drive it from an **Envelope (ADSR Float)** node triggered by the first Wave Player's On Finished, remapped from its 0–1 output range to a wider range (e.g. multiply by 2.5) for a more pronounced spin-up pitch rise.
+3. Add custom graph **Inputs** (right-click in the Inputs panel, set type to Trigger) named e.g. "Spin Down" and "Spin Up": Spin Down plays a stop/stinger sample and stops the loop Wave Player + Mixer; Spin Up re-triggers the wind-up chain and can also Release the envelope so re-firing mid-spin-down behaves correctly.
+4. **Gunfire layer:** a separate Wave Player chain, gated by a **Trigger Repeat** node (Period input) — expose a "Shots Per Minute" input and convert it to a repeat period so fire rate is tunable/tempo-based.
+5. Randomize which sample fires using a **Random (Get)** node reading from an input **Wave Asset array** ("Shot Array" populated with 3 fire samples); randomize each shot's pitch via a **Random Float** node (e.g. −0.5 to 2) plugged into a Pitch Shift on the fire Wave Player.
+6. To let shots overlap without cutting each other off, add a **Trigger Counter** (counts fire triggers) feeding a **Trigger Compare (int32)** chain that routes shot 1 / shot 2 / shot 3 to three separate, duplicated Wave Player instances, mixed together via another Mixer — this avoids each new shot stopping the previous one's playback (as a single shared Wave Player would).
+7. Expose "Start Fire" / "Stop Fire" Trigger inputs on the graph instead of driving everything from On Play, so the Blueprint side can start/stop firing on demand.
+8. **Wire into gameplay:** in the minigun's Blueprint, assign the built MetaSound as the Sound asset on an Audio Component, then call each named trigger (Spin Up, Spin Down, Start Fire, Stop Fire) via the Audio Component's **Parameter Interface** node from gameplay events (e.g. input press/release).
+9. **Procedural music setup:** new MetaSound ("Sci-Fi Music") using a **Square** oscillator node instead of any sample playback; feed it a frequency derived from **Scale to Note Array** (choose Major/Minor scale degrees, optional Chord Tones Only) → **MIDI Note Quantizer** → **MIDI To Frequency (Float)**, sourced initially from a **Random Float** note value (e.g. 60–72 MIDI range).
+10. Shape each note's volume with an **AD Envelope (Float)** (Attack/Decay Time) multiplied into the Square oscillator's audio output so notes fade in/out instead of buzzing continuously.
+11. Build a shared tempo grid: a **BPM** input → **BPM to Seconds** → a bar-duration Send/Receive pair ("Bar Time," Division of Whole Note = 1) and a matching Bar **Trigger** send/receive pair, then duplicate for **Beat Trigger**/**Beat Time** and later **Quaver Trigger** (an eighth-note subdivision) — express each envelope's Attack/Decay as fractions of the received bar/beat/quaver time (e.g. Attack = 0.33× bar, Decay = 0.66× bar) so timing stays tempo-relative.
+12. Broadcast the currently-selected note via a **Send/Receive "Current Note"** pair so other layers can read it; derive a harmony/counter-melody note by subtracting a random interval (e.g. 3–8) from the current note with Chord Tones Only enabled on its own Scale to Note Array.
+13. Add sci-fi texture with a **Ladder Filter** node; modulate its Cutoff Frequency from a second envelope remapped via **Map Range** (e.g. 200–2000), triggered on its own bar-synced schedule offset from the main note envelope (e.g. 0.25/0.75 timing) for variation.
+14. Demonstrate world reactivity: broadcast the ladder-filter/envelope value out as a Send (not consumed locally) purely so a second MetaSound can read it; drop the finished "Sci-Fi Music" MetaSound into the level and confirm pickups in the scene visually "flare up" when touched (pre-built Blueprint logic).
+15. Build a **Pickup Sound** MetaSound by copying the note-generation subgraph into a new asset, but re-trigger its envelope/note logic on **Quaver Trigger** (Receive) instead of Bar/Beat, so touching a pickup layers extra, faster procedurally-pitched notes on top of the ambient music; drive this from the pickup actor's Blueprint via an audio variable.
+16. Prevent the pickup layer from playing forever: count incoming Quaver triggers with a **Trigger Counter**, compare against a max count (e.g. ≤8) to keep playing, otherwise Delay ~1 second and call Finish on the MetaSound.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Asset type:** MetaSound (Content Browser → Sound → MetaSound; requires the MetaSounds plugin).
+- **Core nodes used:** Wave Player, Mixer (Mono Mixer for a mono effect — stereo is possible via a stereo MetaSound), Pitch Shift, Envelope (ADSR Float / AD Envelope Float), Trigger Repeat, Trigger Counter, Trigger Compare (int32), Random (Get) on a Wave Asset array, Random Float, Square (oscillator), Scale to Note Array (Major/Minor scale, Chord Tones Only), MIDI Note Quantizer, MIDI To Frequency (Float), Ladder Filter (Cutoff Frequency, Resonance), Map Range (Float), BPM to Seconds, Send/Receive node pairs (used for Bar Time, Bar Trigger, Beat Time, Beat Trigger, Quaver Trigger, Current Note, and the ladder-filter value — all addressed by name and global within/across MetaSound graphs).
+- **Custom graph Inputs created:** Spin Down, Spin Up, Start Fire, Stop Fire (Trigger type), Shots Per Minute, Shot Array (Wave Asset array), BPM (Float).
+- **Blueprint side:** Audio Component (Sound asset assignment), Parameter Interface node (call named MetaSound trigger inputs from Blueprint events).
+- **Concept framing:** MetaSounds described as "audio shaders" — a node-graph synthesis/DSP system analogous to material shader graphs, giving full control over audio rendering.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate/Advanced — assumes basic UE Blueprint/node-graph familiarity; the minigun section is approachable, the procedural music section (tempo-synced Send/Receive networks, MIDI/scale quantization, cross-MetaSound communication) is more advanced sound-design/DSP territory.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 Early Access build (MetaSounds debut) — noted explicitly in the intro as an Early Access feature at time of recording.
 
 ### Tags
-[PENDING EXTRACTION]
+metasounds, audio, blueprint, pipeline, intermediate, advanced, ue5-0
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- No other ingested unreal-sidekick tutorial currently covers MetaSounds — this and the companion beginner MetaSounds queue item (ingested in this same session) are the first coverage of `references/audio-metasounds.md`'s primary subject.
