@@ -3214,9 +3214,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=lrc-j7ub28U
 - **Author:** Ben Cloward
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** Not specified (UE5.x)
+- **Tags:** materials, shaders, pbr, blueprint, beginner, intermediate
+- **Summary:** Shader Graph Basics Episode 9 covering surface normal, camera vector, and light vector fundamentals in Unreal's Material Editor (and Unity Shader Graph for comparison): an up-facing mask via VertexNormalWS dot-product / Z-component mask, a Fresnel-style camera-facing mask via CameraVectorWS dot-product, a camera-distance falloff mask via Length of CameraPositionWS minus world position, and why the Light Vector node errors in standard deferred materials.
 - **File:** tutorials/input-vectors---shader-graph-basics---episode-9.md
 
 ---

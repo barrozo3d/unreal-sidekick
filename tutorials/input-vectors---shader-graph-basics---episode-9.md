@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=lrc-j7ub28U
 author: Ben Cloward
 ingested: 2026-07-20
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "Not specified (UE5.x)"
+tags: [materials, shaders, pbr, blueprint, beginner, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/input-vectors---shader-graph-basics---episode-9/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Input Vectors - Shader Graph Basics - Episode 9
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py input-vectors---shader-graph-basics---episode-9 <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Core Concepts [0:00]
@@ -351,30 +347,51 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [0:30] tutorials/frames/input-vectors---shader-graph-basics---episode-9/frame_000.jpg
+- [5:40] tutorials/frames/input-vectors---shader-graph-basics---episode-9/frame_001.jpg
+- [8:35] tutorials/frames/input-vectors---shader-graph-basics---episode-9/frame_002.jpg
+- [11:05] tutorials/frames/input-vectors---shader-graph-basics---episode-9/frame_003.jpg
+- [16:00] tutorials/frames/input-vectors---shader-graph-basics---episode-9/frame_004.jpg
+- [18:45] tutorials/frames/input-vectors---shader-graph-basics---episode-9/frame_005.jpg
+- [22:15] tutorials/frames/input-vectors---shader-graph-basics---episode-9/frame_006.jpg
+- [25:10] tutorials/frames/input-vectors---shader-graph-basics---episode-9/frame_007.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Using the three fundamental shader input vectors — **surface normal**, **camera (view) vector**, and **light vector** — in Unreal's Material Editor (and, for comparison, Unity's Shader Graph) to build masks: an up-facing surface mask, a Fresnel-style facing-camera mask, and a camera-distance falloff mask.
 
 ### Summary
-[PENDING EXTRACTION]
+Episode 9 of Ben Cloward's "Shader Graph Basics" series (27m29s), covering both Unreal Engine 5's Material Editor and Unity's Shader Graph side by side. Opens with theory: a vector is a start point + direction/end point; a **surface normal** is stored per-vertex, always unit length, and is perpendicular to the surface; a **camera vector** runs from the camera to the rendered point (its length gives scene depth, and comparing it to the surface normal via a normalized dot product reveals facing-toward-camera vs. facing-away, i.e. white=facing/parallel, black=perpendicular); a **light vector** runs from a light to the rendered point (or is constant for directional lights) and its dot product with the normal indicates illumination — but because Unreal and Unity use deferred rendering, diffuse lighting is normally computed later in the pipeline (G-buffer stage), so a Light Vector node used directly in a surface material throws an error ("Light Vector can only be used in a light function or a deferred decal material"). Three Unreal Material Editor examples: (1) **Up-facing mask** — dot product of `VertexNormalWS` with a hardcoded (0,0,1) up vector (Z-up in Unreal), Saturate, into Base Color/Emissive; shown to be mathematically identical (and cheaper) to just taking the Z component of the world-space normal via a Mask node, since the dot product's X/Y terms multiply against zero anyway — swapping to the Y or X component instead produces side-facing masks. (2) **Fresnel-style camera-facing mask** — dot product of the (already-normalized in Unreal) `CameraVectorWS` node with the vertex normal, giving white where the surface faces the camera and black at grazing angles; a Power node sharpens the falloff, and a One Minus node inverts it (useful for the cloth-shader technique referenced from an earlier video). (3) **Camera-distance falloff mask** — manually construct an un-normalized camera vector (`CameraPositionWS` minus `Absolute World Position`), take its `Length`, then Subtract an offset (distance in cm where the falloff starts) and Divide by a range value (how many additional units it takes to reach full white) — used for effects like fading a detail texture in/out based on camera distance, or making raindrops appear only near the camera. A fourth example demonstrates the **Light Vector node** erroring out in a standard surface material and explains why (deferred renderer G-buffer separation), noting it's only usable in light functions or deferred decal materials. The Unity portion mirrors all three techniques in Shader Graph, calling out two engine differences: Unity is Y-up (so the up-mask uses the Y/G component instead of Z), and Unity's Camera node's "camera direction" output is inverted relative to Unreal's camera vector, requiring an added Negate node before the Fresnel dot product.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Up-facing mask (Unreal):** get `VertexNormalWS` → Dot Product with a hardcoded Vector3 (0, 0, 1) → Saturate → wire into Base Color/Emissive Color for a debug preview; white = facing up, black = facing down, smooth falloff between.
+2. Optimize step 1: since the dot product's X/Y terms multiply against the up vector's zero components, the same up-mask can be produced more cheaply by taking just the **Z component** of `VertexNormalWS` via a Mask (Component Mask) node — swap to Y or X for side-facing/front-facing masks instead.
+3. **Fresnel/camera-facing mask (Unreal):** Dot Product between the `CameraVectorWS` node (already normalized in Unreal, unlike its literal camera-to-surface definition) and `VertexNormalWS` → optional Power node to sharpen the falloff → optional One Minus to invert (white at edges, black facing camera) → Saturate/wire to preview.
+4. **Camera-distance falloff mask (Unreal):** `CameraPositionWS` minus `Absolute World Position` → `Length` node to get the true (un-normalized) camera-to-surface distance → Subtract an offset value (start distance) → Divide by a range value (falloff distance) → Saturate — produces a mask that's black near the camera and white beyond `offset + range` units away; both offset and range can be exposed as material parameters.
+5. **Light Vector (Unreal):** wiring a `Light Vector` node's dot product with the vertex normal directly into a standard surface material's outputs produces a compile error, because Unreal's deferred renderer computes diffuse lighting later (in the G-buffer stage) — this node is restricted to light functions or deferred decal materials, where doing manual per-light dot products is valid.
+6. **Unity equivalents:** up-mask uses a Split node reading the **G (Y)** channel instead of Z, since Unity is Y-up; Fresnel mask requires **negating** the Camera node's "camera direction" output before the dot product (Unity's camera direction is inverted relative to Unreal's camera vector convention) before applying the same Power/One Minus adjustments; the camera-distance mask uses the identical Camera-position-minus-world-position → Length → Subtract → Divide chain.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Material Editor nodes:** `VertexNormalWS`, `CameraVectorWS` (pre-normalized in Unreal), `CameraPositionWS`, `Absolute World Position`, `Light Vector` (restricted to light functions/deferred decals), Dot Product, Mask (Component Mask), Saturate, Power, One Minus, Subtract, Divide, Length, Constant3Vector.
+- **Key engine facts called out:** Unreal is Z-up (Unity is Y-up); Unreal's `CameraVectorWS` node output is already unit-length/normalized, unlike the literal camera-to-surface vector definition; dot products require both operand vectors to be the same (unit) length to produce expected 0–1 results; deferred rendering means diffuse lighting happens in the G-buffer stage, not inside a standard material graph.
+- **Also covered (Unity Shader Graph, for comparison):** Split node (G channel for up), Camera node / camera direction output (requires Negate for correct Fresnel direction), same Length/Subtract/Divide distance-mask chain.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner/Intermediate — assumes basic Material Editor node-wiring familiarity and prior knowledge of the Dot Product node (referenced from an earlier series episode); concepts build cleanly from vector theory to practical masks.
 
 ### UE Version
-[PENDING EXTRACTION]
+Not explicitly stated (Material Editor node set — VertexNormalWS, CameraVectorWS, Light Vector — consistent with recent UE5.x).
 
 ### Tags
-[PENDING EXTRACTION]
+materials, shaders, pbr, blueprint, beginner, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/random-noise---shader-graph-basics---episode-35.md` — same "Shader Graph Basics" series (Ben Cloward), also comparing Unreal Material Editor and Unity Shader Graph; shares tags: materials, shaders, blueprint.
+- No other ingested unreal-sidekick tutorial currently covers Material Editor dot-product/Fresnel/vector-mask fundamentals — check `references/materials-shaders.md` for related node reference once cross-updated.
