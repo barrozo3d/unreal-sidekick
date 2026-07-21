@@ -3275,9 +3275,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=dKSHw_8vz3I
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.8-era
+- **Tags:** frame-pacing, input-latency, vsync, swapchain, profiling, insights, delta-time, jitter, performance, unreal-fest, advanced
+- **Summary:** Epic Tech-DevRel deep dive (Unreal Fest Chicago 2026) into the input-to-photon pipeline: swapchain/v-sync/compositor mechanics, GTSyncType 0/1/2 pipeline braking, the ~6-frame full pipeline and its hitch resiliency vs input latency tradeoff, Reflex/Anti-Lag 2/XeLL, secondary upscale, VRR, stat unit semantics, delta-time jitter anatomy, and the author's Delta Time Smoother plugin — with Epic's adaptive frame pacing rework coming post-5.8.
 - **File:** tutorials/a-frames-life-frame-timing-synchronization-and-latency-in-ue-unreal-fest-chicago.md
 
 ---

@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=dKSHw_8vz3I
 author: Unreal Engine
 ingested: 2026-07-21
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.8"
+tags: [frame-pacing, input-latency, vsync, swapchain, profiling, insights, delta-time, jitter, performance, unreal-fest, advanced]
+extraction_status: complete
 frames_dir: tutorials/frames/a-frames-life-frame-timing-synchronization-and-latency-in-ue-unreal-fest-chicago/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 14
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # A Frame’s Life: Frame Timing, Synchronization, and Latency in UE | Unreal Fest Chicago 2026
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py a-frames-life-frame-timing-synchronization-and-latency-in-ue-unreal-fest-chicago <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -593,30 +589,64 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [1:30] tutorials/frames/a-frames-life-frame-timing-synchronization-and-latency-in-ue-unreal-fest-chicago/frame_000.jpg
+- [3:20] tutorials/frames/a-frames-life-frame-timing-synchronization-and-latency-in-ue-unreal-fest-chicago/frame_001.jpg
+- [6:00] tutorials/frames/a-frames-life-frame-timing-synchronization-and-latency-in-ue-unreal-fest-chicago/frame_002.jpg
+- [11:00] tutorials/frames/a-frames-life-frame-timing-synchronization-and-latency-in-ue-unreal-fest-chicago/frame_003.jpg
+- [16:05] tutorials/frames/a-frames-life-frame-timing-synchronization-and-latency-in-ue-unreal-fest-chicago/frame_004.jpg
+- [21:30] tutorials/frames/a-frames-life-frame-timing-synchronization-and-latency-in-ue-unreal-fest-chicago/frame_005.jpg
+- [24:45] tutorials/frames/a-frames-life-frame-timing-synchronization-and-latency-in-ue-unreal-fest-chicago/frame_006.jpg
+- [28:10] tutorials/frames/a-frames-life-frame-timing-synchronization-and-latency-in-ue-unreal-fest-chicago/frame_007.jpg
+- [30:00] tutorials/frames/a-frames-life-frame-timing-synchronization-and-latency-in-ue-unreal-fest-chicago/frame_008.jpg
+- [35:10] tutorials/frames/a-frames-life-frame-timing-synchronization-and-latency-in-ue-unreal-fest-chicago/frame_009.jpg
+- [38:05] tutorials/frames/a-frames-life-frame-timing-synchronization-and-latency-in-ue-unreal-fest-chicago/frame_010.jpg
+- [46:15] tutorials/frames/a-frames-life-frame-timing-synchronization-and-latency-in-ue-unreal-fest-chicago/frame_011.jpg
+- [47:10] tutorials/frames/a-frames-life-frame-timing-synchronization-and-latency-in-ue-unreal-fest-chicago/frame_012.jpg
+- [49:15] tutorials/frames/a-frames-life-frame-timing-synchronization-and-latency-in-ue-unreal-fest-chicago/frame_013.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Deep anatomy of Unreal's frame pipeline — from input sampling to photon — covering swapchain/v-sync mechanics, how each pipeline stage brakes (GTSyncType), the input-latency vs hitch-resiliency tradeoff, delta-time jitter, and every practical lever for reducing input latency (`GTSyncType 2`, Reflex/Anti-Lag 2/XeLL, `r.OneFrameThreadLag`, secondary upscale, VRR). By Ari (Epic Technical Developer Relations), Unreal Fest Chicago 2026; the companion Epic Developer Community text article is the always-current version.
 
 ### Summary
-[PENDING EXTRACTION]
+52-minute conference talk explaining what actually happens between user input and the frame reaching the display, and how to trade hitch resiliency for input latency. **Swapchain foundations:** front/back buffers, double buffering (default on console/mobile) vs triple (default PC); v-sync swaps at end-of-scanout, disabling it (`r.VSync 0`) lowers latency at the cost of tearing and hitch absorption — recommendation: ship v-sync ON by default with an opt-out. `r.VSyncInformationInsights` adds flip/miss markers to Insights (a dedicated green/red v-sync track is coming). **Compositor:** Windows' DWM adds ~1 frame; UE's flip-model swapchain auto-skips it in borderless fullscreen when the game covers the screen (true exclusive fullscreen no longer exists on Windows — it's emulated); NVIDIA multi-plane overlay only works on the primary monitor, so gaming on a secondary monitor adds a frame of lag; verify compositing mode with Intel's PresentMon. **Secondary upscale:** UE has a little-known second spatial upscaling stage (`r.SecondaryScreenPercentage.GameViewport`, algorithm via `r.Upscale.Quality`) that renders UI at native res afterward — a better alternative to "exclusive fullscreen at lower resolution" except on memory-bound 4K laptop panels. **Pipeline braking (GTSyncType 0, the default):** GPU stalls when no back buffer is free (shows as an unmarked bubble after the last post-process pass); RHI thread waits on the previous GPU frame (`SyncPoint_Wait` fence) and on Present when the swapchain is full; render thread waits on last frame's hardware occlusion queries (the misread "occlusion taking 15ms" is waiting, not work; non-Nanite only — `r.AllowOcclusionQueries`); game thread waits on the previous render-thread start plus a two-frames-ago RHI fence. Oversubscription markers likewise mean "waiting", not work. **Full pipeline = ~6 frames in-engine + 2 in hardware**, so input latency at 30fps ≈ 200ms, 60fps ≈ 100ms, 120fps ≈ 50ms — higher framerate is the simplest latency cut. A full pipeline can absorb a 2–3-frame hitch with zero dropped frames (demonstrated with a 90ms hitch, no drop). **Reducing latency:** `GTSyncType 2` throttles the game thread to start a fixed time before target v-sync (consoles only — PS4/5, Xbox One/Series, Switch 1/2; tune `SyncSlackMS`, default 10ms) for minimal latency and consistent delta time but zero hitch headroom; on PC use NVIDIA Reflex / AMD Anti-Lag 2 / Intel XeLL for adaptive throttling; `t.MaxFPS` slightly below refresh (58–59 on a 60Hz panel) starves the pipeline for lowest latency but drops frames every second — a user trick, not a shipping technique; `r.OneFrameThreadLag 0` and `GTSyncType 1` shorten the pipeline at escalating parallelism cost. **Future:** Epic is reworking frame pacing into a hardware-agnostic adaptive throttle with a target-slack setting (not in 5.8 yet). **VRR:** vendor-agnostic since HDMI 2.1, only helps when under refresh rate, enabled simply by v-sync ON. **Measuring:** `stat unit` Frame = wall-clock between game-thread frame starts; Game = that minus idle; GPU = busy-time union (bubbles excluded); Input = sampled-to-flip only (excludes hardware/OS/display latency); numbers are EMA-smoothed (0.9) and the stat FPS/unit mismatch (0.75 factor) is fixed in 5.8; third-party overlays count v-syncs, which UE can't yet report. **Jitter:** delta time = last frame's frame time; a hitch causes drop → recovery (big delta) → pipeline refill (short deltas), visualized with a 60-section spinning wheel; monitors rarely have round refresh rates (59.95Hz etc. — UE reports integers, causing ~0.5s drift/10min). Author's **Delta Time Smoother plugin** (GitHub) offers absorption / mitigation / pass-through modes as a stopgap until the new frame pacing ships.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Ship v-sync ON by default (`r.VSync 1`) with a user opt-out; enable `r.VSyncInformationInsights` to see flip frame numbers and misses in Unreal Insights.
+2. On Windows, prefer borderless fullscreen — the flip-model swapchain skips the DWM compositor automatically when the game covers the screen; confirm with PresentMon's composition-mode column; warn players off secondary-monitor gaming on NVIDIA (overlay only on primary → +1 frame lag).
+3. For lower-res performance modes, enable the secondary spatial upscaler (`r.SecondaryScreenPercentage.GameViewport`, algorithm via `r.Upscale.Quality`) instead of "exclusive fullscreen" — UI stays native-res crisp.
+4. Read profiler waits correctly: GPU bubble after the last post-process pass = waiting for back buffer; `SyncPoint_Wait` = RHI waiting on previous GPU frame; "waiting for GPU occlusion queries" / oversubscription = fences, not work. Don't "optimize" a wait away — it reappears elsewhere.
+5. Cut latency first by raising framerate (pipeline depth is constant in frames, so latency halves from 30→60fps).
+6. On consoles, set `r.GTSyncType 2` and tune `r.GTSyncSlackMS` (default 10) per platform for near-perfect pacing — only if you reliably hold frame budget, since one overrun drops a frame.
+7. On PC, integrate NVIDIA Reflex, AMD Anti-Lag 2, and Intel XeLL for adaptive game-thread throttling.
+8. If some resiliency must stay: `r.OneFrameThreadLag 0` (game/render threads stop overlapping — one core lost) or `r.GTSyncType 1` (waits on previous RHI frame) shorten the pipeline progressively.
+9. Fight jitter with the author's Delta Time Smoother plugin (hitch-absorption for pipeline-absorbable hitches, mitigation-averaging for medium ones, pass-through for 100ms+ spikes) until Epic's adaptive frame pacing ships.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **CVars:** `r.VSync`, `r.VSyncInformationInsights`, `r.GTSyncType` (0 default full pipeline / 1 previous-RHI wait / 2 fixed throttle, console-only), `r.GTSyncSlackMS` (default 10ms, max one frame), `r.OneFrameThreadLag` (default 1), `r.AllowOcclusionQueries` (non-Nanite HW occlusion), `r.Upscale.Quality`, `r.SecondaryScreenPercentage.GameViewport`, `t.MaxFPS` (pipeline-starving trick — don't ship).
+- **Profiling:** Unreal Insights (`SyncPoint_Wait`, ProcessVisibilityTasks, oversubscription markers, upcoming dedicated v-sync track), `stat unit` / `stat fps` semantics (EMA smoothing 0.9; 0.75 discrepancy fixed in 5.8), Intel PresentMon (composition mode + v-sync-counted FPS), Digital Foundry FPSGui (delta-based, works on consoles).
+- **Platform behavior:** flip-model swapchain (always, PC), DWM skip conditions (borderless-covering or multi-plane overlay), emulated exclusive fullscreen, double buffering default console/mobile vs triple on PC, VRR via HDMI 2.1 (v-sync ON enables it; ~2-frame max hold, GPU resends last frame past that).
+- **Vendor SDKs:** NVIDIA Reflex, AMD Anti-Lag 2, Intel XeLL (adaptive throttling, PC).
+- **Plugin:** Delta Time Smoother (author's GitHub, 3 modes) — interim jitter fix; superseded by Epic's upcoming adaptive frame pacing (post-5.8).
+- **Reference:** companion Epic Developer Community text article is kept up to date as systems change; this video is a snapshot.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced — engine-internals material; assumes comfort with Insights profiling and render-pipeline vocabulary. The actionable CVar recipes are usable by intermediate developers.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.8-era (stat smoothing fix lands in 5.8; adaptive frame pacing "coming soon", not in 5.8; GTSyncType 2 available on PS4/5, Xbox One/Series, Switch 1/2).
 
 ### Tags
-[PENDING EXTRACTION]
+frame-pacing, input-latency, vsync, swapchain, profiling, insights, delta-time, jitter, performance, unreal-fest, advanced
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro.md` — rendering-performance optimization from the offline/cinematic angle; shares tags: performance.
+- `tutorials/best-settings-for-unreal-engine-56---perfect-renders-every-time.md` — settings-level performance/quality tuning; shares tags: performance.
+- `tutorials/unreal-engine-57-filmmaking-course---unreal-engine-for-filmmakers-2026-update.md` — where realtime frame-rate/latency constraints meet cinematic workflows; shares tags: performance.
