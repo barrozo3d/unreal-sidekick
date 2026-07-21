@@ -3164,9 +3164,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=5ehoHM-uzRQ
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5.6+ (not explicitly stated)
+- **Tags:** pipeline, automation, rendering, level-streaming, geometry, blueprint, advanced, expert, ue5-6
+- **Summary:** Unreal Fest Chicago 2026 talk (Arkoon, Carleton Immersive Media Studios) on three open-source, on-premises pipelines streaming terabyte-scale point cloud (Entwine → 3D Tiles), photogrammetry (custom headless-Blender adaptive octree tiling → 3D Tiles), and BIM/IFC ("Fragments for Unreal": FlatBuffers-based streaming with Hierarchical Instanced Static Meshes, shell/interior lazy-loading H-LOD, per-instance material overrides via JSON) into Unreal via Cesium for Unreal, with a 47-building campus case study, category filtering, construction-phasing and energy-usage timeline simulation.
 - **File:** tutorials/from-scan-to-stream-open-pipelines-for-large-scale-3d-in-unreal-engine-unreal-fe.md
 
 ---
