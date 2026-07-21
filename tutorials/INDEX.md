@@ -3249,6 +3249,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** NOTE: demonstrated entirely in Blender/Cycles, not Unreal — kept as a materials-theory reference. Renderer-agnostic PBR research on why real metal shows a "reflection tail-off" (sharp core + soft halo) from microscopic scratch density/roughness variation, recreated by stacking multiple BSDF layers of increasing roughness/decreasing presence. Compares against Clearcoat (Unreal's Clear Coat shading model has the same distortion caveats) and GGX Tailoff control. Portable to Unreal via a layered Material Function blending Roughness passes with Lerp nodes.
 - **File:** tutorials/forgotten-metal-knowledge-vray-cycles-arnold.md
 
+
+### Landscape Mode Basics (Unreal Engine 5.7) Part 1
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=rxUsQRcq168
+- **Author:** R SH
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/landscape-mode-basics-unreal-engine-57-part-1.md
+
 ---
 
 ## Tag Reference
