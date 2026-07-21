@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=5v6tvkb63XU
 author: Ben Cloward
 ingested: 2026-07-20
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "Not specified (UE5.x)"
+tags: [materials, shaders, pbr, blueprint, intermediate, advanced]
+extraction_status: complete
 frames_dir: tutorials/frames/random-noise---shader-graph-basics---episode-35/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Random Noise - Shader Graph Basics - Episode 35
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py random-noise---shader-graph-basics---episode-35 <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### <Untitled Chapter 1> [0:00]
@@ -267,30 +263,58 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [1:30] tutorials/frames/random-noise---shader-graph-basics---episode-35/frame_000.jpg
+- [4:30] tutorials/frames/random-noise---shader-graph-basics---episode-35/frame_001.jpg
+- [5:35] tutorials/frames/random-noise---shader-graph-basics---episode-35/frame_002.jpg
+- [9:40] tutorials/frames/random-noise---shader-graph-basics---episode-35/frame_003.jpg
+- [12:15] tutorials/frames/random-noise---shader-graph-basics---episode-35/frame_004.jpg
+- [15:05] tutorials/frames/random-noise---shader-graph-basics---episode-35/frame_005.jpg
+- [17:50] tutorials/frames/random-noise---shader-graph-basics---episode-35/frame_006.jpg
+- [21:05] tutorials/frames/random-noise---shader-graph-basics---episode-35/frame_007.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Building a from-scratch **noise hash material function** (`Hash23`: Vec2 in → pseudo-random Vec3 out) in Unreal's Material Editor using scrambled component masks, dot products against "magic number" constants, sine, a large multiplier, and a Frac node — then using that hash to randomize which wall texture and mirroring state each room shows in an interior-cube-mapping shader, applied identically (with node-name differences) in Unity Shader Graph.
 
 ### Summary
-[PENDING EXTRACTION]
+Episode 35 of Ben Cloward's "Shader Graph Basics" series (27m17s), a direct continuation of a prior interior-mapping episode. Problem: multiplying incoming UVs by a room-count Vec2 parameter (e.g. 8×8) tiles a single interior-mapping "room" across a grid, but every room looks identical since they all sample the same fixed wall indices — a random-number generator per room is needed. Builds a new Material Function `Hash23` (Vec2 in, Vec3/color out) entirely from math nodes (no built-in noise texture): take the input UV, build three scrambled 3-component vectors from it via Component Mask + Append Many combinations (XYX, YXX, XYY), Dot Product each against three hardcoded "magic number" Vec3 constants (127.1/311.7/74.7, 269.5/183.3/246.1, 113.5/271.9/124.6), Combine the three dot-product results into a new vector, pass through Sine, multiply by another large magic constant (43758.5453123), and finally apply a Frac (fractional-part) node to produce the final pseudo-random 0–1 output — explicitly non-deterministic across GPU vendors/platforms (sine implementations vary) and prone to visible patterning at very large input magnitudes, but adequate for small-scale use cases like this one. Applied to the interior shader: Floor the room-space UV coordinates (so every point inside one room shares the same hash input) → feed into `Hash23` → Round each channel to a hard 0 or 1 (not a smooth random value) → use the red/green channels to Lerp between (1,1,1) and per-axis-negated vectors (feeding two Lerp nodes wired to a shared multiply) to randomly mirror the room on each axis, and the blue channel to Lerp between the un-swizzled lookup vector and a YXZ-swizzled version (swapping front/back with left/right) — multiplying the mirrored/swizzled result into the cube-map lookup vector yields a building where each room randomly shows one of 4 wall variants, independently mirrored, from a single small test cube map. Second half of the video rebuilds the identical system in Unity Shader Graph: a Blackboard-exposed Vec2 "UV" subgraph input, Swizzle nodes (XYX/YXX/XYY, with an on-camera correction of an initial mistake) instead of separate Mask+Append Many, the same three magic-number Dot Products, Sine, multiply, Fraction, and a Graph Inspector-configured Vec3 "hash" output — functionally identical to the Unreal version, wired into the same Lerp-based mirroring/swizzling logic.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Identify the need for per-instance randomness: tiling one interior-mapping "room" via `TexCoord × RoomCount` (a Vec2 parameter) produces a repeating grid where every room is visually identical — a hash/random-number function driven by each room's UV is needed to vary wall selection and mirroring per room.
+2. Create a new Material Function (`Hash23`): add a Function Input sized Vec2 (with a regular TexCoord node wired as its default preview value), representing the incoming UV.
+3. Scramble the input into three distinct 3-component vectors: Component Mask the input into separate U/R and V/G channels, then use three Append Many nodes to rebuild them in different component orders (X-Y-X, Y-X-X, X-Y-Y).
+4. Dot Product each scrambled vector against a distinct hardcoded Constant3Vector "magic number": (127.1, 311.7, 74.7), (269.5, 183.3, 246.1), and (113.5, 271.9, 124.6).
+5. Combine the three dot-product scalar results into a new vector (Append Many/Combine), pass through a **Sine** node, then **Multiply** by a single large magic constant (43758.5453123).
+6. Apply a **Frac** node to the result (keeps only the decimal/fractional portion, discarding any integer part) and wire to the function's output — this is the final pseudo-random Vec3 hash value; note it is a non-deterministic hash (sine implementations differ across GPU vendors/platforms) and can show visible patterning at very large input magnitudes, though this is not an issue at the small UV scale used here.
+7. Use the hash in the interior-mapping shader: **Floor** the room-space UV (so the entire room shares one random value) → feed into `Hash23` → **Round** each output channel to a hard 0 or 1 (rather than using the raw continuous random value) → Split Components to access the red/green/blue random bits separately.
+8. Random mirroring: build two pairs of Vec3 constants — (1,1,1) vs. an axis-negated variant (e.g. −1,1,1) for one axis, and (1,1,1) vs. a different axis-negated variant (e.g. 1,−1,1) for another — Lerp between each pair using the hash's red and green channels as the alpha, then multiply the two Lerp results together to get a combined per-axis mirror vector.
+9. Random wall-set selection: build a Swizzle node that reorders the lookup vector's components (e.g. Y-X-Z / "ZYX" style swap) to swap which cube faces are treated as front/back vs. left/right, then Lerp between the un-swizzled and swizzled lookup vectors using the hash's blue channel as alpha.
+10. Multiply the final mirrored + selectively-swizzled vector into the coordinate used to sample the interior cube map — the result: each room in the grid independently and randomly picks one of the source cube map's wall variants and independently decides whether to mirror it, producing a non-repetitive building interior from a single small test cube map.
+11. **Unity Shader Graph port:** identical structure using a Subgraph with a Blackboard-defined Vec2 "UV" input, Swizzle nodes directly (instead of separate Mask + Append Many) for the XYX/YXX/XYY scrambling, the same three magic-number Dot Products, Sine, Multiply by 43758.5453123, Fraction, and a Vec3 "hash" output configured via the Graph Inspector; the rest of the mirroring/swizzling Lerp logic is ported unchanged.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **New Material Function created:** `Hash23` (Vec2 input → Vec3/color output), built from Function Input, Component Mask, Append Many, Dot Product, Constant3Vector, Sine, Multiply, Frac nodes.
+- **Interior-shader integration nodes:** Floor, Round, Split Components (Component Mask), Lerp (×3, for mirroring and wall-set swizzle selection), Swizzle (component reorder for wall-set selection), Constant3Vector (1,1,1 and negated-axis variants).
+- **Exact magic-number constants used:** dot-product vectors (127.1, 311.7, 74.7), (269.5, 183.3, 246.1), (113.5, 271.9, 124.6); post-sine multiplier 43758.5453123.
+- **Key caveat called out:** hash functions built on Sine are **non-deterministic across platforms/GPU vendors** (Mac/mobile/PC can produce different results) and can exhibit visible repeating patterns at very large input values — acceptable here due to the small UV-scale input range, but flagged as a reason to seek a more robust deterministic hash for other use cases.
+- **Unity equivalents:** Subgraph + Blackboard input, Swizzle node, Sine, Multiply, Fraction, Graph Inspector (output type/name configuration).
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate/Advanced — requires comfort with vector math, dot products, and material functions; the "magic number" hash construction is presented as a recipe to copy rather than something to derive from first principles.
 
 ### UE Version
-[PENDING EXTRACTION]
+Not explicitly stated (Material Editor node set consistent with recent UE5.x; direct continuation of a prior interior-cube-mapping episode in the same series).
 
 ### Tags
-[PENDING EXTRACTION]
+materials, shaders, pbr, blueprint, intermediate, advanced
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/input-vectors---shader-graph-basics---episode-9.md` — same "Shader Graph Basics" series (Ben Cloward), also comparing Unreal Material Editor and Unity Shader Graph node-for-node; shares tags: materials, shaders, blueprint.
+- No other ingested unreal-sidekick tutorial currently covers procedural noise-hash construction or interior/cube mapping shaders — check `references/materials-shaders.md` for related node reference once cross-updated.
