@@ -3244,9 +3244,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=uz8PIi3ELJg
 - **Author:** Lucas
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** N/A (Blender/Cycles content)
+- **Tags:** materials, shaders, pbr, advanced
+- **Summary:** NOTE: demonstrated entirely in Blender/Cycles, not Unreal — kept as a materials-theory reference. Renderer-agnostic PBR research on why real metal shows a "reflection tail-off" (sharp core + soft halo) from microscopic scratch density/roughness variation, recreated by stacking multiple BSDF layers of increasing roughness/decreasing presence. Compares against Clearcoat (Unreal's Clear Coat shading model has the same distortion caveats) and GGX Tailoff control. Portable to Unreal via a layered Material Function blending Roughness passes with Lerp nodes.
 - **File:** tutorials/forgotten-metal-knowledge-vray-cycles-arnold.md
 
 ---
