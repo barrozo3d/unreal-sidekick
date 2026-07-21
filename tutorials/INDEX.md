@@ -3184,9 +3184,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=-hXFCSxAYEI
 - **Author:** Darklore Creations
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** Not specified (UE5.x)
+- **Tags:** blueprint, animation, pipeline, advanced, expert
+- **Summary:** Comprehensive 42-minute guide building an Elden-Ring-style combat AI: Behavior Tree/Blackboard/AI Controller fundamentals, a reusable AI Component architecture, non-hostile idle/hit-reaction states, AI Perception-driven patrol/investigation/aggro, and a 3-zone (far/mid/close) probability-driven combat brain with EQS-based strafing and backward movement, weighted attack/combo selection, dashing, and animation-blueprint rotation gating. Advanced/Expert level.
 - **File:** tutorials/understanding-ai-and-behavior-trees---the-ultimate-guide-ue5.md
 
 ---

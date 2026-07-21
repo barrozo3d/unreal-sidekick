@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=-hXFCSxAYEI
 author: Darklore Creations
 ingested: 2026-07-20
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "Not specified (UE5.x)"
+tags: [blueprint, animation, pipeline, advanced, expert]
+extraction_status: complete
 frames_dir: tutorials/frames/understanding-ai-and-behavior-trees---the-ultimate-guide-ue5/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Understanding AI and Behavior Trees - The Ultimate Guide [UE5]
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py understanding-ai-and-behavior-trees---the-ultimate-guide-ue5 <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Intro [0:00]
@@ -580,30 +576,61 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [1:00] tutorials/frames/understanding-ai-and-behavior-trees---the-ultimate-guide-ue5/frame_000.jpg
+- [5:30] tutorials/frames/understanding-ai-and-behavior-trees---the-ultimate-guide-ue5/frame_001.jpg
+- [11:30] tutorials/frames/understanding-ai-and-behavior-trees---the-ultimate-guide-ue5/frame_002.jpg
+- [14:00] tutorials/frames/understanding-ai-and-behavior-trees---the-ultimate-guide-ue5/frame_003.jpg
+- [20:40] tutorials/frames/understanding-ai-and-behavior-trees---the-ultimate-guide-ue5/frame_004.jpg
+- [28:05] tutorials/frames/understanding-ai-and-behavior-trees---the-ultimate-guide-ue5/frame_005.jpg
+- [32:00] tutorials/frames/understanding-ai-and-behavior-trees---the-ultimate-guide-ue5/frame_006.jpg
+- [39:00] tutorials/frames/understanding-ai-and-behavior-trees---the-ultimate-guide-ue5/frame_007.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Full Elden-Ring-inspired dynamic melee combat AI built with **Behavior Tree + Blackboard + AI Controller + AI Perception + Environment Query System (EQS)** — covering non-hostile idle/hit-reaction, passive-hostile patrol/investigation/return-to-spawn, and a 3-zone (far/mid/close) probability-driven combat brain with strafing, dashing, and combo attacks.
 
 ### Summary
-[PENDING EXTRACTION]
+Dense 42-minute "ultimate guide" (a guide, not a step-by-step tutorial — the creator explains concepts and shows finished Blueprints rather than typing every node live). Opens with Behavior Tree fundamentals: AI Controller (starts/stops the tree, feeds it perception data), Behavior Tree (decision-making node graph), Blackboard (shared data store); execution flow is strictly top-to-bottom/left-to-right; **Selector** tries children left-to-right and succeeds on the first success, **Sequence** requires every child to succeed in order, **Simple Parallel** runs one task alongside a whole sub-tree with a configurable abort/wait-for-finish relationship; **Tasks** are executable leaf logic (must start with Event Receive Execute and end with Finish Execute/Abort); **Decorators** are conditions attached to any node (often reading Blackboard keys); **Services** are per-tick updates usually used to refresh Blackboard keys. Architecture: a single reusable **AI Component** (actor component) holds all core AI data/logic, referenced by both the Enemy Blueprint and its AI Controller, which starts the Behavior Tree. Non-hostile state: a `Hostile` Blackboard bool gates a Selector between idle (Wait task) and hit-reaction (a Sequence triggered via a Blueprint Interface call from the player's damage logic into the AI Component, storing the attacking actor and an AI-state enum in the Blackboard); hit-reaction computes a hit-direction enum from the angle between the AI and attacker (0°=forward, ±180°=back, negative=right, positive=left in Unreal's convention) to pick a directional animation montage from a TMap; a custom decorator (`Health Percentage Check`, overriding `PerformConditionCheckAI`) flips `Hostile` once health drops under a configurable threshold, gated with a Force Success decorator so failure doesn't cascade-fail the sequence. Hostile-passive state adds `CombatState` and `Patrol` bools driving idle/return-to-spawn (via `Rotate to Blackboard Entry` + `Move To` + a custom "near location" decorator built because the built-in `Is At Location` decorator can't abort on change), three patrol modes (once/loop/ping-pong) driven by a spline-based Patrol Route actor and a `FindNextPatrolIndex` function, and an **AI Perception component** (Sight/Hearing/Damage senses, Detection by Affiliation, Max Age) feeding an `OnPerceptionUpdated` event that routes to Handle Damage/Sight/Hearing functions and a Behavior Tree **Investigation service** that promotes a perceived stimulus location to a Blackboard `Target`/point-of-interest and escalates to combat when within aggro distance. The combat brain is the most complex part: a per-tick **Combat Brain Service** computes distance-to-target, checks reactions in priority order (hit-reaction via a poise/received-damage threshold, turn-towards-target, far-away-from-spawn check), determines the current combat zone (far/mid/close, configurable distance thresholds), and picks a weighted-random action (close distance, move backwards, make distance, dash, strafe, or one of 3 attack placeholders — single/combo/special) from a per-zone probability array; attack selection loops eligible `AttackData` structs (animation montages, angle range, health-threshold unlock, zone, weight) and supports multi-hit combos via a montage-idle-section check. **EQS** is used for two AI movements: walking backwards while facing the target (a Grid generator filtered by a Dot test for points behind the AI, scored Distance Inverse Linear, tuned via Projection Data/radius) and strafing left/right around the target (a Circle generator around an EQS Context Blueprint that resolves the player actor + left/right offset locations, filtered/scored with Dot + Distance tests) — both wired into the tree via an EQS-driving service and a `Move To` with "observed blackboard value" enabled so the destination updates live. The creator also shares a late bug-fix pass: replacing the jittery EQS-based backward movement with a service + box-trace approach, and two real bugs found (missing "return node without success" on a loop in the combo-check function; missing shuffle before iterating the dash-animation array). Ends with an animation-blueprint note on attack-rotation gating via anim notifies + `RInterpTo`, and a tour of all AI Component-exposed tuning parameters (hostility threshold, patrol settings, aggro distance, attacks, dashes, movement speeds, hit reactions, far-away state, make-distance animations).
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Set up the core trio: an **AI Controller** Blueprint, a **Behavior Tree** asset, and a **Blackboard** asset; centralize all AI data/logic in a reusable **AI Component** referenced by both the Enemy Blueprint and its AI Controller (which starts the tree).
+2. Non-hostile state: `Hostile` Blackboard bool → Selector (`IsNotSet` decorator with Observer Aborts enabled) → Idle (Wait task, aborts on hit-reaction) / Hit Reaction (Sequence, does not abort — priority). Hit detection via a Blueprint Interface between the player and the AI Component; compute hit-direction angle (Unreal convention: 0°=fwd, ±180°=back, −=right, +=left) → enum → TMap lookup for the directional montage → play, wait for finish, Finish Execute.
+3. Add a custom `Health Percentage Check` decorator (override `PerformConditionCheckAI`, compare current health % to an AI-Component-exposed HP threshold slider) on the hostility-flip task, wrapped in Force Success so a failed check doesn't fail the whole sequence.
+4. Hostile-passive state: `CombatState`/`Patrol` bools gate idle/return-to-spawn vs. combat; return-to-spawn uses `Rotate to Blackboard Entry` (precision 1; requires disabling "Use Controller Rotation Yaw" and enabling "Use Controller Desired Rotation" on the movement component) → `Move To` → rotate to spawn rotation, gated by a custom "near location" decorator (radius + inverse toggle) since the built-in `Is At Location` decorator can't abort on condition change.
+5. Patrol: build a spline-based Patrol Route actor, expose it as an "expose on spawn" variable on the AI Component, implement 3 modes (once/loop/ping-pong) via a `FindNextPatrolIndex` function tracking a private patrol index/direction, wait/should-wait timing, and a custom Patrol task (rotate to point of interest → Move To).
+6. Investigation: add an **AI Perception** component to the AI Controller with Sight/Hearing/Damage senses (Detection by Affiliation all-true for non-grouped enemies; tune Max Age for memory duration); debug via Project Settings → Gameplay Debugger activation key, then press `5` in PIE to visualize perception ranges/state. On `OnPerceptionUpdated`, route each updated actor through Handle Damage / Handle Sight / Handle Hearing functions that set a Blackboard `Target` object and point-of-interest location, and an Investigation **service** on the tree promotes a perceived stimulus to point-of-interest and escalates to `CombatState` once within a configurable aggro distance.
+7. Combat brain: build enums for Combat Zone (far/mid/close) and Combat Action (incl. reaction-only entries: turn-towards-target, hit-reaction, far-away), an `AttackData` struct array (montages, attack type, weight, HP-threshold unlock, min/max angle), and per-zone action-probability arrays; a per-tick **Combat Brain Service** computes distance, checks reactions in priority order (hit-reaction via a poise/received-damage comparison, turn-towards-target via an angle check, far-away-from-spawn), determines current zone, and — on `Event Receive Search Start AI` (i.e. whenever the tree needs a new action) — picks a weighted-random action via a reusable "probabilities-to-array + random pick" function pair; attack selection filters `AttackData` by zone/HP-threshold/angle before the weighted pick, and combo continuation is handled via a dedicated custom event that checks montage-idle-section state and distance before incrementing the selected attack index.
+8. Build the combat action sequences: Hit Reaction / Turn Towards Target (Set/Clear Focus tasks) → Close Distance (Set Focus + Move Forward with a movement-speed task) → Move Backwards and Strafe (both via **EQS**, see below) → Attacking (checks combat-zone match before playing the selected attack montage, or moves into range first) → Dash / Make Distance (struct array of montage + direction, filtered by current zone) → Far Away State (strafes briefly, then clears focus/returns to idle-spawn if the target doesn't close the distance — done before stopping combat, to avoid a self-abort race).
+9. **EQS for backward movement:** create an EQS Testing Pond + Query Template using a Grid generator, a Dot test (min value ≈ −1, max ≈ −0.96 to select a narrow cone directly behind the AI), a Distance test set to Inverse Linear scoring, Projection Data tuned (radius, recast filter, post-projection offset ~32) — drive it from a tree service picking "single random item from best 5%" at a 0.1s interval, wrapped in a Simple Parallel with a randomized-duration end condition so the Move To task doesn't run forever chasing a constantly-updating point.
+10. **EQS for strafing:** two EQS Context Blueprints (one resolving the target actor via `Provide Single Actor`, one resolving a left/right offset location via `Provide Single Location`, duplicated with yaw ±90°) feed a Circle generator (150 spacing, radius set via Query Params so it can be driven by a `TargetDistance` Blackboard key) scored with Distance (Inverse Linear) + Dot tests; wire the resulting EQS query into a Move To task with **Observed Blackboard Value** enabled so it re-paths as the point-of-interest updates live.
+11. Bug-fix pass: replace jittery EQS-driven backward movement with a plain service (compute retreat direction, box-trace the path, reset the action to None if blocked, else update point-of-interest, checked every 2s) — noted as more reliable than EQS for this case; fix a missing "loop complete, no success" return node in the combo-check function (otherwise a full-loop-without-match could still report success and repeat the last attack); add a Shuffle before iterating the dash-animation array (otherwise dash always picks the same first animation).
+12. Animation-side attack rotation: in the Anim Blueprint, compute the delta between current and target rotation for left/right locomotion blend states; gate attack-time rotation with two Anim Notifies per attack montage opening/closing a "rotation gate," then `RInterpTo` toward the Blackboard target while the gate is open.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Core actors/assets:** AI Controller, Behavior Tree, Blackboard, AI Component (custom actor component holding all AI data/logic), Patrol Route actor (spline-based).
+- **Behavior Tree nodes:** Selector, Sequence, Simple Parallel (with abort/wait-for-finish toggle), custom Tasks (Hit Reaction, Patrol, Combat actions, Dash, Attacking, etc.), Blackboard decorators (`IsNotSet`, custom Health Percentage Check, custom Near-Location, Force Success), Services (Investigation service, Combat Brain service, EQS-driving services).
+- **AI Perception:** Sight/Hearing/Damage senses, Detection by Affiliation, Max Age, `OnPerceptionUpdated` event; Gameplay Debugger key (Project Settings) + `5` hotkey in PIE for visualization.
+- **EQS (Environment Query System):** EQS Testing Pond actor, Query Template editor (Grid / Circle generators), Dot test, Distance test (Linear/Inverse Linear scoring), Projection Data (radius, recast filter, post-projection offset), EQS Context Blueprints (`Provide Single Actor`, `Provide Single Location`), Query Params (for runtime-driven radius), "Observed Blackboard Value" toggle on Move To.
+- **Movement/animation nodes:** `Rotate to Blackboard Entry`, `Move To`, `Use Controller Rotation Yaw` / `Use Controller Desired Rotation`, Play Montage tasks, Anim Notifies for rotation gating, `RInterpTo`.
+- **Blueprint Interfaces:** used for player→AI-Component hit/damage communication (attacker actor + damage amount) and AI Perception damage reporting.
+- **Key data structures:** enums (AI State, Hit Direction, Combat Zone, Combat Action, Attack Placeholder, Patrol Type, Movement Type), `AttackData` struct (montage array, attack type, weight, HP-threshold, min/max angle), Dash struct (montage + direction), TMap<enum, AnimMontage> for hit reactions.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced/Expert — assumes solid Blueprint fluency; combines Behavior Tree, Blackboard, AI Perception, EQS, custom C++-free Blueprint tasks/decorators/services, animation blueprints, and a hand-rolled weighted-probability action-selection system into one production-style combat AI.
 
 ### UE Version
-[PENDING EXTRACTION]
+Not explicitly stated (recent UE5.x; uses standard Behavior Tree/EQS/AI Perception systems, not the newer State Tree plugin).
 
 ### Tags
-[PENDING EXTRACTION]
+blueprint, animation, pipeline, advanced, expert
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/unreal-engine-5-tutorial---state-trees-part-1-overview.md` — direct architectural alternative/comparison (State Tree vs. Behavior Tree), ingested in this same session; shares tags: blueprint, animation, pipeline.
+- No other ingested unreal-sidekick tutorial currently covers Behavior Trees, AI Perception, or EQS — this is new coverage territory for AI/gameplay-adjacent content within the skill's primarily cinematics/VFX focus.
