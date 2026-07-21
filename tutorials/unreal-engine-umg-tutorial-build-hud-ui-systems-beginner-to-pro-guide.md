@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=cMPQ_W32VzI
 author: GameDev
 ingested: 2026-07-20
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE4"
+tags: [blueprint, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-umg-tutorial-build-hud-ui-systems-beginner-to-pro-guide/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Unreal Engine UMG Tutorial 🎮 Build HUD & UI Systems (Beginner to Pro Guide)
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py unreal-engine-umg-tutorial-build-hud-ui-systems-beginner-to-pro-guide <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -391,30 +387,57 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [6:00] tutorials/frames/unreal-engine-umg-tutorial-build-hud-ui-systems-beginner-to-pro-guide/frame_000.jpg
+- [13:35] tutorials/frames/unreal-engine-umg-tutorial-build-hud-ui-systems-beginner-to-pro-guide/frame_001.jpg
+- [20:35] tutorials/frames/unreal-engine-umg-tutorial-build-hud-ui-systems-beginner-to-pro-guide/frame_002.jpg
+- [33:05] tutorials/frames/unreal-engine-umg-tutorial-build-hud-ui-systems-beginner-to-pro-guide/frame_003.jpg
+- [35:35] tutorials/frames/unreal-engine-umg-tutorial-build-hud-ui-systems-beginner-to-pro-guide/frame_004.jpg
+- [45:05] tutorials/frames/unreal-engine-umg-tutorial-build-hud-ui-systems-beginner-to-pro-guide/frame_005.jpg
+- [52:10] tutorials/frames/unreal-engine-umg-tutorial-build-hud-ui-systems-beginner-to-pro-guide/frame_006.jpg
+- [62:45] tutorials/frames/unreal-engine-umg-tutorial-build-hud-ui-systems-beginner-to-pro-guide/frame_007.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+UMG (Unreal Motion Graphics) fundamentals — Canvas Panel anchoring/positioning, panel-specific child-layout rules (Canvas Panel vs. Horizontal Box vs. Vertical Box), Size Box width/height overrides, and building a complete mobile-game HUD (crosshair, health progress bar, ammo counter, dual virtual thumbsticks) using only a Canvas Panel.
 
 ### Summary
-[PENDING EXTRACTION]
+An EDUCBA UE4 course (64m26s, three concatenated lessons with no chapter breaks) that is a strong general UMG primer whose concepts carry forward essentially unchanged into UE5. Lesson 1 ("Positioning"): explains that every widget's positioning behavior is dictated entirely by its *parent* panel — a direct child of a **Canvas Panel** gets a full Canvas Panel Slot (Anchors, Position X/Y, Size X/Y, Alignment, Z-Order), while a child of a **Horizontal Box** instead gets Horizontal/Vertical Alignment + Padding + Size (Auto vs. Fill with a 0–1 percentage weight, à la flexbox) and loses direct drag-positioning. Demonstrates the anchor system in depth: anchor coordinates run 0–1 on each axis (0,0 = top-left corner, 0.5,0.5 = screen center, 1,1 = bottom-right); setting Alignment to match the anchor (e.g. both 0.5,0.5) and zeroing Position X/Y locks a widget to that exact anchor point regardless of screen size/aspect-ratio changes — an unanchored or mis-anchored widget can drift off-screen when the preview resolution changes, while a properly anchored one maintains constant distance from its anchor edges. Lesson 2 ("Sizing"): shows that a Canvas Panel child's Size X/Y in the slot *overrides* the widget's natural/image size unless **Size to Content** is checked, in which case the widget's own size (e.g. an Image's Brush Image Size) takes over instead; introduces **Size Box** as the way to force explicit Width/Height Override on children of layout panels (Vertical Box, Horizontal Box) that would otherwise be entirely size-controlled by their parent stack, using a stacked red/green/blue Image + Progress Bar inside a Vertical Box (wrapped in a Size Box) as a running example, and reiterates that Vertical Box/Horizontal Box/Grid Panel/Uniform Grid Panel each have their own distinct rules for how they size and arrange children. Lesson 3 ("Handle Spanner"/practical HUD build): builds a complete minimalist mobile FPS HUD using **only a Canvas Panel** (no Horizontal/Vertical Box) — imports a custom crosshair PNG (edited externally, magic-wand-cut in Paint.NET, imported with Texture Group = UI), places it anchored at screen-center with a vertical offset; imports Engine Content's built-in Mobile HUD resources (`Engine Content → Mobile Resources → HUD`, the D-pad background + thumb images) for two virtual analog-stick controls (pan-camera on bottom-left, move-player on bottom-right), each built by copy-pasting a Button widget (parented at Anchor bottom-left/bottom-right respectively, Size to Content, tinted, with the button's Normal/Hovered "Draw As: Image" brush set to the D-pad background and a nested child Image for the stick "thumb"); adds a colored Progress Bar (Background Image = none, solid fill color, Percent driven manually) plus a Text Block for a "Player Health" label anchored top-center-ish, and a plain Text Block for an "Ammo: 25" counter anchored top-left. Finishes by wiring the finished widget into the level: Level Blueprint → Event BeginPlay → **Create Widget** (select the HUD widget class) → **Add to Viewport**, then verifies in Play-In-Editor that all elements stay correctly positioned across window resizes/aspect ratios thanks to the anchor system (removes the default mouse-cursor hover style on the movement button since it's meant for touch, not mouse-hover).
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Create a Widget Blueprint (Content Browser → right-click → User Interface → Widget Blueprint); the default hierarchy is a root **Canvas Panel** with a Designer (visual layout) and Graph (Blueprint logic) view.
+2. Understand parent-driven positioning: a widget's available positioning/sizing controls are entirely determined by its immediate parent panel type — Canvas Panel children get Anchors + Position X/Y + Size X/Y + Alignment; Horizontal/Vertical Box children instead get Alignment + Padding + Size (Auto/Fill with a weight).
+3. **Anchoring:** anchor coordinates range 0–1 per axis (0,0 = top-left, 1,1 = bottom-right, 0.5,0.5 = center); to lock a widget exactly to its anchor regardless of resolution/aspect changes, set its Alignment to match the anchor point and zero out Position X/Y — verify by switching the Designer's screen-size preview between resolutions/aspect ratios (e.g. 720p, Surface Pro Portrait/Landscape) and confirming the widget stays put relative to its anchor edges instead of drifting or leaving the visible area.
+4. **Sizing on a Canvas Panel child:** the slot's Size X/Y overrides the widget's natural size by default; check **Size to Content** to let the widget's own size (e.g. an Image's Brush/texture size) take over instead — useful for crosshairs/icons that should render at native resolution regardless of a placeholder slot size.
+5. **Sizing inside layout panels (Horizontal/Vertical Box):** children only get Auto (size to the widget's desired size) or Fill (claim a 0–1 percentage share of remaining space, weighted against siblings) — to force an explicit pixel size on a panel-managed child, right-click it → **Wrap With → Size Box**, then set Width Override / Height Override on the Size Box (combine with Horizontal/Vertical Alignment = Fill on the Size Box itself to make the override actually apply).
+6. Import a custom UI image: prepare/crop the source image externally (e.g. Paint.NET magic-wand selection + Ctrl+Shift+X to crop to selection), export as PNG, drag into the Content Browser to trigger the import prompt, and set its **Texture Group to UI** in the import/texture settings.
+7. Build a Canvas-Panel-only HUD: place an Image (crosshair) anchored to center with an Alignment/Position offset to sit above true center; use **Engine Content → Mobile Resources → HUD** for ready-made virtual D-pad background + thumbstick images; build each analog control as a Button (Anchor bottom-left or bottom-right, Size to Content, `Draw As: Image` brush set to the D-pad background texture, tinted) containing a nested child Image for the stick "thumb" (same anchor, tinted a different color for visibility) — copy/paste the finished button to quickly create the second (mirrored) control.
+8. Add a health readout: Progress Bar (Background Image = None or a plain fill, solid Fill Color/Opacity, Percent set to the desired value) plus a separate Text Block label ("Player Health") positioned above/behind it, both anchored center-ish; add an ammo counter as a plain Text Block anchored top-left (e.g. "Ammo: 25").
+9. Display the HUD in-game: Level Blueprint → Event BeginPlay → **Create Widget** (Class = your HUD Widget Blueprint) → **Add to Viewport**.
+10. Test in PIE across multiple window sizes/aspect ratios to confirm the anchor-based layout holds; clean up any inappropriate default widget styling for a touch-target button (e.g. clear the Hovered state image on a mobile movement button, since hover doesn't apply on touch devices).
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Widget Blueprint / UMG panels:** Canvas Panel (Anchors, Position X/Y, Size X/Y, Alignment, Z-Order, per-child), Horizontal Box, Vertical Box, Border, Size Box (Width Override/Height Override), Uniform Grid Panel and Grid Panel (mentioned, not built in this video).
+- **Widgets used in the HUD build:** Image (Brush, Image Size, Draw As, Tint/Color and Opacity, Size to Content), Button (Style → Normal/Hovered/Pressed brushes, Draw As: Image), Progress Bar (Percent, Fill Color and Opacity, Background Image), Text Block (Font size, Color).
+- **Engine content used:** `Engine Content → Mobile Resources → HUD` (built-in mobile D-pad/thumbstick background and thumb textures).
+- **Texture import setting:** Texture Group = UI (for imported crosshair PNG).
+- **Level wiring:** Level Blueprint `Event BeginPlay` → `Create Widget` → `Add to Viewport`.
+- **Designer tools:** screen-size preview presets (720p, Surface Pro Portrait/Landscape, various monitor/phone presets), Zoom to Fit, Widget Reflector (visible in the toolbar, not covered in depth).
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner — explicitly structured as an entry-level, from-scratch UMG primer; no Blueprint scripting of actual gameplay behavior (buttons are laid out but not wired to input logic).
 
 ### UE Version
-[PENDING EXTRACTION]
+UE4 (course uses the UE4 New Project wizard/editor chrome; UMG's Canvas Panel/anchor/layout-panel concepts covered here are unchanged in UE5, though exact menu locations may differ slightly).
 
 ### Tags
-[PENDING EXTRACTION]
+blueprint, beginner
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- No other ingested unreal-sidekick tutorial currently covers UMG/Widget Blueprint fundamentals (Canvas Panel anchoring, layout panels, HUD construction) — this fills the skill's UMG/widget content gap. Cross-reference with any future Sequencer HUD-overlay or narrative-UI tutorials once ingested.

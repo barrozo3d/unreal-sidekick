@@ -3234,9 +3234,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=cMPQ_W32VzI
 - **Author:** GameDev
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE4
+- **Tags:** blueprint, beginner
+- **Summary:** EDUCBA UMG primer (64m26s, 3 lessons): Canvas Panel anchoring/positioning fundamentals (0-1 anchor coordinates, locking widgets to anchor points across resolutions), panel-specific child sizing rules (Canvas Panel slot override vs. Size to Content, Horizontal/Vertical Box Auto/Fill, Size Box Width/Height Override), and a full practical build of a Canvas-Panel-only mobile FPS HUD (crosshair, dual virtual thumbsticks from Engine Content mobile HUD assets, health progress bar, ammo counter) wired via Create Widget + Add to Viewport.
 - **File:** tutorials/unreal-engine-umg-tutorial-build-hud-ui-systems-beginner-to-pro-guide.md
 
 ---
