@@ -3239,6 +3239,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** EDUCBA UMG primer (64m26s, 3 lessons): Canvas Panel anchoring/positioning fundamentals (0-1 anchor coordinates, locking widgets to anchor points across resolutions), panel-specific child sizing rules (Canvas Panel slot override vs. Size to Content, Horizontal/Vertical Box Auto/Fill, Size Box Width/Height Override), and a full practical build of a Canvas-Panel-only mobile FPS HUD (crosshair, dual virtual thumbsticks from Engine Content mobile HUD assets, health progress bar, ammo counter) wired via Create Widget + Add to Viewport.
 - **File:** tutorials/unreal-engine-umg-tutorial-build-hud-ui-systems-beginner-to-pro-guide.md
 
+
+### Forgotten Metal Knowledge | Vray, Cycles, Arnold..
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=uz8PIi3ELJg
+- **Author:** Lucas
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/forgotten-metal-knowledge-vray-cycles-arnold.md
+
 ---
 
 ## Tag Reference
