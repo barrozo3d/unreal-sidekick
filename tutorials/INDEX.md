@@ -3204,9 +3204,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=0H7PiqIl0Io
 - **Author:** Taken Grace
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** Not specified (UE5.x)
+- **Tags:** metasounds, audio, blueprint, beginner
+- **Summary:** Beginner crash-course on UE5 audio in an FPS project: Play Sound 2D one-shots, building a looping 3D fire-ambience MetaSound (Wave Player, Looping, deleting the OneShot interface node), Sound Attenuation assets (inner/outer radius, air absorption, restart-on-reenter), a randomized weapon-fire MetaSound via Random Get Array, 3D Spawn Sound at Location for projectile impacts/explosions, and a simple Music Manager (Fade In/Out Audio) driven by a Music Trigger Box.
 - **File:** tutorials/ue5-audio-beginner-tutorial-learn-about-metasounds.md
 
 ---

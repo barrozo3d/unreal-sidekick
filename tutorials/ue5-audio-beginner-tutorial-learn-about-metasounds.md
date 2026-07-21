@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=0H7PiqIl0Io
 author: Taken Grace
 ingested: 2026-07-20
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "Not specified (UE5.x)"
+tags: [metasounds, audio, blueprint, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/ue5-audio-beginner-tutorial-learn-about-metasounds/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # UE5 Audio Beginner Tutorial Learn About Metasounds!
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py ue5-audio-beginner-tutorial-learn-about-metasounds <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### How to Add Audio in Unreal Engine 5 [0:00]
@@ -488,30 +484,58 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [2:00] tutorials/frames/ue5-audio-beginner-tutorial-learn-about-metasounds/frame_000.jpg
+- [5:30] tutorials/frames/ue5-audio-beginner-tutorial-learn-about-metasounds/frame_001.jpg
+- [7:10] tutorials/frames/ue5-audio-beginner-tutorial-learn-about-metasounds/frame_002.jpg
+- [9:55] tutorials/frames/ue5-audio-beginner-tutorial-learn-about-metasounds/frame_003.jpg
+- [11:20] tutorials/frames/ue5-audio-beginner-tutorial-learn-about-metasounds/frame_004.jpg
+- [16:00] tutorials/frames/ue5-audio-beginner-tutorial-learn-about-metasounds/frame_005.jpg
+- [17:35] tutorials/frames/ue5-audio-beginner-tutorial-learn-about-metasounds/frame_006.jpg
+- [21:00] tutorials/frames/ue5-audio-beginner-tutorial-learn-about-metasounds/frame_007.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Beginner-level tour of UE5 audio fundamentals applied to a first-person shooter project: 2D one-shot Blueprint sounds, MetaSounds (mono vs. stereo, looping 3D fire ambience, sound attenuation), randomized weapon-fire MetaSounds via Random Get Array, 3D "spawn sound at location" for explosions/impacts, and a simple fade-in/fade-out music manager with trigger-box-driven track changes.
 
 ### Summary
-[PENDING EXTRACTION]
+TakenGrace's crash-course (25m20s) on adding audio to an existing FPS project. Starts with the simplest case — a **Play Sound 2D** node called from a health pack's Blueprint interact event (2D = plays at a fixed volume regardless of player position; a "one-shot" sound is automatically removed from memory once finished). Introduces **MetaSounds** (Content Browser → Audio → MetaSound Source) as the more powerful alternative to plain Sound Cues: explains Mono vs. Stereo output pins (Stereo can be selected via the MetaSound's asset settings for two independent channels), building a looping 3D fire-ambience MetaSound with a **Wave Player (Mono)** node — deleting the default `UE.Source.OneShot` interface node and enabling **Looping** on the Wave Player converts it from a one-shot to an ambient loop; covers **Virtualization Mode** on the Source settings (governs what happens when the sound leaves its attenuation range) and walks through creating a **Sound Attenuation** asset (Content Browser → Sound Attenuation) — explaining the attenuation sphere concept (inner radius = full volume, falloff to the outer radius = silence), Air Absorption (simulates high frequencies attenuating faster over distance), panning modes, and the "restart on re-enter vs. continue vs. disable" setting for when a looping sound re-enters its attenuation volume (Restart recommended for optimization — it fully unloads outside the sphere). Demonstrates dragging the finished fire MetaSound into the level and tuning the attenuation radius (visualized as concentric spheres in the viewport) to hear real-time distance-based volume falloff in PIE. Builds a **randomized weapon-fire MetaSound**: a one-shot Wave Player whose asset input is fed by a **Random Get Array** node (right-click → Array → Random Get Array), with the array promoted to a graph variable ("Fire Sounds") populated with 3 different gunshot samples so each shot plays a different sample — notes the array node also exposes optional per-entry Weights and an index-out for advanced use; also needs its own Sound Attenuation asset and the **Next → Play** trigger wiring (a common early mistake shown live: forgetting to chain On Play → Get Next → Play, which silently produces no sound), plus a note that MetaSound Source volume is normally kept in the 0–1 range but can be pushed above 1 for extra punch if needed. Shows implementing this MetaSound via a plain **Play Sound 2D** call inside a weapon Blueprint's fire graph, and suggests organizing per-weapon audio (firing/reloading/rechambering) as a dedicated Primary Data Asset referenced by each weapon class. Covers 3D "spawn sound at location" for a one-shot explosion MetaSound: exposing an `Impact Sound` (Sound Wave/MetaSound reference) variable on a shared Projectile Base class, set per-subclass (e.g. only the grenade projectile gets the explosion MetaSound assigned in Class Defaults), and calling **Spawn Sound at Location** on both the explicit "OnExplode" event and the generic On Component Hit event, passing the hit/impact world location. Also briefly promotes Epidemic Sound as a royalty-free SFX/music library option (sponsor segment). Finishes with a simple **Music Manager** actor: an Audio Component set/played on Begin Play via **Fade In Audio** (duration in seconds instead of an instant Play), plus a custom **Fade Out Current Song** event (Fade Out → Delay for the fade duration → Set Sound to the new track → Fade In again) exposed with a `Music` (Sound Wave) input parameter, triggered by a separate **Music Trigger Box** actor (Box Collision sized in the construction script, with an instance-editable `Music to Play` sound reference) placed in the level to swap tracks when the player enters a new area.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **2D one-shot sound:** in any actor Blueprint's event graph, call **Play Sound 2D** with a Sound Wave/Cue asset — plays at a flat volume regardless of player position and is automatically freed from memory once finished.
+2. **Basic looping 3D MetaSound:** Content Browser → Audio → MetaSound Source → add a **Wave Player (Mono)** node, wire its `Out Mono` to the graph's Audio output (`Out Mono`), assign the source Wave Asset, delete the default `UE.Source.OneShot` interface node, and enable **Looping** on the Wave Player to make it a persistent ambient loop instead of a one-shot.
+3. Check **Virtualization Mode** in the MetaSound's Source settings — controls what happens to the sound when it's outside its attenuation range (an optimization setting).
+4. Create a **Sound Attenuation** asset (Content Browser → Sound Attenuation) and assign it on the MetaSound's Attenuation Settings; key settings: inner radius (full volume) vs. outer/falloff radius (fades to silence), Air Absorption (simulates high-frequency loss over distance), panning mode, and the re-entry behavior for looping sounds (Restart recommended — fully unloads outside the sphere, reloads/restarts on re-entry, most memory-efficient).
+5. Drag the finished MetaSound into the level as a 3D sound actor; the viewport shows two concentric attenuation spheres (inner = full volume, outer = falloff boundary) — adjust the attenuation asset's inner/outer radius values to tune audible range, then verify by walking toward/away from it in PIE.
+6. **Randomized one-shot MetaSound (weapon fire):** Wave Player (Mono, one-shot — On Finished wired to the graph's Finished output so it's freed from memory after playing) whose Wave Asset input is driven by a **Random Get Array** node; promote the array to a graph variable (e.g. "Fire Sounds"), populate it with multiple sample variants (e.g. 3 gunshot takes) so each play picks a different one — remember to wire `On Play` → the array node's `Next` execution pin → `Play` (a commonly-missed step that otherwise produces silent playback); assign a dedicated Sound Attenuation asset; adjust MetaSound Source volume (normally 0–1, can exceed 1 for extra punch).
+7. Call the randomized weapon MetaSound from a weapon Blueprint's fire graph via **Play Sound 2D**; consider organizing per-weapon audio (fire/reload/rechamber) as a dedicated audio Primary Data Asset referenced by each weapon subclass.
+8. **3D impact/explosion sound:** build a one-shot 3D MetaSound (Wave Player + attenuation asset) and expose an `Impact Sound` variable (Sound Wave/MetaSound reference, not-instance-editable on the base class) on a shared Projectile Base Blueprint; assign the specific sound per-subclass in Class Defaults (e.g. only the grenade gets the explosion sound).
+9. Trigger 3D impact audio with **Spawn Sound at Location**, passing the relevant world location (explicit explosion event → actor's own location; generic On Component Hit → the hit impact point) — guard the hit-event call so it only plays when something was actually hit.
+10. **Music Manager:** create an Actor Blueprint with an Audio Component; on Begin Play, Set Sound to a starting track and call **Fade In Audio** (with a duration, e.g. 3 seconds) instead of a plain Play for a smooth start.
+11. Add a custom **Fade Out Current Song** event exposing a `Music` (Sound Wave) input: Fade Out the current track (e.g. 2 seconds) → Delay for that same duration → Set Sound to the new track → Fade In again.
+12. Build a **Music Trigger Box** actor (Box Collision sized via the construction script with an instance-editable extent, plus an instance-editable `Music to Play` sound reference); on overlap, call the Music Manager's Fade Out Current Song / track-change logic to transition tracks as the player moves between level areas.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Blueprint audio nodes:** Play Sound 2D, Spawn Sound at Location, Fade In Audio, Fade Out (Audio Component), Set Sound (Audio Component).
+- **MetaSound nodes/settings:** Wave Player (Mono/Stereo), `UE.Source.OneShot` interface node (delete to make a Wave Player loop-capable), Looping toggle, Virtualization Mode, Random Get Array (with optional per-entry Weights and index output), MetaSound Source volume (0–1 typical range, can exceed 1).
+- **Assets:** MetaSound Source (Mono or Stereo), Sound Attenuation (inner/outer radius, Air Absorption, panning mode, re-entry behavior: Restart/Continue/Disable), Primary Data Asset (suggested pattern for per-weapon audio sets).
+- **Actors built:** Music Manager (Audio Component, Fade In/Out logic), Music Trigger Box (Box Collision, instance-editable extent + music reference).
+- **Sourcing content:** Epidemic Sound (royalty-free SFX/music library, sponsor mention — 40,000+ tracks, 90,000+ SFX, 30-day free trial).
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner — explicitly framed as a "crash course"; no MetaSound DSP/synthesis techniques (compare to the companion "MetaSounds: From Miniguns to Music" video for procedural/generative audio).
 
 ### UE Version
-[PENDING EXTRACTION]
+Not explicitly stated (recent UE5.x FPS project).
 
 ### Tags
-[PENDING EXTRACTION]
+metasounds, audio, blueprint, beginner
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/metasounds-in-ue5-from-miniguns-to-music-unreal-engine.md` — the advanced companion covering procedural/generative MetaSounds synthesis (oscillators, envelopes, tempo-synced triggers) beyond this video's sample-playback-only scope; shares tags: metasounds, audio, blueprint.
