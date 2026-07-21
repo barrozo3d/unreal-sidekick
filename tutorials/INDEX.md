@@ -3259,6 +3259,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/landscape-mode-basics-unreal-engine-57-part-1.md
 
+
+### Landscape Mode (Unreal Engine 5.7) Part 2
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=IADB2OR8XCk
+- **Author:** R SH
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/landscape-mode-unreal-engine-57-part-2.md
+
 ---
 
 ## Tag Reference
