@@ -3174,9 +3174,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=MuWRxuz1bjE
 - **Author:** Ryan Laley
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.5.4
+- **Tags:** blueprint, animation, pipeline, beginner, ue5-5
+- **Summary:** Beginner series-opener on Unreal's State Tree plugin: enabling Gameplay State Tree, State Tree vs. State Tree AI components, the Root/states/leaf hierarchy, Transitions (per-trigger, unlike Behavior Trees' rigid flow), Parameters/Global Parameters, Enter Conditions, Selection Utility, Tasks, and wiring a State Tree AI component to an AI Controller with Start Logic Automatically, plus Nav Mesh Bounds Volume setup and the P nav-mesh-preview hotkey.
 - **File:** tutorials/unreal-engine-5-tutorial---state-trees-part-1-overview.md
 
 ---

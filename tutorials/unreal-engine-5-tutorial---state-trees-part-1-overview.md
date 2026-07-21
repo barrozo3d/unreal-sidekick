@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=MuWRxuz1bjE
 author: Ryan Laley
 ingested: 2026-07-20
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.5.4"
+tags: [blueprint, animation, pipeline, beginner, ue5-5]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-5-tutorial---state-trees-part-1-overview/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Unreal Engine 5 Tutorial -  State Trees Part 1: Overview
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py unreal-engine-5-tutorial---state-trees-part-1-overview <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -207,30 +203,57 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [0:44] tutorials/frames/unreal-engine-5-tutorial---state-trees-part-1-overview/frame_000.jpg
+- [2:35] tutorials/frames/unreal-engine-5-tutorial---state-trees-part-1-overview/frame_001.jpg
+- [3:40] tutorials/frames/unreal-engine-5-tutorial---state-trees-part-1-overview/frame_002.jpg
+- [4:45] tutorials/frames/unreal-engine-5-tutorial---state-trees-part-1-overview/frame_003.jpg
+- [5:55] tutorials/frames/unreal-engine-5-tutorial---state-trees-part-1-overview/frame_004.jpg
+- [7:00] tutorials/frames/unreal-engine-5-tutorial---state-trees-part-1-overview/frame_005.jpg
+- [7:50] tutorials/frames/unreal-engine-5-tutorial---state-trees-part-1-overview/frame_006.jpg
+- [9:05] tutorials/frames/unreal-engine-5-tutorial---state-trees-part-1-overview/frame_007.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Introduction to Unreal Engine's **State Tree** plugin — a hierarchical, condition-driven state-machine system usable for both AI and non-AI actors (doors, chests, targets), positioned as a more flexible alternative to Behavior Trees.
 
 ### Summary
-[PENDING EXTRACTION]
+Ryan Laley's series-opener (10m28s) covering State Tree fundamentals in UE 5.5.4. Enable the plugin (Edit → Plugins → search "State Tree", specifically **Gameplay State Trees** — "State Tree for AI/Gameplay Behaviors" — requires an editor restart; not on by default in 5.5.4). Key distinction from Behavior Trees: Behavior Trees are AI-exclusive, State Trees work on any actor. Create a State Tree asset (Content Browser → Add → Artificial Intelligence → State Tree), choosing between a generic **State Tree Component** (any actor, e.g. doors) or **State Tree AI Component** (guarantees access to the AI Controller and the possessed actor/pawn). The editor has three panels: Asset Details (left), the State Tree graph (center), and context-sensitive Details (right). Trees start at a **Root** node; `Add State` creates sibling states evaluated in order (first child tried first, falls through to the next sibling on failure); states can nest child states, and a state only runs if all of its ancestors evaluated true — the deepest node in a branch is a **leaf**, which is what actually executes; leaves default to a "transition to Root" rule (shown as a small up-arrow), but this is fully reconfigurable via the **Transitions** tab, including separate transition rules for "on completed" vs. "on failed," which the video calls out as a key State Tree advantage over Behavior Trees' more rigid flow. Per-state Details panel sections: **Parameters** (typed variables scoped to the tree, e.g. a Vector renamed "Location," which can be promoted to **Global Parameters** to be set/driven from outside the tree — e.g. from the owning actor), **Enter Conditions** (Bool Compare, Float Compare, Integer Compare, Gameplay Tag checks, and custom user-authored conditions — noted as working well with Gameplay Tags), **Selection Utility** (weighting-based selection among sibling branches, extensible with additional inputs like an Enum selector), and **Tasks** (the actual executable logic/code for a state — "the meat" of the tree). The Asset Details panel (left) covers tree-wide Global Parameters plus **Evaluators** and **Global Tasks** (deferred to a future video). To run a State Tree on an actor: build a Character Blueprint with mesh/animation, create and assign an AI Controller, add a **State Tree AI** component to that controller, select the target State Tree asset in its details (global parameters like "Location" appear here and can be wired from the actor), and toggle **Start Logic Automatically** (on = runs immediately without an explicit call; off = must manually drag out the State Tree component and call **Start Logic**). Finally, place the NPC in a level with a **Nav Mesh Bounds Volume** (required for AI pathing) and use the `P` hotkey to toggle the nav mesh preview overlay to confirm level coverage.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Enable the plugin: Edit → Plugins → search "State Tree" → enable **Gameplay State Tree** ("State Tree for AI/Gameplay Behaviors") → restart the editor.
+2. Create the asset: Content Browser → Add → Artificial Intelligence → State Tree; choose the **Schema**/component type — State Tree Component (generic actors) vs. State Tree AI Component (AI actors, exposes AI Controller + Actor context).
+3. Understand the graph: Root node → Add State for siblings (evaluated left/first-to-last with fallthrough on failure) → nested child states require every ancestor to evaluate true → the deepest node in a branch is the executing leaf.
+4. Configure transitions per state/leaf via the **Transitions** tab — default is "transition to Root," but you can add multiple transition rules keyed to different triggers (state completed vs. state failed) and redirect to any node in the tree.
+5. Add typed **Parameters** on a state (e.g. a Vector "Location") and promote to **Global Parameters** so it becomes settable from outside the State Tree (e.g. driven by the actor that runs it).
+6. Add **Enter Conditions** to gate when a state/leaf becomes eligible (Bool/Float/Integer Compare, Gameplay Tag checks, or custom conditions via the "+" button).
+7. Configure **Selection Utility** (default: a weight value) to control which sibling branch gets chosen; extend with additional selector inputs (e.g. an Enum) if needed.
+8. Add **Tasks** to a state/leaf — this is where the actual gameplay logic executes.
+9. Build the actor side: create a Character Blueprint with a mesh + animation, create an AI Controller Blueprint and assign it to the character, add a **State Tree AI** component to the AI Controller, pick the target State Tree asset, wire any Global Parameters (e.g. Location) from the actor, and set **Start Logic Automatically** (on = auto-run; off = call **Start Logic** manually via a dragged-out reference to the component).
+10. Place the actor in a level containing a **Nav Mesh Bounds Volume** so AI pathing has a mesh to traverse; press `P` to toggle the nav mesh preview and verify coverage.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Plugin:** Gameplay State Tree (Edit → Plugins).
+- **Asset type:** State Tree (Content Browser → Artificial Intelligence → State Tree).
+- **Components:** State Tree Component (generic), State Tree AI Component (AI Controller + Actor context guaranteed).
+- **State Tree editor panels/nodes:** Root node, Add State, nested child states, leaf nodes, Transitions tab (per-trigger transition rules), Parameters / Global Parameters, Enter Conditions (Bool Compare, Float Compare, Integer Compare, Gameplay Tag checks, custom conditions), Selection Utility (weight, extensible selector inputs like Enum), Tasks, Evaluators and Global Tasks (asset-level, covered in a future video).
+- **Actor setup:** AI Controller Blueprint, Nav Mesh Bounds Volume, `Start Logic` (manual start node) vs. **Start Logic Automatically** toggle.
+- **Hotkey:** `P` toggles the nav mesh preview overlay in the level viewport.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner — explicitly an introductory "basics first" episode in a planned series; no C++ required, pure editor/Blueprint workflow.
 
 ### UE Version
-[PENDING EXTRACTION]
+Unreal Engine 5.5.4 (State Tree plugin not enabled by default in this version per the video).
 
 ### Tags
-[PENDING EXTRACTION]
+blueprint, animation, pipeline, beginner, ue5-5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- No other ingested unreal-sidekick tutorial currently covers State Trees or Behavior Trees — this fills a gap noted in the skill's content backlog. Cross-link with future State Tree series episodes and any Behavior Tree tutorial once ingested (see companion queue item "Understanding AI and Behavior Trees - Ultimate Guide," ingested in this same session, for a direct comparison point).
