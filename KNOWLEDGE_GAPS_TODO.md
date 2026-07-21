@@ -57,6 +57,76 @@ Completed section below)
   https://www.youtube.com/watch?v=d_YyHUk_C-4
   -> `tutorials/how-to-use-500-motion-matching-animations-for-cinematics-in-unreal-engine-5.md` (extraction_status: complete)
 
+## Completed (ingested 2026-07-20, session 2 — AI/audio/shader/UMG/large-scale-3D backlog)
+
+- [x] **Large-scale 3D streaming (point cloud/photogrammetry/BIM)** — zero
+  coverage of Cesium for Unreal, 3D Tiles, or BIM/IFC runtime streaming
+  pipelines for AEC/digital-twin work.
+  Source: Unreal Fest Chicago 2026 — "From Scan to Stream: Open Pipelines
+  for Large-Scale 3D in Unreal Engine" (Arkoon, Carleton Immersive Media
+  Studios)
+  https://www.youtube.com/watch?v=5ehoHM-uzRQ
+  Ingested as: `tutorials/from-scan-to-stream-open-pipelines-for-large-scale-3d-in-unreal-engine-unreal-fe.md`
+  (note: source video had no per-sentence caption timestamps — yt-dlp
+  captions fallback after a Whisper audio-download failure; frame timestamps
+  were estimated from narrative flow rather than exact cues, still landed on
+  strong illustrative frames)
+
+- [x] **State Trees (AI/gameplay logic)** — no coverage of the State Tree
+  plugin at all.
+  Source: Ryan Laley — "Unreal Engine 5 Tutorial - State Trees Part 1:
+  Overview"
+  https://www.youtube.com/watch?v=MuWRxuz1bjE
+  Ingested as: `tutorials/unreal-engine-5-tutorial---state-trees-part-1-overview.md`
+
+- [x] **Behavior Trees / AI Perception / EQS** — no coverage of the classic
+  AI stack (Behavior Tree, Blackboard, AI Perception, Environment Query
+  System) despite it being foundational UE AI tooling.
+  Source: Darklore Creations — "Understanding AI and Behavior Trees - The
+  Ultimate Guide [UE5]"
+  https://www.youtube.com/watch?v=-hXFCSxAYEI
+  Ingested as: `tutorials/understanding-ai-and-behavior-trees---the-ultimate-guide-ue5.md`
+
+- [x] **MetaSounds** — `references/audio-metasounds.md` existed but zero
+  ingested tutorials actually demonstrated building a MetaSound graph.
+  Sources: Epic Games — "MetaSounds in UE5: From Miniguns to Music"
+  https://www.youtube.com/watch?v=3230-FwCts0
+  and Taken Grace — "UE5 Audio Beginner Tutorial Learn About Metasounds!"
+  https://www.youtube.com/watch?v=0H7PiqIl0Io
+  Ingested as: `tutorials/metasounds-in-ue5-from-miniguns-to-music-unreal-engine.md`
+  and `tutorials/ue5-audio-beginner-tutorial-learn-about-metasounds.md`
+
+- [x] **Material Editor input-vector / noise-hash shader fundamentals** — no
+  tutorial covered dot-product/Fresnel/camera-vector masking or procedural
+  noise-hash construction from first principles.
+  Sources: Ben Cloward, "Shader Graph Basics" — Episode 9 "Input Vectors"
+  https://www.youtube.com/watch?v=lrc-j7ub28U
+  and Episode 35 "Random Noise"
+  https://www.youtube.com/watch?v=5v6tvkb63XU
+  Ingested as: `tutorials/input-vectors---shader-graph-basics---episode-9.md`
+  and `tutorials/random-noise---shader-graph-basics---episode-35.md`
+  (note: both episodes cover Unreal Material Editor AND Unity Shader Graph
+  side by side — Unreal portion is primary/extracted in full, Unity noted
+  for the node-name differences it calls out)
+
+- [x] **UMG / widget UI** — no tutorial covered building HUD/UI with UMG at
+  all.
+  Source: EDUCBA (GameDev) — "Unreal Engine UMG Tutorial — Build HUD & UI
+  Systems (Beginner to Pro Guide)"
+  https://www.youtube.com/watch?v=cMPQ_W32VzI
+  Ingested as: `tutorials/unreal-engine-umg-tutorial-build-hud-ui-systems-beginner-to-pro-guide.md`
+  (note: source course is UE4-era; Canvas Panel/anchor/layout-panel concepts
+  covered are unchanged in UE5 — flagged in the entry's UE Version field)
+
+- [x] **Metal/PBR reflection-tailoff shading theory** — off-topic for this
+  skill's Unreal scope (source video is demonstrated entirely in
+  Blender/Cycles, not Unreal) but ingested per explicit request; kept as a
+  renderer-agnostic materials-theory reference with a note on translating
+  the technique to the Unreal Material Editor.
+  Source: "Forgotten Metal Knowledge | Vray, Cycles, Arnold.." (Lucas)
+  https://www.youtube.com/watch?v=uz8PIi3ELJg
+  Ingested as: `tutorials/forgotten-metal-knowledge-vray-cycles-arnold.md`
+
 ## Ruled out (already covered — do not re-suggest)
 PCG (Procedural Content Generation), World Partition, nDisplay/virtual
 production, Movie Render Graph.
