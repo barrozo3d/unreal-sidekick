@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=5ehoHM-uzRQ
 author: Unreal Engine
 ingested: 2026-07-20
-ue_version: "[PENDING]"
-tags: []
-extraction_status: needs-review
+ue_version: "Not explicitly stated (Unreal Fest Chicago 2026 talk — recent UE5.x)"
+tags: [pipeline, automation, rendering, level-streaming, geometry, blueprint, advanced, expert, ue5-6]
+extraction_status: complete
 frames_dir: tutorials/frames/from-scan-to-stream-open-pipelines-for-large-scale-3d-in-unreal-engine-unreal-fe/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # From Scan to Stream: Open Pipelines for Large-Scale 3D in Unreal Engine  | Unreal Fest Chicago 2026
@@ -22,20 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-## Ingest Safeguard Report
-
-_Auto-generated at ingest/frame-capture time — explains why `extraction_status` may be `needs-review`. Safe to delete once reviewed._
-
-- **CRITICAL:** ASR hallucination in 'Full Content': 'thank' x10 in last 50 content words. Review and truncate the affected section before extracting.
-
----
-
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py from-scan-to-stream-open-pipelines-for-large-scale-3d-in-unreal-engine-unreal-fe <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -629,44 +617,63 @@ frontmatter before you write the Structured Notes below.
 [37:50] Here's a QR code of the repos that I mentioned today and happy to answer questions.
 [37:54] We have about 12 minutes left.
 [37:56] Thanks all.
-[37:57] Thank you.
-[37:58] Thank you.
-[37:59] Thank you.
-[38:00] Thank you.
-[38:01] Thank you.
-[38:02] Thank you.
-[38:03] Thank you.
-[38:04] Thank you.
-[38:05] Thank you.
+
+_(9 further "Thank you." lines at 37:57-38:05 removed — a confirmed Whisper ASR hallucination on trailing applause/silence audio at the very end of the recording, not real transcript content.)_
 
 
+
+---
+
+## Captured Frames
+
+- [6:11] tutorials/frames/from-scan-to-stream-open-pipelines-for-large-scale-3d-in-unreal-engine-unreal-fe/frame_000.jpg
+- [10:06] tutorials/frames/from-scan-to-stream-open-pipelines-for-large-scale-3d-in-unreal-engine-unreal-fe/frame_001.jpg
+- [17:31] tutorials/frames/from-scan-to-stream-open-pipelines-for-large-scale-3d-in-unreal-engine-unreal-fe/frame_002.jpg
+- [23:08] tutorials/frames/from-scan-to-stream-open-pipelines-for-large-scale-3d-in-unreal-engine-unreal-fe/frame_003.jpg
+- [26:09] tutorials/frames/from-scan-to-stream-open-pipelines-for-large-scale-3d-in-unreal-engine-unreal-fe/frame_004.jpg
+- [30:00] tutorials/frames/from-scan-to-stream-open-pipelines-for-large-scale-3d-in-unreal-engine-unreal-fe/frame_005.jpg
+- [34:01] tutorials/frames/from-scan-to-stream-open-pipelines-for-large-scale-3d-in-unreal-engine-unreal-fe/frame_006.jpg
+- [36:00] tutorials/frames/from-scan-to-stream-open-pipelines-for-large-scale-3d-in-unreal-engine-unreal-fe/frame_007.jpg
 
 ---
 
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Three open-source, on-premises conversion pipelines that stream massive real-world 3D capture data (point clouds, photogrammetry meshes, and BIM/IFC models) into Unreal Engine at runtime using Cesium for Unreal (3D Tiles) and a custom "Fragments for Unreal" plugin — avoiding cloud upload, offline baking/cooking, and Unreal's default poor handling of huge single-file imports.
 
 ### Summary
-[PENDING EXTRACTION]
+Unreal Fest Chicago 2026 talk by Arkoon (Carleton Immersive Media Studios, also "Third Space Interactive" content creator) on streaming terabyte-scale heritage/AEC digital-twin datasets into Unreal without any cloud dependency (data sovereignty requirement for confidential heritage/government sites). Anchored on a real case study: Carleton University campus [frame_000, 6:11 title card] — **BIM: 13GB across 47 models, Point Clouds: 100+GB across 14 models, Photogrammetry: 25GB across 4 models**. Three pipelines: (1) **Point cloud**: a Python wrapper around Entwine (LAS/E57 → spatial octree EPT format) converted to GLB + a geolocated 3D Tiles manifest JSON, read into Unreal via the Cesium for Unreal plugin's 3D Tileset actor pointed at a local file path or S3 URL — batch-converts in parallel (campus set: ~4 hours with 8 parallel workers on a 16-core CPU, 65% smaller output via LAS + gzip compression); result shown loaded into the campus scene [frame_001, 10:06]. (2) **Photogrammetry**: since no open-source mesh equivalent of Entwine existed, they built one on **headless Blender** (Python API — decimation, Bmesh ops, UV unwrap, texture baking) doing adaptive octree tiling keyed to a 20,000-triangle-per-tile threshold (not a uniform grid), with a texture-redundancy fix (Blender Smart UV Project bakes each tile to its own 1024×1024 texture) and an "LOD ladder" that holds 1024×1024 as long as the model's total texel budget allows, then drops to a 32px floor — same GLB + 3D Tiles manifest output as the point-cloud pipeline, read by the same Cesium actor (90M-triangle/10GB OBJ test case → 3.8GB streamable tiles, 62% reduction, where open-source and cloud converter alternatives failed to finish); result shown as a drone-scanned rail line + building on campus [frame_002, 17:31]. (3) **Fragments for Unreal**: a from-scratch plugin (in development, not yet open-sourced at time of talk) built on the open-source "That Open Company" web Fragments stack (IFC → Google FlatBuffers schema) to stream BIM/IFC with full per-element control and metadata — unlike DataSmith (great offline fidelity but balloons packaged app size, poor runtime streaming) or plain 3D Tiles (great streaming but loses per-element material/metadata control) or IFC (rich metadata but experimental/unreliable Unreal support). The IFC→.frag conversion is done via a companion web tool/repo ("IFC to Fragment") shown loading a model [frame_003, 23:08] (250MB IFC → 17MB fragment). Fragments uses Hierarchical Instanced Static Mesh Components for per-instance culling, splits each building into a shell (LOD2 merged single mesh, illustrated on-slide as "Casts Shadow, 1 Proxy Mesh" [frame_004, 26:09]) and interior (LOD1 spatially-partitioned, floor-grouped merged cells), lazy-loads interiors only on click/proximity activation (deferring ~98% of triangles — 260K shell vs 10.6M interior triangles in one example), uses per-instance custom material data (slot 0 = base color/highlight, slot 1 = opacity mask/dither fade, slot 2 = position offset for reveal/construction-phasing animations), and persists placement/material overrides via an auto-generated `overrides.json` sidecar file read at runtime (nothing baked into the packaged build). Performance: single building loads in seconds at 120-150 fps (RTX 4080); full 47-building campus loads in ~5 minutes (incl. runtime LOD generation, hierarchy build, materials, placement) holding 60-70 fps, with a color-coded LOD-budget debugger view shown across the whole campus [frame_005, 30:00]. Demo closes with category-based IFC filtering/auditing on named campus buildings — **Dunton Tower** (floor range 0-27) [frame_006, 34:01] and **Canal Building** (floor range 0-14) — a construction-phasing timeline animation driven by a CSV→JSON schedule showing Foundation → Superstructure → Envelope → MEP Rough-in → Finishes bars on a scrubbable timeline [frame_007, 36:00], a campus energy-usage-over-time heatmap driven by real utility data (CSV→JSON, swappable for a live feed), and a "comparison slider" tool (inspired by the Split Fiction game) to visually audit BIM-vs-point-cloud-vs-photogrammetry accuracy side by side.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Point cloud pipeline:** LAS/E57 input → Entwine spatial-octree indexing (EPT format) → convert tiles to GLB → generate a geolocated 3D Tiles tileset.json manifest → compress → in Unreal, enable the Cesium for Unreal plugin, add an empty 3D Tileset actor, point its URL parameter at the manifest's file path (local disk or S3 bucket) — the octree only subdivides where point density exceeds a threshold, so LOD detail streams in adaptively as the camera approaches.
+2. **Photogrammetry pipeline:** run headless Blender instances in parallel via the Blender Python API to recursively octree-split the mesh by a triangle-count threshold (~20,000 tris/leaf tile, not a uniform grid) → bake each tile's texture via Smart UV Project into its own fixed-resolution (1024×1024) texture to eliminate texture redundancy (texel density scales naturally with tile size across LODs) → apply an "LOD ladder" texture-resolution budget (holds full resolution until total texel budget is spent, e.g. LOD3 for a 16K source texture, then drops toward a 32px floor) → output the same GLB + 3D Tiles manifest format, read by the same Cesium 3D Tileset actor as point clouds.
+3. **BIM/Fragments pipeline:** convert IFC → `.frag` (FlatBuffers-based compressed format, e.g. 250MB IFC → 17MB fragment) using the open-source "IFC to Fragment" web converter/repo → the Fragments for Unreal plugin decompresses the `.frag` file on a worker thread, parses the FlatBuffers hierarchy, and splits it into shell vs. interior → generates an LOD2 unified-shell proxy mesh immediately (fast initial load, e.g. 260K triangles) → on user activation (click or proximity), lazy-loads the interior and generates LOD1 spatially-and-floor-partitioned merged cell meshes (deferring the bulk of triangles, e.g. 10.6M in one example) → uses Hierarchical Instanced Static Mesh Components for per-instance frustum/occlusion culling.
+4. Enable per-instance interactivity on merged H-LOD meshes with a custom **Select At Screen Position** Blueprint node — does a spatially-aware trace that "auto-promotes" only the cells near the click point to individually selectable/highlightable state, leaving the rest of the scene merged for performance.
+5. Drive all material variation through per-instance custom primitive data on a master "Fragments" material: slot 0 = base color/highlight, slot 1 = opacity mask (visibility toggling) + dither fade (ghosting), slot 2 = world-position offset (reveal/construction-phase animation) — all computed on GPU to minimize CPU cost.
+6. Persist user edits (placement offsets, material overrides, PBR material swaps replacing default Revit/authoring-software materials) to an `overrides.json` file stored alongside the `.frag` file (local server or object storage bucket); the plugin reads this at runtime on load and reverts to source values if the file is absent — nothing is baked into the packaged build.
+7. Build simulation/visualization layers on top of IFC category metadata: category-based visibility/opacity filtering with a per-building **Floor Range** slider and **Category Visibility Override** panel (e.g. isolate structural categories, or set a floor range like Dunton Tower's 0-27), a construction-phasing timeline (CSV→JSON schedule driving world-position-offset animation per category — foundation → superstructure → envelope → MEP rough-in → finishes, scrubbable), and a campus energy-usage heatmap timeline (CSV→JSON utility data driving a material color function per building, scrubbable and swappable for live data).
+8. For multi-format visual QA, build a "comparison slider" widget (split-screen style, inspired by the game Split Fiction) letting a user drag between BIM, point cloud, and photogrammetry representations of the same structure to audit model accuracy against reality capture.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Plugins:** Cesium for Unreal (3D Tiles reader — empty 3D Tileset actor pointed at a manifest URL/file path), Fragments for Unreal (custom, not yet open-sourced at time of talk — BIM/IFC streaming).
+- **Components:** Hierarchical Instanced Static Mesh Component (chosen over plain Instanced Static Mesh for per-instance culling benefits).
+- **Custom Blueprint nodes:** `SelectAtScreenPos` (spatially-aware click-to-select on merged H-LOD meshes — parameters visible on screen: PC, Screen Pos, Trace Length, Trace Channel, Max Retries, outputs Resolved/Failed/Local Id/Model Guid/Hit Location/Cell Handle), plus additional nodes for **Floor Range** visibility control (per-building slider, e.g. Dunton Tower 0-27, Canal Building 0-14) and **Category Visibility Override** filtering (not all named on screen).
+- **Materials:** a master "Fragments" material using per-instance custom data slots (0 = base color/highlight, 1 = opacity mask + dither fade, 2 = position offset) and Material Parameter Collections for timeline-driven animation (construction phasing, energy heatmap).
+- **Data formats:** LAS/E57 (point cloud input), EPT (Entwine octree format), GLB + 3D Tiles tileset.json (shared output format for both point cloud and photogrammetry pipelines), IFC → `.frag` (FlatBuffers-based BIM format), `overrides.json` (runtime placement/material override sidecar file).
+- **Reported dataset scale (Carleton University campus case study):** BIM 13GB/47 models, Point Clouds 100+GB/14 models, Photogrammetry 25GB/4 models.
+- **Reported performance figures:** point cloud campus conversion ~4 hours (8 parallel workers, 16-core CPU), 65% size reduction; photogrammetry 90M-tri/10GB OBJ → 3.8GB tiles (62% reduction) where open-source/cloud alternatives failed; single Fragments building loads in seconds at 120-150 fps (RTX 4080); 47-building campus loads in ~5 minutes at 60-70 fps; LOD1 shadow-casting primitive count reduced from 26,000 to 134 via hidden shadow-casting merged cells.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced/Expert — large-scale pipeline engineering (custom Python/Blender tooling, FlatBuffers parsing, custom C++/Blueprint streaming architecture) aimed at studios/teams building digital-twin or AEC/heritage visualization pipelines, not a beginner how-to.
 
 ### UE Version
-[PENDING EXTRACTION]
+Not explicitly stated (Unreal Fest Chicago 2026 talk — recent UE5.x; Cesium for Unreal and Nanite/virtual shadow maps referenced as available but explicitly not relied upon for IFC runtime due to CPU-bound constraints).
 
 ### Tags
-[PENDING EXTRACTION]
+pipeline, automation, rendering, level-streaming, geometry, blueprint, advanced, expert, ue5-6
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- No other ingested unreal-sidekick tutorial currently covers point-cloud/photogrammetry/BIM runtime streaming or Cesium for Unreal / 3D Tiles — this is new coverage territory. Check `references/rendering-pipeline.md` and `references/narrative-blueprints.md` for adjacent large-scene/streaming concepts (Level Streaming) once cross-referenced.
