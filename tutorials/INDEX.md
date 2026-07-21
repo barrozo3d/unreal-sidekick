@@ -3159,6 +3159,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Written Epic community tutorial (Part 1 of a series) on the classic/traditional Landscape system in UE 5.7 — Sculpt mode and heightmap-based terrain creation, as a foundation toward a production-ready auto-material landscape. Page body is behind Cloudflare + Angular client-side rendering and could not be fully scraped; notes below are based on confirmed title/banner/meta-description plus this skill's own Landscape system knowledge — flagged `needs-review` for a human pass with the live page open.
 - **File:** tutorials/unreal-engine-5-7-landscape-series-from-sculpting-to-production-ready-environments.md
 
+
+### From Scan to Stream: Open Pipelines for Large-Scale 3D in Unreal Engine  | Unreal Fest Chicago 2026
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=5ehoHM-uzRQ
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/from-scan-to-stream-open-pipelines-for-large-scale-3d-in-unreal-engine-unreal-fe.md
+
 ---
 
 ## Tag Reference
