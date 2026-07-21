@@ -1,3 +1,18 @@
+# unreal-sidekick skill — ingest.py / select_frames.py dependencies
 yt-dlp
-openai-whisper
-requests
+openai-whisper    # pip install openai-whisper  (requires torch — already present if ComfyUI is installed)
+
+# System dependencies (not pip):
+# ffmpeg — https://ffmpeg.org/download.html
+# Windows: winget install ffmpeg   OR   scoop install ffmpeg   OR   choco install ffmpeg
+# Must be on PATH for select_frames.py's frame capture (Step 2) to work.
+# ingest.py (Step 1) doesn't call ffmpeg, but checks for it on PATH — if missing,
+# it marks the tutorial frame_status: skipped (permanently no frames) instead of
+# pending-selection.
+
+# deno — https://docs.deno.com/runtime/manual/getting_started/installation
+# Windows: winget install deno
+# Required by yt-dlp to solve YouTube's n-challenge (format/download throttle bypass).
+# Without deno: yt-dlp may fail or return incomplete video format data.
+
+# Epic-documentation ingests use only the Python standard library (urllib) — no extra pip deps.
