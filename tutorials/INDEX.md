@@ -3290,6 +3290,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-to-tile-photogrammetry-based-pbr-materials.md
 
+
+### RealityCapture to Unreal Engine 5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=kRD0rgCnOWQ
+- **Author:** RealityScan
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/realitycapture-to-unreal-engine-5.md
+
 ---
 
 ## Tag Reference
