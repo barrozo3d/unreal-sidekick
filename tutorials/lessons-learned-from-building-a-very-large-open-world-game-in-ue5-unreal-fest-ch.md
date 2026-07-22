@@ -467,6 +467,7 @@ UE 5.6 (shipped), upgrading to 5.7, eyeing 5.8
 ---
 
 ## Related Entries
+- **How to Start Your Project at 60 FPS and Keep It There | Unreal Fest Chicago 2026** (`tutorials/how-to-start-your-project-at-60-fps-and-keep-it-there-unreal-fest-chicago-2026.md`) — Epic Dev Rel's prescriptive counterpart from the same event: day-zero config and system choices for the scale problems this postmortem hit in production.
 - **World Partition in Unreal Engine** (`tutorials/world-partition-in-unreal-engine.md`) — the official reference for World Partition, One File Per Actor, Data Layers, HLOD, and the commandlets this talk leans on.
 - **Procedural Content Generation Framework in Unreal Engine** (`tutorials/procedural-content-generation-framework-in-unreal-engine.md`) — PCG v2 docs; the engine tool this team wishes they'd had from the start and is now adopting.
 - **PROCEDURAL WORLD BUILDING FOR UE5 - PCG ALTERNATIVE** (`tutorials/procedural-world-building-for-ue5---pcg-alternative.md`) — Dash scatter tooling, an alternative take on the same placement problem.

@@ -3335,9 +3335,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=DxBKmQ-0kfw
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.8
+- **Tags:** `#rendering` `#nanite` `#lumen` `#tsr` `#pcg` `#level-streaming` `#niagara` `#materials` `#shaders` `#pipeline` `#automation` `#advanced` `#ue5-8`
+- **Summary:** Epic Dev Rel (Matt Oztalay) day-zero 60 fps playbook for UE 5.8 on Gen 9: CL#1 config (UMG bindings → Prevent, simple-as-complex collision, DefaultEditorSettings.ini sg.*=2, hierarchical device profiles), the key resolution pipeline (dynamic 800–1080p → TSR to 1440p via r.SecondaryScreenPercentage.GameViewport → spatial upscale to 4K), plus per-system best practices: PCG GPU instances, Fast Geo, HLOD Use Render LOD Meshes, tickless State Tree, Mass/Instanced Actors, Niagara Data Channels, Nanite shading-bin reduction, MegaLights, PSO pre-caching, and Insights/Horde perf monitoring.
 - **File:** tutorials/how-to-start-your-project-at-60-fps-and-keep-it-there-unreal-fest-chicago-2026.md
 
 ---

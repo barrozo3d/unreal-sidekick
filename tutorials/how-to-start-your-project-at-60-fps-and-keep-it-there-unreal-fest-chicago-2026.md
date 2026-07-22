@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=DxBKmQ-0kfw
 author: Unreal Engine
 ingested: 2026-07-22
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.8"
+tags: [rendering, nanite, lumen, tsr, pcg, level-streaming, niagara, materials, shaders, pipeline, automation, advanced, ue5-8]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-start-your-project-at-60-fps-and-keep-it-there-unreal-fest-chicago-2026/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # How to Start Your Project at 60 FPS and Keep It There | Unreal Fest Chicago 2026
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py how-to-start-your-project-at-60-fps-and-keep-it-there-unreal-fest-chicago-2026 <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -566,30 +562,66 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [6:00] tutorials/frames/how-to-start-your-project-at-60-fps-and-keep-it-there-unreal-fest-chicago-2026/frame_000.jpg
+- [11:15] tutorials/frames/how-to-start-your-project-at-60-fps-and-keep-it-there-unreal-fest-chicago-2026/frame_001.jpg
+- [12:06] tutorials/frames/how-to-start-your-project-at-60-fps-and-keep-it-there-unreal-fest-chicago-2026/frame_002.jpg
+- [14:55] tutorials/frames/how-to-start-your-project-at-60-fps-and-keep-it-there-unreal-fest-chicago-2026/frame_003.jpg
+- [15:50] tutorials/frames/how-to-start-your-project-at-60-fps-and-keep-it-there-unreal-fest-chicago-2026/frame_004.jpg
+- [26:30] tutorials/frames/how-to-start-your-project-at-60-fps-and-keep-it-there-unreal-fest-chicago-2026/frame_005.jpg
+- [38:55] tutorials/frames/how-to-start-your-project-at-60-fps-and-keep-it-there-unreal-fest-chicago-2026/frame_006.jpg
+- [47:15] tutorials/frames/how-to-start-your-project-at-60-fps-and-keep-it-there-unreal-fest-chicago-2026/frame_007.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Day-zero project configuration and system-selection playbook from Epic Dev Rel (Matt Oztalay, principal technical artist) for building and shipping UE5.8 games at 60 fps on Gen 9 hardware — config INIs, device profiles, secondary upscaling, and per-system best practices from PCG to Nanite bins to PSOs.
 
 ### Summary
-[PENDING EXTRACTION]
+The talk splits 60 fps into three phases: **start** (a first changelist that locks in scalability defaults, device profiles, and the resolution-scaling pipeline before anyone else opens the project), **stay** (choosing engine systems — PCG, World Partition + Fast Geo, State Tree, Mass, Niagara Data Channels, MegaLights — that keep actor/tick/shader counts down as the game grows), and **return** (monitoring with Unreal Insights, automated perf tests on Horde's new perf trend dashboard, then reverting to best practices when you stray). The single most important slide: render a dynamic primary resolution of ~800–1080p, TSR-upscale to a secondary resolution of 1440p (`r.SecondaryScreenPercentage.GameViewport=75`), then spatially upscale to 4K output — "fewer, higher-quality pixels."
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **CL#1, day zero** — new .uproject; disable unused plugins (source control providers, source code editors you don't use), enable `Data Validation` + `Asset Referencing Restrictions` (+ Fast Geo, PCG, Geometry Script); set key project settings; add `DefaultEditorSettings.ini` + `DefaultDeviceProfiles.ini` to Config.
+2. **Three mandatory project settings** — (a) UMG property binding rule → **Prevent** (legacy bindings tick every frame; set for both game and editor utility widgets); (b) collision complexity → **Use Simple Collision As Complex** (opt IN to complex collision — unset Nanite LOD counts make 2M-triangle fallback meshes your collision mesh); (c) empty editor startup map for fast iteration. Bonus: frame pacing via `r.GTSyncType` (0 = PC, 1 = mobile, 2 = Gen 9 consoles).
+3. **DefaultEditorSettings.ini** — `[ScalabilityGroups]` with all `sg.*Quality=2` (High = the 60 fps mode; Epic defaults = 30 fps quality mode) so every developer sees the 60 fps version of the game from first launch; user edits live in `Engine\Saved\Config\WindowsEditor\EditorSettings.ini`.
+4. **DefaultDeviceProfiles.ini** — hierarchical device profiles per platform (`SixtyHertz_Windows_60` etc.); scalability groups at 2; static-res platforms `r.ScreenPercentage≈65` (~900p); dynamic res: `r.DynamicRes.FrameTimeBudget=16.66`, `MinScreenPercentage=55`, `MaxScreenPercentage=75`; NDA platform folders ship suggested Gen9_60fps profiles. You must also wire up a device profile **selector** (example selector plugin, platform INIs, or Lyra's `ULyraSettingsLocal` logic).
+5. **Resolution pipeline (the picture slide)** — dynamic primary 800–1080p (`r.DynamicRes.*` / `r.ScreenPercentage`) → TSR upscale to 1440p (`r.SecondaryScreenPercentage.GameViewport=75`) → spatial upscale (`r.Upscale.Quality`) to 4K back buffer; UI renders at full frame size. TSR holds quality up to ~2× but degrades below ~1080p input.
+6. **World building** — PCG: replace landscape grass types with partitioned hierarchically-generated GPU-only instances; discard points early; mark editor-only PCG components (generate-on-demand can fire at runtime and hit blocking loads); 5.8 adds manual point editing; wrap big systems in PCG Builders. World Partition: runtime cell transformers + **Fast Geo** (beta 5.8) turn static actors into cheaper-than-actor streamed geometry; tune async streaming budget down from the 5ms default; packed level actors stream by actor bounds (a 2-block actor in a half-block grid never unloads); Data Layers for state swaps.
+7. **HLODs** — required for HWRT Lumen far field; use Approximated Mesh method and check **Use Render LOD Meshes** (fallback LODs feed the HLOD build instead of full Nanite meshes); consider custom HLOD layers/classes; build nightly alongside PCG across build agents.
+8. **Living world** — State Tree (tickless in 5.8; event-driven patterns; prototype tasks in Blueprint, nativize near ship; debugging now in the Rewind Debugger) + EQS; Dynamic NavMesh via Nav Invokers instead of holding 16km² of navmesh; **Mass** for tens of thousands of agents (struct-of-arrays batch processing) and Instanced Actors (full actor when gameplay-relevant, ISM otherwise).
+9. **Animation / FX** — Anim Budget Allocator from day one (retrofitting means messy reparenting); nativize expensive AnimBP work; avoid per-frame attached-component updates; Niagara "systems as a service" — one ticking system fed by `Niagara Data Channels` instead of many system actors; Effect Types for scalability; lightweight emitters for non-reactive loops.
+10. **Rendering** — Nanite: always set Num LODs (fallback meshes for ray tracing/collision/non-Nanite platforms); tune ray tracing proxies (critical under MegaLights); set Max Displacement for WPO; enable **Displacement Fade** on tessellation materials; set pixel-programmable and WPO disable distances. Reduce shading bins: unique MIC/MID count via Custom Primitive Data / Per-Instance Custom Data / Material Parameter Collections; 5.8 per-material-instance usage flags kill shader permutation explosions. Avoid Large World Coordinate math in materials (camera-relative or periodic world space) if base pass profiling is slow. Substrate: fixed material topology, one BSDF/slab (clear coat as a treat). Lumen HWRT; lower `RoughnessToTrace` (default 0.4 vs typical 0.35 roughness = dedicated reflection rays everywhere), foliage → 0. MegaLights production-ready in 5.8 — go all-in if used; rect lights sparingly. VSM: watch projection mask bits (light softness/SMRT), use resolution LOD bias per device profile. Virtual texturing: `r.VT.MaxUploadsPerFrame` low, `r.VT.MaxUploadsPerFrame.Streaming` high; mind stack count. PSOs: bundle and/or pre-cache, and clear the PSO cache when testing locally.
+11. **Monitor & return** — everyone on the team uses Unreal Insights (trace regions, trace screenshots, GPU Profiler 2.0, World Streaming Insights heatmap in 5.8, Chaos Visual Debugger complexity view, Rewind Debugger); daily automated perf tests via BuildGraph/UAT/Gauntlet on Horde with the new perf trend dashboard; return = profile the big number, nativize hot AnimBP ops, reduce shading bins, then latency tricks/frame gen, or cut game.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- `r.GTSyncType` — 0 PC / 1 mobile / 2 Gen 9 frame pacing.
+- `[ScalabilityGroups]` `sg.*Quality=2` in DefaultEditorSettings.ini — High = 60 fps mode.
+- `r.SecondaryScreenPercentage.GameViewport=75` (4K→1440p), `r.ScreenPercentage≈65` static, `r.DynamicRes.FrameTimeBudget=16.66`, `r.DynamicRes.Min/MaxScreenPercentage=55/75`, `r.Upscale.Quality`.
+- UMG: PropertyBindingRule = Prevent; MVVM/ViewModel for UI data; no root Canvas panels; watch invalidations.
+- Physics: Use Simple Collision As Complex; custom trace/object channels (up to ~32) to scope overlap updates; Dataflow for destruction iteration.
+- Plugins: Data Validation, Asset Referencing Restrictions, Fast Geo (5.8 beta), PCG, Geometry Script.
+- `r.VT.MaxUploadsPerFrame` (low) vs `r.VT.MaxUploadsPerFrame.Streaming` (high).
+- Networking: Iris production-ready 5.8; opt-in replication; relevancy via Replication Graph or Iris filters; test with replication on.
+- Budgets: pick the metric early (fps / missed-vsync % / dynamic res / ms).
+- 5.8 highlights: MegaLights + Iris production-ready, Fast Geo beta, Lumen irradiance field gather, dynamic res on PC, tickless State Tree, per-MI usage flags, World Streaming Insights, PCG manual editing.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.8 (with feature history back through 5.3–5.7)
 
 ### Tags
-[PENDING EXTRACTION]
+`#rendering` `#nanite` `#lumen` `#tsr` `#pcg` `#level-streaming` `#niagara` `#materials` `#shaders` `#pipeline` `#automation` `#advanced` `#ue5-8`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- **Lessons Learned from Building a Very Large Open World Game in UE5 | Unreal Fest Chicago 2026** (`tutorials/lessons-learned-from-building-a-very-large-open-world-game-in-ue5-unreal-fest-ch.md`) — the studio-side counterpart from the same event: Subnautica 2 applying World Partition, PCG, anim budgeting, and Insights-driven perf automation in production.
+- **Designing Visuals, Rendering, and Graphics with Unreal Engine** (`tutorials/designing-visuals-rendering-and-graphics-with-unreal-engine.md`) — official reference for the Lumen/Nanite/TSR/Substrate/VSM systems this talk sets budgets for.
+- **Procedural Content Generation Framework in Unreal Engine** (`tutorials/procedural-content-generation-framework-in-unreal-engine.md`) — PCG v2 docs covering the hierarchical/runtime generation and Biome workflows recommended here.
+- **World Partition in Unreal Engine** (`tutorials/world-partition-in-unreal-engine.md`) — streaming grids, Data Layers, HLOD, and One File Per Actor fundamentals behind the world-building section.
+- **Release Notes UE 5.8** (`references/release-notes-ue58.md`) — the 5.8 feature set (MegaLights, Fast Geo, Iris, World Streaming Insights) this talk builds on.
