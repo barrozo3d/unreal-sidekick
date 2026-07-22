@@ -3330,6 +3330,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Subnautica 2 (Unknown Worlds) postmortem on a 100k-actor handcrafted open world in UE5.6: bespoke "World Population" resource-spawning tool scrapped in favor of PCG + manual placement ("work with the engine, not against it"); World Partition + One File Per Actor from day one; Mesh Blend plugin for seams; Asset User Data for gameplay on static meshes; Anim Budgeter + event-driven animation data + Niagara particle fish for creature scale.
 - **File:** tutorials/lessons-learned-from-building-a-very-large-open-world-game-in-ue5-unreal-fest-ch.md
 
+
+### How to Start Your Project at 60 FPS and Keep It There | Unreal Fest Chicago 2026
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=DxBKmQ-0kfw
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-to-start-your-project-at-60-fps-and-keep-it-there-unreal-fest-chicago-2026.md
+
 ---
 
 ## Tag Reference
