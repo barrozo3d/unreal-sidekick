@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=AalP65lrtpo
 author: Unreal Engine
 ingested: 2026-07-22
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.6"
+tags: [pipeline, automation, editor-scripting, pcg, animation, niagara, level-streaming, blueprint, cpp, intermediate, ue5-6]
+extraction_status: complete
 frames_dir: tutorials/frames/lessons-learned-from-building-a-very-large-open-world-game-in-ue5-unreal-fest-ch/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Lessons Learned from Building a Very Large Open World Game in UE5 | Unreal Fest Chicago 2026
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py lessons-learned-from-building-a-very-large-open-world-game-in-ue5-unreal-fest-ch <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -412,30 +408,65 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [6:45] tutorials/frames/lessons-learned-from-building-a-very-large-open-world-game-in-ue5-unreal-fest-ch/frame_000.jpg
+- [9:50] tutorials/frames/lessons-learned-from-building-a-very-large-open-world-game-in-ue5-unreal-fest-ch/frame_001.jpg
+- [10:15] tutorials/frames/lessons-learned-from-building-a-very-large-open-world-game-in-ue5-unreal-fest-ch/frame_002.jpg
+- [16:08] tutorials/frames/lessons-learned-from-building-a-very-large-open-world-game-in-ue5-unreal-fest-ch/frame_003.jpg
+- [24:20] tutorials/frames/lessons-learned-from-building-a-very-large-open-world-game-in-ue5-unreal-fest-ch/frame_004.jpg
+- [28:14] tutorials/frames/lessons-learned-from-building-a-very-large-open-world-game-in-ue5-unreal-fest-ch/frame_005.jpg
+- [30:44] tutorials/frames/lessons-learned-from-building-a-very-large-open-world-game-in-ue5-unreal-fest-ch/frame_006.jpg
+- [33:40] tutorials/frames/lessons-learned-from-building-a-very-large-open-world-game-in-ue5-unreal-fest-ch/frame_007.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Production postmortem of scaling a handcrafted 100,000-actor open world (Subnautica 2, Unknown Worlds) in UE5.6 — covering bespoke editor tooling vs. engine tools (PCG), World Partition + One File Per Actor, asset user data for gameplay-on-meshes, and animation budgeting/LOD strategies.
 
 ### Summary
-[PENDING EXTRACTION]
+Sam Dark (programmer, Unknown Worlds) walks through what worked and what was wasted effort building Subnautica 2's 3km × 1.5km handcrafted underwater map with 100k actors (targeting 500k by 1.0). The recurring lesson: "work with the engine, not against it" — their months-long bespoke "World Population" procedural resource-spawning tool (raycast flood-fill, later voxelized) was ultimately scrapped in favor of manual placement + PCG, while engine-provided systems (World Partition, One File Per Actor, Anim Budgeter, World Partition Builder commandlets, Unreal Insights) delivered the real scale wins. Also strong endorsements of the Mesh Blend post-process plugin (FAB) for hard mesh seams, and asset user data for attaching gameplay/scan/surface data to plain static meshes instead of 100k Blueprints.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Placement tooling** — built bespoke tools with `Editor Utility Widgets` and `Scriptable Tools` for mesh dropping/scattering, prop dressing, cliff blend holes, tree roots; now migrating to `PCG` since it matured (early PCG assumed sky-to-terrain projection, unusable for underwater caves/overhangs).
+2. **World Population v1 (scrapped)** — runtime procedural resource spawning via raycast flood-fill from a known playable-space seed actor; nonlinear scaling with volume, up to 2h per large region, black-box results invisible in editor.
+3. **World Population v2 (also scrapped)** — dropped runtime requirement, baked spawn points into levels; voxelized map at 1m resolution storing surface data per voxel, rules run only on qualifying voxels; slate editor tooling for rule editing; ran overnight on build machine via `World Partition Builder` commandlets (load region → generate → save to data asset → unload → next). Started at 15–20s, grew to 20–30 min; team ended up hand-placing resources anyway.
+4. **Mesh seams** — after trying RVT, decals/skirt meshes, foliage cover, and mesh distance fields, adopted the **Mesh Blend** post-process plugin (from Tor via Epic forums, now on FAB): cheap post-process, zero asset changes, widely used by Unreal Fest games.
+5. **Prefab workflow** — updated the MIT `Prefabricator` UE4 plugin to UE5 (on their GitHub, no support); now reverting to native `Level Instances` because maintaining the plugin through engine upgrades wasn't justifiable.
+6. **Scale management** — `World Partition` + `One File Per Actor` from day one; traced editor slowdowns (e.g. slow deletes at 50k–100k actors from reference checks) with `Unreal Insights` and patched engine code; used `Data Layers` for organizing map reworks; raised the entire map ~6m with editor widget scripts.
+7. **Automated testing** — Gauntlet smoke tests, unit tests, functional tests (drowning, GAS abilities), plus Blueprint/data asset **validators** to enforce conventions ("a validator makes sure that actually happens").
+8. **Performance automation** — "photo tours": scripted map fly-through capturing screenshots + performance traces daily, so visual regressions and game-thread spikes are caught within a day and traced to a changelist.
+9. **Gameplay on meshes** — `Asset User Data` on static meshes/components (extended for Blueprint queries) carrying scan lore, resource-surface rules (e.g. quartz only on the pearlescent interior material of coral domes), creature-interaction and gameplay tags; priority lookup: Blueprint component → root component → mesh in root component.
+10. **Animation at scale** — `Anim Budgeter` / `Skeletal Mesh Component Managed` prioritizes ticks by distance/visibility (Leviathans pinned high); multi-level LOD (behavior trees → simplified logic → static mesh that moves → fully static); ~300–400 background fish are pure `Niagara` particles; moved per-frame animation data-gathering from a Blueprint tick component (1.8ms aggregate) to C++, then to event-driven pushes subscribed optionally in Anim Blueprints (multithread-friendly, no tick sync).
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- `World Partition` + `One File Per Actor` — "genuinely cannot imagine how we would have made the game without these"; from day one.
+- `World Partition Builder` commandlets — batch whole-map operations region-by-region on a build machine.
+- `Data Layers` — used for staging map reworks; speaker wishes they'd used more, incl. runtime.
+- `PCG` — not viable at project start (multi-landscape issues, top-down projection assumptions); now adopted.
+- **Mesh Blend** plugin (FAB) — post-process mesh seam hiding; cheap, no asset changes.
+- **Prefabricator** plugin (UE4, MIT) — ported to UE5, published on GitHub; being abandoned for Level Instances.
+- `Asset User Data` — on meshes/components; extended with Blueprint query helpers; data assets for scan data + spawn-surface rules + gameplay tags.
+- `Anim Budgeter` (`SkeletalMeshComponentManaged`) — works out of the box; custom priority weighting added.
+- `Unreal Insights` — primary perf tool, works in editor and runtime; "trace everything".
+- Aggregated ticks — move any tick shared by 10–15+ world objects into subsystems/managers.
+- Gauntlet, functional tests, asset validators for CI on a small team.
+- Mass (MassEntity) — evaluated, not ready for their needs at start; on the roadmap.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.6 (shipped), upgrading to 5.7, eyeing 5.8
 
 ### Tags
-[PENDING EXTRACTION]
+`#pipeline` `#automation` `#editor-scripting` `#pcg` `#animation` `#niagara` `#level-streaming` `#blueprint` `#cpp` `#intermediate` `#ue5-6`
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- **World Partition in Unreal Engine** (`tutorials/world-partition-in-unreal-engine.md`) — the official reference for World Partition, One File Per Actor, Data Layers, HLOD, and the commandlets this talk leans on.
+- **Procedural Content Generation Framework in Unreal Engine** (`tutorials/procedural-content-generation-framework-in-unreal-engine.md`) — PCG v2 docs; the engine tool this team wishes they'd had from the start and is now adopting.
+- **PROCEDURAL WORLD BUILDING FOR UE5 - PCG ALTERNATIVE** (`tutorials/procedural-world-building-for-ue5---pcg-alternative.md`) — Dash scatter tooling, an alternative take on the same placement problem.
