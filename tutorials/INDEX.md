@@ -3300,6 +3300,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/realitycapture-to-unreal-engine-5.md
 
+
+### Ultimate Guide to Modular Assets | Sony Santa Monica & Naughty Dog Artists Break Down the Workflow
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=gaUcEoh_-AQ
+- **Author:** Class Creatives
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/ultimate-guide-to-modular-assets-sony-santa-monica-naughty-dog-artists-break-dow.md
+
 ---
 
 ## Tag Reference
