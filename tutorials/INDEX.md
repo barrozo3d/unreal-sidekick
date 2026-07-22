@@ -3310,6 +3310,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/ultimate-guide-to-modular-assets-sony-santa-monica-naughty-dog-artists-break-dow.md
 
+
+### Everything You Should Know About MegaLights! - Unreal Engine 5.5 Lighting Tutorial For Beginners
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=A_7t9BqeQ_A
+- **Author:** Karim Yasser
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/everything-you-should-know-about-megalights---unreal-engine-55-lighting-tutorial.md
+
 ---
 
 ## Tag Reference
