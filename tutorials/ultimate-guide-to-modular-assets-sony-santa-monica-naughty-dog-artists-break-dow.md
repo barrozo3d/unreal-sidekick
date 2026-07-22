@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=gaUcEoh_-AQ
 author: Class Creatives
 ingested: 2026-07-21
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "N/A (Maya + planning theory; engine-agnostic, applies to UE5 kits)"
+tags: [modelling, geometry, materials, pipeline, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/ultimate-guide-to-modular-assets-sony-santa-monica-naughty-dog-artists-break-dow/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 6
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Ultimate Guide to Modular Assets | Sony Santa Monica & Naughty Dog Artists Break Down the Workflow
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py ultimate-guide-to-modular-assets-sony-santa-monica-naughty-dog-artists-break-dow <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### <Untitled Chapter 1> [0:00]
@@ -305,30 +301,54 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [3:20] tutorials/frames/ultimate-guide-to-modular-assets-sony-santa-monica-naughty-dog-artists-break-dow/frame_000.jpg
+- [5:10] tutorials/frames/ultimate-guide-to-modular-assets-sony-santa-monica-naughty-dog-artists-break-dow/frame_001.jpg
+- [6:50] tutorials/frames/ultimate-guide-to-modular-assets-sony-santa-monica-naughty-dog-artists-break-dow/frame_002.jpg
+- [9:55] tutorials/frames/ultimate-guide-to-modular-assets-sony-santa-monica-naughty-dog-artists-break-dow/frame_003.jpg
+- [11:45] tutorials/frames/ultimate-guide-to-modular-assets-sony-santa-monica-naughty-dog-artists-break-dow/frame_004.jpg
+- [13:10] tutorials/frames/ultimate-guide-to-modular-assets-sony-santa-monica-naughty-dog-artists-break-dow/frame_005.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+AAA modular-kit fundamentals from two veterans (Jon Arellano — Naughty Dog/Sony Santa Monica lineage, Maya demo; Jacob Norris — Uncharted 4/MGSV/CS2, Sierra Division planning): grid-snapped kit pieces with texel-density-aligned UVs so tileable textures meet seamlessly at every module edge, plus reference-board-driven kit planning.
 
 ### Summary
-[PENDING EXTRACTION]
+Two-part breakdown of how AAA environment kits are actually designed. Arellano demonstrates the hands-on Maya rules — building a corner from a mirrored 4m wall piece by vertex-snapping to the on-grid module, keeping UV shells ending exactly on tileable-texture edges at a fixed texel density (1024 px/m with 2K textures → the tile repeats exactly twice per 4m piece, so pieces can be cut at 2m and still tile), and skirting kit intersections with floated alpha decals. Norris covers the planning layer: market-gap-driven kit selection (their oil rig pack: hard to scan, missing from marketplace, reusable across industrial/sci-fi), and reference boards that decompose an environment into its minimal modular vocabulary (pipes, beams, catwalks, container rooms) before anything is modeled.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Corner pieces:** duplicate the on-grid 4m wall module, mirror it (Arellano uses a one-line MEL mirror script), rotate into place, then fix the fit at vertex level: select the verts that must meet the neighboring kit piece (deselect the free corner edge), hold **D+V** (move pivot + vertex snap) and snap along **one axis at a time** (green/Y first, then red/X) onto the on-grid piece — never eyeball module seams.
+2. **Texel density is the contract:** with a 2048 texture at **1024 px/m density**, a 4m wall's UVs span the tile exactly twice — UV shell edges land on the texture's tile boundary, so any two modules meet with zero visible seam. Verify in the UV editor (hotkey 6 for textured view).
+3. **Every new kit piece must honor the same density + grid:** auto-unwrap, set the same texel density, and snap UVs so shell edges end on tile edges; then a same-width piece drops in seamlessly.
+4. **Subdivision benefit:** because texture repeats align with meters, a 4m piece can be split into 2m pieces (insert edge loops at the middle) and each half still tiles perfectly — plan module sizes as divisors of the tile size.
+5. **Seam concealment hierarchy:** first get pieces genuinely on-grid with aligned tileables; then hide residual seams with pillars/foliage/layered geometry; and use **floated decal geometry** (alpha-transparency planes hovering just off the surface to avoid Z-fighting) as "skirts" where walls meet floors or where two kit pieces blend. Decals can live in-engine or as kit pieces themselves; texel density matters less on decals since tileables carry the detail.
+6. **Custom decal pieces:** duplicate the kit piece, delete all but the needed faces/trims, float the verts slightly off the surface, assign the decal material, planar-project on the correct axis, snap back to grid with D+V.
+7. **Kit planning (Norris):** choose kit subjects by market gap + scanning difficulty + cross-genre reuse; build a reference board (Miro) and mark up photos to identify the environment's dominant repeated forms — for the oil rig: pipes, metal beams, catwalks, cooling units, control panels, container-style rooms — those become the kit's core modules.
+8. **The general law:** repetition + small variation + smart placement scales from hard-surface industrial kits to organic and architectural spaces.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+Engine-agnostic content-creation theory (demoed in Maya; planning in Miro):
+- Maya: D+V pivot/vertex snap, per-axis snapping, edge-loop insertion at tile midpoints, planar projection for decals, one-line MEL mirror script
+- Standard: 1024 px/m texel density, 2K tileables, 4m base module (cuttable to 2m), UV shells terminating on tile boundaries
+- Decals: floated geometry + alpha transparency, slight offset against Z-fighting
+- In UE these map to: grid snapping (editor grid at module size), consistent texel density across the kit, Decal Actors / mesh decals, vertex paint blending (mentioned as the companion technique)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+N/A — engine-agnostic kit theory; directly applicable to UE5 modular environments
 
 ### Tags
-[PENDING EXTRACTION]
+modelling, geometry, materials, pipeline, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [How to tile photogrammetry based PBR materials](how-to-tile-photogrammetry-based-pbr-materials.md) — authoring the tileable textures these kits depend on (shared: materials, pipeline)
+- [RealityCapture to Unreal Engine 5](realitycapture-to-unreal-engine-5.md) — scanned hero props that dress a modular kit (shared: modelling, pipeline)
+- [How to Scatter Decals in UE5 - World Building Plugin](how-to-scatter-decals-in-ue5---world-building-plugin.md) — the in-engine half of the decal blending technique

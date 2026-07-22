@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=kRD0rgCnOWQ
 author: RealityScan
 ingested: 2026-07-21
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.0"
+tags: [nanite, materials, geometry, modelling, pipeline, beginner, intermediate, ue5-0]
+extraction_status: complete
 frames_dir: tutorials/frames/realitycapture-to-unreal-engine-5/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # RealityCapture to Unreal Engine 5
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py realitycapture-to-unreal-engine-5 <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Intro [0:00]
@@ -426,30 +422,59 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [3:25] tutorials/frames/realitycapture-to-unreal-engine-5/frame_000.jpg
+- [6:20] tutorials/frames/realitycapture-to-unreal-engine-5/frame_001.jpg
+- [9:15] tutorials/frames/realitycapture-to-unreal-engine-5/frame_002.jpg
+- [11:45] tutorials/frames/realitycapture-to-unreal-engine-5/frame_003.jpg
+- [14:05] tutorials/frames/realitycapture-to-unreal-engine-5/frame_004.jpg
+- [16:30] tutorials/frames/realitycapture-to-unreal-engine-5/frame_005.jpg
+- [21:20] tutorials/frames/realitycapture-to-unreal-engine-5/frame_006.jpg
+- [24:15] tutorials/frames/realitycapture-to-unreal-engine-5/frame_007.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Official Epic (Jakub, DevRel) end-to-end prop-scan pipeline: photograph → RealityCapture (markers, scaling, reconstruct, clean, texture 16K, simplify to 10M tris, reproject color+normal) → FBX with the Unreal Engine export preset → UE5 import with Build Nanite → parameterized material instance to blend the scan into a level.
 
 ### Summary
-[PENDING EXTRACTION]
+A wooden hunting tower is scanned with a consumer 24MP full-frame camera (24mm prime) on a 4m pole — no drone, no special rig — 900+ images, then processed through RealityCapture's complete workflow into a 10M-triangle Nanite mesh with one 16K color + one 16K normal texture, imported into the free Medieval Game Environment. Demonstrates the "texture the highpoly first, then simplify and reproject" strategy for best texture quality, plus the minimal brightness/roughness material-instance edits that make raw scans sit naturally in a lit level.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Capture:** 24MP full-frame + 24mm prime on a 4m pole (phone-paired shutter) for roof/upper parts; 900+ images — overshoot deliberately, unaligned extras don't matter.
+2. **Scale setup:** import first only the 6 images containing the printed scale bar; `Detect Markers` (Alignment tab; type Circular Single Ring 12-bit, required measurements ~3 to prevent false positives) auto-creates control points; import a **distance definition** text file (`name pointA pointB distance`, space-separated, local Euclidean, meters — here 0.6; accuracy 1mm) via Workflow tab → Distance Definitions.
+3. **Align:** drag in the full image folder (already-imported images dedupe automatically) → `Align Images`. Check unaligned cameras via 2Ds → Scene 2D → `Show Unregistered`; a second alignment or control points can recover them if needed.
+4. **Ground plane & region:** Scene 3D Tools → `Set Groundplane`, adjusted in orthographic views (numpad 2 = top, 5 = side, 0 = perspective); rotate the scene so the model's front faces +X so it lands correctly oriented in UE. Then `Set Reconstruction Region`, box-widget adjusted in the same ortho views.
+5. **Reconstruct:** Mesh Model tab → `Create Model` on Normal Detail → 139M triangles (RC's real-time render limit is 40M, so it displays as point cloud).
+6. **Cleanup:** RC meshes are watertight, so the bottom gets filled with large "marginal triangles". Reveal them with a **Clipping Box** (create from reconstruction region, lower the top), then remove via `Cut By Box`: shrink the reconstruction region slightly, **Cut Outer**, Fill Cut Holes = No. (Alternative: Advanced Selection filtering.)
+7. **Texture the highpoly first:** Texturing settings → max resolution 8K→**16K**, style **Fixed Texel Size** with **Optimal** texel size, Large Triangle Removal Threshold → 100 → produces 5×16K textures on the 139M model.
+8. **Simplify:** Scene 3D Tools → `Simplify`, type Absolute, target **10M triangles**, texture projection disabled (manual unwrap gives more control).
+9. **Unwrap + reproject:** `Unwrap` on the simplified model — style Maximal Texture Count = **1** (one 16K is enough for the final asset), threshold 100. Then `Texture Projection` (much faster than texturing from scratch): Source = highpoly model, Result = simplified model, color + **normal map** reprojection on (139M→10M of lost detail lives in the normal map).
+10. **Export FBX:** enable Export Normals, disable vertex colors, PNG textures, coordinate system = grid plane, and the **Unreal Engine export transformation preset** — scales ×100 and flips the normal-map Y (green) channel so nothing needs fixing at import.
+11. **UE5 import:** Content Drawer → Import with defaults, **Build Nanite checked**; textures + auto-created material come along. 16K textures auto-enable **Virtual Texture Streaming** (toggleable per-texture; auto-VT size threshold in Project Settings).
+12. **Material edits:** in the generated material add `Multiply` (M+click) with a `Scalar Parameter` (S+click) named **Brightness** (default 1) into Base Color, and a **Roughness** scalar (default 0.5). Create a **Material Instance**, assign to the mesh's material slot.
+13. **Blend into the level:** place/rotate the tower, sink the scanned ground patch below the terrain; judge brightness in **Unlit** view mode (set ≈0.4 to match Megascans surroundings) and roughness in **Buffer Visualization → Roughness** (set ≈0.9 for weathered wood), confirm in Lit.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- RealityCapture: Detect Markers (Circular Single Ring 12-bit), distance definitions file, Align Images, Set Groundplane / Reconstruction Region (numpad 2/5/0 ortho navigation), Create Model Normal Detail, Clipping Box, Cut By Box (Cut Outer, Fill Holes No), Fixed Texel Size + Optimal @16K, Simplify Absolute 10M, Unwrap Max Texture Count 1, Texture Projection (color + normal), FBX export with Unreal Engine preset (×100 scale, normal-Y flip)
+- UE5: Import with **Build Nanite** ✓; Virtual Texture Streaming auto-on for 16K; material graph `Texture Sample → Multiply(×Brightness scalar) → Base Color`, `Roughness scalar → Roughness`; Material Instance workflow; `G` game view; Unlit + Buffer Visualization/Roughness for calibration
+- Final instance values in demo: Brightness 0.4, Roughness 0.9
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner–Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.0 (workflow current for any UE5.x; RealityCapture UI predates the 2024 RealityScan rebrand but tools are unchanged)
 
 ### Tags
-[PENDING EXTRACTION]
+nanite, materials, geometry, modelling, pipeline, beginner, intermediate, ue5-0
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [How I Made This Shot in Unreal Engine 5](how-i-made-this-shot-in-unreal-engine-5.md) — the artistic/finishing side of the same scan pipeline (cross-polarized capture, Path Tracer, DaVinci)
+- [How to tile photogrammetry based PBR materials](how-to-tile-photogrammetry-based-pbr-materials.md) — the surface/tileable-material half of scan-based environments (this entry covers hero props)
+- [Unlock Thousands of Free Assets in Unreal Engine](unlock-thousands-of-free-assets-in-unreal-engine.md) — Megascans: the pre-made version of what this pipeline produces

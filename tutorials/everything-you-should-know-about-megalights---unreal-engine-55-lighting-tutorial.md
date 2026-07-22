@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=A_7t9BqeQ_A
 author: Karim Yasser
 ingested: 2026-07-21
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.5 (MegaLights experimental)"
+tags: [lighting, lumen, megalights, rendering, post-process, beginner, intermediate, ue5-5]
+extraction_status: complete
 frames_dir: tutorials/frames/everything-you-should-know-about-megalights---unreal-engine-55-lighting-tutorial/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 6
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Everything You Should Know About MegaLights! - Unreal Engine 5.5 Lighting Tutorial For Beginners
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py everything-you-should-know-about-megalights---unreal-engine-55-lighting-tutorial <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Intro [0:00]
@@ -519,30 +515,56 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [13:20] tutorials/frames/everything-you-should-know-about-megalights---unreal-engine-55-lighting-tutorial/frame_000.jpg
+- [19:56] tutorials/frames/everything-you-should-know-about-megalights---unreal-engine-55-lighting-tutorial/frame_001.jpg
+- [23:38] tutorials/frames/everything-you-should-know-about-megalights---unreal-engine-55-lighting-tutorial/frame_002.jpg
+- [26:10] tutorials/frames/everything-you-should-know-about-megalights---unreal-engine-55-lighting-tutorial/frame_003.jpg
+- [27:30] tutorials/frames/everything-you-should-know-about-megalights---unreal-engine-55-lighting-tutorial/frame_004.jpg
+- [28:45] tutorials/frames/everything-you-should-know-about-megalights---unreal-engine-55-lighting-tutorial/frame_005.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+[UE5.5 required] Complete beginner-to-working setup of MegaLights: the exact Project Settings chain (Lumen GI + reflections, hardware ray tracing, MegaLights under Direct Lighting, Virtual Shadow Maps, DX12/SM6), which light types benefit (Rect/area lights with ray-traced shadows), and the three control levels — project-wide, per-light `Allow MegaLights`, and per-region via Post Process Volume.
 
 ### Summary
-[PENDING EXTRACTION]
+Karim Yasser's ground-up MegaLights course: from engine install through a live stress test where 128+ movable rect lights run at ~90–100 FPS with MegaLights on versus ~60 FPS off (10ms vs 12–16ms). Explains the prerequisites people miss — MegaLights requires hardware ray tracing (software Lumen users can't use it at all) — plus Lumen's three input factors (direct intensity, indirect intensity, surface diffuse/albedo), ray-traced vs VSM shadow softness, and using PPVs to scope MegaLights on/off per region.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Prereqs:** UE 5.5+ only (MegaLights doesn't exist earlier); GPU must support ray tracing — without HWRT, software ray tracing runs Lumen but **cannot run MegaLights**.
+2. **Light actor fundamentals:** Point (omnidirectional, expensive), Spot (cone, cheaper directionality), **Rect/area light (studio-style; uses ray-traced shadows — the type MegaLights is designed for)**. Set every light to **Movable** (static = baked lightmaps, stationary = hybrid that can't move at runtime, movable = fully dynamic GPU lighting).
+3. **Project Settings → Rendering:** Global Illumination = **Lumen**; Reflection Method = **Lumen** (not None/Screen Space); **Use Hardware Ray Tracing When Available = On**; Ray Lighting Mode = Hit Lighting for Reflections (higher quality on reflective surfaces; Surface Cache is the cheaper default); High Quality Translucency Reflections = On (glass/water); Software Ray Tracing Mode = Detail Tracing; Ray Traced Translucent Reflections = On; **Direct Lighting → MegaLights = On** (grayed out until Support Hardware Ray Tracing is enabled); Shadow Map Method = **Virtual Shadow Maps**.
+4. **Platforms → Windows:** Default RHI = **DirectX 12**, **Shader Model 6** (SM5 blocks many features). Restart when prompted (shader recompile).
+5. **Lumen mental model:** result = direct light intensity + indirect (bounced) intensity + surface diffuse brightness (albedo) — extreme-bright or extreme-dark albedos break the GI math. Indirect Lighting Intensity is adjustable per light actor (demo: intensity 100 with indirect ×10 visibly floods the shadow side of a cube).
+6. **Stress test workflow:** Alt-drag to duplicate a movable rect light into arrays (128+ actors); Viewport Options → Show FPS. With MegaLights: ~100 FPS; per-light Details → Advanced → **Allow MegaLights** off: ~80 FPS; doubling lights again: 60 FPS off vs ~90 FPS on.
+7. **Shadow method per light:** Ray Tracing vs Virtual Shadow Map — ray-traced shadows are visibly softer and are the recommended pairing; "Default" inherits the project setting, so set lights explicitly to **Ray Tracing** when using MegaLights (VSM + MegaLights produces artifacts).
+8. **Region control:** Post Process Volume → Rendering Features → MegaLights on/off applies only inside the volume bounds (camera-based). Best practice: MegaLights ON globally for performance; scope it OFF in a small PPV only where its quality limits show, and keep light counts low there.
+9. **Known limits:** experimental; quality degrades with many overlapping lights on the same pixel; aids volumetric-fog shadowing for soft dynamic lights.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Project Settings → Rendering: GI = Lumen, Reflections = Lumen, HWRT On, Hit Lighting for Reflections, High Quality Translucency Reflections On, Detail Tracing, RT Translucent Reflections On, MegaLights On, VSM
+- Platforms → Windows: DX12 RHI + Shader Model 6
+- Per-light: Mobility = Movable; Details → Advanced → Allow MegaLights; Shadow Method = Ray Tracing (not Default/VSM)
+- PPV → Rendering Features → MegaLights (region-scoped)
+- Measured: 128 rect lights ≈ 100 FPS on / 80 FPS off (10 vs 12ms); 256 ≈ 90 on / 60 off
+- Editor: Alt-drag duplicate, `G` game view, Viewport Options → Show FPS, Window → Load Layout → UE4 Classic
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner–Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.5 (MegaLights experimental; prod-ready 5.8 — the settings chain is unchanged)
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, lumen, megalights, rendering, post-process, beginner, intermediate, ue5-5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [It Took Me 7+ Years To Get Interior Lighting That Easy in Unreal Engine 5](it-took-me-7-years-to-get-interior-lighting-that-easy-in-unreal-engine-5.md) — same author applying MegaLights in a real interior scene, plus Lumen flicker/fog CVars
+- [How I Use Lumen in AAA Projects | Unreal Engine 5](how-i-use-lumen-in-aaa-projects-unreal-engine-5.md) — same author's deeper Lumen quality guide (HWRT vs SWRT decision, PPV knobs)
+- [The Perfect Sky Light in Unreal Engine 5](the-perfect-sky-light-in-unreal-engine-5.md) — companion global-lighting setup from the same author

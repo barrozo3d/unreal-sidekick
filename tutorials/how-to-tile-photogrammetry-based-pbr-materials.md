@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=q0TaRbtE4xU
 author: Grzegorz Baran
 ingested: 2026-07-21
-ue_version: "[PENDING]"
-tags: []
-extraction_status: needs-review
+ue_version: "N/A (DCC-side: ZBrush / Substance Painter / Substance Designer / Marmoset)"
+tags: [materials, pbr, pipeline, modelling, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-tile-photogrammetry-based-pbr-materials/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # How to tile photogrammetry based PBR materials
@@ -83,12 +84,7 @@ _Auto-generated at ingest/frame-capture time — explains why `extraction_status
 
 ---
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py how-to-tile-photogrammetry-based-pbr-materials <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### <Untitled Chapter 1> [0:00]
@@ -207,30 +203,61 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [0:45] tutorials/frames/how-to-tile-photogrammetry-based-pbr-materials/frame_000.jpg
+- [3:29] tutorials/frames/how-to-tile-photogrammetry-based-pbr-materials/frame_001.jpg
+- [6:45] tutorials/frames/how-to-tile-photogrammetry-based-pbr-materials/frame_002.jpg
+- [8:00] tutorials/frames/how-to-tile-photogrammetry-based-pbr-materials/frame_003.jpg
+- [13:40] tutorials/frames/how-to-tile-photogrammetry-based-pbr-materials/frame_004.jpg
+- [16:40] tutorials/frames/how-to-tile-photogrammetry-based-pbr-materials/frame_005.jpg
+- [19:15] tutorials/frames/how-to-tile-photogrammetry-based-pbr-materials/frame_006.jpg
+- [21:35] tutorials/frames/how-to-tile-photogrammetry-based-pbr-materials/frame_007.jpg
+
+---
+
 ## Structured Notes
 
+> **Note on source format:** this is a silent, caption-driven tutorial — there is no narration, hence transcript not captured (nothing to transcribe) (the safeguard CRITICALs above are expected, not a failed ingest). The 53 YouTube chapter titles ARE the tutorial text; extraction below is built from those chapters plus 8 captured frames. Do not re-transcribe.
+
 ### Core Technique
-[PENDING EXTRACTION]
+Turning a raw photogrammetry surface scan into a production-ready seamless/tileable PBR material: align a lowpoly tiling plane over the scan in ZBrush, bake, remove seams with Substance Painter's Clone tool (texture offset 0.5), then equalize/finish in Substance Designer and verify with the "rule of 3" tiling test and a Marmoset Toolbag light sweep.
 
 ### Summary
-[PENDING EXTRACTION]
+Grzegorz Baran demonstrates his complete scan-to-tileable-material pipeline twice on two different pavement surfaces (a stone-slab floor and a herringbone brick), showing that capture can be as light as 65 handheld images on a monopod in ~5 minutes. The heart of the method is doing tiling work *before* baking (accurately placing/warping the lowpoly plane so pattern edges already nearly match) so the Painter clone-stamp seam pass stays small, then using Designer's Equalizer and histogram to kill lighting gradients that make tiling obvious.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Capture:** 65 images of the surface patch, handheld camera on a monopod, ~5 minutes total — monopod stabilization is enough for high-quality reconstruction. Reconstruct to a highpoly scan mesh (vertex-colored).
+2. **Highpoly prep:** trim the highpoly below ~67M vertices by deleting useless edges — FBX struggles to hold vertex color above that.
+3. **ZBrush plane alignment (the critical step):** position a lowpoly plane over the highpoly scan covering the bake region; scale/rotate it so the surface pattern flows with the plane's axes, and make the pattern under each edge match the opposite edge as closely as possible. Refine with the **Move brush** (and densify the plane for pattern-heavy surfaces like herringbone brick). Time spent here directly reduces seam-removal work later.
+4. **Bake** highpoly → plane (Baran uses the Substance Designer baker; baking specifics skipped as out of scope).
+5. **Seam removal in Substance Painter:** load baked maps onto a *tiling-preview plane* that shows ~20% extra space on each side; fill the material channels to tile; **offset the texture 0.5 in both U and V** so seams land in the middle of UV space where they're easy to see and fix.
+6. Create a **Paint layer set to Passthrough** per channel to be affected, activate the **Clone tool**, pick "good" source areas with **V held**, and stamp out the seams — mostly in the 2D view, tweaks in 3D view after. Keep the surface's flow/logic (don't break pattern continuity), and repeatedly **preview under changing light direction** — height/normal seams only reveal themselves under raking light.
+7. **Substance Designer finishing:** drop Baran's reusable finishing graph into the exported-maps folder; preview tiling in the 2D view (SPACE), and if tiling repetition is obvious, tweak **Equalizer** values until it isn't (large-scale luminance gradients are the usual culprit — in the demo, disabling the bad scanned height map input fixed it). Regenerate a clean height map from **bent normal** rather than using the noisy scanned one.
+8. **Rule-of-3 test:** in Designer's 3D View set **Tiling = 3** and inspect the 3×3 repeat for visible repetition patterns; final color/luminosity tweaks against the **Histogram** window so the RGB range is properly filled.
+9. **Final check in Marmoset Toolbag:** apply to a sphere/plane, sweep the light and check tiling + light response; this doubles as the library presentation render. "If material looks fine there it should be OK everywhere else."
+10. Repeat of the whole pipeline on the herringbone brick shows the only surface-specific differences: denser lowpoly plane, more careful pattern-flow alignment, and running the same Designer graph without the height input.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+Not a UE tutorial — this is the DCC side of the scan-based environment pipeline (the materials feed UE master materials):
+- Capture: 65 images, monopod, ~5 min per surface
+- ZBrush: lowpoly plane over highpoly, Move brush micro-alignment; highpoly < 67M verts for FBX vertex color
+- Substance Painter: tiling plane with +20% border preview, texture offset 0.5/0.5, Paint layer in Passthrough per channel, Clone tool (V = pick source), light-direction preview
+- Substance Designer: reusable finishing graph, Equalizer for tiling-gradient removal, height regenerated from bent normal, 2D tiling preview (SPACE), 3D View Tiling=3 ("rule of 3"), Histogram for RGB range
+- Marmoset Toolbag: final tiling + light-sweep check, library presentation renders
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+N/A (ZBrush / Substance Painter / Substance Designer / Marmoset Toolbag pipeline)
 
 ### Tags
-[PENDING EXTRACTION]
+materials, pbr, pipeline, modelling, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [How I Made This Shot in Unreal Engine 5](how-i-made-this-shot-in-unreal-engine-5.md) — the capture side (RealityCapture, cross-polarized flash) and UE/Path Tracer finishing of the same scan pipeline
+- [RealityCapture to Unreal Engine 5](realitycapture-to-unreal-engine-5.md) — the prop-scan half of scan-based environment work (this entry covers the surface/material half)
+- [Unlock Thousands of Free Assets in Unreal Engine](unlock-thousands-of-free-assets-in-unreal-engine.md) — pre-made Megascans scan materials when you can't capture your own

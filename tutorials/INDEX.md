@@ -3285,9 +3285,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=q0TaRbtE4xU
 - **Author:** Grzegorz Baran
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** N/A (ZBrush / Substance Painter / Substance Designer / Marmoset)
+- **Tags:** materials, pbr, pipeline, modelling, intermediate
+- **Summary:** Baran's complete scan-to-tileable-PBR-material pipeline, demonstrated twice (stone slabs + herringbone brick). Silent caption-driven video — chapter titles are the tutorial text. Capture: 65 monopod images in ~5 min. Core method: align/warp a lowpoly tiling plane over the highpoly scan in ZBrush (Move brush) so pattern edges nearly match BEFORE baking; bake; offset texture 0.5/0.5 in Substance Painter so seams sit mid-UV and clone-stamp them out (Paint layer in Passthrough, V picks source, preview under moving light); finish in Substance Designer (Equalizer kills tiling gradients, height regenerated from bent normal, rule-of-3 test via 3D View Tiling=3, Histogram range check); final light-sweep verification in Marmoset Toolbag.
 - **File:** tutorials/how-to-tile-photogrammetry-based-pbr-materials.md
 
 
@@ -3295,9 +3295,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=kRD0rgCnOWQ
 - **Author:** RealityScan
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.0 (workflow current for UE5.x)
+- **Tags:** nanite, materials, geometry, modelling, pipeline, beginner, intermediate, ue5-0
+- **Summary:** Official Epic prop-scan pipeline (25m26s): wooden tower scanned with a 24MP camera + 24mm prime on a 4m pole (900+ images, no drone), through RealityCapture's full workflow — Detect Markers scale bar + distance-definition file (0.6m, 1mm accuracy), Align, ground plane/reconstruction region in ortho views (numpad 2/5/0), 139M-tri reconstruct, marginal-triangle cleanup via Clipping Box + Cut By Box (Cut Outer), texture highpoly FIRST at Fixed Texel Size/Optimal 16K, Simplify Absolute to 10M, manual Unwrap (1×16K) + Texture Projection (color+normal bake) — then FBX with the Unreal Engine preset (×100, normal-Y flip), UE5 import with Build Nanite, and a Brightness/Roughness material instance calibrated in Unlit + Roughness buffer views (0.4 / 0.9) to blend the scan into the Medieval Game Environment.
 - **File:** tutorials/realitycapture-to-unreal-engine-5.md
 
 
@@ -3305,9 +3305,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=gaUcEoh_-AQ
 - **Author:** Class Creatives
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** N/A (Maya + planning; engine-agnostic kit theory)
+- **Tags:** modelling, geometry, materials, pipeline, intermediate
+- **Summary:** Two AAA veterans on modular-kit fundamentals (14m52s). Jon Arellano (Maya): build corners by mirroring the on-grid 4m wall module and vertex-snapping per axis (D+V), keep every kit piece at the same texel density (1024 px/m, 2K tileable → tile repeats exactly 2× per 4m piece) with UV shells ending on tile boundaries so modules meet seamlessly and can be cut at 2m; blend kit intersections with floated alpha-decal "skirt" geometry (slight offset vs Z-fighting). Jacob Norris (Sierra Division; Uncharted 4/MGSV/CS2): kit planning via market gap + scan difficulty + cross-genre reuse (their oil rig pack), and Miro reference boards that decompose an environment into its minimal modular vocabulary (pipes, beams, catwalks, container rooms) before modeling. Repetition + small variation + smart placement.
 - **File:** tutorials/ultimate-guide-to-modular-assets-sony-santa-monica-naughty-dog-artists-break-dow.md
 
 
@@ -3315,9 +3315,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=A_7t9BqeQ_A
 - **Author:** Karim Yasser
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.5 (MegaLights experimental; prod-ready 5.8)
+- **Tags:** lighting, lumen, megalights, rendering, post-process, beginner, intermediate, ue5-5
+- **Summary:** Ground-up MegaLights setup (30m22s): requires HWRT (software-Lumen users cannot use it). Exact settings chain — Rendering: GI+Reflections=Lumen, HWRT On, Hit Lighting for Reflections, High Quality Translucency Reflections, Detail Tracing, Direct Lighting→MegaLights On, VSM; Platforms/Windows: DX12+SM6. Rect/area lights (ray-traced shadows) are the designed pairing; set lights Movable and Shadow Method=Ray Tracing explicitly (VSM+MegaLights artifacts). Three control levels: project-wide, per-light Allow MegaLights (Details→Advanced), region-scoped via PPV Rendering Features. Live stress test: 128 rect lights ≈100 FPS on vs 80 off; 256 ≈90 vs 60. Also covers light mobility (static/stationary/movable) and Lumen's three inputs (direct, indirect, albedo).
 - **File:** tutorials/everything-you-should-know-about-megalights---unreal-engine-55-lighting-tutorial.md
 
 ---
