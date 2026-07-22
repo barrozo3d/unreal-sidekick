@@ -3320,6 +3320,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Ground-up MegaLights setup (30m22s): requires HWRT (software-Lumen users cannot use it). Exact settings chain — Rendering: GI+Reflections=Lumen, HWRT On, Hit Lighting for Reflections, High Quality Translucency Reflections, Detail Tracing, Direct Lighting→MegaLights On, VSM; Platforms/Windows: DX12+SM6. Rect/area lights (ray-traced shadows) are the designed pairing; set lights Movable and Shadow Method=Ray Tracing explicitly (VSM+MegaLights artifacts). Three control levels: project-wide, per-light Allow MegaLights (Details→Advanced), region-scoped via PPV Rendering Features. Live stress test: 128 rect lights ≈100 FPS on vs 80 off; 256 ≈90 vs 60. Also covers light mobility (static/stationary/movable) and Lumen's three inputs (direct, indirect, albedo).
 - **File:** tutorials/everything-you-should-know-about-megalights---unreal-engine-55-lighting-tutorial.md
 
+
+### Lessons Learned from Building a Very Large Open World Game in UE5 | Unreal Fest Chicago 2026
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=AalP65lrtpo
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/lessons-learned-from-building-a-very-large-open-world-game-in-ue5-unreal-fest-ch.md
+
 ---
 
 ## Tag Reference
