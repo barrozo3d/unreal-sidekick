@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=jyQCaCJ_eY8
 author: Arghanion's Puzzlebox
 ingested: 2026-07-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [nanite, displacement, materials, vertex-color, blender, fbx, mesh-import, chamfer, tri-planar, surface-forge, world-forge, modeling-mode]
+extraction_status: complete
 frames_dir: tutorials/frames/fix-displacement-tearing-in-ue5-free-blender-edge-tool-surface-forge/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Fix Displacement Tearing in UE5 — Free Blender Edge Tool (Surface Forge)
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py fix-displacement-tearing-in-ue5-free-blender-edge-tool-surface-forge <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Intro [0:00]
@@ -473,30 +469,57 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [1:00] tutorials/frames/fix-displacement-tearing-in-ue5-free-blender-edge-tool-surface-forge/frame_000.jpg
+- [4:50] tutorials/frames/fix-displacement-tearing-in-ue5-free-blender-edge-tool-surface-forge/frame_001.jpg
+- [7:50] tutorials/frames/fix-displacement-tearing-in-ue5-free-blender-edge-tool-surface-forge/frame_002.jpg
+- [9:59] tutorials/frames/fix-displacement-tearing-in-ue5-free-blender-edge-tool-surface-forge/frame_003.jpg
+- [13:05] tutorials/frames/fix-displacement-tearing-in-ue5-free-blender-edge-tool-surface-forge/frame_004.jpg
+- [14:40] tutorials/frames/fix-displacement-tearing-in-ue5-free-blender-edge-tool-surface-forge/frame_005.jpg
+- [17:50] tutorials/frames/fix-displacement-tearing-in-ue5-free-blender-edge-tool-surface-forge/frame_006.jpg
+- [22:20] tutorials/frames/fix-displacement-tearing-in-ue5-free-blender-edge-tool-surface-forge/frame_007.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Fixing Nanite displacement tearing on sharp edges by pre-processing meshes in Blender with the free "Edge Mask Painter" add-on: detect sharp edges by angle threshold, then either paint a vertex-color mask (imported into UE5 and read by the material to switch displacement off at edges) or chamfer the edges so displacement flows around the corner.
 
 ### Summary
-[PENDING EXTRACTION]
+Nanite displacement tears wherever two faces meet at a hard angle with unblended normals — the displaced surfaces intersect or split open, in UE5 and in any displacement pipeline (Blender, Substance). The video explains the cause and gives two fixes, packaged in a free Blender add-on (works Blender 3.2–5.0, distributed via the author's Patreon): (1) vertex-mask the edges — kills displacement locally, needs enough subdivision for vertex resolution; (2) chamfer the sharp edges (preferred) — 3–4 bevel segments let the normals curve so displacement carries around the corner, but requires clean topology/UVs or tri-planar projection. Round-trips FBX to UE5 where a material (here Surface Forge's) reads the vertex color channel as a displacement mask. Works best on simple shapes (cubes, cylinders, panels, trims); a deliberately complex displaced blob shows the limits.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **See the problem**: in UE5's Modeling Mode → Attributes → Paint Vertex Colors, select RGB+A, set erase color to black with Alpha 0, Erase All, Accept — with the protective mask gone, displacement tears appear on every sharp edge.
+2. **Why**: sharp faces whose normals don't blend make displaced geometry intersect/split at the edge. Two remedies: kill displacement at the edge via a vertex mask, or chamfer so displacement flows around the corner (preferred, but needs clean UV transitions or tri-planar texturing).
+3. **Install the add-on** (Blender ≥3.2): Edit → Preferences → Add-ons → Install from Disk; open with N-panel → "Edge Mask".
+4. **Detect edges**: the panel reports mesh stats (verts/faces, face-type breakdown incl. n-gons). Set the angle threshold (default 5°; e.g. 89° catches a cube's 90° edges, 95° catches nothing) and Preview Edges; Refresh after moving the mesh or changing the threshold. Tris-to-Quads button cleans triangles first (UE re-triangulates on import anyway).
+5. **Vertex Mask mode**: subdivide the mesh a few times first — a default 8-vert cube paints as one solid block; ~386 verts gives clean edge lines. Paint Edge Mask, tune falloff Rings and Curve, Preview.
+6. **Chamfer mode**: Check Topology ("mesh looks clean for chamfering"), set Width and Segments, Chamfer Sharp Edges (also applies smooth shading). 1 segment already helps; 3–4 segments give perfect displacement flow.
+7. **Export**: the panel's FBX export button adds a `_masked` suffix; there's a matching FBX import button for round-tripping.
+8. **Import into UE5**: Nanite is enabled in the import options; set **Vertex Color Import Option = Replace** (Ignore keeps existing mesh colors on re-import; Override floods a specified color) so Blender's vertex data comes through.
+9. **Material side**: the Surface Forge material instance has "Use Displacement Mask" reading the **Alpha channel** by default — any vertex-color channel works, but Red takes priority over Alpha (first in the chain). Painting a channel in Modeling Mode kills displacement exactly there, with visible falloff; disabling the mask parameter restores displacement everywhere.
+10. **Complex meshes** (subdivided + displaced blob): threshold ~25–40° flags the problem edges; vertex masking fails without heavy subdivision, chamfering "works" but mangles the silhouette. World-aligned/tri-planar textures hide many residual tears. Verdict: keep displacement on basic shapes with small modifications.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Nanite Displacement (UE5)** — tearing on hard edges is the core problem; displacement driven by material with world-aligned / tri-planar textures.
+- **Modeling Mode → Attributes → Paint Vertex Colors**: channel selection (R/G/B/A), erase color w/ alpha, Erase All / Accept — used to inspect and edit the imported mask in-editor.
+- **Static Mesh import dialog**: Nanite build option; *Vertex Color Import Option*: Replace / Ignore / Override (+ override color picker).
+- **Surface Forge material instance**: Use Displacement Mask (per-channel, Red > Alpha priority), tiling, displacement weight/depth params, two-in-one material blending toggle, world-aligned (tri-planar) texture option.
+- **Blender Edge Mask Painter add-on** (free, Patreon; Blender 3.2–5.0): FBX import/export round-trip (`_masked` suffix), mesh detection + face-type breakdown, angle-threshold edge detection with preview color/refresh, Tris-to-Quads, Vertex Mask paint (falloff rings + curve), Chamfer mode (topology check, width, segments).
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (Nanite displacement; Blender 5.0 shown, add-on works from Blender 3.2)
 
 ### Tags
-[PENDING EXTRACTION]
+nanite, displacement, materials, vertex-color, blender, fbx, mesh-import, chamfer, tri-planar, surface-forge, world-forge, modeling-mode
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [Creating a Blend Material in Unreal Engine 5 Just Got Easier](creating-a-blend-material-in-unreal-engine-5-just-got-easier.md) — Nanite + displacement enabling on meshes for Dash blend materials
+- [GETTING STARTED WITH DASH - EASY WORLD BUILDING IN UE5](how-to-edit-megascans-and-poly-haven-materials-easily---ue5-plugin.md) — Nanite displacement via material edit (Actor Switch Nanite)
