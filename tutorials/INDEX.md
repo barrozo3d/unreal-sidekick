@@ -3345,9 +3345,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=lJ_1NAYtdtg
 - **Author:** Black Eye Technologies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.3+
+- **Tags:** `#blackeye-v2` `#camera` `#gameplay` `#cinematics` `#cutscene` `#trigger-volume` `#blend-list` `#sequencer` `#intermediate`
+- **Summary:** 5-minute focused technique: tag-matched Black Eye trigger volume with fast auto-recentering pre-aligns the orbit camera to a fixed world angle before an inner vanilla trigger volume plays the Level Sequence; the sequence's Camera Cut is set to Can Blend so the cutscene eases in from the live camera. Blend timing centralized in a Blend List data asset (default + wildcard any↔camera entries), all tuned live in PIE with Realtime Viewport Updates.
 - **File:** tutorials/unreal-engine-black-eye-cameras-v2-seamless-gameplay-cutscene-transitions.md
 
 

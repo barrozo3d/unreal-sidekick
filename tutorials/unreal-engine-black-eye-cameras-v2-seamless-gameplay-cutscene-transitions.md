@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=lJ_1NAYtdtg
 author: Black Eye Technologies
 ingested: 2026-07-23
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5"
+tags: [black-eye-cameras, v2, camera, gameplay, cinematics, cutscene, trigger-volume, blend-list, orbit-camera, sequencer, level-sequence, gameplay-tags]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-v2-seamless-gameplay-cutscene-transitions/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 6
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Unreal Engine Black Eye Cameras v2: Seamless gameplay cutscene transitions
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py unreal-engine-black-eye-cameras-v2-seamless-gameplay-cutscene-transitions <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -171,30 +167,57 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [0:50] tutorials/frames/unreal-engine-black-eye-cameras-v2-seamless-gameplay-cutscene-transitions/frame_000.jpg
+- [1:02] tutorials/frames/unreal-engine-black-eye-cameras-v2-seamless-gameplay-cutscene-transitions/frame_001.jpg
+- [1:36] tutorials/frames/unreal-engine-black-eye-cameras-v2-seamless-gameplay-cutscene-transitions/frame_002.jpg
+- [2:55] tutorials/frames/unreal-engine-black-eye-cameras-v2-seamless-gameplay-cutscene-transitions/frame_003.jpg
+- [3:25] tutorials/frames/unreal-engine-black-eye-cameras-v2-seamless-gameplay-cutscene-transitions/frame_004.jpg
+- [4:24] tutorials/frames/unreal-engine-black-eye-cameras-v2-seamless-gameplay-cutscene-transitions/frame_005.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Seamless gameplay-to-cutscene camera transitions using Black Eye v2: a tag-matched Black Eye trigger volume pre-aligns the player's orbit camera to a fixed world angle before a standard UE trigger volume plays the Level Sequence, and the sequence's Camera Cut section is set to "Can Blend" so it eases in from wherever the camera already is.
 
 ### Summary
-[PENDING EXTRACTION]
+Shows how to eliminate the jarring cut when gameplay hands off to a cinematic, regardless of where the player's free-look orbit is pointing. The trick is a two-zone setup: an outer Black Eye trigger volume swings the orbit camera to a known composition via fast auto-recentering, and an inner vanilla trigger volume then starts the cutscene, whose first Camera Cut blends instead of cutting. Blend timing is centralized in a Blend List data asset with per-camera and wildcard (any-to-any) entries, and everything is tuned live during PIE with real-time viewport updates.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Duplicate the existing gameplay orbit camera (e.g. `BlackEyeOrbit_Default` → `BlackEyeOrbit_RamenAlign`) and give it a descriptive name.
+2. Create a **Black Eye trigger volume** (`BlackEyeTriggerVolume_..._CameraAlign`) placed *before* the cutscene's start area, and add a new Gameplay Tag (e.g. `RamenAlign`) via its **Camera Tag** field (Add New Tag in the Gameplay Tags picker).
+3. Assign the **same tag** to the duplicated camera — the tag is what links trigger volume to camera.
+4. On the new camera: turn **off Auto-Activate** (only the first/default camera should auto-activate) and turn **on auto-recentering** with a very fast recenter speed — this is what swings the orbit to the target angle.
+5. Set the recenter angle in **World** space (world-relative heading), then tune **Heading Center** and pitch while PIE is running. Enable the **Realtime Viewport Updates** checkbox in the Black Eye Panel so parameter drags update continuously instead of on mouse release; adjust composition and switch to a longer lens as needed.
+6. Open the **Blend List** data asset (selectable via the Black Eye Panel → Manage tab): Default Camera Blend was 0.8s; add **Wildcard Blends** — *from any camera → RamenAlign* at 1.0s in-blend, and *from RamenAlign → any camera* (~2.5s / ~0.8s out). Wildcards can also be replaced by explicit camera-A→camera-B pairs.
+7. Inside the align zone, place a **standard UE trigger volume** whose `On Actor Begin Overlap` plays the Level Sequence (vanilla Blueprint, nothing Black Eye-specific).
+8. In Sequencer, right-click the first Camera Cut section → enable **Can Blend**, then drag the small yellow ease handle at the section's top-left inward — the cut becomes a blend from the camera's current live position. Do the same at the sequence end to blend back to the orbit camera.
+9. Result: whatever angle the player approaches from, the outer volume rotates the orbit to the composed angle first, so the cutscene blend is always smooth (demonstrated by approaching from extreme side angles).
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Black Eye v2 plugin**: `BlackEyeOrbit` camera actors (SceneComponent + CameraComponent), `BlackEyeTriggerVolume` (BrushComponent) with Black Eye section: Camera Tag (checkbox + Gameplay Tag), Camera Reference, On Volume Enter / On Volume Leave, plus standard Collision settings.
+- **Gameplay Tags** picker (Add New Tag, e.g. `RamenAlign`) links volumes to cameras.
+- Camera settings used: Auto-Activate (off for secondary cameras), auto-recentering (on, fast), World-relative Heading Center, pitch, focal length/lens.
+- **Black Eye Panel** (Create / Edit / Manage / Utilities tabs): Enable Debug Overlays (Subjects, Screen Guides, Camera Names, Frustums, Show Priority Stack Info, Show Camera Manager Info, Draw Camera Manager Blend Path), Realtime Viewport Updates, Preview Selected Camera, Camera Preview Size. Manage tab lists Black Eye Assets: Camera Blend Lists (`DA_BlackEye_BlendList_Default`, `DA_BEC_Blend_List`, `DA_BlackEye_Gameplay_Example_Blend_List`), Camera Managers, Player Controllers, Game Modes.
+- **Blend List data asset** (`DA_BEC_Blend_List`): Default Camera Blend (Blend Time 0.8s, Hold Time 0.1s, Blend Function `VTBlend Ease In Out`, Blend Exponent 2.0); Wildcard Blends arrays "From this camera" / "To this camera" keyed by camera tag, each with Destination Cam, Blend Time, Hold Time, Blend Function, Blend Exponent.
+- **PIE debug overlay**: Black Eye Priority Stack (camera, tag, ref count) and Black Eye Camera Manager View Target readouts.
+- **Sequencer**: Level Sequence (`TriggerVolume_Ramen_Start_Seq`), Camera Cuts track → right-click section → **Can Blend** + yellow ease-in handle; triggered by vanilla `On Actor Begin Overlap` → Play.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+Not specified (UE5-era editor; Black Eye v2 targets UE 5.3+)
 
 ### Tags
-[PENDING EXTRACTION]
+black-eye-cameras, v2, camera, gameplay, cinematics, cutscene, trigger-volume, blend-list, orbit-camera, sequencer, level-sequence, gameplay-tags
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [Unreal Engine Black Eye Cameras v2: START HERE Tutorial](unreal-engine-black-eye-cameras-v2-start-here-tutorial.md) — full 43-min v2 walkthrough; covers the same Blend List / trigger volume / Adaptive Cutscene systems in depth
+- [Unreal Engine Black Eye Cameras v2: Gameplay cameras are here](unreal-engine-black-eye-cameras-v2-gameplay-cameras-are-here.md) — v2 release teaser
+- [Unreal Engine Black Eye cameras: Behind the Lens](unreal-engine-black-eye-cameras-behind-the-lens.md) — camera philosophy behind the plugin
