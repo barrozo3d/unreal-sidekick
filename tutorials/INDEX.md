@@ -3350,6 +3350,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/unreal-engine-black-eye-cameras-v2-seamless-gameplay-cutscene-transitions.md
 
+
+### Fix Displacement Tearing in UE5 — Free Blender Edge Tool (Surface Forge)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=jyQCaCJ_eY8
+- **Author:** Arghanion's Puzzlebox
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/fix-displacement-tearing-in-ue5-free-blender-edge-tool-surface-forge.md
+
 ---
 
 ## Tag Reference
