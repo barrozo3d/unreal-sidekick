@@ -3360,6 +3360,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Why Nanite displacement tears on sharp edges (unblended normals make displaced faces intersect) and two fixes via a free Blender add-on (Edge Mask Painter, Blender 3.2–5.0): angle-threshold edge detection, then either paint a vertex-color mask (needs subdivision; falloff rings/curve) that the UE5 material reads to kill displacement at edges, or chamfer 3–4 segments so displacement flows around corners. Covers FBX round-trip, UE5 Vertex Color Import Option = Replace, Surface Forge's per-channel displacement mask (Red > Alpha priority), and why complex meshes should stick to basic shapes.
 - **File:** tutorials/fix-displacement-tearing-in-ue5-free-blender-edge-tool-surface-forge.md
 
+
+### Build It in Engine: Modern Rigging with Control Rig & Dataflow | Unreal Fest Chicago 2026
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=wmC4S3Woj5I
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/build-it-in-engine-modern-rigging-with-control-rig-dataflow-unreal-fest-chicago-.md
+
 ---
 
 ## Tag Reference
