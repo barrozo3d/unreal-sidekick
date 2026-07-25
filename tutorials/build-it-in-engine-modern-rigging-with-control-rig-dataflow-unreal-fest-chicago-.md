@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=wmC4S3Woj5I
 author: Unreal Engine
 ingested: 2026-07-24
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.8"
+tags: [control-rig, rigging, animation, chaos, geometry, pipeline, advanced, ue5-8]
+extraction_status: complete
 frames_dir: tutorials/frames/build-it-in-engine-modern-rigging-with-control-rig-dataflow-unreal-fest-chicago-/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Build It in Engine: Modern Rigging with Control Rig & Dataflow | Unreal Fest Chicago 2026
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py build-it-in-engine-modern-rigging-with-control-rig-dataflow-unreal-fest-chicago- <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -575,30 +571,64 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [3:51] tutorials/frames/build-it-in-engine-modern-rigging-with-control-rig-dataflow-unreal-fest-chicago-/frame_000.jpg
+- [6:33] tutorials/frames/build-it-in-engine-modern-rigging-with-control-rig-dataflow-unreal-fest-chicago-/frame_001.jpg
+- [8:25] tutorials/frames/build-it-in-engine-modern-rigging-with-control-rig-dataflow-unreal-fest-chicago-/frame_002.jpg
+- [10:08] tutorials/frames/build-it-in-engine-modern-rigging-with-control-rig-dataflow-unreal-fest-chicago-/frame_003.jpg
+- [14:19] tutorials/frames/build-it-in-engine-modern-rigging-with-control-rig-dataflow-unreal-fest-chicago-/frame_004.jpg
+- [18:56] tutorials/frames/build-it-in-engine-modern-rigging-with-control-rig-dataflow-unreal-fest-chicago-/frame_005.jpg
+- [24:34] tutorials/frames/build-it-in-engine-modern-rigging-with-control-rig-dataflow-unreal-fest-chicago-/frame_006.jpg
+- [28:30] tutorials/frames/build-it-in-engine-modern-rigging-with-control-rig-dataflow-unreal-fest-chicago-/frame_007.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+[UE5.8 required] Fully procedural rigging: generate skeletons + skin weights from any static mesh with Dataflow's new mesh medial skeleton sampling ("skeletonization") nodes, then build skeleton-agnostic rigs on top with Control Rig — including the new particle-based `Control Rig Dynamics` system for runtime secondary motion.
 
 ### Summary
-[PENDING EXTRACTION]
+Epic's Chase Cooper (rigging product lead) and Jim Van Allen (physics/destruction, ex-ILM) show how Dataflow — a non-destructive, node-based procedural asset editor — can generate complete skeletons and skin weights for arbitrary meshes (trees, centipedes, octopi, dragons, starfish), which Control Rig then rigs procedurally so the whole character setup is 100% in-engine and re-usable across swapped assets. Along the way they cover the new 5.8 `Control Rig Dynamics` particle physics (≈5× faster than 5.6's Control Physics nodes), a Dataflow transfer node that moves morph targets/skin weights between low-res and high-res skeletal meshes, and the right-click "geometry collection → skeletal mesh" export trick for making animatable props from fractured/multi-part meshes.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Understand UE's skeleton split** — the `Skeletal Mesh` asset holds geometry + skin weights; the `Skeleton` asset holds bones/transforms and can drive multiple skeletal meshes. Dataflow generates skeletons procedurally and plugs them straight into skeletal meshes.
+2. **Create a Dataflow graph on a mesh** — right-click the asset → Dataflow setup, pick a template from the `Choose Dataflow Setup` dialog (5.8 ships a **Skeletonizer Template**, Subdivision Template, Mesh Split Template, etc. — frame [10:08]).
+3. **Skeletonize** — drop a `Medial Skeleton Sampling` node on the static mesh (spheres sample medial axes inside the shape; spheres stop where they touch two sides, connections come from proximity/shared mesh points).
+4. **Simplify** — add a `Simplify Medial Skeleton` node (edge-collapse, like mesh simplification). Optionally a second simplify pass with `Prevent Edge Surface Intersections` OFF for extra cleanup, and a `Subdivide Medial Skeleton` node for even joint spacing (used on octopus tentacles — frame [24:34]).
+5. **Clean up** — export to the `Skeletal Mesh Editor` to fix stray joints/renaming, or use extra Dataflow nodes (hip-finding/renaming/quadruped/dragon nodes shown are custom; Epic plans to ship more).
+6. **Multi-part meshes** — skeletonization struggles on meshes built from many parts; run body and appendages (legs/tentacles) through Dataflow separately, then parent with a node. For messy closed models (starfish with modeled teeth/mouth cavity), voxelize an approximation in Modeling Mode first, rig the proxy, and plug the final asset in at the end — the skeleton still applies.
+7. **Rig in Control Rig** — build a procedural, skeleton-agnostic rig; the `Locomotor` node auto-animates walking by adjusting limbs/body toward a dragged control (100-leg centipede demo — frame [3:51]). Modular Control Rig modules also work fine on Dataflow-generated skeletons (zebra demo).
+8. **Add secondary motion** — [5.8] `Control Rig Dynamics`: author particle-based dynamic chains (ponytails, costumes, tree branches). For wind, generate a noise field with Control Rig nodes and plug it into a `Dynamics Forces` node; animate one control for art-directable wind with visualizable vectors (frame [6:33]).
+9. **Iterate non-destructively** — change the Dataflow graph (or swap the input mesh) and the skeleton, weights, rig, and dynamics all propagate — an instant "tree generator" with one shared control graph.
+10. **Bonus tricks** — Dataflow `Transfer` node copies morph targets/skin weights/mesh data from a working low-res mesh to a high-res render mesh (zebra face). Right-click any `Geometry Collection` → export to `Skeletal Mesh` (bones = mesh parts), record sims via `Take Recorder` into `Sequencer` to scrub/reverse them like animation.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Dataflow** — node-based, non-destructive procedural asset editor (born from destruction pipeline management); graphs are shareable recipes; example graphs ship in Content Examples → Physics Destruction level.
+- `Medial Skeleton Sampling` node:
+  - `Min Cluster Error To Split` → **the main dial**; increase it to remove excess bones.
+  - `Max Spheres` (default 1000) → number of *samples*, not resulting joints — don't lower it expecting a bone count.
+- `Simplify Medial Skeleton` node → run twice; on pass 2 disable `Prevent Edge Surface Intersections` for a cleaner result. Full dragon skeleton = ~5 nodes total (frame [28:30]).
+- `Subdivide Medial Skeleton` node → even re-distribution / more joints along limbs.
+- `Transfer` node → transfers morph target blend shapes, skin weights, any mesh data to another skeletal mesh; minimal wiring (zebra low-res → high-res, no performance loss).
+- Geometry Collection → Skeletal Mesh: right-click export, or 2 Dataflow nodes (+1 to bind) — frame [18:56].
+- **Control Rig Dynamics** [5.8] — particle-based rig physics, runtime-focused, ~5× faster than `Control Physics` nodes [5.6]; complementary, not a replacement. Forces input accepts noise fields for wind.
+- `Locomotor` Control Rig node — procedural locomotion from parameters; rig chases a dragged goal control.
+- Docs: search "Epic developer community Dataflow" — 4-5 new official docs dropped at Unreal Fest Chicago 2026.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.8 (skeletonization nodes, Control Rig Dynamics, Skeletonizer template are all new in 5.8; Control Physics is 5.6)
 
 ### Tags
-[PENDING EXTRACTION]
+control-rig, rigging, animation, chaos, geometry, pipeline, advanced, ue5-8
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/control-rig-in-unreal-engine.md` — Epic's Control Rig documentation (shares: control-rig, rigging, animation) — the baseline system this talk builds on; also see `references/control-rig-animation.md`.
+- `tutorials/physics-in-unreal-engine.md` — UE 5.7 Chaos physics reference (shares: chaos, animation) — geometry collections, fracture, and rigid-body foundations for the Dataflow destruction tricks shown here.
+- `references/release-notes-ue58.md` — UE 5.8 feature context for Control Rig Dynamics and the new Dataflow skeletonization nodes.

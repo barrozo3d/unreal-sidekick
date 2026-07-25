@@ -3365,9 +3365,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=wmC4S3Woj5I
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.8
+- **Tags:** control-rig, rigging, animation, chaos, geometry, pipeline, advanced, ue5-8
+- **Summary:** Epic's rigging and physics leads show fully procedural in-engine rigging: Dataflow's new 5.8 "skeletonization" nodes (`Medial Skeleton Sampling` + `Simplify Medial Skeleton`, key setting `Min Cluster Error To Split`) generate skeletons and skin weights for arbitrary meshes — trees, octopi, dragons, centipedes — which skeleton-agnostic Control Rigs then drive (Locomotor node, Modular Control Rig). Covers the new particle-based Control Rig Dynamics (≈5× faster than 5.6 Control Physics) with noise-field wind forces, the Dataflow Transfer node for moving morph targets/skin weights from low-res to high-res meshes, geometry collection → skeletal mesh export for animatable fractured props, and voxelized proxy workflows for messy meshes.
 - **File:** tutorials/build-it-in-engine-modern-rigging-with-control-rig-dataflow-unreal-fest-chicago-.md
 
 ---
