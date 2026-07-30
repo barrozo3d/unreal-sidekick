@@ -3380,6 +3380,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Head-to-head comparison of Surface Forge's Nanite displacement (real geometry, true silhouette, collision after baking) vs parallax occlusion mapping (shader trick, self-shadow only, angle-dependent cost, breaks at shallow angles). Covers per-layer POM step/height tuning and complexity debug view, combining POM shadows with Nanite displacement for art-directed cinematic shadows, vertex-color and mesh-paint blend masking for both material layers and displacement/puddle masks, and a landscape-scale (UE5.3, 4 layers) FPS comparison plus `r.Nanite.Tessellation.DicingRate` tuning.
 - **File:** tutorials/creating-realistic-surfaces-with-ue5-surface-forge-parallax.md
 
+
+### A Deep Dive into GPU Crashes in UE5 | Inside Unreal
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=Ib_nFhgF4vk
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/a-deep-dive-into-gpu-crashes-in-ue5-inside-unreal.md
+
 ---
 
 ## Tag Reference
