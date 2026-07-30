@@ -3375,9 +3375,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=RPEvhresGAk
 - **Author:** Arghanion's Puzzlebox
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.3 (landscape demo); UE 5.8 (static-mesh demos)
+- **Tags:** `#materials` `#nanite` `#displacement` `#parallax-occlusion-mapping` `#pom` `#tessellation` `#vertex-color` `#landscape` `#performance` `#surface-forge` `#intermediate` `#ue5-3` `#ue5-8`
+- **Summary:** Head-to-head comparison of Surface Forge's Nanite displacement (real geometry, true silhouette, collision after baking) vs parallax occlusion mapping (shader trick, self-shadow only, angle-dependent cost, breaks at shallow angles). Covers per-layer POM step/height tuning and complexity debug view, combining POM shadows with Nanite displacement for art-directed cinematic shadows, vertex-color and mesh-paint blend masking for both material layers and displacement/puddle masks, and a landscape-scale (UE5.3, 4 layers) FPS comparison plus `r.Nanite.Tessellation.DicingRate` tuning.
 - **File:** tutorials/creating-realistic-surfaces-with-ue5-surface-forge-parallax.md
 
 ---

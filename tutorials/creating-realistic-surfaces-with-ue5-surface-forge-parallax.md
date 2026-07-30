@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=RPEvhresGAk
 author: Arghanion's Puzzlebox
 ingested: 2026-07-29
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.3 (landscape demo); UE 5.8 (static-mesh demos)"
+tags: [materials, nanite, displacement, parallax-occlusion-mapping, pom, tessellation, vertex-color, landscape, performance, surface-forge, intermediate, ue5-3, ue5-8]
+extraction_status: complete
 frames_dir: tutorials/frames/creating-realistic-surfaces-with-ue5-surface-forge-parallax/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 11
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Creating Realistic Surfaces with UE5 Surface Forge Parallax
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py creating-realistic-surfaces-with-ue5-surface-forge-parallax <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Intro [0:00]
@@ -549,30 +545,63 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [1:31] tutorials/frames/creating-realistic-surfaces-with-ue5-surface-forge-parallax/frame_000.jpg
+- [2:29] tutorials/frames/creating-realistic-surfaces-with-ue5-surface-forge-parallax/frame_001.jpg
+- [3:21] tutorials/frames/creating-realistic-surfaces-with-ue5-surface-forge-parallax/frame_002.jpg
+- [6:03] tutorials/frames/creating-realistic-surfaces-with-ue5-surface-forge-parallax/frame_003.jpg
+- [10:31] tutorials/frames/creating-realistic-surfaces-with-ue5-surface-forge-parallax/frame_004.jpg
+- [14:38] tutorials/frames/creating-realistic-surfaces-with-ue5-surface-forge-parallax/frame_005.jpg
+- [16:11] tutorials/frames/creating-realistic-surfaces-with-ue5-surface-forge-parallax/frame_006.jpg
+- [25:47] tutorials/frames/creating-realistic-surfaces-with-ue5-surface-forge-parallax/frame_007.jpg
+- [27:57] tutorials/frames/creating-realistic-surfaces-with-ue5-surface-forge-parallax/frame_008.jpg
+- [29:46] tutorials/frames/creating-realistic-surfaces-with-ue5-surface-forge-parallax/frame_009.jpg
+- [30:43] tutorials/frames/creating-realistic-surfaces-with-ue5-surface-forge-parallax/frame_010.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+A head-to-head comparison of the two ways to fake/add surface depth in Surface Forge (a paid multi-layer material system for UE5 — Fab/Patreon product, not a stock engine feature): **Nanite displacement** (real geometry, driven by height maps, has true collision-capable silhouette) versus **parallax occlusion mapping / POM** (shader trick, self-shadowing only, no real geometry or collision) — covering their relative cost, quality, shadow behavior, per-layer controls, vertex/mesh-paint blend masking, and combining both on a landscape.
 
 ### Summary
-[PENDING EXTRACTION]
+Arghanion's Puzzlebox demos Surface Forge's parallax and displacement systems on a flat test plane, then on a full landscape. Nanite displacement gives a real silhouette and correct collision-driven shadows (with real collision only after baking) at a flat instruction cost regardless of steps; POM is cheaper at low quality but has an angle-dependent cost (more min/max steps = better quality, higher cost, and it breaks entirely at shallow grazing angles). Per-layer POM shadows can be combined with Nanite displacement for art-directed cinematic shadows (not recommended for live gameplay — stacks both costs). Blend masking between the system's multiple material layers (and between displacement/puddle effects) is driven by mesh vertex-color channels (RGBA) or a paintable "mesh paint" mode when vertex color isn't available, with a live example of painting displacement/puddle-mask channels in Modeling Mode. Second half repeats the comparison on a real landscape (4 layers A–D) in UE5.3, measuring FPS cost for POM (min/max step tuning: 16/64 steps ≈ "almost indistinguishable from full quality" at ~20ms) versus Nanite displacement (~23ms, less depth by default but adjustable), plus the `r.Nanite.Tessellation.DicingRate` console variable for controlling tessellation density/cost (values below ~1 destabilize/error; ~5 recommended as more efficient than the default of 1 for this landscape).
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Identify displacement visually:** Nanite-displaced geometry shows a true silhouette at the mesh edge (height-map-driven vertex displacement); POM never does — it fakes depth as a 2D shader trick on a flat plane.
+2. **POM shadow behavior:** POM supports self-shadowing only (shadows react to a moved directional light) but cannot cast onto or receive from other geometry; Nanite-displaced real geometry casts/receives shadows normally.
+3. **POM cost tuning:** Material Instance exposes Min Steps / Max Steps for the POM ray-march. Low steps (e.g. 1) = cheap but visibly flat at grazing angles; high steps (e.g. 8 min / 64 max) sharply improve quality with **no change in shader instruction count**, only in runtime cost (angle-dependent — steepest at shallow viewing angles). Use **POM Complexity Debug** (per-layer toggle) to view a green→red heatmap cost overlay per material layer.
+4. **POM height/quality knobs:** POM Height Ratio controls fake depth (recommended 0.03–0.05; going higher than ~0.1 causes visible ghosting/artifacts and forces more steps to compensate, which then breaks the effect at extreme values). Leave Reference Plane at default (0.5).
+5. **Combine POM shadows + Nanite displacement for cinematics:** set POM to "shadows only" (drops the fake-geometry look, keeps just the parallax self-shadow), then enable Nanite + Tessellation on the same mesh for real geometry underneath — gives art-directable shadow intensity/invert controls unavailable to pure Nanite displacement. Not recommended together in shipped gameplay (compounds both costs); fine for cinematics/pre-rendered work.
+6. **Nanite displacement setup checklist (why it "isn't working"):** (a) Material Instance → **Enable Tessellation** must be checked (UE5.3 exposes this on the instance; other versions expose displacement directly on the base shader); (b) the **mesh** must have **Nanite enabled** (Static Mesh Editor → right-click → enable Nanite); (c) check for an active **displacement mask** — if present, some regions won't displace even with tessellation on.
+7. **Vertex-color blend masking:** Static meshes imported from external DCC (e.g. Blender) carry RGBA vertex-color channels used both for material-layer blending (R/G/B → layers B/C/D) and, per the alpha channel here, as a displacement/puddle mask. Edit via Modeling Mode → Mesh Paint / Vertex Painting → Paint Vertex Color: pick a channel, Erase Color (set to black, alpha to 0) to clear, then paint the target channel; changes only apply visually **after pressing Accept** (vertex color is baked into the mesh, not live-previewed mid-stroke). Puddle masking and displacement masking can be reassigned to different channels independently (e.g. move puddles from alpha to red) so the alpha channel is freed for pure displacement masking.
+8. **Mesh Paint fallback (no vertex color):** if "Use Vertex Color for Blend Mask" is disabled and no vertex data exists, enable **Mesh Paint** blend-mask mode instead — this lets you hand-paint the mask directly in Mesh Paint Mode (Modeling → Mesh Paint → Add → paint channels) at a chosen texture resolution (e.g. 2048), with a paint-strength slider (set to 1.0 for full effect per stroke).
+9. **Displacement collision:** Nanite-displaced fake geometry has **no collision by default** (characters sink through bumps); bake the displaced mesh to real geometry and generate collision on the bake to get physical collision matching the displaced surface.
+10. **Landscape-scale validation (UE5.3):** enabling POM per-layer (A–D) on a landscape at low step counts tanks FPS at first load, then stabilizes; tuning Min/Max steps to 16/64 recovers near-full quality at ~20ms in this test scene (unoptimized landscape-shader flow — author expects to shave 2-3ms with further optimization). Comparable Nanite displacement pass on the same landscape cost ~23ms with visibly less depth (adjustable via height params) — author's personal preference is POM's depth on landscapes, plus the noted UE5.3→5.8 perf uplift (~30-40% for Nanite displacement) narrows the gap further in newer engine versions.
+11. **Nanite tessellation density:** `r.Nanite.Tessellation.DicingRate` (default 1) controls dicing/tessellation density — raising it (e.g. to 5) can improve performance on some meshes with many instances; going too low (below ~1, e.g. 0.5) destabilizes/errors, and pushing arbitrarily high (25+) can also become unstable on a given mesh/landscape. Effect on a single landscape actor was minimal in this test but the author notes higher impact expected on meshes with many draw calls, and further gains in future UE versions.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Material Instance (Surface Forge, per-layer): Enable POM / Enable Tessellation, Min Steps, Max Steps, POM Height Ratio (~0.03-0.05 recommended, default Reference Plane 0.5), Shadow Intensity (+ invert), "shadows only" mode, POM Complexity Debug (per-layer heatmap toggle)
+- Static Mesh Editor: right-click mesh → Enable Nanite
+- Modeling Mode → Mesh Paint / Vertex Painting → Paint Vertex Color (RGBA channel select, Erase Color, Accept-to-bake)
+- Modeling Mode → Mesh Paint (fallback painted blend mask when no vertex color; resolution + strength settings)
+- Console variable: `r.Nanite.Tessellation.DicingRate` (default 1; test range ~1-10 stable, <1 and much higher values destabilize)
+- Landscape material: per-layer (A/B/C/D) POM + tessellation toggles, same Min/Max step tuning as static-mesh materials
+- Baking: displaced-mesh bake-to-static-geometry workflow for real collision
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate (assumes familiarity with material instances, vertex painting, and Nanite basics; built on a paid third-party material system rather than stock engine tools)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.3 (landscape demo) and UE 5.8 (author's current working version for the static-mesh demos); author notes Nanite displacement performance improves ~30-40% from 5.3 to 5.8
 
 ### Tags
-[PENDING EXTRACTION]
+materials, nanite, displacement, parallax-occlusion-mapping, pom, tessellation, vertex-color, landscape, performance, surface-forge, intermediate, ue5-3, ue5-8
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [Fix Displacement Tearing in UE5 — Free Blender Edge Tool (Surface Forge)](fix-displacement-tearing-in-ue5-free-blender-edge-tool-surface-forge.md) — same author/system, companion topic on fixing Nanite-displacement seam tearing at mesh edges via a Blender export tool
+- [Nanite: Everything You Should Know [Unreal Engine 5]](nanite-everything-you-should-know-unreal-engine-5.md) — general Nanite fundamentals background (this tutorial assumes Nanite is already enabled/understood)
