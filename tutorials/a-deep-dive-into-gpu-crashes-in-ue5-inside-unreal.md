@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=Ib_nFhgF4vk
 author: Unreal Engine
 ingested: 2026-07-30
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5 (general, discussion spans older and newer UE5.x releases including UE5.8-era residency defaults)"
+tags: [gpu-crash, directx12, rhi, rdg, debugging, aftermath, dred, residency, page-fault, shipping-build, performance]
+extraction_status: complete
 frames_dir: tutorials/frames/a-deep-dive-into-gpu-crashes-in-ue5-inside-unreal/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # A Deep Dive into GPU Crashes in UE5 | Inside Unreal
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py a-deep-dive-into-gpu-crashes-in-ue5-inside-unreal <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -542,30 +538,70 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [9:16] tutorials/frames/a-deep-dive-into-gpu-crashes-in-ue5-inside-unreal/frame_000.jpg
+- [15:27] tutorials/frames/a-deep-dive-into-gpu-crashes-in-ue5-inside-unreal/frame_001.jpg
+- [23:26] tutorials/frames/a-deep-dive-into-gpu-crashes-in-ue5-inside-unreal/frame_002.jpg
+- [29:05] tutorials/frames/a-deep-dive-into-gpu-crashes-in-ue5-inside-unreal/frame_003.jpg
+- [41:34] tutorials/frames/a-deep-dive-into-gpu-crashes-in-ue5-inside-unreal/frame_004.jpg
+- [44:02] tutorials/frames/a-deep-dive-into-gpu-crashes-in-ue5-inside-unreal/frame_005.jpg
+- [52:43] tutorials/frames/a-deep-dive-into-gpu-crashes-in-ue5-inside-unreal/frame_006.jpg
+- [57:46] tutorials/frames/a-deep-dive-into-gpu-crashes-in-ue5-inside-unreal/frame_007.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+A systematic workflow for diagnosing and fixing DirectX12 GPU crashes in UE5 — classify the crash (Device Removed vs. Device Hung, page fault vs. other), escalate through a tool ladder (D3D Debug Layer → GPU-Based Validation → DRED → vendor tools: NVIDIA Aftermath / AMD RGD / Intel GPU crash dumps / the emerging cross-vendor DirectX DMP standard), then apply targeted fixes for the most common root-cause categories (out-of-bounds/SM errors, residency/eviction page faults, use-after-free, shader infinite loops/TDR).
 
 ### Summary
-[PENDING EXTRACTION]
+An Inside Unreal interview with Kuiwen Jiang (engine lead, Cersei Studio / "Fit Trigger") on the studio's multi-year experience hunting down DX12 GPU crashes in UE5 open-world production. Covers why DX12's explicit, driver-doesn't-guess design makes crashes both more preventable and more fragile than DX11; the two main crash categories the CPU actually observes (Device Removed vs. Device Hung, both usually rooted in a GPU page fault or an infinite/very-long shader); the debugging tool ladder from cheap/broad (API return codes, engine log) to expensive/precise (D3D Debug Layer, GPU-Based Validation, DRED breadcrumbs, then vendor crash-dump tools NVIDIA Aftermath, AMD RGD, Intel's mechanism, and the new cross-vendor DirectX DMP standard shown at this year's GDC); real production case studies (an AMD-RGD-diagnosed residency/eviction page fault where a UE5 texture heap had been evicted out from under a live GPU reference, and a mysterious structured-buffer use-after-free during RDG refactoring that was worked around by switching the resource to a texture); the studio's automated AI-assisted crash-reporting pipeline; concrete repro/stress techniques (deliberately fill VRAM, lower residency debug budgets, toggle parallel-execution switches, run A/B tests disabling individual debug options); and a release-build tool-cost table weighing which debugging tools are safe/worthwhile to ship with vs. internal-only.
 
 ### Key Steps
-[PENDING EXTRACTION]
+**Understand the crash categories:**
+1. GPU crashes are asynchronous from the CPU's perspective — the CPU only learns something went wrong when a subsequent graphics API call returns an error `HRESULT`, at which point `GetDeviceRemovedReason()` gives a coarse category.
+2. **Device Removed**: usually a GPU page fault (GPU addressed memory that couldn't be translated) — the driver can't safely continue, so it tears down and asks the app to recreate the device. **Device Hung**: the GPU stopped making forward progress mid-work (classic cause: an infinite loop or extremely long-running shader), often surfacing via Windows' TDR (Timeout Detection and Recovery) mechanism, which can also fire for legitimately-too-long-but-not-broken work.
+
+**Debugging workflow / tool ladder (frame_002, frame_006 tool-comparison table):**
+3. Start cheap: check the API return `HRESULT` category, then check the UE5 log for any debug-layer warnings already being captured.
+4. **D3D12 Debug Layer**: requires Windows Graphics Tools installed; enable via `DXCPL` (DirectX Control Panel) per-program, or via UE5 console variables/launch args (`-d3ddebug`, `-d3dloglargeleaks`-style flags mentioned). Catches CPU-side API contract violations (resource barrier errors, descriptor mismatches) *before* they reach the GPU — e.g. missing a resource-transition/barrier call.
+5. **GPU-Based Validation (GBV)**: an enhanced mode of the debug layer (requires the debug layer enabled first) that instruments shaders/patches command lists to catch errors only visible when the GPU actually executes — e.g. a shader sampling a resource that's bound in the wrong resource state, which the plain debug layer can't see. Heavier runtime overhead than the base debug layer; the talk explicitly says both D3D Debug Layer and GBV are "not suitable for release builds" — internal/automated-test only.
+6. **DRED (Device Removed Extended Data)**: native DX12 diagnostic with two main features — Auto-Breadcrumbs (records recent GPU command-list markers so you can see the last-executed / in-flight commands at crash time, frame_002) and Page Fault reporting (lists active/recently-freed resources and heaps near the faulting VA). Lower overhead than breadcrumbs-heavy alternatives but coarse — command-list-level granularity only, and can't pin down which specific draw/dispatch or shader instruction crashed due to GPU parallelism (several events may show "in flight" simultaneously).
+7. **UE's own "GPU breadcrumbs"** are a separate, higher-level marker system (hierarchical, records all markers submitted per-frame) distinct from DRED's own breadcrumbs — UE's usually gives more context but DRED's includes lower-level API call detail; neither alone can prove which exact call crashed.
+8. **NVIDIA Aftermath**: richest single tool covered. Two integration modes — SDK-embedded in the app (what UE5 does) or a standalone background monitor. On crash, generates an `.nv-gpudmp` file openable in NVIDIA Nsight Graphics, containing page-fault VA/resource info, shader hash, and (if call-stack capture + "dump shader debug info" console vars are enabled) exact shader source line via paired shader-binary/PDB files (frame_003, frame_005 — page-fault info block with GPU VA, resource dimensions, residency state; Aftermath's shader-source view highlights last-executed instruction in yellow and the crashing instruction in red). Controlled via UE5 console variables (resource tracking cvar is specifically called out as valuable for page-fault debugging). Caveat: pre-R615 NVIDIA driver, Aftermath was incompatible with the D3D debug layer being enabled simultaneously (fixed in the newer driver per the talk) and also conflicts with RenderDoc auto-attach. An upcoming driver update was said to merge the separate shader-debug-info file into the main dump, reduce memory overhead (older Aftermath versions could use significant memory), and add resource lifetime/residency event tracking.
+9. **AMD RGD (Radeon GPU Detective)**: AMD's equivalent, currently requires a standalone background tool attached to the app (no SDK yet) — less convenient for rare/intermittent crashes but currently the most residency-state-detailed option for AMD when a crash IS reproducible, outputting both a summary and a detailed text report (notably AI-analysis-friendly since it's plain text). Case study (frame_004, frame_005): a page-fault crash traced via RGD's resource timeline to a heap that had been evicted — cross-referencing the heap's resource ID against the faulting virtual address confirmed the crashing resource lived inside that evicted heap, proving a residency/eviction bug rather than a "real" out-of-bounds access.
+10. **Intel** provides its own GPU crash dump mechanism (background-tool-like); the studio hadn't used it in practice.
+11. **DirectX DMP files** (new at this GDC, still preview/feedback stage): Microsoft's attempt at one unified, cross-vendor crash-dump format, opened via the PIX app; requires SDK integration and currently only works in development builds, not shipping/public release builds. NVIDIA, AMD, Intel, and Qualcomm are all expected to support it eventually, and both Aftermath and RGD appear to be moving toward compatibility with it.
+
+**Common root-cause categories:**
+12. **SM (streaming multiprocessor) out-of-bounds access**: relatively easy once Aftermath/RGD/DXDump gives the exact crashing instruction — add bounds checks. Special case: a crash address of exactly `0x0` may indicate an unbound uniform/constant buffer rather than a normal OOB.
+13. **MMU/page fault from evicted or released resources**: DX12 makes residency explicit — the app/engine must track VRAM budget and ensure resources are resident before GPU use. "Evicted" (object still exists, memory temporarily inaccessible) is distinct from "released/destroyed" (object gone entirely) — confusing the two is a common source of these bugs. UE5's residency system sits on a DX12 residency third-party library; a notable recent-UE5 behavior change is that resources are now created as evicted-by-default (avoids implicit OS-level paging, but means `MakeResident()` gets called more often — good default for typical cases, worth knowing when debugging).
+14. **Structured-buffer use-after-free during RDG work** (real case study, ~45:17-47:51 in transcript): buffers reported as *destroyed* (not evicted) yet still GPU-referenced. Ruled out buffer sizing and parallel-execution options as causes; strongly suspected but couldn't fully root-cause an RDG resource-management issue under project time constraints. Workaround that made the crash "almost disappear": reimplement the problematic resource as a **texture instead of a buffer** — texture resource lifetime management in UE's long-established render-target system is more conservative (a freed texture's memory is more likely to get reused by a later texture allocation than immediately released), which happens to paper over the underlying race. Final suspected root cause: a read/write race around resource extraction/production, later fixed upstream in newer UE5 versions.
+15. **Shader infinite loop → TDR/Device Hung**: Aftermath reports "timeout"/"hung" status with the last-executed location inside the offending loop; also reachable via UE5's own `GPUDebugCrash` console command for deliberately testing RHI/RDG crash-handling paths (note: in newer UE5 versions where resources default to non-resident, you must set `r.Resource.StartsResident` (or disable the residency-management macro) for the debug-crash command's page-fault mode to actually trigger).
+
+**Production practices (frame_007, frame_006):**
+16. Build an automated crash pipeline: ingest crash reports from your crash-reporting platform, build a shader-hash → shader-name lookup index (searching the full shader cache for a matching hash can otherwise take 10+ minutes — precomputing the index avoids that), run Aftermath preprocessing (`AftermathTest.exe`) to match DXIL/PDB debug info and generate a full crash-dump JSON + report, then feed that into an AI step for root-cause analysis/report drafting, with results synced to IM/chat tools and a running internal knowledge base of previously-seen crashes.
+17. To *increase* reproduction odds during stress/soak testing: deliberately raise VRAM pressure (background apps eating VRAM), lower residency debug budget cvars, toggle async/parallel-execution switches on and off (A/B-style) to isolate synchronization-related suspects, and toggle individual RDG/DX12 debug options (e.g. disabling `d3d12.VRAMDiffTrack`) to see if a category of crash disappears — if disabling a specific option makes crashes stop, that's a strong signal the bug is in that subsystem. Warns that these debug cvars are dangerous and must never ship in test/shipping builds.
+18. **What's safe to ship / enable in release**, per the studio's own cost table (frame_006): D3D Debug Layer and GPU-Based Validation — internal validation only, very high/extremely high cost, never ship. Breadcrumbs — usable but "depends," medium cost, measured ~7-9 FPS drop when enabled in their project, and the info yield was judged not worth it. DRED — low cost, safe to ship, good for coarse "device removed" triage. Aftermath (shader-info-only mode) — low-medium cost (~3 FPS drop in their project), safe to ship with control, best for NVIDIA crash dumps; watch memory usage on already memory-heavy projects, especially older Aftermath versions. RGD — no shipping SDK currently (external attach only), best for AMD-reproducible crashes. DXDump — external/future candidate, TBD cost, aimed at cross-IHV workflows.
+19. User-facing mitigations to recommend alongside engine-side fixes: have players clear shader cache, update GPU drivers, increase virtual/paging memory size (helps with out-of-memory-flavored instability), and disable third-party frame-rate overlay software (can itself destabilize the DX12 device).
+20. Upgrade guidance for projects still on older UE5 releases: prioritize upgrading the (relatively isolated, low-risk) Aftermath module first — recent updates added shader-hash-based lookup speedups; RHI/RDG upgrades bring real residency/stability improvements (especially for buffer/structured-buffer crashes) but are higher-risk, larger-surface-area changes requiring real regression testing — if a full engine upgrade isn't feasible, upgrading just the debug-info modules alone still helps. Projects using bindless resources heavily should specifically prioritize the descriptor-range module upgrade, which fixed a residency-tracking gap for bindless descriptor ranges.
+21. Other frequently-seen non-shader GPU-adjacent crash sources mentioned briefly: PSO (Pipeline State Object) creation failures (mitigated by building an internal PSO-hash → shader-name map to identify the problem shader for hard-to-repro cases) and DXGI/swapchain-boundary Present() failures — some are transient (retry a few times, e.g. state-transition-related Present failures, or issues from resizing a window while frame generation is active) but Device Removed / Device Reset returned from Present() should be treated as a genuine GPU crash, not retried away.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+Not a hands-on Blueprint/editor tutorial — this is an engine/RHI-level debugging talk. Relevant UE5 console variables/commands mentioned: `GPUDebugCrash` (deliberately trigger a test GPU crash; requires `r.Resource.StartsResident`-style override on newer UE5 defaults to reach the page-fault path), Aftermath enable/feature-flag cvars (resource tracking, dump-shader-debug-info, call-stack capture), D3D debug-layer / D3D log launch args, `d3d12.VRAMDiffTrack` (residency debug diff-tracking, toggle to isolate residency-related crashes), residency debug budget cvars (lower to stress-test eviction behavior), parallel-execution toggle cvars (for ruling out sync-related races). Systems discussed: RHI (Render Hardware Interface), RDG (Render Dependency Graph / render graph resource management), UE5's DX12-residency-manager (built on a third-party DX12 residency library), UE5's own GPU-breadcrumbs marker system (distinct from DRED's breadcrumbs).
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced/Expert — this is low-level GPU/DirectX12 systems debugging aimed at engine programmers, not artists or general gameplay developers (the speakers explicitly acknowledge it's a niche, frustrating problem space).
 
 ### UE Version
-[PENDING EXTRACTION]
+Not tied to one specific version — discussion spans multiple UE5.x releases, explicitly contrasting older vs. newer UE5 residency-management defaults (calls out UE5.8-era behavior where resources are created non-resident by default) and gives separate upgrade advice for teams still on older UE5 branches.
 
 ### Tags
-[PENDING EXTRACTION]
+gpu-crash, directx12, rhi, rdg, debugging, aftermath, dred, residency, page-fault, shipping-build, performance
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+None yet with overlapping GPU-crash/DirectX12-debugging tags — first low-level RHI/GPU-crash-debugging entry in this library.
