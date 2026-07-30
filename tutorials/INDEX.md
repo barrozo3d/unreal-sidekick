@@ -3370,6 +3370,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Epic's rigging and physics leads show fully procedural in-engine rigging: Dataflow's new 5.8 "skeletonization" nodes (`Medial Skeleton Sampling` + `Simplify Medial Skeleton`, key setting `Min Cluster Error To Split`) generate skeletons and skin weights for arbitrary meshes — trees, octopi, dragons, centipedes — which skeleton-agnostic Control Rigs then drive (Locomotor node, Modular Control Rig). Covers the new particle-based Control Rig Dynamics (≈5× faster than 5.6 Control Physics) with noise-field wind forces, the Dataflow Transfer node for moving morph targets/skin weights from low-res to high-res meshes, geometry collection → skeletal mesh export for animatable fractured props, and voxelized proxy workflows for messy meshes.
 - **File:** tutorials/build-it-in-engine-modern-rigging-with-control-rig-dataflow-unreal-fest-chicago-.md
 
+
+### Creating Realistic Surfaces with UE5 Surface Forge Parallax
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=RPEvhresGAk
+- **Author:** Arghanion's Puzzlebox
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/creating-realistic-surfaces-with-ue5-surface-forge-parallax.md
+
 ---
 
 ## Tag Reference
