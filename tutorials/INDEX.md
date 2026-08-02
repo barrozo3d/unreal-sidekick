@@ -3390,6 +3390,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Inside Unreal interview covering the full DX12 GPU-crash debugging workflow in UE5: classifying Device Removed vs. Device Hung, the tool escalation ladder (D3D Debug Layer → GPU-Based Validation → DRED → NVIDIA Aftermath / AMD RGD / cross-vendor DirectX DMP), real production case studies (a residency/eviction page fault diagnosed via AMD RGD, and a structured-buffer use-after-free during RDG work worked around by switching to a texture), an automated AI-assisted crash pipeline, stress-testing techniques to increase repro rates, and a release-build cost/safety table for each debugging tool.
 - **File:** tutorials/a-deep-dive-into-gpu-crashes-in-ue5-inside-unreal.md
 
+
+### Unreal5 Markerless MoCap (CLEAN-UP Process)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=rLPRlPlZ3Lw
+- **Author:** Royal Skies
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal5-markerless-mocap-clean-up-process.md
+
 ---
 
 ## Tag Reference
