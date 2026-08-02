@@ -3400,6 +3400,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Short workflow for fixing jittery UE5 Markerless Mocap output: export the animation as FBX, paste it onto Cascadeur's built-in UE5 mannequin, strip to sparse keyframes and Bezier-smooth them, auto-snap footsliding toes (Shift+Z), manually adjust stylized poses, use Cascadeur's physics-assist (Tween Machine) with priority-frame overrides to reconcile hand-posed keys against a physically-simulated ghost figure, then bake to physics and re-import the fixed FBX back into Unreal 5.
 - **File:** tutorials/unreal5-markerless-mocap-clean-up-process.md
 
+
+### UE5: Everything About SPRING Motion (Float Lerping)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=EvWrGFZshBk
+- **Author:** Royal Skies
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/ue5-everything-about-spring-motion-float-lerping.md
+
 ---
 
 ## Tag Reference
