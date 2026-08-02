@@ -3500,6 +3500,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/spawn-objects-along-splines---procedural-content-generation-pcg---episode-8.md
 
+
+### Adding Rocks With Hierarchical Generation - Procedural Content Generation (PCG) - Episode 9
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=u2hsoBgYUR0
+- **Author:** Ben Cloward
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/adding-rocks-with-hierarchical-generation---procedural-content-generation-pcg---.md
+
 ---
 
 ## Tag Reference
