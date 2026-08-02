@@ -3410,6 +3410,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/ue5-everything-about-spring-motion-float-lerping.md
 
+
+### UE 5.8 LOCAL & FREE Video MoCap (In 3 Minutes!!)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=jS4h-24EnbQ
+- **Author:** Royal Skies
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/ue-58-local-free-video-mocap-in-3-minutes.md
+
 ---
 
 ## Tag Reference
