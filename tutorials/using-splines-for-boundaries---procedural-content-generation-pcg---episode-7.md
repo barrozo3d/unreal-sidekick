@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=AWJ7H4C6ObI
 author: Ben Cloward
 ingested: 2026-08-02
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "Not specified (UE5.7-era)"
+tags: [pcg, blueprint, pipeline, intermediate, ue5-7]
+extraction_status: complete
 frames_dir: tutorials/frames/using-splines-for-boundaries---procedural-content-generation-pcg---episode-7/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 10
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Using Splines For Boundaries - Procedural Content Generation (PCG) - Episode 7
@@ -22,12 +23,15 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py using-splines-for-boundaries---procedural-content-generation-pcg---episode-7 <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+## Ingest Safeguard Report
+
+_Auto-generated at ingest/frame-capture time — explains why `extraction_status` may be `needs-review`. Safe to delete once reviewed._
+
+- WARNING: Partial frame capture: only 10/11 requested frames were captured.
+
+---
+
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -228,30 +232,64 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [2:18] tutorials/frames/using-splines-for-boundaries---procedural-content-generation-pcg---episode-7/frame_000.jpg
+- [3:20] tutorials/frames/using-splines-for-boundaries---procedural-content-generation-pcg---episode-7/frame_001.jpg
+- [4:14] tutorials/frames/using-splines-for-boundaries---procedural-content-generation-pcg---episode-7/frame_002.jpg
+- [6:20] tutorials/frames/using-splines-for-boundaries---procedural-content-generation-pcg---episode-7/frame_003.jpg
+- [7:20] tutorials/frames/using-splines-for-boundaries---procedural-content-generation-pcg---episode-7/frame_004.jpg
+- [9:40] tutorials/frames/using-splines-for-boundaries---procedural-content-generation-pcg---episode-7/frame_005.jpg
+- [10:22] tutorials/frames/using-splines-for-boundaries---procedural-content-generation-pcg---episode-7/frame_006.jpg
+- [13:32] tutorials/frames/using-splines-for-boundaries---procedural-content-generation-pcg---episode-7/frame_007.jpg
+- [16:40] tutorials/frames/using-splines-for-boundaries---procedural-content-generation-pcg---episode-7/frame_008.jpg
+- [18:11] tutorials/frames/using-splines-for-boundaries---procedural-content-generation-pcg---episode-7/frame_009.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Using hand-drawn, tag-identified **splines** as either an **inclusion boundary** (only spawn PCG assets inside these areas) or an **exclusion zone** (never spawn PCG assets inside these areas), giving an artist precise manual control over a procedurally-generated environment without abandoning PCG entirely.
 
 ### Summary
-[PENDING EXTRACTION]
+Addresses a common complaint from environment artists about procedural systems: they don't want to give up all placement control. This episode shows both directions using the Episode 5 forest graph as the base: (1) drawing closed-loop splines on the terrain, tagging them, and rewiring the PCG graph's `Get Spline Data` → `Create Surface from Spline` → `Union` chain into the **Projection Target** so the forest only grows inside the tagged areas instead of across the whole PCG volume; and (2) rewiring a similar `Get Spline Data` → `Spline Sampler` → `Difference` chain inserted between the graph's point-generation stage and its density filters/spawners so any points falling inside the tagged splines are *removed* instead — carving safe zones out of an otherwise-everywhere forest for hand-placed set-dressing. A key gotcha is called out: the `Difference` node defaults to a **Minimum** density-comparison mode (which only partially thins overlapping points based on which has lower density) rather than **Binary** (which fully removes all points in the excluded area) — the fix is a one-dropdown change.
 
 ### Key Steps
-[PENDING EXTRACTION]
+**Scenario 1 — splines as inclusion boundaries:**
+1. Place a **Basic Actor** in the level (repeat once per desired forest patch) → switch to Selection Mode → PCG → **Draw Spline Surface** → click-drag to lay down a closed-loop spline outlining the desired area → **Accept**.
+2. Tag each spline actor: in its Details panel, Search → "tag" → Tags array → **+** → type a keyword (author uses `forest`) shared by every spline meant to feed the same PCG rule.
+3. In the PCG graph, add a `Get Spline Data` node: set **Actor Selection** from "Self" to **All World Actors**, set the selection method to **Actor Selection by Tag** with the tag typed in (e.g. `forest`), and check **Select Multiple** so it picks up every tagged spline actor at once.
+4. Add a `Create Surface from Spline` node and wire `Get Spline Data`'s output into it — Unreal auto-inserts an intermediate node translating the Polyline-typed spline data into the Spline type this node expects.
+5. Wire the resulting surface into the existing PCG graph's **Projection Target** input (previously fed directly by `Get Landscape Data`) — if multiple tagged splines exist, wiring all three surface outputs directly into Projection Target throws a **"too many data items arriving on single data pin"** warning, since Projection Target only accepts one object.
+6. Fix the multi-spline case: insert a `Union` node between `Create Surface from Spline` and `Projection Target` — Union merges the multiple spline-surface objects into one combined shape (again auto-inserting an intermediate spatial-to-concrete conversion node) before feeding Projection Target.
+7. Result: the forest only grows inside the union of the tagged spline areas instead of across the entire PCG volume — useful for defining multiple distinct biome patches (e.g. "rocks here, grass there") using the same underlying forest-growth graph.
+
+**Scenario 2 — splines as exclusion zones:**
+8. Revert/remove the inclusion-boundary wiring (reconnect `Get Landscape Data` directly to Projection Target) so the forest spawns everywhere again, as a clean starting point.
+9. Reuse the same tagged spline actors: add another `Get Spline Data` node (Actor Selection = All World Actors by Tag = `forest`, Select Multiple checked).
+10. Add a `Spline Sampler` node fed by `Get Spline Data` — configure it to place points on the **interior** of the spline (not directly on the spline path itself, which is the default), with the projection surface set to **Unbounded** so it isn't limited by the landscape bounds separately.
+11. Add a `Difference` node, inserted between the graph's existing `Transform Points` node and its three tree-tier `Density Filter` nodes (i.e. right before the point-set gets split into large/medium/small trees). Wire the main forest point stream into Difference's **Source** input and the Spline Sampler's interior points into its **Differences** input — this subtracts (removes) any main-stream points that fall inside the spline-defined area.
+12. **Critical setting:** on the `Difference` node, change **Density Function** from its default **Minimum** (which only partially/selectively thins overlapping points by comparing density values — leaves some points behind) to **Binary** (which fully removes every point inside the excluded region, regardless of density) — this was the fix needed when trees kept partially reappearing inside the exclusion zones.
+13. Result: PCG still fills the whole landscape with forest automatically, but the tagged spline areas are carved out completely clean, letting an artist hand-place set-dressing there without PCG ever overwriting or fighting with it — and unlike scenario 1, this doesn't require deleting/disabling the PCG volume, both approaches can also be combined.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Level-editing tools:** Basic Actor placement, Selection Mode → PCG → **Draw Spline Surface** (closed-loop click-drag spline creation with Accept/Cancel), Actor Tags (Details panel → Tags array).
+- **PCG Graph nodes (inclusion):** `Get Spline Data` (Actor Selection: Self vs. All World Actors; Actor Selection by Tag; Select Multiple), `Create Surface from Spline`, `Union` (merges multiple spatial data objects into one; auto-inserts a spatial→concrete "Make Concrete" conversion node), wired into the existing `Projection` node's **Projection Target** pin.
+- **PCG Graph nodes (exclusion):** `Get Spline Data` (same tag-based setup), `Spline Sampler` (interior-vs-on-spline point placement, Unbounded projection setting), `Difference` (Source/Differences inputs; **Density Function** dropdown — Minimum vs. **Binary**, the latter needed for full point removal).
+- **Data-type note:** PCG auto-inserts intermediate translation nodes whenever a node's output type (e.g. Polyline) doesn't directly match a downstream node's expected input type (e.g. Spline, or Concrete vs. Spatial) — this is normal PCG behavior, not an error, distinct from the "too many data items" warning which indicates an actual multi-input-on-single-pin problem.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate — builds directly on the Episode 5 forest graph's existing node layout; the two new sub-techniques (spline-as-boundary, spline-as-exclusion) are each only 3–4 new nodes, though understanding *why* Union and the Binary density-function setting are needed requires grasping PCG's spatial-data-type model.
 
 ### UE Version
-[PENDING EXTRACTION]
+Not explicitly stated; continues the UE 5.7-era PCG series baseline, building directly on the Episode 5 forest graph.
 
 ### Tags
-[PENDING EXTRACTION]
+pcg, blueprint, pipeline, intermediate, ue5-7
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/how-to-grow-a-forest-in-unreal-with-pcg---procedural-content-generation-pcg---ep.md` — Episode 5, the base forest graph (Surface Sampler/Create Points Grid, Transform Points, three-tier Density Filter → Static Mesh Spawner chain) that this episode's spline techniques are wired into; shares tags: pcg, blueprint, pipeline.
+- `tutorials/automatic-landscape-tree-blending---procedural-content-generation-pcg---episode-.md` — Episode 6, another modification layered onto the same base forest graph (RVT-driven ground blending) — together these episodes show multiple independent ways to refine one underlying PCG graph.

@@ -3485,9 +3485,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=AWJ7H4C6ObI
 - **Author:** Ben Cloward
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** Not specified (UE5.7-era)
+- **Tags:** pcg, blueprint, pipeline, intermediate, ue5-7
+- **Summary:** Uses tagged, hand-drawn splines (Selection Mode → PCG → Draw Spline Surface) as either an inclusion boundary (Get Spline Data by tag → Create Surface from Spline → Union → wired into Projection Target, so forest only grows inside tagged areas) or an exclusion zone (Get Spline Data → Spline Sampler interior points → Difference node with Density Function set to Binary, not Minimum, inserted before the tree-tier Density Filters) to carve safe hand-placement zones out of an otherwise fully-procedural forest.
 - **File:** tutorials/using-splines-for-boundaries---procedural-content-generation-pcg---episode-7.md
 
 
