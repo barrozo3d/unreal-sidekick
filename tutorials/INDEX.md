@@ -3445,10 +3445,20 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=PNXIGplTsgU
 - **Author:** Ben Cloward
+- **UE Version:** Not specified (UE5.7-era)
+- **Tags:** pcg, materials, landscape, hlsl, blueprint, pipeline, advanced, ue5-7
+- **Summary:** Fixes Episode 2's grass-everywhere problem by piping a Landscape Material mask into the PCG point generator: a Landscape Grass Type asset (mask carrier only) + Landscape Grass Output node + a simplified vertex-normal terrain-angle mask multiplied by inverted snow/puddle masks, wired via a Generate Landscape Textures node into a new Grass Mask (Texture2D) input pin on the Point Generator, then hand-edited into the node's HLSL compute-shader source to discard points below a 0.9 mask threshold as early as possible for performance.
+- **File:** tutorials/using-landscape-grass-masks-with-pcg---procedural-content-generation-pcg---episo.md
+
+
+### Adding Multiple Detail Meshes to Landscapes - Procedural Content Generation (PCG) - Episode 4
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=ceP88Hvopao
+- **Author:** Ben Cloward
 - **UE Version:** [PENDING]
 - **Tags:** [PENDING]
 - **Summary:** [PENDING EXTRACTION]
-- **File:** tutorials/using-landscape-grass-masks-with-pcg---procedural-content-generation-pcg---episo.md
+- **File:** tutorials/adding-multiple-detail-meshes-to-landscapes---procedural-content-generation-pcg-.md
 
 ---
 
