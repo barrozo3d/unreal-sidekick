@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=EvWrGFZshBk
 author: Royal Skies
 ingested: 2026-08-02
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "Not specified (UE5.x)"
+tags: [blueprint, animation, pipeline, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/ue5-everything-about-spring-motion-float-lerping/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 12
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # UE5: Everything About SPRING Motion (Float Lerping)
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py ue5-everything-about-spring-motion-float-lerping <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -187,30 +183,55 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [0:30] tutorials/frames/ue5-everything-about-spring-motion-float-lerping/frame_000.jpg
+- [0:52] tutorials/frames/ue5-everything-about-spring-motion-float-lerping/frame_001.jpg
+- [1:24] tutorials/frames/ue5-everything-about-spring-motion-float-lerping/frame_002.jpg
+- [1:38] tutorials/frames/ue5-everything-about-spring-motion-float-lerping/frame_003.jpg
+- [2:05] tutorials/frames/ue5-everything-about-spring-motion-float-lerping/frame_004.jpg
+- [2:40] tutorials/frames/ue5-everything-about-spring-motion-float-lerping/frame_005.jpg
+- [3:21] tutorials/frames/ue5-everything-about-spring-motion-float-lerping/frame_006.jpg
+- [4:14] tutorials/frames/ue5-everything-about-spring-motion-float-lerping/frame_007.jpg
+- [4:39] tutorials/frames/ue5-everything-about-spring-motion-float-lerping/frame_008.jpg
+- [4:56] tutorials/frames/ue5-everything-about-spring-motion-float-lerping/frame_009.jpg
+- [5:25] tutorials/frames/ue5-everything-about-spring-motion-float-lerping/frame_010.jpg
+- [6:04] tutorials/frames/ue5-everything-about-spring-motion-float-lerping/frame_011.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+A survey of every Blueprint method the author found for smooth "spring-like" motion in UE5 — for Vector3 positions (drone drift/momentum) and for single float values (rotation/blend weights) — comparing the built-in `Vector Spring Interp` node, a custom Lerp-based "Sperp" (Spring Lerp) formula, `FInterp To`, the `Ease` node, `Float Ease` (Bezier), and Timelines.
 
 ### Summary
-[PENDING EXTRACTION]
+Built to solve a specific problem — making a military combat drone drift naturally with momentum when it changes direction — the video walks through six different ways to interpolate motion, in roughly the order the author discovered them, with visual side-by-side comparisons (colored spheres/labels) for each parameter combination. It covers both **Vector3 springs** (position/movement) and **single-float springs** (e.g. a "how locked-on" rotation value going from 0 to 50), ending with the author's personal "Lerp Library" project file (free for patrons/members, $15 on ArtStation/Fab for everyone else) that collects all these formulas and test scenes for quick reference.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Vector Spring Interp node (built-in):** Right-click the exposed `Spring State` pin → Promote to Variable. Wire `Get Actor Location` → `Current`, `Get World Delta Seconds` → `Delta Time`, target coordinates → `Target`, output → `Set Actor Location`. Tune three exposed values: **Stiffness** (resistance to bouncing — higher = less springy), **Critical Damping Factor** (how tightly it sticks once near target — low values like 0.1 overshoot a lot, ~5 gives almost no overshoot), **Target Velocity Amount** (how fast it reaches the goal — <1 undershoots, >1 overshoots then settles). Author's drone values: Stiffness 2, Critical 0.2, Velocity 0.15.
+2. **Custom "Sperp" (Spring Lerp) formula** (contributed by patron Chloe Valencia, ported from a Unity/C# project): `speed = Lerp(speed, (target - position) * force / 100, stiffness / 100); return position + speed`. Implemented as static C# helpers `Sperp1D/2D/3D/4D(position, target, stiffness, force, ref speed)` and, in Blueprint, as: `Target - Current Location` → multiply by **Force** → divide by 100 → feed as alpha-target into a `Vector3 Lerp` against an accumulating speed vector, alpha = **Stiffness** / 100 → add result to current location. Only 2 tunable values (Stiffness = bounciness, Force = speed) versus the 5-6 for the built-in node, and no manual Delta Seconds/time wiring needed.
+3. **Float Spring Interp:** same Vector Spring Interp node/math, just typed for a single float instead of Vector3 — used for values like a drone's "target lock" rotation blend (0 → 50).
+4. **FInterp To (default float interp node):** plug in `Position`/`Position Target` (start/target), `Interp Speed`, get a smoothed float — simple but "not smooth both ways," abrupt at the start of the transition (author rarely uses it because of this).
+5. **Ease node:** inputs `A` (current value), `B` (target value), `Alpha` (0→1, drives A→B), and a **Function** dropdown with many interpolation curve types (Linear, Step, Sinusoidal In/Out/InOut, Ease In/Out/InOut, Expo In/Out/InOut, Circular In/Out/InOut) — author mapped every function's curve shape visually for comparison.
+6. **Float Ease (Bezier) node:** simpler alternative — `A`, `B`, `Alpha` (0→1), and an **Exponent** (left at 2 by default) producing a single basic Bezier curve; author's preferred day-to-day method for its simplicity.
+7. **Timeline (float track):** Add a Timeline component → add a Float Track → right-click to add keyframe points (e.g. 0s = 0, 4s = 100) → right-click a point to smooth its curve tangents. Output feeds directly into whatever value needs controlling; can Play or Play in Reverse. Gives the most manual control over the transition shape, but **interrupting playback mid-timeline causes the value to jump to the start/end** rather than continuing smoothly — the one caveat to watch for.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Nodes:** `Vector Spring Interp` / `Float Spring Interp` (Spring State promoted to variable; params: Stiffness, Critical Damping Factor, Delta Time, Mass, Target Velocity Amount), `Lerp` (Vector3), `FInterp To`, `Ease` (Function dropdown), `Float Ease` (Bezier, Exponent param), `Timeline` component with a Float Track.
+- **Custom C# reference implementation** (`InterpolatedMovement` static class) shown on-screen: `Sperp1D/2D/3D/4D` methods implementing the Lerp-based spring formula, portable to any engine that supports Lerp.
+- **Author's reusable asset:** a standalone "Lerp Library" UE project collecting all six methods with live-tunable test scenes for quick parameter recall — free for Patreon/YouTube members, $15 on ArtStation/Fab otherwise (no info exclusive to the paid version — it's a convenience file, not new content).
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate — assumes comfort with Blueprint graphs, promoting pins to variables, and basic vector math; no C++ required (the C++ code shown is reference-only/ported-from-Unity, not something the viewer needs to write).
 
 ### UE Version
-[PENDING EXTRACTION]
+Not specified (Blueprint nodes — Vector/Float Spring Interp, Ease, Float Ease, Timeline — consistent with recent UE5.x).
 
 ### Tags
-[PENDING EXTRACTION]
+blueprint, animation, pipeline, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- No other ingested unreal-sidekick tutorial currently covers the Spring Interp / Ease / Float Ease / Timeline interpolation node family in depth — this is the first dedicated entry on Blueprint motion-smoothing techniques. A tangential mention exists in the Black Eye top-down camera tutorial (camera composition "springs back to center" on slowdown), but that's a different, narrower technique (camera lag), not the same node family.

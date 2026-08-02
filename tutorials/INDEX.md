@@ -3405,9 +3405,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=EvWrGFZshBk
 - **Author:** Royal Skies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** Not specified (UE5.x)
+- **Tags:** blueprint, animation, pipeline, intermediate
+- **Summary:** Surveys six Blueprint methods for smooth spring-like motion: built-in Vector/Float Spring Interp node (Stiffness/Critical Damping/Velocity), a custom Lerp-based "Sperp" formula (Stiffness/Force only, with C# reference implementation), FInterp To, the Ease node (many curve functions), Float Ease (Bezier + Exponent), and Timeline float tracks (with a caveat about interrupted playback jumping values). Ends with the author's "Lerp Library" reference project.
 - **File:** tutorials/ue5-everything-about-spring-motion-float-lerping.md
 
 
