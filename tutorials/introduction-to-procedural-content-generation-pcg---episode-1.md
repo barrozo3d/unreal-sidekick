@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=NZLtrWLNTes
 author: Ben Cloward
 ingested: 2026-08-02
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "PCG added 5.2 (experimental); production-ready as of 5.7"
+tags: [pcg, blueprint, pipeline, beginner, ue5-7]
+extraction_status: complete
 frames_dir: tutorials/frames/introduction-to-procedural-content-generation-pcg---episode-1/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 10
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Introduction to Procedural Content Generation (PCG) - Episode 1
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py introduction-to-procedural-content-generation-pcg---episode-1 <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -289,30 +285,56 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [7:00] tutorials/frames/introduction-to-procedural-content-generation-pcg---episode-1/frame_000.jpg
+- [8:14] tutorials/frames/introduction-to-procedural-content-generation-pcg---episode-1/frame_001.jpg
+- [9:50] tutorials/frames/introduction-to-procedural-content-generation-pcg---episode-1/frame_002.jpg
+- [12:10] tutorials/frames/introduction-to-procedural-content-generation-pcg---episode-1/frame_003.jpg
+- [13:22] tutorials/frames/introduction-to-procedural-content-generation-pcg---episode-1/frame_004.jpg
+- [14:09] tutorials/frames/introduction-to-procedural-content-generation-pcg---episode-1/frame_005.jpg
+- [15:05] tutorials/frames/introduction-to-procedural-content-generation-pcg---episode-1/frame_006.jpg
+- [16:16] tutorials/frames/introduction-to-procedural-content-generation-pcg---episode-1/frame_007.jpg
+- [17:25] tutorials/frames/introduction-to-procedural-content-generation-pcg---episode-1/frame_008.jpg
+- [19:55] tutorials/frames/introduction-to-procedural-content-generation-pcg---episode-1/frame_009.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Introduction to Unreal's **PCG (Procedural Content Generation) Framework**: enabling the plugin, creating a PCG Graph asset, and building the simplest possible point-generation-to-mesh-spawning chain (Create Points Grid → Transform Points → Static Mesh Spawner) to scatter randomized foliage instead of hand-placing it.
 
 ### Summary
-[PENDING EXTRACTION]
+Series-opener explaining *why* PCG matters before touching any nodes: manually-built environments (shown via the author's own hand-placed Unreal 4 rock/tree/foliage scene) encode placement "rules" only in the artist's head — the engine has no understanding of them, so any change (move the river, adjust where ferns grow, reuse the layout in another level) means manually redoing the work. PCG inverts this: you teach the engine the *rules* for placement via a node graph, and the engine performs the placement — meaning changes to the rules instantly propagate everywhere. Added experimental in UE 5.2 (early 2023), production-ready as of UE 5.7. The hands-on portion builds the minimal PCG graph: a point generator, a randomizing transform, and a mesh spawner, ending with ~100 randomly scaled/rotated/offset ferns instead of a rigid grid — explicitly framed as "the tip of the iceberg" versus the full forest-scale PCG environment shown at the end.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Enable the plugin: Edit → Plugins → search "PCG" → enable **Procedural Content Generation Framework (PCG)** (the base plugin; related experimental add-ons like Biome Core/Biome Sample and FastGeo/Geometry Script Interop exist but aren't needed yet).
+2. Create the graph asset: Content Drawer → right-click in a folder → PCG → **PCG Graph** → in the template browser, pick **Create Empty Graph** (skip the presets for this basic example).
+3. Drag the new PCG Graph asset into the level (snap to origin, e.g. type `0 0 0` in the location field) and open it for editing — the graph editor closely resembles the Material Editor's node-graph UX.
+4. Add a **Create Points Grid** node (right-click → type "create") — generates a grid of 100 points by default, each carrying attributes: X/Y/Z position, bounds, color, density, steepness, and a random seed.
+5. Inspect the point data two ways: press **A** (Attributes) to list every point and its attribute values in the Attributes panel; press **D** (Debug) to visualize the points in the viewport as small boxes/cubes. In the node's Debug section, switch Point Scale from "Scale to Extents" to **Absolute** and set it small (e.g. 0.3) to see individual points clearly; the debug mesh (default cube) can also be swapped for a custom preview mesh.
+6. Add a **Static Mesh Spawner** node downstream of Create Points Grid — in its Mesh Selector → Mesh Entries, click **+** to add an entry, open the descriptor, and pick a static mesh (e.g. searching `SM_Fern`) to spawn one instance per point. At this stage the meshes spawn in a perfectly uniform grid.
+7. Add a **Transform Points** node between the two (Create Points Grid → Transform Points → Static Mesh Spawner) to randomize the grid: set a vertical **Offset** (e.g. Z ≈ 50–90) to lift meshes clear of other foliage for visibility while tuning; set **Offset Min/Max** on X and Y (e.g. −300 to 300) to scatter points off-grid; set **Rotation Min/Max** on Z (−180 to 180) for full free rotation around the up axis, and small X/Y ranges (e.g. −10 to 10) for a slight organic tilt; set **Scale Min/Max** (e.g. 0.7 to 1.4) for size variation — with the uniform/lock toggle enabled, one typed value applies to all axes at once.
+8. Result: a graph of exactly three nodes (generate points → randomize transform → spawn mesh) turns a rigid 100-point grid into organically scattered, randomly rotated/scaled/offset ferns — and changing any node's parameters (or swapping the target mesh) instantly re-generates the whole result.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Plugin:** Procedural Content Generation Framework (PCG) — base/required; Biome Core, Biome Sample, FastGeo Interop, Geometry Script Interop mentioned as optional experimental add-ons, not covered yet.
+- **PCG Graph nodes used:** `Create Points Grid` (point generator; Debug section has Point Scale = Scale to Extents/Absolute + scale value + preview mesh override), `Transform Points` (Offset Min/Max, Rotation Min/Max, Scale Min/Max per-axis, with a uniform-box lock to apply one value to all axes), `Static Mesh Spawner` (Mesh Selector → Mesh Entries array, `+` to add, per-entry static mesh descriptor).
+- **Point data attributes** (visible via the Attributes panel, key `A`): Position (X/Y/Z), Bounds, Color, Density, Steepness, Seed.
+- **Viewport visualization key:** `A` = show attribute list, `D` = toggle debug point visualization in the 3D viewport.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner — explicitly the "very basics" first episode of a longer series; assumes no prior PCG knowledge, though familiarity with Unreal's Material Editor node-graph conventions helps since PCG Graph reuses similar UX patterns.
 
 ### UE Version
-[PENDING EXTRACTION]
+PCG added experimental in UE 5.2 (early 2023); marked production-ready as of UE 5.7 (the version this series treats as the baseline for adoption).
 
 ### Tags
-[PENDING EXTRACTION]
+pcg, blueprint, pipeline, beginner, ue5-7
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- Ben Cloward's "Shader Graph Basics" episodes (`tutorials/input-vectors---shader-graph-basics---episode-9.md`, `tutorials/random-noise---shader-graph-basics---episode-35.md`) — same author/channel and same node-graph-editor teaching style (explicitly compared to the Material Editor in this video), useful for consistent terminology across his series.
+- This is Episode 1 of an ongoing PCG series in this library — see later episodes (Efficient Grass, Landscape Grass Masks, Growing a Forest, Automatic Tree Blending, Splines for Boundaries, Spawning Along Splines, Rocks via Hierarchical Generation, Magic Moss, Filtering Overlapping Objects) for the deeper techniques this episode explicitly defers ("the rabbit hole goes a lot deeper than this").
