@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=u2hsoBgYUR0
 author: Ben Cloward
 ingested: 2026-08-02
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "Not specified (UE5.7-era)"
+tags: [pcg, blueprint, materials, pipeline, advanced, ue5-7]
+extraction_status: complete
 frames_dir: tutorials/frames/adding-rocks-with-hierarchical-generation---procedural-content-generation-pcg---/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 15
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Adding Rocks With Hierarchical Generation - Procedural Content Generation (PCG) - Episode 9
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py adding-rocks-with-hierarchical-generation---procedural-content-generation-pcg--- <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -294,30 +290,71 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [6:22] tutorials/frames/adding-rocks-with-hierarchical-generation---procedural-content-generation-pcg---/frame_000.jpg
+- [7:43] tutorials/frames/adding-rocks-with-hierarchical-generation---procedural-content-generation-pcg---/frame_001.jpg
+- [10:15] tutorials/frames/adding-rocks-with-hierarchical-generation---procedural-content-generation-pcg---/frame_002.jpg
+- [11:15] tutorials/frames/adding-rocks-with-hierarchical-generation---procedural-content-generation-pcg---/frame_003.jpg
+- [13:03] tutorials/frames/adding-rocks-with-hierarchical-generation---procedural-content-generation-pcg---/frame_004.jpg
+- [15:22] tutorials/frames/adding-rocks-with-hierarchical-generation---procedural-content-generation-pcg---/frame_005.jpg
+- [15:43] tutorials/frames/adding-rocks-with-hierarchical-generation---procedural-content-generation-pcg---/frame_006.jpg
+- [16:12] tutorials/frames/adding-rocks-with-hierarchical-generation---procedural-content-generation-pcg---/frame_007.jpg
+- [17:29] tutorials/frames/adding-rocks-with-hierarchical-generation---procedural-content-generation-pcg---/frame_008.jpg
+- [19:03] tutorials/frames/adding-rocks-with-hierarchical-generation---procedural-content-generation-pcg---/frame_009.jpg
+- [20:34] tutorials/frames/adding-rocks-with-hierarchical-generation---procedural-content-generation-pcg---/frame_010.jpg
+- [20:55] tutorials/frames/adding-rocks-with-hierarchical-generation---procedural-content-generation-pcg---/frame_011.jpg
+- [24:24] tutorials/frames/adding-rocks-with-hierarchical-generation---procedural-content-generation-pcg---/frame_012.jpg
+- [26:29] tutorials/frames/adding-rocks-with-hierarchical-generation---procedural-content-generation-pcg---/frame_013.jpg
+- [27:04] tutorials/frames/adding-rocks-with-hierarchical-generation---procedural-content-generation-pcg---/frame_014.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Using PCG's **hierarchical generation** system to scatter small, distance-tolerant objects (rocks) only in a grid of cells immediately around the player/camera — cells stream in/out as the viewpoint moves — combined with slope filtering (`Normal to Density`) and a material-side cull-distance fade (`Per Instance Fade Amount`) so nothing pops in/out abruptly, keeping memory/render cost proportional to what's actually near the viewer instead of the whole level.
 
 ### Summary
-[PENDING EXTRACTION]
+Addresses the same rendering-efficiency problem Episode 2 solved for GPU/runtime grass, but via PCG's CPU-side **hierarchical generation** system — appropriate for objects (rocks) that are small enough not to be missed once they're out of view-relevant range, unlike trees (explicitly called out as unsuitable for this technique since they're visible from far away). The graph is built from scratch: a `Create Points Grid` sized so points land roughly every 7 meters (Cell Size 700cm) inside a very large Grid Extents (100,000 — effectively "as big as needed"), fed through an `Intersection` against the hierarchical grid's own cell volume so only the current cell's points exist at all, then `Transform Points` (offset ±300cm, full 360° rotation, 70–150% scale) to break the regular grid into something organic, then `Projection` onto the landscape (since the initial points sit on a flat plane, not the terrain surface). Steep slopes are filtered using a simpler alternative to prior episodes' rotation-based filtering: a `Normal to Density` node (comparing each point's surface normal against a reference "up" vector (0,0,1) and writing the result as the point's Density, where 1.0 = perfectly flat and lower values = steeper) feeding a `Density Filter` (keep only 0.93–1.0) to drop points on slopes steep enough that a loose rock would naturally roll off. Six different rock meshes are added to the final `Static Mesh Spawner` for variety. Two hierarchical-generation-specific setup requirements are called out: the PCG actor's **Generation Trigger** must be **Generate at Runtime** (not on load, since cells need to regenerate as the player moves) and the PCG World Actor needs **Serialization Mode = Always Serialize** plus **Treat Editor Viewport as Generation Source** enabled (so cell streaming is visible/testable in the editor viewport, not just in Play). The graph itself needs **Use Hierarchical Generation** enabled with a **Default Grid Size of Unbounded** (the actual per-graph grid size is instead set later via a `Change Grid Size` node, e.g. 1600cm/16m cells — the tradeoff being larger cells = less memory overhead for cell bookkeeping but coarser on/off granularity). Because rocks visibly *pop* in/out at the hierarchical grid's cell boundary (much closer than Episode 2's grass cull-distance fade, since this is a much shorter render distance for small objects), the same cull-distance-fade material technique from Episode 2 is reapplied here: per-mesh Start/End Cull Distance on the Static Mesh Spawner (author: 3500/4000cm) combined with the rock material set to **Masked** blend mode, a `Per Instance Fade Amount` node driving Opacity Mask through `Dither Temporal AA`.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Create an empty PCG Graph ("PCG Rocks"), drop it on the level, scale to cover the desired area (author: 120×120×60), center on the terrain.
+2. **PCG actor settings (on the graph instance in the level):** set **Generation Trigger** to **Generate at Runtime** (not Generate on Load) so cells regenerate as the player/viewport moves.
+3. **PCG World Actor settings (level-wide, one-time):** set **Serialization Mode** to **Always Serialize**, and enable **Treat Editor Viewport as Generation Source** so hierarchical streaming is visible while editing, not just during Play.
+4. **Graph-level settings (inside the PCG graph editor, before adding nodes):** check **Use Hierarchical Generation**; set **Hierarchical Generation Default Grid Size** to **Unbounded** (the real per-cell grid size is configured later, per-node, via Change Grid Size).
+5. Add a `Create Points Grid` node: set **Grid Extents** very large (author: 100,000 — effectively covering the whole usable area) and **Cell Size** to control point spacing (author: 700cm ≈ one rock roughly every 7 meters — smaller cell size = more, closer rocks). Set **Coordinate Space** to **Local Component** (tracks points per-cell rather than as one giant grid) and enable **Cull Points Outside Volume**.
+6. Add a `Change Grid Size` node set to the desired hierarchical cell size (author: 1600cm/16m) — this defines the actual streaming chunk size: larger chunks = less bookkeeping overhead but coarser load/unload granularity; smaller chunks = finer control but more memory overhead managing more chunks.
+7. Add an `Intersection` node: wire the point data into **Source** (primary) and the grid-size node's **Grid Cell Volume** output into **Source 1** — this restricts generation to only the currently-active hierarchical cell(s) around the player/viewport camera.
+8. Add a `Debug` node temporarily to visualize: points appear only in a region around the camera and update live as the camera/viewport moves — but at this stage they float on a flat plane in a rigid grid.
+9. Add a `Transform Points` node (after Intersection) to break up the regularity: **Offset** Min/Max on X/Y = ±300cm (half the 700cm cell size, keeping rocks from overlapping neighbors); **Rotation** Min/Max on Z = 0–360° (full random yaw — rocks look fine from any angle); **Scale** Min/Max = 0.7–1.5 (70–150% size variation).
+10. Add a `Projection` node fed by Transform Points, with **Projection Target** wired from a `Get Landscape Data` node — drops the flat-plane points down onto the actual terrain height.
+11. **Slope filtering (simpler alternative to earlier episodes' pitch/roll filter approach):** add a `Normal to Density` node — configure its reference **Normal** to (0, 0, 1) (world up) — this writes each point's Density to a value near 1.0 when its surface normal closely matches "up" (flat ground) and progressively lower as the surface normal deviates (steeper slope).
+12. Add a `Density Filter` node after Normal to Density, keeping only points with density between **0.93 and 1.0** — removes rocks that landed on slopes too steep for them to realistically sit on.
+13. Add a `Static Mesh Spawner` fed by the filtered points; add mesh entries for all 6 rock variants (Megascans-sourced, author-modified with moss detail) for visual variety.
+14. **Tune hierarchical cell size for pop-in distance:** revisiting the `Change Grid Size` node's grid size value directly controls how far from the camera rocks get culled — smaller grid size (e.g. 800) culls closer/sooner, larger culls farther away; author settles on 1600.
+15. **Soften the pop with a cull-distance material fade** (same technique as Episode 2's grass): on the Static Mesh Spawner, search settings for "cull" and set each mesh entry's **Instance Start Cull Distance** / **Instance End Cull Distance** (author: 3500/4000cm — rock starts fading at 35m, fully gone by 40m). On the rock material: change Blend Mode from Opaque to **Masked** (exposes the Opacity Mask input), add a `Per Instance Fade Amount` node (outputs white at Start Cull Distance, black at End Cull Distance, driven automatically by the spawner's cull-distance settings) → `Dither Temporal AA` → **Opacity Mask** — produces a smooth dithered fade instead of a hard pop at the cull boundary.
+16. Also enable `grass.GrassMap.AlwaysBuildRuntimeGenerationResources 1` (console variable, carried over from Episode 3) if grass needs to render correctly alongside the rocks while running around.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **PCG actor/component settings:** Generation Trigger (Generate at Runtime), PCG World Actor's Serialization Mode (Always Serialize) and Treat Editor Viewport as Generation Source.
+- **Graph-level settings:** Use Hierarchical Generation, Hierarchical Generation Default Grid Size (Unbounded).
+- **Nodes:** `Create Points Grid` (Grid Extents, Cell Size, Coordinate Space = Local Component, Cull Points Outside Volume), `Change Grid Size` (defines the actual per-cell streaming grid size, e.g. 1600), `Intersection` (Source/Source 1, restricts points to the active hierarchical cell), `Transform Points` (Offset/Rotation/Scale Min-Max), `Projection` (Projection Target = Get Landscape Data), `Normal to Density` (reference Normal vector, e.g. (0,0,1) for world-up), `Density Filter` (e.g. keep 0.93–1.0 for slope filtering), `Static Mesh Spawner` (6 rock mesh entries; Instance Start/End Cull Distance per entry, searchable via "cull").
+- **Material nodes (rock material):** Blend Mode = Masked, `Per Instance Fade Amount` → `Dither Temporal AA` → Opacity Mask.
+- **Console variable (carried over from Episode 3):** `grass.GrassMap.AlwaysBuildRuntimeGenerationResources 1`.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced — introduces an entirely new PCG subsystem (hierarchical generation) with several easy-to-miss one-time setup toggles (Generation Trigger, Serialization Mode, Treat Editor Viewport as Generation Source, Hierarchical Generation Default Grid Size) that must all be correct before the streaming behavior works at all; the per-node graph logic itself (points/transform/project/filter/spawn) is more approachable, reusing patterns from Episodes 2 and 5.
 
 ### UE Version
-[PENDING EXTRACTION]
+Not explicitly stated; continues the UE 5.7-era PCG series baseline.
 
 ### Tags
-[PENDING EXTRACTION]
+pcg, blueprint, materials, pipeline, advanced, ue5-7
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/efficient-grass-with-pcg---procedural-content-generation-pcg---episode-2.md` — Episode 2, the GPU/runtime-generation equivalent of this episode's CPU/hierarchical-generation approach; shares the exact same cull-distance fade technique (Start/End Cull Distance + Per Instance Fade Amount + Dither Temporal AA), and this episode explicitly draws the contrast between the two systems (grass=GPU runtime, rocks=CPU hierarchical); shares tags: pcg, materials, pipeline, advanced, ue5-7.
+- `tutorials/how-to-grow-a-forest-in-unreal-with-pcg---procedural-content-generation-pcg---ep.md` — Episode 5, source of the `Transform Points` offset/rotation/scale pattern and the note that hierarchical generation (this episode) is unsuitable for trees since they're visible far into the distance, unlike rocks.
+- `tutorials/using-landscape-grass-masks-with-pcg---procedural-content-generation-pcg---episo.md` — Episode 3, source of the `grass.GrassMap.AlwaysBuildRuntimeGenerationResources` console variable reused here.

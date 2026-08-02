@@ -3505,9 +3505,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=u2hsoBgYUR0
 - **Author:** Ben Cloward
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** Not specified (UE5.7-era)
+- **Tags:** pcg, blueprint, materials, pipeline, advanced, ue5-7
+- **Summary:** CPU-side hierarchical generation for rocks: Create Points Grid → Change Grid Size → Intersection (restricts to the active hierarchical cell) → Transform Points → Projection onto landscape → Normal to Density (slope value) → Density Filter (0.93-1.0, drops steep-slope points) → 6-mesh Static Mesh Spawner; requires Generate at Runtime, Always Serialize, and Treat Editor Viewport as Generation Source, plus the same cull-distance + Per Instance Fade Amount material fade as Episode 2's grass to soften cell-boundary popping.
 - **File:** tutorials/adding-rocks-with-hierarchical-generation---procedural-content-generation-pcg---.md
 
 
