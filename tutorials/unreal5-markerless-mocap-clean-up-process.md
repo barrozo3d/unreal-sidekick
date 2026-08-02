@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=rLPRlPlZ3Lw
 author: Royal Skies
 ingested: 2026-08-02
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "Not specified (UE5.x)"
+tags: [mocap, animation, animation-cleanup, markerless-mocap, cascadeur, fbx-pipeline, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal5-markerless-mocap-clean-up-process/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 9
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Unreal5 Markerless MoCap (CLEAN-UP Process)
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py unreal5-markerless-mocap-clean-up-process <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -104,30 +100,57 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [0:07] tutorials/frames/unreal5-markerless-mocap-clean-up-process/frame_000.jpg
+- [1:35] tutorials/frames/unreal5-markerless-mocap-clean-up-process/frame_001.jpg
+- [1:40] tutorials/frames/unreal5-markerless-mocap-clean-up-process/frame_002.jpg
+- [1:53] tutorials/frames/unreal5-markerless-mocap-clean-up-process/frame_003.jpg
+- [2:02] tutorials/frames/unreal5-markerless-mocap-clean-up-process/frame_004.jpg
+- [2:25] tutorials/frames/unreal5-markerless-mocap-clean-up-process/frame_005.jpg
+- [2:41] tutorials/frames/unreal5-markerless-mocap-clean-up-process/frame_006.jpg
+- [3:02] tutorials/frames/unreal5-markerless-mocap-clean-up-process/frame_007.jpg
+- [3:13] tutorials/frames/unreal5-markerless-mocap-clean-up-process/frame_008.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Exporting a raw Unreal 5 Markerless Mocap animation as FBX, cleaning it up in the third-party tool **Cascadeur** (keyframe reduction, foot-snap, physics-assisted in-betweening), then re-importing the fixed FBX back into Unreal.
 
 ### Summary
-[PENDING EXTRACTION]
+A short workflow video (3m50s) showing what to do with a noisy/jittery clip captured via Unreal 5's Markerless Mocap feature: export it as FBX, transfer the animation onto Cascadeur's built-in UE5 mannequin, strip it down to sparse keyframes, auto-snap footsliding, use Cascadeur's physics-assist ("Tween Machine" / auto-physics) to smooth transitions while still letting the artist override specific poses, then bake and re-export back to UE5. End result is a cleaned, more physically plausible animation ready to drop back into a game project.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. In Unreal, select the raw markerless mocap animation asset → right-click → Asset Actions → Export → save as FBX.
+2. In Cascadeur, import the FBX onto its built-in UE5 mannequin: select the source skeleton root in Bone mode, select the whole timeline, Ctrl+Shift+C to copy; select the UE5 mannequin root, select its timeline, Ctrl+Shift+V to paste.
+3. Bake the pasted motion onto the mannequin's controls (button, top-right toolbar) to make it editable.
+4. Delete "fluff" frames by scrubbing the timeline and pressing **F** on unwanted in-between frames, leaving only sparse keyframes.
+5. Select all keyframes and apply **Bezier curve** smoothing to blend the remaining sparse keys together.
+6. Fix foot sliding/clipping: select the toe joints on a bad frame, press **Shift+Z** to delete that joint's keyframe data — Cascadeur auto-snaps the foot back to the ground contact point (handles ~80% of foot cases automatically; remaining awkward angles need manual repositioning).
+7. Manually adjust any pose that needs stylization (e.g. extending the legs further during a flip) directly on the affected frames.
+8. Enable **physics assist** (Tween Machine auto-physics toggle) — Cascadeur overlays a green "physics preview" figure showing the most physically plausible in-between motion based on gravity/velocity given the current keyframes.
+9. Where the physics simulation disagrees with the desired performance, mark that frame as a **priority frame** to force ("brute force") the manually-posed keyframe into the physics calculation instead of the auto-computed one.
+10. **Bake to physics**, then File → Export FBX, and re-import the fixed FBX back into Unreal 5.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Unreal side:** Asset Actions → Export (FBX) on an animation sequence asset; re-import of the cleaned FBX back onto the same skeleton.
+- **Cascadeur (third-party, not Unreal-native):** Bone mode selection, Ctrl+Shift+C / Ctrl+Shift+V copy-paste-onto-mannequin workflow, bake-to-controls, per-frame keyframe deletion (F), Bezier curve smoothing, auto foot-snap (Shift+Z on toe joints), Tween Machine physics-assist overlay (green ghost figure), priority-frame override, bake-to-physics.
+- No in-engine Control Rig / Sequencer step is shown — cleanup happens entirely outside Unreal, in Cascadeur, then round-tripped via FBX.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner — no Unreal editor complexity involved; the only learning curve is Cascadeur's own UI, which the video treats as quick/intuitive. Presented as a fast fix rather than a deep dive (links to the creator's separate in-depth Cascadeur video for more detail).
 
 ### UE Version
-[PENDING EXTRACTION]
+Not specified (references "Unreal 5" generically; Markerless Mocap feature matches recent UE5.x releases, e.g. 5.6/5.8).
 
 ### Tags
-[PENDING EXTRACTION]
+mocap, animation, animation-cleanup, markerless-mocap, cascadeur, fbx-pipeline, beginner
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/new-unreal-engine-58-metahuman-markerless-mocap-tutorial.md` — covers the UE 5.8 Markerless Motion Capture plugin that *produces* the raw footage this video cleans up; shares tags: mocap, markerless-mocap.
+- `tutorials/how-to-create-fight-scenes-with-mocap-and-ai-in-unreal-engine-58---seedance-2-me.md` — an alternative animation-cleanup approach (Butterworth low-pass filtering + additive Control Rig layers, done inside Sequencer) for the same general problem (noisy mocap curves), useful to contrast with this video's external-tool (Cascadeur) approach; shares tags: mocap, animation-cleanup.
+- `tutorials/cinematic-motion-capture-with-move-one-and-metahuman-animator---unreal-engine-54.md` — another beginner mocap-cleanup pipeline using Butterworth curve filtering + manual foot-plant fixes, same problem space via a different (in-Unreal) toolset.
