@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=PNXIGplTsgU
 author: Ben Cloward
 ingested: 2026-08-02
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "Not specified (UE5.7-era)"
+tags: [pcg, materials, landscape, hlsl, blueprint, pipeline, advanced, ue5-7]
+extraction_status: complete
 frames_dir: tutorials/frames/using-landscape-grass-masks-with-pcg---procedural-content-generation-pcg---episo/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 13
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Using Landscape Grass Masks With PCG - Procedural Content Generation (PCG) - Episode 3
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py using-landscape-grass-masks-with-pcg---procedural-content-generation-pcg---episo <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -325,30 +321,65 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [2:06] tutorials/frames/using-landscape-grass-masks-with-pcg---procedural-content-generation-pcg---episo/frame_000.jpg
+- [3:53] tutorials/frames/using-landscape-grass-masks-with-pcg---procedural-content-generation-pcg---episo/frame_001.jpg
+- [6:05] tutorials/frames/using-landscape-grass-masks-with-pcg---procedural-content-generation-pcg---episo/frame_002.jpg
+- [7:13] tutorials/frames/using-landscape-grass-masks-with-pcg---procedural-content-generation-pcg---episo/frame_003.jpg
+- [9:24] tutorials/frames/using-landscape-grass-masks-with-pcg---procedural-content-generation-pcg---episo/frame_004.jpg
+- [11:16] tutorials/frames/using-landscape-grass-masks-with-pcg---procedural-content-generation-pcg---episo/frame_005.jpg
+- [11:52] tutorials/frames/using-landscape-grass-masks-with-pcg---procedural-content-generation-pcg---episo/frame_006.jpg
+- [15:00] tutorials/frames/using-landscape-grass-masks-with-pcg---procedural-content-generation-pcg---episo/frame_007.jpg
+- [16:24] tutorials/frames/using-landscape-grass-masks-with-pcg---procedural-content-generation-pcg---episo/frame_008.jpg
+- [17:33] tutorials/frames/using-landscape-grass-masks-with-pcg---procedural-content-generation-pcg---episo/frame_009.jpg
+- [22:12] tutorials/frames/using-landscape-grass-masks-with-pcg---procedural-content-generation-pcg---episo/frame_010.jpg
+- [24:05] tutorials/frames/using-landscape-grass-masks-with-pcg---procedural-content-generation-pcg---episo/frame_011.jpg
+- [25:21] tutorials/frames/using-landscape-grass-masks-with-pcg---procedural-content-generation-pcg---episo/frame_012.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Piping a mask generated inside a **Landscape Material** graph (via a `Landscape Grass Output` node + a `Landscape Grass Type` asset) into a runtime-GPU PCG grass graph's **HLSL point-generator compute shader**, so PCG-spawned grass is culled anywhere the landscape material says it shouldn't be (slopes, snow, puddles) — without touching the PCG graph's node layout, only its underlying shader code.
 
 ### Summary
-[PENDING EXTRACTION]
+Direct continuation of Episode 2's runtime GPU grass system, which was fixed to spawn everywhere (including steep slopes, snow-covered peaks, and puddles — clearly wrong). This episode fixes that by building a landscape-material-driven mask and threading it through into the point generator's HLSL code. Steps: create a `Landscape Grass Type` asset purely as a named "mask carrier" (not populated with actual grass varieties, since PCG — not the legacy landscape grass system — is doing the spawning); in the Landscape Material, add a `Landscape Grass Output` node bound to that asset and build a mask by combining a simplified (vertex-normal-based, not per-pixel) terrain-angle mask with the inverse of the existing snow mask and the inverse of the existing puddle mask; enable the `grass.GrassMap.AlwaysBuildRuntimeGenerationResources 1` console variable so the grass map reliably regenerates; then, in the PCG graph, add a `Generate Landscape Textures` node to pull that named grass-type's texture data in, add a new `Grass Mask` (Base Texture2D type) input pin on the Point Generator node, and hand-edit the node's HLSL source (via "Open HLSL Editor") to sample the mask texture at each point's position and discard points below a threshold (0.9) — inserted as early as possible in the shader (right after point positions are finalized, before rotation/scale randomization) to avoid wasting GPU work computing attributes for points that will be thrown away. Result: grass now respects the landscape material's own logic for slope/snow/puddle placement, and — as the author notes — *any* mask buildable in the Landscape Material (height, painted layers, angle, custom logic) can now drive PCG placement this same way.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Create a mask-carrier asset:** Content Drawer → right-click → search "grass" → **Landscape Grass Type**. Name it something exact and memorable (author uses `LGT_PCGGrass`) — this name must match, character-for-character (case-sensitive), a term referenced later in both the landscape material and the HLSL code. Leave its grass-variety array empty — PCG does the actual spawning, this asset just carries the mask.
+2. **In the Landscape Material graph:** add a `Landscape Grass Output` node (functions like a second "root" node, alongside the main material output) → set its **Grass Type** dropdown to the `LGT_PCGGrass` asset just created.
+3. **Build a simplified slope mask:** the material already has a `TerrainAngleMask` node driving the existing flat/slope material blend, but it uses **per-pixel normals**, producing far more fine-grained noise than grass placement needs. Copy that node, paste a second instance for the grass mask, and set its **Pixel Normal** input to a constant **0** (forcing vertex-normal-based blending instead of per-pixel) and its **Mask Center** to a tuned constant (author uses **-0.4**) to control where on the slope the mask transitions from white (flat) to black (steep).
+4. **Remove snow and puddle areas:** take the existing snow mask (white = snow) and puddle mask (white = puddle), invert each with a **One Minus** node, then **Multiply** the simplified slope mask by the inverted snow mask and by the inverted puddle mask in sequence — final result is white where grass should spawn, black at slopes/snow/puddles.
+5. **Preview the mask** by temporarily wiring it into Base Color and switching the viewport from Lit to Unlit, then wire it into the `Landscape Grass Output` node's mask input once confirmed, and **reconnect Base Color back** to its original material output.
+6. **Enable the required console variable:** `grass.GrassMap.AlwaysBuildRuntimeGenerationResources 1` — ensures the grass map texture the material generates is always rebuilt when needed (without this, the mask can silently fail to regenerate).
+7. **In the PCG graph** (from Episode 2): add a **Generate Landscape Textures** node (transcript sometimes calls it "Generate Grass Maps") wired from `Change Grid Size`'s output. In its settings, add an array element under **Select Grass Types** referencing the exact same `LGT_PCGGrass` type name, and **uncheck Exclude Selected Grass Types**.
+8. **Add a new input pin to the Point Generator node:** Details panel → Input Pins → **+** → name it `Grass Mask` (must match the name used inside the HLSL code) → set its type to **Base Texture 2D** (not Points, since this is texture data) → wire the `Generate Landscape Textures` node's output into it.
+9. **Edit the point generator's compute shader:** click **Open HLSL Editor** to view the node's underlying HLSL source. The existing code: generates a grid of points → filters by a density parameter → randomly offsets point positions off-grid → applies random rotation/scale → applies spatial noise → final density-based point removal → writes output. Insert the new mask-based point-removal **as early as possible** — specifically right after points get their randomized final positions but *before* random rotation/scale is computed — to avoid burning GPU cycles computing rotation/scale for points that will just be discarded. The inserted line samples the mask texture at the point's position via the named grass type/mask input and discards the point if the sampled value is **below 0.9**.
+10. **Critical naming rule:** the `Grass Mask` term used in the HLSL snippet must exactly match the Point Generator's new input-pin name (step 8), and the `LGT_PCGGrass` term in the HLSL snippet must exactly match the Landscape Grass Type asset's name (step 1) — both are just plain identifiers so they can be renamed, but the three references (asset name, material's Grass Type dropdown, HLSL variable) must all agree.
+11. Save, hit **Force Regen** on the PCG graph, and verify in the viewport/Play mode: grass no longer appears in puddles, on steep slopes, or on snow.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Assets:** `Landscape Grass Type` (used purely as a mask-carrier, not populated with grass varieties).
+- **Landscape Material nodes:** `Landscape Grass Output` (Grass Type dropdown), `TerrainAngleMask` (Pixel Normal, Mask Center, Mask Contrast inputs — copy an existing instance and re-tune rather than reusing the one driving visual slope blending), `One Minus`, `Multiply`.
+- **Console variable:** `grass.GrassMap.AlwaysBuildRuntimeGenerationResources 1`.
+- **PCG Graph nodes:** `Generate Landscape Textures` (aka Generate Grass Maps; Select Grass Types array + Exclude Selected Grass Types toggle), `Point Generator` (custom input pin added: name `Grass Mask`, type Base Texture2D).
+- **HLSL editing:** Point Generator node → **Open HLSL Editor** button opens the compute-shader source directly for hand-editing; point-culling pattern is `if (sample(mask, point.position) < threshold) { remove point }`, inserted immediately after point-offset/scatter and before rotation/scale randomization for performance (cull before doing unnecessary per-point work).
+- **Force Regen** button on the PCG graph to manually trigger a full regeneration after HLSL/graph edits.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced — requires editing raw HLSL inside a PCG compute-shader node (not just graph wiring), precise cross-referencing of identifier names across three separate systems (Landscape Grass Type asset, Landscape Material, PCG graph HLSL), and comfort with Landscape Material graphs (TerrainAngleMask, snow/puddle masks) from the author's earlier landscape-material series.
 
 ### UE Version
-[PENDING EXTRACTION]
+Not explicitly stated; direct continuation of Episode 2's UE 5.7-era runtime GPU PCG grass system.
 
 ### Tags
-[PENDING EXTRACTION]
+pcg, materials, landscape, hlsl, blueprint, pipeline, advanced, ue5-7
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/efficient-grass-with-pcg---procedural-content-generation-pcg---episode-2.md` — Episode 2, builds the runtime GPU grass system (Get Landscape Data → Change Grid Size → Point Generator → Static Mesh Spawner chain) that this episode extends with a landscape-material mask input; shares tags: pcg, blueprint, pipeline, advanced, ue5-7.
+- `tutorials/introduction-to-procedural-content-generation-pcg---episode-1.md` — Episode 1, the series' basic PCG concepts.
+- Next episode in this series (multiple grass masks / multiple PCG mesh types per biome, per the "next week" teaser) is the direct continuation of this video's end-teaser — look for a title like "Adding Multiple Detail Meshes to Landscapes."
