@@ -3440,6 +3440,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/efficient-grass-with-pcg---procedural-content-generation-pcg---episode-2.md
 
+
+### Using Landscape Grass Masks With PCG - Procedural Content Generation (PCG) - Episode 3
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=PNXIGplTsgU
+- **Author:** Ben Cloward
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/using-landscape-grass-masks-with-pcg---procedural-content-generation-pcg---episo.md
+
 ---
 
 ## Tag Reference
