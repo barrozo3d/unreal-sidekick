@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=QyCzfsuakuY
 author: Ben Cloward
 ingested: 2026-08-02
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "Not specified (UE5.7-era)"
+tags: [pcg, materials, pipeline, advanced, ue5-7]
+extraction_status: complete
 frames_dir: tutorials/frames/creating-magic-moss-with-pcg---procedural-content-generation-pcg---episode-10/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 13
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Creating Magic Moss With PCG - Procedural Content Generation (PCG) - Episode 10
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py creating-magic-moss-with-pcg---procedural-content-generation-pcg---episode-10 <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -254,30 +250,64 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [3:42] tutorials/frames/creating-magic-moss-with-pcg---procedural-content-generation-pcg---episode-10/frame_000.jpg
+- [5:27] tutorials/frames/creating-magic-moss-with-pcg---procedural-content-generation-pcg---episode-10/frame_001.jpg
+- [8:36] tutorials/frames/creating-magic-moss-with-pcg---procedural-content-generation-pcg---episode-10/frame_002.jpg
+- [10:20] tutorials/frames/creating-magic-moss-with-pcg---procedural-content-generation-pcg---episode-10/frame_003.jpg
+- [12:00] tutorials/frames/creating-magic-moss-with-pcg---procedural-content-generation-pcg---episode-10/frame_004.jpg
+- [12:29] tutorials/frames/creating-magic-moss-with-pcg---procedural-content-generation-pcg---episode-10/frame_005.jpg
+- [13:20] tutorials/frames/creating-magic-moss-with-pcg---procedural-content-generation-pcg---episode-10/frame_006.jpg
+- [14:41] tutorials/frames/creating-magic-moss-with-pcg---procedural-content-generation-pcg---episode-10/frame_007.jpg
+- [16:06] tutorials/frames/creating-magic-moss-with-pcg---procedural-content-generation-pcg---episode-10/frame_008.jpg
+- [17:43] tutorials/frames/creating-magic-moss-with-pcg---procedural-content-generation-pcg---episode-10/frame_009.jpg
+- [19:50] tutorials/frames/creating-magic-moss-with-pcg---procedural-content-generation-pcg---episode-10/frame_010.jpg
+- [20:21] tutorials/frames/creating-magic-moss-with-pcg---procedural-content-generation-pcg---episode-10/frame_011.jpg
+- [21:39] tutorials/frames/creating-magic-moss-with-pcg---procedural-content-generation-pcg---episode-10/frame_012.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+A PCG **loop subgraph** that dynamically scatters flat "moss card" meshes onto whatever mesh a PCG node just spawned — using `Mesh Sampler` (Poisson sampling) driven by a per-point mesh attribute rather than a hardcoded static mesh reference — so moss can be added to dynamically-spawned, hierarchically-generated rocks (Episode 9) entirely inside Unreal, without pre-authoring moss onto each rock mesh in a DCC tool.
 
 ### Summary
-[PENDING EXTRACTION]
+Replaces a previously manual, per-mesh workflow (opening each rock in Blender/Maya/3ds Max, using a mesh-scatter tool to hand-place moss cards, one time per unique mesh, bloating file size) with a fully procedural in-Unreal system that works on any mesh at runtime — critical because Episode 9's rocks are dynamically spawned via hierarchical generation, so there's no fixed set of "rock instances" to pre-author moss onto. The moss itself is a set of ~38 flat single-polygon "cards," each mapped to one moss cluster cut from a composited Megascans moss-atlas texture (with alpha) — authored once in a DCC tool, then imported as ordinary Unreal static meshes (a handful of variations would suffice for most projects; the video's 38 is described as overkill). The PCG technique: on the existing rock-spawning graph's final `Static Mesh Spawner`, set its **Out Attribute Name** to `mesh` so downstream nodes can identify which mesh got spawned at each point. A new **loop subgraph** ("PCG Moss Point Generator") is built separately: its input pin is set to **Usage: Loop** (so the parent graph invokes it once per incoming point/rock) and typed as Points; inside, a `Get Attribute From Point Index` node pulls out the `mesh` attribute for the current rock, which feeds a `Mesh Sampler` node's **Static Mesh** input dynamically (rather than the node's normal static, pre-selected mesh) — sampling method set to **Poisson** (not Per-Triangle or Per-Vertex, since the rocks don't have enough geometry density for those to yield enough points) with a small Sampling Radius (0.2), a high Max Point Count (40,000), and a reduced Subsample Density (0.5, trading a little quality for speed) to scatter thousands of points across the rock's actual surface. `Copy Points` then stamps those sampled points onto the rock mesh, and the subgraph outputs the result. Back in the main graph, the subgraph is dragged in and instantiated as a **Loop node** (not a plain subgraph node), fed via an `Attribute Partition` node keyed on the same `mesh` attribute name — this is what makes the loop iterate per-rock. Post-processing on the resulting per-rock point cloud: a `Normal to Density` node (reference up-vector, strength 1) tags each point's density by how upward-facing its surface normal is; a `Density Filter` (author settles on lower bound 0.65, tunable for a performance/coverage tradeoff) discards points on downward/sideways-facing surfaces so moss only grows on top-facing areas; and a `Transform Points` node adds randomized rotation (X/Y tilt ±40°, full 0–360° Z spin) and scale (0.1–0.3 absolute) for natural variation. A final `Static Mesh Spawner` (all 38 moss-card meshes, every rendering-cost toggle disabled except main-pass visibility, with a 400–1200cm start/end cull-distance fade) spawns the actual moss cards on the filtered/transformed points. Because the technique keys purely off a generic `mesh` attribute name, it's explicitly reusable for adding detail meshes (moss or otherwise) onto any PCG-spawned object, not just these specific rocks — trees, other props, etc.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Moss asset preparation (outside this PCG technique, done once in a DCC tool):** composite several Quixel Megascans moss-atlas textures (with alpha) onto one sheet; apply to a plane in Maya/3ds Max/Blender; build one single-polygon card per distinct moss cluster, mapped to that region of the atlas; export each as its own small static mesh (author made 38; 3–4 is usually enough).
+2. **Tag the source Static Mesh Spawner's output:** on the existing rock-spawning graph (Episode 9)'s final `Static Mesh Spawner`, set **Out Attribute Name** to `mesh` — without this, downstream nodes can't identify which mesh was spawned at each point.
+3. **Build the loop subgraph:** Content Drawer → PCG folder → new empty PCG Graph, named e.g. "PCG Moss Point Generator." Set its **Input** pin: Label = "Points In," **Usage = Loop**, Allowed Types = Points, Pin Status = Normal (this Usage setting is what makes the parent graph invoke the subgraph once per incoming point instead of once overall).
+4. Inside the subgraph, add `Get Attribute From Point Index`, wired from the loop's input points, with **Input Source** set to `mesh` — extracts the current rock's mesh reference for this loop iteration.
+5. Add a `Mesh Sampler` node; expand its collapsed "Static Mesh" section and wire the `Get Attribute From Point Index` output into its **Static Mesh** input (instead of picking a fixed mesh from a dropdown) — this is what lets the same subgraph work for whichever mesh happens to be at each point. Set **Sampling Method** to **Poisson Sampling** (Per-Triangle/Per-Vertex don't have enough source geometry on low-poly rocks to yield useful point counts). Configure Poisson settings: **Sampling Radius** 0.2, **Max Number of Points** 40,000, **Subsample Density** 0.5 (lower = faster/lower-quality sampling; default is 10).
+6. Add a `Copy Points` node: **Target** = the mesh data flowing through, **Source** = the Mesh Sampler's generated points — stamps the sampled points onto the actual rock surface.
+7. Add an **Output** pin (label e.g. "Points Out," Allowed Type = Points) and wire the Copy Points result into it. Save the subgraph.
+8. **Instantiate the loop in the main rock graph:** drag the "PCG Moss Point Generator" asset into the main graph — when prompted, choose **Loop node** (not "subgraph node") so it iterates per-point.
+9. Add an `Attribute Partition` node between the rock Static Mesh Spawner and the loop node, with its target attribute set to `mesh` (matching the Out Attribute Name from step 2) — this correctly groups/passes the per-rock mesh data into the loop.
+10. **Debug-verify:** temporarily wire a `Debug` node to the loop's output; if points render as one solid white blob, reduce the Debug node's point **Scale Method** to Absolute and a small size (e.g. 0.003) to actually see the individually-scattered points across the rock surface. Confirm the same setup scatters points correctly on multiple different rocks (or any other mesh with a `mesh` attribute) simultaneously.
+11. **Filter to upward-facing surfaces:** add `Normal to Density` (reference Normal = (0,0,1), Strength = 1) after the loop — writes each point's Density based on how closely its surface normal matches "up," then add a `Density Filter` keeping only points above a tuned lower bound (author settles on 0.65 — higher values = less moss coverage but cheaper; 0.9 keeps only near-perfectly-flat-up points).
+12. **Randomize orientation/scale:** add a `Transform Points` node — Rotation Min/Max: X/Y = ±40°, Z = 0–360° (full random spin around up-axis, slight tilt otherwise); Scale Min/Max (Absolute Scale mode): 0.1–0.3 (tuned to the specific moss card size — author initially forgot this step and got oversized moss).
+13. **Spawn the moss cards:** final `Static Mesh Spawner` with all moss-card mesh variants added as entries (copy-pasted from a previously-built one to avoid manually re-adding dozens of entries); for each entry, disable every rendering-affecting checkbox except main-pass visibility (for performance, since these are simple flat cards), and set **Start/End Cull Distance** (author: 400/1200cm — moss starts fading at 4m, fully gone by 12m) for a soft distance fade.
+14. Wire the (loop → Normal to Density → Density Filter → Transform Points) chain into this final Static Mesh Spawner — the parent graph now spawns rocks, then for each rock spawns a scattered field of moss cards on its upward-facing surfaces.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Subgraph/loop system:** custom PCG subgraph with an Input pin set to **Usage: Loop** and an Output pin, instantiated in a parent graph as a **Loop node** (vs. a plain subgraph node) to iterate once per incoming point.
+- **Nodes:** `Get Attribute From Point Index` (Input Source = a named point attribute, e.g. `mesh`), `Mesh Sampler` (Static Mesh input driven dynamically by an attribute rather than a fixed picker; Sampling Method = Poisson vs. Per-Triangle/Per-Vertex; Sampling Radius, Max Number of Points, Subsample Density), `Copy Points` (Target/Source), `Attribute Partition` (keyed on a named attribute, e.g. `mesh`, to route data into a Loop node correctly), `Normal to Density` (reference Normal vector, Strength), `Density Filter`, `Transform Points` (Rotation/Scale Min-Max, Absolute Scale mode), `Static Mesh Spawner` (Out Attribute Name property; per-mesh-entry render-cost toggles; Start/End Cull Distance).
+- **Debug tip:** Debug node's Point Scale Method (Absolute) and Size — needed to see individually-scattered points instead of one overlapping white mass when point density is very high.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced — the loop-subgraph pattern (Usage: Loop input pin, Loop node instantiation, Attribute Partition routing) and dynamic mesh-attribute-driven Mesh Sampler are among the more advanced PCG constructs in the series; the post-processing (Normal to Density, Density Filter, Transform Points) reuses patterns familiar from earlier episodes.
 
 ### UE Version
-[PENDING EXTRACTION]
+Not explicitly stated; continues the UE 5.7-era PCG series baseline, directly building on Episode 9's hierarchical-generation rock system.
 
 ### Tags
-[PENDING EXTRACTION]
+pcg, materials, pipeline, advanced, ue5-7
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/adding-rocks-with-hierarchical-generation---procedural-content-generation-pcg---.md` — Episode 9, the rock-spawning graph this episode's moss subgraph is attached downstream of; the `mesh` attribute naming and cull-distance-fade pattern are directly reused; shares tags: pcg, materials, pipeline, advanced, ue5-7.
+- `tutorials/using-landscape-grass-masks-with-pcg---procedural-content-generation-pcg---episo.md` and `tutorials/adding-multiple-detail-meshes-to-landscapes---procedural-content-generation-pcg-.md` — Episodes 3–4, source of the `Normal to Density`-adjacent slope/surface-based filtering concept (there via HLSL/landscape masks, here via a dedicated node) applied to a different placement context (mesh surfaces instead of landscape).

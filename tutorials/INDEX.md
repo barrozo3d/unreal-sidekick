@@ -3515,9 +3515,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=QyCzfsuakuY
 - **Author:** Ben Cloward
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** Not specified (UE5.7-era)
+- **Tags:** pcg, materials, pipeline, advanced, ue5-7
+- **Summary:** Loop subgraph (Input pin Usage=Loop, instantiated as a Loop node via Attribute Partition keyed on a "mesh" attribute) that scatters flat moss-card meshes onto Episode 9's dynamically-spawned rocks: Get Attribute From Point Index feeds a Mesh Sampler's Static Mesh input dynamically (Poisson sampling, not per-triangle/vertex), Copy Points stamps onto the rock, then Normal to Density + Density Filter keep only upward-facing points, Transform Points randomizes rotation/scale, and a cull-distance-faded Static Mesh Spawner spawns the 38 moss card variants.
 - **File:** tutorials/creating-magic-moss-with-pcg---procedural-content-generation-pcg---episode-10.md
 
 
