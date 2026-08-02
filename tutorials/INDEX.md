@@ -3420,6 +3420,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/ue-58-local-free-video-mocap-in-3-minutes.md
 
+
+### Introduction to Procedural Content Generation (PCG) - Episode 1
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=NZLtrWLNTes
+- **Author:** Ben Cloward
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/introduction-to-procedural-content-generation-pcg---episode-1.md
+
 ---
 
 ## Tag Reference
