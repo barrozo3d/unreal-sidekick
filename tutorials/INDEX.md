@@ -3465,9 +3465,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=DoZRYtvb8OU
 - **Author:** Ben Cloward
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** Not specified (UE5.7-era)
+- **Tags:** pcg, blueprint, pipeline, intermediate, advanced, ue5-7
+- **Summary:** Static/CPU PCG forest: basic scatter (Surface Sampler → Density Filter → slope-based Filter Elements by Range → absolute-rotation Transform Points → Static Mesh Spawner), then an advanced growth-pattern version seeding sparse forest-center points, growing a Create Points Grid + Copy Points local grid around each, using a spatial Distance node to overwrite Density with distance-from-center (driving Scale by Density and a 3-tier large/medium/small tree split), and Projection to drop the grid onto the landscape.
 - **File:** tutorials/how-to-grow-a-forest-in-unreal-with-pcg---procedural-content-generation-pcg---ep.md
 
 

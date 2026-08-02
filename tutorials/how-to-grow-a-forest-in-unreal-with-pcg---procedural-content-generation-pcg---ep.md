@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=DoZRYtvb8OU
 author: Ben Cloward
 ingested: 2026-08-02
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "Not specified (UE5.7-era)"
+tags: [pcg, blueprint, pipeline, intermediate, advanced, ue5-7]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-grow-a-forest-in-unreal-with-pcg---procedural-content-generation-pcg---ep/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 20
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # How To Grow A Forest in Unreal With PCG - Procedural Content Generation (PCG) - Episode 5
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py how-to-grow-a-forest-in-unreal-with-pcg---procedural-content-generation-pcg---ep <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -487,30 +483,82 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [3:50] tutorials/frames/how-to-grow-a-forest-in-unreal-with-pcg---procedural-content-generation-pcg---ep/frame_000.jpg
+- [4:22] tutorials/frames/how-to-grow-a-forest-in-unreal-with-pcg---procedural-content-generation-pcg---ep/frame_001.jpg
+- [8:09] tutorials/frames/how-to-grow-a-forest-in-unreal-with-pcg---procedural-content-generation-pcg---ep/frame_002.jpg
+- [9:55] tutorials/frames/how-to-grow-a-forest-in-unreal-with-pcg---procedural-content-generation-pcg---ep/frame_003.jpg
+- [13:20] tutorials/frames/how-to-grow-a-forest-in-unreal-with-pcg---procedural-content-generation-pcg---ep/frame_004.jpg
+- [17:36] tutorials/frames/how-to-grow-a-forest-in-unreal-with-pcg---procedural-content-generation-pcg---ep/frame_005.jpg
+- [18:06] tutorials/frames/how-to-grow-a-forest-in-unreal-with-pcg---procedural-content-generation-pcg---ep/frame_006.jpg
+- [19:59] tutorials/frames/how-to-grow-a-forest-in-unreal-with-pcg---procedural-content-generation-pcg---ep/frame_007.jpg
+- [24:30] tutorials/frames/how-to-grow-a-forest-in-unreal-with-pcg---procedural-content-generation-pcg---ep/frame_008.jpg
+- [26:23] tutorials/frames/how-to-grow-a-forest-in-unreal-with-pcg---procedural-content-generation-pcg---ep/frame_009.jpg
+- [27:23] tutorials/frames/how-to-grow-a-forest-in-unreal-with-pcg---procedural-content-generation-pcg---ep/frame_010.jpg
+- [28:44] tutorials/frames/how-to-grow-a-forest-in-unreal-with-pcg---procedural-content-generation-pcg---ep/frame_011.jpg
+- [30:08] tutorials/frames/how-to-grow-a-forest-in-unreal-with-pcg---procedural-content-generation-pcg---ep/frame_012.jpg
+- [30:52] tutorials/frames/how-to-grow-a-forest-in-unreal-with-pcg---procedural-content-generation-pcg---ep/frame_013.jpg
+- [34:08] tutorials/frames/how-to-grow-a-forest-in-unreal-with-pcg---procedural-content-generation-pcg---ep/frame_014.jpg
+- [35:10] tutorials/frames/how-to-grow-a-forest-in-unreal-with-pcg---procedural-content-generation-pcg---ep/frame_015.jpg
+- [37:38] tutorials/frames/how-to-grow-a-forest-in-unreal-with-pcg---procedural-content-generation-pcg---ep/frame_016.jpg
+- [43:10] tutorials/frames/how-to-grow-a-forest-in-unreal-with-pcg---procedural-content-generation-pcg---ep/frame_017.jpg
+- [45:18] tutorials/frames/how-to-grow-a-forest-in-unreal-with-pcg---procedural-content-generation-pcg---ep/frame_018.jpg
+- [48:24] tutorials/frames/how-to-grow-a-forest-in-unreal-with-pcg---procedural-content-generation-pcg---ep/frame_019.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Two escalating approaches to spawning a forest with **static/CPU PCG**: (1) a basic random-scatter graph (Surface Sampler → Density Filter → slope filtering → Transform Points → Static Mesh Spawner), then (2) an advanced "natural growth" graph that seeds sparse forest-center points, grows a scattered points-grid outward from each center, computes each point's distance back to its center to drive both point scale and tree-size selection, and splits the result into three static mesh spawners (large/medium/small trees) so trees get logically smaller with distance from the forest's "oldest" core.
 
 ### Summary
-[PENDING EXTRACTION]
+Part one builds the simplest possible PCG forest: `Get Landscape Data` → `Surface Sampler` (creates randomly-distributed points on the landscape surface, each carrying a random 0–1 `Density` attribute, inspectable via A/attributes and D/debug-visualize) → `Static Mesh Spawner` loaded with 14 spruce-tree mesh variants from a free FAB pack ("Temperate Vegetation Spruce Forest"). The raw result is comically over-dense and has trees growing sideways out of cliff faces, so three fixes are layered in: a `Density Filter` (keep only points with density between 0.3–0.6) to thin the count to a realistic level; a `Transform Points` node with **Absolute Rotation** checked (X/Y: ±5° for slight natural tilt, Z: ±180° for free yaw) so trees point straight up regardless of terrain slope, plus scale randomization (0.7–1.5); and two `Filter Elements by Range` nodes filtering on `Rotation.Pitch` and `Rotation.Roll` (keep only −35° to 35°) to remove points on cliffs too steep for a tree to plausibly grow. The graph's random **Seed** (on Surface Sampler) can be changed at any time to instantly generate a different forest layout/variation. Part two rebuilds this from scratch with ecological logic: real forests grow outward from old "seed" trees via dropped pine cones, so the graph first samples a sparse set of low-density **forest-center points** (tight pitch/roll flat-ground filter, very low points-per-square-meter), then for each center uses `Create Points Grid` + `Copy Points` to scatter a dense local grid of candidate tree positions around it, randomizes their density via `Attribute Noise`, scrambles the regular grid via `Transform Points` (offset ±400, full 360° rotation), thins with another `Density Filter`, then critically uses a `Distance` (spatial, not vector) node to measure each point's distance back to its originating center and **overwrites the Density attribute with that distance value** (capped at a 2200 max) — meaning "density" now encodes "how far from the forest's oldest core." That distance-as-density value drives a `Scale by Density` blueprint-element node (inverted: closest-to-center points scaled largest, ~1.0; farthest scaled down to ~0.5) before a `Projection` node drops the (previously flat-grid, floating) points onto the actual landscape surface. The same steep-slope filtering and up-facing Transform Points from part one are reapplied, then the points are split into **three tiers** via three `Density Filter` ranges on that distance-derived density (0–0.4 = large/oldest trees, 0.4–0.6 = medium, 0.6–1 = small/youngest), each re-randomized with its own `Attribute Noise` (since the filter step leaves density clustered) and further thinned per tier (large trees kept sparse via an aggressive filter, small trees kept dense), then routed to three separate `Static Mesh Spawner` nodes each loaded with only the correspondingly-sized tree meshes. End result: a forest with tall old-growth trees clustered at each center, medium trees forming a ring around them, and small young trees at the outer edge — teased to get a pine-needle-litter ground detail pass "next week."
 
 ### Key Steps
-[PENDING EXTRACTION]
+**Part 1 — Basic forest:**
+1. New empty PCG Graph ("PCG Forest") dropped on the landscape, box scaled to ~120×120×60 to cover the terrain.
+2. Three-node minimum graph: `Get Landscape Data` → `Surface Sampler` (creates randomly scattered points on the landscape surface; each point gets a random `Density` attribute 0–1, viewable via the A/Attributes panel or D/debug-visualize toggle) → `Static Mesh Spawner` (Mesh Entries populated with all 14 mesh variants from a spruce-tree asset pack — tall/medium/young variations).
+3. Add a `Density Filter` node between Surface Sampler and Static Mesh Spawner; set Lower/Upper Bound (e.g. 0.3–0.6) to discard most points and bring the tree count down to a realistic density.
+4. Add a `Transform Points` node (after Density Filter): check **Absolute Rotation**, set Rotation Min/Max X and Y to a small range (e.g. −5° to 5°) for slight natural tilt, Z to the full range (−180° to 180°) for free yaw around the up-axis — this forces trees to point straight up regardless of the terrain slope they landed on (unchecked Absolute Rotation would instead *add* to the terrain-aligned rotation). Also set Scale Min/Max (e.g. 0.7–1.5) for height variety.
+5. Add two `Filter Elements by Range` nodes (inserted before Transform Points, after Density Filter) — one targeting `Rotation.Pitch`, one targeting `Rotation.Roll` — each with Filter Min/Max constants (e.g. −35 to 35) and "keep points inside the filter" selected, to remove points on slopes too steep for a plausible tree.
+6. Wire the final filtered/transformed points into the Static Mesh Spawner. Changing the **Seed** value on the Surface Sampler node instantly regenerates a different random forest layout.
+
+**Part 2 — Natural growth pattern (advanced):**
+7. Duplicate the Surface Sampler + Density Filter + slope-filter chain to create a second, stricter branch: tighten the pitch/roll filter range (e.g. −5° to 5°) and drastically reduce Surface Sampler's points-per-square-meter (e.g. 0.1 → 0.05) to get a sparse set of **forest-center points** (the "oldest" spots).
+8. Add a `Create Points Grid` node sized to define local tree spacing (author: 2500×2500×1 grid extent, cell size 200 — cell size controls minimum spacing/breathing room between candidate tree positions).
+9. Add a `Copy Points` node: Source = the Create Points Grid output, Target = the sparse forest-center points — this stamps a full local grid of candidate points around every center.
+10. Add an `Attribute Noise` node (Input Source = Density, range 0–1) right after Copy Points, since all copied grid points otherwise share a Density of exactly 1.
+11. Add a `Transform Points` node to break up the regular grid: Offset Min/Max ±400 on X/Y, Rotation Min/Max −180° to 180° on Z.
+12. Add another `Density Filter` (e.g. keep 0.9–1) to thin the now-excessive point count down to a manageable number.
+13. Back on the original Surface Sampler (the one generating forest-center points), set **Point Extents** to (1,1,1) — shrinking the center points themselves improves the precision of the distance calculation that follows.
+14. Add a **spatial** `Distance` node (not the vector-distance variant) — Source = the thinned scattered points, Target = the original forest-center points — to compute how far each scattered point is from its originating center.
+15. Feed that distance value into the points' **Density** attribute (overwriting the earlier random noise value), capped at a Max Distance (author: 2200) — points near a center get low/black density, points far away get high/white density.
+16. Add a `Scale by Density` node — found via the generic **Execute Blueprint** node's Blueprint Element Type dropdown (search "scale by density") rather than as a dedicated built-in node — with Min Scale mapped to the darkest/closest points (author sets this inverted: min scale = 1.0 for closest, max scale = 0.5 for farthest) to make old-growth-adjacent trees larger.
+17. Add a `Projection` node (Points input = the scaled points; Projection Target = `Get Landscape Data` output) to drop the still-flat/floating grid points down onto the actual terrain surface.
+18. Re-apply the same steep-slope `Filter Elements by Range` (pitch/roll) and up-facing `Transform Points` (Absolute Rotation, small X/Y tilt, full Z yaw, scale variety) from Part 1 to this new point set.
+19. Split into three size tiers using three parallel `Density Filter` nodes on the distance-derived density value: **0–0.4** (closest to center = large/old trees), **0.4–0.6** (medium), **0.6–1** (farthest = small/young trees). Since each filter clusters its output density near one end of its range, add a fresh `Attribute Noise` (Density, 0–1) after each to restore full random variety within that tier, then an additional `Density Filter` per tier to independently tune how many trees of each size appear (author: large trees filtered aggressively sparse at 0.8–1, medium at 0.9–1, small left denser at 0.2–1).
+20. Route each of the three tiers into its own `Static Mesh Spawner`, each populated with only the mesh entries matching that size class (full/tall trees; half/medium trees; small/young trees) — producing large trees clustered at centers, medium trees ringing them, and small trees at the outer edge.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Asset pack used:** "Temperate Vegetation Spruce Forest" (free, FAB) — 14 mesh variants spanning full-grown to young trees.
+- **Core PCG nodes:** `Get Landscape Data`, `Surface Sampler` (Points per Square Meter, Point Extents, Seed), `Density Filter` (Lower/Upper Bound), `Transform Points` (Offset/Rotation/Scale Min-Max, Absolute Rotation toggle), `Filter Elements by Range` (Target Attribute e.g. Rotation.Pitch/Roll, Filter Min/Max via Constant nodes, Inside/Outside Filter output), `Static Mesh Spawner`.
+- **Advanced-graph-only nodes:** `Create Points Grid` (Grid Extent, Cell Size), `Copy Points` (Source/Target), `Attribute Noise` (Input Source attribute, output range), `Distance` (spatial variant, not vector — Source/Target points), `Execute Blueprint` node with Blueprint Element Type = **Scale by Density** (Min/Max scale, invertible), `Projection` (Points, Projection Target = landscape data).
+- **Key attribute reuse pattern:** the generic `Density` point attribute is repurposed multiple times for different meanings across the graph (random thinning value → distance-from-center value) — density is "just a float," not semantically fixed.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced (Part 2) / Intermediate (Part 1) — Part 1 is an accessible basic PCG scatter; Part 2 requires understanding point-attribute repurposing, spatial distance calculations, the Execute Blueprint node's blueprint-element system, and chaining multiple filter/noise passes to build emergent, ecologically-motivated placement logic.
 
 ### UE Version
-[PENDING EXTRACTION]
+Not explicitly stated; continues the UE 5.7-era PCG series baseline from Episodes 1–4 (this episode uses static/CPU PCG rather than Episodes 2–4's runtime/GPU approach).
 
 ### Tags
-[PENDING EXTRACTION]
+pcg, blueprint, pipeline, intermediate, advanced, ue5-7
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/introduction-to-procedural-content-generation-pcg---episode-1.md` — Episode 1, establishes the basic Create Points Grid → Transform Points → Static Mesh Spawner pattern this episode's Part 1 mirrors (using Surface Sampler instead of Create Points Grid for landscape-conforming placement).
+- `tutorials/adding-multiple-detail-meshes-to-landscapes---procedural-content-generation-pcg-.md` — Episode 4, the prior episode in the series (runtime/GPU grass+stones masking) — this episode explicitly pivots to static/CPU PCG for larger objects (trees), contrasting with Episodes 2–4's GPU compute-shader approach.
+- Next episode in this series (adding pine-needle ground litter under each tree) is the direct continuation of this video's end-teaser — look for a title about landscape detail/ground cover tied to tree placement, likely "Automatic Landscape Tree Blending."
