@@ -3480,6 +3480,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/automatic-landscape-tree-blending---procedural-content-generation-pcg---episode-.md
 
+
+### Using Splines For Boundaries - Procedural Content Generation (PCG) - Episode 7
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=AWJ7H4C6ObI
+- **Author:** Ben Cloward
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/using-splines-for-boundaries---procedural-content-generation-pcg---episode-7.md
+
 ---
 
 ## Tag Reference
