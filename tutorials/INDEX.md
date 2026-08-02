@@ -3490,6 +3490,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/using-splines-for-boundaries---procedural-content-generation-pcg---episode-7.md
 
+
+### Spawn Objects Along Splines - Procedural Content Generation (PCG) - Episode 8
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=WQc0imxsGdI
+- **Author:** Ben Cloward
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/spawn-objects-along-splines---procedural-content-generation-pcg---episode-8.md
+
 ---
 
 ## Tag Reference
