@@ -3415,9 +3415,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=jS4h-24EnbQ
 - **Author:** Royal Skies
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.8
+- **Tags:** mocap, metahuman, monocular-mocap, metahuman-animator, live-link-hub, capture-manager, animation-retargeter, fbx-pipeline, beginner, ue5-8
+- **Summary:** Local, free video-to-mocap pipeline new in UE 5.8: install MetaHuman Animator + Monocular Motion Capture plugins, create a MetaHuman character, ingest a pre-recorded video via Live Link Hub's Capture Manager (Mono Video Ingest), run it through MetaHuman Performance (Monocular Footage capture type, Body Tracking), Process (realistically hours, not minutes — GPU/RAM heavy), then Retarget Animations onto the standard UE5 Mannequin skeleton.
 - **File:** tutorials/ue-58-local-free-video-mocap-in-3-minutes.md
 
 

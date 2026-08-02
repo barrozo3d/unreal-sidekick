@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=jS4h-24EnbQ
 author: Royal Skies
 ingested: 2026-08-02
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.8"
+tags: [mocap, metahuman, monocular-mocap, metahuman-animator, live-link-hub, capture-manager, animation-retargeter, fbx-pipeline, beginner, ue5-8]
+extraction_status: complete
 frames_dir: tutorials/frames/ue-58-local-free-video-mocap-in-3-minutes/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # UE 5.8 LOCAL & FREE Video MoCap (In 3 Minutes!!)
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py ue-58-local-free-video-mocap-in-3-minutes <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -88,30 +84,55 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [0:44] tutorials/frames/ue-58-local-free-video-mocap-in-3-minutes/frame_000.jpg
+- [1:17] tutorials/frames/ue-58-local-free-video-mocap-in-3-minutes/frame_001.jpg
+- [1:35] tutorials/frames/ue-58-local-free-video-mocap-in-3-minutes/frame_002.jpg
+- [1:50] tutorials/frames/ue-58-local-free-video-mocap-in-3-minutes/frame_003.jpg
+- [2:07] tutorials/frames/ue-58-local-free-video-mocap-in-3-minutes/frame_004.jpg
+- [2:13] tutorials/frames/ue-58-local-free-video-mocap-in-3-minutes/frame_005.jpg
+- [2:38] tutorials/frames/ue-58-local-free-video-mocap-in-3-minutes/frame_006.jpg
+- [2:48] tutorials/frames/ue-58-local-free-video-mocap-in-3-minutes/frame_007.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Using UE 5.8's built-in **MetaHuman Animator Monocular Footage** pipeline (via Live Link Hub's Capture Manager) to convert a pre-recorded 2D video file into full-body motion-capture animation on a MetaHuman, entirely locally and for free (no paid mocap service, but GPU/CPU heavy).
 
 ### Summary
-[PENDING EXTRACTION]
+A rapid-fire setup guide (3 minutes) for local, free, video-based mocap new to UE 5.8. Fair warning up front: it's hardware-hungry — the author's own machine (RTX 3090-tier GPU + 48GB RAM, transcribed as "TI 30") crashed repeatedly, so the demo footage shown is actually from a friend's machine, though the steps are identical. Covers the full chain from a clean Epic Games Launcher install through plugin enablement, MetaHuman character creation, ingesting a video file as a capture source, running the MetaHuman Performance solve, and finally retargeting the resulting MetaHuman animation onto the standard UE5 Mannequin skeleton for use outside MetaHuman-specific contexts.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Install **UE 5.8** via Epic Games Launcher; during install, ensure **MetaHuman Creator core data** is checked (can also be enabled later under Options if missed).
+2. From Fab, download and install the **MetaHuman Animator** plugin (which includes **Monocular** motion-capture support — transcribed in the auto-captions as "Markalus," confirmed via on-screen UI as **Monocular Footage** capture type) into the 5.8 engine install.
+3. Create a new default UE 5.8 project → Edit → Plugins, enable: MetaHuman Animator, Monocular Motion Capture, MetaHuman Core ML, MetaHuman Creator, MetaHuman Live Link, MetaHuman SDK. Missing plugins usually trace back to skipping the MetaHuman install checkbox (step 1) or the Fab plugin (step 2). Restart the editor when prompted.
+4. Right-click in Content Browser → MetaHuman → MetaHuman Character, name it (e.g. "test animation"), open it in the **MetaHuman Creator** editor, pick any preset on the left, hit **Assembly** → **Create Full Rig** → **Download Texture Sources** → **Assemble** to generate the MetaHuman Blueprint.
+5. Tools → **Live Link Hub** → Live Data → **Capture Manager** → Add Device → **Mono Video Ingest**. Under the device, point it at the folder containing your source video(s), select the specific video, **Add to Queue**, optionally adjust output quality (bottom right; default is fine), then **Start** (device/pipeline named "Mono Video Ingest" in the Devices panel and Take Browser).
+6. Once ingest completes, close Live Link Hub. In the Content Browser: Content → Capture Manager → Imports → Mono Video Ingest — the ingested take appears there as a folder.
+7. Right-click → MetaHuman → **MetaHuman Performance**, name it, open it. Top right: **Capture Footage** dropdown → select the ingested video. Confirm **Body Tracking** is checked (Capture Type shows as **Monocular Footage** in the Data panel). Drag your MetaHuman character Blueprint into the character slot — it should preview in the viewport.
+8. Hit **Process** — this solves the video onto the character's skeleton. Realistic processing time is **hours**, not seconds/minutes (contrast with the "3 minutes" clickbait framing of the video's own title). When done: Save → **Export Animation** → Create.
+9. To use the result outside MetaHuman-specific rigs: right-click the new animation → **Retarget Animations**, choose the default UE5 Mannequin as target skeleton, select the source animation, choose an export destination, hit **Export** — produces a standard Mannequin-skeleton animation asset ready for Sequencer/Animation Blueprints.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Plugins:** MetaHuman Animator, Monocular Motion Capture (Fab add-on), MetaHuman Core ML, MetaHuman Creator, MetaHuman Live Link, MetaHuman SDK.
+- **Tools:** Live Link Hub (Capture Manager: Add Device → Mono Video Ingest, Take Browser, job queue with output-format settings), MetaHuman Performance asset (Capture Footage selector, Body Tracking toggle, Data panel showing Capture Type = Monocular Footage, character-actor drop slot, Process button), Retarget Animations dialog (source/target skeleton pickers, defaults to UE5 Mannequin template when no target mesh is assigned).
+- **Hardware note called out explicitly:** this is a heavy local compute workload — the author's high-end desktop (~RTX 3090-class GPU, 48GB RAM) still crashed; budget for a multi-hour Process step, not real-time.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner-friendly instructions (pure menu/plugin/button steps, no scripting), but Intermediate in practice due to hardware requirements and multi-hour processing times.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.8 (MetaHuman Animator Monocular Footage feature is new to this release).
 
 ### Tags
-[PENDING EXTRACTION]
+mocap, metahuman, monocular-mocap, metahuman-animator, live-link-hub, capture-manager, animation-retargeter, fbx-pipeline, beginner, ue5-8
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/new-unreal-engine-58-metahuman-markerless-mocap-tutorial.md` — the other half of UE 5.8's new MetaHuman Animator mocap suite: **Markerless** (live webcam, no capture-manager ingest step) vs. this video's **Monocular** (pre-recorded video file via Capture Manager) capture mode; shares tags: mocap, metahuman, metahuman-animator.
+- `tutorials/unreal5-markerless-mocap-clean-up-process.md` — a natural next step after this video's output: cleaning up the resulting animation curves in Cascadeur once it's back in Unreal; shares tags: mocap, fbx-pipeline.
+- `tutorials/how-to-get-pro-motion-capture-for-metahumans-on-a-budget-in-unreal-engine-5.md` (Mimem.ai pipeline, tag `#markerless-mocap`) — a third-party paid alternative doing a similar FBX-import-then-retarget flow, useful to contrast cost/quality against this free, local, monocular-footage approach.
