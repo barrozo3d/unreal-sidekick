@@ -3470,6 +3470,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/how-to-grow-a-forest-in-unreal-with-pcg---procedural-content-generation-pcg---ep.md
 
+
+### Automatic Landscape Tree Blending - Procedural Content Generation (PCG) - Episode 6
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=VtvM-OkZYDk
+- **Author:** Ben Cloward
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/automatic-landscape-tree-blending---procedural-content-generation-pcg---episode-.md
+
 ---
 
 ## Tag Reference
