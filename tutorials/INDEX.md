@@ -3430,6 +3430,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Series-opener explaining why PCG beats manual placement (rules live in the engine, not just the artist's head, so environments become instantly editable/reusable) then builds the minimal 3-node PCG Graph: Create Points Grid (100 points, inspect via A/attributes and D/debug-viz) → Transform Points (random offset/rotation/scale) → Static Mesh Spawner (SM_Fern), turning a rigid grid into organically scattered foliage.
 - **File:** tutorials/introduction-to-procedural-content-generation-pcg---episode-1.md
 
+
+### Efficient Grass With PCG - Procedural Content Generation (PCG) - Episode 2
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=jL8-C2VvpxY
+- **Author:** Ben Cloward
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/efficient-grass-with-pcg---procedural-content-generation-pcg---episode-2.md
+
 ---
 
 ## Tag Reference
