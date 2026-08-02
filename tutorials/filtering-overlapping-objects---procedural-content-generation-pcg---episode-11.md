@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=ikhRzWHisEw
 author: Ben Cloward
 ingested: 2026-08-02
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "Not specified (UE5.7-era)"
+tags: [pcg, blueprint, pipeline, intermediate, advanced, ue5-7]
+extraction_status: complete
 frames_dir: tutorials/frames/filtering-overlapping-objects---procedural-content-generation-pcg---episode-11/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 15
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Filtering Overlapping Objects - Procedural Content Generation (PCG) - Episode 11
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py filtering-overlapping-objects---procedural-content-generation-pcg---episode-11 <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -252,30 +248,67 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [1:22] tutorials/frames/filtering-overlapping-objects---procedural-content-generation-pcg---episode-11/frame_000.jpg
+- [4:22] tutorials/frames/filtering-overlapping-objects---procedural-content-generation-pcg---episode-11/frame_001.jpg
+- [5:14] tutorials/frames/filtering-overlapping-objects---procedural-content-generation-pcg---episode-11/frame_002.jpg
+- [6:14] tutorials/frames/filtering-overlapping-objects---procedural-content-generation-pcg---episode-11/frame_003.jpg
+- [9:01] tutorials/frames/filtering-overlapping-objects---procedural-content-generation-pcg---episode-11/frame_004.jpg
+- [9:48] tutorials/frames/filtering-overlapping-objects---procedural-content-generation-pcg---episode-11/frame_005.jpg
+- [11:06] tutorials/frames/filtering-overlapping-objects---procedural-content-generation-pcg---episode-11/frame_006.jpg
+- [12:18] tutorials/frames/filtering-overlapping-objects---procedural-content-generation-pcg---episode-11/frame_007.jpg
+- [13:03] tutorials/frames/filtering-overlapping-objects---procedural-content-generation-pcg---episode-11/frame_008.jpg
+- [14:05] tutorials/frames/filtering-overlapping-objects---procedural-content-generation-pcg---episode-11/frame_009.jpg
+- [14:46] tutorials/frames/filtering-overlapping-objects---procedural-content-generation-pcg---episode-11/frame_010.jpg
+- [17:23] tutorials/frames/filtering-overlapping-objects---procedural-content-generation-pcg---episode-11/frame_011.jpg
+- [18:56] tutorials/frames/filtering-overlapping-objects---procedural-content-generation-pcg---episode-11/frame_012.jpg
+- [20:19] tutorials/frames/filtering-overlapping-objects---procedural-content-generation-pcg---episode-11/frame_013.jpg
+- [22:40] tutorials/frames/filtering-overlapping-objects---procedural-content-generation-pcg---episode-11/frame_014.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Two complementary methods for removing overlapping/too-close PCG points: **`Self Pruning`** for removing overlaps *within* a single graph's own point set (e.g. two trees spawned on top of each other), and a **cross-graph `Output`/subgraph + `Difference`** technique for making one graph's points avoid another graph's points entirely (e.g. keeping fallen-log/stump debris from spawning inside existing trees).
 
 ### Summary
-[PENDING EXTRACTION]
+Series finale addressing a common PCG artifact: randomly scattered points sometimes land at or near the same location, producing visibly overlapping objects (two trees fused together). Two scenarios are covered. **Scenario 1 (same-graph overlap):** the Episode 5 forest graph's three tree-size tiers (large/medium/small, split by distance-from-center) each independently get a `Self Pruning` node inserted before their Static Mesh Spawner. Self Pruning compares each point's bounding box against its neighbors and removes the smaller-radius point wherever two overlap, using a **Large to Small** pruning type by default (the object with the bigger bounding box wins; the smaller loses) — applied identically to all three tree tiers, it eliminates fused-together trees while preserving the natural size-gradient look. **Scenario 2 (cross-graph overlap):** a new, previously-unshown "PCG Wood" graph scatters fallen-log/stump/wood-debris meshes (Megascans assets) across the whole map via the by-now-familiar pattern (`Create Points Grid` → `Transform Points` for randomization → `Projection` onto the landscape → `Normal to Density` + `Density Filter` for slope exclusion → a final `Transform Points` for scale → `Static Mesh Spawner` with collision enabled, Block All Dynamic, so the player physically collides with logs/stumps). The problem: this graph has no way to know where the forest graph already placed trees, so wood debris sometimes spawns overlapping a tree trunk. The fix uses PCG's **Input/Output** subgraph nodes (present on every graph by default but rarely used until now): on the forest graph, the `Output` node's pin is set to Allowed Type = **Point**, with all three tree-tier point streams wired into it — this exposes the forest's spawned points as data other graphs can consume. In the wood graph, the forest graph asset is dragged in and added as a plain **subgraph node** (not a Loop node, since there's no per-item iteration needed here), exposing that same point output. A `Difference` node then takes the wood graph's own points as **Source** and the imported forest points as **Differences**, with **Density Function** set to **Binary** (matching the fix from Episode 7's exclusion-zone technique) — any wood point that spatially coincides with a forest point gets fully removed, so fallen logs/stumps never spawn on top of existing trees.
 
 ### Key Steps
-[PENDING EXTRACTION]
+**Scenario 1 — Self Pruning (same-graph overlap):**
+1. Identify the overlap: temporarily enable Debug on a pre-spawn points node to see gray/white bounding-box cubes clearly overlapping at the same location.
+2. Add a `Self Pruning` node (type "self" to find it) inserted just before the affected `Static Mesh Spawner`.
+3. Leave (or confirm) **Pruning Type** = **Large to Small** — for each pair of overlapping point bounding boxes, the point with the larger bounding box is kept and the smaller one is discarded.
+4. Repeat/duplicate this node for every parallel track that can independently produce overlaps — in the Episode 5 forest graph, this means adding one `Self Pruning` node to each of the three tree-size tiers (large/medium/small) right before their respective Static Mesh Spawners.
+5. Verify: debug the points after Self Pruning — previously overlapping pairs now show only one surviving point, and the resulting forest has no visibly fused-together trees.
+
+**Scenario 2 — cross-graph exclusion (Output/subgraph + Difference):**
+6. Build the second graph independently first (author's "PCG Wood" graph, not previously shown in the series): `Create Points Grid` (Grid Extents ≈ whole map, Cell Size 1000×1000 = ~1 wood-debris object every 10m) → `Transform Points` (Offset ±4m X/Y, Z=0 since height comes from projection; Rotation Z 0–360°; Scale 70–140% absolute) → `Projection` (Projection Target = `Get Landscape Data`) → `Normal to Density` (Normal = (0,0,1), Offset 0, Strength 1) → `Density Filter` (lower bound 0.95, removes points on slopes too steep for fallen debris to rest on) → `Attribute Noise` (restores full 0–1 density range after the filter step skewed it, matching the pattern from Episode 5) → a second `Transform Points` (Absolute Scale 0.7–1.4, purely for final object sizing) → `Static Mesh Spawner` (fallen logs/stumps/wood pieces, with **Collision Presets** set to **Block All Dynamic** so the player physically collides with them).
+7. On the **forest graph** (Episode 5), open its default `Output` node, click its expand arrow, set **Allowed Types** to **Point**, and wire all three tree-tier point streams (large/medium/small, post-Self-Pruning) into it.
+8. In the **wood graph**, drag the forest graph asset from the Content Drawer directly into the graph editor; when prompted, choose to add it as a plain **subgraph node** (not a Loop node — no per-point iteration is needed, just a one-time data pull).
+9. Add a `Difference` node: wire the wood graph's own (pre-spawn) points into **Source**, and the forest subgraph node's point output into **Differences**.
+10. Set the Difference node's **Density Function** to **Binary** (not the default Minimum, per the same fix established in Episode 7) — this fully removes any wood point that spatially overlaps a forest point, rather than only partially thinning based on density comparison.
+11. Wire the Difference node's output into the wood graph's Static Mesh Spawner (replacing the direct connection used before).
+12. Verify: a stump previously overlapping a tree trunk (and a nearby rock) is now gone from that location — the wood graph no longer spawns anything on top of existing forest trees, while both graphs' Debug views confirm complementary, non-overlapping point sets.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Nodes:** `Self Pruning` (Pruning Type: Large to Small; also has a Radius Similarity Factor and Component Source setting visible in the graph parameters), `Output`/`Input` graph pins (Allowed Types = Point; present by default on every PCG graph, rarely used until cross-graph communication is needed), subgraph node (vs. Loop node — chosen when a one-time data pull is needed rather than per-point iteration), `Difference` (Source/Differences inputs; Density Function = Binary, reused from Episode 7's exclusion-zone fix).
+- **Wood-graph-specific nodes** (all reused patterns from earlier episodes): `Create Points Grid`, `Transform Points` (×2 — one for position/rotation scatter, one purely for final scale), `Projection` + `Get Landscape Data`, `Normal to Density`, `Density Filter`, `Attribute Noise`, `Static Mesh Spawner` with **Collision Presets: Block All Dynamic**.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate/Advanced — Self Pruning (Scenario 1) is a simple one-node fix; the cross-graph Output/subgraph/Difference technique (Scenario 2) requires understanding PCG's Input/Output pin system and the subgraph-vs-loop distinction, concepts not otherwise used elsewhere in the series until this point.
 
 ### UE Version
-[PENDING EXTRACTION]
+Not explicitly stated; concludes the UE 5.7-era PCG series, reusing the Episode 5 forest graph and Episode 7's Difference/Binary density-function fix.
 
 ### Tags
-[PENDING EXTRACTION]
+pcg, blueprint, pipeline, intermediate, advanced, ue5-7
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/how-to-grow-a-forest-in-unreal-with-pcg---procedural-content-generation-pcg---ep.md` — Episode 5, the forest graph that gains Self Pruning nodes here and whose Output node is exposed for cross-graph use; shares tags: pcg, blueprint, pipeline, ue5-7.
+- `tutorials/using-splines-for-boundaries---procedural-content-generation-pcg---episode-7.md` — Episode 7, source of the `Difference` node and the Binary-vs-Minimum Density Function fix reused verbatim in this episode's cross-graph exclusion technique; shares tags: pcg, blueprint, pipeline, intermediate, ue5-7.
+- `tutorials/adding-rocks-with-hierarchical-generation---procedural-content-generation-pcg---.md` — Episode 9, the rocks referenced as one of the other "construction yard" elements (trees, grass, rocks, and now wood debris) making up the full forest environment built across this series.
