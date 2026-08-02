@@ -3530,6 +3530,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Series finale on removing overlapping points: Self Pruning (Large to Small pruning type) removes same-graph overlaps like fused trees; a cross-graph technique exposes the forest graph's points via its Output node (Allowed Types = Point), pulls it into a second graph (e.g. wood debris/stumps) as a plain subgraph node, and feeds both point sets into a Difference node with Density Function = Binary so the second graph's objects never spawn on top of the first graph's.
 - **File:** tutorials/filtering-overlapping-objects---procedural-content-generation-pcg---episode-11.md
 
+
+### Introduction to Substrate - Episode 1
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=P5I38f2O6W8
+- **Author:** Ben Cloward
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/introduction-to-substrate---episode-1.md
+
 ---
 
 ## Tag Reference
