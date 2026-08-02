@@ -3535,9 +3535,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=P5I38f2O6W8
 - **Author:** Ben Cloward
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.7
+- **Tags:** materials, shaders, substrate, rendering, beginner, intermediate, ue5-7
+- **Summary:** Enabling Substrate (Project Settings, one-way trip, GBuffer Blendable vs. Adaptive tradeoff) and understanding the new Front Material input + Substrate Slab node, which replaces Base Color/Metallic/Specular/Roughness with Diffuse Albedo/F0/F90/Roughness; shows reproducing an old-style material exactly via the Substrate Metalness to Diffuse Color F0 conversion node.
 - **File:** tutorials/introduction-to-substrate---episode-1.md
 
 ---

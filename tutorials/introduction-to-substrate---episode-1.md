@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=P5I38f2O6W8
 author: Ben Cloward
 ingested: 2026-08-02
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.7"
+tags: [materials, shaders, substrate, rendering, beginner, intermediate, ue5-7]
+extraction_status: complete
 frames_dir: tutorials/frames/introduction-to-substrate---episode-1/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 7
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Introduction to Substrate - Episode 1
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py introduction-to-substrate---episode-1 <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -137,30 +133,54 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [4:12] tutorials/frames/introduction-to-substrate---episode-1/frame_000.jpg
+- [5:56] tutorials/frames/introduction-to-substrate---episode-1/frame_001.jpg
+- [8:14] tutorials/frames/introduction-to-substrate---episode-1/frame_002.jpg
+- [8:45] tutorials/frames/introduction-to-substrate---episode-1/frame_003.jpg
+- [9:57] tutorials/frames/introduction-to-substrate---episode-1/frame_004.jpg
+- [11:13] tutorials/frames/introduction-to-substrate---episode-1/frame_005.jpg
+- [12:23] tutorials/frames/introduction-to-substrate---episode-1/frame_006.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Enabling Unreal's **Substrate** material system (project settings toggle + restart) and understanding its `Substrate Slab` node as the new gateway into material authoring — including how to reproduce an old-style Base Color/Metallic/Specular/Roughness material exactly via the `Substrate Metalness to Diffuse Color F0` conversion node, without needing to learn Substrate's lower-level parameters (Diffuse Albedo, F0, F90) right away.
 
 ### Summary
-[PENDING EXTRACTION]
+Series-opener framing Substrate as an evolution, not a replacement, of physically based rendering: it exposes lower-level parameters (Diffuse Albedo, F0, F90) that the older Base Color/Metallic/Specular system sat on top of as a simplifying "training wheels" layer, enabling more exotic materials (e.g. carbon fiber with a clear coat, or car paint with internal flake) via proper material layering/blending. Covers three things: enabling Substrate (Project Settings → search "Substrate" → check **Substrate Materials** — enabled by default from UE 5.7 onward; this is explicitly a one-way trip since materials saved under Substrate won't render correctly if it's later disabled), the G-Buffer format tradeoff (**Blendable** = fixed 20 bytes/pixel, a flat 20% VRAM increase over Substrate-off; **Adaptive** = starts at 20 bytes/pixel but scales up to 80 bytes/pixel for complex materials — up to 5x the VRAM of Substrate-off at 4K; lower-end platform builds like Android automatically fall back from Adaptive to Blendable regardless of the project setting), and what changes in the material graph after enabling it: a new purple **Front Material** input appears on the root material node, fed by a `Substrate Slab` node (the basic building block — previously, a material could only use one shading model at a time; Substrate slabs can be mixed to combine, e.g., rock and ice or skin and cloth in one material, a topic deferred to a future episode). Once a Slab is wired in, the root node's old Base Color/Metallic/Specular/Roughness inputs disappear, replaced by the Slab's own Diffuse Albedo/F0/F90/Roughness — lower-level parameters explicitly deferred to next episode. For anyone not ready to learn those directly, a `Substrate Metalness to Diffuse Color F0` node accepts the old-style Base Color/Metallic/Specular inputs and converts them to Diffuse Albedo/F0 for the Slab, letting an artist reproduce an old material exactly (demonstrated on a gold material: Base Color set, Metallic 1.0, Specular 0.5, Roughness 0.15) at the cost of a noticeably more involved node network for what used to be four bare parameters with no nodes at all.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Enable Substrate:** Edit → Project Settings → search "Substrate" → check **Substrate Materials** (Engine - Rendering section). Confirm the one-way-trip warning (materials saved while enabled will render incorrectly if later disabled). Note: enabled by default starting in UE 5.7.
+2. **Choose a G-Buffer format:** **Substrate GBuffer Format (Project)** dropdown — **Blendable** (fixed 20 bytes/pixel, flat 20% VRAM increase vs. Substrate-off) vs. **Adaptive** (starts at 20 bytes/pixel, scales up to 80 bytes/pixel with complex materials — up to 5x Substrate-off VRAM at 4K). Use Adaptive when targeting high-end PC; use Blendable otherwise (lower-end platform builds like Android auto-fallback to Blendable regardless).
+3. **Restart the editor** when prompted — Substrate changes require a restart to take effect.
+4. **Observe the material graph change:** an existing material (Base Color/Metallic/Specular/Roughness inputs unchanged at first) now has a new purple **Front Material** input at the bottom of the root node — this is the entry point into Substrate.
+5. **Add a `Substrate Slab` node** (right-click → search "slab," or type "substrate" to see the full family of Substrate-specific nodes) and wire it into **Front Material**. This replaces most of the root node's direct input pins with the Slab's own inputs: **Diffuse Albedo, F0, F90, Roughness** (deeper/lower-level equivalents of Base Color, Specular, Metallic, Roughness).
+6. **To reproduce an old-style material exactly** (without learning Diffuse Albedo/F0/F90 directly yet): add a `Substrate Metalness to Diffuse Color F0` node (search "metal"). Wire in the same **Base Color, Metallic, Specular** values used previously; its outputs (Diffuse Albedo, F0) feed into the Slab. Set Roughness directly on the Slab as before.
+7. **Verify the match:** with the same Base Color, Metallic = 1.0, Specular = 0.5, Roughness = 0.15 fed through the conversion node into the Slab into Front Material, the resulting look is identical to the original pre-Substrate material — confirming Substrate is additive/backward-compatible, not a breaking replacement.
+8. **Note the complexity tradeoff:** achieving a basic material now requires the Slab node plus the Metalness-to-Diffuse-Color-F0 conversion node plus wiring, versus the old system's four bare parameter fields with zero nodes — explicitly called out as a downside of the new system for simple cases.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Project Settings:** Engine - Rendering → Substrate section → **Substrate Materials** checkbox (one-way enable, requires restart), **Substrate GBuffer Format (Project)** = Blendable (20 bytes/pixel fixed) vs. Adaptive (20–80 bytes/pixel dynamic).
+- **Material graph — root node:** new **Front Material** input pin (purple), replacing most direct Base Color/Metallic/Specular/Roughness inputs once a Slab is connected.
+- **Substrate nodes:** `Substrate Slab` (aka Substrate Slab BSDF - Simple; exposes Diffuse Albedo, F0, F90, Roughness, Anisotropy, Normal, Tangent, SSS MFP/MFP Scale/Phase Anisotropy, Emissive Color, Second Roughness/Weight, Fuzz Roughness/Amount/Color, Skin Density, Skin UVs — most left at defaults in this intro episode), `Substrate Metalness to Diffuse Color F0` (converts legacy Base Color/Metallic/Specular into Diffuse Albedo/F0 for feeding a Slab).
+- **Platform behavior:** builds targeting lower-end platforms (e.g. Android) automatically override an Adaptive GBuffer setting back to Blendable.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner/Intermediate — no complex node graphs are built in this episode; the material-graph work is limited to adding 1–2 nodes and rewiring existing values, but understanding *why* Substrate changes the graph structure requires the conceptual framing given in the first half of the video.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.7 (Substrate enabled by default starting this version; was opt-in/experimental in earlier 5.x releases per other library entries).
 
 ### Tags
-[PENDING EXTRACTION]
+materials, shaders, substrate, rendering, beginner, intermediate, ue5-7
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/introduction-to-substrate-materials-unreal-engine-57.md` — Epic's own official overview of Substrate in UE 5.7, covering the same Slab node structure (F0/F90, roughness, fuzz/glint) and GBuffer format tradeoff from an official-docs angle rather than a hands-on tutorial; shares tags: materials, shaders, substrate, rendering.
+- `tutorials/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe.md` — a much deeper 43-minute Epic technical session (Nathaniel Morgan) covering the Slab architecture, material layering via the operator stack, path tracing integration, and migration guides — a natural next step after this beginner intro; shares tags: materials, shaders, substrate, rendering.
+- This is Episode 1 of Ben Cloward's own Substrate series in this library — later episodes (per this video's own teaser) dive into what the `Substrate Metalness to Diffuse Color F0` node does internally, building the same conversion manually node-by-node.
