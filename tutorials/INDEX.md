@@ -3475,9 +3475,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=VtvM-OkZYDk
 - **Author:** Ben Cloward
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** Not specified (UE5.7-era)
+- **Tags:** pcg, materials, landscape, rendering, pipeline, advanced, ue5-7
+- **Summary:** Uses a cheap Mask4-only Runtime Virtual Texture as a live channel between PCG trees and the Landscape Material: trees write a radial falloff mask (Local Position → Length → Subtract/Multiply/Saturate/One Minus) into the RVT via a Runtime Virtual Texture Output node, the landscape material samples it (Runtime Virtual Texture Sample + Height Lerp against a dirt/roots material) to blend in roots/dirt, suppress puddles and grass under trees, and writes a second RVT channel to World Position Offset the terrain upward around each trunk — all auto-updating when the PCG seed changes.
 - **File:** tutorials/automatic-landscape-tree-blending---procedural-content-generation-pcg---episode-.md
 
 

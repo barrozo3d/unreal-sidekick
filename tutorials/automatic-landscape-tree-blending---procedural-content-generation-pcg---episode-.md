@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=VtvM-OkZYDk
 author: Ben Cloward
 ingested: 2026-08-02
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "Not specified (UE5.7-era)"
+tags: [pcg, materials, landscape, rendering, pipeline, advanced, ue5-7]
+extraction_status: complete
 frames_dir: tutorials/frames/automatic-landscape-tree-blending---procedural-content-generation-pcg---episode-/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 18
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Automatic Landscape Tree Blending - Procedural Content Generation (PCG) - Episode 6
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py automatic-landscape-tree-blending---procedural-content-generation-pcg---episode- <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -401,30 +397,71 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [6:22] tutorials/frames/automatic-landscape-tree-blending---procedural-content-generation-pcg---episode-/frame_000.jpg
+- [7:53] tutorials/frames/automatic-landscape-tree-blending---procedural-content-generation-pcg---episode-/frame_001.jpg
+- [9:59] tutorials/frames/automatic-landscape-tree-blending---procedural-content-generation-pcg---episode-/frame_002.jpg
+- [11:39] tutorials/frames/automatic-landscape-tree-blending---procedural-content-generation-pcg---episode-/frame_003.jpg
+- [13:27] tutorials/frames/automatic-landscape-tree-blending---procedural-content-generation-pcg---episode-/frame_004.jpg
+- [14:52] tutorials/frames/automatic-landscape-tree-blending---procedural-content-generation-pcg---episode-/frame_005.jpg
+- [15:53] tutorials/frames/automatic-landscape-tree-blending---procedural-content-generation-pcg---episode-/frame_006.jpg
+- [18:06] tutorials/frames/automatic-landscape-tree-blending---procedural-content-generation-pcg---episode-/frame_007.jpg
+- [21:00] tutorials/frames/automatic-landscape-tree-blending---procedural-content-generation-pcg---episode-/frame_008.jpg
+- [22:36] tutorials/frames/automatic-landscape-tree-blending---procedural-content-generation-pcg---episode-/frame_009.jpg
+- [25:39] tutorials/frames/automatic-landscape-tree-blending---procedural-content-generation-pcg---episode-/frame_010.jpg
+- [27:36] tutorials/frames/automatic-landscape-tree-blending---procedural-content-generation-pcg---episode-/frame_011.jpg
+- [28:51] tutorials/frames/automatic-landscape-tree-blending---procedural-content-generation-pcg---episode-/frame_012.jpg
+- [30:07] tutorials/frames/automatic-landscape-tree-blending---procedural-content-generation-pcg---episode-/frame_013.jpg
+- [31:42] tutorials/frames/automatic-landscape-tree-blending---procedural-content-generation-pcg---episode-/frame_014.jpg
+- [34:59] tutorials/frames/automatic-landscape-tree-blending---procedural-content-generation-pcg---episode-/frame_015.jpg
+- [37:25] tutorials/frames/automatic-landscape-tree-blending---procedural-content-generation-pcg---episode-/frame_016.jpg
+- [38:26] tutorials/frames/automatic-landscape-tree-blending---procedural-content-generation-pcg---episode-/frame_017.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Using a **Runtime Virtual Texture (RVT)** as a live, self-updating communication channel between PCG-placed tree meshes and the Landscape Material: trees render their own footprint into the RVT as they spawn, and the landscape material samples that RVT to automatically blend in dirt/root material, remove puddles/grass, and even deform (bump up) the terrain mesh under each tree — all of which regenerates automatically whenever the PCG seed changes, with zero manual painting.
 
 ### Summary
-[PENDING EXTRACTION]
+Addresses a gap from Episode 5's forest: PCG-placed trees look "plunked down" with no connection to the ground (no dirt, roots, or thinned grass the way real pine trees create via acidic needle drop). Hand-painting a landscape material layer under each tree would work once, but breaks the moment the PCG seed changes and trees relocate — defeating the point of procedural placement. The fix (explicitly noted as **not PCG-specific** — it works for any mesh placed on a landscape, procedural or not) is a 5-step Runtime Virtual Texture pipeline: (1) create an RVT asset configured as cheaply as possible (Mask4 format only — no color/normal/roughness — small tile count/size, few mips) since it only needs to carry a mask; (2) add a Runtime Virtual Texture Volume to the level, auto-sized to the landscape via "Bounds Aligned Actor" → Set Bounds; (3) on the PCG graph's three tree Static Mesh Spawner nodes, add the RVT asset to each mesh entry's "Runtime Virtual Textures" property so trees render into it; (4) add a `Runtime Virtual Texture Output` node to the tree material, writing a value into the Mask4 channel — starting trivially simple (a flat value of 1, i.e. solid white wherever a tree renders) and later refined into a radial falloff mask (white at trunk center, fading to black with distance, via `Local Position` → XY length → subtract/multiply/saturate/one-minus); (5) in the Landscape Material, add a `Runtime Virtual Texture Sample` node reading that RVT, extract a channel via Component Mask, and use it (through a `Height Lerp` against a dirt/roots material's height channel for a natural jagged blend, not a flat circle) as the alpha of a `Blend Material Attributes` node inserted between the existing grass logic and final output. Bonus refinements covered: inverting the mask to also suppress puddles and grass generation right at the tree base (reusing masks/logic from Episodes 3–4), and writing a *second*, smaller-radius mask into the RVT's green channel (Mask4 has 4 channels total) to drive a `World Position Offset` that physically bumps the landscape mesh upward by a few centimeters right around each tree trunk, simulating roots lifting the soil.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Create the RVT asset:** Content Drawer → right-click → search "runtime" → **Runtime Virtual Texture** (author names it `TerrainTreeDirt`). In its settings: set **Virtual Texture Content** to **Mask4** (a bare 4-channel mask texture — no color/normal/roughness/specular needed, keeps it cheap); reduce **Size of Virtual Texture in Tiles** (e.g. to 32), **Size of Each Virtual Texture Tile** (e.g. to 128), **Tile Border Padding** (e.g. to 1), and increase **Number of Low Mips to Remove** (e.g. to 4) — all to minimize resource cost since this only needs to be a coarse mask, not a detailed texture.
+2. **Add a Runtime Virtual Texture Volume to the level:** Content Drawer/viewport → Add (+) → search "runtime" → **Runtime Virtual Texture Volume**. Set its **Virtual Texture** property to the RVT asset just created, then use the built-in **Bounds Aligned Actor** tool: pick the Landscape actor and hit **Set Bounds** to auto-size the volume to exactly match the terrain.
+3. **Tell the PCG-spawned meshes to render into the RVT:** open the PCG graph, select each of the three (large/medium/small) `Static Mesh Spawner` nodes, open each mesh entry's descriptor, search the settings for "runtime" to jump straight to the **Runtime Virtual Textures** array property, and add the `TerrainTreeDirt` RVT to every tree mesh entry across all three spawners.
+4. **Make the tree material write into the RVT:** open the tree material, add a `Runtime Virtual Texture Output` node (its available input pins mirror whatever channel format the RVT asset uses — here, only **Mask4** is active since the RVT is Mask4-only). Start simple: wire a constant value of **1** into Mask4 (writes solid white wherever a tree mesh renders). Save and verify by opening the RVT asset itself — visible white dots/blobs appear where trees have rendered into it.
+5. **Sample the RVT in the Landscape Material:** add a `Runtime Virtual Texture Sample` node, set it to the `TerrainTreeDirt` asset, add a `Component Mask` node to isolate one channel (e.g. Red — since the flat-1 write puts the same value in all 4 channels initially), and temporarily wire to Base Color to confirm — viewing the landscape Unlit shows a chunky white splotch under every tree.
+6. **Insert a new material layer for the dirt/roots:** add a `Blend Material Attributes` node between the existing grass-blend output and wherever it used to feed downstream (cliffs/snow/etc.); wire the RVT-derived mask into its **Alpha**, the existing grass-material-attributes chain into slot A, and (next step) a new dirt/roots material into slot B.
+7. **Build the dirt/roots material input:** using the landscape-material CR (Color+Roughness) / NOH (Normal+Occlusion+Height) texture-packing convention from the author's earlier landscape-material series, create two `Texture Object` nodes for a Quixel Megascans "ground forest roots" material (found on Fab), wire both into a `Simple Layer` material function (a function built in that earlier series), set an appropriate texture scale (author: 237 cm), and feed the result into the Blend Material Attributes node's B slot.
+8. **Refine the mask into a radial falloff (bonus):** in the tree material, add a `Local Position` node, take the length of its X/Y components (top-down distance from trunk center), **Subtract** a constant (e.g. 40, defining a solid-white core radius) → **Multiply** by a small constant (e.g. 0.007, controlling falloff rate) → **Saturate** (clamp 0–1) → **One Minus** (flip so center = white, edges = black) → wire into Mask4 instead of the flat value-1.
+9. **Blend using the dirt material's own height detail, not the flat mask, for a natural jagged edge:** in the Landscape Material, feed the RVT-derived falloff mask into a `Height Lerp` node's **Transition Phase** input, the dirt/roots material's own **Height** channel (from its NOH texture) into **Height Texture**, and a **Contrast** of 1 — the resulting Alpha shows roots poking out unevenly at the blend boundary instead of a perfect circle; wire this Alpha into the Blend Material Attributes node instead of the raw mask.
+10. **Suppress puddles under trees:** take the Height Lerp's Alpha result, run it through a `One Minus`, and multiply it into the puddle-mask logic (from earlier in the series) so puddles never spawn where dirt/roots are present.
+11. **Suppress grass under trees:** similarly multiply the base grass mask (Episode 3) by the inverse of the dirt/roots mask, so PCG grass placement (which reads this same landscape-material mask) never grows inside the tree's root zone.
+12. **Bump the terrain up around each tree (second RVT channel):** back in the tree material, build a second, tighter-radius falloff mask using the same Local Position → Length → Subtract (smaller constant, e.g. 15) → Multiply (e.g. 0.01) → Saturate → One Minus chain, and write it into Mask4's **second channel** (green) via an `Append Many` — Mask4 supports up to 4 independent masks from one RVT. In the Landscape Material, sample this via a second `Component Mask` (Green channel) on the RVT sample, feed it into an `Append Many` building an (0, 0, Z) vector — multiplying the mask by a height constant (e.g. 35 cm) for the Z/blue component while X/Y stay 0 (no horizontal vertex movement) — and wire that into the landscape material's **World Position Offset** to physically raise the terrain mesh a few centimeters right around each tree trunk.
+13. **Verify self-updating behavior:** change the PCG graph's random seed (on the Surface Sampler node) — trees relocate, and the RVT-driven dirt/roots/puddle-suppression/grass-suppression/terrain-bump all automatically follow the new tree positions with no manual repainting.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Assets:** `Runtime Virtual Texture` (Mask4 format; Size in Tiles, Tile Size, Tile Border Padding, Low Mips to Remove tuned down for a cheap mask-only texture), `Runtime Virtual Texture Volume` (placed in level, Virtual Texture property, Bounds Aligned Actor → Set Bounds tool for auto-sizing to the landscape).
+- **PCG graph setting:** each `Static Mesh Spawner` mesh-entry descriptor's **Runtime Virtual Textures** array property (searchable via "runtime" in the descriptor's settings filter).
+- **Tree material nodes:** `Runtime Virtual Texture Output` (Mask4 input pin, matching the RVT's configured format), `Local Position`, vector `Length` (XY only), `Subtract`, `Multiply`, `Saturate`, `One Minus`, `Append Many` (for packing a second mask into another Mask4 channel).
+- **Landscape material nodes:** `Runtime Virtual Texture Sample` (BaseColor/Specular/Roughness/Normal/WorldHeight/Opacity/Mask/Displacement/Mask4 pins — only Mask4 populated here), `Component Mask` (per-channel extraction, e.g. Red for the falloff mask, Green for the terrain-bump mask), `Height Lerp` (A/B/Transition Phase/Height Texture/Contrast — used to blend dirt/roots material using its own height detail rather than a flat mask edge), `Blend Material Attributes` (Alpha = RVT-derived mask), `One Minus` (inverted mask reused to gate puddles and grass), `Append Many` feeding **World Position Offset** for terrain-bump deformation.
+- **Reused material-function convention** (from the author's earlier landscape-material series): CR (Color+Roughness) / NOH (Normal+Occlusion+Height) texture packing, `Simple Layer` material function.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced — combines Runtime Virtual Texture setup (an engine feature the author notes isn't covered elsewhere on the channel), landscape-material graph editing, and PCG-graph integration; explicitly stated to be usable with any landscape-placed mesh, not PCG-specific, but requires comfort across all three systems (RVT, materials, PCG).
 
 ### UE Version
-[PENDING EXTRACTION]
+Not explicitly stated; continues the UE 5.7-era PCG series baseline, using engine-standard Runtime Virtual Texture functionality.
 
 ### Tags
-[PENDING EXTRACTION]
+pcg, materials, landscape, rendering, pipeline, advanced, ue5-7
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/how-to-grow-a-forest-in-unreal-with-pcg---procedural-content-generation-pcg---ep.md` — Episode 5, builds the static/CPU PCG forest (three Static Mesh Spawner nodes for large/medium/small trees) that this episode adds RVT-driven ground blending to; shares tags: pcg, blueprint, pipeline.
+- `tutorials/using-landscape-grass-masks-with-pcg---procedural-content-generation-pcg---episo.md` and `tutorials/adding-multiple-detail-meshes-to-landscapes---procedural-content-generation-pcg-.md` — Episodes 3–4, source of the existing grass/puddle mask logic that this episode's inverted-RVT-mask multiplies into, to suppress grass and puddles under trees; shares tags: pcg, materials, landscape, advanced, ue5-7.
+- Next episode in this series continues PCG work per this video's end-teaser (no specific topic stated) — check for the following episode in the series playlist.
