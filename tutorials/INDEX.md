@@ -3460,6 +3460,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/adding-multiple-detail-meshes-to-landscapes---procedural-content-generation-pcg-.md
 
+
+### How To Grow A Forest in Unreal With PCG - Procedural Content Generation (PCG) - Episode 5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=DoZRYtvb8OU
+- **Author:** Ben Cloward
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-to-grow-a-forest-in-unreal-with-pcg---procedural-content-generation-pcg---ep.md
+
 ---
 
 ## Tag Reference
