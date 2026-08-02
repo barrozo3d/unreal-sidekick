@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=WQc0imxsGdI
 author: Ben Cloward
 ingested: 2026-08-02
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "Not specified (UE5.7-era)"
+tags: [pcg, blueprint, pipeline, intermediate, ue5-7]
+extraction_status: complete
 frames_dir: tutorials/frames/spawn-objects-along-splines---procedural-content-generation-pcg---episode-8/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 14
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Spawn Objects Along Splines - Procedural Content Generation (PCG) - Episode 8
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py spawn-objects-along-splines---procedural-content-generation-pcg---episode-8 <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -279,30 +275,66 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [2:28] tutorials/frames/spawn-objects-along-splines---procedural-content-generation-pcg---episode-8/frame_000.jpg
+- [5:16] tutorials/frames/spawn-objects-along-splines---procedural-content-generation-pcg---episode-8/frame_001.jpg
+- [7:17] tutorials/frames/spawn-objects-along-splines---procedural-content-generation-pcg---episode-8/frame_002.jpg
+- [9:00] tutorials/frames/spawn-objects-along-splines---procedural-content-generation-pcg---episode-8/frame_003.jpg
+- [10:52] tutorials/frames/spawn-objects-along-splines---procedural-content-generation-pcg---episode-8/frame_004.jpg
+- [11:24] tutorials/frames/spawn-objects-along-splines---procedural-content-generation-pcg---episode-8/frame_005.jpg
+- [13:32] tutorials/frames/spawn-objects-along-splines---procedural-content-generation-pcg---episode-8/frame_006.jpg
+- [14:20] tutorials/frames/spawn-objects-along-splines---procedural-content-generation-pcg---episode-8/frame_007.jpg
+- [15:01] tutorials/frames/spawn-objects-along-splines---procedural-content-generation-pcg---episode-8/frame_008.jpg
+- [17:07] tutorials/frames/spawn-objects-along-splines---procedural-content-generation-pcg---episode-8/frame_009.jpg
+- [17:38] tutorials/frames/spawn-objects-along-splines---procedural-content-generation-pcg---episode-8/frame_010.jpg
+- [19:36] tutorials/frames/spawn-objects-along-splines---procedural-content-generation-pcg---episode-8/frame_011.jpg
+- [21:18] tutorials/frames/spawn-objects-along-splines---procedural-content-generation-pcg---episode-8/frame_012.jpg
+- [22:07] tutorials/frames/spawn-objects-along-splines---procedural-content-generation-pcg---episode-8/frame_013.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Using the built-in `TPL_SamplerSpline` PCG template to spawn objects **along** an open-ended spline (not just within a boundary): a simple, independent-object case (a row of traffic cones with random rotation/offset) and a more advanced connected-object case (a modular fence whose segments must orient toward each other around corners, using a "cheap look-at" trick built from a second linear spline + zero-subdivision spline sampler, plus special handling to cap the very last point with a termination post instead of a full fence segment).
 
 ### Summary
-[PENDING EXTRACTION]
+Generalizes Episode 7's spline techniques from area boundaries to **linear placement** — useful for fences, streetlights, railroad tracks, cement barriers, power poles, or anything arranged in a row/along a path. Starts with an open-ended `Draw Spline` (distinct from Episode 7's closed-loop `Draw Spline Surface`), tagged the same way as before. The `TPL_SamplerSpline` template graph provides `Get Spline Data` (by tag) → `Spline Sampler` (On Spline, Distance mode, configurable spacing) → `Debug` (visualizes point position *and* orientation via an axis-tripod mesh) out of the box. For traffic cones — objects that don't need to physically connect — a `Static Mesh Spawner` with 2 mesh variants plus a `Transform Points` node (random Z rotation ±180°, random X/Y offset ±40cm, but **no** Z offset so cones stay grounded) is enough to look natural. For a modular fence — where adjacent segments must connect at their pivot points — simple point-along-spline placement fails at corners because each point only carries the *spline's* orientation, not a "look toward the next point" orientation. The fix avoids a full look-at rotation calculation: create a second, **linear** spline from the same point set (so it forms tiny straight segments from each point to the next), sample *that* spline with a **Subdivisions = 0** Spline Sampler, and use its resulting per-point rotations (which now point at the next point in the sequence) to orient the fence meshes — a cheap trick that reuses existing nodes instead of custom math. Finally, since the last fence segment has no "next point" to connect to and creates a dangling horizontal beam, the episode isolates the spline's final point via `Filter Elements by Index` (index **-1**, meaning "last, regardless of total count"), subtracts it from the main point set with a `Difference` node before the fence spawner, and spawns a different, single-post mesh at that isolated last point instead — giving the fence a clean terminated end. The whole system remains fully spline-editable: dragging any spline point instantly re-flows every spawned object.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Create the spline:** Place a Basic Actor → Selection Mode → PCG → **Draw Spline** (open-ended, as opposed to Episode 7's closed-loop Draw Spline Surface) → click-drag to lay out a path → Accept. Tag the actor (Details → Tags → +) with a keyword (e.g. `spline`).
+2. **Start from the template:** Content Drawer → PCG folder → right-click → PCG → PCG Graph → pick **TPL_SamplerSpline** → Initialize from Template (rather than an empty graph) → drop onto the level, resize its bounding box to comfortably contain the spline (author: 40×40).
+3. **Wire the template to the tagged spline:** on the auto-created `Get Spline Data` node, set Actor Filter to **All World Actors**, selection method to **by Tag**, and type the matching tag (e.g. `spline`).
+4. **Understand the template's 3 starting nodes:** `Get Spline Data` (finds the tagged spline) → `Spline Sampler` (Dimension = On Spline, Sample Mode = Distance, Distance Increment in cm — controls point spacing along the path) → `Debug` (spawns a directional axis-tripod mesh per point, showing both position *and* orientation — useful for diagnosing rotation issues later).
+5. **Traffic-cone case:** disconnect Debug, add a `Static Mesh Spawner` fed by Spline Sampler, add 2+ mesh entries (different cone variants) for visual variety. Insert a `Transform Points` node between Spline Sampler and the spawner: Rotation Min/Max on Z = -180° to 180° (random yaw), Offset Min/Max on X/Y = -40 to 40 cm (slight scatter) — deliberately **no Z offset**, so cones stay planted on the ground rather than floating/sinking.
+6. **Fence case — spacing:** duplicate the Static Mesh Spawner, swap in a modular fence mesh, and set the Spline Sampler's Distance Increment to match the fence segment's real-world length (author: 156 cm) so segments meet edge-to-edge instead of leaving gaps.
+7. **Fence case — corner orientation problem:** re-enable Debug to see that each point's axis-tripod points along the *spline's* local tangent at that point, not toward the *next point in the sequence* — at sharp corners this leaves adjacent fence segments' pivot points misaligned/disconnected.
+8. **Fence case — cheap look-at fix:** from the same point set, create a **new spline** via a spline-creation node set to **Linear** interpolation (this effectively draws a tiny straight-line segment from each point to the next) → feed it into a **second** `Spline Sampler` node configured with **Subdivisions = 0** — this produces one point per original point, each rotated to face the next point in the sequence, without any manual look-at math.
+9. **Connect the corrected points to the fence spawner** — segments now stay attached to each other even around sharp turns.
+10. **Handle the fence's dangling end:** add a `Filter Elements by Index` node fed by the (corrected) point set; uncheck "Select Indices by Input," check "Select Specific Indices," and enter **-1** (Unreal's PCG convention for "last point," regardless of how many points exist) to isolate just the final point.
+11. **Remove that last point from the main fence set:** add a `Difference` node — Source = the main (corrected) point set, Differences = the isolated last-point set — producing a point set with the last point excluded (an intermediate spatial→point type-conversion node is auto-inserted, as in Episode 7). Wire this into the original fence Static Mesh Spawner so the standard 2-beam fence segment no longer spawns at the very end.
+12. **Cap the end with a post:** duplicate the fence Static Mesh Spawner again, replace its mesh entry with a single vertical post mesh (no horizontal beams), and wire the isolated last-point set into it — giving the fence a clean, physically sensible termination instead of a beam hanging off into nothing.
+13. **Verify editability:** dragging any spline control point in the level instantly re-flows every spawned traffic cone or fence segment to match the new path — no manual re-placement needed.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Level tools:** Selection Mode → PCG → **Draw Spline** (open path, vs. Episode 7's Draw Spline Surface closed loop), Actor Tags.
+- **PCG template:** `TPL_SamplerSpline` (provides Get Spline Data → Spline Sampler → Debug out of the box).
+- **Core nodes:** `Get Spline Data` (Actor Filter = All World Actors, selection by Tag), `Spline Sampler` (Dimension: On Spline; Sample Mode: Distance; Distance Increment), `Debug` (per-point axis-tripod mesh showing orientation, not just position), `Static Mesh Spawner`, `Transform Points` (Rotation/Offset Min-Max per axis).
+- **Look-at-trick nodes:** a spline-creation node set to **Linear** interpolation mode (builds point-to-point straight segments), a second `Spline Sampler` with **Subdivisions = 0**.
+- **End-termination nodes:** `Filter Elements by Index` (Select Specific Indices, index **-1** = last point regardless of count), `Difference` (Source/Differences, same node family as Episode 7's exclusion-zone technique).
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate — the traffic-cone case is straightforward; the fence case's look-at trick and last-point termination logic require understanding PCG's spatial data types and node-chaining patterns, but no custom math/HLSL is needed (explicitly contrasted with "more complicated" look-at rotation methods the author chose to skip).
 
 ### UE Version
-[PENDING EXTRACTION]
+Not explicitly stated; continues the UE 5.7-era PCG series baseline.
 
 ### Tags
-[PENDING EXTRACTION]
+pcg, blueprint, pipeline, intermediate, ue5-7
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/using-splines-for-boundaries---procedural-content-generation-pcg---episode-.md` — Episode 7, introduces spline tagging and the `Difference` node in a boundary/exclusion context; this episode reuses both for linear placement and end-point termination respectively; shares tags: pcg, blueprint, pipeline, ue5-7.
+- `tutorials/how-to-grow-a-forest-in-unreal-with-pcg---procedural-content-generation-pcg---ep.md` — Episode 5, establishes the `Transform Points` (random rotation/offset/scale) pattern reused here for traffic-cone variation.

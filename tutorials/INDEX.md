@@ -3495,9 +3495,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=WQc0imxsGdI
 - **Author:** Ben Cloward
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** Not specified (UE5.7-era)
+- **Tags:** pcg, blueprint, pipeline, intermediate, ue5-7
+- **Summary:** Uses the TPL_SamplerSpline template (Get Spline Data by tag → Spline Sampler On Spline/Distance mode → Debug) to spawn traffic cones (Transform Points random Z rotation + XY offset, no Z) and a connected modular fence, fixing corner-orientation gaps via a cheap look-at trick (linear-interpolated second spline + Subdivisions=0 Spline Sampler) and capping the dangling last segment via Filter Elements by Index (-1) + Difference + a dedicated end-post spawner.
 - **File:** tutorials/spawn-objects-along-splines---procedural-content-generation-pcg---episode-8.md
 
 
