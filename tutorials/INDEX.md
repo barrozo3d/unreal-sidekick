@@ -3510,6 +3510,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/adding-rocks-with-hierarchical-generation---procedural-content-generation-pcg---.md
 
+
+### Creating Magic Moss With PCG - Procedural Content Generation (PCG) - Episode 10
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=QyCzfsuakuY
+- **Author:** Ben Cloward
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/creating-magic-moss-with-pcg---procedural-content-generation-pcg---episode-10.md
+
 ---
 
 ## Tag Reference
