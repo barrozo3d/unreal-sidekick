@@ -3455,9 +3455,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=ceP88Hvopao
 - **Author:** Ben Cloward
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** Not specified (UE5.7-era)
+- **Tags:** pcg, materials, landscape, hlsl, blueprint, pipeline, advanced, ue5-7
+- **Summary:** Splits Episode 3's single grass mask into per-biome sub-masks (lush grass / dry grass / stones, via One Minus + Multiply chains and a Levels-adjustment rocks mask) each carried by its own Landscape Grass Type asset into its own duplicated PCG graph, independently tuned (point count, grid size, spatial noise removed where the landscape mask already provides breakup, and a stones-only HLSL Z-offset to sink them into the terrain).
 - **File:** tutorials/adding-multiple-detail-meshes-to-landscapes---procedural-content-generation-pcg-.md
 
 

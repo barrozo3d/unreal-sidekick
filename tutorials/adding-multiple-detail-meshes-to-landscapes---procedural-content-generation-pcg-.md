@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=ceP88Hvopao
 author: Ben Cloward
 ingested: 2026-08-02
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "Not specified (UE5.7-era)"
+tags: [pcg, materials, landscape, hlsl, blueprint, pipeline, advanced, ue5-7]
+extraction_status: complete
 frames_dir: tutorials/frames/adding-multiple-detail-meshes-to-landscapes---procedural-content-generation-pcg-/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 15
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Adding Multiple Detail Meshes to Landscapes - Procedural Content Generation (PCG) - Episode 4
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py adding-multiple-detail-meshes-to-landscapes---procedural-content-generation-pcg- <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -232,30 +228,73 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [1:12] tutorials/frames/adding-multiple-detail-meshes-to-landscapes---procedural-content-generation-pcg-/frame_000.jpg
+- [2:23] tutorials/frames/adding-multiple-detail-meshes-to-landscapes---procedural-content-generation-pcg-/frame_001.jpg
+- [4:29] tutorials/frames/adding-multiple-detail-meshes-to-landscapes---procedural-content-generation-pcg-/frame_002.jpg
+- [5:39] tutorials/frames/adding-multiple-detail-meshes-to-landscapes---procedural-content-generation-pcg-/frame_003.jpg
+- [6:26] tutorials/frames/adding-multiple-detail-meshes-to-landscapes---procedural-content-generation-pcg-/frame_004.jpg
+- [8:00] tutorials/frames/adding-multiple-detail-meshes-to-landscapes---procedural-content-generation-pcg-/frame_005.jpg
+- [8:37] tutorials/frames/adding-multiple-detail-meshes-to-landscapes---procedural-content-generation-pcg-/frame_006.jpg
+- [9:17] tutorials/frames/adding-multiple-detail-meshes-to-landscapes---procedural-content-generation-pcg-/frame_007.jpg
+- [11:19] tutorials/frames/adding-multiple-detail-meshes-to-landscapes---procedural-content-generation-pcg-/frame_008.jpg
+- [12:26] tutorials/frames/adding-multiple-detail-meshes-to-landscapes---procedural-content-generation-pcg-/frame_009.jpg
+- [14:02] tutorials/frames/adding-multiple-detail-meshes-to-landscapes---procedural-content-generation-pcg-/frame_010.jpg
+- [15:04] tutorials/frames/adding-multiple-detail-meshes-to-landscapes---procedural-content-generation-pcg-/frame_011.jpg
+- [18:07] tutorials/frames/adding-multiple-detail-meshes-to-landscapes---procedural-content-generation-pcg-/frame_012.jpg
+- [19:44] tutorials/frames/adding-multiple-detail-meshes-to-landscapes---procedural-content-generation-pcg-/frame_013.jpg
+- [21:05] tutorials/frames/adding-multiple-detail-meshes-to-landscapes---procedural-content-generation-pcg-/frame_014.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Extending the single-mask PCG grass workflow (Episode 3) to **multiple, mutually-exclusive detail-mesh types per landscape "biome"**: splitting one combined grass mask into per-type sub-masks (lush grass / dry grass / stones) in the Landscape Material, feeding each into its own duplicated PCG graph + Landscape Grass Type asset, and tuning each graph's parameters and HLSL independently so the detail meshes visually "partner" with whatever landscape texture they sit on.
 
 ### Summary
-[PENDING EXTRACTION]
+Builds directly on Episodes 2–3's single grass mask by dividing the landscape into altitude-based "biomes" — lush/mossy grass at low altitude, dry/rocky grass at high altitude — and pairing each with its own hand-picked detail meshes: 3 lush grass meshes (from earlier episodes), a set of "thatching grass" + "grass clumps" for the dry area, and a pebble/stone mesh set placed specifically where the dry-grass texture shows exposed rocks. In the Landscape Material, one base grass mask (terrain-angle × inverse-snow × inverse-puddle, from Ep.3) is intersected with a new **dry grass mask** (and its inverse for lush grass) and with a **Levels-adjustment-derived rocks mask** (crushing the dry grass texture's own albedo/roughness into a black/white "where are the visible pebbles" mask) to get a clean dry-grass-without-rocks mask and a separate stones mask. Three separate `Landscape Grass Type` assets (`LGT_PCGGrass`, `LGT_PCGDryGrass`, `LGT_PCGStones`) carry these three masks out to three duplicated PCG graphs (PCG Grass, PCG Dry Grass, PCG Pebbles), each independently tuned: different point counts (3,500 grass / 10,000 dry grass, since the meshes are smaller / 2,500 stones), different grid/tile sizes (1600 for grass and dry grass, 800 for the smaller stones), spatial noise removed from the dry-grass and stones graphs (redundant since the landscape mask itself already provides the breakup), and — for stones specifically — a small HLSL tweak subtracting a constant (author settles on **-1.5**) from each point's Z position so stones visually sink slightly into the terrain instead of floating on top of it. Ends with a teaser for next week: switching from this GPU/runtime PCG approach to CPU/static PCG for large boulders and trees.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Design the mesh-to-material pairing first** (not a PCG step, but the prerequisite decision): match detail mesh sets to the landscape textures they'll sit on — lush grass clumps for the low-altitude mossy texture, thatching grass + pebbly rocks for the high-altitude dry/rocky texture — because the visual goal is meshes and materials "supporting each other."
+2. **Split the existing combined grass mask (Ep.3) into a dry-grass sub-mask:** in the Landscape Material, build a new mask from whatever drives the material's own lush/dry texture blend (e.g. an altitude-based blend factor); preview by wiring directly to Base Color.
+3. **Derive the lush-grass mask** as the base grass mask (terrain-angle × inverse-snow × inverse-puddle) multiplied by **One Minus** the dry-grass mask — i.e. base mask minus wherever dry grass appears.
+4. **Derive the dry-grass mask** as the base grass mask multiplied directly by the (rounded) dry-grass mask.
+5. **Build a rocks/stones mask from the dry-grass texture's own detail:** feed the dry grass texture into a **Levels adjustment** node (same concept as Photoshop levels) tuned so it outputs white wherever the texture shows visible rock/pebble detail and black elsewhere.
+6. **Clean the dry-grass mask of rocks:** take **One Minus** the rocks mask, multiply it by the dry-grass mask — result is white where dry grass (but not exposed rock) should spawn.
+7. **Wire the stones mask directly** from the Levels-adjustment output into the Landscape Grass node's stones input (no further combination needed).
+8. **Create three separate `Landscape Grass Type` assets** — one per detail-mesh category (author: `LGT_PCGGrass`, `LGT_PCGDryGrass`, `LGT_PCGStones`, made by duplicating the original asset from Ep.3) — and on the material's `Landscape Grass Output` node, add **one array element per asset**, each with its matching mask wired in and its Grass Type slot set to the corresponding asset.
+9. **Duplicate the PCG graph once per detail-mesh category** (PCG Grass already existed; author adds **PCG Dry Grass** and **PCG Pebbles** as copies), then per graph:
+   - Point Generator: set an appropriate point count (3,500 grass / 10,000 dry grass — smaller meshes need more points to fill the same area / 2,500 stones — fewer, larger objects).
+   - `Generate Landscape Textures` node's Select Grass Types entry: point it at the matching `LGT_PCG*` asset name for that graph, so the correct mask flows in.
+   - Point Generator's HLSL: update the grass-mask sampling code's asset-name reference to match this graph's Landscape Grass Type (must exactly match the Select Grass Types entry, per the naming rule established in Ep.3).
+   - Remove the spatial-noise HLSL block (the density-reducing noise term and its `density -= spatialNoise` line) from the dry-grass and stones graphs specifically, since the landscape-material mask itself already provides organic breakup — this saves a compute-shader calculation per point.
+   - `Change Grid Size`: smaller assets (stones) use a smaller tile size (800 vs. the default 1600) to manage them in finer-grained chunks.
+   - `Static Mesh Spawner`: swap in the category-appropriate mesh set (e.g. 9 different thatching-grass mesh entries for dry grass) and re-check any per-mesh settings from Ep.2 (shadows, WPO falloff, etc.) that need to apply to the new assets.
+   - Parameter Overrides: retune Point Scale Min/Max and density-noise ranges per asset type (e.g. dry grass 0.7–1.2 scale; stones smaller, 0.3–0.7 scale, spatial noise strength set to 0 since it was removed from the shader).
+10. **Sink stones into the terrain (stones graph only):** in the HLSL, find where a point's `position.z` is set to the landscape height, and subtract a small constant offset (author tests -1.5 and -3.0, settles on **-1.5 cm**) so stone meshes partially embed in the ground instead of floating on the surface — save and **Force Regen** to preview.
+11. **Add each PCG graph to the landscape as a separate actor:** drag-drop each graph onto the level, center at the origin, scale to cover the whole terrain (author uses 140×140×60 for all three), and set **Is Partitioned** = true and **Generation Trigger** = **Generate at Runtime** on each (same runtime-streaming setup as Ep.2/3, repeated per graph instance).
+12. **Verify in Play mode:** running across the terrain shows a smooth altitude-based blend from lush grass → dry grass/pebbles, driven entirely by the landscape-material masks feeding three independently-tuned runtime-GPU PCG graphs.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Assets:** three `Landscape Grass Type` assets (`LGT_PCGGrass`, `LGT_PCGDryGrass`, `LGT_PCGStones`), three PCG graphs (PCG Grass, PCG Dry Grass, PCG Pebbles) as duplicates of the Ep.2/3 graph.
+- **Landscape Material nodes:** existing `TerrainAngleMask`/snow/puddle mask chain (Ep.3) as the base grass mask; new **Levels** adjustment node (rocks-from-texture mask); `One Minus` and `Multiply` chains to derive lush/dry/stones sub-masks; `Landscape Grass Output` node extended to 3 array elements, each bound to its own Grass Type asset and mask.
+- **Per-graph PCG settings varied:** Point Generator point count (3,500 / 10,000 / 2,500), `Change Grid Size` tile size (1600 / 1600 / 800), `Generate Landscape Textures` → Select Grass Types entry (must match each graph's Landscape Grass Type name), Point Generator HLSL (grass-mask asset-name reference per graph; spatial-noise block removed for dry grass and stones; stones-only Z-position offset of -1.5 for ground-sinking), Static Mesh Spawner mesh entries (category-specific meshes), Parameter Overrides (Point Scale Min/Max, spatial noise strength/density min-max, tuned per asset type).
+- **Per-graph-instance level settings** (repeated for each of the 3 graph actors placed on the landscape): Scale (140×140×60), `Is Partitioned` = true, `Generation Trigger` = Generate at Runtime.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced — builds directly on the HLSL-editing and landscape-material-masking techniques from Episodes 2–3, adding the complexity of managing three parallel, independently-tuned graph/mask/asset triads that must stay name-consistent with each other.
 
 ### UE Version
-[PENDING EXTRACTION]
+Not explicitly stated; direct continuation of the UE 5.7-era runtime GPU PCG grass system from Episodes 2–3.
 
 ### Tags
-[PENDING EXTRACTION]
+pcg, materials, landscape, hlsl, blueprint, pipeline, advanced, ue5-7
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/using-landscape-grass-masks-with-pcg---procedural-content-generation-pcg---episo.md` — Episode 3, establishes the single-mask HLSL-editing technique (Landscape Grass Type asset, Generate Landscape Textures node, Grass Mask input pin, HLSL point-culling) that this episode extends to three parallel masks; shares tags: pcg, materials, landscape, hlsl, advanced, ue5-7.
+- `tutorials/efficient-grass-with-pcg---procedural-content-generation-pcg---episode-2.md` — Episode 2, the base runtime-GPU grass graph (Is Partitioned, Generate at Runtime, tile/cull-distance tuning) that all three graphs in this episode are duplicated from.
+- Next episode in this series moves from GPU/runtime PCG to CPU/static PCG for large boulders and trees, per this video's own end-teaser — look for a title matching that CPU-focused follow-up (likely "How To Grow A Forest in Unreal With PCG").
