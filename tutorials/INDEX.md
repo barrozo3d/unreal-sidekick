@@ -3520,6 +3520,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/creating-magic-moss-with-pcg---procedural-content-generation-pcg---episode-10.md
 
+
+### Filtering Overlapping Objects - Procedural Content Generation (PCG) - Episode 11
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=ikhRzWHisEw
+- **Author:** Ben Cloward
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/filtering-overlapping-objects---procedural-content-generation-pcg---episode-11.md
+
 ---
 
 ## Tag Reference
