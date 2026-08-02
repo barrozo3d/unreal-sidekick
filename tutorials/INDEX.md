@@ -3435,9 +3435,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=jL8-C2VvpxY
 - **Author:** Ben Cloward
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** Not specified (UE5.7-era)
+- **Tags:** pcg, blueprint, materials, pipeline, intermediate, advanced, ue5-7
+- **Summary:** Builds a runtime GPU-driven grass system from the TPL_Showcase_RuntimeGrassGPU template: GPU-tagged Get Landscape Data → Change Grid Size → Point Generator → Static Mesh Spawner chain, safely enabling Is Partitioned + Generate at Runtime, controlling density/distance via tile size / generation radii / per-mesh cull distance, spawner efficiency settings (shadows, WPO falloff), parameter-override tuning (scale, spatial noise), and eliminating tile-pop via matched Start/End cull distances plus a Per Instance Fade Amount material node.
 - **File:** tutorials/efficient-grass-with-pcg---procedural-content-generation-pcg---episode-2.md
 
 

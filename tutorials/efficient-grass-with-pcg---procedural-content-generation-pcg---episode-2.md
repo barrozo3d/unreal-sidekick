@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=jL8-C2VvpxY
 author: Ben Cloward
 ingested: 2026-08-02
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "Not specified (UE5.7-era)"
+tags: [pcg, blueprint, materials, pipeline, intermediate, advanced, ue5-7]
+extraction_status: complete
 frames_dir: tutorials/frames/efficient-grass-with-pcg---procedural-content-generation-pcg---episode-2/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 16
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Efficient Grass With PCG - Procedural Content Generation (PCG) - Episode 2
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py efficient-grass-with-pcg---procedural-content-generation-pcg---episode-2 <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -477,30 +473,73 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [3:39] tutorials/frames/efficient-grass-with-pcg---procedural-content-generation-pcg---episode-2/frame_000.jpg
+- [7:47] tutorials/frames/efficient-grass-with-pcg---procedural-content-generation-pcg---episode-2/frame_001.jpg
+- [12:19] tutorials/frames/efficient-grass-with-pcg---procedural-content-generation-pcg---episode-2/frame_002.jpg
+- [14:13] tutorials/frames/efficient-grass-with-pcg---procedural-content-generation-pcg---episode-2/frame_003.jpg
+- [14:40] tutorials/frames/efficient-grass-with-pcg---procedural-content-generation-pcg---episode-2/frame_004.jpg
+- [17:16] tutorials/frames/efficient-grass-with-pcg---procedural-content-generation-pcg---episode-2/frame_005.jpg
+- [18:47] tutorials/frames/efficient-grass-with-pcg---procedural-content-generation-pcg---episode-2/frame_006.jpg
+- [20:07] tutorials/frames/efficient-grass-with-pcg---procedural-content-generation-pcg---episode-2/frame_007.jpg
+- [23:05] tutorials/frames/efficient-grass-with-pcg---procedural-content-generation-pcg---episode-2/frame_008.jpg
+- [24:13] tutorials/frames/efficient-grass-with-pcg---procedural-content-generation-pcg---episode-2/frame_009.jpg
+- [25:14] tutorials/frames/efficient-grass-with-pcg---procedural-content-generation-pcg---episode-2/frame_010.jpg
+- [28:23] tutorials/frames/efficient-grass-with-pcg---procedural-content-generation-pcg---episode-2/frame_011.jpg
+- [34:08] tutorials/frames/efficient-grass-with-pcg---procedural-content-generation-pcg---episode-2/frame_012.jpg
+- [36:02] tutorials/frames/efficient-grass-with-pcg---procedural-content-generation-pcg---episode-2/frame_013.jpg
+- [37:13] tutorials/frames/efficient-grass-with-pcg---procedural-content-generation-pcg---episode-2/frame_014.jpg
+- [38:51] tutorials/frames/efficient-grass-with-pcg---procedural-content-generation-pcg---episode-2/frame_015.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Building a **runtime, GPU-driven PCG grass system** from Epic's `TPL_Showcase_RuntimeGrassGPU` template: points are generated and mesh-spawned entirely on the GPU in real time around the player (tile-streamed, not static/offline), then tuned for density, distance culling, and smooth material-based fade-out to avoid visible pop-in/pop-out.
 
 ### Summary
-[PENDING EXTRACTION]
+Second episode in Ben Cloward's PCG series, opening with a key conceptual distinction: PCG has two spawning styles — **offline/static CPU point generation** (Episode 1's approach; good for hundreds/thousands of large static objects like rocks and trees, bounded by a volume/spline) versus **runtime GPU point generation** (this episode; for millions of small objects like grass, streamed in/out around the player in grid tiles as they move). The bulk of the video is building a production-quality runtime grass system from Epic's GPU showcase template: understanding the template's GPU-tagged node chain, safely enabling runtime generation (to avoid crashing the editor by spawning too many points at once), controlling grass density/distance via three independent levers (tile size, tile spawn distance, per-point cull distance), swapping in real grass meshes with a long list of spawner-efficiency settings (shadows, world-position-offset falloff, indirect lighting), tuning parameter-overrides (point scale, density-based scale, spatial noise) for a natural non-uniform look, and finally eliminating visible "tile popping" at the render distance by combining per-mesh start/end cull distances with a `Per Instance Fade Amount` material node so grass fades out smoothly instead of hard-clipping. Ends by teasing next week's episode: masking grass spawn locations using a landscape material mask.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Create from template:** Content Drawer → PCG folder → right-click → PCG → PCG Graph → in the template browser pick **TPL_Showcase_RuntimeGrassGPU** → Initialize from Template (instead of Create Empty Graph as in Ep.1) → name it (e.g. "PCGGrass").
+2. **Understand the template graph:** `Get Landscape Data` (finds the level's landscape, passes landscape data downstream) → `Change Grid Size` (controls the runtime streaming tile size, via a Grid Cell Volume-type parameter) → `Point Generator` (a custom **HLSL compute-shader node, tagged GPU** — generates points entirely on the GPU) → `Static Mesh Spawner` (also tagged **GPU**, with "Execute on GPU" checked in its Details panel — spawns meshes without CPU round-trip) → separately, a `Get Graph Parameter` node feeds a big set of exposed graph parameters into the Point Generator. **Rule of thumb: once a node chain says GPU, keep everything downstream on GPU** — bouncing back to a CPU node and back costs a lot of round-trip data-transfer time.
+3. **Drop the graph into the level** and re-center its spawn-boundary box at the origin. At this point it's still using **static** point generation (deliberately, to prevent accidentally spawning too many points at once and crashing the editor) — box size stays small (e.g. 25×25) until the runtime settings are properly staged.
+4. **Enable `Is Partitioned`** on the PCG component's graph-instance settings — splits the spawn volume into grid tiles, each independently getting the configured point count (instead of the whole box sharing one global point budget).
+5. **Switch `Generation Trigger`** from **Generate on Load** to **Generate at Runtime** — points now only spawn during Play, not when the level loads in the editor.
+6. (Optional, for testing) Add the **Third Person content pack** (Content Drawer → Add → Add Feature or Content Pack) and set World Settings → Game Mode Override to **BP Third Person Game Mode** to run around and see streaming live.
+7. **Scale the spawn box up** to cover the whole terrain (e.g. 140×140×60 — Z doesn't matter much) now that Is Partitioned + runtime generation are both safely enabled.
+8. To preview streaming in the **editor** (not just Play mode): on the PCG World Actor, enable **Treat Editor Viewport as Generation Source** — tiles then stream in/out around the editor camera instead of only the game camera.
+9. **Control distance/density with three independent levers:** (a) **Tile size** — the `Change Grid Size` node's grid-size dropdown (e.g. 800 vs. 1600; smaller tiles = more granular streaming but more memory overhead for the engine to track); (b) **Tile spawn distance** — Graph Settings → Runtime Generation → Generation Radii, a per-grid-size list of distances at which tiles start generating (e.g. 1600-size tiles at a 3200 radius); (c) **Per-point cull distance** — in the `Static Mesh Spawner`'s Mesh Entries → each descriptor has **Start Cull Distance / End Cull Distance**, searchable via the settings search box (type "cull") since the descriptor has an enormous parameter list. Setting per-mesh cull distances slightly inside the tile-spawn radius (and varying them slightly per mesh) turns hard jagged tile-edge pop-in into a softer, staggered circular cull boundary around the camera.
+10. **Reduce point count for real grass:** the template defaults to a huge number (262,144 points) meant for the stand-in preview cubes — drop this via the `Point Generator` node to something practical (e.g. 3,500) before swapping in real meshes.
+11. **Add real grass meshes:** in `Static Mesh Spawner` → Mesh Entries, delete the temporary stand-ins (trash icon) and add real static meshes (e.g. 3 different grass-clump variants) via **+** → Descriptor → Static Mesh.
+12. **Tune spawner efficiency settings** (the descriptor's parameter list is huge — use the search box): disable **Cast Shadow / Cast Dynamic Shadow / Cast Static Shadow / Cast Contact Shadow**, set **Shadow Cache Invalidation Behavior** to **Static** (prevents constant shadow-cache redraws from wind-animated foliage); set a **World Position Offset** distance-disable threshold (e.g. ~1900–2000, varied slightly per mesh) so wind sway stops once grass is far enough to not matter; disable contribution to **indirect/distance-field lighting**.
+13. **Fix undersized grass** via the PCG component's **Parameter Overrides**: `Point Scale Min/Max` (e.g. 0.5–1.5) and a density-driven scale range, `Scale By Density Min/Max` (e.g. 0.7–1.5) — density here comes from a noise texture projected onto the terrain (brighter = larger scale).
+14. **Tune clumping via spatial noise parameters:** an overall density multiplier (1 = full requested point count per tile, lower = sparser), a randomness filter, a **spatial noise scale** (frequency/size of clumps — higher = smaller, more frequent clumps), and a **spatial noise strength** (0 = uniform full coverage, higher = more pronounced clumping/gaps) — plus min/max density-scaling and per-point random seeds.
+15. **Eliminate tile-edge popping (final polish):** set matching Start/End Cull Distance pairs per mesh close together at first (e.g. 2700/2700) to confirm hard culling works, then widen the gap between Start and End (e.g. 2100→2700, 2600→3100, 2100→2900, staggered per mesh) to create a fade zone instead of a hard cutoff.
+16. **Wire the material for fading to actually work:** the mesh's material graph needs a **Per Instance Fade Amount** node (white at Start Cull Distance, black at End Cull Distance) multiplied into the opacity value, run through a **Dither Temporal AA** node, then into **Opacity Mask** — without this exact material setup, cull-distance fading has no visible effect and meshes will still hard-pop even with a wide Start/End gap.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **PCG Graph template:** `TPL_Showcase_RuntimeGrassGPU`.
+- **Nodes:** `Get Landscape Data`, `Change Grid Size` (Grid Cell Volume / grid-size dropdown), `Point Generator` (custom HLSL/compute-shader node, GPU-tagged), `Static Mesh Spawner` (GPU-tagged, "Execute on GPU" toggle, Mesh Entries array with per-entry Start/End Cull Distance plus a very large descriptor parameter list searchable by keyword — shadow-*, world position offset, lighting, cull), `Get Graph Parameter`.
+- **PCG Component / graph-instance settings:** `Is Partitioned` (splits volume into grid tiles), `Generation Trigger` (Generate on Load vs. Generate at Runtime), Parameter Overrides (Point Scale Min/Max, Scale By Density Min/Max, spatial noise density multiplier / randomness / scale / strength, seeds).
+- **Graph Settings → Runtime Generation → Generation Radii:** per-grid-size list controlling spawn-in distance for tiles.
+- **PCG World Actor setting:** `Treat Editor Viewport as Generation Source` (lets the editor camera drive streaming for in-editor preview).
+- **Material graph node:** `Per Instance Fade Amount` → multiply into opacity → `Dither Temporal AA` → Opacity Mask (required for cull-distance fading to visually work; used on the Megascans grass material shown).
+- **Project setup (optional, for live testing):** Third Person content pack, Game Mode Override = BP Third Person Game Mode.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate/Advanced — assumes Episode 1's basic PCG concepts; introduces GPU compute-shader nodes, runtime streaming/partitioning safety concerns (editor-crash risk from over-spawning), and material-graph integration (Per Instance Fade Amount) alongside the PCG graph itself.
 
 ### UE Version
-[PENDING EXTRACTION]
+Not explicitly stated; continues directly from Episode 1's UE 5.7 "production ready" PCG baseline — GPU-based runtime point generation via `TPL_Showcase_RuntimeGrassGPU` is a 5.7-era template.
 
 ### Tags
-[PENDING EXTRACTION]
+pcg, blueprint, materials, pipeline, intermediate, advanced, ue5-7
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/introduction-to-procedural-content-generation-pcg---episode-1.md` — Episode 1 of this same series (Ben Cloward), establishes the static/CPU point-generation basics that this episode explicitly contrasts against runtime/GPU generation; shares tags: pcg, blueprint, pipeline.
+- Next episode in this series (landscape grass masks, using a landscape-material-generated mask to control PCG spawn locations) is the direct continuation of the "next week" teaser at the end of this video — check for it under a title like "Using Landscape Grass Masks With PCG."
