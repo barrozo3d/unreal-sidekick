@@ -3545,9 +3545,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=5fY3S-da_dI
 - **Author:** PivotOn
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** Not specified (standard UE5.x features)
+- **Tags:** `#materials` `#shaders` `#pbr` `#instances` `#vegetation` `#landscape` `#pipeline` `#intermediate` `#advanced`
+- **Summary:** Background/environment artist shares (1) how they learned Materials — reverse-engineering real reference projects (Paragon, a medieval village env) one node cluster at a time rather than studying theory first, with `DotProduct` called out as the single most-reused node across masks/lighting/Fresnel; and (2) a production Master Material hierarchy: split Master Materials by rendering differences (domain/blend mode/shading model) or workflow differences (baked/tiling/landscape), then layer "representative" Material Instances between each Master Material and per-asset instances so shared settings update in one place and asset creators never need to hand-configure static switches.
 - **File:** tutorials/언리얼-머티리얼-저는-이렇게-공부하고-관리합니다.md
 
 ---
