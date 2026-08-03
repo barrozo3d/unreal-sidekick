@@ -3540,6 +3540,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Enabling Substrate (Project Settings, one-way trip, GBuffer Blendable vs. Adaptive tradeoff) and understanding the new Front Material input + Substrate Slab node, which replaces Base Color/Metallic/Specular/Roughness with Diffuse Albedo/F0/F90/Roughness; shows reproducing an old-style material exactly via the Substrate Metalness to Diffuse Color F0 conversion node.
 - **File:** tutorials/introduction-to-substrate---episode-1.md
 
+
+### 언리얼 머티리얼, 저는 이렇게 공부하고 관리합니다
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=5fY3S-da_dI
+- **Author:** PivotOn
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/언리얼-머티리얼-저는-이렇게-공부하고-관리합니다.md
+
 ---
 
 ## Tag Reference
