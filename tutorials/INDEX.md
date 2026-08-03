@@ -3555,9 +3555,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=lDf_y-YPELo
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.8
+- **Tags:** `#pcg` `#python` `#cpp` `#editor-scripting` `#automation` `#blueprint` `#pipeline` `#lighting` `#expert` `#ue5-8`
+- **Summary:** Epic's official 5.8 MCP (Model Context Protocol) integration, explained and demoed by the team that built it. `UToolSetDefinition` classes use Unreal's reflection system to auto-expose ~1,000 engine APIs across two dozen systems (PCG, materials, Blueprints) to an LLM agent with full JSON schema/data conversion and type safety — no manual glue code. Live demos: an LLM composes PCG "primitive" subgraphs (80+ spatial ops) to furnish a room, generate a full procedural city (successor to the Matrix Awakened city tech, built in a day vs. weeks), and iteratively converge on a lighting look via a screenshot-and-adjust feedback loop. Covers the three extension points for custom games: tool sets (typed C++/Python/Blueprint APIs via `UToolSetDefinition` + `AICallable` UFUNCTIONs), skills (`UAgentSkill` — same spec as Claude Agent Skills, for distilled non-obvious knowledge), and examples (static templates vs. dynamic asset-discovery). Core philosophy: LLM as assistant not magic bullet — directable, fully editable, never a black box.
 - **File:** tutorials/from-words-to-worlds-integrating-mcp-into-the-unreal-editor-unreal-fest-chicago-.md
 
 ---

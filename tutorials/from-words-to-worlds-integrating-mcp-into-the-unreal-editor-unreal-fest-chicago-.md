@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=lDf_y-YPELo
 author: Unreal Engine
 ingested: 2026-08-03
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.8"
+tags: [pcg, python, cpp, editor-scripting, automation, blueprint, pipeline, lighting, expert, ue5-8]
+extraction_status: complete
 frames_dir: tutorials/frames/from-words-to-worlds-integrating-mcp-into-the-unreal-editor-unreal-fest-chicago-/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # From Words to Worlds: Integrating MCP into the Unreal Editor | Unreal Fest Chicago 2026
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py from-words-to-worlds-integrating-mcp-into-the-unreal-editor-unreal-fest-chicago- <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -357,30 +353,65 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [5:55] tutorials/frames/from-words-to-worlds-integrating-mcp-into-the-unreal-editor-unreal-fest-chicago-/frame_000.jpg
+- [8:15] tutorials/frames/from-words-to-worlds-integrating-mcp-into-the-unreal-editor-unreal-fest-chicago-/frame_001.jpg
+- [9:05] tutorials/frames/from-words-to-worlds-integrating-mcp-into-the-unreal-editor-unreal-fest-chicago-/frame_002.jpg
+- [10:50] tutorials/frames/from-words-to-worlds-integrating-mcp-into-the-unreal-editor-unreal-fest-chicago-/frame_003.jpg
+- [11:03] tutorials/frames/from-words-to-worlds-integrating-mcp-into-the-unreal-editor-unreal-fest-chicago-/frame_004.jpg
+- [12:50] tutorials/frames/from-words-to-worlds-integrating-mcp-into-the-unreal-editor-unreal-fest-chicago-/frame_005.jpg
+- [17:10] tutorials/frames/from-words-to-worlds-integrating-mcp-into-the-unreal-editor-unreal-fest-chicago-/frame_006.jpg
+- [23:10] tutorials/frames/from-words-to-worlds-integrating-mcp-into-the-unreal-editor-unreal-fest-chicago-/frame_007.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Native MCP (Model Context Protocol) server built into Unreal Engine 5.8, using `UToolSetDefinition` classes exposed through Unreal's reflection system (UStruct/FProperty) to auto-generate JSON schema + JSON data bindings — letting an LLM agent (Claude Code, in this talk's demos) call ~1,000 engine APIs across two dozen systems (PCG, materials, Blueprints, etc.) with full type safety and zero manual JSON glue code.
 
 ### Summary
-[PENDING EXTRACTION]
+Epic's UE MCP team (Nathan, Jess, Quentin) explains the official 5.8 MCP integration and demonstrates it end-to-end: an LLM drives Unreal's Procedural Content Generation (PCG) system as a "spatial vocabulary" to furnish a room, generate an entire procedural city (successor to the Matrix Awakened city tech, built in a day instead of weeks), and iteratively tune atmospheric lighting by taking viewport screenshots and adjusting parameters in a feedback loop. The talk then covers how developers extend the system themselves via three primitives: **tool sets** (typed C++/Python/Blueprint APIs the LLM calls), **skills** (`UAgentSkill` — distilled non-obvious knowledge in plain text, same spec as Claude Agent Skills), and **examples** (static templates or dynamic asset-based discovery). Philosophy: the LLM is an assistant, not a magic bullet — everything it produces must be directable, fully editable, and indistinguishable from human-made assets; nothing is a black box.
 
 ### Key Steps
-[PENDING EXTRACTION]
+**Demo pipeline (world-building with LLM + PCG):**
+1. Load required tool sets and skills into an agent session (shown live using Claude Code's CLI against an `unreal-mcp` tool).
+2. Define context: describe the space (dimensions, location in level) or the city scope.
+3. LLM composes **PCG primitives** — a library of 80+ plug-and-play spatial-operation subgraphs (create shapes, compose, transform, sample/filter/spawn) — into a working PCG graph live in the viewport.
+4. Place/retrieve assets via semantic search (e.g. "a sofa with a rug," "a Central Park bench").
+5. Iterate: broad re-prompts ("give this scene a story," "rearrange completely") have bigger payoff than one-off asset nudges.
+6. For one-off spatial ops that don't need a persistent graph, use **Instances** — fire-and-forget execution of a premade PCG graph with no trace left in the level.
+7. For advanced systems (e.g. **BiomeCore**), write a dedicated skill so the LLM knows the underlying data structures — turns an expert-only tool into a promptable one.
+8. For lighting: give the LLM a skill describing the default lighting setup (set sun before sky, direct/fill light correlation, don't over-rely on post-process) **and** let it take viewport screenshots so it can visually converge on a target look (e.g. "a purple dusk") across iterations, including self-correcting from mistakes conversationally.
+
+**Building a custom tool set (extension workflow):**
+1. Derive a class from `UToolSetDefinition`.
+2. Add tools as plain static `UFUNCTION`s with `meta=(AICallable)` and a `Category` — same signatures/metadata/tooltips as any normal Unreal API; works in C++ or Python (Blueprint-based skills also supported, saved as a `UAsset` you can check into source control).
+3. Reflection auto-generates both JSON Schema (type definitions: name, type, enums, structs, UObject/UClass pointers, nested containers) and JSON Data (call-time values) — no manual conversion code.
+4. For long-running ops, return a `UToolCallAsyncResult` subclass (string/image built-in, or custom) instead of blocking the editor thread.
+5. Return informative errors (not silent failure) — there's a standard error path so a failed call tells the LLM what went wrong and how to retry.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- `UToolSetDefinition` — base class for a new MCP tool set; static `UFUNCTION(meta=(AICallable), Category="...")` per tool.
+- `UAgentSkill` — new class for MCP skills; C++, Python, or Blueprint; supports a programmatic override to build skill text dynamically (not just static text blobs) from live project data.
+- `UToolCallAsyncResult` — base class for returning async tool results (string/image subclasses built in).
+- PCG (Procedural Content Generation) — the demoed "spatial vocabulary" for the LLM; primitive library = 80+ parameterized subgraphs on top of native PCG operations.
+- **Instances** — fire-and-forget execution of a saved PCG graph/assembly with no persistent graph left in the level.
+- **BiomeCore** — PCG's advanced data-driven biome tool, made promptable via a dedicated skill.
+- City Sample tech — successor to the Matrix Awakened procedural city (previously built outside Unreal, rigid); rebuilt fully inside PCG + prompting, editable/shippable, regenerates in minutes (e.g. rerouting buildings around a highway).
+- Agent tooling shown live: Claude Code CLI talking to Unreal via an `unreal-mcp` tool (see frames — chat panel issuing tool calls like "Filter_Keep_50pct", "Filter_Keep_20pct", subdividing districts, applying random rotation).
 
 ### Difficulty
-[PENDING EXTRACTION]
+Expert (for building custom tool sets/skills in C++/Python); Intermediate (for using the shipped PCG tool set + skills as an end user/technical artist).
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.8 — official MCP support shipped in this release (announced at Unreal Fest Chicago 2026). CitySample PCG plugin release planned "later this year," targeting end of summer.
 
 ### Tags
-[PENDING EXTRACTION]
+pcg, python, cpp, editor-scripting, automation, blueprint, pipeline, lighting, expert, ue5-8
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+No existing INDEX.md entries share 2+ tags with this one yet (first MCP/editor-scripting-for-LLM-agents entry in the knowledge base). Future PCG, Python automation, or lighting-skill entries should cross-link here.
