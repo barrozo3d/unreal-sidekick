@@ -3565,9 +3565,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=C9yvCd3uzHM
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.8
+- **Tags:** compositing, camera, materials, lighting, rendering, davinci, ue5-8, intermediate
+- **Summary:** Uses Composure's new Composite Depth Mesh Actor to project video onto a camera-facing grid displaced per-pixel by a depth matte, producing a pseudo-3D "parallax" effect correct only from the assigned camera's exact viewpoint. Covers live webcam input via Media Profile vs. offline Sequencer media tracks, relighting/shadowing the projected surface (Is Holdout Enabled, Cast Shadow), fixing blocky material artifacts via exposed Roughness/Metallic/normal-offset params, and generating depth mattes externally in DaVinci Resolve Fusion (Depth Map node, inverted for UE's white=far convention).
 - **File:** tutorials/3d-video-in-unreal-engine-kinda-what-are-composite-depth-mesh-actors-composure-e.md
 
 ---

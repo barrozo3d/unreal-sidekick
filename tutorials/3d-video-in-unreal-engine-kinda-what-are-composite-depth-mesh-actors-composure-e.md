@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=C9yvCd3uzHM
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-08-04
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.8"
+tags: [compositing, camera, materials, lighting, rendering, davinci, ue5-8, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/3d-video-in-unreal-engine-kinda-what-are-composite-depth-mesh-actors-composure-e/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # 3D VIDEO in Unreal Engine? Kinda? What are Composite Depth Mesh Actors? (Composure EP6)
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py 3d-video-in-unreal-engine-kinda-what-are-composite-depth-mesh-actors-composure-e <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Introduction to Composite Depth Mesh Actors [0:00]
@@ -335,30 +331,60 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [2:42] tutorials/frames/3d-video-in-unreal-engine-kinda-what-are-composite-depth-mesh-actors-composure-e/frame_000.jpg
+- [6:08] tutorials/frames/3d-video-in-unreal-engine-kinda-what-are-composite-depth-mesh-actors-composure-e/frame_001.jpg
+- [6:44] tutorials/frames/3d-video-in-unreal-engine-kinda-what-are-composite-depth-mesh-actors-composure-e/frame_002.jpg
+- [7:07] tutorials/frames/3d-video-in-unreal-engine-kinda-what-are-composite-depth-mesh-actors-composure-e/frame_003.jpg
+- [8:04] tutorials/frames/3d-video-in-unreal-engine-kinda-what-are-composite-depth-mesh-actors-composure-e/frame_004.jpg
+- [9:54] tutorials/frames/3d-video-in-unreal-engine-kinda-what-are-composite-depth-mesh-actors-composure-e/frame_005.jpg
+- [11:17] tutorials/frames/3d-video-in-unreal-engine-kinda-what-are-composite-depth-mesh-actors-composure-e/frame_006.jpg
+- [15:18] tutorials/frames/3d-video-in-unreal-engine-kinda-what-are-composite-depth-mesh-actors-composure-e/frame_007.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Using Composure's new (UE 5.8) **Composite Depth Mesh Actor** to project live/recorded video onto a camera-facing grid and displace that grid toward the camera per-pixel using a depth matte — producing a pseudo-3D "parallax head" effect that reads correctly from the camera's exact point of view (and can be relit/shadowed like real geometry) but visibly breaks down into a flat height-field mush when viewed off-axis.
 
 ### Summary
-[PENDING EXTRACTION]
+Walkthrough of Composure's Composite Depth Mesh Actor, contrasted with the older Composite Mesh Actor (projects onto a fixed surface with no depth). A Composite Actor + Cine Camera Actor are set up in the Composure window, fed by either a webcam via a Media Profile (live demo) or pre-rendered media tracks in Sequencer (the higher-fidelity offline version shown in the video's intro). The Composite Depth Mesh Actor takes a depth texture and displaces its default camera-attached grid from the camera's perspective — correct in screen space from the camera, but a visible height-field "mush" from any other angle. A Scale Factor pushes the mesh away from the camera's clipping plane. With **Is Holdout Enabled** turned off, scene lights and shadows affect the projected surface normally; **Cast Shadow** must be separately enabled for the actor to cast its own shadows. Material parameters (Roughness, Metallic, Specular, and a "procedural normal textual offset") are exposed by dragging the actor into Sequencer → Default Composite Mesh Component → Slot Material, and tweaking them fixes a blocky/"Minecraft" look and smooths lighting response. Depth mattes themselves aren't generated natively in UE — the author produces them in DaVinci Resolve Fusion's Depth Map node (control-space-Depth Map-Add), inverts them (UE wants white=far, black=near, opposite of Fusion's default), resizes them to half-resolution since depth doesn't need full 4K fidelity, and renders as compressed EXR sequences that get imported as Image Media Sources / Media Textures back in Sequencer.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Composure setup:** Windows → Virtual Production → Composure to open the Composure window → add a **Composite Actor**. Create a **Cine Camera Actor**, then assign it to the Composite Actor's `Camera Actor` field.
+2. **Live video input (webcam demo):** Content Browser → right-click → Media → **Media Profile** → open it → Media Sources → Add Media Source → **Stream Media Source** → set Stream URL to the detected webcam/USB video device. In the Composure Plate layer, change the texture source to this media profile / stream media source.
+3. **Add the actor:** In the Composure window's `+` button, choose **Place Composite Depth Mesh Actor** (not the older Composite Mesh Actor, which just projects onto a static surface with no depth). It appears attached to the camera center by default as a grid, invisible until a depth texture is assigned.
+4. **Assign & scale the depth texture:** Drag a depth texture asset onto the actor's Depth Texture slot. The result starts tiny/clipped by the camera's near clipping plane — use the **Scale Factor** property to push the whole displaced mesh uniformly away from the lens center until visible.
+5. **Understand the effect's limits:** Viewed exactly through the assigned camera, the projected pixels line up perfectly in screen space. Orbiting to any other angle reveals it's just a height field from that one camera's point of view — not true 3D geometry.
+6. **Relighting:** Add a Point Light (or any light) to the scene. On the Plate layer, disable **Is Holdout Enabled** so the projected surface responds to scene lighting instead of showing only the raw unlit camera feed. Enable **Cast Shadow** on the Composite Depth Mesh Actor (search "shadow" in its Details panel) to get self-shadowing / shadows cast onto the environment — by default it only *receives* shadows, not casts them.
+7. **Higher-fidelity offline pipeline (shown via the intro-scene Sequencer):** Two media tracks — one RGBA plate, one depth matte — both as **Media Textures** (created via Sequencer's Add Media Track → + Media Source → "Create Texture" prompt) rather than a live Media Profile. Source media at native capture resolution (e.g. 3840×2160 DWAA EXR, linear sRGB) for the plate; the depth matte can safely be rendered at a much lower resolution.
+8. **Fix blocky/"Minecraft" material look:** Drag the actor into Sequencer, add **Default Composite Mesh Component** track → **Slot Material** → this exposes Roughness, Metallic, Specular, and a "procedural normal textual offset" parameter as keyframable material params. Set Roughness to 1 (removes shininess), keep Metallic low, and tune the normal-offset parameter (author describes it as "blurring the normals") to smooth the projected surface and reduce blocky artifacts — going to the extreme inverts the normals entirely.
+9. **Soften shadows:** Increase a Directional Light's **Source Angle** dramatically (e.g. 30–80+) to soften otherwise very hard shadow edges cast on/by the depth mesh.
+10. **Depth matte generation (DaVinci Resolve Fusion, Studio/paid tier):** In Fusion, Ctrl+Space → search "depth map" → Add. Press the `2` key to preview through that node. Use the Depth Map node's built-in **Invert** toggle (UE expects white=far, black=near — the opposite of Fusion's default convention). Add a **Resize** node to halve the output resolution (depth doesn't need full source resolution). Add a **Saver** node, name the sequence `depth..exr` (double-dot = frame-number placeholder), set Format compression from Zip to **DWAA** with higher compression for a lighter file, then Render All Savers.
+11. **Import depth sequence into UE 5.8:** Content Browser → right-click → Media → **Image Media Source**, point it at the rendered EXR sequence's first frame, confirm playback. Add it to Sequencer as a media track, create a Media Texture from it, and assign that texture to the Composite Depth Mesh Actor's Depth Texture slot (replacing the live media-profile texture used in the quick demo).
+12. **Camera-rig parenting trick (bonus, for the intro's bounce-in animation):** Parent both the Cine Camera Actor and the Composite Depth Mesh Actor to a common empty Actor so they move together; add a second, upstream parent actor and offset the child rig against it to change the effective pivot point for rotation (e.g. rotate around a point other than the object's own origin).
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Composure: Composite Actor, Cine Camera Actor, Plate layer (`Is Holdout Enabled`), **Composite Depth Mesh Actor** (new in 5.8) vs. older Composite Mesh Actor
+- Depth Texture slot, Scale Factor (pushes mesh away from camera along view axis)
+- Material params exposed via Sequencer → Default Composite Mesh Component → Slot Material: Roughness, Metallic, Specular, procedural normal textual offset
+- Details panel: `Cast Shadow` (must be manually enabled for the actor to cast shadows, not just receive them)
+- Directional Light `Source Angle` for shadow softness
+- Media Profile + Stream Media Source (live/webcam) vs. Image Media Source + Media Texture via Sequencer (offline/pre-rendered) — DWAA-compressed EXR, linear sRGB, native res for plate / half-res for depth matte
+- External tool: DaVinci Resolve Fusion — Depth Map node (with Invert), Resize node, Saver node (DWAA compression)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate — no scripting/Blueprint work, but requires understanding Composure's layer/actor model, sequencer media tracks, and an external compositing tool (Fusion) for depth-matte generation.
 
 ### UE Version
-[PENDING EXTRACTION]
+5.8 (Composite Depth Mesh Actor is explicitly introduced as new in this version; author states "using Unreal Engine 5.81").
 
 ### Tags
-[PENDING EXTRACTION]
+compositing, camera, materials, lighting, rendering, davinci, ue5-8, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+No other ingested tutorials share 2+ tags with this one yet — it's the first Composure/Composite-Depth-Mesh-Actor entry in the library.
