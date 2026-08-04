@@ -676,4 +676,5 @@ pipeline, automation, rendering, level-streaming, geometry, blueprint, advanced,
 ---
 
 ## Related Entries
+- `tutorials/when-mascots-go-live-converting-the-geico-gecko-to-real-time-unreal-fest-chicago.md` — same conference (Unreal Fest Chicago 2026), same production case-study format; a character/animation-pipeline case study rather than a geometry-streaming one.
 - No other ingested unreal-sidekick tutorial currently covers point-cloud/photogrammetry/BIM runtime streaming or Cesium for Unreal / 3D Tiles — this is new coverage territory. Check `references/rendering-pipeline.md` and `references/narrative-blueprints.md` for adjacent large-scene/streaming concepts (Level Streaming) once cross-referenced.

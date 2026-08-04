@@ -3575,9 +3575,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=HljRmGJfSyk
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5 (tail-physics bug reproduced specifically in UE 5.3)
+- **Tags:** character, rigging, animation-blueprint, blend-space, facial-animation, lip-sync, procedural-animation, real-time, production-pipeline, case-study, intermediate, advanced, ue5
+- **Summary:** Framestore case-study talk on converting the GEICO Gecko mascot from a legacy VFX pipeline into a real-time, puppeteerable UE5 character: a parallel "engine rig" bridging pattern to preserve legacy Maya animation data, an Animation Blueprint layering system combining audio-driven lip sync (NVIDIA Audio2Face) with additive procedural-eye, points-of-interest, audio-loudness-driven hand blend-space, 2D emotion-chart, and breathing layers, a no-code client puppeteering web app, and two real production bugs/workarounds (tail-physics breakage after a 10x import rescale, fixed with an IK node; eyelid clipping, fixed with a blink-triggered eyeball scale).
 - **File:** tutorials/when-mascots-go-live-converting-the-geico-gecko-to-real-time-unreal-fest-chicago.md
 
 ---

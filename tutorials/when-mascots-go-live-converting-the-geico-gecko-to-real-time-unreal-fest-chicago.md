@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=HljRmGJfSyk
 author: Unreal Engine
 ingested: 2026-08-04
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5 (tail-physics bug reproduced specifically in UE 5.3)"
+tags: [character, rigging, animation-blueprint, blend-space, facial-animation, lip-sync, procedural-animation, real-time, production-pipeline, case-study, intermediate, advanced, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/when-mascots-go-live-converting-the-geico-gecko-to-real-time-unreal-fest-chicago/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 13
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # When Mascots Go Live: Converting the GEICO Gecko to Real-Time | Unreal Fest Chicago 2026
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py when-mascots-go-live-converting-the-geico-gecko-to-real-time-unreal-fest-chicago <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -304,30 +300,65 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [6:03] tutorials/frames/when-mascots-go-live-converting-the-geico-gecko-to-real-time-unreal-fest-chicago/frame_000.jpg
+- [7:01] tutorials/frames/when-mascots-go-live-converting-the-geico-gecko-to-real-time-unreal-fest-chicago/frame_001.jpg
+- [9:38] tutorials/frames/when-mascots-go-live-converting-the-geico-gecko-to-real-time-unreal-fest-chicago/frame_002.jpg
+- [10:17] tutorials/frames/when-mascots-go-live-converting-the-geico-gecko-to-real-time-unreal-fest-chicago/frame_003.jpg
+- [12:23] tutorials/frames/when-mascots-go-live-converting-the-geico-gecko-to-real-time-unreal-fest-chicago/frame_004.jpg
+- [13:12] tutorials/frames/when-mascots-go-live-converting-the-geico-gecko-to-real-time-unreal-fest-chicago/frame_005.jpg
+- [13:56] tutorials/frames/when-mascots-go-live-converting-the-geico-gecko-to-real-time-unreal-fest-chicago/frame_006.jpg
+- [14:31] tutorials/frames/when-mascots-go-live-converting-the-geico-gecko-to-real-time-unreal-fest-chicago/frame_007.jpg
+- [15:19] tutorials/frames/when-mascots-go-live-converting-the-geico-gecko-to-real-time-unreal-fest-chicago/frame_008.jpg
+- [17:29] tutorials/frames/when-mascots-go-live-converting-the-geico-gecko-to-real-time-unreal-fest-chicago/frame_009.jpg
+- [19:00] tutorials/frames/when-mascots-go-live-converting-the-geico-gecko-to-real-time-unreal-fest-chicago/frame_010.jpg
+- [20:05] tutorials/frames/when-mascots-go-live-converting-the-geico-gecko-to-real-time-unreal-fest-chicago/frame_011.jpg
+- [22:20] tutorials/frames/when-mascots-go-live-converting-the-geico-gecko-to-real-time-unreal-fest-chicago/frame_012.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Unreal Fest Chicago 2026 case-study talk (Framestore) on converting a long-running VFX-pipeline mascot character (the GEICO Gecko) into a real-time Unreal Engine 5 puppet: rig/pipeline conversion from a legacy Maya VFX rig, an animation-blueprint layering system (audio-driven lip sync + layered idle/eye/hand/emotion/breathing animation), and a client-facing web app for non-technical puppeteering — not a step-by-step tutorial, but a production war-story with reusable architectural patterns.
 
 ### Summary
-[PENDING EXTRACTION]
+Camilla (Senior Technical Animator, Framestore) walks through Framestore's 2023+ project turning the 20-year-old GEICO Gecko mascot into a real-time, puppeteerable UE5 character, positioned against traditional CG broadcast pipeline (30s spot, 4-5 week turnaround) vs. the new real-time pipeline (10-15s content in 3-5 days including client revisions), plus live-performance capability and a no-code puppeteering tool handed to the client. Seven initial pipeline/rig challenges: (1) a rigid, slow-to-change legacy VFX pipeline (couldn't even export a clean FBX at project start); (2) rig root-bone mismatch — added a new world-centered parent bone nicknamed "global joint" (couldn't rename the existing root without breaking legacy animation data); (3) an overly complex original Maya rig (multiple roots, doubled rib-cage/knee/elbow deformation joints) resolved by keeping the complex rig in Maya but adding a parallel, constraint-driven "engine rig" in the same scene — only the engine rig is FBX-exported; (4) hundreds of facial blend shapes replaced with a joint-based facial rig plus a few corrective blend shapes for key poses — an approach that proved successful enough to be adopted for other, non-Gecko projects afterward; (5) VFX-standard decimeter scale required a 10x import-time scale-up in Unreal (rather than touching the source rig/animation) — later the source of the tail-physics bug below; (6) eyeball lighting was split into its own static mesh (separated from the main character mesh) and recombined in the Blueprint, to satisfy specific client notes on how the eyes should be lit; (7) material color/intensity (e.g. an exact orange for the back "hearts", lip color, scale spacing) exposed as tweakable master-material parameters driven by texture masks by the tech artist. The real-time system [frame_002, 9:38] is layered inside one Animation Blueprint: inputs are (a) an audio track that drives facial lip-sync, and (b) either mocap or the custom web app driving the body; these combine with several always-on additive animation layers to produce the final render. Lip sync started as a Live Link Face ARKit prototype (52 blendshape poses via webcam) — fast to set up but didn't hold the character's specific look, and had no path to drive from an audio file alone — so production moved to **NVIDIA Audio2Face** (MP3 in → 52 curves out into Unreal), with per-curve hand-tuning in Unreal afterward (e.g. killing the jaw-forward curve entirely since the character never uses it, intensifying jaw-open to ~1.5x). Idle "aliveness" comes from stacking additive layers even when the character isn't talking: procedural eye movement (built by the lead developer from real research into saccades/head-eye stabilization timing, first validated on a generic humanoid before being applied to the Gecko), a "points of interest" system with two modes — random wander between scattered scene points, or a web-app-driven fixed gaze target with a settable hold-frame count [frame_006, 13:56] — three hand/arm blend spaces (left, right, both — 4 poses each) trained from real animator-authored clips and driven by audio loudness (louder/faster speech → bigger, faster hand movement; quieter speech → slower, more contained), a 10-pose additive **emotion system** driven by a 2D valence/activation "circumplex" emotion chart [frame_008, 15:19] (so the character is always an interpolated blend of ~3 neighboring emotions rather than snapping 0→100% on one pose, which both avoids robotic popping and makes transitions like happy→angry pass naturally through excited), and a simple additive breathing layer (shoulder + chest movement) that the speaker calls disproportionately impactful for its low authoring cost. The client-facing **web app** [frame_006, 13:56 right panel] exposes camera/prop/background changes, pre-made animations (e.g. a wave), point-of-interest targeting, and audio-file upload-to-render — letting non-technical marketing staff generate their own social content. Two real-world failures and fixes: in **UE 5.3**, the 10x import-time scale-up broke the tail's physics asset (it visibly shrank under simulation) — no physics fix was found in time, so the team faked it with an animation-blueprint IK node that follows body motion while walking and falls back to a fixed, slightly-curled idle pose while standing still; and eyelid/eyeball clipping in certain emotion-pose combinations was fixed by scaling the eyeball mesh down slightly during a blink (light-switch style: 0.98 scale while blinking, back to 1.0 otherwise) rather than fixing the underlying pose blend. Closing lessons: having the character's longtime human creative director/animator on hand as a "does this look like Gecko?" gut-check was invaluable for catching small, easy-to-miss character-specific tells; camera angles/cuts and simple prop interactions go a long way toward making a shot feel dynamic without more animation volume; and UE5's rendering quality let them break internally-held "that looks like a game" bias entirely — the CG-vs-real-time look-dev comparison [frame_009, 17:29] was, per the speaker, not reliably distinguishable. Ends noting the character's longest continuous real-time performance to date was a ~6-minute podcast appearance driven entirely by this tool, plus a short in-character live Q&A bit baked into the talk itself.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Legacy-rig bridge pattern** [frame_000, 6:03] → [frame_001, 7:01] — keep the original, complex production rig (multiple roots, doubled deformation joints, hundreds of blend shapes) completely untouched in its native DCC scene; build a second, simplified "engine rig" in the same file, constraint-driven off the original, with a single new world-centered root ("global joint") added as a parent; only ever FBX-export the engine rig into Unreal. Avoids breaking any legacy animation data while still producing a clean, game-friendly hierarchy.
+2. **Facial rig conversion** — replace hundreds of blend shapes with a joint-based facial rig, layering a small number of corrective blend shapes on top only where needed to nail specific character-critical poses (this character's eyes especially); treat this as reusable infrastructure, not one-off character work.
+3. **Scale strategy** — rather than rescale the source rig/animation (VFX pipelines commonly work in decimeters), scale the character up (10x here) at FBX import time inside Unreal; note this can surface downstream physics-asset bugs (see the tail issue below) that wouldn't exist at 1:1 scale.
+4. **Real-Time animation-blueprint layering** [frame_002, 9:38] — one Animation Blueprint combines an audio-driven facial/lip-sync layer (input: voice audio) with a body layer (input: mocap or the custom puppeteering web app), plus several always-on additive layers (eye movement, points of interest, hand blend spaces, emotion, breathing) stacked on top so the character reads as "alive" even during silence.
+5. **Audio-driven lip sync** [frame_003, 10:17] — prototype fast with Live Link Face (webcam → 52 ARKit blendshapes) if you just need a quick proof of concept; for production and audio-file-only input, feed an MP3 into NVIDIA Audio2Face to generate the 52 curves, then hand-tune individual curves inside Unreal per-character (zero out curves the character never uses, e.g. jaw-forward; boost others, e.g. jaw-open to ~1.5x intensity).
+6. **Procedural eye movement + points of interest** [frame_006, 13:56] — build/validate a saccade-and-head-stabilization eye model on a generic humanoid first, then port it to the hero character; layer a points-of-interest system with two drive modes — random wander among scattered scene-space targets (natural idle look-around) and an explicit fixed target with a configurable hold-frame count exposed to non-technical users via the web app.
+7. **Audio-loudness-driven hand blend spaces** [frame_007, 14:31] — author 3 blend spaces (left hand, right hand, both hands), 4 poses each, trained from real animator clips; drive blend weight/playback speed from live audio loudness so louder/faster speech produces bigger faster gestures and quieter speech produces smaller slower ones; expose a hand-selection (left/right/random) toggle in the web app to reduce repetitiveness.
+8. **2D emotion-chart-driven expression** [frame_008, 15:19] — author one additive pose per emotion (10 poses here) placed on a 2D valence/activation chart (circumplex model); drive the character's current expression as a continuous blend of its nearest neighbors on the chart rather than switching discretely between single poses, so transitions pass naturally through adjacent emotional states and the face never fully commits to one extreme pose.
+9. **Breathing as a cheap high-impact additive layer** — a simple shoulder + chest additive animation loop, layered independently of everything else; called out as an easy detail to skip that disproportionately affects how alive the character feels.
+10. **Tail-physics workaround (UE 5.3)** [frame_010, 19:00] — when a physics-asset-driven tail broke (visibly shrank) after the 10x import-scale change and no direct physics fix was found in time, replace it with an Animation-Blueprint IK node driven by body movement while walking, falling back to a static, slightly-curled idle pose while the character is stationary.
+11. **Eyelid/eyeball clipping fix** [frame_011, 20:05] — rather than reworking the pose blends causing clipping in certain emotion combinations, scale the eyeball mesh down slightly (e.g. to 0.98) during the blink window and back to 1.0 when not blinking — a cheap perceptual fix, not a geometric one.
+12. **No-code client puppeteering tool** [frame_006, 13:56 right panel] — build a web app exposing camera control, prop placement, background swaps, pre-authored animation triggers, point-of-interest targeting, and audio-file upload-to-render, so marketing/client staff with no Unreal experience can generate their own short-form social content from the rig.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Animation Blueprint** as the central layering system: base body layer (mocap or web-app input) + facial/lip-sync layer (audio-driven) + additive layers for eye movement, points of interest, hand blend spaces (3x, 4 poses each), 10-pose emotion blend, and breathing [frame_002, 9:38].
+- **Third-party tooling (outside Unreal):** NVIDIA Audio2Face (MP3 → 52 facial curves, later imported/tuned in Unreal); FaceWare mentioned as a solution being evaluated as an alternative at time of talk; Live Link Face used only for early ARKit-blendshape prototyping.
+- **Rig/import pipeline:** legacy Maya rig kept as-is; parallel constraint-driven "engine rig" with a new world-space root bone ("global joint") added as parent, exported to FBX (engine rig only); 10x scale-up applied at Unreal FBX import time rather than in the source rig.
+- **Eyeball handling:** eyeball split out as its own static mesh (separate from the skinned character mesh), recombined via Blueprint, to give lighting-team full control independent of the character material; blink-triggered scale change (0.98 ↔ 1.0) used to hide clipping.
+- **Tail:** custom IK node added directly in the Animation Blueprint as a workaround for a broken physics asset post-rescale (walking = follows body motion; idle = fixed curled pose).
+- **Materials:** master material(s) with texture-mask-driven exposed parameters for per-region color/intensity tuning (back "hearts" orange tone, lip color, inter-scale spacing) — built by the studio's technical artist for fast client-note iteration without shader edits.
+- **Known version-specific bug:** tail physics-asset breakage after 10x rescale reproduced in **UE 5.3**.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate/Advanced — no on-screen hands-on node-by-node build (this is a conference case-study talk, not a tutorial), but the described architecture (animation-blueprint layering, blend-space-driven procedural gesture, chart-driven emotion blending, legacy-rig bridging) assumes solid familiarity with UE animation systems and production rigging pipelines to reproduce.
 
 ### UE Version
-[PENDING EXTRACTION]
+Not explicitly stated as a single project-wide version — the tail-physics bug is specifically reproduced in **UE 5.3**; the closing remarks describe the overall visual-quality win as a **UE5** achievement generally.
 
 ### Tags
-[PENDING EXTRACTION]
+character, rigging, animation-blueprint, blend-space, facial-animation, lip-sync, procedural-animation, real-time, production-pipeline, case-study, intermediate, advanced, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/from-scan-to-stream-open-pipelines-for-large-scale-3d-in-unreal-engine-unreal-fe.md` — same conference (Unreal Fest Chicago 2026), same "production case-study, not hands-on tutorial" format; good companion for other studios' real-world UE5 production pipeline patterns.
