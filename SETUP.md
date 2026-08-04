@@ -42,12 +42,14 @@ python ingest.py --help
 
 ## YouTube Bot Detection Fix
 
-If you get 429 / "Sign in to confirm" errors:
+As of 2026-08, `ingest.py` automatically passes `--extractor-args youtube:player_client=android` whenever `cookies.txt` isn't present, since YouTube's default `web_safari` client started throwing HTTP 429 + "Sign in to confirm you're not a bot" on many videos. No setup needed — built into `_ytdlp_cmd()`.
+
+If a video still fails under the android client (rare — mainly age-restricted/region-locked videos):
 
 1. Install "Get cookies.txt LOCALLY" Chrome/Edge extension
 2. Go to youtube.com while logged in
 3. Export cookies → save as `cookies.txt` in the skill directory
-4. Re-run ingest — it picks up cookies.txt automatically
+4. Re-run ingest — it picks up cookies.txt automatically (and drops the android-client arg)
 
 ---
 
