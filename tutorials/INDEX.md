@@ -3570,6 +3570,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Uses Composure's new Composite Depth Mesh Actor to project video onto a camera-facing grid displaced per-pixel by a depth matte, producing a pseudo-3D "parallax" effect correct only from the assigned camera's exact viewpoint. Covers live webcam input via Media Profile vs. offline Sequencer media tracks, relighting/shadowing the projected surface (Is Holdout Enabled, Cast Shadow), fixing blocky material artifacts via exposed Roughness/Metallic/normal-offset params, and generating depth mattes externally in DaVinci Resolve Fusion (Depth Map node, inverted for UE's white=far convention).
 - **File:** tutorials/3d-video-in-unreal-engine-kinda-what-are-composite-depth-mesh-actors-composure-e.md
 
+
+### When Mascots Go Live: Converting the GEICO Gecko to Real-Time | Unreal Fest Chicago 2026
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=HljRmGJfSyk
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/when-mascots-go-live-converting-the-geico-gecko-to-real-time-unreal-fest-chicago.md
+
 ---
 
 ## Tag Reference
