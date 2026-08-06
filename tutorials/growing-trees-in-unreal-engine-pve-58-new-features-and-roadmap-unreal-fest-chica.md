@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=zfFq5e8Pxz0
 author: Unreal Engine
 ingested: 2026-08-06
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.8 (Experimental) — Procedural Vegetation Editor (PVE), added 5.7, expanded 5.8"
+tags: [pcg, nanite, modelling, geometry, materials, advanced, ue5-8]
+extraction_status: complete
 frames_dir: tutorials/frames/growing-trees-in-unreal-engine-pve-58-new-features-and-roadmap-unreal-fest-chica/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Growing Trees in Unreal Engine: PVE 5.8 New Features and Roadmap | Unreal Fest Chicago 2026
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py growing-trees-in-unreal-engine-pve-58-new-features-and-roadmap-unreal-fest-chica <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -650,30 +646,77 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
-## Structured Notes
+## Captured Frames
 
-### Core Technique
-[PENDING EXTRACTION]
-
-### Summary
-[PENDING EXTRACTION]
-
-### Key Steps
-[PENDING EXTRACTION]
-
-### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
-
-### Difficulty
-[PENDING EXTRACTION]
-
-### UE Version
-[PENDING EXTRACTION]
-
-### Tags
-[PENDING EXTRACTION]
+- [0:08] tutorials/frames/growing-trees-in-unreal-engine-pve-58-new-features-and-roadmap-unreal-fest-chica/frame_000.jpg
+- [4:41] tutorials/frames/growing-trees-in-unreal-engine-pve-58-new-features-and-roadmap-unreal-fest-chica/frame_001.jpg
+- [8:08] tutorials/frames/growing-trees-in-unreal-engine-pve-58-new-features-and-roadmap-unreal-fest-chica/frame_002.jpg
+- [16:20] tutorials/frames/growing-trees-in-unreal-engine-pve-58-new-features-and-roadmap-unreal-fest-chica/frame_003.jpg
+- [17:07] tutorials/frames/growing-trees-in-unreal-engine-pve-58-new-features-and-roadmap-unreal-fest-chica/frame_004.jpg
+- [23:00] tutorials/frames/growing-trees-in-unreal-engine-pve-58-new-features-and-roadmap-unreal-fest-chica/frame_005.jpg
+- [25:19] tutorials/frames/growing-trees-in-unreal-engine-pve-58-new-features-and-roadmap-unreal-fest-chica/frame_006.jpg
+- [36:12] tutorials/frames/growing-trees-in-unreal-engine-pve-58-new-features-and-roadmap-unreal-fest-chica/frame_007.jpg
 
 ---
 
-## Related Entries
-[PENDING EXTRACTION]
+## Structured Notes
+
+> **Transcript quality note:** The Whisper auto-transcript degrades into garbled/hallucinated Swedish for roughly the 8:39–34:00 stretch (a known Whisper failure mode on accented/noisy conference-hall audio). The notes below combine the coherent English portions of the transcript, the 8 captured frames (slide text + node-graph screenshots), and targeted web verification of the product names ("PVE" and "MegaPlants", never spelled out cleanly in the audio) to keep this extraction accurate rather than guessing at the corrupted sections.
+
+### Core Technique
+Unreal Engine 5.8's **Procedural Vegetation Editor (PVE)** — an experimental, PCG-based node graph for growing Nanite-ready trees and plants from a **botanical growth simulation** (the `Grower` node) rather than placing pre-made assets, with follow-on nodes for recursive branch scattering, mesh building, bark texturing, and manual art-direction.
+
+### Summary
+Simon Barley (Lead Vegetation Artist, Epic — Megascans/foliage team, PVE dev) recaps PVE (introduced 5.7 alongside the **MegaPlants** FAB asset library) and walks through everything new in 5.8: the system is no longer just a black-boxed preset picker — users can now grow trees from scratch using a real botanical simulation, then layer recursive scatter and manual editing on top. The talk is a straight node-by-node tour of the `Grower` node's simulation parameters (phyllotaxy, phototropism, gravity, senescence, hormone/dominance controls), followed by the downstream pipeline: extracting growth data from 2D images/3D meshes, building the final mesh (trunk texture setup, trunk profile presets, mesh builder), a vector-handle system for foliage orientation, a new "Parametric" mode for more direct/less-simulated control, and a Foliage Distribution Network that uses the grower's decay/senescence data to scatter live vs. dead foliage. Talk closes with a roadmap (custom/photogrammetry trunks, branch decorations, leaf-atlas tooling, space colonization, L-systems, viewport sketching).
+- **Frame @0:08** — Speaker Simon Barley at the Unreal Fest Chicago 2026 podium (title/intro).
+- **Frame @4:41** — The `Grower` node itself: pin list showing `Phyllotaxy`, `Params`, `Growth`, `Phototropism`, `Light Senescence`, `Gravity`, `Age Senescence`, `Bifurcation`, `Directional`, `Foliage`, `Auxin`, `Overrides`, `Growth Cycles` — this is the core simulation node described as "the workhorse of the system."
+- **Frame @8:08** — Phyllotaxy diagram: 5 supported branching-pattern types illustrated on a stem (Spiral, Alternating, Opposite, Whorled, Decussate).
+- **Frame @16:20** — A rendered forest of conifer/pine-like trees, shown as a "visual example" of PVE output quality (bark detail, canopy shading, ground scatter) once a grown tree is fully textured and placed in a scene.
+- **Frame @17:07** — "Not a botanist? Not a problem!" slide showing `Extract from Image`, `Extract from Mesh`, and `Graft` nodes, with the three alternate authoring modes: Extract from 2D (B&W image → PVE data), Extract from 3D (sample a static mesh → PVE data), and Grafting (a more traditional recursive-scatter mode).
+- **Frame @23:00** — `Trunk Texture Setup` node: bakes on-disk bark textures (per generation/growth-stage strip) to a target content-browser location for use by the mesh builder.
+- **Frame @25:19** — `Plant Profile Loader` node with 10 `Plant Profile` input pins (10 shipped trunk-profile presets) feeding a mesh builder's profile pin, next to a render of a realistic flared tree-trunk base — this profile drives the trunk flare geometry.
+- **Frame @36:12** — "Future development" roadmap slide (advanced viewport tools, custom/photogrammetry trunk meshes, branch decorations, Atlas tool suite, state-of-the-art LOD).
+
+### Key Steps
+1. **Start from a `Grover`/`Grower` node** — this drives the whole botanical growth simulation and can be chained into other `Grower` nodes to continue simulating from a previous result.
+2. **Tune the core simulation inputs**: `Phyllotaxy` (branch arrangement pattern), `Growth`/`Growth Cycles` (more cycles = larger/older tree — not 1:1 with real age, since real trees complete multiple growth cycles per year), `Phototropism` (branches grow toward light / avoid self-shadowing — driven by a top-level dome light you can reposition per tree), `Gravity` (uses a beam-deflection model for branch droop), `Light Senescence` / `Age Senescence` (controls how likely branches are to die from low light, gravity stress, and age — low-light branches die/fall; aged branches dry out, get brittle, and break under gravity), `Bifurcation`/`Auxin` (hormone-style apical vs. auxiliary dominance controls — how aggressively the main leader shoot out-competes side branches for growth budget each cycle; pushing this up/down reshapes the tree from columnar to bushy).
+3. **Pick a Phyllotaxy type** per trunk/branch/foliage layer: `Spiral` (helix around the stem), `Alternate` (each new branch on the opposite side of the previous), `Opposite` (two identical branches per node), `Whorled` (several branches per node around 360°, optionally a random count), `Decussate` (like opposite, but each row rotated 90° from the last). Also exposes `Axial Angle` (branch start angle) and a stagger/rotation offset that produces the natural zig-zag seen on real branches.
+4. **Optionally restrict growth to a bounding shape** (e.g. a cubic or spherical silhouette) to art-direct the overall canopy form without hand-editing every branch.
+5. **Iterate fast via Data Assets**: drag out a `Grower` node's input pins to build a reusable external attribute set, save a tuned grower configuration as a Data Asset, and reuse/relink it across other grower graphs — plus rewind to an earlier point in a tree's growth history and branch a brand-new variant from it with minimal edits (shown creating multiple Hinoki/Japanese-cypress variants this way).
+6. **Bring in non-simulated source data when needed**: `Extract from Image` (paints branch structure from a black-and-white image), `Extract from Mesh` (samples branch data off an existing static mesh), or `Graft` nodes (a more traditional recursive-scatter grafting workflow) — any of these can feed back into further `Grower`/scatter stages.
+7. **Build the renderable mesh**: `Trunk Texture Setup` bakes disk bark textures into a strip/atlas per tree generation and content-browser target; a `Plant Profile Loader` (10 shipped presets, or your own) plugs into the `Mesh Builder` node's profile pin to drive trunk-flare geometry; the `Mesh Builder` pulls UV data from the texture setup node to map bark correctly.
+8. **Use the vector-handle system** for foliage/leaf orientation: user-authored vector handles represent branch length/direction and how much influence they have on attached foliage, with separate aim/fixed-vector and roll/pitch/yaw controls for variation (e.g. droop leaves with a negative-Z handle, flatten foliage with a "foliage flatten" node).
+9. **Switch to `Parametric` mode** when you want more direct, less fully-simulated control (e.g. driving branch density/end-generation directly instead of via the hormone/dominance system) — useful for specific tree archetypes.
+10. **Distribute final foliage** with the **Foliage Distribution Network**: define your leaf/branch palette at the top level, and it automatically multiplies the grower's decay (senescence) value against the light value during scattering — so higher decay produces visibly more dead branches without manual masking. Null/invisible-branch entries can also be used purely as masking elements to suppress spawn in specific areas.
+11. **Package reusable tools as subgraphs**: the demoed `Refit` node isn't a native node — it's a PCG subgraph built from primitives and saved as its own asset, illustrating that technical artists can build their own mini node-library ("small tools and utilities") on top of PVE/PCG's embedded-subgraph support and expose only the parameters artists need.
+12. **Control overall mesh cost with a single resolution slider** — remaps a 0–1 resolution value that drives the `Mesh Builder`'s internal mesh-optimization/decimation, so one exposed parameter controls the LOD-like density of the whole tree.
+
+### UE Systems / Blueprints / Settings
+- **System:** Procedural Vegetation Editor (PVE) — experimental in 5.8, built on top of **PCG** (Procedural Content Generation), shares UI/features with the standard PCG graph editor, node-based.
+- **Asset library:** **MegaPlants** (FAB marketplace) — growing library of tree presets/components introduced alongside PVE in 5.7; 5.8 shifts the offering toward reusable high-fidelity *parts* for building custom trees plus some ready drag-and-drop assets. Supports non-Nanite foliage via a dynamic-wind plugin (the same one used in the Witcher 4 UE5 tech demo) and voxelized meshes at a distance to avoid LOD popping.
+- **Core node:** `Grower` — multi-bounce ray-traced light detection drives the growth algorithm; supports collision/interaction with external meshes; gravity via beam-deflection model; branch shading from light/age/senescence; built-in hormone control (apical/auxiliary dominance, bifurcation); supports all major real-world phyllotaxy types. During the Grower stage, foliage is represented cheaply by small "cards" standing in for canopy shadow, and the branch mesh itself is a simplified proxy (final detail comes later in the pipeline).
+- **Key `Grower` pins:** `Phyllotaxy`, `Params`, `Growth`/`Growth Cycles`, `Phototropism`, `Light Senescence`, `Gravity`, `Age Senescence`, `Bifurcation`, `Directional`, `Foliage`, `Auxin`, `Overrides`.
+- **Alternate authoring nodes:** `Extract from Image`, `Extract from Mesh`, `Graft` (Graft Guide / Graft Rootside).
+- **Mesh/material nodes:** `Trunk Texture Setup` (bakes bark texture strips to a content-browser target, per tree generation, with tiling control), `Plant Profile Loader` (10 shipped trunk profiles, feeds `Mesh Builder`'s profile pin, drives trunk-flare geometry at the base), `Mesh Builder` (consumes UVs from texture setup + profile, has a single resolution slider driving mesh optimization/decimation), common material node for custom shading (separate from native PCG material assignment).
+- **Distribution:** `Foliage Distribution Network` — top-level palette definition + decay(senescence)-driven scattering (decay × light value), supports null/invisible branches as spawn masks; a condition system can key distribution off attributes like age, branch length, tip, health, and generation.
+- **New 5.8 mode:** `Parametric` mode — bypasses hormone-driven simulation for more direct density/end-generation control.
+- **Reusability:** `Grower` configs can be saved as Data Assets; whole node clusters (e.g. the demoed `Refit` node) can be packaged and saved as PCG subgraph assets for a personal/studio function library.
+- **Console/Editor:** No console commands or Blueprint/Python API mentioned — this is purely PVE/PCG graph-editor authoring.
+
+### Difficulty
+Advanced — requires solid PCG/node-graph familiarity plus botanical-simulation vocabulary (phyllotaxy, phototropism, senescence, apical/auxiliary dominance). Building custom reusable subgraphs (the `Refit` node example) pushes into Expert territory.
+
+### UE Version
+UE 5.8 (PVE marked **Experimental**). PVE and MegaPlants were originally introduced in UE 5.7; this talk covers what's new for 5.8 specifically (from-scratch growth simulation, image/mesh extraction, texture/profile/mesh-builder nodes, vector-handle system, Parametric mode, Foliage Distribution Network).
+
+### Tags
+pcg, nanite, modelling, geometry, materials, advanced, ue5-8
+
+---
+
+## Related Tutorials
+Cross-linked from `tutorials/INDEX.md` on entries sharing 2+ tags with this one (`pcg`, `nanite`, `materials`, `advanced`):
+
+- [`large-scale-animated-foliage-in-the-witcher-4-unreal-engine-5-tech-demo-unreal-f.md`](large-scale-animated-foliage-in-the-witcher-4-unreal-engine-5-tech-demo-unreal-f.md) — "Large Scale Animated Foliage in The Witcher 4 Unreal Engine 5 Tech Demo" (tags: `nanite, pcg, rendering, pipeline, advanced, ue5-7`). Directly relevant: this PVE talk explicitly name-checks the Witcher 4 demo's dynamic-wind plugin as the same one MegaPlants uses for non-Nanite foliage. That talk covers the Nanite-foliage + custom vertex-wind-shader + PCG placement solution shipped in 5.7 that PVE/MegaPlants builds on top of in 5.8.
+- [`how-to-grow-a-forest-in-unreal-with-pcg---procedural-content-generation-pcg---ep.md`](how-to-grow-a-forest-in-unreal-with-pcg---procedural-content-generation-pcg---ep.md) — "How To Grow A Forest in Unreal With PCG - PCG Episode 5" (tags: `pcg, blueprint, pipeline, intermediate, advanced, ue5-7`). Useful contrast: classic hand-built PCG forest scattering (Surface Sampler/Density Filter/Copy Points density falloff) vs. PVE's purpose-built botanical `Grower` simulation covered here — same end goal (growing forests), two different-generation tools.
+- [`automatic-landscape-tree-blending---procedural-content-generation-pcg---episode-.md`](automatic-landscape-tree-blending---procedural-content-generation-pcg---episode-.md) — "Automatic Landscape Tree Blending - PCG Episode 6" (tags: `pcg, materials, landscape, rendering, pipeline, advanced, ue5-7`). Relevant follow-on once PVE trees are grown/placed: this covers blending their trunks/roots into the landscape material via a Runtime Virtual Texture.

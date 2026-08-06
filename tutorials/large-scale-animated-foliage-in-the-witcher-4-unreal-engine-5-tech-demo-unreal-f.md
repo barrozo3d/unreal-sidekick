@@ -97,3 +97,4 @@ foliage, nanite, assemblies, wind, skinning, performance, witcher4, tech-demo, l
 
 ## Related Entries
 - `nanite-everything-you-should-know-unreal-engine-5.md` — Nanite deep-dive; Preserve Area flag; fundamentals for understanding assemblies
+- `growing-trees-in-unreal-engine-pve-58-new-features-and-roadmap-unreal-fest-chica.md` — "Growing Trees in Unreal Engine: PVE 5.8 New Features and Roadmap"; the 5.8 PVE/MegaPlants talk that explicitly cites this Witcher 4 demo's Dynamic Wind plugin as the one non-Nanite MegaPlants foliage reuses, and builds its `Grower`-node botanical growth simulation on top of the Nanite-foliage + PCG placement pipeline covered here
