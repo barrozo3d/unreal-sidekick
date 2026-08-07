@@ -3594,10 +3594,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 ### A Practical Look at Mesh Terrain | Inside Unreal
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=XlbWtoIk-Zc
-- **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Author:** Unreal Engine (Inside Unreal — host Dan Hotnick w/ Etienne Carrier, Epic senior technical artist)
+- **UE Version:** Not specified (Experimental Mesh Terrain feature, Unreal Fest Chicago 2026 era)
+- **Tags:** modelling, geometry, pcg, materials, level-streaming, lumen, advanced
+- **Summary:** Hands-on Inside Unreal walkthrough of the experimental Mesh Terrain (Mesh Partition) system, live-rebuilding the Unreal Fest keynote demo level: a stack of ordered, non-destructive modifiers (Texture, Boolean, Remesh, Brush, Spline) sculpt raw mesh geometry instead of a 2D heightmap, enabling overhangs/tunnels/caves. Covers weight-channel material masking and blend modes, runtime baking via Transformer Pipelines/Build Variants/Platform settings for World Partition streaming (Nanite or manual LODs, independently-streamed collision, Lumen far-field), and bidirectional PCG read/write integration. Closes with an extensive audience Q&A on performance, collision, UVs, water/road compatibility, and export limitations.
 - **File:** tutorials/a-practical-look-at-mesh-terrain-inside-unreal.md
 
 ---

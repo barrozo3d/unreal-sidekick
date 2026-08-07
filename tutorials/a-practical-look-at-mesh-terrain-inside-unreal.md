@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=XlbWtoIk-Zc
 author: Unreal Engine
 ingested: 2026-08-06
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "Not specified (Experimental Mesh Terrain feature, Unreal Fest Chicago 2026 era)"
+tags: [modelling, geometry, pcg, materials, level-streaming, lumen, advanced]
+extraction_status: complete
 frames_dir: tutorials/frames/a-practical-look-at-mesh-terrain-inside-unreal/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # A Practical Look at Mesh Terrain | Inside Unreal
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py a-practical-look-at-mesh-terrain-inside-unreal <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -1670,30 +1666,61 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [10:15] tutorials/frames/a-practical-look-at-mesh-terrain-inside-unreal/frame_000.jpg
+- [13:45] tutorials/frames/a-practical-look-at-mesh-terrain-inside-unreal/frame_001.jpg
+- [27:30] tutorials/frames/a-practical-look-at-mesh-terrain-inside-unreal/frame_002.jpg
+- [32:00] tutorials/frames/a-practical-look-at-mesh-terrain-inside-unreal/frame_003.jpg
+- [34:10] tutorials/frames/a-practical-look-at-mesh-terrain-inside-unreal/frame_004.jpg
+- [37:00] tutorials/frames/a-practical-look-at-mesh-terrain-inside-unreal/frame_005.jpg
+- [55:30] tutorials/frames/a-practical-look-at-mesh-terrain-inside-unreal/frame_006.jpg
+- [80:50] tutorials/frames/a-practical-look-at-mesh-terrain-inside-unreal/frame_007.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Mesh Terrain (Mesh Partition) — a non-destructive, modifier-stack based mesh sculpting system that replaces heightmap-based Landscape with true 3D mesh geometry (overhangs, tunnels, caves) built to stream with World Partition.
 
 ### Summary
-[PENDING EXTRACTION]
+Epic senior technical artist Etienne Carrier gives a hands-on Inside Unreal walkthrough of the experimental Mesh Terrain system, live-rebuilding the Unreal Fest keynote demo level. He shows how an ordered stack of non-destructive modifiers (Texture, Boolean, Remesh, Brush, Spline) sculpts raw mesh geometry instead of a 2D heightmap, covering weight-channel material masking, runtime baking via Transformer Pipelines/Build Variants for World Partition streaming, and bidirectional PCG read/write integration — then fields an extensive audience Q&A on performance, collision, UVs, water/roads compatibility, and export limitations.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Create a Mesh Terrain (Mesh Partition) actor in Mesh Terrain mode; enable the Outliner's Mesh Partition filter to reveal Preview Sections and Built (compile) Sections, both hidden by default.
+2. Assign a Mesh Partition Definition asset to the actor — this declares materials, Weight Channels (e.g. rock/gravel/sand/grass), and physical materials.
+3. Stack Texture Modifiers to displace geometry along any angle (not just vertically like a heightmap) using a grayscale or RGBA-packed displacement texture; each modifier can also write Weight Channels to mask materials in/out (Alpha Blend vs. Max/Min blend modes control how overlapping modifiers combine, e.g. "Apply Item and Max Blend" zeroes out grass/gravel under a new rock formation).
+4. Use Boolean Modifiers (Subtract/Union) with simple source meshes to carve tunnels, caves, and overhangs; the source mesh's own triangle density and edge flow transfer directly into the terrain, and Booleans can also write Weight Channels from a constant, a texture, or the source mesh's vertex color.
+5. Apply a Remesh Modifier inside a bounded volume to re-uniform stretched triangles after heavy displacement, targeting a specific edge length (e.g. 100cm); can be masked to a painted Weight Channel via a Remesh Mask for finer control.
+6. Use the Brush Modifier to hand-sculpt height or paint Weight Channel values directly (vertex-attribute painting via Paint Maps mode), and Spline Modifiers for POI/road-shaped deformation (can be attached to a Level Instance so both move together).
+7. Order modifiers with Priority Layer + Sub-Priority (like Photoshop layers) in the Mesh Partition Definition for predictable stacking; Alt+Right-click on the terrain surface lists every modifier affecting that point.
+8. In PCG, read the terrain via the Mesh Partition Query node (Base / Intermediate-by-priority-layer / Final), scatter using Weight Channel attributes as masks, or convert the surface to points, transform them, and write deformation back into a dedicated non-inclusive priority layer (capture a "source position" via Copy Attributes first to avoid recursive read-back).
+9. Configure runtime output per platform in the Definition's Build section: Transformer Pipelines (Build Variants) bundle components — Static Mesh (Nanite or manual LODs), Collision (independently simplified/streamed), Far Field (for Lumen), World Partition Actor Properties (runtime grid / HLOD layer / data layer) — per platform (mobile/low-end/high-end); at runtime everything bakes to a static mesh plus a texture-array of baked Weight Channels, and all modifiers are stripped out.
+10. To migrate an existing Landscape: export its heightmap/layers to files and reimport as Texture Modifiers. To convert static meshes: merge them into a single mesh (e.g. via Geometry Script) first, then use the Convert-to-Mesh-Partition action (multi-mesh selection isn't supported directly).
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Mesh Partition Definition** asset — materials, Weight Channels, physical materials, Build section (Transformer Pipelines → Build Variants → Platforms)
+- **Weight Channel** = float vertex attribute; read in materials via `Mesh Partition Resource` → `Mesh Partition Channel Sample` node; also usable as a PCG mask
+- **Texture Modifier** — Displacement texture, Texture Channel (R/G/B/A pick from a packed decal), Alpha Blend Mode (Alpha Blend / Max / Min)
+- **Boolean Modifier** — Subtract/Union mode; can write Weight Channels from constant, texture, or source-mesh vertex color
+- **Remesh Modifier** — Target Edge Length (cm); optional Remesh Mask driven by a Weight Channel
+- **Brush Modifier** — sculpt height or paint Weight Channels (Paint Maps mode)
+- **PCG** — `Mesh Partition Query` node (Base/Intermediate+priority-layer/Final), `Mesh Partition Write` node (requires a captured source-position attribute before transform)
+- **Transformer Pipeline** components: Static Mesh Transformer (LOD count, Nanite toggle), Collision Transformer (resolution/simplification), Far Field Mesh Transformer (Lumen), World Partition Actor Properties transformer (runtime grid / HLOD / data layer)
+- No runtime editing support yet (still experimental); no built-in mesh export out of Unreal; no UV-based modifiers (fine for triplanar materials, not for UV-mapped assets like buildings)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced
 
 ### UE Version
-[PENDING EXTRACTION]
+Not specified in-stream — experimental Mesh Terrain feature, same era/team as the Unreal Fest Chicago 2026 keynote (see Related Entries below, dated UE 5.8 experimental)
 
 ### Tags
-[PENDING EXTRACTION]
+modelling, geometry, pcg, materials, level-streaming, lumen, advanced
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- **Introducing Mesh Terrain: Craft Large Complex Worlds | Unreal Fest Chicago 2026** (`tutorials/introducing-mesh-terrain-craft-large-complex-worlds-unreal-fest-chicago-2026.md`) — the official architecture deep-dive on the same system (same Epic presenter, Etienne Carrier); that talk covers the internal design (Mesh Partition stack, Transformer Pipelines, performance benchmarks vs. Landscape), this stream shows the practical hands-on workflow of actually building a level with it. Shared tags: pcg, geometry/modelling, advanced.
+- **Growing Trees in Unreal Engine: PVE 5.8** (`tutorials/growing-trees-in-unreal-engine-pve-58-new-features-and-roadmap-unreal-fest-chica.md`) — same presenter (Etienne Carrier), same Unreal Fest Chicago 2026 event, complementary procedural-worldbuilding tool (vegetation growth vs. terrain sculpting). Shared tags: pcg, nanite, modelling, geometry, materials, advanced.
