@@ -3590,6 +3590,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Epic's Simon Barley tours everything new in the 5.8 Procedural Vegetation Editor (PVE): the `Grower` node's botanical growth simulation (phyllotaxy, phototropism, gravity, senescence, apical/auxiliary dominance hormone controls), extracting growth data from 2D images or 3D meshes, the mesh-building pipeline (Trunk Texture Setup, 10 shipped trunk profiles, Mesh Builder with a single resolution slider), a vector-handle system for foliage orientation, a new low-simulation "Parametric" mode, a decay-driven Foliage Distribution Network, saving grower configs as reusable Data Assets/subgraphs, and a roadmap covering custom/photogrammetry trunks, branch decorations, leaf-atlas tooling, space colonization, and L-systems.
 - **File:** tutorials/growing-trees-in-unreal-engine-pve-58-new-features-and-roadmap-unreal-fest-chica.md
 
+
+### A Practical Look at Mesh Terrain | Inside Unreal
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=XlbWtoIk-Zc
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/a-practical-look-at-mesh-terrain-inside-unreal.md
+
 ---
 
 ## Tag Reference
