@@ -3610,6 +3610,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Rapid-fire tour of the 5.8 virtual production roadmap: Composure's Media Profile hub and improved Color/Luma/Ultimatte keyers, the experimental Composite Depth Mesh Actor for depth-based compositing (demoed with real Leica Geosystems depth data), a new Sandboxes plugin for isolated non-destructive editor work with selective Persist, Cinematic Assembly Tools timeline templates and auto-created levels, VCam parenting-browser/socket-attachment and spawnable recording support, the Tiled Mipmap Video in-camera-VFX plate format, Movie Render Graph reaching production-ready status (End Display support, presets phased out for a "Basic Config" panel), Accumulation Depth of Field for path-traced-quality bokeh, a graph-based Light Modifier for render-layer light variations, and clean/in-sync MRQ audio.
 - **File:** tutorials/state-of-virtual-production-unreal-fest-chicago-2026.md
 
+
+### Real-World Animation & Rigging Challenges in Production | Unreal Fest Chicago 2026
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=XYMad1EutcA
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/real-world-animation-rigging-challenges-in-production-unreal-fest-chicago-2026.md
+
 ---
 
 ## Tag Reference
