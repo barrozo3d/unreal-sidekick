@@ -3604,10 +3604,10 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 ### State of Virtual Production | Unreal Fest Chicago 2026
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=5SJA1FfRPWs
-- **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **Author:** Unreal Engine (Unreal Fest Chicago 2026)
+- **UE Version:** UE 5.8
+- **Tags:** compositing, cinematics, camera, movie-render-graph, rendering, pipeline, advanced
+- **Summary:** Rapid-fire tour of the 5.8 virtual production roadmap: Composure's Media Profile hub and improved Color/Luma/Ultimatte keyers, the experimental Composite Depth Mesh Actor for depth-based compositing (demoed with real Leica Geosystems depth data), a new Sandboxes plugin for isolated non-destructive editor work with selective Persist, Cinematic Assembly Tools timeline templates and auto-created levels, VCam parenting-browser/socket-attachment and spawnable recording support, the Tiled Mipmap Video in-camera-VFX plate format, Movie Render Graph reaching production-ready status (End Display support, presets phased out for a "Basic Config" panel), Accumulation Depth of Field for path-traced-quality bokeh, a graph-based Light Modifier for render-layer light variations, and clean/in-sync MRQ audio.
 - **File:** tutorials/state-of-virtual-production-unreal-fest-chicago-2026.md
 
 ---

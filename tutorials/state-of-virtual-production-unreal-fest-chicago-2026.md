@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=5SJA1FfRPWs
 author: Unreal Engine
 ingested: 2026-08-06
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.8"
+tags: [compositing, cinematics, camera, movie-render-graph, rendering, pipeline, advanced]
+extraction_status: complete
 frames_dir: tutorials/frames/state-of-virtual-production-unreal-fest-chicago-2026/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # State of Virtual Production | Unreal Fest Chicago 2026
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py state-of-virtual-production-unreal-fest-chicago-2026 <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -535,30 +531,65 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [1:15] tutorials/frames/state-of-virtual-production-unreal-fest-chicago-2026/frame_000.jpg
+- [3:05] tutorials/frames/state-of-virtual-production-unreal-fest-chicago-2026/frame_001.jpg
+- [10:01] tutorials/frames/state-of-virtual-production-unreal-fest-chicago-2026/frame_002.jpg
+- [23:55] tutorials/frames/state-of-virtual-production-unreal-fest-chicago-2026/frame_003.jpg
+- [25:20] tutorials/frames/state-of-virtual-production-unreal-fest-chicago-2026/frame_004.jpg
+- [27:00] tutorials/frames/state-of-virtual-production-unreal-fest-chicago-2026/frame_005.jpg
+- [34:20] tutorials/frames/state-of-virtual-production-unreal-fest-chicago-2026/frame_006.jpg
+- [36:20] tutorials/frames/state-of-virtual-production-unreal-fest-chicago-2026/frame_007.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+UE 5.8 virtual-production feature roundup — Composure compositing improvements, project-wide "Sandboxes" isolated work areas, Cinematic Assembly Tools (schemas/templates), VCam parenting, Movie Render Graph "Basic Config" + Accumulation Depth of Field, and End Display-in-MRG.
 
 ### Summary
-[PENDING EXTRACTION]
+Three Epic presenters (Ryan/Brian the PM, Thomas Kilkenny, and a guest) rapid-fire through the 5.8 virtual production roadmap at Unreal Fest Chicago 2026: Composure's new Media Profile hub, improved Color/Luma/Ultimatte keyers, the experimental Composite Depth Mesh Actor for depth-based compositing (demoed with real Leica Geosystems depth+color EXR data), Motion Design performance/masking updates, a USD "pregen" import workflow, performance-capture tooling (MoCap Manager auto-cameras, LiveLink Hub going production-ready), new Cinematic Assembly Tools timeline templates and auto-created levels, the brand-new Sandboxes plugin for isolated non-destructive editor work, VCam parenting-browser and spawnable-recording improvements, in-camera VFX's Tiled Mipmap Video plate format, End Display rendering via Movie Render Graph (now fully production-ready, presets being phased out in favor of "Basic Config"), Accumulation Depth of Field for path-traced-quality bokeh in the deferred renderer, a graph-based Light Modifier for render-layer light variations, and clean/in-sync audio out of Movie Render Queue.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Composure Media Profile** — one toolbar button opens a unified panel to add video sources (e.g. AJA) with a live preview, add outputs (port/frame rate) and start capture, save the panel layout, and pick feeds directly from the Composite Actor's plate/keyer setup instead of juggling multiple panels.
+2. **Composure Keyer** — choose Color or Clean Plate key type; grab the clean-plate texture straight from the incoming feed with one button; a Luma keyer and full Ultimatte masking pass (with an "Ultimatte Blend" toggle for its special color-space handling) are new options alongside the color keyer.
+3. **Composite Depth Mesh Actor (depth compositing)** — feed it a depth map (e.g. from Movie Render Queue or real depth+color EXRs like the Leica Geosystems example) and it builds a camera-facing mesh via World Position Offset that acts as the composite surface, enabling objects to occlude/be occluded correctly by real depth rather than a flat plate.
+4. **Sandboxes** — enable the Sandboxes plugin, create a named sandbox from the Sandbox Browser (workflow modeled on Multi-User); inside it, freely add/change assets (new assets added, edited assets shown in a change list); leaving the sandbox reverts the project to its prior state instantly; re-entering restores the sandbox's in-progress state; use **Persist** to selectively promote only the asset/level changes you want to keep back into the real project — everything else stays discarded.
+5. **Cinematic Assembly Tools ("CAT") schemas** — schemas now support full timeline templates (folders, visibility tracks, arbitrary track types, spawnable actors) and can be nested (e.g. a reusable lighting sub-sequence schema referenced inside a shot schema); schemas can also auto-create an associated level per shot and link it to the assembly's metadata so opening an assembly jumps straight into its level.
+6. **VCam parenting** — a dedicated Parenting Browser (searchable/filterable by actor type and proximity) replaces the old dropdown; supports attaching directly to any actor's socket (e.g. a character's pelvis bone) and exposes per-axis inheritance constraints (e.g. disable inherited roll) for any actor, not just Cine Camera Rig Rails/Actors as before.
+7. **Recording to spawnables** — Take Recorder can now parent to, and reference, spawnable actors (previously only possessables worked; spawnables would despawn and break the recording).
+8. **Movie Render Graph Basic Config** — replaces the old presets popup with an always-visible panel (resolution, output format, path tracer toggle, per-shot overrides shown inline with an indicator); can be saved as a default or exported into a full graph as a starting point. MRG is now feature-complete versus the old preset system (End Display rendering was the last gap) and is the production-ready path going forward.
+9. **Accumulation Depth of Field** — add the Accumulation DOF component to a Cine Camera (or use the Accumulation DOF modifier in an MRG graph, either driven by camera components or forced on with its own sample count) to get path-traced-quality defocus/bokeh from the deferred renderer on shots where standard real-time DOF breaks (e.g. racking focus through a chain-link fence); a viewport preview option lets you iterate on framing with the effect visible before rendering.
+10. **Light Modifier (MRG)** — add a "light actors" condition group to grab all lights in a collection, then use the Light Modifier to batch-drive color/intensity (and any other exposed property via a custom-property picker) for render-layer light variations.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Composure** — Media Profile (source/output hub), Color Keyer / Luma Keyer / Ultimatte masking pass, Composite Depth Mesh Actor (World Position Offset-driven depth mesh), composite-mesh material picker + "Visualize" grid overlay for non-piloted framing, new compositing passes (blur, dilation, etc.)
+- **Sandboxes** — new 5.8 plugin; Sandbox Browser; per-sandbox asset change list; Persist (selective merge back to project) vs. discard-on-exit
+- **Cinematic Assembly Tools ("CAT")** — schema-based shot templates; nested sub-sequence schemas; auto-created levels tied to assembly metadata
+- **VCam** — dedicated Parenting Browser, socket attachment, per-axis inheritance constraints (built on the constraint system, no longer camera-rig-specific), Take Recorder support for spawnable parents/references
+- **Movie Render Graph** — "Basic Config" panel (replacing presets, which are being phased out), per-shot override indicators, save-as-default / save-as-graph, End Display now a first-class MRG node (Deferred/Path Tracer variants, DCRA via sequencer or graph override, stereo rendering support; ICVFX camera support still pending)
+- **Accumulation Depth of Field** — camera component + MRG modifier (camera-default vs. forced-on modes), in-editor single-frame preview
+- **Light Modifier (MRG)** — light-actor condition group, batched color/intensity control, custom property override
+- **In-camera VFX** — Tiled Mipmap Video (TMV) plate format, built on Open APV (Academy Software Foundation); smooth scrubbing, HDR + alpha support; e.g. a 16K/100-frame plate drops from ~100GB (EXR sequence) to ~2GB (single TMV file)
+- **USD pregen workflow** — re-importing a previously-imported USD asset now diffs against the live USD composition instead of re-importing everything from scratch
+- **Performance capture** — MoCap Manager auto-cameras and live face preview, blueprint-extensible MoCap Manager toolbar (custom Editor Utility Widgets), LiveLink Hub production-ready with Media Profile integration and recording initiation
+- **Movie Render Queue** — clean, in-sync audio output (no pops/artifacts) as of 5.8
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.8
 
 ### Tags
-[PENDING EXTRACTION]
+compositing, cinematics, camera, movie-render-graph, rendering, pipeline, advanced
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- **3D VIDEO in Unreal Engine? Kinda? What are Composite Depth Mesh Actors? (Composure EP6)** (`tutorials/3d-video-in-unreal-engine-kinda-what-are-composite-depth-mesh-actors-composure-e.md`) — Dean Yurke's hands-on deep dive into the exact Composite Depth Mesh Actor feature previewed in this talk's depth-compositing section. Shared tags: compositing, camera, rendering.
+- **Render separate SHADOWS from Unreal Engine 5.8 with the Shadow Reflection Catcher (Composure EP5)** (`tutorials/...composure-e.md` — see INDEX) — covers the shadow/reflection catcher layers and Dilation pass mentioned in this talk's Composure section. Shared tags: compositing, movie-render-graph.
+- **Create SPECTACULAR Depth of Field in Unreal Engine 5.8 with the new ACCUMULATION DOF** (Dean Yurke, `H3OfTUhMmmc`) — full hands-on tutorial for the Accumulation Depth of Field feature summarized here. Shared tags: rendering, movie-render-graph, cinematics.
+- **Unreal 5.8 - Add 3D Characters into Real Life WAY Easier with Masking! (Composure EP4)** (`tutorials/unreal-58---add-3d-characters-into-real-life-way-easier-with-masking-composure-e.md`) — practical Composure/virtual-production pipeline (camera tracking, matchmove, masking) that this talk's Composure section summarizes the engine-side feature additions for. Shared tags: compositing, movie-render-graph, camera.
