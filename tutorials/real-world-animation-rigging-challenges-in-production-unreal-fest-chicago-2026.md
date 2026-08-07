@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=XYMad1EutcA
 author: Unreal Engine
 ingested: 2026-08-07
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.8"
+tags: [control-rig, rigging, animation, skinning, deformer-graph, rbf, sequencer, constraints, control-rig-dynamics, groom, editor-utility-widgets, production-pipeline, ue5-8]
+extraction_status: complete
 frames_dir: tutorials/frames/real-world-animation-rigging-challenges-in-production-unreal-fest-chicago-2026/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 18
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Real-World Animation & Rigging Challenges in Production | Unreal Fest Chicago 2026
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py real-world-animation-rigging-challenges-in-production-unreal-fest-chicago-2026 <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -672,30 +668,80 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [3:17] tutorials/frames/real-world-animation-rigging-challenges-in-production-unreal-fest-chicago-2026/frame_000.jpg
+- [4:04] tutorials/frames/real-world-animation-rigging-challenges-in-production-unreal-fest-chicago-2026/frame_001.jpg
+- [8:29] tutorials/frames/real-world-animation-rigging-challenges-in-production-unreal-fest-chicago-2026/frame_002.jpg
+- [9:54] tutorials/frames/real-world-animation-rigging-challenges-in-production-unreal-fest-chicago-2026/frame_003.jpg
+- [10:29] tutorials/frames/real-world-animation-rigging-challenges-in-production-unreal-fest-chicago-2026/frame_004.jpg
+- [12:49] tutorials/frames/real-world-animation-rigging-challenges-in-production-unreal-fest-chicago-2026/frame_005.jpg
+- [15:00] tutorials/frames/real-world-animation-rigging-challenges-in-production-unreal-fest-chicago-2026/frame_006.jpg
+- [17:07] tutorials/frames/real-world-animation-rigging-challenges-in-production-unreal-fest-chicago-2026/frame_007.jpg
+- [21:38] tutorials/frames/real-world-animation-rigging-challenges-in-production-unreal-fest-chicago-2026/frame_008.jpg
+- [24:01] tutorials/frames/real-world-animation-rigging-challenges-in-production-unreal-fest-chicago-2026/frame_009.jpg
+- [25:21] tutorials/frames/real-world-animation-rigging-challenges-in-production-unreal-fest-chicago-2026/frame_010.jpg
+- [26:00] tutorials/frames/real-world-animation-rigging-challenges-in-production-unreal-fest-chicago-2026/frame_011.jpg
+- [30:02] tutorials/frames/real-world-animation-rigging-challenges-in-production-unreal-fest-chicago-2026/frame_012.jpg
+- [31:34] tutorials/frames/real-world-animation-rigging-challenges-in-production-unreal-fest-chicago-2026/frame_013.jpg
+- [33:35] tutorials/frames/real-world-animation-rigging-challenges-in-production-unreal-fest-chicago-2026/frame_014.jpg
+- [39:03] tutorials/frames/real-world-animation-rigging-challenges-in-production-unreal-fest-chicago-2026/frame_015.jpg
+- [44:00] tutorials/frames/real-world-animation-rigging-challenges-in-production-unreal-fest-chicago-2026/frame_016.jpg
+- [47:04] tutorials/frames/real-world-animation-rigging-challenges-in-production-unreal-fest-chicago-2026/frame_017.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+A field-report grab bag of production rigging/animation fixes from Epic's solutions architect Stéphane: skin-weight precision, Control Rig performance/debugging tools, hard-to-rig joint chains, deformer graphs driven from Control Rig, RBF pose interpolation, three tiers of Control Rig modularity (functions+variants, modular Control Rig, fully data-driven), Control Rig Dynamics physics, groom+rig combos, and Sequencer/animation-mode workflow + tooling (including a new free custom tool, S.A.M.).
 
 ### Summary
-[PENDING EXTRACTION]
+Stéphane (Epic solutions architect) walks through recurring rigging and animation pain points he's hit across multiple studio engagements, split into a rigging half and an animation half, with a custom-tooling capstone. Rigging: fixing skin-weight artifacts via unlimited bone influence / 16-bit high-precision weights, keeping Control Rig performant and debuggable (execution stack, preview nodes, profiling, dependency viewer, highlight-occurrences, functions/rig units), handling inline-bone chains with Full Body IK, building robust Sequencer-safe IK/FK switches, driving deformer graphs (squash-and-stretch) from Control Rig so they're both animatable and Sequencer-recordable, RBF pose-driven joints via the Spherical Pose Reader node, three escalating levels of Control Rig modularity, and 5.8's Control Rig Dynamics physics + new groom/Control Rig hybrid workflow via Dataflow. Animation: onboarding animators into Unreal via the Sequence Navigator, Animation Mode's compact timeline/Curve Editor/sets, constraint tips (spawnable actors, joint vs. control targets, offsetting keys safely), 5.8's constraint-render stability fix and auto-baking (linked animation sequence caching for performance), and Editor Utility Widgets for custom tools — ending with a full walkthrough of "S.A.M." (Solo Animation Mode), a free custom EUW tool for isolating a character with clean lighting while animating.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Fix skin-weight artifacts** — default 8 bone influences/vertex can cause editor-vs-render-mesh mismatch; raise the limit via Project Settings or enable **Unlimited Bone Influence** on the skeletal mesh; check per-vertex influence count in the Skeletal Mesh Editor; enable **High Precision Skin Weights** (16-bit) for meshes rigged in another DCC. UE5.8 adds a per-joint lock icon in the outliner to protect weights from auto-normalization redistribution (frame [4:04]).
+2. **Optimize the skeleton before animation/render** — remove unused bones (5.8: right-click → remove all unused bones in one go), procedurally spawn extra joints via Control Rig construction events instead of baking them into the asset, watch morph-target count (MetaHuman face+body uses 800+, so budget deliberately), and use 5.8's improved morph-target management/mirroring tools.
+3. **Debug Control Rig with the built-in tools** — Execution Stack (order of node execution through forward solve, frame [8:29]), Preview Nodes (5.7+, pause + step with F10 like material graph preview), Profiling (per-node/function microsecond cost, frame [9:54]), Dependency Viewer (visualize a joint/control's full connection graph, frame [10:29]), and right-click **Highlight Occurrences** to spot repeated node patterns worth converting into a Function or a C++ **rig unit** for performance.
+4. **Handle inline-bone chains (arms/legs) that resist normal IK** — for simple 2-bone chains use IK2Bone; for chains with awkward orientation (e.g. clunky leg rolls), use the **Full Body IK** node with preferred-angle/pull-vector inputs instead of building a custom parallel IK chain (frame [12:49]); this also sets up ribbon/bendy controls cleanly.
+5. **Build a Sequencer-safe IK/FK switch** — a naive switch that works fine in the Control Rig preview viewport can snap/pop inside Sequencer because Sequencer and Control Rig don't automatically sync switch state; gate the switch logic with Boolean conditions tied to the **Send Event** node so the unused solver's value is reset before it's keyed (frame [15:00]; full setup covered in Epic's ~10hr free rigging workshop).
+6. **Drive Deformer Graphs from Control Rig** — paint areas via Polygroups (or a secondary skin layer) in the Skeletal Mesh Editor, build the deformer logic in a Deformer Graph using a **Read Skin Mesh** node (needed to stack multiple deformers) + the built-in **Squash and Stretch** kernel (editable HLSL), expose variables via **White Map Inputs**, then in Control Rig use **Add Deformer** nodes (right-click → refresh variables) to drive it from a control/joint (frame [17:07]). Caveat: a deformer driven by only one Control Rig can't be baked into an Animation Sequence — for that, add a *second* Control Rig mapped to an Animation Blueprint (bound to a joint even with no real skin weight) so the deformer channel can be recorded/saved.
+7. **Do RBF pose interpolation without Animation Blueprint's Pose Asset/Pose Driver route** — use Control Rig's **Spherical Pose Reader** node: point it at a driver item (e.g. wrist joint), it outputs a normalized value you feed into Set Curve Value / plane-shape / offset-transform nodes, with a visual debug cone/line showing the interpolation live (frame [21:38]).
+8. **Layer Control Rig modularity to match team size** — (a) **Functions + Variants**: store shared logic as public functions in one Control Rig asset, tag versions with Variants (default + custom tags/colors), then bulk-propagate function updates across assets/project via the bulk-edit button (frame [24:01]); (b) **Modular Control Rig**: drag-and-drop pre-built modules (incl. new 5.8 physics modules, e.g. instant tail dynamic chains) for fast rigs junior riggers/layout artists can assemble in seconds (frame [25:21]); (c) **Data-driven approach**: define a Structure asset (variable schema) → a Primary Data Asset (actual joint names/metadata/control-shape values) → assign it to the Skeletal Mesh Editor's asset-details panel → pull it into Control Rig via **Get User Data** in construction events, loop with a For Each node, and dynamically spawn/solve FK controls purely from the data asset (add joints in the data asset + save + recompile Control Rig to regenerate, no graph editing — frame [30:02]).
+9. **Add secondary motion with Control Rig Dynamics [5.8]** — 3 nodes total: spawn a solver + **Spawn Physics Chain** (specify first item and a terminator item to bound the chain) in construction events, then **Step Physics Solver** at the *end* of the forward solve (execution order matters). Exposes strength via a curve keyed to position-in-chain (frame [31:34]); ~5x faster than the older Control Physics nodes per the companion Dataflow talk (see Related Entries).
+10. **Combine physics-driven groom with manual Control Rig control** — new Dataflow-asset-based workflow (5.8) lets you blend how much of a groom's motion comes from physics vs. rig control, projecting skin info into the groom asset and hooking a Control Rig on top (demoed on the Fab-available "girl + ponytail" content example, frame [33:35]); see Mikael Forot's dedicated Dataflow talk for full depth.
+11. **Ease animator onboarding into Sequencer** — use the **Sequence Navigator** icon for a one-click overview of everything in a sequence/hierarchy; in Animation Mode use the new compact/simplified timeline (collapses the normal deep-scroll handle view) docked with the Curve Editor, save custom viewport layouts via the Window tab, and map animator shortcuts under the dedicated Keyboard Shortcuts tab (5.8) (frame [39:03]).
+12. **Handle constraints safely** — build via Animation Mode's Constraining tab (select control → pick constraint type → little-dots menu to adjust); prefer **spawnable actors** over possessables for stability; when a control isn't available/spawned yet, constrain to the underlying **joint/bone** instead; when offsetting constrained keys, don't drag the Sequencer track bar (it can miss keys and break the constraint) — hide the bar and select+offset the actual keys instead. 5.8 also improves constraint stability specifically during render.
+13. **Reduce per-shot Control Rig overhead with auto-baking [5.8]** — the flame icon in Sequencer creates/toggles a **linked Animation Sequence** track alongside the Control Rig track; hide the Control Rig track and work off the baked Animation Sequence for playback/performance, then flip back to Control Rig to keep adjusting — edits auto-propagate to the linked sequence (frame [44:00]).
+14. **Build custom animator tooling with Editor Utility Widgets** — e.g. an Anim Picker (no built-in template; build from scratch with Design + Graph tabs — mostly selection logic with Shift/Alt-select combos). Capstone tool: **S.A.M. (Solo Animation Mode)**, a free EUW the speaker built to isolate a character for animating — toggle Isolate/Keep Lights/Shadows/Hide Sprites/Hide Cameras/Isolate-by-Tag/Toggle Camera Cut/Silhouette mode/Background mode, plus an Actor Tag system to select by tag instead of manual selection (frame [47:04]); ships free with a content sample pack and documentation.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Skeletal Mesh Editor** — bone-influence-per-vertex visualization, Unlimited Bone Influence / High Precision Skin Weights toggles, per-joint lock icon [5.8], right-click remove-unused-bones [5.8], Polygroup painting for deformer masks.
+- **Control Rig debug tools** — Execution Stack, Preview Nodes [5.7+] (F10 step), Profiling (µs per node), Dependency Viewer, right-click Highlight Occurrences, Functions, C++ Rig Units.
+- **Full Body IK** node — preferred-angle/pull-vector input, replaces custom IK chains on awkward joint hierarchies.
+- **Send Event** node — required to gate IK/FK switch state correctly between Control Rig and Sequencer.
+- **Deformer Graph** — Read Skin Mesh node, White Map Inputs, built-in Squash and Stretch kernel (HLSL-editable); **Add Deformer** node in Control Rig; secondary Control Rig + Animation Blueprint needed to bake deformer motion into an Animation Sequence.
+- **Spherical Pose Reader** node — RBF pose interpolation with live visual debug.
+- **Variants** system — function tagging + bulk-edit propagation across Control Rig assets.
+- **Modular Control Rig** — drag-and-drop modules, incl. 5.8 physics modules.
+- **Structure Asset / Primary Data Asset / Get User Data node** — fully data-driven Control Rig construction.
+- **Control Rig Dynamics** [5.8] — Spawn Physics Chain + Step Physics Solver nodes, curve-driven per-item strength.
+- **Dataflow assets** — new groom + Control Rig hybrid physics/manual-control workflow [5.8].
+- **Sequence Navigator**, Animation Mode compact timeline, Keyboard Shortcuts tab [5.8], Constraining tab, spawnable actors, auto-baking flame icon [5.8] (linked Animation Sequence).
+- **Editor Utility Widgets (EUW)** — Design + Graph tabs; example custom tools: Anim Picker, S.A.M. (Solo Animation Mode).
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate–Advanced (assumes working Control Rig/Sequencer familiarity; several tips are 5.7/5.8-specific)
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.8 (many features flagged as new in 5.8: skeletal mesh lock icons, remove-unused-bones, morph target mirroring, Control Rig Dynamics, Dataflow groom+rig workflow, compact timeline, Keyboard Shortcuts tab, constraint render stability, auto-baking); Preview Nodes are 5.7+.
 
 ### Tags
-[PENDING EXTRACTION]
+control-rig, rigging, animation, skinning, deformer-graph, rbf, sequencer, constraints, control-rig-dynamics, groom, editor-utility-widgets, production-pipeline, ue5-8
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- `tutorials/control-rig-in-unreal-engine.md` — Epic's baseline Control Rig documentation (shares: control-rig, rigging, animation) that this talk's tips and tools build on top of.
+- `tutorials/build-it-in-engine-modern-rigging-with-control-rig-dataflow-unreal-fest-chicago-.md` — companion Unreal Fest Chicago 2026 talk covering Control Rig Dynamics and Dataflow-driven skeletonization in far more depth (shares: control-rig, rigging, animation, chaos/dynamics, ue5-8); cites the same ~5x speed-up over Control Physics nodes.
+- `tutorials/advanced-groom-dataflow-setup-in-ue-57-unreal-fest-stockholm-2025.md` — deeper dive on the Dataflow-based groom workflow referenced briefly here (frame [33:35]).
