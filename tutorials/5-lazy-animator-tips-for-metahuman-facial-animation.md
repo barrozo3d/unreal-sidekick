@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=vNe9TfYasyA
 author: MX Bell — Realtime Workflows 
 ingested: 2026-08-09
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.7"
+tags: [metahuman, facial-animation, live-link, take-recorder, metahuman-performance, control-rig, sequencer, animation-layers, lip-sync, idle-animation, constraints]
+extraction_status: complete
 frames_dir: tutorials/frames/5-lazy-animator-tips-for-metahuman-facial-animation/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 12
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # 5 Lazy Animator Tips for Metahuman Facial Animation
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py 5-lazy-animator-tips-for-metahuman-facial-animation <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### <Untitled Chapter 1> [0:00]
@@ -441,30 +437,53 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [2:03] tutorials/frames/5-lazy-animator-tips-for-metahuman-facial-animation/frame_000.jpg
+- [2:31] tutorials/frames/5-lazy-animator-tips-for-metahuman-facial-animation/frame_001.jpg
+- [5:27] tutorials/frames/5-lazy-animator-tips-for-metahuman-facial-animation/frame_002.jpg
+- [7:04] tutorials/frames/5-lazy-animator-tips-for-metahuman-facial-animation/frame_003.jpg
+- [8:10] tutorials/frames/5-lazy-animator-tips-for-metahuman-facial-animation/frame_004.jpg
+- [9:45] tutorials/frames/5-lazy-animator-tips-for-metahuman-facial-animation/frame_005.jpg
+- [10:45] tutorials/frames/5-lazy-animator-tips-for-metahuman-facial-animation/frame_006.jpg
+- [13:07] tutorials/frames/5-lazy-animator-tips-for-metahuman-facial-animation/frame_007.jpg
+- [17:54] tutorials/frames/5-lazy-animator-tips-for-metahuman-facial-animation/frame_008.jpg
+- [20:21] tutorials/frames/5-lazy-animator-tips-for-metahuman-facial-animation/frame_009.jpg
+- [21:37] tutorials/frames/5-lazy-animator-tips-for-metahuman-facial-animation/frame_010.jpg
+- [23:20] tutorials/frames/5-lazy-animator-tips-for-metahuman-facial-animation/frame_011.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Five workflow shortcuts for making a MetaHuman's face feel alive without full hand-keyed animation: (1) record/generate an idle face performance to layer under body idles, (2) generate lip-sync + emotional performance from a dry audio file via MetaHuman Performance, (3) recover and layer the *head* rotation the performance generator computes internally (normally discarded) as an additive on top of a body animation, (4) hand-add small eye-dart and blink layers on top of a generated performance, (5) blend an idle into a full performance across a short crossfade window using Sequencer section weight curves.
 
 ### Summary
-[PENDING EXTRACTION]
+Working in a live level sequence with a MetaHuman ("Tom") from the presenter's in-progress film *Spacewalker*, the video walks through cheap ways to add life to MetaHuman facial animation. It opens with idle capture via Take Recorder + Live Link Hub's webcam-based "MetaHuman Video" source, then hits and fixes two real UE 5.7 bugs: (a) Take Recorder's face clip is empty until you bake to the Face Control Board first, and (b) a baked idle drags the head off model when reused elsewhere unless you zero the Head IK switch control. It then covers generating a full lip-sync performance from an audio clip via MetaHuman Performance (mood/mood-intensity dropdown), a trick to preserve the natural head-bob the generator computes (constrain an actor to the interior head joint, bake via Take Recorder since direct constraint-baking is broken/no-ops in 5.7, then copy the actor's rotation curves onto an additive Animation Layer), manually sweetening eye direction and blink curves on an additive layer, and finally crossfading an idle into a generated performance using the two 2-second blend-window weight curves left on either end of the audio clip.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Idle capture:** Live Link Hub → Add Source → "MetaHuman Video" → Connect (activates webcam). On the MetaHuman, enable "Use Live Link" and pick the Live Link subject (camera feed). Take Recorder → add the MetaHuman actor → Record while performing small ambient head/eye motion (no dialogue) → produces 3 clips (head + 2 body).
+2. **5.7 empty-face-clip bug fix:** the recorded "head" animation clip is actually empty (verify in Sequencer by toggling the face track off — the face is still animated from elsewhere). Fix: open the Face track → **Bake to Control Rig → Face Control Board** (must unlock the track first) → right-click the baked layer → **Bake Animation Sequence** → export. The exported sequence now genuinely contains the head motion. Presenter believes 5.8 may not need this step.
+3. **Detached-head bug fix:** dropping that idle face-anim sequence onto a *different* body animation leaves the head floating in place while the body moves. Fix: open the animation sequence → **Edit in Sequencer** (bakes to a live-editable Control Rig level sequence) → scroll controls to the bottom → find **Head IK switch control** → select all its keys → set to 0 → save. This kills head-follow-body IK but is normally fine for an idle since body motion should drive the head anyway.
+4. **Generate a performance from audio:** Content Browser → right-click → **MetaHuman → MetaHuman Performance**. Naming convention used: `MHP_<clipname>_V01` (raw/clean audio preferred over FX-processed audio, since audio effects can throw off the solver; leave ~2s silence padding at both ends of the source audio for later blend windows). Inside the asset: assign the audio file, set Head Movement Mode to **Control Rig**, optionally pick a **Mood** + mood intensity (Happy/Sad/Angry/Surprised, etc., 0–1 slider) to bias the emotional read, hit **Process**, then assign a **Visualization Mesh** only *after* processing (assigning it first was found to crash). Export as a **Level Sequence** targeting the MetaHuman.
+5. **Preserve the generated head motion:** the performance's head sway lives on an internal joint in world space (not exposed on the rig's Head control), so it would normally be lost when only the face-anim portion is reused. Workaround: spawn a **Basic Actor**, go to the actor's transform, use **Constraints → Set from Current Selection** with the face mesh's **Head** joint chosen as parent, add a rotation constraint (offset off) from the frame the level sequence starts on, hit Create. Direct "Bake to actor" on this constraint is broken/no-ops as of 5.7 — instead, add the actor into **Take Recorder** on the same take and hit Record to bake real curves onto it. Copy the actor's rotation curves (X/Y/Z, i.e. roll/pitch/yaw) and paste them onto an **additive animation layer** driving the MetaHuman's Head control in the final sequence; trim to keep only the useful portion, and use the layer's strength slider to dial the effect down if it's too strong for the framing (e.g. inside a helmet).
+6. **Manual eye life:** after baking the performance to the Face Control Board, select the eye direction control (often has zero/dead keys by default) and hand-key small eye-dart movements — keys placed close together since eyes move fast. Add blinks on a separate additive layer: for each blink, key ~2-3 frames apart (0 → 1 → 0) on the blink control(s) (left/right eye blink selected together), ideally timed to land during an eye-dart so the movement reads as a natural look-away.
+7. **Idle → performance crossfade:** in Sequencer, place the idle face-anim section starting at the top of the timeline, overlapping the performance section which starts after the audio's leading 2s pad. Expand both sections to show their weight curves. At the start: idle weight = 1, performance weight = 0. At the point the audio's silence padding ends (2s in): keyframe idle weight down to 0 and performance weight up to 1, so the two crossfade smoothly instead of the lip-sync being suppressed by a 50/50 blend for the whole clip.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+Live Link Hub (MetaHuman Video source, webcam-driven), Take Recorder, MetaHuman Control Rig (Face Control Board, Head IK switch control), MetaHuman Performance asset (Head Movement Mode: Control Rig, Mood/Mood Intensity), Sequencer (Bake to Control Rig, additive Animation Layers, section weight curves, Constraints panel / Set from Current Selection).
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate — no Blueprint/code work, but requires comfort with Sequencer layers, Control Rig baking, and animation constraints; several steps exist specifically to route around 5.7 bugs, so the mental model (why each workaround is needed) matters more than rote steps.
 
 ### UE Version
-[PENDING EXTRACTION]
+5.7 (presenter notes 5.8 is out but was unreliable/crash-prone for this workflow at time of recording; some bugs described, e.g. the empty face-bake clip, may not reproduce on 5.8).
 
 ### Tags
-[PENDING EXTRACTION]
+metahuman, facial-animation, live-link, take-recorder, metahuman-performance, control-rig, sequencer, animation-layers, lip-sync, idle-animation, constraints
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+None yet — first MetaHuman facial-performance-specific entry in this library. Cross-link future MetaHuman animation/performance tutorials here.

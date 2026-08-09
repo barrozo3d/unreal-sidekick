@@ -3625,9 +3625,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=vNe9TfYasyA
 - **Author:** MX Bell — Realtime Workflows 
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.7
+- **Tags:** metahuman, facial-animation, live-link, take-recorder, metahuman-performance, control-rig, sequencer, animation-layers, lip-sync, idle-animation, constraints
+- **Summary:** Five cheap ways to add life to MetaHuman facial animation: record/generate an idle face performance via Take Recorder + Live Link Hub's webcam-based MetaHuman Video source; generate lip-sync + emotional performance from dry audio via MetaHuman Performance (mood/intensity controls); recover the head rotation the performance generator computes internally (normally discarded) by constraining an actor to the interior head joint, baking via Take Recorder (direct constraint-baking is broken/no-ops in 5.7), then pasting the curves onto an additive Animation Layer; hand-add eye-dart and blink layers on top of a generated performance; and crossfade an idle into a full performance using Sequencer section weight curves. Also documents and fixes two real UE 5.7 bugs: Take Recorder's face clip reads empty until baked to the Face Control Board first, and a baked idle drags the head off-model on reuse unless the Head IK switch control is zeroed.
 - **File:** tutorials/5-lazy-animator-tips-for-metahuman-facial-animation.md
 
 ---
