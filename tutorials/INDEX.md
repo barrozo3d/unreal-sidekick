@@ -3645,9 +3645,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=nIZpZyCrmMc
 - **Author:** Andrew Averkin Art
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** not specified on screen (Lumen/Rect Light ray tracing implies UE5.x)
+- **Tags:** lighting, physically-based-lighting, lumen, post-process, exposure, tone-mapper, local-exposure, rect-light, ray-traced-shadows, color-grading, ambient-occlusion, cinematic, hdri-visualization, interior-lighting
+- **Summary:** Two-stage interior lighting workflow: first build a physically-based (PBL) foundation using real lux/lumen/EV reference values (Environment Light Mixer for Sky Light/Directional Light/Sky Atmosphere/Volumetric Clouds/Height Fog, sun intensity from a lux reference chart, exposure locked via Min/Max EV, verified with the HDR Eye Adaptation visualization's Illuminance/Luminance meters, Film Slope/Toe and Local Exposure Highlight/Shadow Contrast for tonal shaping), then layer artistic "light portal" Rect Lights outside windows with ray-traced shadows, contact shadows, and light shaft occlusion, finishing with Color Grading temperature correction, Bloom/Vignette/Chromatic Aberration, and Lumen-specific Ambient Occlusion (requires two console commands to enable under Lumen). Strong conceptual grounding in *why* PBL values matter as a starting point rather than a rule.
 - **File:** tutorials/create-cinematic-lighting-in-unreal-engine-5-physically-based-workflow.md
 
 ---

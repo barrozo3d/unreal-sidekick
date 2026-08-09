@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=nIZpZyCrmMc
 author: Andrew Averkin Art
 ingested: 2026-08-09
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "not specified on screen (Lumen/Rect Light ray tracing implies UE5.x)"
+tags: [lighting, physically-based-lighting, lumen, post-process, exposure, tone-mapper, local-exposure, rect-light, ray-traced-shadows, color-grading, ambient-occlusion, cinematic, hdri-visualization, interior-lighting]
+extraction_status: complete
 frames_dir: tutorials/frames/create-cinematic-lighting-in-unreal-engine-5-physically-based-workflow/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 13
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Create Cinematic Lighting in Unreal Engine 5 | Physically Based Workflow
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py create-cinematic-lighting-in-unreal-engine-5-physically-based-workflow <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -529,30 +525,61 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [3:20] tutorials/frames/create-cinematic-lighting-in-unreal-engine-5-physically-based-workflow/frame_000.jpg
+- [6:33] tutorials/frames/create-cinematic-lighting-in-unreal-engine-5-physically-based-workflow/frame_001.jpg
+- [9:44] tutorials/frames/create-cinematic-lighting-in-unreal-engine-5-physically-based-workflow/frame_002.jpg
+- [11:14] tutorials/frames/create-cinematic-lighting-in-unreal-engine-5-physically-based-workflow/frame_003.jpg
+- [14:01] tutorials/frames/create-cinematic-lighting-in-unreal-engine-5-physically-based-workflow/frame_004.jpg
+- [16:01] tutorials/frames/create-cinematic-lighting-in-unreal-engine-5-physically-based-workflow/frame_005.jpg
+- [18:08] tutorials/frames/create-cinematic-lighting-in-unreal-engine-5-physically-based-workflow/frame_006.jpg
+- [20:31] tutorials/frames/create-cinematic-lighting-in-unreal-engine-5-physically-based-workflow/frame_007.jpg
+- [22:05] tutorials/frames/create-cinematic-lighting-in-unreal-engine-5-physically-based-workflow/frame_008.jpg
+- [24:25] tutorials/frames/create-cinematic-lighting-in-unreal-engine-5-physically-based-workflow/frame_009.jpg
+- [25:51] tutorials/frames/create-cinematic-lighting-in-unreal-engine-5-physically-based-workflow/frame_010.jpg
+- [29:20] tutorials/frames/create-cinematic-lighting-in-unreal-engine-5-physically-based-workflow/frame_011.jpg
+- [30:00] tutorials/frames/create-cinematic-lighting-in-unreal-engine-5-physically-based-workflow/frame_012.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+A two-stage lighting workflow for interior cinematic environments: first build a **physically-based (PBL)** base lighting foundation for the whole level using real-world lux/lumen/EV reference values (not eyeballed numbers), then layer artistic "fake"/practical lights, shadow-quality tuning, and post-process grading on top of that foundation once it's already believable.
 
 ### Summary
-[PENDING EXTRACTION]
+Demonstrates lighting a wooden interior workshop scene from scratch. Stage 1 — foundation: Environment Light Mixer (Window → Environment Light Mixer) one-click-creates the core ecosystem (Sky Light, Directional Light, Sky Atmosphere, Volumetric Clouds, Exponential Height Fog), which the video stresses are interdependent (moving the sun changes the atmosphere, which changes the sky, which changes the skylight). A Post Process Volume is added with Infinity Extend (Unbound) so its settings apply everywhere. Skylight Real-Time Capture and Volumetric Fog are enabled. The directional light is angled low (~golden-hour) and set to a physically-referenced intensity (15,000 lux) using a lighting-and-exposure reference chart (lux for large sources like the sun, lumens for practical lights; example anchors: moonlight ≈0.5 lux, low sun ≈5,000 lux, overcast ≈20,000 lux, noon sun ≈100,000 lux; candle ≈12 lumens, interior ≈1,000 lumens). Exposure is then locked to a physically-referenced EV range (interior ≈EV4, low sun ≈EV7, overcast ≈EV10, bright sun ≈EV14) via Post Process → Exposure (Exposure Compensation = 0, Min/Max EV both set equal, here 7) rather than eyeballed, and verified with the **HDRI Eye Adaptation** visualization mode (Show → Visualize → HDR Eye Adaptation), which overlays a histogram plus an Illuminance meter (lux, light hitting a surface) and a Luminance meter (nits, what the viewer actually perceives) so the artist can confirm bright/dark relationships read correctly rather than hitting one "correct" number everywhere. Film tone-mapper Slope/Toe are then tuned as a separate "filming interpretation" layer on top of the physical values (Slope = overall contrast, Toe = how shadows crush toward black; lower both — ~0.8 / ~0.3 — for a softer look with more shadow detail), and Local Exposure (Highlight Contrast / Shadow Contrast, e.g. 0.8 / 0.6) is used to keep bright window areas and dark interior corners both readable without flattening the whole image. Stage 2 — artistic layer: Rect Lights are placed just outside each window as "light portals" (fake practical lights, source size matched to the window opening, intensity in lumens e.g. ~15,000, Barn Door Angle ~90°/Length ~1 to keep spill contained, Attenuation Radius tuned to reach but not overshoot the far wall, Volumetric Scattering disabled per-light to avoid over-fogging, and a slight rotation of ~20-30° so the light reads as bouncing down from the sky rather than coming in flat) — then Cast Ray Traced Shadows is enabled on both the rect lights and the directional light for grounded, soft, natural shadow falloff, with per-light Ray Tracing → Samples Per Pixel (2-4) raised to clean up noise around large area-light sources, plus a small Contact Shadow Length (~0.02) for extra grounding on small objects, Light Shaft Occlusion for visible god-rays at the windows, and Volumetric Scattering Intensity tuned carefully (left at 1, not pushed to 2) to avoid an overly foggy look. Color Grading Temperature is pulled down from the 6500K default to ~4500K to counteract an overly warm/reddish cast from the wood + low sun combination, with optional Saturation/Contrast/Gamma/Offset tweaks per shadow/midtone/highlight range kept subtle. Post-process finishing touches: Bloom (Convolution method preferred for a more realistic, filmic highlight bleed over the cheaper default method), a very light Chromatic Aberration (or defer that to grading software like After Effects/DaVinci Resolve), a subtle Vignette (~0.5), and Ambient Occlusion — which under Lumen requires two console commands first (`r.lumen.diffuseindirect.ssao 1` and `r.lumen.screenprobegather.shortrangeao 0`) before the Post Process → Ambient Occlusion Intensity/Radius controls take effect; Buffer Visualization → Ambient Occlusion helps evaluate the effect directly; radius reduced (~25-30) and intensity kept modest (~0.5) to avoid a fake over-processed look. Individual rect-light intensities are then hand-adjusted per area (e.g. one dropped from 15,000 to 10,000 lumens, another to 5,000) as a final artistic balancing pass, with the video noting these same per-window rect lights will later double as per-shot toggleable lights once cameras are introduced.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Environment Light Mixer (Window → Environment Light Mixer) → create Sky Light, Directional Light, Sky Atmosphere, Volumetric Clouds, Exponential Height Fog in one pass.
+2. Add a Post Process Volume, enable Infinity Extend (Unbound).
+3. Enable Sky Light Real-Time Capture and Volumetric Fog (in the Exponential Height Fog settings).
+4. Position/angle the Directional Light for the desired time-of-day mood (here: low, near-golden-hour).
+5. Set Directional Light intensity in **lux** using a physically-based reference chart rather than guessing (workshop example: 15,000 lux for a soft, below-midday look).
+6. In Post Process → Exposure: set Exposure Compensation to 0, enable Min/Max EV, and set both to the same physically-referenced EV value for the target lighting condition (here EV7, "low sun").
+7. Verify with Show → Visualize → HDR Eye Adaptation: read the histogram + Illuminance (lux) / Luminance (nits) meters to confirm bright areas read brighter and shadows read darker in a believable relationship, rather than chasing one target number.
+8. Tune the Film tone mapper (Post Process → Film): lower Slope (~0.8) for softer contrast, lower Toe (~0.3) to retain more shadow detail — watch the HDR Eye Adaptation curve reshape live as these change.
+9. Tune Local Exposure: Shadow Contrast (~0.6) and Highlight Contrast (~0.8) to keep both window-bright and interior-dark areas legible without a global exposure compromise.
+10. Add Rect Lights just outside each window ("light portals") sized to the window opening; set intensity in lumens (~15,000 starting point, no strict physical target since these are fake supplemental lights); tune Barn Door Angle/Length to contain spill, Attenuation Radius to reach but not overshoot the far wall, disable per-light Volumetric Scattering, and rotate each ~20-30° for a more natural top-down feel.
+11. Enable Cast Ray Traced Shadows on the rect lights and the directional light; raise per-light Ray Tracing Samples Per Pixel (2-4) to reduce area-light noise (check via Lighting Only viewport mode); add a small Contact Shadow Length (~0.02) for small-object grounding; enable Light Shaft Occlusion on the directional light for window god-rays; keep Volumetric Scattering Intensity conservative (~1).
+12. Color Grading → Temperature: lower from default 6500K toward ~4500K to cool an overly warm/reddish scene; optionally adjust global Saturation and per-range (Shadows/Midtones/Highlights) Contrast/Gamma/Offset subtly.
+13. Post-process finishing: Bloom Method = Convolution for realism; light/no Chromatic Aberration (prefer doing it in compositing); subtle Vignette (~0.5); Ambient Occlusion — run the two Lumen console commands first, then set Post Process AO Intensity (~0.5) and Radius (~25-30), checked via Buffer Visualization → Ambient Occlusion.
+14. Iterate globally via Min/Max EV (nudge both down together to brighten, e.g. 7→6) and per-light rect-light intensity tweaks as a final art pass; keep individual window lights independently adjustable since they'll later be toggled per camera shot.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+Environment Light Mixer, Sky Light (Real-Time Capture), Directional Light (lux, Source Angle, Cast Ray Traced Shadows, Light Shaft Occlusion), Sky Atmosphere, Volumetric Clouds, Exponential Height Fog (Volumetric Fog, Volumetric Scattering Intensity), Post Process Volume (Infinity Extend/Unbound, Exposure Compensation, Min/Max EV, Film Slope/Toe, Local Exposure Highlight/Shadow Contrast, Color Grading Temperature/Saturation/Shadows-Midtones-Highlights, Bloom Convolution, Chromatic Aberration, Vignette, Ambient Occlusion Intensity/Radius), Rect Light (Source Width/Height, lumens, Barn Door Angle/Length, Attenuation Radius, Volumetric Scattering toggle, Ray Tracing Samples Per Pixel, Contact Shadow Length), HDR Eye Adaptation visualization (Show → Visualize), Buffer Visualization (Ambient Occlusion), Lumen console commands (`r.lumen.diffuseindirect.ssao 1`, `r.lumen.screenprobegather.shortrangeao 0`).
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate — no Blueprint/code work, but requires understanding the *relationships* between multiple interconnected systems (sun angle ↔ atmosphere ↔ skylight, lux ↔ EV ↔ exposure) rather than tuning any single setting in isolation; the physically-based numeric anchors make it approachable for someone newer to lighting theory.
 
 ### UE Version
-[PENDING EXTRACTION]
+Not explicitly stated (Lumen-based workflow with Rect Light ray tracing and the two `r.lumen.*` console commands implies a recent UE5.x version; no exact point release named on screen or in narration).
 
 ### Tags
-[PENDING EXTRACTION]
+lighting, physically-based-lighting, lumen, post-process, exposure, tone-mapper, local-exposure, rect-light, ray-traced-shadows, color-grading, ambient-occlusion, cinematic, hdri-visualization, interior-lighting
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+None yet — first physically-based interior/cinematic lighting fundamentals entry in this library. Cross-link future PBL, Lumen lighting, or per-shot camera/lighting tutorials here.
