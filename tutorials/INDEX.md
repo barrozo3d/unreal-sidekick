@@ -3635,9 +3635,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=EL8N3rdIUIM
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5 (point version unspecified)
+- **Tags:** substrate, megalights, niagara, mobile-rendering, mobile-shadows, mobile-ray-tracing, indirect-lighting, metahuman, dna, control-rig, blend-shapes, corrective-bones, cloth-simulation-driven-deformation, translucent-sorting, oit, cross-platform, conference-talk, unreal-fest-chicago-2026, production-pipeline
+- **Summary:** Archosaur Games (developers of *Silent Whispers*) field-report on a mobile+PC cross-platform stylized-realistic character pipeline. Covers UE5's Substrate material system (artist-controlled F0/F90, improved BRDF, tree-based material topology) for costume/fabric rendering; Niagara-driven MegaLights for dense dynamic-light scenes (demoed on an amusement-park light show) with a 5-point mobile-cost checklist (Basic-by-default, Component only when needed, restrict light boundaries, merge into Area Lights, layered near/far rendering); mobile-specific shadow-bias/contact-shadow tuning and indirect-lighting (SSGI/AO) upgrades to close the mobile-vs-PC visual gap; mobile hardware ray tracing specifically for reflections where SSR falls short; and MetaHuman as the character foundation (DNA, Control Rig, blend shapes, MH Expressions web app, MHCC docs), extended with custom Maya Pose Editor corrective/twist bones for body deformation and Blueprint-exposed secondary controls for per-garment cloth-driven deformation (sleeve pull, pant-leg lift). Closes with three guiding principles: performance first, controllable (art-crafted) visual quality over pure tech-driven solutions, and reusable/incremental workflow. Architecture-and-tradeoffs level, not a hands-on how-to.
 - **File:** tutorials/achieving-realistic-cross-platform-characters-a-ue5-pipeline-approach-unreal-fes.md
 
 ---

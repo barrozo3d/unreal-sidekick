@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=EL8N3rdIUIM
 author: Unreal Engine
 ingested: 2026-08-09
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5 (point version unspecified)"
+tags: [substrate, megalights, niagara, mobile-rendering, mobile-shadows, mobile-ray-tracing, indirect-lighting, metahuman, dna, control-rig, blend-shapes, corrective-bones, cloth-simulation-driven-deformation, translucent-sorting, oit, cross-platform, conference-talk, unreal-fest-chicago-2026, production-pipeline]
+extraction_status: complete
 frames_dir: tutorials/frames/achieving-realistic-cross-platform-characters-a-ue5-pipeline-approach-unreal-fes/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 12
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Achieving Realistic Cross-Platform Characters: A UE5 Pipeline Approach | Unreal Fest Chicago 2026
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py achieving-realistic-cross-platform-characters-a-ue5-pipeline-approach-unreal-fes <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -353,30 +349,51 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [16:08] tutorials/frames/achieving-realistic-cross-platform-characters-a-ue5-pipeline-approach-unreal-fes/frame_000.jpg
+- [19:10] tutorials/frames/achieving-realistic-cross-platform-characters-a-ue5-pipeline-approach-unreal-fes/frame_001.jpg
+- [21:10] tutorials/frames/achieving-realistic-cross-platform-characters-a-ue5-pipeline-approach-unreal-fes/frame_002.jpg
+- [24:13] tutorials/frames/achieving-realistic-cross-platform-characters-a-ue5-pipeline-approach-unreal-fes/frame_003.jpg
+- [26:10] tutorials/frames/achieving-realistic-cross-platform-characters-a-ue5-pipeline-approach-unreal-fes/frame_004.jpg
+- [27:01] tutorials/frames/achieving-realistic-cross-platform-characters-a-ue5-pipeline-approach-unreal-fes/frame_005.jpg
+- [28:38] tutorials/frames/achieving-realistic-cross-platform-characters-a-ue5-pipeline-approach-unreal-fes/frame_006.jpg
+- [31:01] tutorials/frames/achieving-realistic-cross-platform-characters-a-ue5-pipeline-approach-unreal-fes/frame_007.jpg
+- [32:00] tutorials/frames/achieving-realistic-cross-platform-characters-a-ue5-pipeline-approach-unreal-fes/frame_008.jpg
+- [32:46] tutorials/frames/achieving-realistic-cross-platform-characters-a-ue5-pipeline-approach-unreal-fes/frame_009.jpg
+- [33:26] tutorials/frames/achieving-realistic-cross-platform-characters-a-ue5-pipeline-approach-unreal-fes/frame_010.jpg
+- [34:52] tutorials/frames/achieving-realistic-cross-platform-characters-a-ue5-pipeline-approach-unreal-fes/frame_011.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+A studio field-report (Archosaur Games / NetEase, developers of *Silent Whispers*) on the systems-level choices that let a stylized-realistic mobile+PC character pipeline hold up on both platforms at once: UE5's Substrate material system for costume rendering, Niagara-driven MegaLights for dense dynamic-light scenes, mobile-specific indirect lighting/shadow-bias tuning, mobile hardware ray tracing for reflections, and MetaHuman (DNA + Control Rig + blend shapes) as the character foundation, extended with custom corrective bones and a Blueprint-exposed clothing-driven-deformation layer. No hands-on node graphs shown — this is architecture-and-tradeoffs level, not a step-by-step build.
 
 ### Summary
-[PENDING EXTRACTION]
+Frames its history in three acts. **Act 1 (UE4 era, prior title *Life Makeover*):** built a large layered-translucent-fabric material library (floral ornaments as stacked translucent layers, metallic specular accents to guide the eye, traditional Chinese embroidery patterns studied directly from craftspeople rather than references, a mermaid-scale/skin blend material). The three real production problems this created — complex transparent-material sorting, high poly/draw-call cost on mobile, and manual per-asset special-casing — were solved with a unified pipeline: split translucent parts into separate sub-meshes, sort by garment category + artist-assigned priority + bone position, and resolve draw order with an OIT (Order-Independent Transparency) algorithm. **Act 2 (UE5, current title *Silent Whispers*):** four modules. (1) **Substrate** material system adopted for three reasons — direct artist control of F0/F90 reflectance values, a more physically accurate BRDF/PBR model, and a tree-based material topology for richer material combination — used heavily for garment fabric rendering (plain/twill weave study, fine woven textures + subtle wrinkles + stitching detail), at the cost of extra mobile-vs-PC visual-parity tuning work. (2) **MegaLights** (built on Niagara) removes the traditional one-light-equals-linear-cost constraint, letting artists place hundreds of dynamic shadow-casting lights (demoed on an amusement-park scene: a Niagara modular light stack with separate street-lamp, ferris-wheel, and carousel light-show modules, each individually controllable bulb-by-bulb) — mitigated on mobile via 5 practical rules (default to Basic Rendering; enable Component Rendering only for lights that need it, e.g. spotlights with IES profiles; restrict light radius/boundaries to cut redundant sampling; merge dense small lights into Area Lights; layer Component Rendering for near lights with cheaper Basic Rendering for distant ones). (3) **Mobile lighting/shadows**: switched from one directional light (Life Makeover/UE4) to deferred rendering to support many dynamic lights on *Silent Whispers*; shadow map bias retuned to fix Peter-panning and shadow acne (particularly visible as broken finger shadows in close-ups) by raising shadow resolution, enabling contact shadows, and manually resizing/repositioning the shadow to fit the camera view rather than relying purely on algorithmic fixes; indirect lighting on mobile was upgraded to close the visible gap with PC (fixing light leaks at joints like the arm-on-chair contact point, caused by low sample counts and missing SSGI/AO). (4) **Mobile hardware ray tracing** used specifically for reflections (found the best value among shadow/AO/GI/reflection use cases) — SSR alone visibly misses large areas of reflective/shiny surfaces that hardware RT fills in, and this runs live on mobile hardware. **Act 3 (character foundation):** chose **MetaHuman** for three reasons — ready-made high-quality rig + DNA tooling, tight fit with UE5's animation pipeline, and enough tunability to scale down to mobile while still supporting a stylized look. Facial quality is treated as blend-shape-accuracy-first: blend shapes define the facial muscle base, Control Rig controllers are what animators actually pose with, and the team used the **MH Expressions web app** plus **Apex's official MHCC (MetaHuman Creator/Component?) documentation** as their primary reference — repeatedly citing MHCC's docs as the single resource that let them move fast — tuning against the ~13 most visually influential expressions (of 351 total) plus symmetric split-poses as the first-priority validation set. Body: MetaHuman's default corrective-bone coverage was judged insufficient for *Silent Whispers*' complex movement, so they used **Maya's Pose Editor for MetaHuman** to add full-body multi-directional pose-driven correctives and twist bones (preserving volume/muscle deformation on big poses), then rebuilt that driven relationship inside UE5 from the DNA data using **Control Rig**, additionally exposing secondary tuning controls in **Blueprint** so per-garment cloth response (sleeve pulling back when the arm bends, pant leg lifting when sitting) can be retuned per silhouette/material without touching the underlying rig. Closes with three cross-cutting principles: performance first (stable frame rate over any single visual feature, tuned hard for mobile thermal/frame-time budgets), controllable visual quality (favor art-crafted assets over purely tech-driven solutions so quality scales predictably across device tiers), and reusable workflow (extend proven pipelines incrementally rather than rebuilding).
 
 ### Key Steps
-[PENDING EXTRACTION]
+This is a conference retrospective, not a tutorial — no reproducible step list. The closest to actionable steps are the enumerated best-practices:
+- **MegaLights mobile-cost checklist:** default Basic Rendering → Component Rendering only where needed (spotlights/IES) → restrict light radius/boundary → merge small dense lights into Area Lights → layer Component (near) vs. Basic (far) rendering by distance.
+- **Mobile shadow-quality checklist:** raise shadow map resolution for close-ups → enable contact shadows → manually reposition/resize the shadow to frame the camera view (cheaper than deeper algorithmic fixes) → retune shadow-map bias to address Peter-panning/acne.
+- **MetaHuman body-rig extension:** author extra corrective/twist bones in Maya's Pose Editor for MetaHuman → import via DNA → reconstruct the pose-driven relationships in UE5 Control Rig → expose secondary tuning knobs via Blueprint for per-garment reuse.
+- **Translucent-costume draw-order pipeline:** split translucent geometry into sub-meshes → sort by garment category + artist priority + bone position → resolve remaining order with an OIT algorithm.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+Substrate material system (F0/F90 artist control, BRDF, tree-based material topology), MegaLights, Niagara (modular procedural light-stack systems), deferred rendering (mobile), shadow map bias tuning, contact shadows, SSGI/AO (indirect lighting), SSR vs. mobile hardware ray tracing (reflections), MetaHuman (DNA, Control Rig, blend shapes, MH Expressions web app, MHCC documentation), Maya Pose Editor for MetaHuman (corrective/twist bones), Blueprint (exposed secondary cloth-deformation tuning controls), OIT (Order-Independent Transparency) for translucent sorting.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced / architectural — aimed at technical artists and engine programmers making pipeline-level decisions for a live-service mobile+PC title, not at someone looking for a hands-on how-to. Most value is in the tradeoffs and the "why we chose X over Y" reasoning rather than reproducible steps.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5 (current title *Silent Whispers*); prior title *Life Makeover* was UE4. Specific UE5 point version not stated.
 
 ### Tags
-[PENDING EXTRACTION]
+substrate, megalights, niagara, mobile-rendering, mobile-shadows, mobile-ray-tracing, indirect-lighting, metahuman, dna, control-rig, blend-shapes, corrective-bones, cloth-simulation-driven-deformation, translucent-sorting, oit, cross-platform, conference-talk, unreal-fest-chicago-2026, production-pipeline
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+See also "Real-World Animation & Rigging Challenges in Production" (Unreal Fest Chicago 2026) for another studio's Control Rig/deformer-graph/RBF production field-report, and "State of Virtual Production" (Unreal Fest Chicago 2026) — same conference, complementary rendering-pipeline territory.
