@@ -3620,6 +3620,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Epic solutions architect Stéphane's field-report grab bag of production rigging/animation fixes: skin-weight precision (unlimited bone influence, 16-bit weights), Control Rig debug tools (execution stack, preview nodes, profiling, dependency viewer), Full Body IK for awkward joint chains, Sequencer-safe IK/FK switching, deformer graphs driven from Control Rig (squash-and-stretch, bakeable to Animation Sequence via a second rig), RBF pose interpolation via Spherical Pose Reader, three tiers of Control Rig modularity (functions+variants, drag-and-drop modules, fully data-driven), 5.8's Control Rig Dynamics physics and Dataflow-based groom+rig hybrid workflow, Sequencer/animation-mode tooling (Sequence Navigator, compact timeline, constraint tips, auto-baking), and a walkthrough of S.A.M. (Solo Animation Mode), a free custom Editor Utility Widget tool for isolating characters while animating.
 - **File:** tutorials/real-world-animation-rigging-challenges-in-production-unreal-fest-chicago-2026.md
 
+
+### 5 Lazy Animator Tips for Metahuman Facial Animation
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=vNe9TfYasyA
+- **Author:** MX Bell — Realtime Workflows 
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/5-lazy-animator-tips-for-metahuman-facial-animation.md
+
 ---
 
 ## Tag Reference
