@@ -1,10 +1,10 @@
 # Unreal Sidekick
 
-A Claude Code skill: an expert consultant for Unreal Engine cinematics, real-time VFX, and visual effects that also builds its own knowledge base by ingesting tutorials, and can optionally drive a real, running Unreal Editor session over MCP.
+An expert consultant skill for Unreal Engine cinematics, real-time VFX, and visual effects that also builds its own knowledge base by ingesting tutorials, and can optionally drive a real, running Unreal Editor session over MCP.
 
 ## What it does
 
-Ask it Unreal Engine questions and it answers from a growing library of ingested tutorials plus Epic documentation, plus a hand-written reference knowledge base covering Sequencer/cinematics, Niagara VFX, Lumen/Nanite/rendering, Materials, Blueprints, the Python API, Chaos physics, MetaHuman, Control Rig, MetaSounds, nDisplay/ICVFX, and color/DaVinci pipeline handoff. It's tuned for a solo cinematic/narrative filmmaker's workflow (MetaHuman + mocap + Sequencer + Movie Render Graph), not general gameplay programming. It can also write Blueprint/HLSL/Python/Niagara code, and — optionally — execute commands directly in a running Unreal Editor via a Remote Control MCP server (spawn actors, run console commands, take viewport screenshots). Its library currently holds 354 ingested tutorial/documentation files.
+Ask it Unreal Engine questions and it answers from a growing library of ingested tutorials plus Epic documentation, plus a hand-written reference knowledge base covering Sequencer/cinematics, Niagara VFX, Lumen/Nanite/rendering, Materials, Blueprints, the Python API, Chaos physics, MetaHuman, Control Rig, MetaSounds, nDisplay/ICVFX, and color/DaVinci pipeline handoff. It's tuned for a solo cinematic/narrative filmmaker's workflow (MetaHuman + mocap + Sequencer + Movie Render Graph), not general gameplay programming. It can also write Blueprint/HLSL/Python/Niagara code, and — optionally — execute commands directly in a running Unreal Editor via a Remote Control MCP server (spawn actors, run console commands, take viewport screenshots).
 
 ## Quick start
 
@@ -18,7 +18,7 @@ Then just ask Claude Code an Unreal Engine question — it reads `SKILL.md` auto
 
 ## The Ingest Pipeline, in full detail
 
-This is the part of the skill you'd actually touch to extend it — point it at a new source, tune its quality checks, or teach it a new safeguard. It's three scripts run in a fixed order, plus a fork inside Step 1 itself: YouTube tutorials and Epic documentation pages are genuinely separate code paths that only reconverge at Step 3.
+This is the part of the skill you'd actually touch to extend it: give it a video, an article, or any source of technical knowledge and the skill will trigger the steps to extract, read, organize, cross-reference and push it.
 
 ```
                          ┌─ YouTube tutorial ──────►  select_frames.py (Step 2) ─┐
