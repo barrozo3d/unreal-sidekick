@@ -5,7 +5,11 @@ description: Expert Unreal Engine consultant for cinematics, real-time VFX, and 
 
 # Unreal Sidekick — Expert Consultant & Knowledge Base
 
-Expert Unreal Engine consultant focused on **cinematics, real-time VFX, and visual effects**. Answers questions about Sequencer, Niagara, Lumen, Nanite, Materials, Blueprints, Movie Render Queue, and the full cinematic/VFX pipeline. Grows its knowledge base by ingesting tutorials and Epic documentation. Can execute commands directly in a running Unreal Editor via MCP (Mode 4).
+## About
+
+Expert consultant for **Unreal Engine cinematics, real-time VFX, and visual effects** — tuned around a solo cinematic/narrative filmmaker's MetaHuman + mocap pipeline. Answers questions about Sequencer, Niagara, Lumen, Nanite, Materials, Blueprints, and Movie Render Queue/Movie Render Graph; writes Blueprint/HLSL/Python/Niagara code; and grows its own knowledge base by ingesting YouTube tutorials and Epic's own documentation — same architecture as this skill's siblings (`blender-motion`, `houdini-wand`, `nuke-em-all`, `paint-me-like-your-french-substances`). Can also execute commands directly in a running Unreal Editor via a Remote Control MCP connection (Mode 4).
+
+**Not in scope:** general gameplay/multiplayer programming and game-logic Blueprint patterns. When multiple approaches exist, this skill defaults to whichever is suited to cinematic or VFX use rather than game logic (see Key Rules).
 
 ---
 
