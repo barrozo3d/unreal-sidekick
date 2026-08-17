@@ -3660,6 +3660,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Series opener for character artists: blank starter-content project setup, fixing inverted middle-mouse pan in Editor Preferences, and correctly importing a multi-material character FBX via Combine Meshes + Do Not Create Material so it lands as one clean static mesh with empty, asset-level Material Slots.
 - **File:** tutorials/unreal-engine-5-for-character-artists-tutorial-getting-started.md
 
+
+### UNREAL ENGINE 5 FOR CHARACTER ARTISTS | Tutorial | Texture & Materials
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=DrirPMH5TwI
+- **Author:** Jared Chavez
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-5-for-character-artists-tutorial-texture-materials.md
+
 ---
 
 ## Tag Reference
