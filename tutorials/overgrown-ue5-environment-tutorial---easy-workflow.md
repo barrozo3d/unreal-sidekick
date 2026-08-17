@@ -192,4 +192,4 @@ pcg, modelling, materials, lighting, pipeline, intermediate
 ---
 
 ## Related Entries
-No directly related tutorials yet in the library covering the Dash plugin or procedural vegetation/scatter workflows — flag for cross-linking if another Dash, PCG, or environment-scattering tutorial is ingested later.
+- [The Fastest Way to Scatter an Open World Biome in UE5](the-fastest-way-to-scatter-an-open-world-biome-in-ue5.md) — conceptual sibling: another third-party procedural-scattering plugin (Aziel Arts QuickScatter) workflow, focused on large-scale streamed open-world biomes rather than this video's single hand-crafted scene.

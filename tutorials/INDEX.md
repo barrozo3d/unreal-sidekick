@@ -3685,9 +3685,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=na4xj_EHdps
 - **Author:** Aziel Arts
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** Not specified (UE5-era, exact point release not stated or clearly legible; the plugin relies on GPU-based PCG which requires a reasonably recent UE5 version)
+- **Tags:** pcg, modelling, materials, pipeline, automation, level-streaming, intermediate, advanced
+- **Summary:** Third-party GPU-based PCG plugin (Aziel Arts QuickScatter): splits open-world foliage into onload (collision-needing, sparse, calculated once) vs. runtime (dense, streamed via partitioned grids near the player) blueprints, with Data Asset mesh groups, spatial-noise-driven ecological clumping, PCG-stamp baking, and biome-map + spline/volume masking for hand-crafted areas.
 - **File:** tutorials/the-fastest-way-to-scatter-an-open-world-biome-in-ue5.md
 
 ---
