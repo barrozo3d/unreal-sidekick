@@ -3675,9 +3675,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=9926HB1PA-c
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** Not specified (UE5-era, exact point release not stated or clearly legible in captured frames)
+- **Tags:** pcg, modelling, materials, lighting, pipeline, intermediate
+- **Summary:** Third-party Dash plugin workflow: layering Surface Scatter (proximity/noise masking), Path Scatter (spline-driven hanging vegetation), a procedural Vine tool (Growth Iterations/Size/Gravity Weight), and a Physics-drop debris tool onto a Quixel megascan building to build an overgrown ruin quickly and non-destructively.
 - **File:** tutorials/overgrown-ue5-environment-tutorial---easy-workflow.md
 
 ---

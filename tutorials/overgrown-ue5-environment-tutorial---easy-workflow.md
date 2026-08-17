@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=9926HB1PA-c
 author: Polygonflow Dash
 ingested: 2026-08-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "Not specified (UE5-era, exact point release not stated or clearly legible in captured frames)"
+tags: [pcg, modelling, materials, lighting, pipeline, intermediate]
+extraction_status: complete
 frames_dir: tutorials/frames/overgrown-ue5-environment-tutorial---easy-workflow/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Overgrown UE5 Environment Tutorial - Easy Workflow
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py overgrown-ue5-environment-tutorial---easy-workflow <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Intro [0:00]
@@ -137,30 +133,63 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [0:39] tutorials/frames/overgrown-ue5-environment-tutorial---easy-workflow/frame_000.jpg
+- [1:45] tutorials/frames/overgrown-ue5-environment-tutorial---easy-workflow/frame_001.jpg
+- [2:16] tutorials/frames/overgrown-ue5-environment-tutorial---easy-workflow/frame_002.jpg
+- [5:01] tutorials/frames/overgrown-ue5-environment-tutorial---easy-workflow/frame_003.jpg
+- [5:53] tutorials/frames/overgrown-ue5-environment-tutorial---easy-workflow/frame_004.jpg
+- [7:02] tutorials/frames/overgrown-ue5-environment-tutorial---easy-workflow/frame_005.jpg
+- [8:44] tutorials/frames/overgrown-ue5-environment-tutorial---easy-workflow/frame_006.jpg
+- [10:24] tutorials/frames/overgrown-ue5-environment-tutorial---easy-workflow/frame_007.jpg
+
+---
+
+> **Third-party plugin note:** This entire workflow is built around **Dash**, a paid third-party procedural scattering/vegetation plugin for Unreal Engine (free download offered, per the outro) — not native UE tools. Its Content Browser, Scatter system, Vine tool, and Physics-drop tool are Dash's own UI, layered on top of (and alongside) Quixel/Megascans/Bridge assets and the third-party Ultra Dynamic Sky Blueprint used for lighting. Treat "Scatter," "Path Scatter," "Vine tool," and "Physics drop" as Dash-specific features, not built-in Unreal systems.
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Layering multiple Dash procedural-scattering tools — Surface Scatter (with proximity/noise masking), Path Scatter (spline-driven hanging vegetation), the Vine tool (procedural climbing vines with a growth simulation), and a Physics-drop tool for debris piles — onto a base Quixel "unfinished building" scene to convert it into an overgrown, post-apocalyptic environment quickly and non-destructively (scatters stay procedural/editable until explicitly converted).
 
 ### Summary
-[PENDING EXTRACTION]
+Starting scene: Quixel Bridge's "Unfinished Building" megascan environment, lightly cleaned up, lit via the third-party Ultra Dynamic Sky Blueprint. A focal-point hero prop (a motorcycle from the "DecoGun" asset library inside Dash's own Content Browser) is dragged in first; Dash-library assets ship with fully editable materials accessible via a Material Editing panel in the Tools panel (color, roughness, dirt-amount sliders demoed). **Ground vegetation:** Megascans plant assets (auto-indexed into the Dash Content Library once downloaded via Quixel/Bridge) are Ctrl+dragged into the viewport and dropped with the **Scatter** option, exposing density, scale, and multiple masking modes; **Falloff** settings shape scatter density gradients, and objects in the scene (e.g. the motorcycle) can be added to a **Proximity Mask** slot (invertible) to keep specific areas clear of — or exclusively covered by — vegetation. **Wall/pillar growth:** multiple foliage groups are multi-selected, Ctrl-dragged onto the ground, and dropped with **Scatter on Selection**; target walls/pillars are then added to the Proximity Mask (often inverted) and blended against Falloff/Noise Mask settings until the growth pattern reads as natural climbing coverage rather than a uniform layer. Procedural scatters can be permanently baked via **Convert Instances to Foliage** from the Dash toolbar — but this is one-way: the result becomes a standard Unreal Foliage actor and is no longer procedurally editable through Dash. **Edge-hanging plants:** raising a scatter's "Surface Line" value lets some instances naturally droop/hang over geometry edges (demoed on stairs). **Scattering onto a hero prop:** rather than scattering directly, individual plant instances (English Ivy pack) are first hand-picked via Ctrl+drag → **Placing Grid** (a picker layout), then the selected subset is fed into a **new Surface Scatter** targeting the motorcycle mesh itself as the scatter surface — density and distribution shaped until it reads naturally, with an Empty Actor used as an additional mask to keep the engine area clear of foliage. **Path Scatter (hanging vines along a curve):** draw a Spline in the level, multi-select plant assets, Ctrl+drag onto the spline, and choose the Path Scatter option — per-instance rotation is adjusted afterward; multiple duplicated splines can feed the same scatter setup, and control points can be added to a spline at any time to extend/reshape the path. **Vine tool (procedural climbing vines):** duplicate an Empty Actor to serve as the vine's origin point; from the Dash toolbar choose the **Vine tool**, assign the origin actor and a target surface (e.g. a pillar) — Dash then procedurally grows a full vine simulation across that surface, with exposed parameters including Growth Iterations, Growth Size, Gravity Weight, and a Seed value for variation; additional target surfaces can be added to the same vine, branch count can be increased, and the tool's default leaf asset can be swapped for any other foliage asset. For hand-authored placement instead of procedural growth, a separate **Draw Vine** tool allows manually drawing a vine's path directly. **Debris/props:** small hero props (e.g. a fuel can) are hand-placed; for believable rubble piles, Dash's **Physics tool** (Physics Drop, from the Place menu) is applied to a brick asset, letting physics settle a natural-looking pile in seconds — duplicated and repositioned around the scene as needed. **Decals:** wall splatters and grime decals are added from the Content Browser and can also be scattered procedurally (via the same Scatter system) rather than placed one at a time, for environmental storytelling/history. **Background depth:** additional ruined-building assets that live only inside the project's own Content folder (not a Dash/Megascans library) can still be indexed and searched by Dash — switch the Dash Content Browser to the **Project Library** tab, select the folder containing those local assets, and click **Compute** to have Dash auto-tag them for search, after which they behave like any other library asset (drag-and-drop into the scene). The scene is finished with additional background trees, a few more downloaded Megascans assets, general element rearrangement, a final color tweak on the motorcycle material, and final lighting adjustments.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Start from a base environment (e.g. Quixel Bridge's Unfinished Building megascan), clean up unwanted objects, and set up lighting (demoed with the third-party Ultra Dynamic Sky Blueprint).
+2. Establish a focal-point hero prop by dragging an asset from Dash's own Content Browser (organized into libraries, e.g. "DecoGun") into the scene; edit its material via the Tools panel's Material Editing panel (color, roughness, dirt amount, etc. — Dash-library assets ship fully editable).
+3. Add ground vegetation: Ctrl+drag downloaded Megascans plant assets (auto-indexed into the Dash Content Library) into the viewport, choose **Scatter**, and tune Density, Scale, Falloff, and masking.
+4. Use a **Proximity Mask** (assign a scene object, e.g. the hero prop, and optionally invert it) to keep an area clear of or exclusively covered by scattered vegetation.
+5. For wall/pillar climbing growth: multi-select several foliage groups, Ctrl+drag onto the ground, choose **Scatter on Selection**, then add the target walls/pillars to the Proximity Mask (often inverted) and balance against Falloff/Noise Mask settings for a natural coverage pattern.
+6. (Optional, one-way) Use **Convert Instances to Foliage** from the Dash toolbar to bake a procedural scatter into a standard Unreal Foliage actor — understand this permanently drops procedural editability.
+7. Raise a scatter's Surface Line value to let some plant instances naturally hang over geometry edges (e.g. stair nosings).
+8. To scatter directly onto a hero prop: Ctrl+drag the desired plant pack onto an empty area and choose **Placing Grid** to hand-pick specific instances, then start a new Surface Scatter with the prop itself set as the target surface; use an Empty Actor as an extra mask to protect specific sub-areas (e.g. an engine) from coverage.
+9. For hanging vegetation along a path: draw a Spline in the level, multi-select plant assets, Ctrl+drag onto the spline, and choose **Path Scatter**; adjust per-instance rotation afterward, and freely duplicate splines or add spline control points to extend the effect.
+10. For procedural climbing vines: duplicate an Empty Actor as a vine origin point, select the **Vine tool** from the Dash toolbar, assign the origin actor and a target surface, and let Dash grow the vine simulation; tune Growth Iterations, Growth Size, Gravity Weight, and Seed, add more target surfaces or branches, and optionally swap the default leaf asset for a different foliage asset.
+11. For hand-drawn vine placement instead of procedural growth, use the separate **Draw Vine** tool.
+12. Add small hero debris props by hand, and use Dash's **Physics tool** (Physics Drop, Place menu) on a base asset (e.g. a brick) to quickly generate a naturalistic settled pile via physics simulation; duplicate/reposition as needed.
+13. Add wall-splatter/grime decals from the Content Browser, either placed individually or scattered procedurally via the same Scatter system, for environmental storytelling.
+14. To use assets that live only in the project's own Content folder (not a Dash/Megascans library) with Dash's search/scatter tooling: switch the Dash Content Browser to the **Project Library** tab, select the folder, and click **Compute** to auto-index/tag them.
+15. Finish with background elements (additional ruined buildings, trees, more downloaded Megascans assets), general rearrangement, and final material/lighting polish passes.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Third-party: **Dash** plugin (Content Browser w/ libraries + Project Library tab, Material Editing panel, Scatter / Scatter on Selection, Path Scatter, Vine tool, Draw Vine tool, Physics tool/Physics Drop, Convert Instances to Foliage)
+- Dash Scatter parameters: Density, Scale, Falloff, Proximity Mask (invertible), Noise Mask, Surface Line (edge-hang amount)
+- Dash Vine tool parameters: Origin actor, target Surface(s), Growth Iterations, Growth Size, Gravity Weight, Seed, branch count, swappable leaf asset
+- Third-party: Quixel Bridge/Megascans assets (auto-indexed into Dash), Ultra Dynamic Sky Blueprint (lighting)
+- Native UE elements used alongside Dash: Spline tool (for Path Scatter), Empty Actor (used as scatter origin/mask), standard material editing
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate (plugin-driven workflow with a shallow learning curve per the video's own "Easy Workflow" framing, but effective use of masking/falloff combinations to get natural-looking results takes some iteration)
 
 ### UE Version
-[PENDING EXTRACTION]
+Not specified verbally; UE5-era based on the Quixel/Megascans/Bridge integration and general editor UI shown, but exact point release is not stated or clearly legible in the captured frames.
 
 ### Tags
-[PENDING EXTRACTION]
+pcg, modelling, materials, lighting, pipeline, intermediate
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+No directly related tutorials yet in the library covering the Dash plugin or procedural vegetation/scatter workflows — flag for cross-linking if another Dash, PCG, or environment-scattering tutorial is ingested later.
