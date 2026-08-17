@@ -3690,6 +3690,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Third-party GPU-based PCG plugin (Aziel Arts QuickScatter): splits open-world foliage into onload (collision-needing, sparse, calculated once) vs. runtime (dense, streamed via partitioned grids near the player) blueprints, with Data Asset mesh groups, spatial-noise-driven ecological clumping, PCG-stamp baking, and biome-map + spline/volume masking for hand-crafted areas.
 - **File:** tutorials/the-fastest-way-to-scatter-an-open-world-biome-in-ue5.md
 
+
+### Put your face in a 3D helmet: Live Work-through (Composure EP6 Bonus)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=DwUdLow_I4o
+- **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/put-your-face-in-a-3d-helmet-live-work-through-composure-ep6-bonus.md
+
 ---
 
 ## Tag Reference
