@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=DrirPMH5TwI
 author: Jared Chavez
 ingested: 2026-08-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.3.2 (continuation of Part 1, same project; not restated verbally this episode)"
+tags: [materials, pbr, textures, pipeline, intermediate, ue5-3]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-5-for-character-artists-tutorial-texture-materials/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 6
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # UNREAL ENGINE 5 FOR CHARACTER ARTISTS | Tutorial | Texture & Materials
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py unreal-engine-5-for-character-artists-tutorial-texture-materials <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -242,30 +238,57 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [3:23] tutorials/frames/unreal-engine-5-for-character-artists-tutorial-texture-materials/frame_000.jpg
+- [6:00] tutorials/frames/unreal-engine-5-for-character-artists-tutorial-texture-materials/frame_001.jpg
+- [8:53] tutorials/frames/unreal-engine-5-for-character-artists-tutorial-texture-materials/frame_002.jpg
+- [10:47] tutorials/frames/unreal-engine-5-for-character-artists-tutorial-texture-materials/frame_003.jpg
+- [15:17] tutorials/frames/unreal-engine-5-for-character-artists-tutorial-texture-materials/frame_004.jpg
+- [17:44] tutorials/frames/unreal-engine-5-for-character-artists-tutorial-texture-materials/frame_005.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+A production-standard Unreal texture/material pipeline for a character asset: import textures with correct compression settings (Normal Map vs. Default, and the sRGB-vs-linear caveat for packed maps), build a parameterized **Master Material** with a channel-packed RMA (Roughness/Metallic/AO) texture sample, then spin off multiple lightweight **Material Instances** from it — one per surface/material group — so every future placement of the model automatically carries the correct materials.
 
 ### Summary
-[PENDING EXTRACTION]
+Continues directly from Part 1 (model already imported). A Textures subfolder is added to the project's content structure, and all texture files for the asset are imported at once via right-click → Import in the Content Browser. Unreal auto-detects some images as Normal Maps based on their content and sets their **Compression Setting** to Normal Map automatically (as opposed to the Default compression setting used for color/data maps) — this is called out as generally correct behavior, but worth verifying per-image. Unsaved imported assets show a small asterisk/star indicator in the corner; select all and right-click → Save to persist them to disk. The video's asset uses **RMA packed textures** (Roughness in the Red channel, Metalness in Green, Ambient Occlusion in Blue, with Alpha available but unused here) — demonstrated by toggling individual channel visibility in the texture viewer to isolate each grayscale map before recombining. A **Master Material** ("CharacterBaseMaterial_M" convention, suffixed `_M` for Master) is created in the Materials folder as the single place all shared parameters live; any later Master Material edit propagates to every child instance. Rather than dragging texture assets directly into the material graph (which would hardcode them), each map slot is built from a generic **Texture Sample** node (Tab → search "Texture Sample") with a neutral default texture (Starter Content's "127 gray") — one Texture Sample for Base Color (RGB output → Base Color input), one for Normal (RGB output → Normal input, with its texture's own Compression Setting confirmed as Normal Map — note the node itself displays "Normal Map" vs. "Linear Color" depending on what its assigned texture's compression is set to), and one for the packed RMA map, whose **R/G/B channels are split out individually** and piped to Roughness (R), Metallic (G), and Ambient Occlusion (B) respectively — plus a flat-color Specular input added manually. Each of the three Texture Sample nodes is then right-click → **Convert to Parameter** and named (Color, Normal, RMA) so they become exposed, swappable slots on any child instance — a Master Material's Texture Sample nodes are NOT swappable from a child instance unless explicitly parameterized this way. From the Materials folder, right-click → **Create Material Instance** spins off a child (naming convention `_MI` for Material Instance, e.g. "ArmorPlates_MI") per distinct surface/material group on the model (armor plates, shirt, straps, etc. — repeated per group); opening an instance shows checkboxes to enable each parameter and slot in that group's specific Color/Normal/RMA textures. Materials are assigned **on the Static Mesh asset itself** (open the mesh in the Static Mesh Editor and assign per Material Slot), not on a placed instance in the level — since asset-level assignment persists for every future drag-and-drop of that mesh into any scene, while level-instance assignment only affects that one placed copy. **Critical gotcha #1 — sRGB on packed data maps:** the model initially reads as uniformly "wet"/over-shiny because the RMA (and other non-color, linear-data) textures were imported with **sRGB enabled** by default; since these packed maps are exported as linear data (not gamma-corrected color), leaving sRGB checked causes Unreal to misinterpret/compress the value curve. Fix: open each RMA (and any other linear/data map) texture asset and **uncheck the sRGB checkbox** — immediately corrects material response (e.g. metal reads properly matte/reflective instead of uniformly glossy). Save after fixing. Note: sRGB should stay ON for genuine color maps like Albedo. **Critical gotcha #2 — inverted normal maps:** normal maps exported from Substance Painter or Marmoset sometimes read with incorrect Y-orientation, producing inverted-looking shading (bevels appear to catch shadow where they should catch light, or vice versa) — fixed per-texture via the texture asset's Texture tab → **Flip Green Channel** checkbox. The video closes by noting the Master Material's flexibility extends further: any input (color, roughness, metallic, etc.) can alternatively be wired to a plain constant/parameter value instead of a Texture Sample, for materials that don't need texture-driven variation at all.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Add a Textures subfolder inside the project's asset folder structure; right-click → Import to bring in all of the character's texture files at once.
+2. Review each imported texture's **Compression Setting**: confirm true normal maps were auto-detected and set to "Normal Map," and that color/data maps stayed on the Default compression setting; select all newly imported assets and Save (watch for the unsaved-asset asterisk indicator).
+3. For channel-packed textures (e.g. RMA: Roughness=R, Metalness=G, AO=B, optionally Alpha), verify the packing by toggling individual RGB channel visibility in the texture asset viewer.
+4. Create a Master Material in the Materials folder (e.g. `CharacterBaseMaterial_M`).
+5. Build the graph from generic **Texture Sample** nodes (Tab → "Texture Sample") assigned a neutral placeholder texture (e.g. Starter Content's 127 gray) rather than dragging in real texture assets directly: one for Base Color (RGB → Base Color), one for Normal (RGB → Normal, confirm its assigned texture reads as "Normal Map" not "Linear Color" in the node), and one for the packed RMA map (split R → Roughness, G → Metallic, B → Ambient Occlusion); add a flat Specular value manually.
+6. Right-click each of the three Texture Sample nodes → **Convert to Parameter**, naming them (e.g. Color, Normal, RMA) so they become swappable on child instances. Save the Master Material.
+7. In the Materials folder, right-click → **Create Material Instance** for each distinct surface/material group on the model (naming convention `_MI`); open each instance, enable the exposed parameters, and slot in that group's specific Color/Normal/RMA textures.
+8. Open the target Static Mesh asset (not a level instance) and assign each Material Instance to its correct Material Slot, so the assignment persists for every future placement of that mesh.
+9. If the shaded result looks uniformly too glossy/"wet": open the RMA (and any other linear/data) texture assets and **uncheck sRGB** — leave sRGB checked only on true color maps (e.g. Albedo).
+10. If normal-mapped surface shading looks inverted (light/shadow reversed on bevels): open the normal map texture asset → Texture tab → toggle **Flip Green Channel**.
+11. Save all edited textures and materials so changes persist on next project open.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Texture asset: Compression Setting (Default vs. Normal Map), sRGB checkbox, Texture tab → Flip Green Channel
+- Material Editor: Texture Sample node (Tab-search), RGB channel split-out (R/G/B pins), Convert to Parameter (right-click)
+- Master Material (`_M` suffix convention) vs. Material Instance (`_MI` suffix convention, Create Material Instance from right-click)
+- Material inputs used: Base Color, Normal, Roughness, Metallic, Ambient Occlusion, Specular
+- Static Mesh Editor: per-slot material assignment (asset-level, persists across all future placements) vs. level-instance assignment (does not persist)
+- RMA channel-packing convention: R=Roughness, G=Metalness, B=Ambient Occlusion, Alpha=free/unused here
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate (assumes the Part 1 groundwork; introduces real production concepts — parameterized master materials, channel-packed textures, and the sRGB/linear-data distinction — that go beyond pure beginner content)
 
 ### UE Version
-[PENDING EXTRACTION]
+5.3.2 (direct continuation of Part 1's project; not restated verbally in this episode).
 
 ### Tags
-[PENDING EXTRACTION]
+materials, pbr, textures, pipeline, intermediate, ue5-3
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+Part of Jared Chavez's "UE5 for Character Artists" series — this is Part 2, texture/material setup.
+- [UNREAL ENGINE 5 FOR CHARACTER ARTISTS | Tutorial | Getting Started](unreal-engine-5-for-character-artists-tutorial-getting-started.md) — same series, Part 1: covers the FBX import (Combine Meshes + Do Not Create Material) that produces the empty Material Slots this episode fills in.

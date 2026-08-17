@@ -262,4 +262,4 @@ pipeline, modelling, editor-scripting, beginner, ue5-3
 
 ## Related Entries
 Part of Jared Chavez's "UE5 for Character Artists" series — this is the entry/getting-started episode.
-- [UNREAL ENGINE 5 FOR CHARACTER ARTISTS | Tutorial | Texture & Materials](unreal-engine-5-for-character-artists-tutorial-texture-materials.md) — same series, next episode: picks up exactly where this one leaves off (assigning materials to the Material Slots set up here).
+- [UNREAL ENGINE 5 FOR CHARACTER ARTISTS | Tutorial | Texture & Materials](unreal-engine-5-for-character-artists-tutorial-texture-materials.md) — same series, Part 2: picks up exactly where this one leaves off (assigning materials to the Material Slots set up here) with a full Master Material + Material Instance texturing pipeline.

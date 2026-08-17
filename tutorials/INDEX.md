@@ -3665,9 +3665,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=DrirPMH5TwI
 - **Author:** Jared Chavez
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.3.2 (continuation of Part 1, same project; not restated verbally this episode)
+- **Tags:** materials, pbr, textures, pipeline, intermediate, ue5-3
+- **Summary:** Production texture/material pipeline for a character: RMA channel-packed textures, a parameterized Master Material (Convert to Parameter) with per-group Material Instances, and two critical gotchas — unchecking sRGB on linear/packed data maps, and Flip Green Channel to fix inverted normal maps.
 - **File:** tutorials/unreal-engine-5-for-character-artists-tutorial-texture-materials.md
 
 ---
