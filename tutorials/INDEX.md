@@ -3695,9 +3695,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=DwUdLow_I4o
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.8.1 (stated verbally: "I'm using Unreal Engine 5.81")
+- **Tags:** compositing, cinematics, camera, lighting, materials, blueprint, animation, davinci, color-grading, mrq, movie-render-graph, advanced, expert, ue5-8
+- **Summary:** Live work-through compositing a real webcam-shot face into a CG astronaut helmet via Composure's Composite Depth Mesh Actor: DaVinci/Fusion depth-map + EXR roundtrip, modular-character Leader Pose setup, bone-attached projection-rig parenting nulls, dilation/mask edge cleanup, and a Movie Render Graph + final Resolve grade finish.
 - **File:** tutorials/put-your-face-in-a-3d-helmet-live-work-through-composure-ep6-bonus.md
 
 ---

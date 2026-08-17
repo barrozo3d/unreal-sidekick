@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=DwUdLow_I4o
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-08-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: needs-review
+ue_version: "5.8.1 (stated verbally: 'I'm using Unreal Engine 5.81')"
+tags: [compositing, cinematics, camera, lighting, materials, blueprint, animation, davinci, color-grading, mrq, movie-render-graph, advanced, expert, ue5-8]
+extraction_status: complete
 frames_dir: tutorials/frames/put-your-face-in-a-3d-helmet-live-work-through-composure-ep6-bonus/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 14
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Put your face in a 3D helmet: Live Work-through (Composure EP6 Bonus)
@@ -30,12 +31,7 @@ _Auto-generated at ingest/frame-capture time — explains why `extraction_status
 
 ---
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py put-your-face-in-a-3d-helmet-live-work-through-composure-ep6-bonus <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Intro and Project Overview [0:00]
@@ -2600,30 +2596,78 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [1:56] tutorials/frames/put-your-face-in-a-3d-helmet-live-work-through-composure-ep6-bonus/frame_000.jpg
+- [8:15] tutorials/frames/put-your-face-in-a-3d-helmet-live-work-through-composure-ep6-bonus/frame_001.jpg
+- [17:35] tutorials/frames/put-your-face-in-a-3d-helmet-live-work-through-composure-ep6-bonus/frame_002.jpg
+- [23:15] tutorials/frames/put-your-face-in-a-3d-helmet-live-work-through-composure-ep6-bonus/frame_003.jpg
+- [28:00] tutorials/frames/put-your-face-in-a-3d-helmet-live-work-through-composure-ep6-bonus/frame_004.jpg
+- [32:00] tutorials/frames/put-your-face-in-a-3d-helmet-live-work-through-composure-ep6-bonus/frame_005.jpg
+- [39:10] tutorials/frames/put-your-face-in-a-3d-helmet-live-work-through-composure-ep6-bonus/frame_006.jpg
+- [44:00] tutorials/frames/put-your-face-in-a-3d-helmet-live-work-through-composure-ep6-bonus/frame_007.jpg
+- [46:30] tutorials/frames/put-your-face-in-a-3d-helmet-live-work-through-composure-ep6-bonus/frame_008.jpg
+- [51:00] tutorials/frames/put-your-face-in-a-3d-helmet-live-work-through-composure-ep6-bonus/frame_009.jpg
+- [54:00] tutorials/frames/put-your-face-in-a-3d-helmet-live-work-through-composure-ep6-bonus/frame_010.jpg
+- [61:00] tutorials/frames/put-your-face-in-a-3d-helmet-live-work-through-composure-ep6-bonus/frame_011.jpg
+- [100:40] tutorials/frames/put-your-face-in-a-3d-helmet-live-work-through-composure-ep6-bonus/frame_012.jpg
+- [104:40] tutorials/frames/put-your-face-in-a-3d-helmet-live-work-through-composure-ep6-bonus/frame_013.jpg
+
+---
+
+> **Format note:** This is an unscripted, real-time livestream work-through (Composure EP6 Bonus), not a polished tutorial — the presenter narrates mistakes, backtracks, and figures things out live. That makes it unusually valuable as a source (every gotcha is shown as it's actually hit), but the Key Steps below are reorganized into a clean logical order rather than the video's meandering real-time sequence. **Transcription note:** the ingest safeguard flagged a likely ASR hallucination in the "Adding the UFO and Alien Animation" chapter (~93:00–100:37, repeated "da" syllables) — that stretch is mostly the presenter voicing alien sound effects, but treat exact wording there as unreliable; the surrounding actions (adding a UFO mesh, adding an Alien skeletal mesh with a walk-around animation, control-rigging its head to look at camera) are corroborated by clearly legible surrounding dialogue and are treated as reliable.
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Compositing a real, live-action human face — captured on a simple webcam against a blue screen, keyed and converted to an EXR color+alpha sequence plus a separately-generated depth map in DaVinci Resolve/Fusion — into a fully 3D-lit CG astronaut helmet inside Unreal Engine using Composure's **Composite Depth Mesh Actor**, which projects the 2D face footage onto a depth-displaced mesh so it correctly catches scene lighting, shadows, and parallax as the camera or character moves (unlike a flat green-screen card).
 
 ### Summary
-[PENDING EXTRACTION]
+**Scene setup:** a purchased modular astronaut character (Fab marketplace) is assembled by hand into a custom Blueprint Actor (`BP_Astro...`) because modular characters ship as separate skeletal mesh pieces (arms, body, glass, gloves, head, helmet, legs, boots, backpack) that must all be added as Skeletal Mesh Components, then unified via the Construction Script's **Set Leader Pose Component** node (target = the body mesh; every other piece gets added to the leader's follower list) so a single animation on the body drives all pieces together — a technique new to the presenter, learned live from Epic's "Working with Modular Characters" documentation. A helmet-glass mesh piece is hidden via a Visibility track in Sequencer so the composited face isn't occluded by the real glass geometry. **Composure setup:** Window → Cinematic/Production → Composure opens the panel; **Place Composite Actor** adds the root actor, which needs an assigned Cine Camera Actor (the "projection camera") to define the projection frustum. Inside the Composite Actor's Plate, the **+ (Composite Depth Mesh Actor)** option adds a displaced-mesh element (default ~960px grid resolution) that needs (a) its projection Camera Actor assigned, (b) a Color texture (the plate/footage), and (c) a Depth texture — with nothing assigned, the mesh sits at a default scale far too small/close to the camera's near-clip plane to be visible until manually scaled/pushed back. **Source footage pipeline (DaVinci Resolve + Fusion):** webcam footage (blue screen behind the presenter) is cut into a new timeline, then processed on the Fusion page: a Delta Keyer (fed a clean-plate-derived background color via a Grow/Fill/matte chain) pulls the alpha; a **Depth Map** Fusion node run on the un-color-corrected plate auto-generates a rough per-pixel depth estimate (workably picks out nose/mouth features) which Unreal expects **inverted** relative to Fusion's default output; a Color Space Transform (input Rec709/sRGB gamma → output Linear) previews how the footage will actually read once round-tripped through Unreal as a linear EXR (Unreal's EXR import assumes linear, then the compositor is expected to apply its own display transform). Two EXR sequences are rendered via Fusion Savers — one Color (with alpha) and one Depth — both at high (DWA, ~100) compression to keep file size down; a separate WAV audio export (Linear PCM, 48kHz, 24-bit depth, explicit output-track selection) is rendered alongside purely as an on-set reference for lining up animation timing in Unreal, not for final mix. A real gotcha hit live: the video was shot at 30fps but the Resolve timeline defaulted to 24fps, so the rendered EXR sequence's embedded frame-rate metadata was wrong and played back too slow in Unreal — fixed per-sequence via the Image Media Source asset's **Frame Rate Override** field (root-cause fix would be matching the Resolve timeline framerate to the source footage before rendering). **Bringing footage into Unreal:** each EXR sequence is imported as an **Image Media Source** asset (right-click → Media → Image Media Source) pointed at the first frame of its folder; in Sequencer, an Add Media Track → Media Source (pointed at that asset) auto-creates a matching **Media Texture** asset in UE5.8 (previously a manual step) which is then assigned into the Composite Depth Mesh Actor's Color and Depth texture slots respectively — replacing the default placeholder color-bars/flat-white textures. Depth and Color source images don't need matching pixel resolution, only matching aspect ratio, and a lower-res depth map is fine for performance. **Making it read as real 3D:** with **Hold Out Enabled** left on (Composure's default), the projected mesh ignores scene lighting entirely; unchecking it lets the mesh receive real scene light/shadow. Dragging the Composite Depth Mesh Actor into Sequencer and adding a track for its **Default Composite Mesh Component → Material Parameters** exposes per-plate material sliders (Metallic, Roughness, Specular, **Procedural Normal** scale, mesh resolution Scale Factor) that are tuned live by eye (metallic→0, roughness up, specular down, procedural-normal strength raised to fake surface bump from the depth data) until a directional light rotated onto the face reads correctly. **Parenting the whole rig to the animated character:** because the astronaut's helmet is part of an *animated* skeletal mesh, the static projection camera + depth mesh actor need to follow the head/chest bone as it moves. Solution: create two chained Actor nulls (a "Root Projection" parent, and a child "Offset Projection" for fine positional/rotational tweaks without disturbing the base attach point), parent both the projection Camera and the Composite Depth Mesh Actor onto the Offset Projection null, then use the World Outliner's **Attach To** (dragging directly onto the target in Sequencer didn't work — had to use right-click → Attach To on the actor itself) to socket the Root Projection null onto a specific bone (e.g. Spine 3) of the animated skeletal mesh — after which the whole camera+mesh rig follows the character's animated chest motion automatically. A related gotcha: Sequencer only picks up an actor's new position if a keyframe is explicitly saved on its Transform track — moving an unkeyed actor mid-scrub gets silently reset on the next Sequencer evaluation. **Edge cleanup:** a soft/stretched alpha edge around the projected face is fixed by adding **Media Passes** on the Composite Depth Mesh Actor's Plate: a Premultiply/Unpremultiply toggle, then a **Dilation** pass (alpha-only, shrinking the visible alpha inward to eat the stretched edge) plus a **Blur** pass (Advanced → Alpha Only, so RGB doesn't get blurred with it) softened via a "Carry RGB with Alpha" toggle; a **Mask** pass (a circular gradient texture dragged in) further crops the composite into a clean oval matching the helmet opening, with the presenter noting that in a fully "proper" version they'd model/texture an actual interior helmet-back geometry to receive the projection's dark edges rather than relying purely on mask falloff. **Space environment:** default Sky Sphere/clouds/exponential-height-fog actors are hidden or deleted; **Sky Atmosphere** and **Sky Light** actors are used instead for a starfield-open-space look, with Sky Atmosphere's **Ground Radius/Ground Albedo/Atmosphere Height** parameters pushed to unusual (very large negative) values to simulate being far above a planet; a giant unlit Emissive-material Plane textured with a NASA starfield image, scaled far into the background, adds visible stars; Directional Light Ray Traced Shadows are enabled (with reduced Source Angle) for crisper shadow definition on the face given the scene's otherwise-diffuse lighting. **Camera and animation polish:** a Cine Camera Actor is animated (position/rotation keyframes, focal length, and **Minimum F-Stop** lowered to allow much shallower/softer depth of field than the default range permits) with Camera → Debug → Focal Plane enabled temporarily to visually confirm exact focus distance on the face; a Color Grading pass (added the same way as Media Passes, via the Composite Depth Mesh Actor's Plate) with a Gain adjustment brightens the composited face independent of overall scene exposure. Background story elements (a UFO mesh, an Alien skeletal mesh with a Control Rig FK head-look and a "walk around"/sit-down animation clip) are added and animated behind/beside the character purely for narrative flavor — not core to the compositing technique. **Rendering:** Sequencer's render target is switched from the legacy render path to **Movie Render Graph**, using a saved custom `.MRG` graph asset; Camera Settings' **Shutter Timing** is set to "Frame Open" (motion blur calculated from the temporal start of each frame rather than centered/blended across neighboring frames, avoiding double-image ghosting); output format is set to an EXR image sequence (linear color space, no tone-curve baked in, unlike a JPEG/PNG output); render resolution set to 1440p; a Sampling Method override adds Temporal Samples (5) for extra quality. **Final compositing pass:** the rendered EXR sequence is brought back into a fresh DaVinci Resolve timeline (matched to 2560×1440, 30fps to match the original webcam capture rate) via a Color Space Transform node (Input: Linear/sRGB primaries — i.e. Unreal's default linear EXR output — mapped to the working display space), Gamut Mapping's Saturation Compensation enabled, and a paid Resolve Studio **Film Look Creator** preset (e.g. "Vintage") layered on top for stylistic grading — with the presenter explicitly praising the EXR-sequence-in-an-edit workflow because re-rendering/overwriting the same EXR frames from Unreal updates the Resolve edit automatically without redoing any cut/timing work.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Prepare a modular character: import each skeletal mesh piece (body, arms, legs, gloves, helmet, glass, backpack, boots) as separate Skeletal Mesh Components inside a custom Blueprint Actor; in the Construction Script, call **Set Leader Pose Component** with the body as the Leader target and every other piece as a follower, so one animation drives the whole assembly.
+2. Hide any mesh piece that would occlude the composited face (e.g. helmet glass) via a Visibility track in Sequencer, or a boolean toggle in the Blueprint.
+3. Shoot reference footage against a blue/green screen (even a basic webcam is workable) with the actor roughly matching the target camera angle/framing in the 3D scene.
+4. In DaVinci Resolve/Fusion: key the footage (Delta Keyer fed by a clean-plate/grow-fill matte chain) to pull a clean alpha; separately run a **Depth Map** Fusion node on the un-color-corrected plate to auto-estimate a depth pass, remembering Unreal expects it **inverted** relative to Fusion's raw output.
+5. Preview the eventual in-Unreal look early via a Color Space Transform node (input display gamma → Linear) so color grading decisions account for the round-trip through a linear EXR.
+6. Render two EXR sequences via Fusion Savers (Color+Alpha, and Depth) at high compression (e.g. DWA ~100); separately export a reference WAV (Linear PCM 48kHz/24-bit) for on-set audio sync, not final mix.
+7. In Unreal: Window → Composure to open the panel; **Place Composite Actor**; assign a Cine Camera Actor as its projection camera.
+8. On the Composite Actor's Plate, add a **Composite Depth Mesh Actor**; assign the same projection Camera Actor, and (temporarily, for testing) any Color/Depth textures to confirm the mesh becomes visible (adjust scale/position if it's sitting inside the camera's near-clip plane).
+9. Import both EXR sequences as **Image Media Source** assets; in Sequencer, add Media Tracks referencing them, letting Unreal auto-generate the corresponding Media Texture assets (UE5.8+); assign those Media Textures into the Composite Depth Mesh Actor's Color and Depth slots.
+10. Fix any frame-rate mismatch between source footage and render timeline via the Image Media Source asset's **Frame Rate Override** field.
+11. Uncheck **Hold Out Enabled** on the Composite Depth Mesh Actor so it receives real scene lighting instead of rendering flat/unlit.
+12. Expose and tune the plate's Material Parameters (Metallic, Roughness, Specular, Procedural Normal strength) by dragging the actor into Sequencer and adding a Material Parameters track, adjusting until a test directional light reads correctly on the projected face.
+13. Build a two-null parenting rig (Root Projection → child Offset Projection) to hold both the projection camera and the Composite Depth Mesh Actor; parent both onto the Offset Projection null; then use right-click → **Attach To** to socket the Root Projection null onto a specific bone (e.g. Spine 3) of the animated character skeleton, so the whole projection rig tracks the character's motion.
+14. Remember to save an explicit keyframe on an actor's Transform track any time you reposition it mid-scrub in Sequencer, or the change won't persist.
+15. Clean up the projected edge: add Media Passes on the Plate — a Premultiply/Unpremultiply toggle, a Dilation pass (Alpha only) to shrink/tighten the visible edge, a Blur pass (Advanced → Alpha Only, with Carry RGB with Alpha enabled) to soften it, and a Mask pass (a gradient/circular texture) to crop the composite into the helmet-opening shape.
+16. Build the space environment from Sky Atmosphere + Sky Light (not the default Sky Sphere), tuning Ground Radius/Ground Albedo/Atmosphere Height for a plausible open-space look; add a large unlit-Emissive starfield Plane in the far background; enable Ray Traced Shadows on the Directional Light with a reduced Source Angle for crisper facial shadow detail.
+17. Animate the Cine Camera (position/rotation/focal length keyframes); lower **Minimum F-Stop** in the camera's lens settings to unlock shallower depth of field than default; use the camera's Debug → Focal Plane visualization to confirm exact focus distance.
+18. Add a Color Grading media pass (Gain, etc.) on the Plate to locally brighten/adjust the composited face independent of overall scene exposure.
+19. Render via **Movie Render Graph** with a custom saved `.MRG` asset: set Camera Settings' Shutter Timing to Frame Open (avoids motion-blur double-imaging), output format to an EXR sequence, target resolution (e.g. 1440p), and add a Sampling Method override with several Temporal Samples for quality.
+20. Bring the rendered EXR sequence back into DaVinci Resolve on a new timeline matched to the original capture frame rate; apply a Color Space Transform (Linear input → working display space), enable Gamut Mapping Saturation Compensation, and layer a Film Look Creator preset (Resolve Studio) for final grade — re-rendering/overwriting the same EXR files later updates the edit automatically without redoing cuts.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Composure**: Composite Actor, Composite Depth Mesh Actor (Camera/Color texture/Depth texture assignment, default grid resolution ~960px, Hold Out Enabled toggle), Plate → Media Passes (Premultiply/Unpremultiply, Dilation, Blur w/ Alpha Only + Carry RGB with Alpha, Mask), Plate → Color Grading (Gain etc.), Default Composite Mesh Component → Material Parameters (Metallic, Roughness, Specular, Procedural Normal, Scale Factor)
+- Modular character setup: Skeletal Mesh Components per piece, Blueprint Construction Script, **Set Leader Pose Component** node
+- Media: Image Media Source asset (Sequence Path, Frame Rate Override), Media Track in Sequencer, auto-generated Media Texture (UE5.8+)
+- Sequencer: Visibility track, Transform track (explicit keyframing required), Attach To (right-click on actor, not drag-in-Sequencer), Material Parameters track, Media/Audio tracks
+- Lighting/environment: Sky Atmosphere (Ground Radius, Ground Albedo, Atmosphere Height), Sky Light, Directional Light (Ray Traced Shadows, Source Angle), unlit Emissive Plane material for a starfield backdrop
+- Camera: Cine Camera Actor, Focal Length, Aperture, Minimum F-Stop (lens setting), Debug → Focal Plane visualization
+- Control Rig: Layered/FK Control Rig added in Sequencer for posing a secondary character's head (Alien) to look at camera
+- Rendering: Movie Render Graph (custom `.MRG` graph asset), Camera Settings node (Shutter Timing: Frame Open), EXR sequence output, Global Output Settings (resolution), Sampling Method (Temporal Samples)
+- Third-party/adjacent tools: DaVinci Resolve Studio (required specifically for the Depth Map Fusion node), Fusion (Delta Keyer, Depth Map, Color Space Transform, Saver nodes, DWA EXR compression), Film Look Creator (Resolve Studio paid feature)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Expert (a full dual-software VFX pipeline — blue-screen keying and AI-assisted depth-map generation in Resolve/Fusion, EXR round-tripping with correct linear/sRGB handling, Composure's depth-projection compositing, modular-character rigging, bone-attached parenting nulls, and Movie Render Graph output — presented as an unscripted live problem-solving session, not a beginner walkthrough)
 
 ### UE Version
-[PENDING EXTRACTION]
+5.8.1, stated explicitly by the presenter ("I'm using Unreal Engine 5.81").
 
 ### Tags
-[PENDING EXTRACTION]
+compositing, cinematics, camera, lighting, materials, blueprint, animation, davinci, color-grading, mrq, movie-render-graph, advanced, expert, ue5-8
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+No directly related tutorials yet in the library covering Composure or depth-mesh face-projection compositing — flag for cross-linking if another Composure, virtual production, or DaVinci Resolve/Fusion + Unreal roundtrip tutorial is ingested later (the presenter references this as "Composure EP6," implying earlier numbered episodes exist on the same channel that would be strong companion ingests).
