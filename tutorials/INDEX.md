@@ -3670,6 +3670,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Production texture/material pipeline for a character: RMA channel-packed textures, a parameterized Master Material (Convert to Parameter) with per-group Material Instances, and two critical gotchas — unchecking sRGB on linear/packed data maps, and Flip Green Channel to fix inverted normal maps.
 - **File:** tutorials/unreal-engine-5-for-character-artists-tutorial-texture-materials.md
 
+
+### Overgrown UE5 Environment Tutorial - Easy Workflow
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=9926HB1PA-c
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/overgrown-ue5-environment-tutorial---easy-workflow.md
+
 ---
 
 ## Tag Reference
