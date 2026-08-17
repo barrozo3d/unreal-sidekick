@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=hsCMGA6pwcc
 author: Jared Chavez
 ingested: 2026-08-17
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "5.3.2 (presenter's own most-up-to-date installed version, stated verbally; project created fresh, versions up to 5.8 also mentioned as available)"
+tags: [pipeline, modelling, editor-scripting, beginner, ue5-3]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-5-for-character-artists-tutorial-getting-started/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 6
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # UNREAL ENGINE 5 FOR CHARACTER ARTISTS | Tutorial | Getting Started
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py unreal-engine-5-for-character-artists-tutorial-getting-started <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -212,30 +208,58 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [2:01] tutorials/frames/unreal-engine-5-for-character-artists-tutorial-getting-started/frame_000.jpg
+- [4:00] tutorials/frames/unreal-engine-5-for-character-artists-tutorial-getting-started/frame_001.jpg
+- [4:50] tutorials/frames/unreal-engine-5-for-character-artists-tutorial-getting-started/frame_002.jpg
+- [7:02] tutorials/frames/unreal-engine-5-for-character-artists-tutorial-getting-started/frame_003.jpg
+- [7:50] tutorials/frames/unreal-engine-5-for-character-artists-tutorial-getting-started/frame_004.jpg
+- [9:09] tutorials/frames/unreal-engine-5-for-character-artists-tutorial-getting-started/frame_005.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Series-opener onboarding for character artists new to Unreal: creating a blank starter-content project, fixing default camera-look inversion in Editor Preferences, and correctly importing a multi-material character FBX as a single combined static mesh with empty material slots (rather than letting Unreal auto-split it into pieces and auto-generate throwaway materials).
 
 ### Summary
-[PENDING EXTRACTION]
+Project setup: Epic Games Launcher → Unreal Engine tab → Launch (engine version 5.3.2 used here, versions up through 5.8 also available) → Games category → Blank template, with Quality Preset set to Maximum and Starter Content enabled (Ray Tracing left off deliberately for a "generic out-of-the-box" baseline), a project location and name set, then Create. The resulting default level is a large open terrain — navigation is standard UE fly-camera (Right-click+drag to look, W/A/S/D to move while holding right-click). To get a more useful staging environment, the video switches to Starter Content's Maps → Advanced Lighting, a bare studio-style level with a lighting cube, material reference balls, and an HDRI backdrop — called out as a good default stage for character work. Before importing anything, Edit → Editor Preferences → Viewports is used to flip a disorienting default: enabling **Invert Middle Mouse Pan Axis** (the video shows Invert Orbit Y Axis and Invert Right Mouse Dolly as the other related toggles in that section, though only the middle-mouse-pan one is actually changed) fixes middle-mouse-drag panning going the "wrong" direction for the presenter's taste. Content organization: right-click in the Content Browser (inside Starter Content, or one level up) → New Folder to create a personal top-level folder (named after the artist), then Mesh and Materials subfolders inside it, for a consistent per-project structure. **The core import lesson:** right-click in the Mesh folder → Import to Game, browse to an FBX. A naive "Import All" on a multi-part character FBX produces a messy result — Unreal auto-splits the FBX's internal grouping into many separate static mesh assets AND auto-generates a full set of new Materials from the source app's (Maya's) material assignments, which is called out as not optimal for this workflow. Deleting that and re-importing with two specific changes fixes it: in the FBX Import Options dialog, open the **Advanced** section, enable **Combine Meshes** (merges the FBX's internal pieces into one static mesh asset), and under the Material section change **Material Import Method** from "Create New Materials" to **Do Not Create Material** (skips generating throwaway materials, since custom ones will be authored later). Import All with those settings produces a single clean static mesh. Double-clicking it opens the Static Mesh Editor, where the Camera Speed setting (lowered from default, e.g. to 0.33 or less) tames overly-fast viewport zoom/pan for detailed inspection. The imported mesh still exposes per-section **Material Slots** (one per original Maya material group, even though none of them have an actual material assigned yet, since Do Not Create Material was used) — these can be highlighted/isolated individually to see which mesh regions map to which slot. Key workflow rule emphasized: assign materials to these slots from inside the **Static Mesh Editor / asset itself**, not after dragging an instance into the level — assigning at the asset level means the material assignment is saved with the asset and applies to every future instance dragged into any scene, whereas assigning after dragging into the level only affects that single placed instance, forcing manual reassignment every time.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Launch Epic Games Launcher → Unreal Engine tab → ensure an engine version is installed → Launch.
+2. In the Project Browser: Games category → Blank template → set Quality Preset to Maximum, enable Starter Content (Ray Tracing optional/off for a baseline setup) → set Project Location and Name → Create.
+3. Navigate the default level with standard UE controls: Right-click+drag to look around, W/A/S/D (held with right-click) to fly the camera.
+4. Switch to a cleaner staging environment: Content Browser → Starter Content → Maps → open "Advanced Lighting" (studio cube + material balls + HDRI backdrop).
+5. Fix camera-pan feel: Edit → Editor Preferences → Viewports → enable Invert Middle Mouse Pan Axis (and Invert Orbit Y Axis / Invert Right Mouse Dolly if needed) to taste.
+6. Organize the Content Browser: right-click → New Folder to make a personal top-level folder, then Mesh and Materials subfolders inside it.
+7. Import the character FBX: right-click the Mesh folder → Import to Game → select the FBX file → Open.
+8. In the FBX Import Options dialog, expand **Advanced** and enable **Combine Meshes** so the multi-part FBX becomes one static mesh asset instead of many separate ones.
+9. In the Material section of the same dialog, set **Material Import Method** to **Do Not Create Material** so Unreal doesn't auto-generate throwaway materials from the source app's assignments.
+10. Click **Import All** — confirm the result is a single combined static mesh asset (not a pile of separate pieces).
+11. Double-click the imported mesh to open the Static Mesh Editor; lower the Camera Speed setting if viewport zoom/pan feels too fast for detailed inspection.
+12. Use the Material Slots list in the Static Mesh Editor to highlight/isolate each original material group's mesh region, confirming the FBX's grouping came through even without materials assigned.
+13. Assign real materials to slots **inside the Static Mesh Editor / asset** (a later step in the series) rather than after dragging an instance into the level, so the assignment is saved with the asset and applies to every future placed instance automatically.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Epic Games Launcher → Unreal Engine tab → Project Browser (Games category, Blank template, Quality Preset, Starter Content toggle, Ray Tracing toggle)
+- Editor Preferences → Viewports: Invert Orbit Y Axis, Invert Middle Mouse Pan Axis, Invert Right Mouse Dolly
+- Content Browser: right-click → New Folder; right-click → Import to Game
+- FBX Import Options dialog: Advanced section → Combine Meshes; Material section → Material Import Method (Create New Materials vs. Do Not Create Material)
+- Static Mesh Editor: Camera Speed setting, Material Slots panel (highlight/isolate per slot)
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner (explicitly a "getting started" onboarding episode — engine install, project creation, basic navigation, and a single correctly-configured FBX import)
 
 ### UE Version
-[PENDING EXTRACTION]
+5.3.2, stated verbally as the presenter's own most up-to-date installed version (Unreal Engine versions up to 5.8 also mentioned as available/installable at the time of recording).
 
 ### Tags
-[PENDING EXTRACTION]
+pipeline, modelling, editor-scripting, beginner, ue5-3
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+Part of Jared Chavez's "UE5 for Character Artists" series — this is the entry/getting-started episode.
+- [UNREAL ENGINE 5 FOR CHARACTER ARTISTS | Tutorial | Texture & Materials](unreal-engine-5-for-character-artists-tutorial-texture-materials.md) — same series, next episode: picks up exactly where this one leaves off (assigning materials to the Material Slots set up here).

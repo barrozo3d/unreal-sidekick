@@ -3655,9 +3655,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=hsCMGA6pwcc
 - **Author:** Jared Chavez
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** 5.3.2 (presenter's own most-up-to-date installed version, stated verbally; versions up to 5.8 also mentioned as available)
+- **Tags:** pipeline, modelling, editor-scripting, beginner, ue5-3
+- **Summary:** Series opener for character artists: blank starter-content project setup, fixing inverted middle-mouse pan in Editor Preferences, and correctly importing a multi-material character FBX via Combine Meshes + Do Not Create Material so it lands as one clean static mesh with empty, asset-level Material Slots.
 - **File:** tutorials/unreal-engine-5-for-character-artists-tutorial-getting-started.md
 
 ---
