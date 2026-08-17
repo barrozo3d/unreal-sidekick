@@ -3680,6 +3680,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Third-party Dash plugin workflow: layering Surface Scatter (proximity/noise masking), Path Scatter (spline-driven hanging vegetation), a procedural Vine tool (Growth Iterations/Size/Gravity Weight), and a Physics-drop debris tool onto a Quixel megascan building to build an overgrown ruin quickly and non-destructively.
 - **File:** tutorials/overgrown-ue5-environment-tutorial---easy-workflow.md
 
+
+### The Fastest Way to Scatter an Open World Biome in UE5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=na4xj_EHdps
+- **Author:** Aziel Arts
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/the-fastest-way-to-scatter-an-open-world-biome-in-ue5.md
+
 ---
 
 ## Tag Reference
