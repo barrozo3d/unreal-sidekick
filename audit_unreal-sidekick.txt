@@ -1,8 +1,10 @@
 
 !  === audio-metasounds.md (class: topic-reference, verified: no) ===
-   ASSERTED (table/code): 10/49 uncorroborated (20%)   [multi-word/CamelCase only: 10/37 = 27%]
-   all terms: 12/56 (21%)   |   weak (1-2 files): 17   |   stem-only: 0   |   release-notes-only: 1
+   ASSERTED (table/code): 11/49 uncorroborated (22%)   [multi-word/CamelCase only: 11/37 = 30%]
+   topic coverage: 56 corpus files
+   all terms: 13/56 (23%)   |   weak (1-2 files): 21   |   stem-only: 0   |   release-notes-only: 1
      [table] Audio Mix Sample Rate: 48000
+     [table] InName
      [table] Window → Audio Insights
      [table] Window → Subtitles
      [code ] AttachToComponent
@@ -16,8 +18,9 @@
      [prose] SetSubtitleLocale
 
 !  === blueprints-scripting.md (class: topic-reference, verified: no) ===
-   ASSERTED (table/code): 25/103 uncorroborated (24%)   [multi-word/CamelCase only: 25/68 = 37%]
-   all terms: 25/104 (24%)   |   weak (1-2 files): 22   |   stem-only: 0   |   release-notes-only: 0
+   ASSERTED (table/code): 28/103 uncorroborated (27%)   [multi-word/CamelCase only: 28/68 = 41%]
+   topic coverage: undetermined
+   all terms: 28/104 (27%)   |   weak (1-2 files): 20   |   stem-only: 0   |   release-notes-only: 0
      [table] Avoid Tick
      [code ] Call Interface Message
      [code ] Call OnExplode
@@ -25,6 +28,7 @@
      [code ] Cast To MyGameInstance
      [code ] Cast To MyGameState
      [code ] DynMat
+     [code ] EndOverlap
      [code ] Event EndPlay
      [code ] Get Bound Objects
      [code ] Get Current Time
@@ -32,21 +36,22 @@
      [code ] Get Game State
      [code ] Get Overlapping Actors
      [code ] Get Player Camera Manager
+     [code ] Get Reference
      [code ] Get Sequence Player
      [code ] HandleExplosion
      [code ] MyCharacterBP
      [code ] OnImpact
+     [code ] Reset System
      [code ] Set Niagara Variable
      [code ] Set Texture Parameter Value
      [code ] Set Vector Parameter Value
      [code ] Spawn Emitter
-     [code ] Spawn System Attached
-     [code ] TargetActor
-     [code ] TriggerExplosion
+     ... and 3 more (use --verbose)
 
 !  === chaos-physics.md (class: topic-reference, verified: no) ===
-   ASSERTED (table/code): 29/85 uncorroborated (34%)   [multi-word/CamelCase only: 28/57 = 49%]
-   all terms: 29/85 (34%)   |   weak (1-2 files): 19   |   stem-only: 0   |   release-notes-only: 0
+   ASSERTED (table/code): 30/85 uncorroborated (35%)   [multi-word/CamelCase only: 29/57 = 51%]
+   topic coverage: 82 corpus files
+   all terms: 30/85 (35%)   |   weak (1-2 files): 19   |   stem-only: 0   |   release-notes-only: 0
      [table] Anchor Field Cluster
      [table] Angular Sleep Threshold
      [table] COM Offset
@@ -68,15 +73,16 @@
      [code ] ChaosVehicleWheel
      [code ] Cluster Damage Threshold
      [code ] Create Vehicle Blueprint
+     [code ] DebugDraw
      [code ] Differential
      [code ] EnableSleeping
      [code ] Generate Geometry Collection Asset
-     [code ] GeometryCollectionComponent
-     ... and 4 more (use --verbose)
+     ... and 5 more (use --verbose)
 
 !! === color-pipeline.md (class: topic-reference, verified: no) ===
    ASSERTED (table/code): 8/20 uncorroborated (40%)   [multi-word/CamelCase only: 8/14 = 57%]
-   all terms: 10/34 (29%)   |   weak (1-2 files): 7   |   stem-only: 0   |   release-notes-only: 0
+   topic coverage: 174 corpus files
+   all terms: 11/34 (32%)   |   weak (1-2 files): 6   |   stem-only: 0   |   release-notes-only: 0
      [table] Bloom → Intensity
      [table] Chromatic Aberration → Intensity
      [table] Color Grading → LUT
@@ -87,9 +93,11 @@
      [table] Vignette → Intensity
      [prose] ACEScct
      [prose] LUT Intensity
+     [prose] Sequencer Camera Cut
 
 !  === control-rig-animation.md (class: topic-reference, verified: no) ===
    ASSERTED (table/code): 4/13 uncorroborated (31%)   [multi-word/CamelCase only: 4/11 = 36%]
+   topic coverage: 235 corpus files
    all terms: 9/31 (29%)   |   weak (1-2 files): 3   |   stem-only: 0   |   release-notes-only: 1
      [table] Collision Sphere Radius
      [table] FK Chain
@@ -103,7 +111,8 @@
 
 !! === lip-sync.md (class: topic-reference, verified: no) ===
    ASSERTED (table/code): 17/34 uncorroborated (50%)   [multi-word/CamelCase only: 17/22 = 77%]
-   all terms: 22/51 (43%)   |   weak (1-2 files): 2   |   stem-only: 0   |   release-notes-only: 0
+   topic coverage: 58 corpus files
+   all terms: 24/51 (47%)   |   weak (1-2 files): 1   |   stem-only: 0   |   release-notes-only: 0
      [table] CTRL_expressions_jawFwd
      [table] CTRL_expressions_jawOpen
      [table] CTRL_expressions_lipPucker
@@ -121,26 +130,35 @@
      [code ] OVRLipsyncComponent
      [code ] Set Bone Transform
      [code ] Start Lipsync
+     [prose] BP_Manny_C
      [prose] Fixed Frame Rate
      [prose] JawForward
      [prose] MouthOpen
      [prose] New Session → Audio-Driven
+     [prose] sil
      [prose] Window → Subtitles Settings
 
-   === materials-shaders.md (class: topic-reference, verified: no) ===
-   ASSERTED (table/code): 7/55 uncorroborated (13%)   [multi-word/CamelCase only: 7/25 = 28%]
-   all terms: 7/61 (11%)   |   weak (1-2 files): 19   |   stem-only: 0   |   release-notes-only: 0
+!  === materials-shaders.md (class: topic-reference, verified: no) ===
+   ASSERTED (table/code): 12/55 uncorroborated (22%)   [multi-word/CamelCase only: 11/25 = 44%]
+   topic coverage: 152 corpus files
+   all terms: 12/61 (20%)   |   weak (1-2 files): 15   |   stem-only: 0   |   release-notes-only: 0
      [table] Dynamic Parameter
      [table] Masked Sprites
+     [code ] BaseMaterial
+     [code ] CustomDepth
      [code ] DistanceToNearestSurface
      [code ] DynMat
      [code ] MaterialParameterCollection
+     [code ] MPC
+     [code ] SceneTexture
      [code ] SetScalarParameterValue
      [code ] SetVectorParameterValue
+     [code ] Vector Parameter Value
 
    === metahuman-reference.md (class: topic-reference, verified: no) ===
    ASSERTED (table/code): 8/79 uncorroborated (10%)   [multi-word/CamelCase only: 6/49 = 12%]
-   all terms: 8/79 (10%)   |   weak (1-2 files): 29   |   stem-only: 0   |   release-notes-only: 1
+   topic coverage: 58 corpus files
+   all terms: 8/79 (10%)   |   weak (1-2 files): 30   |   stem-only: 0   |   release-notes-only: 1
      [table] Batch Processing API
      [table] MetaHuman Animator: Audio-Driven
      [table] MetaHuman Animator: Monocular Body
@@ -151,11 +169,13 @@
      [code ] Disable Snap
 
 !! === narrative-blueprints.md (class: topic-reference, verified: no) ===
-   ASSERTED (table/code): 25/53 uncorroborated (47%)   [multi-word/CamelCase only: 25/40 = 62%]
-   all terms: 29/70 (41%)   |   weak (1-2 files): 7   |   stem-only: 0   |   release-notes-only: 0
+   ASSERTED (table/code): 27/53 uncorroborated (51%)   [multi-word/CamelCase only: 27/40 = 68%]
+   topic coverage: 11 corpus files  <-- TOO THIN to judge by corroboration
+   all terms: 31/70 (44%)   |   weak (1-2 files): 6   |   stem-only: 0   |   release-notes-only: 0
      [table] Evaluation Type: Always Re-evaluate
      [table] Get Level Streaming State
      [table] Is Level Loaded
+     [table] LevelStreaming
      [table] Set Level Visibility
      [code ] Box Trigger Volume
      [code ] ClosedRotation
@@ -170,33 +190,37 @@
      [code ] OnDialogueComplete
      [code ] OnExplosionFrame
      [code ] OpenRotation
+     [code ] ParticleSystem
      [code ] SequenceAsset
      [code ] Set Relative Rotation
      [code ] Shake Camera
      [code ] ShakeClass
      [code ] ShouldBlockOnLoad
      [code ] Spawn Emitter
-     [code ] Timeline Alpha
-     [code ] TimelineAlpha
-     ... and 4 more (use --verbose)
+     ... and 6 more (use --verbose)
 
    === ndisplay-icvfx.md (class: topic-reference, verified: no) ===
-   ASSERTED (table/code): 7/64 uncorroborated (11%)   [multi-word/CamelCase only: 7/42 = 17%]
-   all terms: 7/64 (11%)   |   weak (1-2 files): 28   |   stem-only: 0   |   release-notes-only: 0
+   ASSERTED (table/code): 8/64 uncorroborated (12%)   [multi-word/CamelCase only: 8/42 = 19%]
+   topic coverage: 10 corpus files  <-- TOO THIN to judge by corroboration
+   all terms: 8/64 (12%)   |   weak (1-2 files): 28   |   stem-only: 0   |   release-notes-only: 0
      [table] Outer Frustum
      [code ] Add Live Link Component
      [code ] GetClusterId
      [code ] GetClusterNodesIds
+     [code ] RenderSync
      [code ] Set GPU Index
      [code ] Set View Origin
      [code ] SetDisplayClusterConfigPath
 
 !  === niagara-vfx.md (class: topic-reference, verified: no) ===
-   ASSERTED (table/code): 9/40 uncorroborated (22%)   [multi-word/CamelCase only: 9/30 = 30%]
-   all terms: 11/44 (25%)   |   weak (1-2 files): 12   |   stem-only: 0   |   release-notes-only: 0
+   ASSERTED (table/code): 11/40 uncorroborated (28%)   [multi-word/CamelCase only: 11/30 = 37%]
+   topic coverage: 117 corpus files
+   all terms: 13/44 (30%)   |   weak (1-2 files): 10   |   stem-only: 0   |   release-notes-only: 0
      [table] Color Over Life
+     [table] CPU Sim
      [table] Emitter Lifetime
      [table] Gas Solver
+     [table] GPU Sim
      [table] Grid2D Collection
      [table] Grid3D Collection
      [table] Scale Sprite Size Over Life
@@ -208,12 +232,14 @@
 
    === plugin-blackeye-versions.md (class: topic-reference, verified: no) ===
    ASSERTED (table/code): 1/10 uncorroborated (10%)   [multi-word/CamelCase only: 0/7 = 0%]
+   topic coverage: 220 corpus files
    all terms: 1/19 (5%)   |   weak (1-2 files): 2   |   stem-only: 0   |   release-notes-only: 0
      [table] blackeye-v1-sequencer
 
 !  === plugin-dash-versions.md (class: topic-reference, verified: no) ===
    ASSERTED (table/code): 9/35 uncorroborated (26%)   [multi-word/CamelCase only: 9/35 = 26%]
-   all terms: 12/50 (24%)   |   weak (1-2 files): 15   |   stem-only: 0   |   release-notes-only: 0
+   topic coverage: 220 corpus files
+   all terms: 12/50 (24%)   |   weak (1-2 files): 16   |   stem-only: 0   |   release-notes-only: 0
      [table] FAB Support
      [table] IES Profiles Library
      [table] Image to Grading
@@ -229,6 +255,7 @@
 
 ?? === plugin-lightforge-versions.md (class: topic-reference, verified: no) ===
    ASSERTED (table/code): 2/3 uncorroborated (67%)   [multi-word/CamelCase only: 0/0 = 0%]
+   topic coverage: 220 corpus files
    all terms: 5/17 (29%)   |   weak (1-2 files): 1   |   stem-only: 0   |   release-notes-only: 0
      [table] lightforge-1x
      [table] lightforge-2x
@@ -238,7 +265,8 @@
 
 !  === python-unreal.md (class: topic-reference, verified: no) ===
    ASSERTED (table/code): 8/33 uncorroborated (24%)   [multi-word/CamelCase only: 8/16 = 50%]
-   all terms: 8/33 (24%)   |   weak (1-2 files): 2   |   stem-only: 0   |   release-notes-only: 0
+   topic coverage: 16 corpus files
+   all terms: 8/33 (24%)   |   weak (1-2 files): 3   |   stem-only: 0   |   release-notes-only: 0
      [code ] AssetRegistryHelpers
      [code ] EditorUtilityLibrary
      [code ] LevelSequenceActor
@@ -248,9 +276,10 @@
      [code ] ScopedSlowTask
      [code ] ScriptPath
 
-   === rendering-pipeline.md (class: topic-reference, verified: no) ===
-   ASSERTED (table/code): 14/75 uncorroborated (19%)   [multi-word/CamelCase only: 14/46 = 30%]
-   all terms: 16/80 (20%)   |   weak (1-2 files): 11   |   stem-only: 0   |   release-notes-only: 0
+!  === rendering-pipeline.md (class: topic-reference, verified: no) ===
+   ASSERTED (table/code): 15/75 uncorroborated (20%)   [multi-word/CamelCase only: 15/46 = 33%]
+   topic coverage: 155 corpus files
+   all terms: 17/80 (21%)   |   weak (1-2 files): 11   |   stem-only: 0   |   release-notes-only: 0
      [code ] Bokeh DOF
      [code ] Circle DOF
      [code ] Crush Blacks
@@ -265,34 +294,34 @@
      [code ] ScreenTraces
      [code ] Stationary Sky Light Samples
      [code ] TraceMeshSDFs
+     [code ] WorldSettings
      [prose] r.ScreenPercentage 100
      [prose] r.ShadowQuality 5
 
    === sequencer-cinematics.md (class: topic-reference, verified: no) ===
-   ASSERTED (table/code): 0/52 uncorroborated (0%)   [multi-word/CamelCase only: 0/32 = 0%]
-   all terms: 1/54 (2%)   |   weak (1-2 files): 11   |   stem-only: 0   |   release-notes-only: 0
+   ASSERTED (table/code): 1/52 uncorroborated (2%)   [multi-word/CamelCase only: 1/32 = 3%]
+   topic coverage: 155 corpus files
+   all terms: 2/54 (4%)   |   weak (1-2 files): 12   |   stem-only: 0   |   release-notes-only: 0
+     [code ] MotionBlur
      [prose] Output → Add Output
 
 ======================================================================
 RANKED BY ZERO-CORROBORATION RATIO (most suspect first)
   calibration: fabricated copernicus.md scores 31% strict-zero (23/74)
 ======================================================================
- !!  50.0%    17/34    lip-sync.md
- !!  47.2%    25/53    narrative-blueprints.md
- !!  40.0%     8/20    color-pipeline.md
- !   34.1%    29/85    chaos-physics.md
- !   30.8%     4/13    control-rig-animation.md
- !   25.7%     9/35    plugin-dash-versions.md
- !   24.3%    25/103   blueprints-scripting.md
- !   24.2%     8/33    python-unreal.md
- !   22.5%     9/40    niagara-vfx.md
- !   20.4%    10/49    audio-metasounds.md
-     18.7%    14/75    rendering-pipeline.md
-     12.7%     7/55    materials-shaders.md
-     10.9%     7/64    ndisplay-icvfx.md
-     10.1%     8/79    metahuman-reference.md
-     10.0%     1/10    plugin-blackeye-versions.md
-      0.0%     0/52    sequencer-cinematics.md
-
-  too few asserted terms to score (<8) -- review by hand, the ratio would be noise:
- ??           2/3     plugin-lightforge-versions.md
+ ??  50.9%    27/53    cov=11   narrative-blueprints.md  (thin coverage -- unmeasurable, verify vs docs)
+ !!  50.0%    17/34    cov=58   lip-sync.md
+ !!  40.0%     8/20    cov=174  color-pipeline.md
+ !   35.3%    30/85    cov=82   chaos-physics.md
+ !   30.8%     4/13    cov=235  control-rig-animation.md
+ !   27.5%    11/40    cov=117  niagara-vfx.md
+ !   27.2%    28/103   cov=n/a  blueprints-scripting.md  (topic undetermined from filename)
+ !   25.7%     9/35    cov=220  plugin-dash-versions.md
+ !   24.2%     8/33    cov=16   python-unreal.md
+ !   22.4%    11/49    cov=56   audio-metasounds.md
+ !   21.8%    12/55    cov=152  materials-shaders.md
+ !   20.0%    15/75    cov=155  rendering-pipeline.md
+ ??  12.5%     8/64    cov=10   ndisplay-icvfx.md  (thin coverage -- unmeasurable, verify vs docs)
+     10.1%     8/79    cov=58   metahuman-reference.md
+     10.0%     1/10    cov=220  plugin-blackeye-versions.md
+      1.9%     1/52    cov=155  sequencer-cinematics.md
