@@ -1,12 +1,28 @@
 ---
 class: topic-reference
-verified: no
-sources: []
-last_verified: never
+verified: partial
+sources:
+  - tutorials/  (corroboration audit, batch B4 -- see note)
+last_verified: 2026-08-19
 version_basis: "unknown"
-# WARNING: written from model memory, not ingested from a source.
-# Do not cite as authority. If a tutorial disagrees, the tutorial wins.
+# Origin: model memory. Audited 2026-08-19 (batch B4) -- no fabricated names
+# found. Parameters/API symbols remain unverified. Tutorial beats reference.
 ---
+> ## Audit note — batch B4, 2026-08-19
+>
+> UNMEASURABLE -- topic coverage 11 files. Verify against Epic docs.
+>
+> **Method and its ceiling.** Every term this file asserts was checked against the
+> skill's 362 ingested tutorials with `audit_references.py`. That corpus is built
+> from spoken narration, so it corroborates what presenters **say** — node and
+> tool names — and structurally cannot corroborate what they only **show or
+> type**: parameter names, default values, console variables, API symbols.
+> **Corroboration finds fabricated names, not wrong values.** Treat parameters and
+> code identifiers in this file as unverified until checked against Epic's docs.
+>
+> Across all of `unreal-sidekick`, the audit found **no fabricated node names**.
+> Full detail: `houdini-wand/PROMO_ENTRY_CLEANUP_PLAN.md` (workstream B).
+
 # Narrative Blueprints & Level Streaming — Reference
 
 **Source:** Epic Documentation (`tutorials/level-streaming-in-unreal-engine.md` — 15 pages) + synthesis  
