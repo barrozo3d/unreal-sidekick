@@ -3700,6 +3700,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Live work-through compositing a real webcam-shot face into a CG astronaut helmet via Composure's Composite Depth Mesh Actor: DaVinci/Fusion depth-map + EXR roundtrip, modular-character Leader Pose setup, bone-attached projection-rig parenting nulls, dilation/mask edge cleanup, and a Movie Render Graph + final Resolve grade finish.
 - **File:** tutorials/put-your-face-in-a-3d-helmet-live-work-through-composure-ep6-bonus.md
 
+
+### How to Get Clean Lumen Lighting in Unreal Engine 5
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=wOx_jPKWYCE
+- **Author:** TUF
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/how-to-get-clean-lumen-lighting-in-unreal-engine-5.md
+
 ---
 
 ## Tag Reference

@@ -153,4 +153,4 @@ Same ingest/validate/setup architecture as this skill's siblings — `blender-mo
 
 ## Status
 
-Public personal project, no warranty, not affiliated with or endorsed by Epic Games. **359 tutorials ingested** (count auto-updates on every `ingest.py` run — do not hand-edit this line).
+Public personal project, no warranty, not affiliated with or endorsed by Epic Games. **360 tutorials ingested** (count auto-updates on every `ingest.py` run — do not hand-edit this line).
