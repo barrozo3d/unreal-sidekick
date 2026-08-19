@@ -152,9 +152,50 @@ Structure every consultation response as:
 ## Gotchas
 [Common mistakes, version differences, performance traps — omit if none]
 
+## Sources
+[Attribute the claims above — one line each:]
+- `[tutorials/<file>.md]` — which steps / names came from it
+- `[docs: <url>]` — official documentation
+- `[unverified]` — anything from your own knowledge with no source in this skill
+
 ## Related Entries in Knowledge Base
 [Cite any matching tutorials/docs from INDEX.md]
 ```
+
+> ### ⚠️ Attribute every claim — "never invent" is not enough on its own
+>
+> Key Rule #2 ("never invent ... names") has been in this file from the start and
+> did **not** prevent the 2026-08-19 incident. Fabrication entered at *authoring*
+> time: once wrong names were written into `references/copernicus.md`, citing them
+> *satisfied* the rule. **A rule that can be satisfied by a corrupted source
+> protects nothing.**
+>
+> It also cannot work by introspection. Generating a plausible name feels
+> identical to recalling a real one — there is no internal signal to check
+> against. So do not ask yourself *"am I sure?"*. Ask **"which file does this come
+> from?"** and write the answer down:
+>
+> | Tag | Meaning |
+> |---|---|
+> | `[tutorials/<file>.md]` | confirmed in an ingested tutorial — grep-able, so the reader can check you |
+> | `[docs: <url>]` | official vendor documentation |
+> | `[unverified]` | your own knowledge; no source in this skill |
+>
+> **`[unverified]` is a correct and expected tag, not a failure.** Use it rather
+> than dropping the claim. **Never invent a citation to avoid it** — a fabricated
+> filename is far worse than an honest `[unverified]`, because it destroys the
+> reader's ability to check anything. Cite only files you actually opened.
+>
+> ### "Not covered" is a correct answer
+>
+> If the library and references do not cover the question, **say so and stop.**
+> State what *is* covered, what is missing, and offer to ingest a source.
+>
+> **The answer format is a guide, not a quota.** It asks for exact names and
+> parameter values; when you do not have them, write
+> `[unverified — exact name not confirmed]` instead of a plausible guess. That
+> demand for exact names is itself a fabrication pressure: three sourced steps
+> with an honest gap beat six steps where two are invented.
 
 ---
 
@@ -347,7 +388,7 @@ ue5-0, ue5-1, ue5-2, ue5-3, ue5-4, ue5-5, ue5-6, ue5-7, ue5-8
 ## Key Rules
 
 1. **Always check INDEX.md first** — cite the source if it's in the library
-2. **Never invent node names or menu paths** — use only confirmed UE names
+2. **Never invent node names or menu paths** — use only confirmed UE names. **And attribute them** — "confirmed" means you can name the file it came from (see *Attribute every claim*)
 3. **Version-aware** — UE5 versions differ significantly; always note which version applies
 4. **System-first** — always state which UE system/editor context the answer applies to
 5. **VFX/cinematics focus** — when multiple approaches exist, prefer the one suited to cinematic or VFX use (not game logic)
