@@ -1,12 +1,8 @@
 
 !  === audio-metasounds.md (class: topic-reference, verified: no) ===
-   ASSERTED (table/code): 14/58 uncorroborated (24%)   [multi-word/CamelCase only: 14/46 = 30%]
-   all terms: 19/69 (28%)   |   weak (1-2 files): 22   |   stem-only (suffix artifact? review): 0
+   ASSERTED (table/code): 10/49 uncorroborated (20%)   [multi-word/CamelCase only: 10/37 = 27%]
+   all terms: 12/56 (21%)   |   weak (1-2 files): 17   |   stem-only: 0   |   release-notes-only: 1
      [table] Audio Mix Sample Rate: 48000
-     [table] Control Bus Mix track
-     [table] MRQ audio support
-     [table] Node Update Transform API
-     [table] Output meter
      [table] Window → Audio Insights
      [table] Window → Subtitles
      [code ] AttachToComponent
@@ -16,18 +12,13 @@
      [code ] InFloat
      [code ] Store AudioComponent
      [code ] YourMetaSound
-     [prose] Details panel → MetaSound Output Format
-     [prose] Key difference from Sound Cues
-     [prose] Project Settings → Engine → MetaSounds → Pages
      [prose] SetSubtitleEnabled
      [prose] SetSubtitleLocale
 
 !  === blueprints-scripting.md (class: topic-reference, verified: no) ===
-   ASSERTED (table/code): 27/106 uncorroborated (25%)   [multi-word/CamelCase only: 27/71 = 38%]
-   all terms: 27/107 (25%)   |   weak (1-2 files): 23   |   stem-only (suffix artifact? review): 0
+   ASSERTED (table/code): 25/103 uncorroborated (24%)   [multi-word/CamelCase only: 25/68 = 37%]
+   all terms: 25/104 (24%)   |   weak (1-2 files): 22   |   stem-only: 0   |   release-notes-only: 0
      [table] Avoid Tick
-     [table] Compile regularly
-     [table] Use interfaces
      [code ] Call Interface Message
      [code ] Call OnExplode
      [code ] Cast To MyCharacterBP
@@ -50,11 +41,12 @@
      [code ] Set Vector Parameter Value
      [code ] Spawn Emitter
      [code ] Spawn System Attached
-     ... and 2 more (use --verbose)
+     [code ] TargetActor
+     [code ] TriggerExplosion
 
 !  === chaos-physics.md (class: topic-reference, verified: no) ===
    ASSERTED (table/code): 29/85 uncorroborated (34%)   [multi-word/CamelCase only: 28/57 = 49%]
-   all terms: 29/85 (34%)   |   weak (1-2 files): 19   |   stem-only (suffix artifact? review): 0
+   all terms: 29/85 (34%)   |   weak (1-2 files): 19   |   stem-only: 0   |   release-notes-only: 0
      [table] Anchor Field Cluster
      [table] Angular Sleep Threshold
      [table] COM Offset
@@ -83,53 +75,35 @@
      ... and 4 more (use --verbose)
 
 !! === color-pipeline.md (class: topic-reference, verified: no) ===
-   ASSERTED (table/code): 11/25 uncorroborated (44%)   [multi-word/CamelCase only: 11/19 = 58%]
-   all terms: 19/45 (42%)   |   weak (1-2 files): 7   |   stem-only (suffix artifact? review): 0
+   ASSERTED (table/code): 8/20 uncorroborated (40%)   [multi-word/CamelCase only: 8/14 = 57%]
+   all terms: 10/34 (29%)   |   weak (1-2 files): 7   |   stem-only: 0   |   release-notes-only: 0
      [table] Bloom → Intensity
      [table] Chromatic Aberration → Intensity
-     [table] Color Grading → Global → Contrast
-     [table] Color Grading → Global → Saturation
      [table] Color Grading → LUT
-     [table] Disable tonemapper
      [table] Exposure → Exposure Compensation
      [table] Filmic Blender
      [table] Override Tonemapper → None
      [table] Rendering Color Space
      [table] Vignette → Intensity
      [prose] ACEScct
-     [prose] Clip Attributes → Input Color Space: Linear sRGB
-     [prose] Color Grading → OCIO → OpenColorIO Configuration
-     [prose] Edit → Plugins → search "OpenColorIO" → Enable
      [prose] LUT Intensity
-     [prose] Place Actors → Post Process Volume
-     [prose] Renderer node → Post Process Settings
-     [prose] Why it matters for DaVinci
 
-!! === control-rig-animation.md (class: topic-reference, verified: no) ===
-   ASSERTED (table/code): 8/18 uncorroborated (44%)   [multi-word/CamelCase only: 8/16 = 50%]
-   all terms: 18/44 (41%)   |   weak (1-2 files): 6   |   stem-only (suffix artifact? review): 0
+!  === control-rig-animation.md (class: topic-reference, verified: no) ===
+   ASSERTED (table/code): 4/13 uncorroborated (31%)   [multi-word/CamelCase only: 4/11 = 36%]
+   all terms: 9/31 (29%)   |   weak (1-2 files): 3   |   stem-only: 0   |   release-notes-only: 1
      [table] Collision Sphere Radius
      [table] FK Chain
      [table] IK Foot Floor Constraint
-     [table] Lattice deformer
-     [table] Layer and mask directly in Sequencer
-     [table] Mesh element selection
-     [table] Retarget Override Sets
      [table] Simulation Warmup Frames
      [prose] Add Animation Layer
-     [prose] cosmetic secondary motion
      [prose] Create Modular Control Rig
-     [prose] directly on the skeletal mesh surface
      [prose] Dynamics Chain
      [prose] Export Retargeted Assets
-     [prose] facial animation transfers
      [prose] hair_tip
-     [prose] Module Library panel
-     [prose] node-based procedural rigging and animation system
 
 !! === lip-sync.md (class: topic-reference, verified: no) ===
-   ASSERTED (table/code): 19/39 uncorroborated (49%)   [multi-word/CamelCase only: 19/27 = 70%]
-   all terms: 27/59 (46%)   |   weak (1-2 files): 4   |   stem-only (suffix artifact? review): 0
+   ASSERTED (table/code): 17/34 uncorroborated (50%)   [multi-word/CamelCase only: 17/22 = 77%]
+   all terms: 22/51 (43%)   |   weak (1-2 files): 2   |   stem-only: 0   |   release-notes-only: 0
      [table] CTRL_expressions_jawFwd
      [table] CTRL_expressions_jawOpen
      [table] CTRL_expressions_lipPucker
@@ -138,10 +112,8 @@
      [table] FACIAL_C_JawRoot
      [table] Jaw Bias
      [table] Jaw Bone
-     [table] Jaw bone Blueprint driver
      [table] Max Jaw Open
      [table] OVR Lipsync Playback Actor
-     [table] OVR Lipsync Playback Actor → Bake
      [table] UOVRLipSyncContextWrapper
      [code ] DialogueAudioFile
      [code ] Get Audio Volume
@@ -149,17 +121,15 @@
      [code ] OVRLipsyncComponent
      [code ] Set Bone Transform
      [code ] Start Lipsync
-     [prose] Edit → Plugins → OVR Lipsync
      [prose] Fixed Frame Rate
      [prose] JawForward
      [prose] MouthOpen
      [prose] New Session → Audio-Driven
-     [prose] OVR Lipsync Playback Actor → Bake to Animation
-     ... and 2 more (use --verbose)
+     [prose] Window → Subtitles Settings
 
    === materials-shaders.md (class: topic-reference, verified: no) ===
    ASSERTED (table/code): 7/55 uncorroborated (13%)   [multi-word/CamelCase only: 7/25 = 28%]
-   all terms: 7/61 (11%)   |   weak (1-2 files): 19   |   stem-only (suffix artifact? review): 0
+   all terms: 7/61 (11%)   |   weak (1-2 files): 19   |   stem-only: 0   |   release-notes-only: 0
      [table] Dynamic Parameter
      [table] Masked Sprites
      [code ] DistanceToNearestSurface
@@ -169,27 +139,23 @@
      [code ] SetVectorParameterValue
 
    === metahuman-reference.md (class: topic-reference, verified: no) ===
-   ASSERTED (table/code): 10/81 uncorroborated (12%)   [multi-word/CamelCase only: 8/51 = 16%]
-   all terms: 11/84 (13%)   |   weak (1-2 files): 31   |   stem-only (suffix artifact? review): 0
+   ASSERTED (table/code): 8/79 uncorroborated (10%)   [multi-word/CamelCase only: 6/49 = 12%]
+   all terms: 8/79 (10%)   |   weak (1-2 files): 29   |   stem-only: 0   |   release-notes-only: 1
      [table] Batch Processing API
-     [table] Drive components
      [table] MetaHuman Animator: Audio-Driven
      [table] MetaHuman Animator: Monocular Body
      [table] MI_Face_Skin_Baked_LOD2
      [table] MI_Face_Skin_Baked_LOD3
      [table] SKM_Name_BodyMesh
      [table] SKM_Name_FaceMesh
-     [table] Unbaked Textures
      [code ] Disable Snap
-     [prose] Performance dial
 
 !! === narrative-blueprints.md (class: topic-reference, verified: no) ===
-   ASSERTED (table/code): 26/54 uncorroborated (48%)   [multi-word/CamelCase only: 26/41 = 63%]
-   all terms: 34/76 (45%)   |   weak (1-2 files): 7   |   stem-only (suffix artifact? review): 0
+   ASSERTED (table/code): 25/53 uncorroborated (47%)   [multi-word/CamelCase only: 25/40 = 62%]
+   all terms: 29/70 (41%)   |   weak (1-2 files): 7   |   stem-only: 0   |   release-notes-only: 0
      [table] Evaluation Type: Always Re-evaluate
      [table] Get Level Streaming State
      [table] Is Level Loaded
-     [table] MakeVisibleAfterLoad: true
      [table] Set Level Visibility
      [code ] Box Trigger Volume
      [code ] ClosedRotation
@@ -211,11 +177,12 @@
      [code ] ShouldBlockOnLoad
      [code ] Spawn Emitter
      [code ] Timeline Alpha
-     ... and 9 more (use --verbose)
+     [code ] TimelineAlpha
+     ... and 4 more (use --verbose)
 
    === ndisplay-icvfx.md (class: topic-reference, verified: no) ===
-   ASSERTED (table/code): 7/65 uncorroborated (11%)   [multi-word/CamelCase only: 7/43 = 16%]
-   all terms: 8/66 (12%)   |   weak (1-2 files): 28   |   stem-only (suffix artifact? review): 0
+   ASSERTED (table/code): 7/64 uncorroborated (11%)   [multi-word/CamelCase only: 7/42 = 17%]
+   all terms: 7/64 (11%)   |   weak (1-2 files): 28   |   stem-only: 0   |   release-notes-only: 0
      [table] Outer Frustum
      [code ] Add Live Link Component
      [code ] GetClusterId
@@ -223,11 +190,10 @@
      [code ] Set GPU Index
      [code ] Set View Origin
      [code ] SetDisplayClusterConfigPath
-     [prose] OSC setup for take recording
 
 !  === niagara-vfx.md (class: topic-reference, verified: no) ===
    ASSERTED (table/code): 9/40 uncorroborated (22%)   [multi-word/CamelCase only: 9/30 = 30%]
-   all terms: 11/44 (25%)   |   weak (1-2 files): 12   |   stem-only (suffix artifact? review): 0
+   all terms: 11/44 (25%)   |   weak (1-2 files): 12   |   stem-only: 0   |   release-notes-only: 0
      [table] Color Over Life
      [table] Emitter Lifetime
      [table] Gas Solver
@@ -240,58 +206,39 @@
      [prose] High-Quality Rendering
      [prose] Niagara Data Interface
 
-!  === plugin-blackeye-versions.md (class: topic-reference, verified: no) ===
-   ASSERTED (table/code): 7/18 uncorroborated (39%)   [multi-word/CamelCase only: 6/15 = 40%]
-   all terms: 11/34 (32%)   |   weak (1-2 files): 6   |   stem-only (suffix artifact? review): 0
-     [table] 2-person combat side camera
-     [table] Aim methods
+   === plugin-blackeye-versions.md (class: topic-reference, verified: no) ===
+   ASSERTED (table/code): 1/10 uncorroborated (10%)   [multi-word/CamelCase only: 0/7 = 0%]
+   all terms: 1/19 (5%)   |   weak (1-2 files): 2   |   stem-only: 0   |   release-notes-only: 0
      [table] blackeye-v1-sequencer
-     [table] Camera priorities
-     [table] Gameplay camera presets
-     [table] Gameplay cameras milestone
-     [table] High-level camera blending
-     [prose] Critical note
-     [prose] Modules system
-     [prose] Speed of Thought philosophy
-     [prose] What's New vs. v1.x
 
 !  === plugin-dash-versions.md (class: topic-reference, verified: no) ===
-   ASSERTED (table/code): 11/39 uncorroborated (28%)   [multi-word/CamelCase only: 11/39 = 28%]
-   all terms: 16/56 (29%)   |   weak (1-2 files): 16   |   stem-only (suffix artifact? review): 0
+   ASSERTED (table/code): 9/35 uncorroborated (26%)   [multi-word/CamelCase only: 9/35 = 26%]
+   all terms: 12/50 (24%)   |   weak (1-2 files): 15   |   stem-only: 0   |   release-notes-only: 0
      [table] FAB Support
-     [table] Falling Leaves system
      [table] IES Profiles Library
      [table] Image to Grading
-     [table] Path-Based Tools redesign
      [table] Redesigned Compounds
      [table] Scatter Table Dropdown
      [table] Simplified Baking
      [table] Sophon AI Assistant
      [table] Terrain Deformation Enhancements
      [table] Vines Creation Tool
-     [prose] Compatibility rule
-     [prose] Key compatibility flags to add in extraction
      [prose] Tool Enhancements
      [prose] UE Compatibility
      [prose] Workflow Change
 
 ?? === plugin-lightforge-versions.md (class: topic-reference, verified: no) ===
-   ASSERTED (table/code): 4/5 uncorroborated (80%)   [multi-word/CamelCase only: 2/2 = 100%]
-   all terms: 8/21 (38%)   |   weak (1-2 files): 2   |   stem-only (suffix artifact? review): 0
+   ASSERTED (table/code): 2/3 uncorroborated (67%)   [multi-word/CamelCase only: 0/0 = 0%]
+   all terms: 5/17 (29%)   |   weak (1-2 files): 1   |   stem-only: 0   |   release-notes-only: 0
      [table] lightforge-1x
      [table] lightforge-2x
-     [table] UE version shown in title bar
-     [table] UI panel style
-     [prose] Breaking compatibility
      [prose] Central Console
      [prose] Resource Hub
      [prose] Supported UE
 
 !  === python-unreal.md (class: topic-reference, verified: no) ===
-   ASSERTED (table/code): 10/36 uncorroborated (28%)   [multi-word/CamelCase only: 10/19 = 53%]
-   all terms: 10/36 (28%)   |   weak (1-2 files): 3   |   stem-only (suffix artifact? review): 0
-     [table] Interactive console
-     [table] Startup scripts
+   ASSERTED (table/code): 8/33 uncorroborated (24%)   [multi-word/CamelCase only: 8/16 = 50%]
+   all terms: 8/33 (24%)   |   weak (1-2 files): 2   |   stem-only: 0   |   release-notes-only: 0
      [code ] AssetRegistryHelpers
      [code ] EditorUtilityLibrary
      [code ] LevelSequenceActor
@@ -302,8 +249,8 @@
      [code ] ScriptPath
 
    === rendering-pipeline.md (class: topic-reference, verified: no) ===
-   ASSERTED (table/code): 14/76 uncorroborated (18%)   [multi-word/CamelCase only: 14/47 = 30%]
-   all terms: 16/81 (20%)   |   weak (1-2 files): 11   |   stem-only (suffix artifact? review): 0
+   ASSERTED (table/code): 14/75 uncorroborated (19%)   [multi-word/CamelCase only: 14/46 = 30%]
+   all terms: 16/80 (20%)   |   weak (1-2 files): 11   |   stem-only: 0   |   release-notes-only: 0
      [code ] Bokeh DOF
      [code ] Circle DOF
      [code ] Crush Blacks
@@ -323,29 +270,29 @@
 
    === sequencer-cinematics.md (class: topic-reference, verified: no) ===
    ASSERTED (table/code): 0/52 uncorroborated (0%)   [multi-word/CamelCase only: 0/32 = 0%]
-   all terms: 1/54 (2%)   |   weak (1-2 files): 11   |   stem-only (suffix artifact? review): 0
+   all terms: 1/54 (2%)   |   weak (1-2 files): 11   |   stem-only: 0   |   release-notes-only: 0
      [prose] Output → Add Output
 
 ======================================================================
 RANKED BY ZERO-CORROBORATION RATIO (most suspect first)
   calibration: fabricated copernicus.md scores 31% strict-zero (23/74)
 ======================================================================
- !!  48.7%    19/39    lip-sync.md
- !!  48.1%    26/54    narrative-blueprints.md
- !!  44.4%     8/18    control-rig-animation.md
- !!  44.0%    11/25    color-pipeline.md
- !   38.9%     7/18    plugin-blackeye-versions.md
+ !!  50.0%    17/34    lip-sync.md
+ !!  47.2%    25/53    narrative-blueprints.md
+ !!  40.0%     8/20    color-pipeline.md
  !   34.1%    29/85    chaos-physics.md
- !   28.2%    11/39    plugin-dash-versions.md
- !   27.8%    10/36    python-unreal.md
- !   25.5%    27/106   blueprints-scripting.md
- !   24.1%    14/58    audio-metasounds.md
+ !   30.8%     4/13    control-rig-animation.md
+ !   25.7%     9/35    plugin-dash-versions.md
+ !   24.3%    25/103   blueprints-scripting.md
+ !   24.2%     8/33    python-unreal.md
  !   22.5%     9/40    niagara-vfx.md
-     18.4%    14/76    rendering-pipeline.md
+ !   20.4%    10/49    audio-metasounds.md
+     18.7%    14/75    rendering-pipeline.md
      12.7%     7/55    materials-shaders.md
-     12.3%    10/81    metahuman-reference.md
-     10.8%     7/65    ndisplay-icvfx.md
+     10.9%     7/64    ndisplay-icvfx.md
+     10.1%     8/79    metahuman-reference.md
+     10.0%     1/10    plugin-blackeye-versions.md
       0.0%     0/52    sequencer-cinematics.md
 
   too few asserted terms to score (<8) -- review by hand, the ratio would be noise:
- ??           4/5     plugin-lightforge-versions.md
+ ??           2/3     plugin-lightforge-versions.md
