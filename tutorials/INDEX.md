@@ -3715,9 +3715,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=IUyufiqS3RE
 - **Author:** Andrew Vish
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.3
+- **Tags:** `#rigging` `#skinning` `#blender` `#epic-skeleton` `#twist-bones` `#control-rig` `#ik-rig` `#ik-retargeter` `#foot-roll` `#curve-editor` `#physics-asset` `#ragdoll` `#post-process-deformation` `#lods` `#fab-marketplace` `#character-pipeline` `#advanced` `#youtube` `#ue5`
+- **Summary:** Advanced end-to-end commercial character pipeline: custom rigging + skinning in Blender (twist bones, Epic Skeleton bone-orientation conversion), then UE 5.3 setup — materials, Character Blueprint, IK Rig/Retargeter animation transfer, a stripped-down Control Rig with manual heel/toe foot-roll controllers, Curve-Editor animation cleanup, a second IK-bone rebake pass, a from-scratch Physics Asset with iterative ragdoll drop-testing, post-process twist-correction deformation via Anim Blueprint, LODs, and Fab marketplace submission. High-level pipeline overview/showcase rather than a settings-by-settings tutorial.
 - **File:** tutorials/static-assets-dont-sell-rigged-monsters-do-full-ue5-pipeline.md
 
 ---

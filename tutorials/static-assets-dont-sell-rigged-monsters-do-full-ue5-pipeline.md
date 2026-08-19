@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=IUyufiqS3RE
 author: Andrew Vish
 ingested: 2026-08-19
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5.3"
+tags: [rigging, skinning, blender, epic-skeleton, twist-bones, control-rig, ik-rig, retargeter, foot-roll, curve-editor, physics-asset, post-process-deformation, lods, marketplace, fab, character-pipeline, advanced, youtube, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/static-assets-dont-sell-rigged-monsters-do-full-ue5-pipeline/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 15
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Static Assets Don't Sell. Rigged Monsters Do. (Full UE5 Pipeline)
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py static-assets-dont-sell-rigged-monsters-do-full-ue5-pipeline <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Asset Sales under the Professional License [0:00]
@@ -331,30 +327,69 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [2:15] tutorials/frames/static-assets-dont-sell-rigged-monsters-do-full-ue5-pipeline/frame_000.jpg
+- [3:17] tutorials/frames/static-assets-dont-sell-rigged-monsters-do-full-ue5-pipeline/frame_001.jpg
+- [4:34] tutorials/frames/static-assets-dont-sell-rigged-monsters-do-full-ue5-pipeline/frame_002.jpg
+- [6:44] tutorials/frames/static-assets-dont-sell-rigged-monsters-do-full-ue5-pipeline/frame_003.jpg
+- [8:29] tutorials/frames/static-assets-dont-sell-rigged-monsters-do-full-ue5-pipeline/frame_004.jpg
+- [9:43] tutorials/frames/static-assets-dont-sell-rigged-monsters-do-full-ue5-pipeline/frame_005.jpg
+- [11:47] tutorials/frames/static-assets-dont-sell-rigged-monsters-do-full-ue5-pipeline/frame_006.jpg
+- [14:13] tutorials/frames/static-assets-dont-sell-rigged-monsters-do-full-ue5-pipeline/frame_007.jpg
+- [15:44] tutorials/frames/static-assets-dont-sell-rigged-monsters-do-full-ue5-pipeline/frame_008.jpg
+- [17:26] tutorials/frames/static-assets-dont-sell-rigged-monsters-do-full-ue5-pipeline/frame_009.jpg
+- [20:48] tutorials/frames/static-assets-dont-sell-rigged-monsters-do-full-ue5-pipeline/frame_010.jpg
+- [22:15] tutorials/frames/static-assets-dont-sell-rigged-monsters-do-full-ue5-pipeline/frame_011.jpg
+- [23:51] tutorials/frames/static-assets-dont-sell-rigged-monsters-do-full-ue5-pipeline/frame_012.jpg
+- [25:35] tutorials/frames/static-assets-dont-sell-rigged-monsters-do-full-ue5-pipeline/frame_013.jpg
+- [26:02] tutorials/frames/static-assets-dont-sell-rigged-monsters-do-full-ue5-pipeline/frame_014.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
-
-### Summary
-[PENDING EXTRACTION]
+A commercial-marketplace (Fab) character pipeline overview: taking a finished static monster mesh from Blender through custom rigging/skinning, Epic Skeleton conversion, and a full Unreal Engine setup (materials, character blueprint, retargeted + hand-polished animations, Control Rig, physics asset, post-process twist-correction deformation, LODs) to produce a "game-ready" asset that actually works out of the box — contrasted against AI auto-rigging services the author calls out as overselling what they deliver. This is a high-level walkthrough/showcase video, not a step-by-step settings tutorial — most steps are described narratively over B-roll rather than demonstrated with exact values, so treat it as a pipeline map to follow up with dedicated technique tutorials (several are cross-linked below) rather than a standalone how-to.
 
 ### Key Steps
-[PENDING EXTRACTION]
+**Blender side (rigging & skinning):**
+1. Create a clean UE 5.3 project; export a handful of mannequin animation assets from the template.
+2. In Blender, import the UE mannequin skeleton as a benchmark/reference the custom rig will be validated against, plus the pulled animation assets.
+3. Build the monster's skeleton from scratch, bone by bone — lower limbs first (symmetrized), then upper limbs/clavicles/shoulders (most visible source of rig-quality issues during animation), then fingers/toes. Anatomy knowledge informs bone placement even though the rig isn't an anatomically exact skeleton.
+4. Skin using Blender's Automatic Weights as a base, then refine: the Smooth brush handles most cases; hand-painting is reserved for cases automatic weights can't fix (e.g. decoupling clavicle deformation from head/neck movement while keeping leg-area influence dominant). Pay special attention to blending zones near large joints (humerus influence, armpit smoothing) to avoid abrupt influence cutoffs. Mirror modifier tricks speed up symmetric skinning.
+5. Add twist bones to all limbs by working on separated/duplicated mesh parts (non-destructive), transferring the updated skinning back, then stitching the parts back onto the main mesh by merging border-loop vertices so weights blend organically across the seam. This groundwork feeds later UE-side twist correction.
+6. Convert the custom skeleton's bone orientation to match Epic Skeleton conventions (not Blender-native orientation) for every bone including twist bones and utility/IK bones — validated in Blender by testing the imported template animations against the new rig; misoriented bones produce obviously broken deformation.
+
+**Unreal Engine side:**
+7. Set up project folder structure; import the skeletal mesh; build a base Material + Material Instance (base color + supporting texture nodes) so the monster isn't gray.
+8. Character Blueprint: swapping in the monster's skeletal mesh directly on the mannequin BP looks broken by default — requires adjusting skeletal mesh component settings to get an acceptable starting result.
+9. Animation transfer: naively re-parenting template animation assets to the new skeleton doesn't work well. The recommended method is an **IK Rig + Retargeter** (build an IK Rig on the monster skeleton, then a Retargeter on top) for controlled, higher-quality animation transfer versus the basic/manual transfer method.
+10. Build a **Preview Blueprint** — non-playable instances placed around the level, each with a different animation assigned — used both to present the asset and as a live calibration tool for spotting bad skinning/animation.
+11. **Control Rig:** start from the mannequin template's ready-made Control Rig rather than building from scratch; strip unused controllers (hierarchy + node graph) that the monster doesn't need; redesign controller shapes for marketplace-grade usability. Foot roll needs manual **heel and toe/t-bone transform buffers** via temporary controllers (since those bones don't physically exist on the custom skeleton) — placed, child-parented, nudged into position, then wired via mirroring to get a working foot-roll mechanism; verified against a real animation.
+12. **Animation fixing:** bake existing (retargeted) animations onto the Control Rig and fix them in-engine — primarily via the **Curve Editor** (called out as the most surgical/precise tool) for foot-planting, removing jitter/noise, cleaning redundant keys, and repositioning body/arm poses; the Sequencer track keyframe view is used as a secondary, sometimes more convenient editing method for other clips (e.g. a fall-loop animation). Described as an iterative, manual, frame-by-frame process with no universal shortcut.
+13. **IK bones:** the third-person template's dedicated Control Rig is reused for IK setup, retargeted onto the monster mesh and wired into the Anim Blueprint. Because IK bones aren't driven by the base animation data, every animation must be rebaked a second time through a small in-Unreal control rig so IK bones follow their corresponding main-skeleton bones (an alternative to fixing this in Blender).
+14. **Physics Asset:** built from scratch rather than reusing the mannequin's (auto-generation is a rough starting point only) — prune unnecessary/duplicate-side primitives, then manually fit remaining primitives to body geometry (boxes preferred over capsules for some parts), mirror left-side primitives to the right. Constraints are deleted and rebuilt manually per-limb (child→parent order), tuning angular limits by intuition + simulation feedback, then mirrored to the symmetric side. Iteratively drop-test the ragdoll, toggling collision between primitive groups to eliminate limb/body interpenetration and pose glitches until the fall result looks physically correct.
+15. **Post-process deformation:** a dedicated Control Rig (built earlier for twist correction) is wired into the Anim Blueprint (Input Pose → Control Rig node → Output Pose) to smooth deformation across joints like the forearm during rotation — verified visually against the uncorrected result.
+16. **LODs:** reuse the mannequin's LOD asset as a base, tweak reduction settings, assign it as the skeletal mesh's LOD source, set LOD count and generate.
+17. **Marketplace prep:** clean up unused project files, capture marketing screenshots/renders (Fab reviewer-required), then submit/upload to Fab.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+Skeletal Mesh import & Epic Skeleton conventions; Material / Material Instance (base color + texture nodes); Character Blueprint (skeletal mesh component override); IK Rig + IK Retargeter (animation transfer between skeletons); Preview/NPC Blueprint pattern for asset calibration; Control Rig (stripped-down mannequin template CR, custom controller shapes, temporary heel/toe transform-buffer controllers for foot roll, mirroring); Curve Editor and Sequencer keyframe track editing for animation cleanup; a second small in-engine Control Rig for baking IK-bone motion into animations; Physics Asset Editor (primitives, angular constraints, mirroring, ragdoll drop-test iteration, per-group collision toggling); Anim Blueprint (Input Pose → Control Rig → Output Pose wiring for post-process twist-correction deformation); LOD reduction settings/generation; Fab marketplace submission requirements (screenshots/renders, professional license).
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced — explicitly framed by the author as an advanced-level pipeline overview that skips explaining fundamentals at each step ("otherwise this video would turn into a 10 hour marathon"). Best suited to viewers who already know Blender rigging basics and UE's Control Rig/IK Rig systems, using this as a map of the full commercial pipeline rather than a from-scratch lesson.
 
 ### UE Version
-[PENDING EXTRACTION]
+UE 5.3 (stated explicitly in the transcript at [1:56]).
 
 ### Tags
-[PENDING EXTRACTION]
+rigging, skinning, blender, epic-skeleton, twist-bones, control-rig, ik-rig, ik-retargeter, foot-roll, curve-editor, physics-asset, ragdoll, post-process-deformation, animation-blueprint, lods, fab-marketplace, character-pipeline, monster-character, advanced, youtube, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- **[Ragdoll Physics are Insanely Easy in Unreal 5](ragdoll-physics-are-insanely-easy-in-unreal-5.md)** — dedicated deep-dive on the Physics Asset Editor's rigid bodies and angular constraints that this video's Physics Asset step (drop-test, per-limb constraint tuning, collision toggling) only summarizes at a high level.
+- **[Physics in Unreal Engine (Epic Documentation)](physics-in-unreal-engine.md)** — full physics reference (Rigid Body Dynamics, constraints/joints, Ragdoll) useful for filling in the physics-asset details this video skips.
+- **[Build It in Engine: Modern Rigging with Control Rig & Dataflow | Unreal Fest Chicago 2026](build-it-in-engine-modern-rigging-with-control-rig-dataflow-unreal-fest-chicago-.md)** — a fully procedural, in-engine alternative to this video's manual Blender rigging/skinning workflow (Dataflow skeletonization auto-generates skeletons + skin weights); useful contrast on where UE5.8 rigging tooling is headed versus the hand-built Blender approach shown here.
+- **[Control Rig in Unreal Engine (Epic Documentation)](control-rig-in-unreal-engine.md)** — official reference for the Control Rig system this video relies on for the character rig, foot-roll controllers, and the post-process twist-correction rig.
