@@ -1,3 +1,12 @@
+---
+class: operational
+verified: n/a
+sources:
+  - https://www.unrealengine.com/en-US/release-notes
+  - https://dev.epicgames.com/documentation/unreal-engine/whats-new
+last_verified: never
+version_basis: "unknown"
+---
 # Unreal Engine Version Tracker
 
 **last_checked:** 2026-06-18

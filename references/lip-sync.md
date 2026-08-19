@@ -1,3 +1,12 @@
+---
+class: topic-reference
+verified: no
+sources: []
+last_verified: never
+version_basis: "unknown"
+# WARNING: written from model memory, not ingested from a source.
+# Do not cite as authority. If a tutorial disagrees, the tutorial wins.
+---
 # Lip Sync in Unreal Engine — Reference
 
 **UE Version:** OVR Lipsync plugin available for UE5; audio-driven jaw bone since UE4; `[5.8]` Audio-driven animation in MetaHuman Animator

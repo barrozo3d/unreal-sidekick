@@ -1,3 +1,13 @@
+---
+class: topic-reference
+verified: no
+sources:
+  - https://blackeyetechnologies.com
+last_verified: never
+version_basis: "unknown"
+# WARNING: written from model memory, not ingested from a source.
+# Do not cite as authority. If a tutorial disagrees, the tutorial wins.
+---
 # Black Eye Cameras — Version History & Compatibility Reference
 
 **Plugin:** Black Eye Cameras (Procedural & Dynamic Camera System for UE5)

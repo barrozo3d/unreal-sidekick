@@ -1,3 +1,12 @@
+---
+class: topic-reference
+verified: no
+sources: []
+last_verified: never
+version_basis: "unknown"
+# WARNING: written from model memory, not ingested from a source.
+# Do not cite as authority. If a tutorial disagrees, the tutorial wins.
+---
 # Narrative Blueprints & Level Streaming — Reference
 
 **Source:** Epic Documentation (`tutorials/level-streaming-in-unreal-engine.md` — 15 pages) + synthesis  

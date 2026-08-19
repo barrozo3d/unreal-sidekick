@@ -1,3 +1,13 @@
+---
+class: topic-reference
+verified: no
+sources:
+  - https://docs.polygonflow.io
+last_verified: never
+version_basis: "unknown"
+# WARNING: written from model memory, not ingested from a source.
+# Do not cite as authority. If a tutorial disagrees, the tutorial wins.
+---
 # Polygonflow Dash — Version History & Compatibility Reference
 
 **Plugin:** Dash (World Building & Asset Management for UE5)

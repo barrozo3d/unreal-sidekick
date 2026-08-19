@@ -1,3 +1,10 @@
+---
+class: release-notes
+verified: no
+sources: []
+last_verified: never
+version_basis: "ue58"
+---
 # Unreal Engine 5.8 — Release Notes Reference
 
 **Released:** June 2026 (general public)  

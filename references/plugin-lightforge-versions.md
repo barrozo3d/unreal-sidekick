@@ -1,3 +1,14 @@
+---
+class: topic-reference
+verified: no
+sources:
+  - https://boundless-resource.com
+  - https://boundless-resource.com/lightforgehub/
+last_verified: never
+version_basis: "unknown"
+# WARNING: written from model memory, not ingested from a source.
+# Do not cite as authority. If a tutorial disagrees, the tutorial wins.
+---
 # LightForge — Version History & Compatibility Reference
 
 **Plugin:** LightForge (Cinematic Lighting & Filmmaking Plugin for UE5)
