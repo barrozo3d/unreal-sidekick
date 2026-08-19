@@ -3710,6 +3710,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Beginner/intermediate Lumen setup checklist (Project Settings GI/Reflection=Lumen, HWRT, DX12, global Post Process Volume) plus the actual fix for per-light Lumen flickering — raising each light's Ray Trace Samples Per Pixel rather than the common but incomplete workaround of lowering Final Gather Quality or raising scalability. Demonstrated live on a Skylight (1→4→16 samples) showing the flicker/FPS tradeoff.
 - **File:** tutorials/how-to-get-clean-lumen-lighting-in-unreal-engine-5.md
 
+
+### Static Assets Don't Sell. Rigged Monsters Do. (Full UE5 Pipeline)
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=IUyufiqS3RE
+- **Author:** Andrew Vish
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/static-assets-dont-sell-rigged-monsters-do-full-ue5-pipeline.md
+
 ---
 
 ## Tag Reference
