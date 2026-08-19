@@ -4,12 +4,13 @@ source: YouTube
 url: https://www.youtube.com/watch?v=wOx_jPKWYCE
 author: TUF
 ingested: 2026-08-19
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE5 (not stated on screen; DX12/HWRT/VSM workflow implies UE5.3+)"
+tags: [lumen, global-illumination, project-settings, post-process-volume, reflections, flickering, ray-tracing, hardware-ray-tracing, skylight, performance, beginner, intermediate, youtube, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/how-to-get-clean-lumen-lighting-in-unreal-engine-5/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # How to Get Clean Lumen Lighting in Unreal Engine 5
@@ -22,12 +23,7 @@ frame_status: pending-selection
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py how-to-get-clean-lumen-lighting-in-unreal-engine-5 <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Intro [0:00]
@@ -159,30 +155,59 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [0:43] tutorials/frames/how-to-get-clean-lumen-lighting-in-unreal-engine-5/frame_000.jpg
+- [1:17] tutorials/frames/how-to-get-clean-lumen-lighting-in-unreal-engine-5/frame_001.jpg
+- [3:26] tutorials/frames/how-to-get-clean-lumen-lighting-in-unreal-engine-5/frame_002.jpg
+- [3:54] tutorials/frames/how-to-get-clean-lumen-lighting-in-unreal-engine-5/frame_003.jpg
+- [5:44] tutorials/frames/how-to-get-clean-lumen-lighting-in-unreal-engine-5/frame_004.jpg
+- [7:24] tutorials/frames/how-to-get-clean-lumen-lighting-in-unreal-engine-5/frame_005.jpg
+- [7:36] tutorials/frames/how-to-get-clean-lumen-lighting-in-unreal-engine-5/frame_006.jpg
+- [9:00] tutorials/frames/how-to-get-clean-lumen-lighting-in-unreal-engine-5/frame_007.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
-
-### Summary
-[PENDING EXTRACTION]
+A baseline "clean Lumen" checklist covering the two places most beginners get Lumen wrong: (1) Project Settings for GI/reflection method, ray tracing, and RHI, and (2) a global Post Process Volume for Lumen quality knobs — plus the actual fix for per-light Lumen flickering (raising each light's ray-traced sample count) rather than the common but wasteful workaround of cranking Final Gather Quality or scalability to Epic/Cinematic.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. Create the project with the Game template, Third Person, and Quality Preset = Maximum (Scalable also works but Maximum is best for most cases).
+2. Edit → Project Settings → Rendering: set both Dynamic Global Illumination Method and Reflection Method to Lumen; set Reflection Capture Resolution (128 default, raise to ~2048 for ArchViz-heavy reflection scenes).
+3. Enable Hardware Ray Tracing (requires Nvidia/AMD RTX-capable GPU; "Support Hardware Ray Tracing" must be checked first to unlock the toggle). Set Ray Lighting Mode to Hit Lighting for Reflections (Surface Cache is the alternative/default). Leave Software Ray Tracing Mode alone if using HWRT.
+4. Enable Ray Tracing Translucent Reflections, Ray Traced Shadows, and set Shadow Maps to Virtual Shadow Maps. Enable Mega Lights if the scene has many lights.
+5. Under Platforms → Windows, set Default RHI to DirectX 12 (instead of Vulkan/DX11).
+6. Add a global Post Process Volume set to Infinite Extent (Unbound). Under Exposure, set Metering Mode to Manual for direct exposure control.
+7. In the PPV's Lumen Global Illumination section, enable all sub-settings. If using reflective materials (glass, water, mirrors), set Reflection bounces up to 12 for best quality; 6 is a reasonable default otherwise. Higher sample counts = better quality at higher GPU cost.
+8. **Common flicker "fix" (not the real fix):** many tutorials tell you to drop Lumen Scene Detail / Final Gather Quality to a low value (e.g. 0.25) or raise scalability — this only masks the problem and doesn't scale to Epic/Cinematic presets where flicker reappears.
+9. **Actual flicker fix:** select the individual light causing flicker, search "Ray Trace" in its Details panel, and increase its Samples Per Pixel (e.g. 1 → 4 or 16). Do this per-light — prioritize lights closest to the camera, since raising every light's sample count tanks FPS. Demonstrated live: a Skylight at 1 sample flickers badly at Cinematic scalability; raising to 4 fixes most flicker, and 16 removes it entirely but drops FPS noticeably (measured ~50-60 FPS down to ~30 FPS in the demo scene).
+10. Final Gather Quality in the PPV only helps if the individual lights already have adequate ray-trace samples — raising it alone won't fix flicker caused by under-sampled lights.
+11. Advanced PPV setting: Diffuse Color Boost — increases indirect/bounce light color saturation; useful in some scenes though the author notes its exact intended use case is unclear.
+12. If Project Settings are already configured project-wide (GI/Reflection method = Lumen), leave per-volume overrides on "Project Default"; only override locally if you haven't already set it globally.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- Project Settings → Rendering: Dynamic Global Illumination Method, Reflection Method, Reflection Capture Resolution, Hardware/Software Ray Tracing toggles, Ray Lighting Mode (Surface Cache vs Hit Lighting for Reflections), Ray Traced Shadows, Virtual Shadow Maps, Mega Lights.
+- Platforms → Windows → Default RHI (DirectX 12).
+- Post Process Volume (Infinite Extent/Unbound): Exposure → Metering Mode (Manual), Lumen Global Illumination (bounces, reflection bounces up to 12), Final Gather Quality, Diffuse Color Boost.
+- Per-light Details panel: Ray Trace section → Samples Per Pixel (the real per-light flicker fix).
+- Quixel/Fab Megascans "Abandoned Apartment" sample project used as a second, more complex test scene.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner to intermediate — the project-settings checklist is beginner-friendly, but understanding *why* the common Final-Gather-Quality flicker "fix" is a band-aid (vs. the real per-light ray-trace sample fix) is an intermediate-level insight.
 
 ### UE Version
-[PENDING EXTRACTION]
+Not stated on screen. Workflow (DX12, Hardware Ray Tracing toggle gated behind "Support Hardware Ray Tracing", Virtual Shadow Maps, Mega Lights, Ray Lighting Mode = Hit Lighting for Reflections) is consistent with UE5.3+.
 
 ### Tags
-[PENDING EXTRACTION]
+lumen, global-illumination, reflections, project-settings, post-process-volume, hardware-ray-tracing, ray-traced-shadows, virtual-shadow-maps, mega-lights, flickering, skylight, performance, directx-12, beginner, intermediate, youtube, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- **[Things To Know About LUMEN [Unreal Engine 5]](things-to-know-about-lumen-unreal-engine-5.md)** — earlier/companion overview of the same Project Settings checklist (DX12, HWRT toggle, VSM) plus Final Gather Quality and Diffuse Color Boost; this tutorial adds the per-light ray-trace-samples flicker fix that supersedes the Final-Gather-Quality band-aid both videos mention.
+- **[This One Setting Will Fix Lumen Noise in Unreal Engine 5](this-one-setting-will-fix-lumen-noise-in-unreal-engine-5.md)** — an alternative, console-command-based fix for Lumen GI flickering/noise (`r.LumenScene.Radiosity.Temporal.MaxFramesAccumulated`) versus this video's per-light Samples Per Pixel approach; worth cross-referencing when troubleshooting flicker since they attack the problem from different angles.
+- **[Lumen in UE5 Under 10 Mins](lumen-in-ue5-under-10-mins.md)** — another rapid-fire Project Settings walkthrough (Software vs Hardware Ray Tracing tradeoffs) covering much of the same ground as this video's setup steps.
+- **[Lumen Explained - IMPORTANT Tips for UE5](lumen-explained---important-tips-for-ue5.md)** — deeper dive into *why* Lumen behaves this way (screen traces → distance fields → surface cache internals), useful background for understanding why per-light sample count affects flicker.
+- **[How I Use Lumen in AAA Projects | Unreal Engine 5](how-i-use-lumen-in-aaa-projects-unreal-engine-5.md)** — production-level Post Process Volume quality knobs (Final Gather Quality, Scene Lighting Sensitivity, Ray Lighting Mode) that extend this tutorial's beginner-level PPV setup.

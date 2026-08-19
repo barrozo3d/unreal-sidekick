@@ -3705,9 +3705,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=wOx_jPKWYCE
 - **Author:** TUF
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5 (not stated on screen; DX12/HWRT/VSM workflow implies UE5.3+)
+- **Tags:** `#lumen` `#global-illumination` `#reflections` `#project-settings` `#post-process-volume` `#hardware-ray-tracing` `#ray-traced-shadows` `#virtual-shadow-maps` `#mega-lights` `#flickering` `#skylight` `#performance` `#directx-12` `#beginner` `#intermediate` `#youtube` `#ue5`
+- **Summary:** Beginner/intermediate Lumen setup checklist (Project Settings GI/Reflection=Lumen, HWRT, DX12, global Post Process Volume) plus the actual fix for per-light Lumen flickering — raising each light's Ray Trace Samples Per Pixel rather than the common but incomplete workaround of lowering Final Gather Quality or raising scalability. Demonstrated live on a Skylight (1→4→16 samples) showing the flicker/FPS tradeoff.
 - **File:** tutorials/how-to-get-clean-lumen-lighting-in-unreal-engine-5.md
 
 ---
