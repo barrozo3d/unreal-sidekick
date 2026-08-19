@@ -1,12 +1,11 @@
 
 !  === audio-metasounds.md (class: topic-reference, verified: no) ===
-   ASSERTED (table/code): 11/49 uncorroborated (22%)   [multi-word/CamelCase only: 11/37 = 30%]
+   ASSERTED (table/code): 10/49 uncorroborated (20%)   [multi-word/CamelCase only: 11/37 = 30%]
    topic coverage: 56 corpus files
-   all terms: 13/56 (23%)   |   weak (1-2 files): 21   |   stem-only: 0   |   release-notes-only: 1
+   all terms: 12/56 (21%)   |   weak (1-2 files): 21   |   stem-only: 1   |   release-notes-only: 1
      [table] Audio Mix Sample Rate: 48000
      [table] InName
      [table] Window → Audio Insights
-     [table] Window → Subtitles
      [code ] AttachToComponent
      [code ] DialogueLine
      [code ] EmotionIntensity
@@ -16,6 +15,8 @@
      [code ] YourMetaSound
      [prose] SetSubtitleEnabled
      [prose] SetSubtitleLocale
+   -- stem matches only (likely the formal-suffix convention, verify before cutting):
+     [table] Window → Subtitles  -> stem in 4 files
 
 !  === blueprints-scripting.md (class: topic-reference, verified: no) ===
    ASSERTED (table/code): 28/103 uncorroborated (27%)   [multi-word/CamelCase only: 28/68 = 41%]
@@ -79,21 +80,22 @@
      [code ] Generate Geometry Collection Asset
      ... and 5 more (use --verbose)
 
-!! === color-pipeline.md (class: topic-reference, verified: no) ===
-   ASSERTED (table/code): 8/20 uncorroborated (40%)   [multi-word/CamelCase only: 8/14 = 57%]
+   === color-pipeline.md (class: topic-reference, verified: no) ===
+   ASSERTED (table/code): 3/20 uncorroborated (15%)   [multi-word/CamelCase only: 8/14 = 57%]
    topic coverage: 174 corpus files
-   all terms: 11/34 (32%)   |   weak (1-2 files): 6   |   stem-only: 0   |   release-notes-only: 0
-     [table] Bloom → Intensity
-     [table] Chromatic Aberration → Intensity
-     [table] Color Grading → LUT
-     [table] Exposure → Exposure Compensation
+   all terms: 6/34 (18%)   |   weak (1-2 files): 6   |   stem-only: 5   |   release-notes-only: 0
      [table] Filmic Blender
      [table] Override Tonemapper → None
      [table] Rendering Color Space
-     [table] Vignette → Intensity
      [prose] ACEScct
      [prose] LUT Intensity
      [prose] Sequencer Camera Cut
+   -- stem matches only (likely the formal-suffix convention, verify before cutting):
+     [table] Color Grading → LUT  -> stem in 9 files
+     [table] Exposure → Exposure Compensation  -> stem in 11 files
+     [table] Vignette → Intensity  -> stem in 20 files
+     [table] Chromatic Aberration → Intensity  -> stem in 23 files
+     [table] Bloom → Intensity  -> stem in 25 files
 
 !  === control-rig-animation.md (class: topic-reference, verified: no) ===
    ASSERTED (table/code): 4/13 uncorroborated (31%)   [multi-word/CamelCase only: 4/11 = 36%]
@@ -112,7 +114,7 @@
 !! === lip-sync.md (class: topic-reference, verified: no) ===
    ASSERTED (table/code): 17/34 uncorroborated (50%)   [multi-word/CamelCase only: 17/22 = 77%]
    topic coverage: 58 corpus files
-   all terms: 24/51 (47%)   |   weak (1-2 files): 1   |   stem-only: 0   |   release-notes-only: 0
+   all terms: 23/51 (45%)   |   weak (1-2 files): 1   |   stem-only: 1   |   release-notes-only: 0
      [table] CTRL_expressions_jawFwd
      [table] CTRL_expressions_jawOpen
      [table] CTRL_expressions_lipPucker
@@ -134,9 +136,10 @@
      [prose] Fixed Frame Rate
      [prose] JawForward
      [prose] MouthOpen
-     [prose] New Session → Audio-Driven
      [prose] sil
      [prose] Window → Subtitles Settings
+   -- stem matches only (likely the formal-suffix convention, verify before cutting):
+     [prose] New Session → Audio-Driven  -> stem in 1 files
 
 !  === materials-shaders.md (class: topic-reference, verified: no) ===
    ASSERTED (table/code): 12/55 uncorroborated (22%)   [multi-word/CamelCase only: 11/25 = 44%]
@@ -301,9 +304,10 @@
    === sequencer-cinematics.md (class: topic-reference, verified: no) ===
    ASSERTED (table/code): 1/52 uncorroborated (2%)   [multi-word/CamelCase only: 1/32 = 3%]
    topic coverage: 155 corpus files
-   all terms: 2/54 (4%)   |   weak (1-2 files): 12   |   stem-only: 0   |   release-notes-only: 0
+   all terms: 1/54 (2%)   |   weak (1-2 files): 12   |   stem-only: 1   |   release-notes-only: 0
      [code ] MotionBlur
-     [prose] Output → Add Output
+   -- stem matches only (likely the formal-suffix convention, verify before cutting):
+     [prose] Output → Add Output  -> stem in 3 files
 
 ======================================================================
 RANKED BY ZERO-CORROBORATION RATIO (most suspect first)
@@ -311,16 +315,16 @@ RANKED BY ZERO-CORROBORATION RATIO (most suspect first)
 ======================================================================
  ??  50.9%    27/53    cov=11   narrative-blueprints.md  (thin coverage -- unmeasurable, verify vs docs)
  !!  50.0%    17/34    cov=58   lip-sync.md
- !!  40.0%     8/20    cov=174  color-pipeline.md
  !   35.3%    30/85    cov=82   chaos-physics.md
  !   30.8%     4/13    cov=235  control-rig-animation.md
  !   27.5%    11/40    cov=117  niagara-vfx.md
  !   27.2%    28/103   cov=n/a  blueprints-scripting.md  (topic undetermined from filename)
  !   25.7%     9/35    cov=220  plugin-dash-versions.md
  !   24.2%     8/33    cov=16   python-unreal.md
- !   22.4%    11/49    cov=56   audio-metasounds.md
  !   21.8%    12/55    cov=152  materials-shaders.md
+ !   20.4%    10/49    cov=56   audio-metasounds.md
  !   20.0%    15/75    cov=155  rendering-pipeline.md
+     15.0%     3/20    cov=174  color-pipeline.md
  ??  12.5%     8/64    cov=10   ndisplay-icvfx.md  (thin coverage -- unmeasurable, verify vs docs)
      10.1%     8/79    cov=58   metahuman-reference.md
      10.0%     1/10    cov=220  plugin-blackeye-versions.md
