@@ -49,10 +49,10 @@
      [code ] Spawn Emitter
      ... and 3 more (use --verbose)
 
-!  === chaos-physics.md (class: topic-reference, verified: no) ===
+!  === chaos-physics.md (class: topic-reference, verified: partial) ===
    ASSERTED (table/code): 30/85 uncorroborated (35%)   [multi-word/CamelCase only: 29/57 = 51%]
    topic coverage: 30 corpus files
-   all terms: 30/85 (35%)   |   weak (1-2 files): 19   |   stem-only: 0   |   release-notes-only: 0
+   all terms: 34/94 (36%)   |   weak (1-2 files): 21   |   stem-only: 0   |   release-notes-only: 0
      [table] Anchor Field Cluster
      [table] Angular Sleep Threshold
      [table] COM Offset
@@ -78,7 +78,7 @@
      [code ] Differential
      [code ] EnableSleeping
      [code ] Generate Geometry Collection Asset
-     ... and 5 more (use --verbose)
+     ... and 9 more (use --verbose)
 
    === color-pipeline.md (class: topic-reference, verified: no) ===
    ASSERTED (table/code): 3/20 uncorroborated (15%)   [multi-word/CamelCase only: 8/14 = 57%]

@@ -1,12 +1,33 @@
 ---
 class: topic-reference
-verified: no
-sources: []
-last_verified: never
+verified: partial
+sources:
+  - tutorials/  (partial: workflow-level only -- see audit note)
+last_verified: 2026-08-19
 version_basis: "unknown"
-# WARNING: written from model memory, not ingested from a source.
-# Do not cite as authority. If a tutorial disagrees, the tutorial wins.
+# Origin: model memory. Audited 2026-08-19 (batch B4): workflow-level content
+# is corroborated, PARAMETER VALUES ARE NOT and were never checkable here.
+# Treat parameter names/defaults as unverified. If a tutorial disagrees, it wins.
 ---
+> ## Audit note — batch B4, 2026-08-19
+>
+> 35% of asserted terms have no corpus corroboration, against topic coverage of
+> 30 files. **The split is informative:** the workflow layer is corroborated
+> (`chaos` 30 files, `cluster` 24, `destruction` 16, `geometry collection` 8)
+> while the **parameter layer is not** — `sleep threshold` 0, `differential` 0,
+> `torque` 2, `substep` 2, `FieldSystem` 0, `WheeledVehicle` 0.
+>
+> That is expected, not evidence of fabrication: **video tutorials *show*
+> parameter panels rather than *saying* parameter names**, so a
+> transcript-derived corpus can corroborate node and tool names but structurally
+> cannot corroborate settings. Corroboration is the wrong instrument for this
+> file's parameter tables.
+>
+> **Consequence for use:** trust this file's workflow shape, treat every
+> parameter name and default value as unverified until checked against Epic's
+> documentation. Sub-systems the corpus barely covers at all: Field System
+> (3 files) and Chaos Vehicles (`ChaosVehicle` 1 file).
+
 # Chaos Physics — Reference
 
 Chaos is UE5's physics engine — replaces PhysX. Covers rigid bodies, destruction, cloth, vehicles, fluids, and physics fields.
