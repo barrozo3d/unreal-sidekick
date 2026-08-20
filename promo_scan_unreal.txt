@@ -2,8 +2,8 @@
 scan_promo.py -- promotional / no-content candidates (READ-ONLY)
 ========================================================================
 scanned 361 tutorials in C:\Users\KABUM\.claude\skills\unreal-sidekick\tutorials
-threshold 50 | 11 candidate(s) (0 allowlisted) | 9 structural-only
-score distribution: max 130 | p95 50 | median 0 | zero-score 239
+threshold 50 | 13 candidate(s) (0 allowlisted) | 9 structural-only
+score distribution: max 130 | p95 50 | median 0 | zero-score 226
 
  130  unreal-engine-black-eye-cameras-supercharge-your-workflow.md
         - notes: calls it promotional/advertising (+30)
@@ -12,11 +12,26 @@ score distribution: max 130 | p95 50 | median 0 | zero-score 239
         - Key Steps has only 0 item(s) (+20)
         - only 0 distinct node/tool names in the node section (+25)
 
+ 105  unreal-engine-57-filmmaking-course---unreal-engine-for-filmmakers-2026-update.md
+        * SERIES INTRO? 62 sibling chapter(s) share this slug prefix -- likely a course's own intro, not a standalone trailer. Removing it holes a real series.
+        - notes: calls it promotional/advertising (+30)
+        - notes: announces a course, in the opening lines (+25)
+        - YouTube, 51s -- under the 180s floor where check #9 never runs (+25)
+        - only 0 distinct node/tool names in the notes (no node section at all) (+25)
+
  105  unreal-engine-black-eye-cameras-behind-the-lens.md
         - notes: calls it promotional/advertising (+30)
         - notes: says there is no technical content (+30)
         - Key Steps has only 0 item(s) (+20)
         - only 0 distinct node/tool names in the node section (+25)
+
+ 103  free-unreal-engine-53-beginner-course---create-cinematic-3d-worlds.md
+        - notes: calls it promotional/advertising (+30)
+        - notes: quotes a sign-up / enrol call (+15)
+        - notes: announces a course, in the opening lines (+25)
+        - (self-declared subtotal 70 capped at 60)
+        - YouTube, 160s -- under the 180s floor where check #9 never runs (+18)
+        - only 0 distinct node/tool names in the notes (no node section at all) (+25)
 
  100  unreal-engine-black-eye-cameras-speed-of-thought.md
         - notes: says there is no technical content (+30)
@@ -47,24 +62,22 @@ score distribution: max 130 | p95 50 | median 0 | zero-score 239
         - YouTube, 111s -- under the 180s floor where check #9 never runs (+25)
         - only 4 distinct node/tool names in the node section (+25)
 
-  63  free-unreal-engine-53-beginner-course---create-cinematic-3d-worlds.md
-        - notes: calls it promotional/advertising (+30)
-        - notes: quotes a sign-up / enrol call (+15)
-        - YouTube, 160s -- under the 180s floor where check #9 never runs (+18)
-
   55  unreal-engine-54-cinematic-previs-course.md
         * SERIES INTRO? 62 sibling chapter(s) share this slug prefix -- likely a course's own intro, not a standalone trailer. Removing it holes a real series.
         - notes: calls it promotional/advertising (+30)
         - YouTube, 48s -- under the 180s floor where check #9 never runs (+25)
 
-  55  unreal-engine-57-filmmaking-course---unreal-engine-for-filmmakers-2026-update.md
-        * SERIES INTRO? 62 sibling chapter(s) share this slug prefix -- likely a course's own intro, not a standalone trailer. Removing it holes a real series.
-        - notes: calls it promotional/advertising (+30)
-        - YouTube, 51s -- under the 180s floor where check #9 never runs (+25)
-
   50  survive-the-vfx-war-battle-ready-skills-you-need-for-virtual-production-in-2026-.md
         - notes: says there is no step-by-step (+25)
         - only 2 distinct node/tool names in the node section (+25)
+
+  50  unreal-engine-filmmaking-course---create-cinematic-3d-worlds.md
+        - notes: announces a course, in the opening lines (+25)
+        - only 0 distinct node/tool names in the notes (no node section at all) (+25)
+
+  50  unreal-engine-for-filmmakers---create-cinematic-3d-worlds-for-free-course-in-des.md
+        - notes: announces a course, in the opening lines (+25)
+        - only 0 distinct node/tool names in the notes (no node section at all) (+25)
 
 ========================================================================
 STRUCTURAL-ONLY -- scored at or above threshold but the extraction
@@ -99,8 +112,9 @@ NEAR-MISS BAND (score 40-49) -- below threshold, listed for A4/A5 context
 The threshold has a soft edge: in houdini-wand, week-01-01-intro scores 45
 while its sibling week-02-01-intro scores 70 -- same series, same kind of
 file, 25 points apart. The gap is extraction honesty, not content.
-TRIAGE RULE: once ONE member of a series is flagged, triage the WHOLE
-series. Do not triage by threshold alone.
+TRIAGE RULE: once ONE member of a series or product family is flagged,
+triage the WHOLE family. Do not triage by threshold alone -- that rule is
+what surfaced two paid-course announcements the scanner had scored 0.
 
   45  ai-real-time-and-surviving-hollywoods-vfx-industry-for-30-years.md
   45  lip-sync-in-unreal-engine.md [structural-only]
