@@ -78,10 +78,32 @@ CANDIDATE_THRESHOLD = 50
 # it never demonstrates. Keep each reason with its entry; A7 reuses this as the
 # gate's allowlist.
 ALLOWLIST = {
-    # Empty: no deliberate overview-only gap-fillers are recorded for this skill.
-    # Add entries only with a written reason, the way houdini-wand's two are
-    # justified from KNOWLEDGE_GAPS_TODO.md. A4/A5 triage decides what belongs
-    # here -- an entry is NOT allowlisted just because the scanner flagged it.
+    # Decision records from A4/A5 triage, kept so A7's gate does not
+    # re-raise entries that already have a written decision (Gotcha #1).
+    # An entry is NOT allowlisted just because the scanner flagged it --
+    # each reason below states what was decided and why it still scores.
+    'survive-the-vfx-war-battle-ready-skills-you-need-for-virtual-production-in-2026-.md':
+        "KEEP (A4) -- false positive. A 59m37s NCSU guest lecture by an ILM "
+        "compositor. Flagged only because its notes honestly say 'no "
+        "step-by-step UE technical content'. Real career and tooling "
+        "knowledge; simply not a technique tutorial.",
+    'ue5-filmmaking-series-xꙩdus-animatic-to-teaser---real-time-micro-budget-movies.md':
+        "DEMOTE (A4/A6). Channel update, but carries a real 5-step "
+        "production pipeline (animatic -> teaser cut -> sound -> live "
+        "plates -> final pixel). Kept as a pipeline reference, labelled "
+        "not-a-tutorial.",
+    'unreal-engine-black-eye-cameras-behind-the-lens.md':
+        "DEMOTE (A4/A6). Testimonial reel -- zero technique, real "
+        "provenance value. Tags stripped and summary marked so it cannot "
+        "win 'how do I' camera queries. Plugin coverage is wanted (Gotcha "
+        "#7).",
+    'unreal-engine-black-eye-cameras-car-camera-intro.md':
+        "DEMOTE (A4/A6). Teaser that names real features and now explicitly "
+        "points at the full car-cameras tutorial in this library.",
+    'unreal-engine-for-filmmakers---create-cinematic-3d-worlds-for-free-course-in-des.md':
+        "KEEP (A4) -- false positive of the 'announces a course' signal. It "
+        "reads as an announcement but is a real 12m38s tutorial with 11 "
+        "sections: full Quixel Bridge walkthrough and a UE lighting setup.",
 }
 
 
