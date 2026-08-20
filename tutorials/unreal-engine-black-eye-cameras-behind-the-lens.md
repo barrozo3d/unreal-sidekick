@@ -5,7 +5,7 @@ url: https://www.youtube.com/watch?v=U5FGuo59IJc
 author: Black Eye Technologies
 ingested: 2026-06-23
 ue_version: "UE5"
-tags: [black-eye-cameras, testimonial, overview, workflow, production, filmmaking]
+tags: [black-eye-cameras, testimonial, not-a-tutorial]
 extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-behind-the-lens/
 frame_count: 4

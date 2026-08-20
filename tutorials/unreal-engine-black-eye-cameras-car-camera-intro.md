@@ -5,7 +5,7 @@ url: https://www.youtube.com/watch?v=Wh-QAH49C70
 author: Black Eye Technologies
 ingested: 2026-06-23
 ue_version: "UE5"
-tags: [black-eye-cameras, car-camera, driving, cinematics, follow, damping, velocity-lookahead, gameplay]
+tags: [black-eye-cameras, teaser, pointer, not-a-tutorial]
 extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-car-camera-intro/
 frame_count: 4

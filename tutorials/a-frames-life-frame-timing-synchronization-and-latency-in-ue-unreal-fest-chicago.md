@@ -649,4 +649,3 @@ frame-pacing, input-latency, vsync, swapchain, profiling, insights, delta-time, 
 ## Related Entries
 - `tutorials/fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro.md` — rendering-performance optimization from the offline/cinematic angle; shares tags: performance.
 - `tutorials/best-settings-for-unreal-engine-56---perfect-renders-every-time.md` — settings-level performance/quality tuning; shares tags: performance.
-- `tutorials/unreal-engine-57-filmmaking-course---unreal-engine-for-filmmakers-2026-update.md` — where realtime frame-rate/latency constraints meet cinematic workflows; shares tags: performance.

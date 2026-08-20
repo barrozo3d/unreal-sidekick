@@ -112,4 +112,3 @@ black-eye-cameras, car-camera, driving, cinematics, gameplay, velocity-lookahead
 - `unreal-engine-black-eye-cameras-car-camera-intro.md` — promo intro for this tutorial
 - `unreal-engine-black-eye-cameras-overview-tutorial.md` — full BEC plugin overview
 - `unreal-engine-black-eye-cameras-follow-component-dwell-radius.md` — Follow module advanced: dwell radius
-- `unreal-engine-black-eye-cameras-supercharge-your-workflow.md` — BEC rapid workflow tips

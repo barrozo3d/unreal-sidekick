@@ -219,5 +219,4 @@ black-eye-cameras, v2, camera, gameplay, cinematics, cutscene, trigger-volume, b
 
 ## Related Entries
 - [Unreal Engine Black Eye Cameras v2: START HERE Tutorial](unreal-engine-black-eye-cameras-v2-start-here-tutorial.md) — full 43-min v2 walkthrough; covers the same Blend List / trigger volume / Adaptive Cutscene systems in depth
-- [Unreal Engine Black Eye Cameras v2: Gameplay cameras are here](unreal-engine-black-eye-cameras-v2-gameplay-cameras-are-here.md) — v2 release teaser
 - [Unreal Engine Black Eye cameras: Behind the Lens](unreal-engine-black-eye-cameras-behind-the-lens.md) — camera philosophy behind the plugin

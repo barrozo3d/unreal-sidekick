@@ -243,7 +243,6 @@ black-eye-cameras, v2, gameplay, orbit-camera, camera-manager, blend-list, trigg
 
 ## Related Entries
 - `unreal-engine-black-eye-cameras-start-here-tutorial.md` — v1 start-here; covers Look At, Follow, Cross Camera, Switcher, Bake
-- `unreal-engine-black-eye-cameras-v2-gameplay-cameras-are-here.md` — BEC v2 gameplay cameras deep-dive
 - `unreal-engine-black-eye-cameras-version-11-new-features-cross-camera.md` — Cross Camera detailed setup
 - `unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics.md` — Save and Play tuning workflow for vehicles
 - `unreal-engine-black-eye-cameras-bake-down-cam-anims.md` — baking cinematic cameras for pipeline export

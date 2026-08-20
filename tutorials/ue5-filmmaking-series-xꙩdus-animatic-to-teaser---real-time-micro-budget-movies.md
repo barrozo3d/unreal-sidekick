@@ -5,7 +5,7 @@ url: https://www.youtube.com/watch?v=-9-Aq3z-wI4
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-23
 ue_version: "UE5"
-tags: [filmmaking, pipeline, animatic, short-film, production, ai-video, micro-budget, workflow, teaser, vfx]
+tags: [filmmaking, pipeline, animatic, micro-budget, overview, not-a-tutorial]
 extraction_status: complete
 frames_dir: tutorials/frames/ue5-filmmaking-series-xꙩdus-animatic-to-teaser---real-time-micro-budget-movies/
 frame_count: 4

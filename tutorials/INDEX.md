@@ -1,4 +1,4 @@
-﻿# Unreal Sidekick â€” Tutorial & Documentation Index
+# Unreal Sidekick â€” Tutorial & Documentation Index
 
 This is the skill's growing knowledge base. Every ingested tutorial, article, and Epic documentation section is listed here.
 
@@ -587,16 +587,6 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **File:** tutorials/the-5-secrets-to-hollywood-level-visual-effects-with-no-budget.md
 
 
-### Unreal Engine 5.4 Cinematic PREVIS Course
-- **Source:** YouTube
-- **URL:** https://www.youtube.com/watch?v=BW0oesmih9I
-- **Author:** Boundless Entertainment
-- **UE Version:** UE 5.4
-- **Tags:** `#previs` `#cinematics` `#sequencer` `#filmmaking` `#beginner`
-- **Summary:** 48-second promo teaser for the Boundless Entertainment Cinematic Previs Course in UE 5.4. Demonstrates Sequencer-based blocking workflow for previsualization before committing to final Path Tracer renders.
-- **File:** tutorials/unreal-engine-54-cinematic-previs-course.md
-
-
 ### How Unreal Engine is Changing Filmmaking Forever
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=SstexNmLc68
@@ -638,16 +628,6 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Tags:** `#lightforge-v1` `#rendering` `#path-tracing` `#nanite` `#project-settings` `#beginner`
 - **Summary:** Path Tracer Pro announcement (predecessor to LightForge). Core problem: Nanite meshes lose all detail in Path Tracing mode (incompatible LOD system); manual fix = Static Mesh Editor > Fallback Relative Error = 0 > Apply Changes (30-45 sec per mesh, editor locked). Path Tracer Pro batches this for entire scene in 2 clicks.
 - **File:** tutorials/fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro.md
-
-
-### Unreal Engine 5.7 Filmmaking Course - Unreal Engine for Filmmakers (2026 UPDATE!)
-- **Source:** YouTube
-- **URL:** https://www.youtube.com/watch?v=RfTVeIwB2Dw
-- **Author:** Boundless Entertainment
-- **UE Version:** UE 5.7
-- **Tags:** `#filmmaking` `#cinematics` `#beginner` `#course`
-- **Summary:** 51-second promo teaser for the 2026-updated Boundless Entertainment 'Unreal Engine for Filmmakers' course (UE 5.7). Visual-only montage; no narration recovered. Covers full pipeline: scene building, lighting, animation, Niagara, compositing, MRQ rendering.
-- **File:** tutorials/unreal-engine-57-filmmaking-course---unreal-engine-for-filmmakers-2026-update.md
 
 
 ### Why Modern VFX DON'T Suck - Low Budget Virtual Production & Everything Everywhere All at Once
@@ -718,26 +698,6 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Tags:** `#lighting` `#lumen` `#fog` `#atmospherics` `#cinematography` `#intermediate`
 - **Summary:** Night scene cinematographic lighting: HDRI night sky (low intensity); Directional Light as moon key; shoot-from-shadow-side rule (camera faces light for rim edges); Source Angle=2.5 for soft shadows; Indirect Lighting Intensity = Lumen bounce; Exponential Height Fog > Volumetric Fog ON; Light Shaft Occlusion ON = god rays when camera faces light + dark background.
 - **File:** tutorials/unreal-engine-for-filmmakers---how-to-make-your-lighting-cinematic.md
-
-
-### FREE Unreal Engine 5.3 Beginner Course - Create Cinematic 3D Worlds
-- **Source:** YouTube
-- **URL:** https://www.youtube.com/watch?v=mGcyo5rh7l0
-- **Author:** Boundless Entertainment
-- **UE Version:** UE 5.3
-- **Tags:** `#filmmaking` `#cinematics` `#landscape` `#lighting` `#megascans` `#beginner` `#course`
-- **Summary:** Announcement of free ~2hr beginner UE 5.3 course at boundless-resource.com. Covers: install, project setup, UI navigation, Quixel Bridge, landscape creation, basic scene with lighting + atmosphere + camera. Prerequisite for the paid advanced filmmakers course; includes 15% off promo at course end.
-- **File:** tutorials/free-unreal-engine-53-beginner-course---create-cinematic-3d-worlds.md
-
-
-### Unreal Engine Filmmaking COURSE - Create Cinematic 3D Worlds
-- **Source:** YouTube
-- **URL:** https://www.youtube.com/watch?v=_K8qfjcYbmE
-- **Author:** Boundless Entertainment
-- **UE Version:** UE 5.x
-- **Tags:** `#filmmaking` `#cinematics` `#rendering` `#compositing` `#beginner` `#course`
-- **Summary:** Announcement of first paid Boundless Entertainment course (Basic $99, Advanced $149 ~4.5hrs). Full UE filmmaking pipeline: scene building, advanced lighting, Niagara sims, compositing live-action in UE, MRQ rendering, AE + Fusion post-production. Based on learnings from short film 'Gemini'.
-- **File:** tutorials/unreal-engine-filmmaking-course---create-cinematic-3d-worlds.md
 
 
 ### Unreal Engine Compositing Tutorial - UNREAL ENGINE FOR FILMMAKERS [Course Link in Description]
@@ -842,25 +802,14 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **File:** tutorials/unreal-engine-black-eye-cameras-v2-start-here-tutorial.md
 
 
-### Unreal Engine Black Eye Cameras v2: Gameplay cameras are here
-- **Source:** YouTube
-- **URL:** https://www.youtube.com/watch?v=SbFbNYrBO7s
-- **Author:** Black Eye Technologies
-- **Plugin Version:** blackeye-v2
-- **UE Version:** UE 5.3+
-- **Tags:** `#blackeye-v2` `#camera` `#gameplay` `#teaser`
-- **Summary:** 47-second music-only teaser for Black Eye v2 gameplay camera release. No instructional content â€” see the START HERE Tutorial for full coverage.
-- **File:** tutorials/unreal-engine-black-eye-cameras-v2-gameplay-cameras-are-here.md
-
-
 ### Unreal Engine Black Eye cameras: Behind the Lens
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=U5FGuo59IJc
 - **Author:** Black Eye Technologies
 - **Plugin Version:** blackeye-v1
 - **UE Version:** UE 5.x
-- **Tags:** `#blackeye-v1` `#camera` `#testimonial`
-- **Summary:** 3-minute user testimonial reel â€” artists praise Black Eye for speed (hours â†’ minutes), workflow integration, and shot quality improvement over manual keyframing. No instructional content.
+- **Tags:** `#blackeye-v1` `#testimonial` `#not-a-tutorial`
+- **Summary:** **TESTIMONIAL REEL — NO INSTRUCTIONAL CONTENT.** 3m16s montage of Black Eye Cameras users praising the plugin for speed (hours to minutes) and shot quality, one citing use on Star Wars, Star Trek and other major productions. Its only value is provenance — evidence the plugin is production-grade. It demonstrates no UE systems and answers no "how do I" question; for that, use the Black Eye feature tutorials.
 - **File:** tutorials/unreal-engine-black-eye-cameras-behind-the-lens.md
 
 
@@ -892,8 +841,8 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Black Eye Technologies
 - **Plugin Version:** blackeye-v2
 - **UE Version:** UE 5.3+
-- **Tags:** `#blackeye-v2` `#camera` `#gameplay` `#cinematics` `#vehicles` `#beginner`
-- **Summary:** 1.5-minute teaser for the full car camera tutorial. Previews rotational damping (camera feels car physics), variable pivot points (front-of-car at speed â†’ whole car when slowing), and cinematic sweeping flybys with few Sequencer keyframes. See Car Cameras full tutorial for implementation.
+- **Tags:** `#blackeye-v2` `#teaser` `#pointer` `#not-a-tutorial`
+- **Summary:** **TEASER — POINTER ONLY, NOT A TUTORIAL.** 1m17s preview of the car-camera feature set (rotational damping, velocity look-ahead with a pivot that shifts forward under speed, variable pivot position, drone and flyby shots). No steps are shown. **The full tutorial is in this library — see `unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics.md`, which should answer any car-camera question instead of this entry.**
 - **File:** tutorials/unreal-engine-black-eye-cameras-car-camera-intro.md
 
 
@@ -919,17 +868,6 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **File:** tutorials/unreal-engine-black-eye-cameras-start-here-tutorial.md
 
 
-### Unreal Engine Black Eye Cameras: Speed of Thought
-- **Source:** YouTube
-- **URL:** https://www.youtube.com/watch?v=2MeieZV_A1E
-- **Author:** Black Eye Technologies
-- **Plugin Version:** blackeye-v1
-- **UE Version:** UE 5.x
-- **Tags:** `#blackeye-v1` `#camera` `#teaser`
-- **Summary:** 1.5-minute showcase/highlight reel. Audio-only, no narration. No instructional content.
-- **File:** tutorials/unreal-engine-black-eye-cameras-speed-of-thought.md
-
-
 ### Unreal Engine Black Eye Cameras: That's a Cool Shot #1 Pedestal Pan
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=NOOpWzeC0Mg
@@ -950,17 +888,6 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Tags:** `#blackeye-v1` `#camera` `#esports` `#live-events` `#mocap` `#intermediate`
 - **Summary:** 1-minute preview of the v1.2 Shot List module â€” a single camera with multiple sub-cameras in priority order; raycasts from each to the subject and auto-cuts to the first unoccluded option with a minimum shot time. Game-changer for eSports, replays, and live events.
 - **File:** tutorials/unreal-engine-black-eye-cameras-v12-preview-shot-list-module.md
-
-
-### Unreal Engine Black Eye Cameras: Your Cinematics, Reinvented
-- **Source:** YouTube
-- **URL:** https://www.youtube.com/watch?v=sda3K-M2j0g
-- **Author:** Black Eye Technologies
-- **Plugin Version:** blackeye-v1
-- **UE Version:** UE 5.x
-- **Tags:** `#blackeye-v1` `#camera` `#teaser`
-- **Summary:** 1-minute brand logo reveal video. No instructional content.
-- **File:** tutorials/unreal-engine-black-eye-cameras-your-cinematics-reinvented.md
 
 
 ### Unreal Engine Black Eye Cameras: Look Around Tutorial
@@ -1005,17 +932,6 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Tags:** `#blackeye-v1` `#camera` `#cinematics` `#sequencer` `#beginner` `#intermediate`
 - **Summary:** 3-minute director workflow video: deploy multiple Black Eye cameras (Follow + LookAt + Screen Space Position keyframes) for different angles, then cut freely between them in the edit. Each camera tracks independently while you make story decisions. Shows side-push, tip-out, front, and close-up setups all on the same character.
 - **File:** tutorials/unreal-engine-black-eye-cameras-unleash-your-army-of-camera-operators.md
-
-
-### Unreal Engine Black Eye Cameras: Supercharge your workflow
-- **Source:** YouTube
-- **URL:** https://www.youtube.com/watch?v=WNkFghUIA7M
-- **Author:** Black Eye Technologies
-- **Plugin Version:** blackeye-v1
-- **UE Version:** UE 5.x
-- **Tags:** `#blackeye-v1` `#camera` `#teaser`
-- **Summary:** 42-second promotional teaser. No narration, single title-card frame. No instructional content.
-- **File:** tutorials/unreal-engine-black-eye-cameras-supercharge-your-workflow.md
 
 
 ### Unreal Engine Black Eye Cameras: Crazy Millennium Falcon shot with only 7 keyframes
@@ -1819,8 +1735,8 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **URL:** https://www.youtube.com/watch?v=-9-Aq3z-wI4
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
 - **UE Version:** 5.x
-- **Tags:** `#filmmaking` `#animatic` `#teaser` `#micro-budget` `#xodus` `#virtual` `#production` `#AI` `#video` `#indie`
-- **Summary:** 1m51s brief Dean Yurke channel update — not a tutorial.
+- **Tags:** `#filmmaking` `#pipeline` `#animatic` `#micro-budget` `#overview` `#not-a-tutorial`
+- **Summary:** **CHANNEL UPDATE — PIPELINE OVERVIEW, NOT A TUTORIAL.** 1m51s update on Dean Yurke's micro-budget short "xꙩdus". Useful only for the shape of the workflow it describes: UE5 animatic (rough animation, placeholder assets, timing locked) then a teaser cut with music, then an upgrade to "final pixel" replacing digital characters with live-action plates and polishing environments. No operation-level detail, and nothing is demonstrated on screen.
 - **File:** tutorials/ue5-filmmaking-series-xꙩdus-animatic-to-teaser---real-time-micro-budget-movies.md
 
 
