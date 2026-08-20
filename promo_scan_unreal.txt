@@ -1,0 +1,113 @@
+========================================================================
+scan_promo.py -- promotional / no-content candidates (READ-ONLY)
+========================================================================
+scanned 361 tutorials in C:\Users\KABUM\.claude\skills\unreal-sidekick\tutorials
+threshold 50 | 20 candidate(s) (0 allowlisted)
+score distribution: max 130 | p95 50 | median 0 | zero-score 239
+
+ 130  unreal-engine-black-eye-cameras-supercharge-your-workflow.md
+        - notes: calls it promotional/advertising (+30)
+        - notes: says there is no technical content (+30)
+        - YouTube, 42s -- under the 180s floor where check #9 never runs (+25)
+        - Key Steps has only 0 item(s) (+20)
+        - only 0 distinct node/tool names in the node section (+25)
+
+ 105  unreal-engine-black-eye-cameras-behind-the-lens.md
+        - notes: calls it promotional/advertising (+30)
+        - notes: says there is no technical content (+30)
+        - Key Steps has only 0 item(s) (+20)
+        - only 0 distinct node/tool names in the node section (+25)
+
+ 100  unreal-engine-black-eye-cameras-speed-of-thought.md
+        - notes: says there is no technical content (+30)
+        - YouTube, 92s -- under the 180s floor where check #9 never runs (+25)
+        - Key Steps has only 0 item(s) (+20)
+        - only 0 distinct node/tool names in the node section (+25)
+
+ 100  unreal-engine-black-eye-cameras-v2-gameplay-cameras-are-here.md
+        - notes: says there is no technical content (+30)
+        - YouTube, 47s -- under the 180s floor where check #9 never runs (+25)
+        - Key Steps has only 0 item(s) (+20)
+        - only 0 distinct node/tool names in the node section (+25)
+
+ 100  unreal-engine-black-eye-cameras-your-cinematics-reinvented.md
+        - notes: says there is no technical content (+30)
+        - YouTube, 62s -- under the 180s floor where check #9 never runs (+25)
+        - Key Steps has only 0 item(s) (+20)
+        - only 0 distinct node/tool names in the node section (+25)
+
+  87  unreal-engine-black-eye-cameras-car-camera-intro.md
+        - notes: calls it promotional/advertising (+30)
+        - YouTube, 77s -- under the 180s floor where check #9 never runs (+25)
+        - Key Steps has only 0 item(s) (+20)
+        - only 8 distinct node/tool names in the node section (+12)
+
+  70  how-to-get-precision-control-in-davinci-resolve---use-shift-drag.md
+        - YouTube, 38s -- under the 180s floor where check #9 never runs (+25)
+        - Key Steps has only 2 item(s) (+20)
+        - only 4 distinct node/tool names in the node section (+25)
+
+  70  ue5-filmmaking-series-xꙩdus-animatic-to-teaser---real-time-micro-budget-movies.md
+        - notes: says it is not a real tutorial (+20)
+        - YouTube, 111s -- under the 180s floor where check #9 never runs (+25)
+        - only 4 distinct node/tool names in the node section (+25)
+
+  70  unreal-engine-black-eye-cameras-multiple-targets-on-a-character.md
+        - YouTube, 32s -- under the 180s floor where check #9 never runs (+25)
+        - Key Steps has only 0 item(s) (+20)
+        - only 4 distinct node/tool names in the node section (+25)
+
+  70  unreal-engine-black-eye-cameras-v117-switcher-pilot.md
+        - YouTube, 55s -- under the 180s floor where check #9 never runs (+25)
+        - Key Steps has only 0 item(s) (+20)
+        - only 4 distinct node/tool names in the node section (+25)
+
+  63  free-unreal-engine-53-beginner-course---create-cinematic-3d-worlds.md
+        - notes: calls it promotional/advertising (+30)
+        - notes: quotes a sign-up / enrol call (+15)
+        - YouTube, 160s -- under the 180s floor where check #9 never runs (+18)
+
+  57  unreal-engine-black-eye-cameras-november-release.md
+        - YouTube, 67s -- under the 180s floor where check #9 never runs (+25)
+        - Key Steps has only 0 item(s) (+20)
+        - only 5 distinct node/tool names in the node section (+12)
+
+  55  unreal-engine-54-cinematic-previs-course.md
+        * SERIES INTRO? 62 sibling chapter(s) share this slug prefix -- likely a course's own intro, not a standalone trailer. Removing it holes a real series.
+        - notes: calls it promotional/advertising (+30)
+        - YouTube, 48s -- under the 180s floor where check #9 never runs (+25)
+
+  55  unreal-engine-57-filmmaking-course---unreal-engine-for-filmmakers-2026-update.md
+        * SERIES INTRO? 62 sibling chapter(s) share this slug prefix -- likely a course's own intro, not a standalone trailer. Removing it holes a real series.
+        - notes: calls it promotional/advertising (+30)
+        - YouTube, 51s -- under the 180s floor where check #9 never runs (+25)
+
+  50  beginner-water-tool-tutorial-for-ue5.md
+        - YouTube, 109s -- under the 180s floor where check #9 never runs (+25)
+        - only 3 distinct node/tool names in the node section (+25)
+
+  50  survive-the-vfx-war-battle-ready-skills-you-need-for-virtual-production-in-2026-.md
+        - notes: says there is no step-by-step (+25)
+        - only 2 distinct node/tool names in the node section (+25)
+
+  50  unreal-engine-black-eye-cameras-change-anims-the-cameras-are-fine.md
+        - YouTube, 69s -- under the 180s floor where check #9 never runs (+25)
+        - only 2 distinct node/tool names in the node section (+25)
+
+  50  unreal-engine-black-eye-cameras-dynamic-dialog-intro.md
+        - YouTube, 66s -- under the 180s floor where check #9 never runs (+25)
+        - only 4 distinct node/tool names in the node section (+25)
+
+  50  unreal-engine-black-eye-cameras-follow-component-dwell-radius.md
+        - YouTube, 66s -- under the 180s floor where check #9 never runs (+25)
+        - only 4 distinct node/tool names in the node section (+25)
+
+  50  unreal-engine-black-eye-cameras-multiple-follow-and-look-at-modules.md
+        - YouTube, 104s -- under the 180s floor where check #9 never runs (+25)
+        - only 3 distinct node/tool names in the node section (+25)
+
+------------------------------------------------------------------------
+This tool WRITES NOTHING and DECIDES NOTHING. Every candidate above
+needs hand triage: REMOVE (pure promo) / DEMOTE (real content, oversold
+tags) / KEEP (false positive or deliberate gap-filler). Record the
+decisions in PROMO_ENTRY_CLEANUP_PLAN.md Findings -- batches A4/A5.
