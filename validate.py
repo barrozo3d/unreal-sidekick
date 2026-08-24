@@ -116,7 +116,13 @@ def get_transcript_text(content):
     # needs-review files) ends with its own "\n---\n" divider that sits *before*
     # the real transcript — strip the whole box out first so the boundary check
     # below doesn't mistake it for the end of the Raw Data section.
-    raw = re.sub(r"\n## Ingest Safeguard Report\n.*?\n---\n", "\n", raw, flags=re.DOTALL)
+    # The header may carry a hand-written suffix ("-- Reviewed", "(reviewed,
+    # resolved)") added when a flagged chapter was triaged. Requiring a bare
+    # newline after "Report" made the box unstrippable in those files, so its
+    # closing "---" was read as the end of Raw Data and a healthy transcript
+    # measured as 0 chars -- 2 files failed check #1 with full transcripts on
+    # disk. Match any suffix on the header line. (E4, 2026-08-24)
+    raw = re.sub(r"\n## Ingest Safeguard Report[^\n]*\n.*?\n---\n", "\n", raw, flags=re.DOTALL)
 
     boundary = re.search(r"\n---", raw)
     if boundary:
@@ -148,6 +154,7 @@ def get_transcript_text(content):
 def check_tutorials():
     print("\n[1] Checking tutorial files for PENDING markers, frontmatter issues, and transcript health...")
     files = get_tutorial_files()
+    unverifiable = []
     for fname in files:
         path = os.path.join(TUTORIALS_DIR, fname)
         with open(path, "r", encoding="utf-8-sig") as fh:
@@ -206,7 +213,14 @@ def check_tutorials():
                                 f"{TRANSCRIPT_CHARS_PER_SEC} chars/sec)"
                             )
 
-    print(f"  Checked {len(files)} files.")
+                else:
+                    # No transcript in the file at all (omitted, or no Raw Data
+                    # section). check #1 cannot verify these -- count them so the
+                    # exemption is a measured number rather than a silent skip.
+                    unverifiable.append(fname)
+    extra = (f" | {len(unverifiable)} YouTube tutorial(s) carry no transcript in-file"
+             f" -- check #1 cannot verify those") if unverifiable else ""
+    print(f"  Checked {len(files)} files.{extra}")
 
 
 INDEX_MOJIBAKE = re.compile(r"â€|â†|Ã[\x80-\xbf©¢­±]|Â[\xa0-\xbf]")
