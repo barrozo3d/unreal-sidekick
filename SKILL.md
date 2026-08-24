@@ -296,6 +296,18 @@ This downloads the low-quality video, extracts exactly those frames to `tutorial
 1. **Read the tutorial/doc file**
 2. **For YouTube tutorials:** Read each frame listed in `## Captured Frames` → analyze viewport content, settings, node graphs, Blueprint code
 3. **Fill in ALL Structured Notes** (replace every `[PENDING EXTRACTION]`):
+   > **Cite where each name came from (D2 provenance convention).** When a node
+   > name, parameter value or setting comes from a frame, tag it: ``
+   > `Fractal Noise 3D` [frame_003] ``. When it comes from narration, tag the
+   > timestamp: `[transcript 12:04]`. **Where the frame and the transcript
+   > disagree, prefer the frame and record both** — the transcript is the
+   > unreliable source (Whisper mishears node names), the frame is not.
+   >
+   > This is already common practice — 719 such citations exist across the five
+   > skills — and `validate.py` **check #16** now verifies every `frame_NNN`
+   > citation against the file's own `frame_count`. It checks the file's record,
+   > not the filesystem, because frames are gitignored and device-local: a
+   > machine that never downloaded them is not evidence of absence.
    - **Core Technique** — one sentence, the main UE technique
    - **Summary** — 2-3 sentences, what the viewer learns and the end result
    - **Key Steps** — 5-10 steps with exact UE system names, menu paths, Blueprint nodes
