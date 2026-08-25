@@ -66,6 +66,21 @@ mocap, metahuman, move-ai, custom-metahuman, orc, sword-fighting, short-film, pe
 
 ---
 
+## Captured Frames
+
+<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
+     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
+     fallback '### Full Content [0:00]' heading, so reground_frames.py
+     re-captured them at 0:00 and produced title cards. Moments below are
+     re-derived from the source's duration, not chosen. Bullet refs take
+     precedence over the heading layout, so the stale [0:00] line above is
+     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+
+- [0:07] tutorials/frames/orc-vs-knight-cgi-swordfight---ue5/frame_000.jpg
+- [0:20] tutorials/frames/orc-vs-knight-cgi-swordfight---ue5/frame_001.jpg
+- [0:37] tutorials/frames/orc-vs-knight-cgi-swordfight---ue5/frame_002.jpg
+- [0:54] tutorials/frames/orc-vs-knight-cgi-swordfight---ue5/frame_003.jpg
+
 ## Related Entries
 - `motion-capture-sword-fighting-cinematic-in-unreal-engine-5---moveai-and-metahuma.md` — detailed breakdown of the sword-fight mocap capture and assembly process
 - `moveai-unreal-engine-54-motion-capture-short-film-using-custom-orc-metahumans---.md` — another short featuring these same orc MetaHumans

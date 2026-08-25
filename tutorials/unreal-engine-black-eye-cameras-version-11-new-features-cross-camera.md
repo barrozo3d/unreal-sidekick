@@ -76,6 +76,21 @@ black-eye-cameras, cross-camera, dialogue, over-the-shoulder, follow, look-at, d
 
 ---
 
+## Captured Frames
+
+<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
+     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
+     fallback '### Full Content [0:00]' heading, so reground_frames.py
+     re-captured them at 0:00 and produced title cards. Moments below are
+     re-derived from the source's duration, not chosen. Bullet refs take
+     precedence over the heading layout, so the stale [0:00] line above is
+     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+
+- [0:29] tutorials/frames/unreal-engine-black-eye-cameras-version-11-new-features-cross-camera/frame_000.jpg
+- [1:26] tutorials/frames/unreal-engine-black-eye-cameras-version-11-new-features-cross-camera/frame_001.jpg
+- [2:37] tutorials/frames/unreal-engine-black-eye-cameras-version-11-new-features-cross-camera/frame_002.jpg
+- [3:49] tutorials/frames/unreal-engine-black-eye-cameras-version-11-new-features-cross-camera/frame_003.jpg
+
 ## Related Entries
 - `unreal-engine-black-eye-cameras-start-here-tutorial.md` — Cross Camera used in dialogue system context (full workflow)
 - `unreal-engine-black-eye-cameras-overview-tutorial.md` — BEC overview including cross camera

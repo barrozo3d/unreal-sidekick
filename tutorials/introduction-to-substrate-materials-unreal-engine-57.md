@@ -90,6 +90,21 @@ substrate, materials, physically-based-rendering, layered-materials, car-paint, 
 
 ---
 
+## Captured Frames
+
+<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
+     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
+     fallback '### Full Content [0:00]' heading, so reground_frames.py
+     re-captured them at 0:00 and produced title cards. Moments below are
+     re-derived from the source's duration, not chosen. Bullet refs take
+     precedence over the heading layout, so the stale [0:00] line above is
+     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+
+- [0:54] tutorials/frames/introduction-to-substrate-materials-unreal-engine-57/frame_000.jpg
+- [2:42] tutorials/frames/introduction-to-substrate-materials-unreal-engine-57/frame_001.jpg
+- [4:56] tutorials/frames/introduction-to-substrate-materials-unreal-engine-57/frame_002.jpg
+- [7:11] tutorials/frames/introduction-to-substrate-materials-unreal-engine-57/frame_003.jpg
+
 ## Related Entries
 - `how-to-edit-megascans-and-poly-haven-materials-easily---ue5-plugin.md` — Polygonflow Dash material editor (traditional PBR approach)
 - `i-textured-the-entire-environment-using-a-single-texture.md` — Color Curve node for stylized material coloring (UE5.6)

@@ -94,6 +94,21 @@ green-screen, compositing, media-plate, chroma-key, shadows, virtual-production,
 
 ---
 
+## Captured Frames
+
+<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
+     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
+     fallback '### Full Content [0:00]' heading, so reground_frames.py
+     re-captured them at 0:00 and produced title cards. Moments below are
+     re-derived from the source's duration, not chosen. Bullet refs take
+     precedence over the heading layout, so the stale [0:00] line above is
+     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+
+- [0:54] tutorials/frames/how-to-remove-green-screen-composite-in-unreal-engine-5-using-media-plate-realis/frame_000.jpg
+- [2:43] tutorials/frames/how-to-remove-green-screen-composite-in-unreal-engine-5-using-media-plate-realis/frame_001.jpg
+- [4:59] tutorials/frames/how-to-remove-green-screen-composite-in-unreal-engine-5-using-media-plate-realis/frame_002.jpg
+- [7:14] tutorials/frames/how-to-remove-green-screen-composite-in-unreal-engine-5-using-media-plate-realis/frame_003.jpg
+
 ## Related Entries
 - `how-to-make-blade-runner-in-unreal-5-step-by-step.md` — introduces camera, sequencer, and material basics for context
 - `how-to-make-unreal-look-more-cinematic.md` — focal length, DoF, and cinematic camera settings applicable to composited shots

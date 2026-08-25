@@ -64,6 +64,21 @@ UE 5.x (Black Eye v1.1)
 
 ---
 
+## Captured Frames
+
+<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
+     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
+     fallback '### Full Content [0:00]' heading, so reground_frames.py
+     re-captured them at 0:00 and produced title cards. Moments below are
+     re-derived from the source's duration, not chosen. Bullet refs take
+     precedence over the heading layout, so the stale [0:00] line above is
+     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+
+- [0:08] tutorials/frames/unreal-engine-black-eye-cameras-bake-down-cam-anims/frame_000.jpg
+- [0:25] tutorials/frames/unreal-engine-black-eye-cameras-bake-down-cam-anims/frame_001.jpg
+- [0:45] tutorials/frames/unreal-engine-black-eye-cameras-bake-down-cam-anims/frame_002.jpg
+- [1:06] tutorials/frames/unreal-engine-black-eye-cameras-bake-down-cam-anims/frame_003.jpg
+
 ## Related Entries
 - [[unreal-engine-black-eye-cameras-start-here-tutorial]] — Baking Cameras section (same feature, more context)
 - [[unreal-engine-black-eye-cameras-version-11-new-features-cross-camera]] — other v1.1 new features

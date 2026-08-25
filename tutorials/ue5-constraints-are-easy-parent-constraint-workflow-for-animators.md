@@ -92,6 +92,21 @@ animation, constraints, parent-constraint, sequencer, control-rig, ik, workflow,
 
 ---
 
+## Captured Frames
+
+<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
+     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
+     fallback '### Full Content [0:00]' heading, so reground_frames.py
+     re-captured them at 0:00 and produced title cards. Moments below are
+     re-derived from the source's duration, not chosen. Bullet refs take
+     precedence over the heading layout, so the stale [0:00] line above is
+     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+
+- [0:55] tutorials/frames/ue5-constraints-are-easy-parent-constraint-workflow-for-animators/frame_000.jpg
+- [2:45] tutorials/frames/ue5-constraints-are-easy-parent-constraint-workflow-for-animators/frame_001.jpg
+- [5:02] tutorials/frames/ue5-constraints-are-easy-parent-constraint-workflow-for-animators/frame_002.jpg
+- [7:19] tutorials/frames/ue5-constraints-are-easy-parent-constraint-workflow-for-animators/frame_003.jpg
+
 ## Related Entries
 - `ue5-animation-layers-non-destructive-camera-shake-character-tweaks.md` — companion tutorial by same instructor; animation layers for non-destructive tweaks
 - `stylized-animation-control-rig-characters-in-unreal-engine-5.md` — ACOM rig intro; same project/instructor

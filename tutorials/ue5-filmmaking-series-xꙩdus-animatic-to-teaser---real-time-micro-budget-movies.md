@@ -63,6 +63,21 @@ filmmaking, pipeline, animatic, short-film, production, ai-video, micro-budget, 
 
 ---
 
+## Captured Frames
+
+<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
+     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
+     fallback '### Full Content [0:00]' heading, so reground_frames.py
+     re-captured them at 0:00 and produced title cards. Moments below are
+     re-derived from the source's duration, not chosen. Bullet refs take
+     precedence over the heading layout, so the stale [0:00] line above is
+     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+
+- [0:11] tutorials/frames/ue5-filmmaking-series-xꙩdus-animatic-to-teaser---real-time-micro-budget-movies/frame_000.jpg
+- [0:33] tutorials/frames/ue5-filmmaking-series-xꙩdus-animatic-to-teaser---real-time-micro-budget-movies/frame_001.jpg
+- [1:01] tutorials/frames/ue5-filmmaking-series-xꙩdus-animatic-to-teaser---real-time-micro-budget-movies/frame_002.jpg
+- [1:29] tutorials/frames/ue5-filmmaking-series-xꙩdus-animatic-to-teaser---real-time-micro-budget-movies/frame_003.jpg
+
 ## Related Entries
 - `survive-the-vfx-war-battle-ready-skills-you-need-for-virtual-production-in-2026-.md` — full Dean Yurke Q&A; iterative UE5 animatic-to-production pipeline; Composure compositing
 - `the-future-of-filmmaking-in-unreal-5-virtual-production.md` — Josh Toonen VP micro-budget film approach; LED volume; parallax

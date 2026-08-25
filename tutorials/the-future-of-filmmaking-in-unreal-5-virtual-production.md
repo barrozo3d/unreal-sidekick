@@ -113,6 +113,21 @@ virtual-production, led-volume, filmmaking, cinematics, blueprint, camera-tracki
 
 ---
 
+## Captured Frames
+
+<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
+     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
+     fallback '### Full Content [0:00]' heading, so reground_frames.py
+     re-captured them at 0:00 and produced title cards. Moments below are
+     re-derived from the source's duration, not chosen. Bullet refs take
+     precedence over the heading layout, so the stale [0:00] line above is
+     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+
+- [1:12] tutorials/frames/the-future-of-filmmaking-in-unreal-5-virtual-production/frame_000.jpg
+- [3:35] tutorials/frames/the-future-of-filmmaking-in-unreal-5-virtual-production/frame_001.jpg
+- [6:34] tutorials/frames/the-future-of-filmmaking-in-unreal-5-virtual-production/frame_002.jpg
+- [9:33] tutorials/frames/the-future-of-filmmaking-in-unreal-5-virtual-production/frame_003.jpg
+
 ## Related Entries
 - `no-cost-virtual-production-is-here---and-its-changing-filmmaking.md` — accessible/free VP pipeline overview
 - `survive-the-vfx-war-battle-ready-skills-you-need-for-virtual-production-in-2026-.md` — Dean Yurke VP industry career lecture; blue-screen + Composure alternative pipeline

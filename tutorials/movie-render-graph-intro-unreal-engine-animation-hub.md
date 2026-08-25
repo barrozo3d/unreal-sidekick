@@ -94,6 +94,21 @@ mrq, movie-render-graph, rendering, compositing, layers, hold-out, aov, nuke, vf
 
 ---
 
+## Captured Frames
+
+<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
+     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
+     fallback '### Full Content [0:00]' heading, so reground_frames.py
+     re-captured them at 0:00 and produced title cards. Moments below are
+     re-derived from the source's duration, not chosen. Bullet refs take
+     precedence over the heading layout, so the stale [0:00] line above is
+     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+
+- [1:07] tutorials/frames/movie-render-graph-intro-unreal-engine-animation-hub/frame_000.jpg
+- [3:20] tutorials/frames/movie-render-graph-intro-unreal-engine-animation-hub/frame_001.jpg
+- [6:06] tutorials/frames/movie-render-graph-intro-unreal-engine-animation-hub/frame_002.jpg
+- [8:53] tutorials/frames/movie-render-graph-intro-unreal-engine-animation-hub/frame_003.jpg
+
 ## Related Entries
 - `make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta.md` — MRQ basics (legacy EXR/TSR workflow); beginner filmmaking pipeline
 - `master-cinematic-fog-volumetric-god-rays-in-ue5.md` — AOV pipeline via MRQ (3 passes → Nuke: Detailed Lighting − Lighting Only)

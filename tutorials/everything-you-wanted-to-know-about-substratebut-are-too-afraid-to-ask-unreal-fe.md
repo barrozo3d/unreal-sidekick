@@ -76,6 +76,21 @@ UE 5.7
 
 ---
 
+## Captured Frames
+
+<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
+     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
+     fallback '### Full Content [0:00]' heading, so reground_frames.py
+     re-captured them at 0:00 and produced title cards. Moments below are
+     re-derived from the source's duration, not chosen. Bullet refs take
+     precedence over the heading layout, so the stale [0:00] line above is
+     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+
+- [4:18] tutorials/frames/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe/frame_000.jpg
+- [12:55] tutorials/frames/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe/frame_001.jpg
+- [23:40] tutorials/frames/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe/frame_002.jpg
+- [34:26] tutorials/frames/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe/frame_003.jpg
+
 ## Related Entries
 - creating-cinematics-in-unreal-engine-with-kitbash3ds-secrets-of-the-luminara.md (Electric Dreams requires Substrate enable in Project Settings)
 - creating-a-blend-material-in-unreal-engine-5-just-got-easier.md (Dash Blend Material = simpler practical alternative for environment work)

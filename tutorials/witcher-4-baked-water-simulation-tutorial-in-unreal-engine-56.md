@@ -119,6 +119,21 @@ water, river, simulation, baking, buoyancy, niagara, landscape, environment, sha
 
 ---
 
+## Captured Frames
+
+<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
+     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
+     fallback '### Full Content [0:00]' heading, so reground_frames.py
+     re-captured them at 0:00 and produced title cards. Moments below are
+     re-derived from the source's duration, not chosen. Bullet refs take
+     precedence over the heading layout, so the stale [0:00] line above is
+     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+
+- [2:15] tutorials/frames/witcher-4-baked-water-simulation-tutorial-in-unreal-engine-56/frame_000.jpg
+- [6:46] tutorials/frames/witcher-4-baked-water-simulation-tutorial-in-unreal-engine-56/frame_001.jpg
+- [12:25] tutorials/frames/witcher-4-baked-water-simulation-tutorial-in-unreal-engine-56/frame_002.jpg
+- [18:03] tutorials/frames/witcher-4-baked-water-simulation-tutorial-in-unreal-engine-56/frame_003.jpg
+
 ## Related Entries
 - `unreal-engine-masterclass-animate-environments-the-easy-way.md` — environment animation techniques (Niagara steam on moving actors)
 - `volumetric-cloud-secrets-unreal-engine-4-5-works-in-ue5.md` — other environment secrets by same ecosystem of tutorials

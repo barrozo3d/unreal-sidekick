@@ -90,6 +90,21 @@ animation, control-rig, modular-rig, characters, sequencer, ik-fk, face-rig, wor
 
 ---
 
+## Captured Frames
+
+<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
+     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
+     fallback '### Full Content [0:00]' heading, so reground_frames.py
+     re-captured them at 0:00 and produced title cards. Moments below are
+     re-derived from the source's duration, not chosen. Bullet refs take
+     precedence over the heading layout, so the stale [0:00] line above is
+     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+
+- [1:20] tutorials/frames/stylized-animation-control-rig-characters-in-unreal-engine-5/frame_000.jpg
+- [4:01] tutorials/frames/stylized-animation-control-rig-characters-in-unreal-engine-5/frame_001.jpg
+- [7:22] tutorials/frames/stylized-animation-control-rig-characters-in-unreal-engine-5/frame_002.jpg
+- [10:42] tutorials/frames/stylized-animation-control-rig-characters-in-unreal-engine-5/frame_003.jpg
+
 ## Related Entries
 - `non-destructive-animation-in-ue5-layered-control-rigs-explained.md` — Layered Control Rigs; non-destructive additive animation on top of sequences (same ACOM series context)
 - `slow-motion-secrets-how-to-time-warp-animation-in-unreal-engine.md` — Time Warp sequencer track; used in same ACOM cinematic project (Shot 60)

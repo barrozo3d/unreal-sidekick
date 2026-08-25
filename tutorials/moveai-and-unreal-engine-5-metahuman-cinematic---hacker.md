@@ -66,6 +66,21 @@ mocap, metahuman, metahuman-animator, move-ai, short-film, sci-fi, performance-c
 
 ---
 
+## Captured Frames
+
+<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
+     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
+     fallback '### Full Content [0:00]' heading, so reground_frames.py
+     re-captured them at 0:00 and produced title cards. Moments below are
+     re-derived from the source's duration, not chosen. Bullet refs take
+     precedence over the heading layout, so the stale [0:00] line above is
+     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+
+- [0:08] tutorials/frames/moveai-and-unreal-engine-5-metahuman-cinematic---hacker/frame_000.jpg
+- [0:25] tutorials/frames/moveai-and-unreal-engine-5-metahuman-cinematic---hacker/frame_001.jpg
+- [0:45] tutorials/frames/moveai-and-unreal-engine-5-metahuman-cinematic---hacker/frame_002.jpg
+- [1:06] tutorials/frames/moveai-and-unreal-engine-5-metahuman-cinematic---hacker/frame_003.jpg
+
 ## Related Entries
 - `moveai-and-unreal-engine-5-metahuman-short-film---gigantic-joe.md` — similar short film showcase featuring Marvin character again
 - `how-i-made-this-aaa-cinematic-in-unreal-engine-5---moveai-and-metahuman-animator.md` — detailed breakdown of how these short films are made

@@ -95,6 +95,21 @@ metahuman, mocap, motion-capture, live-link, capture-character, virtual-producti
 
 ---
 
+## Captured Frames
+
+<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
+     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
+     fallback '### Full Content [0:00]' heading, so reground_frames.py
+     re-captured them at 0:00 and produced title cards. Moments below are
+     re-derived from the source's duration, not chosen. Bullet refs take
+     precedence over the heading layout, so the stale [0:00] line above is
+     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+
+- [0:38] tutorials/frames/metahumans-for-mocap-unreal-engine-animation-hub/frame_000.jpg
+- [1:54] tutorials/frames/metahumans-for-mocap-unreal-engine-animation-hub/frame_001.jpg
+- [3:30] tutorials/frames/metahumans-for-mocap-unreal-engine-animation-hub/frame_002.jpg
+- [5:05] tutorials/frames/metahumans-for-mocap-unreal-engine-animation-hub/frame_003.jpg
+
 ## Related Entries
 - `live-link-hub-tips-unreal-engine-animation-hub.md` — Live Link Hub for multi-source mocap routing; Virtual Subject setup; recording
 - `metahuman-realtime-animator-best-practices-unreal-engine-animation-hub.md` — webcam face capture best practices; camera FPS/exposure settings; two-machine offload

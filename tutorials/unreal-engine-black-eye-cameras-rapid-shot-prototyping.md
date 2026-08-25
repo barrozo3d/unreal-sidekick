@@ -70,6 +70,21 @@ black-eye-cameras, prototyping, workflow, follow, look-at, pov, multi-subject, c
 
 ---
 
+## Captured Frames
+
+<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
+     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
+     fallback '### Full Content [0:00]' heading, so reground_frames.py
+     re-captured them at 0:00 and produced title cards. Moments below are
+     re-derived from the source's duration, not chosen. Bullet refs take
+     precedence over the heading layout, so the stale [0:00] line above is
+     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+
+- [0:14] tutorials/frames/unreal-engine-black-eye-cameras-rapid-shot-prototyping/frame_000.jpg
+- [0:41] tutorials/frames/unreal-engine-black-eye-cameras-rapid-shot-prototyping/frame_001.jpg
+- [1:15] tutorials/frames/unreal-engine-black-eye-cameras-rapid-shot-prototyping/frame_002.jpg
+- [1:50] tutorials/frames/unreal-engine-black-eye-cameras-rapid-shot-prototyping/frame_003.jpg
+
 ## Related Entries
 - `unreal-engine-black-eye-cameras-overview-tutorial.md` — full BEC system overview; all modules explained
 - `unreal-engine-black-eye-cameras-2-person-combat-side-camera-tutorial.md` — multi-subject follow and look-at in practice

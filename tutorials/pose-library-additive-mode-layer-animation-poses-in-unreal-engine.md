@@ -83,6 +83,21 @@ animation, pose-library, additive, hands, face, blend, control-rig, workflow, an
 
 ---
 
+## Captured Frames
+
+<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
+     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
+     fallback '### Full Content [0:00]' heading, so reground_frames.py
+     re-captured them at 0:00 and produced title cards. Moments below are
+     re-derived from the source's duration, not chosen. Bullet refs take
+     precedence over the heading layout, so the stale [0:00] line above is
+     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+
+- [0:52] tutorials/frames/pose-library-additive-mode-layer-animation-poses-in-unreal-engine/frame_000.jpg
+- [2:37] tutorials/frames/pose-library-additive-mode-layer-animation-poses-in-unreal-engine/frame_001.jpg
+- [4:48] tutorials/frames/pose-library-additive-mode-layer-animation-poses-in-unreal-engine/frame_002.jpg
+- [6:58] tutorials/frames/pose-library-additive-mode-layer-animation-poses-in-unreal-engine/frame_003.jpg
+
 ## Related Entries
 - `non-destructive-animation-in-ue5-layered-control-rigs-explained.md` — Layered Control Rigs; additive animation on top of sequences (related non-destructive workflow)
 - `mastering-the-ue5-tweener-tool-push-pull-overshoot-animation.md` — Tween Tool for polish; complements Pose Library for pose refinement

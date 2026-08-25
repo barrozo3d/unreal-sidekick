@@ -84,6 +84,21 @@ UE5
 
 ---
 
+## Captured Frames
+
+<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
+     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
+     fallback '### Full Content [0:00]' heading, so reground_frames.py
+     re-captured them at 0:00 and produced title cards. Moments below are
+     re-derived from the source's duration, not chosen. Bullet refs take
+     precedence over the heading layout, so the stale [0:00] line above is
+     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+
+- [1:54] tutorials/frames/how-this-unreal-engine-5-film-won-an-oscar/frame_000.jpg
+- [5:42] tutorials/frames/how-this-unreal-engine-5-film-won-an-oscar/frame_001.jpg
+- [10:27] tutorials/frames/how-this-unreal-engine-5-film-won-an-oscar/frame_002.jpg
+- [15:12] tutorials/frames/how-this-unreal-engine-5-film-won-an-oscar/frame_003.jpg
+
 ## Related Entries
 - give-me-14-minutes-and-youll-make-cinematic-renders.md (camera movement + cinematic techniques)
 - how-i-remade-dune-in-24-hours-using-vfx.md (same author, UE5 production)

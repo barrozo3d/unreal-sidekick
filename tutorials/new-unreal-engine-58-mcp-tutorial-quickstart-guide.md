@@ -91,6 +91,21 @@ mcp, ai-agent, claude-code, blueprint, pcg, workflow, automation, plugin, setup,
 
 ---
 
+## Captured Frames
+
+<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
+     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
+     fallback '### Full Content [0:00]' heading, so reground_frames.py
+     re-captured them at 0:00 and produced title cards. Moments below are
+     re-derived from the source's duration, not chosen. Bullet refs take
+     precedence over the heading layout, so the stale [0:00] line above is
+     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+
+- [1:14] tutorials/frames/new-unreal-engine-58-mcp-tutorial-quickstart-guide/frame_000.jpg
+- [3:42] tutorials/frames/new-unreal-engine-58-mcp-tutorial-quickstart-guide/frame_001.jpg
+- [6:48] tutorials/frames/new-unreal-engine-58-mcp-tutorial-quickstart-guide/frame_002.jpg
+- [9:53] tutorials/frames/new-unreal-engine-58-mcp-tutorial-quickstart-guide/frame_003.jpg
+
 ## Related Entries
 - `procedural-content-generation-framework-in-unreal-engine.md` — PCG framework; primary use case for MCP AI automation (city generation demo)
 - `new-unreal-engine-58-metahuman-crowd-plugin.md` — another UE5.8 new feature from same author/time period

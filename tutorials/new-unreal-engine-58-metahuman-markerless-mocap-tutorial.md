@@ -112,6 +112,21 @@ metahuman, mocap, markerless, live-link, body-tracking, facial-capture, retarget
 
 ---
 
+## Captured Frames
+
+<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
+     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
+     fallback '### Full Content [0:00]' heading, so reground_frames.py
+     re-captured them at 0:00 and produced title cards. Moments below are
+     re-derived from the source's duration, not chosen. Bullet refs take
+     precedence over the heading layout, so the stale [0:00] line above is
+     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+
+- [1:30] tutorials/frames/new-unreal-engine-58-metahuman-markerless-mocap-tutorial/frame_000.jpg
+- [4:28] tutorials/frames/new-unreal-engine-58-metahuman-markerless-mocap-tutorial/frame_001.jpg
+- [8:12] tutorials/frames/new-unreal-engine-58-metahuman-markerless-mocap-tutorial/frame_002.jpg
+- [11:56] tutorials/frames/new-unreal-engine-58-metahuman-markerless-mocap-tutorial/frame_003.jpg
+
 ## Related Entries
 - `metahuman-realtime-animator-best-practices-unreal-engine-animation-hub.md` — real-time webcam face capture (alternative/complementary to markerless)
 - `metahumans-for-mocap-unreal-engine-animation-hub.md` — MetaHuman for MoCap Manager; suit-based hardware mocap + MetaHuman

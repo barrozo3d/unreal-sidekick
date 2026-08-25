@@ -92,6 +92,21 @@ animation, sequencer, time-warp, slow-motion, play-rate, curves, timing, workflo
 
 ---
 
+## Captured Frames
+
+<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
+     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
+     fallback '### Full Content [0:00]' heading, so reground_frames.py
+     re-captured them at 0:00 and produced title cards. Moments below are
+     re-derived from the source's duration, not chosen. Bullet refs take
+     precedence over the heading layout, so the stale [0:00] line above is
+     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+
+- [1:02] tutorials/frames/slow-motion-secrets-how-to-time-warp-animation-in-unreal-engine/frame_000.jpg
+- [3:07] tutorials/frames/slow-motion-secrets-how-to-time-warp-animation-in-unreal-engine/frame_001.jpg
+- [5:42] tutorials/frames/slow-motion-secrets-how-to-time-warp-animation-in-unreal-engine/frame_002.jpg
+- [8:18] tutorials/frames/slow-motion-secrets-how-to-time-warp-animation-in-unreal-engine/frame_003.jpg
+
 ## Related Entries
 - `mastering-the-ue5-tweener-tool-push-pull-overshoot-animation.md` — Tween Tool; timing polish at the keyframe level (different approach to timing adjustment)
 - `ue5-curve-editor-20-new-lattice-tool-curve-scaling-hacks-ue-56.md` — Curve Editor 2.0; manages animation timing at keyframe level (complementary to time warp)

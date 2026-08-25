@@ -63,6 +63,21 @@ mocap, metahuman, move-ai, custom-metahuman, orc, short-film, performance-captur
 
 ---
 
+## Captured Frames
+
+<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
+     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
+     fallback '### Full Content [0:00]' heading, so reground_frames.py
+     re-captured them at 0:00 and produced title cards. Moments below are
+     re-derived from the source's duration, not chosen. Bullet refs take
+     precedence over the heading layout, so the stale [0:00] line above is
+     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+
+- [0:05] tutorials/frames/moveai-unreal-engine-54-motion-capture-short-film-using-custom-orc-metahumans---/frame_000.jpg
+- [0:16] tutorials/frames/moveai-unreal-engine-54-motion-capture-short-film-using-custom-orc-metahumans---/frame_001.jpg
+- [0:29] tutorials/frames/moveai-unreal-engine-54-motion-capture-short-film-using-custom-orc-metahumans---/frame_002.jpg
+- [0:42] tutorials/frames/moveai-unreal-engine-54-motion-capture-short-film-using-custom-orc-metahumans---/frame_003.jpg
+
 ## Related Entries
 - `how-i-use-moveai-and-metahumans-to-achieve-aaa-character-animation-in-unreal-eng.md` — uses these same orc MetaHumans with Move.AI Pro in orc/knight scene
 - `orc-vs-knight-cgi-swordfight---ue5.md` — another short film featuring these orc MetaHumans

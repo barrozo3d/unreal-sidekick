@@ -95,6 +95,21 @@ foliage, nanite, assemblies, wind, skinning, performance, witcher4, tech-demo, l
 
 ---
 
+## Captured Frames
+
+<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
+     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
+     fallback '### Full Content [0:00]' heading, so reground_frames.py
+     re-captured them at 0:00 and produced title cards. Moments below are
+     re-derived from the source's duration, not chosen. Bullet refs take
+     precedence over the heading layout, so the stale [0:00] line above is
+     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+
+- [3:45] tutorials/frames/large-scale-animated-foliage-in-the-witcher-4-unreal-engine-5-tech-demo-unreal-f/frame_000.jpg
+- [11:14] tutorials/frames/large-scale-animated-foliage-in-the-witcher-4-unreal-engine-5-tech-demo-unreal-f/frame_001.jpg
+- [20:36] tutorials/frames/large-scale-animated-foliage-in-the-witcher-4-unreal-engine-5-tech-demo-unreal-f/frame_002.jpg
+- [29:58] tutorials/frames/large-scale-animated-foliage-in-the-witcher-4-unreal-engine-5-tech-demo-unreal-f/frame_003.jpg
+
 ## Related Entries
 - `nanite-everything-you-should-know-unreal-engine-5.md` — Nanite deep-dive; Preserve Area flag; fundamentals for understanding assemblies
 - `growing-trees-in-unreal-engine-pve-58-new-features-and-roadmap-unreal-fest-chica.md` — "Growing Trees in Unreal Engine: PVE 5.8 New Features and Roadmap"; the 5.8 PVE/MegaPlants talk that explicitly cites this Witcher 4 demo's Dynamic Wind plugin as the one non-Nanite MegaPlants foliage reuses, and builds its `Grower`-node botanical growth simulation on top of the Nanite-foliage + PCG placement pipeline covered here

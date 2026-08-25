@@ -93,6 +93,21 @@ animation, curve-editor, sequencer, lattice, scaling, smart-snap, workflow, tech
 
 ---
 
+## Captured Frames
+
+<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
+     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
+     fallback '### Full Content [0:00]' heading, so reground_frames.py
+     re-captured them at 0:00 and produced title cards. Moments below are
+     re-derived from the source's duration, not chosen. Bullet refs take
+     precedence over the heading layout, so the stale [0:00] line above is
+     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+
+- [1:40] tutorials/frames/ue5-curve-editor-20-new-lattice-tool-curve-scaling-hacks-ue-56/frame_000.jpg
+- [5:00] tutorials/frames/ue5-curve-editor-20-new-lattice-tool-curve-scaling-hacks-ue-56/frame_001.jpg
+- [9:10] tutorials/frames/ue5-curve-editor-20-new-lattice-tool-curve-scaling-hacks-ue-56/frame_002.jpg
+- [13:20] tutorials/frames/ue5-curve-editor-20-new-lattice-tool-curve-scaling-hacks-ue-56/frame_003.jpg
+
 ## Related Entries
 - `ue5-curve-editor-secrets-buffer-curves-smart-snap-keyframe-tricks.md` — companion tutorial by same instructor; buffer curves, bake, tween tool, Euler filter
 - `ue5-animation-layers-non-destructive-camera-shake-character-tweaks.md` — animation layers; mentioned as next video in series

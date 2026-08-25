@@ -94,6 +94,21 @@ animation, sequencer, cinematic, pipeline, production, acom, sub-sequences, work
 
 ---
 
+## Captured Frames
+
+<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
+     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
+     fallback '### Full Content [0:00]' heading, so reground_frames.py
+     re-captured them at 0:00 and produced title cards. Moments below are
+     re-derived from the source's duration, not chosen. Bullet refs take
+     precedence over the heading layout, so the stale [0:00] line above is
+     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+
+- [1:08] tutorials/frames/unreal-engine-5-animation-cinematic-production-overview/frame_000.jpg
+- [3:23] tutorials/frames/unreal-engine-5-animation-cinematic-production-overview/frame_001.jpg
+- [6:12] tutorials/frames/unreal-engine-5-animation-cinematic-production-overview/frame_002.jpg
+- [9:02] tutorials/frames/unreal-engine-5-animation-cinematic-production-overview/frame_003.jpg
+
 ## Related Entries
 - `stylized-animation-control-rig-characters-in-unreal-engine-5.md` — ACOM modular rig tutorial; same project/instructor
 - `ue5-animation-layers-non-destructive-camera-shake-character-tweaks.md` — ACOM animation layers; same project (Shot 55, Shot 70)

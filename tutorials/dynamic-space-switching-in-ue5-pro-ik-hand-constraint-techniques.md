@@ -69,6 +69,21 @@ UE5
 
 ---
 
+## Captured Frames
+
+<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
+     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
+     fallback '### Full Content [0:00]' heading, so reground_frames.py
+     re-captured them at 0:00 and produced title cards. Moments below are
+     re-derived from the source's duration, not chosen. Bullet refs take
+     precedence over the heading layout, so the stale [0:00] line above is
+     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+
+- [0:39] tutorials/frames/dynamic-space-switching-in-ue5-pro-ik-hand-constraint-techniques/frame_000.jpg
+- [1:58] tutorials/frames/dynamic-space-switching-in-ue5-pro-ik-hand-constraint-techniques/frame_001.jpg
+- [3:36] tutorials/frames/dynamic-space-switching-in-ue5-pro-ik-hand-constraint-techniques/frame_002.jpg
+- [5:14] tutorials/frames/dynamic-space-switching-in-ue5-pro-ik-hand-constraint-techniques/frame_003.jpg
+
 ## Related Entries
 - control-rig-in-unreal-engine.md (Control Rig system documentation, IK and FBIK)
 - dynamic-space-switching-in-ue5-pro-ik-hand-constraint-techniques.md (same video, self-reference removed)

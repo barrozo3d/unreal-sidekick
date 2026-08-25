@@ -110,6 +110,21 @@ animation, sequencer, curves-editor, tween-tool, keyframing, polish, workflow, a
 
 ---
 
+## Captured Frames
+
+<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
+     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
+     fallback '### Full Content [0:00]' heading, so reground_frames.py
+     re-captured them at 0:00 and produced title cards. Moments below are
+     re-derived from the source's duration, not chosen. Bullet refs take
+     precedence over the heading layout, so the stale [0:00] line above is
+     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+
+- [1:12] tutorials/frames/mastering-the-ue5-tweener-tool-push-pull-overshoot-animation/frame_000.jpg
+- [3:35] tutorials/frames/mastering-the-ue5-tweener-tool-push-pull-overshoot-animation/frame_001.jpg
+- [6:35] tutorials/frames/mastering-the-ue5-tweener-tool-push-pull-overshoot-animation/frame_002.jpg
+- [9:34] tutorials/frames/mastering-the-ue5-tweener-tool-push-pull-overshoot-animation/frame_003.jpg
+
 ## Related Entries
 - `make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta.md` — beginner Sequencer/filmmaking pipeline; Curves Editor basics
 - `motion-blending-bone-matching-for-unreal-engine---make-films-in-unreal-ep2-inter.md` — motion blending techniques (if present)

@@ -90,6 +90,21 @@ animation, control-rig, layered-animation, non-destructive, sequencer, anim-sequ
 
 ---
 
+## Captured Frames
+
+<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
+     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
+     fallback '### Full Content [0:00]' heading, so reground_frames.py
+     re-captured them at 0:00 and produced title cards. Moments below are
+     re-derived from the source's duration, not chosen. Bullet refs take
+     precedence over the heading layout, so the stale [0:00] line above is
+     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+
+- [0:57] tutorials/frames/non-destructive-animation-in-ue5-layered-control-rigs-explained/frame_000.jpg
+- [2:51] tutorials/frames/non-destructive-animation-in-ue5-layered-control-rigs-explained/frame_001.jpg
+- [5:13] tutorials/frames/non-destructive-animation-in-ue5-layered-control-rigs-explained/frame_002.jpg
+- [7:35] tutorials/frames/non-destructive-animation-in-ue5-layered-control-rigs-explained/frame_003.jpg
+
 ## Related Entries
 - `motion-blending-bone-matching-for-unreal-engine---make-films-in-unreal-ep2-inter.md` — bone matching + Layered FK Control Rig additive; related non-destructive workflow
 - `mastering-the-ue5-tweener-tool-push-pull-overshoot-animation.md` — animation polish tools; pairs with layered CR for non-destructive tweening

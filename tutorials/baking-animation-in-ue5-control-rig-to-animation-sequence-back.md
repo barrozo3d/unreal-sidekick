@@ -60,5 +60,20 @@ UE5 (Sequencer/Control Rig workflow shown is current UE5; exact minor version no
 
 ---
 
+## Captured Frames
+
+<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
+     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
+     fallback '### Full Content [0:00]' heading, so reground_frames.py
+     re-captured them at 0:00 and produced title cards. Moments below are
+     re-derived from the source's duration, not chosen. Bullet refs take
+     precedence over the heading layout, so the stale [0:00] line above is
+     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+
+- [1:25] tutorials/frames/baking-animation-in-ue5-control-rig-to-animation-sequence-back/frame_000.jpg
+- [4:14] tutorials/frames/baking-animation-in-ue5-control-rig-to-animation-sequence-back/frame_001.jpg
+- [7:46] tutorials/frames/baking-animation-in-ue5-control-rig-to-animation-sequence-back/frame_002.jpg
+- [11:18] tutorials/frames/baking-animation-in-ue5-control-rig-to-animation-sequence-back/frame_003.jpg
+
 ## Related Entries
 None with direct technical overlap yet — likely part of a series with other "ACOM animation sample project" videos by the same presenter (Wade/"Sir Wade"); cross-reference once other entries from that series are extracted.

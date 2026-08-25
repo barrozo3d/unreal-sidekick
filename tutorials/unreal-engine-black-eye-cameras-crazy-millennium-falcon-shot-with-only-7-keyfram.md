@@ -72,6 +72,21 @@ black-eye-cameras, cinematics, spaceship, follow, composition, keyframes, camera
 
 ---
 
+## Captured Frames
+
+<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
+     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
+     fallback '### Full Content [0:00]' heading, so reground_frames.py
+     re-captured them at 0:00 and produced title cards. Moments below are
+     re-derived from the source's duration, not chosen. Bullet refs take
+     precedence over the heading layout, so the stale [0:00] line above is
+     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+
+- [0:14] tutorials/frames/unreal-engine-black-eye-cameras-crazy-millennium-falcon-shot-with-only-7-keyfram/frame_000.jpg
+- [0:43] tutorials/frames/unreal-engine-black-eye-cameras-crazy-millennium-falcon-shot-with-only-7-keyfram/frame_001.jpg
+- [1:19] tutorials/frames/unreal-engine-black-eye-cameras-crazy-millennium-falcon-shot-with-only-7-keyfram/frame_002.jpg
+- [1:55] tutorials/frames/unreal-engine-black-eye-cameras-crazy-millennium-falcon-shot-with-only-7-keyfram/frame_003.jpg
+
 ## Related Entries
 - `unreal-engine-black-eye-cameras-bake-down-cam-anims.md` — full camera bake tutorial; DCC round-trip
 - `unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics.md` — similar Screen Space Composition keyframing for vehicle shots
