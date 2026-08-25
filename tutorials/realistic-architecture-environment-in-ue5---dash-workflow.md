@@ -1,4 +1,4 @@
-﻿---
+---
 title: Realistic Architecture Environment in UE5 - Dash Workflow
 source: YouTube
 url: https://www.youtube.com/watch?v=_9b_dabCpVE
@@ -68,6 +68,32 @@ UE 5.x (Dash 1.5)
 `#dash-1.5` `#archviz` `#scatter` `#grid-scatter` `#path-scatter` `#physics` `#ai-tagging` `#terrain` `#materials` `#path-tracing` `#intermediate`
 
 ---
+
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:05] tutorials/frames/realistic-architecture-environment-in-ue5---dash-workflow/frame_000.jpg
+- [0:40] tutorials/frames/realistic-architecture-environment-in-ue5---dash-workflow/frame_001.jpg
+- [1:59] tutorials/frames/realistic-architecture-environment-in-ue5---dash-workflow/frame_002.jpg
+- [2:21] tutorials/frames/realistic-architecture-environment-in-ue5---dash-workflow/frame_003.jpg
+- [3:50] tutorials/frames/realistic-architecture-environment-in-ue5---dash-workflow/frame_004.jpg
+- [4:35] tutorials/frames/realistic-architecture-environment-in-ue5---dash-workflow/frame_005.jpg
+- [5:05] tutorials/frames/realistic-architecture-environment-in-ue5---dash-workflow/frame_006.jpg
+- [6:43] tutorials/frames/realistic-architecture-environment-in-ue5---dash-workflow/frame_007.jpg
+- [7:30] tutorials/frames/realistic-architecture-environment-in-ue5---dash-workflow/frame_008.jpg
+- [8:24] tutorials/frames/realistic-architecture-environment-in-ue5---dash-workflow/frame_009.jpg
+- [9:56] tutorials/frames/realistic-architecture-environment-in-ue5---dash-workflow/frame_010.jpg
+- [10:36] tutorials/frames/realistic-architecture-environment-in-ue5---dash-workflow/frame_011.jpg
+- [11:05] tutorials/frames/realistic-architecture-environment-in-ue5---dash-workflow/frame_012.jpg
+- [12:10] tutorials/frames/realistic-architecture-environment-in-ue5---dash-workflow/frame_013.jpg
+- [13:36] tutorials/frames/realistic-architecture-environment-in-ue5---dash-workflow/frame_014.jpg
+- [14:49] tutorials/frames/realistic-architecture-environment-in-ue5---dash-workflow/frame_015.jpg
 
 ## Related Entries
 - [[architecture-scenes-made-easy-in-unreal-engine-5---dash-tutorial]] — Tomáš archviz with Radial Scatter + Cable Tool (1.6)

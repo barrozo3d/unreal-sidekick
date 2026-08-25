@@ -51,6 +51,20 @@ UE 5.x
 
 ---
 
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:05] tutorials/frames/why-modern-vfx-dont-suck---low-budget-virtual-production-everything-everywhere-a/frame_000.jpg
+- [0:30] tutorials/frames/why-modern-vfx-dont-suck---low-budget-virtual-production-everything-everywhere-a/frame_001.jpg
+- [2:37] tutorials/frames/why-modern-vfx-dont-suck---low-budget-virtual-production-everything-everywhere-a/frame_002.jpg
+- [6:06] tutorials/frames/why-modern-vfx-dont-suck---low-budget-virtual-production-everything-everywhere-a/frame_003.jpg
+
 ## Related Entries
 - [[why-modern-vfx-suck-and-how-to-make-yours-not-suck]] — Part 1 of the series (critiques)
 - [[why-modern-vfx-suck-and-how-to-make-yours-not-suck-part-2---transformers-vs-marv]] — Part 2: Transformers vs Marvel case studies

@@ -1,4 +1,4 @@
-﻿---
+---
 title: DASH 1.9 - MANAGING ASSETS IN UE5 JUST GOT A LOT EASIER
 source: YouTube
 url: https://www.youtube.com/watch?v=tOpExldNzoA
@@ -65,6 +65,27 @@ UE 5.x (Dash 1.9)
 `#dash-1.9` `#release-notes` `#content-library` `#collections` `#rvt` `#water` `#scatter` `#asset-management` `#beginner`
 
 ---
+
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:05] tutorials/frames/dash-19---managing-assets-in-ue5-just-got-a-lot-easier/frame_000.jpg
+- [0:27] tutorials/frames/dash-19---managing-assets-in-ue5-just-got-a-lot-easier/frame_001.jpg
+- [1:22] tutorials/frames/dash-19---managing-assets-in-ue5-just-got-a-lot-easier/frame_002.jpg
+- [1:55] tutorials/frames/dash-19---managing-assets-in-ue5-just-got-a-lot-easier/frame_003.jpg
+- [2:25] tutorials/frames/dash-19---managing-assets-in-ue5-just-got-a-lot-easier/frame_004.jpg
+- [3:38] tutorials/frames/dash-19---managing-assets-in-ue5-just-got-a-lot-easier/frame_005.jpg
+- [4:29] tutorials/frames/dash-19---managing-assets-in-ue5-just-got-a-lot-easier/frame_006.jpg
+- [4:46] tutorials/frames/dash-19---managing-assets-in-ue5-just-got-a-lot-easier/frame_007.jpg
+- [5:47] tutorials/frames/dash-19---managing-assets-in-ue5-just-got-a-lot-easier/frame_008.jpg
+- [6:02] tutorials/frames/dash-19---managing-assets-in-ue5-just-got-a-lot-easier/frame_009.jpg
+- [6:23] tutorials/frames/dash-19---managing-assets-in-ue5-just-got-a-lot-easier/frame_010.jpg
 
 ## Related Entries
 - [[best-free-unreal-engine-5-asset-management-plugin-in-2025]] — Full Dash 1.9 Content Browser guide (Tomáš overview)

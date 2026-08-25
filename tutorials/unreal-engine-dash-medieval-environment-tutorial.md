@@ -67,6 +67,28 @@ UE 5.x (Dash 1.7 — Tool Presets, cross-project, no Mesh Pattern/ABO/Blend Mate
 
 ---
 
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:05] tutorials/frames/unreal-engine-dash-medieval-environment-tutorial/frame_000.jpg
+- [0:42] tutorials/frames/unreal-engine-dash-medieval-environment-tutorial/frame_001.jpg
+- [1:42] tutorials/frames/unreal-engine-dash-medieval-environment-tutorial/frame_002.jpg
+- [2:26] tutorials/frames/unreal-engine-dash-medieval-environment-tutorial/frame_003.jpg
+- [4:30] tutorials/frames/unreal-engine-dash-medieval-environment-tutorial/frame_004.jpg
+- [4:59] tutorials/frames/unreal-engine-dash-medieval-environment-tutorial/frame_005.jpg
+- [5:45] tutorials/frames/unreal-engine-dash-medieval-environment-tutorial/frame_006.jpg
+- [7:43] tutorials/frames/unreal-engine-dash-medieval-environment-tutorial/frame_007.jpg
+- [8:13] tutorials/frames/unreal-engine-dash-medieval-environment-tutorial/frame_008.jpg
+- [9:52] tutorials/frames/unreal-engine-dash-medieval-environment-tutorial/frame_009.jpg
+- [10:43] tutorials/frames/unreal-engine-dash-medieval-environment-tutorial/frame_010.jpg
+- [11:06] tutorials/frames/unreal-engine-dash-medieval-environment-tutorial/frame_011.jpg
+
 ## Related Entries
 - [[creating-a-massive-procedural-game-world-in-ue5-with-dash]] — Tomáš game world pipeline with Property References + Compound Tool (1.7)
 - [[dash-170---massive-ue5-world-building-tool]] — Dash 1.7 feature overview

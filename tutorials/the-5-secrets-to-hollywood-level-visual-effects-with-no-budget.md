@@ -52,6 +52,20 @@ UE 5.x
 
 ---
 
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:56] tutorials/frames/the-5-secrets-to-hollywood-level-visual-effects-with-no-budget/frame_000.jpg
+- [2:50] tutorials/frames/the-5-secrets-to-hollywood-level-visual-effects-with-no-budget/frame_001.jpg
+- [5:11] tutorials/frames/the-5-secrets-to-hollywood-level-visual-effects-with-no-budget/frame_002.jpg
+- [7:32] tutorials/frames/the-5-secrets-to-hollywood-level-visual-effects-with-no-budget/frame_003.jpg
+
 ## Related Entries
 - [[these-simple-mistakes-are-ruining-your-vfx]] — Part 1: CGI as crutch (opposite of secret #1)
 - [[5-vfx-techniques-youve-been-taught-that-are-actually-wrong]] — Part 2: specific wrong techniques

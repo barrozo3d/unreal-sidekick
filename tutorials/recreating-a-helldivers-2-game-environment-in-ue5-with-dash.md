@@ -1,4 +1,4 @@
-﻿---
+---
 title: Recreating a Helldivers 2 Game Environment in UE5 with Dash
 source: YouTube
 url: https://www.youtube.com/watch?v=plpGMR46HnE
@@ -70,6 +70,33 @@ UE 5.x (Dash 1.7)
 `#dash-1.7` `#game-environments` `#terrain` `#scatter` `#surface-scatter` `#path-scatter` `#grid-scatter` `#physics` `#vine` `#fog-cards` `#image-to-grading` `#uds` `#intermediate`
 
 ---
+
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:05] tutorials/frames/recreating-a-helldivers-2-game-environment-in-ue5-with-dash/frame_000.jpg
+- [0:53] tutorials/frames/recreating-a-helldivers-2-game-environment-in-ue5-with-dash/frame_001.jpg
+- [1:13] tutorials/frames/recreating-a-helldivers-2-game-environment-in-ue5-with-dash/frame_002.jpg
+- [2:20] tutorials/frames/recreating-a-helldivers-2-game-environment-in-ue5-with-dash/frame_003.jpg
+- [3:37] tutorials/frames/recreating-a-helldivers-2-game-environment-in-ue5-with-dash/frame_004.jpg
+- [4:49] tutorials/frames/recreating-a-helldivers-2-game-environment-in-ue5-with-dash/frame_005.jpg
+- [10:13] tutorials/frames/recreating-a-helldivers-2-game-environment-in-ue5-with-dash/frame_006.jpg
+- [11:40] tutorials/frames/recreating-a-helldivers-2-game-environment-in-ue5-with-dash/frame_007.jpg
+- [12:44] tutorials/frames/recreating-a-helldivers-2-game-environment-in-ue5-with-dash/frame_008.jpg
+- [13:27] tutorials/frames/recreating-a-helldivers-2-game-environment-in-ue5-with-dash/frame_009.jpg
+- [14:23] tutorials/frames/recreating-a-helldivers-2-game-environment-in-ue5-with-dash/frame_010.jpg
+- [14:38] tutorials/frames/recreating-a-helldivers-2-game-environment-in-ue5-with-dash/frame_011.jpg
+- [15:35] tutorials/frames/recreating-a-helldivers-2-game-environment-in-ue5-with-dash/frame_012.jpg
+- [18:09] tutorials/frames/recreating-a-helldivers-2-game-environment-in-ue5-with-dash/frame_013.jpg
+- [19:16] tutorials/frames/recreating-a-helldivers-2-game-environment-in-ue5-with-dash/frame_014.jpg
+- [19:33] tutorials/frames/recreating-a-helldivers-2-game-environment-in-ue5-with-dash/frame_015.jpg
+- [21:49] tutorials/frames/recreating-a-helldivers-2-game-environment-in-ue5-with-dash/frame_016.jpg
 
 ## Related Entries
 - [[creating-a-helldivers-2-environment-in-79-minutes---ue5-tutorial]] — companion Helldivers 2 tutorial by Tomáš (1.7); similar pipeline, different angle

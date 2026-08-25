@@ -76,6 +76,35 @@ UE 5.x (Dash 1.9 — Mesh Pattern, ABO, Rainfall/Snowfall, Advanced Water, Falli
 
 ---
 
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:05] tutorials/frames/ue5-world-building-for-beginners-full-dash-demo-level/frame_000.jpg
+- [0:37] tutorials/frames/ue5-world-building-for-beginners-full-dash-demo-level/frame_001.jpg
+- [1:24] tutorials/frames/ue5-world-building-for-beginners-full-dash-demo-level/frame_002.jpg
+- [2:50] tutorials/frames/ue5-world-building-for-beginners-full-dash-demo-level/frame_003.jpg
+- [4:03] tutorials/frames/ue5-world-building-for-beginners-full-dash-demo-level/frame_004.jpg
+- [4:59] tutorials/frames/ue5-world-building-for-beginners-full-dash-demo-level/frame_005.jpg
+- [6:01] tutorials/frames/ue5-world-building-for-beginners-full-dash-demo-level/frame_006.jpg
+- [8:24] tutorials/frames/ue5-world-building-for-beginners-full-dash-demo-level/frame_007.jpg
+- [9:18] tutorials/frames/ue5-world-building-for-beginners-full-dash-demo-level/frame_008.jpg
+- [11:02] tutorials/frames/ue5-world-building-for-beginners-full-dash-demo-level/frame_009.jpg
+- [12:09] tutorials/frames/ue5-world-building-for-beginners-full-dash-demo-level/frame_010.jpg
+- [14:25] tutorials/frames/ue5-world-building-for-beginners-full-dash-demo-level/frame_011.jpg
+- [15:23] tutorials/frames/ue5-world-building-for-beginners-full-dash-demo-level/frame_012.jpg
+- [16:50] tutorials/frames/ue5-world-building-for-beginners-full-dash-demo-level/frame_013.jpg
+- [18:00] tutorials/frames/ue5-world-building-for-beginners-full-dash-demo-level/frame_014.jpg
+- [18:37] tutorials/frames/ue5-world-building-for-beginners-full-dash-demo-level/frame_015.jpg
+- [19:10] tutorials/frames/ue5-world-building-for-beginners-full-dash-demo-level/frame_016.jpg
+- [20:03] tutorials/frames/ue5-world-building-for-beginners-full-dash-demo-level/frame_017.jpg
+- [21:14] tutorials/frames/ue5-world-building-for-beginners-full-dash-demo-level/frame_018.jpg
+
 ## Related Entries
 - [[dash-192---new-ue5-tools-amazon-3d-library-integration]] — Mesh Pattern deep-dive + ABO library (1.9)
 - [[dash-19---managing-assets-in-ue5-just-got-a-lot-easier]] — Advanced Water, Falling Leaves, RVT, Collections (1.9)

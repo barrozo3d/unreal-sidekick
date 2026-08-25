@@ -66,6 +66,25 @@ UE 5.x (Dash 1.8 - Fab mentioned in CB alongside Quixel)
 
 ---
 
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:05] tutorials/frames/working-fully-procedurally-in-unreal-engine-5---custom-asset-tutorial/frame_000.jpg
+- [0:18] tutorials/frames/working-fully-procedurally-in-unreal-engine-5---custom-asset-tutorial/frame_001.jpg
+- [0:35] tutorials/frames/working-fully-procedurally-in-unreal-engine-5---custom-asset-tutorial/frame_002.jpg
+- [1:10] tutorials/frames/working-fully-procedurally-in-unreal-engine-5---custom-asset-tutorial/frame_003.jpg
+- [2:02] tutorials/frames/working-fully-procedurally-in-unreal-engine-5---custom-asset-tutorial/frame_004.jpg
+- [2:35] tutorials/frames/working-fully-procedurally-in-unreal-engine-5---custom-asset-tutorial/frame_005.jpg
+- [3:05] tutorials/frames/working-fully-procedurally-in-unreal-engine-5---custom-asset-tutorial/frame_006.jpg
+- [4:50] tutorials/frames/working-fully-procedurally-in-unreal-engine-5---custom-asset-tutorial/frame_007.jpg
+- [5:32] tutorials/frames/working-fully-procedurally-in-unreal-engine-5---custom-asset-tutorial/frame_008.jpg
+
 ## Related Entries
 - [[no-nodes-procedural-environment-in-unreal-engine-5---dash-tutorial]] - Galen spline-driven canyon; Grid Scatter 3D + Path Scatter on shared spline (1.4)
 - [[how-to-re-create-the-walking-dead-in-unreal-engine-5---dash-workflow]] - Cable Tool connection/cut rate + Quick Pipe (1.4)

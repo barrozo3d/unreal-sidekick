@@ -1,4 +1,4 @@
-﻿---
+---
 title: Environment Breakdown: Underground Horror in UE5
 source: YouTube
 url: https://www.youtube.com/watch?v=zxVE6uyBEHs
@@ -66,6 +66,25 @@ UE 5.x (Dash early)
 `#dash-early` `#environment` `#modular` `#scatter` `#decals` `#cable-tool` `#mesh-cards` `#horror` `#lighting` `#intermediate`
 
 ---
+
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:05] tutorials/frames/environment-breakdown-underground-horror-in-ue5/frame_000.jpg
+- [0:35] tutorials/frames/environment-breakdown-underground-horror-in-ue5/frame_001.jpg
+- [1:43] tutorials/frames/environment-breakdown-underground-horror-in-ue5/frame_002.jpg
+- [2:50] tutorials/frames/environment-breakdown-underground-horror-in-ue5/frame_003.jpg
+- [3:58] tutorials/frames/environment-breakdown-underground-horror-in-ue5/frame_004.jpg
+- [4:44] tutorials/frames/environment-breakdown-underground-horror-in-ue5/frame_005.jpg
+- [5:20] tutorials/frames/environment-breakdown-underground-horror-in-ue5/frame_006.jpg
+- [5:54] tutorials/frames/environment-breakdown-underground-horror-in-ue5/frame_007.jpg
+- [6:50] tutorials/frames/environment-breakdown-underground-horror-in-ue5/frame_008.jpg
 
 ## Related Entries
 - [[create-run-down-environments-in-minutes---dash-ue5]] — Same Scatter Mesh Cards technique + Color Grading Library (Josh Powers)

@@ -1,4 +1,4 @@
-﻿---
+---
 title: No Nodes Procedural Environment in Unreal Engine 5 - Dash Tutorial
 source: YouTube
 url: https://www.youtube.com/watch?v=6U2jbJmqs4k
@@ -63,6 +63,27 @@ UE 5.x (Dash 1.4)
 `#dash-1.4` `#environment` `#scatter` `#path-scatter` `#grid-scatter` `#physics` `#spline` `#canyon` `#procedural` `#intermediate`
 
 ---
+
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:05] tutorials/frames/no-nodes-procedural-environment-in-unreal-engine-5---dash-tutorial/frame_000.jpg
+- [0:42] tutorials/frames/no-nodes-procedural-environment-in-unreal-engine-5---dash-tutorial/frame_001.jpg
+- [1:23] tutorials/frames/no-nodes-procedural-environment-in-unreal-engine-5---dash-tutorial/frame_002.jpg
+- [2:00] tutorials/frames/no-nodes-procedural-environment-in-unreal-engine-5---dash-tutorial/frame_003.jpg
+- [3:30] tutorials/frames/no-nodes-procedural-environment-in-unreal-engine-5---dash-tutorial/frame_004.jpg
+- [4:18] tutorials/frames/no-nodes-procedural-environment-in-unreal-engine-5---dash-tutorial/frame_005.jpg
+- [5:21] tutorials/frames/no-nodes-procedural-environment-in-unreal-engine-5---dash-tutorial/frame_006.jpg
+- [5:52] tutorials/frames/no-nodes-procedural-environment-in-unreal-engine-5---dash-tutorial/frame_007.jpg
+- [7:17] tutorials/frames/no-nodes-procedural-environment-in-unreal-engine-5---dash-tutorial/frame_008.jpg
+- [7:40] tutorials/frames/no-nodes-procedural-environment-in-unreal-engine-5---dash-tutorial/frame_009.jpg
+- [8:08] tutorials/frames/no-nodes-procedural-environment-in-unreal-engine-5---dash-tutorial/frame_010.jpg
 
 ## Related Entries
 - [[path-scatter-beginner-guide-to-your-ue5-co-pilot-dash]] — Path Scatter beginner guide (1.4)

@@ -64,6 +64,32 @@ UE 5.x (Dash 1.4 — Polyhaven described as "now integrated")
 
 ---
 
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:05] tutorials/frames/speed-up-your-archviz-workflow-with-dash-in-ue5/frame_000.jpg
+- [0:55] tutorials/frames/speed-up-your-archviz-workflow-with-dash-in-ue5/frame_001.jpg
+- [2:22] tutorials/frames/speed-up-your-archviz-workflow-with-dash-in-ue5/frame_002.jpg
+- [2:47] tutorials/frames/speed-up-your-archviz-workflow-with-dash-in-ue5/frame_003.jpg
+- [3:45] tutorials/frames/speed-up-your-archviz-workflow-with-dash-in-ue5/frame_004.jpg
+- [4:10] tutorials/frames/speed-up-your-archviz-workflow-with-dash-in-ue5/frame_005.jpg
+- [4:36] tutorials/frames/speed-up-your-archviz-workflow-with-dash-in-ue5/frame_006.jpg
+- [6:42] tutorials/frames/speed-up-your-archviz-workflow-with-dash-in-ue5/frame_007.jpg
+- [7:31] tutorials/frames/speed-up-your-archviz-workflow-with-dash-in-ue5/frame_008.jpg
+- [9:28] tutorials/frames/speed-up-your-archviz-workflow-with-dash-in-ue5/frame_009.jpg
+- [9:55] tutorials/frames/speed-up-your-archviz-workflow-with-dash-in-ue5/frame_010.jpg
+- [11:03] tutorials/frames/speed-up-your-archviz-workflow-with-dash-in-ue5/frame_011.jpg
+- [12:07] tutorials/frames/speed-up-your-archviz-workflow-with-dash-in-ue5/frame_012.jpg
+- [12:25] tutorials/frames/speed-up-your-archviz-workflow-with-dash-in-ue5/frame_013.jpg
+- [13:06] tutorials/frames/speed-up-your-archviz-workflow-with-dash-in-ue5/frame_014.jpg
+- [14:15] tutorials/frames/speed-up-your-archviz-workflow-with-dash-in-ue5/frame_015.jpg
+
 ## Related Entries
 - [[how-to-create-a-cinematic-archviz-render-with-ue5-dash]] — Tomáš cinematic archviz with Path Tracer + ABO (1.9)
 - [[realistic-architecture-environment-in-ue5---dash-workflow]] — Thomas Schneider archviz with AI tagging + physics paint (1.5)

@@ -64,6 +64,23 @@ UE 5.x (Genesis plugin)
 
 ---
 
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:05] tutorials/frames/3d-tracking-natively-in-unreal-engine---full-tutorial/frame_000.jpg
+- [0:39] tutorials/frames/3d-tracking-natively-in-unreal-engine---full-tutorial/frame_001.jpg
+- [1:12] tutorials/frames/3d-tracking-natively-in-unreal-engine---full-tutorial/frame_002.jpg
+- [4:21] tutorials/frames/3d-tracking-natively-in-unreal-engine---full-tutorial/frame_003.jpg
+- [6:38] tutorials/frames/3d-tracking-natively-in-unreal-engine---full-tutorial/frame_004.jpg
+- [11:30] tutorials/frames/3d-tracking-natively-in-unreal-engine---full-tutorial/frame_005.jpg
+- [13:51] tutorials/frames/3d-tracking-natively-in-unreal-engine---full-tutorial/frame_006.jpg
+
 ## Related Entries
 - [[i-built-the-camera-tracking-tool-i-always-wished-unreal-had]] - Genesis announcement + feature overview
 - [[unreal-engine-5-compositing-tutorial---composite-any-scene-fully-inside-of-ue5]] - compositing workflow using Genesis tracking

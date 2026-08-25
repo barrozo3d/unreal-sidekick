@@ -71,6 +71,29 @@ UE 5.x (Dash 1.9+)
 
 ---
 
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:05] tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/frame_000.jpg
+- [0:28] tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/frame_001.jpg
+- [0:59] tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/frame_002.jpg
+- [1:27] tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/frame_003.jpg
+- [1:54] tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/frame_004.jpg
+- [2:23] tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/frame_005.jpg
+- [2:43] tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/frame_006.jpg
+- [3:00] tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/frame_007.jpg
+- [3:21] tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/frame_008.jpg
+- [3:52] tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/frame_009.jpg
+- [4:15] tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/frame_010.jpg
+- [4:39] tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/frame_011.jpg
+- [5:10] tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/frame_012.jpg
+
 ## Related Entries
 - [[best-free-unreal-engine-5-asset-management-plugin-in-2025]] — Full Dash 1.9 Content Browser deep-dive (Tomáš)
 - [[dash-19---managing-assets-in-ue5-just-got-a-lot-easier]] — 1.9 base release with Collections + RVT + Advanced Water

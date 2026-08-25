@@ -1,4 +1,4 @@
-﻿---
+---
 title: Making Asset Importing Easy in UE5 - Dash Content Browser
 source: YouTube
 url: https://www.youtube.com/watch?v=s-UQxXkHt8k
@@ -60,6 +60,23 @@ UE 5.x (Dash 1.5)
 `#dash-1.5` `#content-library` `#polyhaven` `#ai-tagging` `#materials` `#physics` `#scatter` `#beginner`
 
 ---
+
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:05] tutorials/frames/making-asset-importing-easy-in-ue5---dash-content-browser/frame_000.jpg
+- [0:20] tutorials/frames/making-asset-importing-easy-in-ue5---dash-content-browser/frame_001.jpg
+- [1:07] tutorials/frames/making-asset-importing-easy-in-ue5---dash-content-browser/frame_002.jpg
+- [1:33] tutorials/frames/making-asset-importing-easy-in-ue5---dash-content-browser/frame_003.jpg
+- [2:07] tutorials/frames/making-asset-importing-easy-in-ue5---dash-content-browser/frame_004.jpg
+- [2:15] tutorials/frames/making-asset-importing-easy-in-ue5---dash-content-browser/frame_005.jpg
+- [2:27] tutorials/frames/making-asset-importing-easy-in-ue5---dash-content-browser/frame_006.jpg
 
 ## Related Entries
 - [[2000-free-high-quality-assets-for-any-unreal-engine-project]] — Full Polyhaven + IES library showcase (1.5)

@@ -53,6 +53,22 @@ UE 5.x
 
 ---
 
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:05] tutorials/frames/why-modern-vfx-suck-and-how-to-make-yours-not-suck-part-2---transformers-vs-marv/frame_000.jpg
+- [1:18] tutorials/frames/why-modern-vfx-suck-and-how-to-make-yours-not-suck-part-2---transformers-vs-marv/frame_001.jpg
+- [2:13] tutorials/frames/why-modern-vfx-suck-and-how-to-make-yours-not-suck-part-2---transformers-vs-marv/frame_002.jpg
+- [3:16] tutorials/frames/why-modern-vfx-suck-and-how-to-make-yours-not-suck-part-2---transformers-vs-marv/frame_003.jpg
+- [3:47] tutorials/frames/why-modern-vfx-suck-and-how-to-make-yours-not-suck-part-2---transformers-vs-marv/frame_004.jpg
+- [5:58] tutorials/frames/why-modern-vfx-suck-and-how-to-make-yours-not-suck-part-2---transformers-vs-marv/frame_005.jpg
+
 ## Related Entries
 - [[why-modern-vfx-suck-and-how-to-make-yours-not-suck]] — Part 1 of this series
 - [[why-modern-vfx-dont-suck---low-budget-virtual-production-everything-everywhere-a]] — Part 3 (positive counterpart)

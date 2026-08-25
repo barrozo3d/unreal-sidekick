@@ -64,6 +64,25 @@ UE 5.x (Dash 1.8.5)
 
 ---
 
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:05] tutorials/frames/dash-185---big-update-for-ue5-world-building/frame_000.jpg
+- [0:31] tutorials/frames/dash-185---big-update-for-ue5-world-building/frame_001.jpg
+- [2:42] tutorials/frames/dash-185---big-update-for-ue5-world-building/frame_002.jpg
+- [4:25] tutorials/frames/dash-185---big-update-for-ue5-world-building/frame_003.jpg
+- [5:36] tutorials/frames/dash-185---big-update-for-ue5-world-building/frame_004.jpg
+- [6:07] tutorials/frames/dash-185---big-update-for-ue5-world-building/frame_005.jpg
+- [6:47] tutorials/frames/dash-185---big-update-for-ue5-world-building/frame_006.jpg
+- [7:07] tutorials/frames/dash-185---big-update-for-ue5-world-building/frame_007.jpg
+- [7:36] tutorials/frames/dash-185---big-update-for-ue5-world-building/frame_008.jpg
+
 ## Related Entries
 - [[getting-started-with-dash---easy-world-building-in-ue5]] — Dash 1.8 comprehensive tutorial (same version series)
 - [[creating-a-blend-material-in-unreal-engine-5-just-got-easier]] — Blend Material tool detail

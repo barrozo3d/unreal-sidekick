@@ -62,6 +62,25 @@ UE 5.x (Dash 1.5 — AI Tagging described as new)
 
 ---
 
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:05] tutorials/frames/this-plugin-makes-unreal-engine-5-even-more-amazing---dash-for-world-building/frame_000.jpg
+- [0:19] tutorials/frames/this-plugin-makes-unreal-engine-5-even-more-amazing---dash-for-world-building/frame_001.jpg
+- [0:42] tutorials/frames/this-plugin-makes-unreal-engine-5-even-more-amazing---dash-for-world-building/frame_002.jpg
+- [1:17] tutorials/frames/this-plugin-makes-unreal-engine-5-even-more-amazing---dash-for-world-building/frame_003.jpg
+- [1:47] tutorials/frames/this-plugin-makes-unreal-engine-5-even-more-amazing---dash-for-world-building/frame_004.jpg
+- [3:40] tutorials/frames/this-plugin-makes-unreal-engine-5-even-more-amazing---dash-for-world-building/frame_005.jpg
+- [4:39] tutorials/frames/this-plugin-makes-unreal-engine-5-even-more-amazing---dash-for-world-building/frame_006.jpg
+- [5:16] tutorials/frames/this-plugin-makes-unreal-engine-5-even-more-amazing---dash-for-world-building/frame_007.jpg
+- [6:00] tutorials/frames/this-plugin-makes-unreal-engine-5-even-more-amazing---dash-for-world-building/frame_008.jpg
+
 ## Related Entries
 - [[dash-for-ue5-helps-you-organize-your-local-3d-assets-with-ai-tagging]] — dedicated AI tagging tutorial (1.5)
 - [[making-asset-importing-easy-in-ue5---dash-content-browser]] — CB import speed comparison tutorial (1.5)

@@ -52,6 +52,20 @@ UE 5.x
 
 ---
 
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:49] tutorials/frames/how-unreal-engine-is-changing-filmmaking-forever/frame_000.jpg
+- [2:26] tutorials/frames/how-unreal-engine-is-changing-filmmaking-forever/frame_001.jpg
+- [4:28] tutorials/frames/how-unreal-engine-is-changing-filmmaking-forever/frame_002.jpg
+- [6:30] tutorials/frames/how-unreal-engine-is-changing-filmmaking-forever/frame_003.jpg
+
 ## Related Entries
 - [[unreal-engine-54-cinematic-previs-course]] — full previs course promo
 - [[unreal-engine-57-filmmaking-course---unreal-engine-for-filmmakers-2026-update]] — updated full filmmaking course

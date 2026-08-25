@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to Re-Create The Walking Dead in Unreal Engine 5 - Dash Workflow
 source: YouTube
 url: https://www.youtube.com/watch?v=5aTwhjR5JJE
@@ -60,6 +60,24 @@ UE 5.x (Dash 1.4)
 `#dash-1.4` `#environment` `#scatter` `#decals` `#grid-scatter` `#physics` `#cable-tool` `#horror` `#intermediate`
 
 ---
+
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:05] tutorials/frames/how-to-re-create-the-walking-dead-in-unreal-engine-5---dash-workflow/frame_000.jpg
+- [0:43] tutorials/frames/how-to-re-create-the-walking-dead-in-unreal-engine-5---dash-workflow/frame_001.jpg
+- [1:05] tutorials/frames/how-to-re-create-the-walking-dead-in-unreal-engine-5---dash-workflow/frame_002.jpg
+- [2:42] tutorials/frames/how-to-re-create-the-walking-dead-in-unreal-engine-5---dash-workflow/frame_003.jpg
+- [4:44] tutorials/frames/how-to-re-create-the-walking-dead-in-unreal-engine-5---dash-workflow/frame_004.jpg
+- [5:47] tutorials/frames/how-to-re-create-the-walking-dead-in-unreal-engine-5---dash-workflow/frame_005.jpg
+- [5:59] tutorials/frames/how-to-re-create-the-walking-dead-in-unreal-engine-5---dash-workflow/frame_006.jpg
+- [7:31] tutorials/frames/how-to-re-create-the-walking-dead-in-unreal-engine-5---dash-workflow/frame_007.jpg
 
 ## Related Entries
 - [[environment-breakdown-underground-horror-in-ue5]] — Josh Powers horror workflow; Scatter Mesh Cards + decals

@@ -1,4 +1,4 @@
-﻿---
+---
 title: DASH 1.9.3 - NEW UE5 ASSET MARKETPLACE
 source: YouTube
 url: https://www.youtube.com/watch?v=YHmNyyI998k
@@ -60,6 +60,23 @@ UE 5.x (Dash 1.9.3)
 `#dash-1.9` `#release-notes` `#marketplace` `#content-library` `#dekogon` `#ambientcg` `#scatter` `#beginner`
 
 ---
+
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:05] tutorials/frames/dash-193---new-ue5-asset-marketplace/frame_000.jpg
+- [0:22] tutorials/frames/dash-193---new-ue5-asset-marketplace/frame_001.jpg
+- [3:56] tutorials/frames/dash-193---new-ue5-asset-marketplace/frame_002.jpg
+- [4:35] tutorials/frames/dash-193---new-ue5-asset-marketplace/frame_003.jpg
+- [6:40] tutorials/frames/dash-193---new-ue5-asset-marketplace/frame_004.jpg
+- [7:03] tutorials/frames/dash-193---new-ue5-asset-marketplace/frame_005.jpg
+- [7:40] tutorials/frames/dash-193---new-ue5-asset-marketplace/frame_006.jpg
 
 ## Related Entries
 - [[dash-192---new-ue5-tools-amazon-3d-library-integration]] — 1.9.2 ABO + Mesh Pattern + rainfall

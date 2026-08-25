@@ -64,6 +64,20 @@ UE 5.x
 
 ---
 
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [3:14] tutorials/frames/how-to-make-your-unreal-engine-renders-look-real/frame_000.jpg
+- [9:40] tutorials/frames/how-to-make-your-unreal-engine-renders-look-real/frame_001.jpg
+- [17:44] tutorials/frames/how-to-make-your-unreal-engine-renders-look-real/frame_002.jpg
+- [25:48] tutorials/frames/how-to-make-your-unreal-engine-renders-look-real/frame_003.jpg
+
 ## Related Entries
 - [[the-simplest-rendering-trick-90-of-unreal-artists-miss]] — chromatic aberration, vignette, grain overview
 - [[best-settings-for-unreal-engine-56---perfect-renders-every-time]] — LightForge settings optimization

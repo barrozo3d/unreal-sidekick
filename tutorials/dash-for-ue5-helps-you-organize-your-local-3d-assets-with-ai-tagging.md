@@ -1,4 +1,4 @@
-﻿---
+---
 title: Dash for UE5 Helps You Organize Your Local 3D Assets with AI Tagging
 source: YouTube
 url: https://www.youtube.com/watch?v=fvlPj3hYgSI
@@ -58,6 +58,20 @@ UE 5.x (Dash 1.5)
 `#dash-1.5` `#ai-tagging` `#content-library` `#asset-management` `#scatter` `#physics` `#beginner`
 
 ---
+
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:20] tutorials/frames/dash-for-ue5-helps-you-organize-your-local-3d-assets-with-ai-tagging/frame_000.jpg
+- [1:00] tutorials/frames/dash-for-ue5-helps-you-organize-your-local-3d-assets-with-ai-tagging/frame_001.jpg
+- [1:50] tutorials/frames/dash-for-ue5-helps-you-organize-your-local-3d-assets-with-ai-tagging/frame_002.jpg
+- [2:40] tutorials/frames/dash-for-ue5-helps-you-organize-your-local-3d-assets-with-ai-tagging/frame_003.jpg
 
 ## Related Entries
 - [[auto-tag-sort-1000-ue5-assetsmonth-with-this-free-content-browser]] — Dedicated AI tagging tutorial (same feature, Tomáš narration)

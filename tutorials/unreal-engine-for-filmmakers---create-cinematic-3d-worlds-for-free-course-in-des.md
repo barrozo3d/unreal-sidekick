@@ -50,6 +50,27 @@ UE 5.x (early UE5 era, Quixel Bridge era)
 
 ---
 
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:05] tutorials/frames/unreal-engine-for-filmmakers---create-cinematic-3d-worlds-for-free-course-in-des/frame_000.jpg
+- [1:36] tutorials/frames/unreal-engine-for-filmmakers---create-cinematic-3d-worlds-for-free-course-in-des/frame_001.jpg
+- [2:47] tutorials/frames/unreal-engine-for-filmmakers---create-cinematic-3d-worlds-for-free-course-in-des/frame_002.jpg
+- [3:15] tutorials/frames/unreal-engine-for-filmmakers---create-cinematic-3d-worlds-for-free-course-in-des/frame_003.jpg
+- [4:15] tutorials/frames/unreal-engine-for-filmmakers---create-cinematic-3d-worlds-for-free-course-in-des/frame_004.jpg
+- [5:07] tutorials/frames/unreal-engine-for-filmmakers---create-cinematic-3d-worlds-for-free-course-in-des/frame_005.jpg
+- [6:22] tutorials/frames/unreal-engine-for-filmmakers---create-cinematic-3d-worlds-for-free-course-in-des/frame_006.jpg
+- [6:53] tutorials/frames/unreal-engine-for-filmmakers---create-cinematic-3d-worlds-for-free-course-in-des/frame_007.jpg
+- [8:53] tutorials/frames/unreal-engine-for-filmmakers---create-cinematic-3d-worlds-for-free-course-in-des/frame_008.jpg
+- [9:23] tutorials/frames/unreal-engine-for-filmmakers---create-cinematic-3d-worlds-for-free-course-in-des/frame_009.jpg
+- [11:41] tutorials/frames/unreal-engine-for-filmmakers---create-cinematic-3d-worlds-for-free-course-in-des/frame_010.jpg
+
 ## Related Entries
 - [[unlock-thousands-of-free-assets-in-unreal-engine]] — 2025 Megascans via Fab plugin (Quixel Bridge replaced)
 - [[free-unreal-engine-53-beginner-course---create-cinematic-3d-worlds]] — free beginner course (later channel addition)

@@ -57,6 +57,22 @@ UE 5.x (Dash 1.5 - explicit in title)
 
 ---
 
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:05] tutorials/frames/whats-new-in-dash-15---ai-content-tagging-tool-presets-more/frame_000.jpg
+- [0:26] tutorials/frames/whats-new-in-dash-15---ai-content-tagging-tool-presets-more/frame_001.jpg
+- [0:43] tutorials/frames/whats-new-in-dash-15---ai-content-tagging-tool-presets-more/frame_002.jpg
+- [1:13] tutorials/frames/whats-new-in-dash-15---ai-content-tagging-tool-presets-more/frame_003.jpg
+- [1:32] tutorials/frames/whats-new-in-dash-15---ai-content-tagging-tool-presets-more/frame_004.jpg
+- [1:52] tutorials/frames/whats-new-in-dash-15---ai-content-tagging-tool-presets-more/frame_005.jpg
+
 ## Related Entries
 - [[dash-for-ue5-helps-you-organize-your-local-3d-assets-with-ai-tagging]] - AI Tagging dedicated tutorial (1.5)
 - [[making-asset-importing-easy-in-ue5---dash-content-browser]] - CB speed improvements (1.5)

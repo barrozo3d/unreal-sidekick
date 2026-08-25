@@ -56,6 +56,20 @@ UE 5.x (pre-Genesis era)
 
 ---
 
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:41] tutorials/frames/unreal-engine-5-compositing-tutorial---composite-any-scene-fully-inside-of-ue5/frame_000.jpg
+- [2:04] tutorials/frames/unreal-engine-5-compositing-tutorial---composite-any-scene-fully-inside-of-ue5/frame_001.jpg
+- [3:47] tutorials/frames/unreal-engine-5-compositing-tutorial---composite-any-scene-fully-inside-of-ue5/frame_002.jpg
+- [5:30] tutorials/frames/unreal-engine-5-compositing-tutorial---composite-any-scene-fully-inside-of-ue5/frame_003.jpg
+
 ## Related Entries
 - [[3d-tracking-natively-in-unreal-engine---full-tutorial]] — Genesis: automated camera-tracking natively in UE (supersedes this workflow)
 - [[unreal-engine-for-filmmakers---add-cinematic-vfx-to-your-films-for-free---ue5-pa]] — beginner compositing series Part 1

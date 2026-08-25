@@ -1,4 +1,4 @@
-﻿---
+---
 title: Easiest Way to Get CINEMATIC Renders in UNREAL ENGINE - Path Tracing
 source: YouTube
 url: https://www.youtube.com/watch?v=g8aHQqbQfOU
@@ -58,6 +58,25 @@ UE 4.27 (also applies to UE 5.x — fundamentals unchanged; superseded by LightF
 `#rendering` `#path-tracing` `#mrq` `#fog` `#project-settings` `#beginner`
 
 ---
+
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:05] tutorials/frames/easiest-way-to-get-cinematic-renders-in-unreal-engine---path-tracing/frame_000.jpg
+- [0:38] tutorials/frames/easiest-way-to-get-cinematic-renders-in-unreal-engine---path-tracing/frame_001.jpg
+- [0:55] tutorials/frames/easiest-way-to-get-cinematic-renders-in-unreal-engine---path-tracing/frame_002.jpg
+- [2:10] tutorials/frames/easiest-way-to-get-cinematic-renders-in-unreal-engine---path-tracing/frame_003.jpg
+- [2:51] tutorials/frames/easiest-way-to-get-cinematic-renders-in-unreal-engine---path-tracing/frame_004.jpg
+- [3:39] tutorials/frames/easiest-way-to-get-cinematic-renders-in-unreal-engine---path-tracing/frame_005.jpg
+- [6:33] tutorials/frames/easiest-way-to-get-cinematic-renders-in-unreal-engine---path-tracing/frame_006.jpg
+- [7:22] tutorials/frames/easiest-way-to-get-cinematic-renders-in-unreal-engine---path-tracing/frame_007.jpg
+- [9:25] tutorials/frames/easiest-way-to-get-cinematic-renders-in-unreal-engine---path-tracing/frame_008.jpg
 
 ## Related Entries
 - [[fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro]] — Path Tracer Pro (Nanite fix; successor workflow)

@@ -1,4 +1,4 @@
-﻿---
+---
 title: New UE5 Plugin - Adding Detail to Your Game with DASH
 source: YouTube
 url: https://www.youtube.com/watch?v=UO2ehs5OjEw
@@ -61,6 +61,26 @@ UE 5.x (Dash 1.4)
 `#dash-1.4` `#game-environment` `#scatter` `#decals` `#physics` `#cable-tool` `#polyhaven` `#foliage` `#intermediate`
 
 ---
+
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:05] tutorials/frames/new-ue5-plugin---adding-detail-to-your-game-with-dash/frame_000.jpg
+- [0:20] tutorials/frames/new-ue5-plugin---adding-detail-to-your-game-with-dash/frame_001.jpg
+- [0:40] tutorials/frames/new-ue5-plugin---adding-detail-to-your-game-with-dash/frame_002.jpg
+- [1:25] tutorials/frames/new-ue5-plugin---adding-detail-to-your-game-with-dash/frame_003.jpg
+- [2:24] tutorials/frames/new-ue5-plugin---adding-detail-to-your-game-with-dash/frame_004.jpg
+- [3:59] tutorials/frames/new-ue5-plugin---adding-detail-to-your-game-with-dash/frame_005.jpg
+- [4:59] tutorials/frames/new-ue5-plugin---adding-detail-to-your-game-with-dash/frame_006.jpg
+- [6:05] tutorials/frames/new-ue5-plugin---adding-detail-to-your-game-with-dash/frame_007.jpg
+- [6:55] tutorials/frames/new-ue5-plugin---adding-detail-to-your-game-with-dash/frame_008.jpg
+- [8:13] tutorials/frames/new-ue5-plugin---adding-detail-to-your-game-with-dash/frame_009.jpg
 
 ## Related Entries
 - [[new-ue5-plugin---easy-environment-creation]] — Josh Powers earlier environment tutorial

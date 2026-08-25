@@ -58,6 +58,21 @@ UE 5.x
 
 ---
 
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:05] tutorials/frames/unreal-engine-for-filmmakers---incredible-realtime-particle-simulations-for-free/frame_000.jpg
+- [2:57] tutorials/frames/unreal-engine-for-filmmakers---incredible-realtime-particle-simulations-for-free/frame_001.jpg
+- [3:58] tutorials/frames/unreal-engine-for-filmmakers---incredible-realtime-particle-simulations-for-free/frame_002.jpg
+- [7:55] tutorials/frames/unreal-engine-for-filmmakers---incredible-realtime-particle-simulations-for-free/frame_003.jpg
+- [9:13] tutorials/frames/unreal-engine-for-filmmakers---incredible-realtime-particle-simulations-for-free/frame_004.jpg
+
 ## Related Entries
 - [[unreal-engine-for-filmmakers---add-cinematic-vfx-to-your-films-for-free---ue5-pa]] — Niagara Fluid Sim Part 1 (more advanced physics sims)
 - [[unreal-engine-for-filmmakers---cinematic-vfx-for-free---ue5-part-2]] — Niagara Fluid Sim Part 2 (parameter tuning)

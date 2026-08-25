@@ -1,4 +1,4 @@
-﻿---
+---
 title: PROCEDURAL WORLD BUILDING FOR UE5 - PCG ALTERNATIVE
 source: YouTube
 url: https://www.youtube.com/watch?v=KsgW-19y4ts
@@ -66,6 +66,26 @@ UE 5.x (Dash 1.7)
 `#dash-1.7` `#environment` `#scatter` `#path-scatter` `#grid-scatter` `#radial-scatter` `#decals` `#property-references` `#compound-tool` `#tool-presets` `#procedural` `#beginner` `#intermediate`
 
 ---
+
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:05] tutorials/frames/procedural-world-building-for-ue5---pcg-alternative/frame_000.jpg
+- [0:40] tutorials/frames/procedural-world-building-for-ue5---pcg-alternative/frame_001.jpg
+- [7:09] tutorials/frames/procedural-world-building-for-ue5---pcg-alternative/frame_002.jpg
+- [13:40] tutorials/frames/procedural-world-building-for-ue5---pcg-alternative/frame_003.jpg
+- [17:13] tutorials/frames/procedural-world-building-for-ue5---pcg-alternative/frame_004.jpg
+- [22:45] tutorials/frames/procedural-world-building-for-ue5---pcg-alternative/frame_005.jpg
+- [24:14] tutorials/frames/procedural-world-building-for-ue5---pcg-alternative/frame_006.jpg
+- [26:58] tutorials/frames/procedural-world-building-for-ue5---pcg-alternative/frame_007.jpg
+- [27:40] tutorials/frames/procedural-world-building-for-ue5---pcg-alternative/frame_008.jpg
+- [28:40] tutorials/frames/procedural-world-building-for-ue5---pcg-alternative/frame_009.jpg
 
 ## Related Entries
 - [[creating-a-massive-procedural-game-world-in-ue5-with-dash]] — Property References + Curve Masking production workflow (1.7)

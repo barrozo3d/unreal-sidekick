@@ -65,6 +65,24 @@ UE 5.x (Dash early — no Polyhaven, no AI tagging)
 
 ---
 
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:05] tutorials/frames/tutorial-create-subtle-realistic-environments-in-ue5/frame_000.jpg
+- [0:35] tutorials/frames/tutorial-create-subtle-realistic-environments-in-ue5/frame_001.jpg
+- [1:42] tutorials/frames/tutorial-create-subtle-realistic-environments-in-ue5/frame_002.jpg
+- [2:35] tutorials/frames/tutorial-create-subtle-realistic-environments-in-ue5/frame_003.jpg
+- [3:10] tutorials/frames/tutorial-create-subtle-realistic-environments-in-ue5/frame_004.jpg
+- [4:25] tutorials/frames/tutorial-create-subtle-realistic-environments-in-ue5/frame_005.jpg
+- [7:07] tutorials/frames/tutorial-create-subtle-realistic-environments-in-ue5/frame_006.jpg
+- [8:45] tutorials/frames/tutorial-create-subtle-realistic-environments-in-ue5/frame_007.jpg
+
 ## Related Entries
 - [[create-run-down-environments-in-minutes---dash-ue5]] — Josh Powers early: Color Grading Library, camera sharpness (dash-early)
 - [[environment-breakdown-underground-horror-in-ue5]] — Josh Powers early: horror environment, atlas scatter, proximity along walls (dash-early)

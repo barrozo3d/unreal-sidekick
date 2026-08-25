@@ -1,4 +1,4 @@
-﻿---
+---
 title: BEST SETTINGS for Unreal Engine 5.6 - PERFECT Renders Every Time
 source: YouTube
 url: https://www.youtube.com/watch?v=dZmnDDSNUEY
@@ -55,6 +55,22 @@ UE 5.6
 `#lightforge-v1` `#rendering` `#path-tracing` `#lumen` `#mrq` `#project-settings` `#beginner`
 
 ---
+
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:05] tutorials/frames/best-settings-for-unreal-engine-56---perfect-renders-every-time/frame_000.jpg
+- [1:18] tutorials/frames/best-settings-for-unreal-engine-56---perfect-renders-every-time/frame_001.jpg
+- [1:47] tutorials/frames/best-settings-for-unreal-engine-56---perfect-renders-every-time/frame_002.jpg
+- [3:09] tutorials/frames/best-settings-for-unreal-engine-56---perfect-renders-every-time/frame_003.jpg
+- [4:17] tutorials/frames/best-settings-for-unreal-engine-56---perfect-renders-every-time/frame_004.jpg
+- [7:30] tutorials/frames/best-settings-for-unreal-engine-56---perfect-renders-every-time/frame_005.jpg
 
 ## Related Entries
 - [[the-ultimate-plugin-for-filmmaking-in-unreal-engine]] — LightForge v1 feature announcement

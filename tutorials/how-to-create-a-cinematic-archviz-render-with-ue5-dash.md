@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to Create a Cinematic Archviz Render with UE5 & Dash
 source: YouTube
 url: https://www.youtube.com/watch?v=HL8NDvv1G44
@@ -64,6 +64,24 @@ UE 5.x (Dash 1.9+)
 `#dash-1.9` `#archviz` `#scatter` `#vines` `#path-tracing` `#amazon-abo` `#materials` `#lighting` `#hdri` `#mrq` `#intermediate`
 
 ---
+
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:05] tutorials/frames/how-to-create-a-cinematic-archviz-render-with-ue5-dash/frame_000.jpg
+- [0:28] tutorials/frames/how-to-create-a-cinematic-archviz-render-with-ue5-dash/frame_001.jpg
+- [4:58] tutorials/frames/how-to-create-a-cinematic-archviz-render-with-ue5-dash/frame_002.jpg
+- [9:57] tutorials/frames/how-to-create-a-cinematic-archviz-render-with-ue5-dash/frame_003.jpg
+- [10:17] tutorials/frames/how-to-create-a-cinematic-archviz-render-with-ue5-dash/frame_004.jpg
+- [10:57] tutorials/frames/how-to-create-a-cinematic-archviz-render-with-ue5-dash/frame_005.jpg
+- [12:20] tutorials/frames/how-to-create-a-cinematic-archviz-render-with-ue5-dash/frame_006.jpg
+- [12:40] tutorials/frames/how-to-create-a-cinematic-archviz-render-with-ue5-dash/frame_007.jpg
 
 ## Related Entries
 - [[architecture-scenes-made-easy-in-unreal-engine-5---dash-tutorial]] — Archviz workflow with Cable Tool string lights (Dash 1.6)

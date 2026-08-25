@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to Render Chaos Cloth Simulations with Motion Blur [The RIGHT Way]
 source: YouTube
 url: https://www.youtube.com/watch?v=f4izPHpbfZI
@@ -62,6 +62,26 @@ UE 5.x
 `#lightforge-v2` `#simulation` `#cloth` `#rendering` `#mrq` `#sequencer` `#take-recorder` `#intermediate`
 
 ---
+
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:05] tutorials/frames/how-to-render-chaos-cloth-simulations-with-motion-blur-the-right-way/frame_000.jpg
+- [1:31] tutorials/frames/how-to-render-chaos-cloth-simulations-with-motion-blur-the-right-way/frame_001.jpg
+- [2:05] tutorials/frames/how-to-render-chaos-cloth-simulations-with-motion-blur-the-right-way/frame_002.jpg
+- [3:28] tutorials/frames/how-to-render-chaos-cloth-simulations-with-motion-blur-the-right-way/frame_003.jpg
+- [5:53] tutorials/frames/how-to-render-chaos-cloth-simulations-with-motion-blur-the-right-way/frame_004.jpg
+- [9:08] tutorials/frames/how-to-render-chaos-cloth-simulations-with-motion-blur-the-right-way/frame_005.jpg
+- [10:02] tutorials/frames/how-to-render-chaos-cloth-simulations-with-motion-blur-the-right-way/frame_006.jpg
+- [11:48] tutorials/frames/how-to-render-chaos-cloth-simulations-with-motion-blur-the-right-way/frame_007.jpg
+- [12:56] tutorials/frames/how-to-render-chaos-cloth-simulations-with-motion-blur-the-right-way/frame_008.jpg
+- [13:41] tutorials/frames/how-to-render-chaos-cloth-simulations-with-motion-blur-the-right-way/frame_009.jpg
 
 ## Related Entries
 - [[best-settings-for-unreal-engine-56---perfect-renders-every-time]] - MRQ render settings deep-dive

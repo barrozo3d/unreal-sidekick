@@ -1,4 +1,4 @@
-﻿---
+---
 title: Unreal Engine Depth Fog TUTORIAL [Path Traced]
 source: YouTube
 url: https://www.youtube.com/watch?v=0ltfUCHwevY
@@ -55,6 +55,22 @@ UE 5.x (Path Tracer era)
 `#fog` `#rendering` `#path-tracing` `#materials` `#post-process` `#intermediate`
 
 ---
+
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:05] tutorials/frames/unreal-engine-depth-fog-tutorial-path-traced/frame_000.jpg
+- [0:50] tutorials/frames/unreal-engine-depth-fog-tutorial-path-traced/frame_001.jpg
+- [1:21] tutorials/frames/unreal-engine-depth-fog-tutorial-path-traced/frame_002.jpg
+- [2:55] tutorials/frames/unreal-engine-depth-fog-tutorial-path-traced/frame_003.jpg
+- [6:50] tutorials/frames/unreal-engine-depth-fog-tutorial-path-traced/frame_004.jpg
+- [8:34] tutorials/frames/unreal-engine-depth-fog-tutorial-path-traced/frame_005.jpg
 
 ## Related Entries
 - [[unreal-engine-for-filmmakers---cinematic-camera-settings-setting-up-virtual-came]] — Exp Height Fog for Lit mode (when PT not needed)

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Creating a Helldivers 2 Environment in 79 minutes - UE5 Tutorial
 source: YouTube
 url: https://www.youtube.com/watch?v=kJhqc5_6usc
@@ -74,6 +74,38 @@ UE 5.x (Dash 1.7)
 `#dash-1.7` `#game-environment` `#terrain` `#scatter` `#vines` `#fog-cards` `#image-to-grading` `#ai-tagging` `#physics` `#bake` `#intermediate`
 
 ---
+
+## Captured Frames
+
+<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
+     ingest.py before c4decae picked blind-era moments deterministically;
+     re-derived from the source's own chapter/duration metadata and
+     accepted only because the count matched frame_count exactly.
+     These are blind-era moments: legible and citable now, but not
+     content-anchored. Re-selecting them is still a human call. -->
+
+- [0:05] tutorials/frames/creating-a-helldivers-2-environment-in-79-minutes---ue5-tutorial/frame_000.jpg
+- [1:35] tutorials/frames/creating-a-helldivers-2-environment-in-79-minutes---ue5-tutorial/frame_001.jpg
+- [2:35] tutorials/frames/creating-a-helldivers-2-environment-in-79-minutes---ue5-tutorial/frame_002.jpg
+- [6:13] tutorials/frames/creating-a-helldivers-2-environment-in-79-minutes---ue5-tutorial/frame_003.jpg
+- [8:15] tutorials/frames/creating-a-helldivers-2-environment-in-79-minutes---ue5-tutorial/frame_004.jpg
+- [13:35] tutorials/frames/creating-a-helldivers-2-environment-in-79-minutes---ue5-tutorial/frame_005.jpg
+- [32:25] tutorials/frames/creating-a-helldivers-2-environment-in-79-minutes---ue5-tutorial/frame_006.jpg
+- [35:15] tutorials/frames/creating-a-helldivers-2-environment-in-79-minutes---ue5-tutorial/frame_007.jpg
+- [38:35] tutorials/frames/creating-a-helldivers-2-environment-in-79-minutes---ue5-tutorial/frame_008.jpg
+- [39:55] tutorials/frames/creating-a-helldivers-2-environment-in-79-minutes---ue5-tutorial/frame_009.jpg
+- [42:13] tutorials/frames/creating-a-helldivers-2-environment-in-79-minutes---ue5-tutorial/frame_010.jpg
+- [47:40] tutorials/frames/creating-a-helldivers-2-environment-in-79-minutes---ue5-tutorial/frame_011.jpg
+- [49:30] tutorials/frames/creating-a-helldivers-2-environment-in-79-minutes---ue5-tutorial/frame_012.jpg
+- [50:23] tutorials/frames/creating-a-helldivers-2-environment-in-79-minutes---ue5-tutorial/frame_013.jpg
+- [53:25] tutorials/frames/creating-a-helldivers-2-environment-in-79-minutes---ue5-tutorial/frame_014.jpg
+- [57:45] tutorials/frames/creating-a-helldivers-2-environment-in-79-minutes---ue5-tutorial/frame_015.jpg
+- [59:05] tutorials/frames/creating-a-helldivers-2-environment-in-79-minutes---ue5-tutorial/frame_016.jpg
+- [1:05:55] tutorials/frames/creating-a-helldivers-2-environment-in-79-minutes---ue5-tutorial/frame_017.jpg
+- [1:06:37] tutorials/frames/creating-a-helldivers-2-environment-in-79-minutes---ue5-tutorial/frame_018.jpg
+- [1:08:33] tutorials/frames/creating-a-helldivers-2-environment-in-79-minutes---ue5-tutorial/frame_019.jpg
+- [1:08:54] tutorials/frames/creating-a-helldivers-2-environment-in-79-minutes---ue5-tutorial/frame_020.jpg
+- [1:18:18] tutorials/frames/creating-a-helldivers-2-environment-in-79-minutes---ue5-tutorial/frame_021.jpg
 
 ## Related Entries
 - [[dash-170---massive-ue5-world-building-tool]] — Dash 1.7 release notes (Vines + Image-to-Grading feature announcement)
