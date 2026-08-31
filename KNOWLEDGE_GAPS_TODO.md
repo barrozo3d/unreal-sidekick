@@ -13,6 +13,38 @@ extraction pass (see SKILL.md).
 (none — the 6 items from the 2026-07-20 gap analysis are all ingested; see
 Completed section below)
 
+> ✅ **D4b target 3 re-measured 2026-08-31 — it was already done, in June.**
+> The cross-skill plan carried "Epic docs → `unreal-sidekick`, for the thin
+> topics B4 identified (lip-sync, nDisplay/ICVFX, MetaSounds, narrative
+> blueprints)" as outstanding work. Measured against the 353 files as they stand,
+> **three of the four were already covered — by Epic documentation pages ingested
+> on 2026-06-12 and 2026-06-18, before this program began.**
+>
+> | B4 topic | Entries it is the **subject** of | Passing mentions | Verdict |
+> |---|---|---|---|
+> | lip-sync | **12** (incl. `lip-sync-in-unreal-engine.md`, Epic doc, 2026-06-18) | 24 | not a gap |
+> | nDisplay / ICVFX | **2** (incl. `ndisplay-overview-for-unreal-engine.md`, Epic doc, 2026-06-12) | 22 | covered |
+> | MetaSounds | **3** (incl. `metasounds-in-unreal-engine.md`, Epic doc, 2026-06-18) | 0 | covered |
+> | narrative blueprints | **0** | 3 | **correctly zero — out of scope** |
+>
+> ⚠️ **The raw counts would have misled, in both directions.** A substring count
+> gives lip-sync **36** and nDisplay **24**, which reads as healthy — but for
+> nDisplay only **2** are entries about it; the other 22 are passing mentions
+> ("not viewport, not MRQ, not nDisplay", people recalling work on an LED volume).
+> Conversely narrative blueprints matches **3 files** and is really **zero**: the
+> hits are `fpakprocessedreadrequest system`, and a camera plugin's
+> "cross camera (over-the-shoulder **dialogue system**)". *Suspect the instrument
+> before the data* — counted by whether the topic is the entry's **subject**
+> (title / H1 / tags / headers) rather than by whether the string appears.
+>
+> 🔴 **Narrative blueprints is not a gap and should not be filled.** `SKILL.md`
+> states under **Not in scope**: *"general gameplay/multiplayer programming and
+> game-logic Blueprint patterns."* Dialogue systems, quest systems and narrative
+> Blueprints are exactly that. **Zero coverage here is the design working, not a
+> hole** — recorded so a future gap analysis does not "fix" it.
+>
+> `unreal-sidekick` holds **19 Epic Documentation entries** in total.
+
 ## Completed (ingested 2026-07-20)
 
 - [x] **Unreal Insights / performance profiling** — zero dedicated entries for
