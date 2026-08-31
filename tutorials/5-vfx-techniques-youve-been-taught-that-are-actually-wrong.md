@@ -9,7 +9,7 @@ ue_version: "UE 5.x"
 tags: [vfx, filmmaking, cinematography, compositing, beginner]
 extraction_status: complete
 frames_dir: tutorials/frames/5-vfx-techniques-youve-been-taught-that-are-actually-wrong/
-frame_count: 5
+frame_count: 4
 ---
 
 # 5 vfx Techniques You've Been Taught That Are ACTUALLY Wrong
@@ -17,6 +17,30 @@ frame_count: 5
 **Source:** [YouTube](https://www.youtube.com/watch?v=rUZxS3IwZhQ)
 **Author:** Boundless Entertainment
 **Duration:** ~8m | 5 section(s)
+
+---
+
+## Captured Frames
+
+⚠️ **Listed 2026-08-31 without timestamps, and not usable for grounding.**
+These frames were captured at ingest but never recorded in the file — no
+`## Captured Frames` section was written, so the entry claimed frames it never
+listed (`validate.py` check #17, population A). The paths below are the frames
+that actually exist, listed so the record is true.
+
+Two limits, stated rather than worked around:
+
+- **No timestamps.** No moment was ever recorded for these. None is given here,
+  because inventing one is the moment-*choosing* D0 rules out — and it would also
+  make the set look re-groundable when it is not.
+- **256×144.** Blind-era captures at the resolution D0b identified as unreadable.
+  Panel layout is discernible; node names, parameter values and menu text are not.
+  **They are cited nowhere in the Structured Notes, because they ground nothing.**
+
+- tutorials/frames/5-vfx-techniques-youve-been-taught-that-are-actually-wrong/frame_000.jpg
+- tutorials/frames/5-vfx-techniques-youve-been-taught-that-are-actually-wrong/frame_001.jpg
+- tutorials/frames/5-vfx-techniques-youve-been-taught-that-are-actually-wrong/frame_002.jpg
+- tutorials/frames/5-vfx-techniques-youve-been-taught-that-are-actually-wrong/frame_003.jpg
 
 ---
 

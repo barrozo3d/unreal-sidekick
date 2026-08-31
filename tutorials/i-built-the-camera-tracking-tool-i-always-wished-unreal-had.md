@@ -9,7 +9,7 @@ ue_version: "UE 5.x"
 tags: [genesis, camera-tracking, vfx, beginner]
 extraction_status: complete
 frames_dir: tutorials/frames/i-built-the-camera-tracking-tool-i-always-wished-unreal-had/
-frame_count: 1
+frame_count: 4
 ---
 
 # I BUILT The Camera Tracking Tool I Always Wished Unreal Had
@@ -23,6 +23,30 @@ frame_count: 1
 ## Raw Data (for Claude Code extraction)
 
 [...raw data omitted - see ingested file...]
+
+---
+
+## Captured Frames
+
+⚠️ **Listed 2026-08-31 without timestamps, and not usable for grounding.**
+These frames were captured at ingest but never recorded in the file — no
+`## Captured Frames` section was written, so the entry claimed frames it never
+listed (`validate.py` check #17, population A). The paths below are the frames
+that actually exist, listed so the record is true.
+
+Two limits, stated rather than worked around:
+
+- **No timestamps.** No moment was ever recorded for these. None is given here,
+  because inventing one is the moment-*choosing* D0 rules out — and it would also
+  make the set look re-groundable when it is not.
+- **256×144.** Blind-era captures at the resolution D0b identified as unreadable.
+  Panel layout is discernible; node names, parameter values and menu text are not.
+  **They are cited nowhere in the Structured Notes, because they ground nothing.**
+
+- tutorials/frames/i-built-the-camera-tracking-tool-i-always-wished-unreal-had/frame_000.jpg
+- tutorials/frames/i-built-the-camera-tracking-tool-i-always-wished-unreal-had/frame_001.jpg
+- tutorials/frames/i-built-the-camera-tracking-tool-i-always-wished-unreal-had/frame_002.jpg
+- tutorials/frames/i-built-the-camera-tracking-tool-i-always-wished-unreal-had/frame_003.jpg
 
 ---
 
