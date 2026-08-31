@@ -66,7 +66,26 @@ Completed section below)
   sculpt/paint/auto-material workflow has zero dedicated headers.
   Source: Epic Developer Community Learning — "UE 5.7 Landscape Series: From Sculpting to Production-Ready Environments"
   https://dev.epicgames.com/community/learning/tutorials/x1pX/unreal-engine-5-7-landscape-series-from-sculpting-to-production-ready-environments
-  -> `tutorials/unreal-engine-5-7-landscape-series-from-sculpting-to-production-ready-environments.md` (extraction_status: **needs-review**, not complete — the page is an Angular SPA behind Cloudflare; every headless fetch attempt (plain UA, Googlebot/Facebook/Twitterbot UAs, guessed JSON API paths) returned only the unrendered shell or a 403. `ingest.py`'s only automated path for a `/community/` URL is auto-resolving to an embedded YouTube video, and that resolution matched an unrelated paid-course trailer — confirmed wrong by content and overwritten with a superseded notice at `tutorials/architectural-presentation-masterclass-unreal-engine-57.md`. The real entry's notes are built from title/banner-image/meta-description only; a human should open the page in a real browser and re-run extraction against the actual body text.)
+  -> `tutorials/unreal-engine-5-7-landscape-series-from-sculpting-to-production-ready-environments.md`
+  ✅ **RESOLVED 2026-07-21 — this note was stale, corrected 2026-08-31.** It used
+  to say the entry was `needs-review` because the page is an Angular SPA behind
+  Cloudflare that defeated every headless fetch, and that "a human should open the
+  page in a real browser". **That was done.** A later session opened it in a real
+  browser (Claude in Chrome) and found the page is not text-only: it links a
+  **YouTube playlist** of the actual episode recordings by *RamTechies*.
+  Episodes 1 and 2 were then ingested properly, with real transcripts and frames:
+  `tutorials/landscape-mode-basics-unreal-engine-57-part-1.md` and
+  `tutorials/landscape-mode-unreal-engine-57-part-2.md`. The article entry is now
+  `extraction_status: superseded-partial` and carries its own notice.
+  ⚠️ The erroneous auto-resolution that pass produced — `resolve_epic_community_url`
+  matching an unrelated paid-course trailer — was overwritten with a do-not-use
+  notice at `tutorials/architectural-presentation-masterclass-unreal-engine-57.md`.
+  ⏳ **Open, but not actionable: Episodes 3 (Landscape Materials) and 4 (Foliage)
+  are still unpublished.** Playlist re-checked **2026-08-31**: still 2 videos, five
+  weeks after the 07-21 check. Re-check the playlist and ingest them the same way
+  when they appear — the article page will need another look then too, since its
+  body likely lists them once added.
+  Playlist: https://www.youtube.com/playlist?list=PLqw4sGRzmvyCs9F_hOSNeyUmFZ8xDBx6J
 
 - [x] **Take Recorder for cinematic capture** — surfaces only twice as a
   side-mention inside Chaos Cloth and Backrooms tutorials, never as its own

@@ -26,6 +26,7 @@ the first two are published:
 - Episode 1 → ingested properly with real transcript/frames: `tutorials/landscape-mode-basics-unreal-engine-57-part-1.md`
 - Episode 2 → ingested properly with real transcript/frames: `tutorials/landscape-mode-unreal-engine-57-part-2.md`
 - Episodes 3-4 (materials, foliage) are not published yet — re-check the playlist URL above once they are, and ingest them the same way (this article page will need another look too, since its "Mostrar mais" body likely lists them once added).
+- **Playlist re-checked 2026-08-31: still 2 videos.** Episodes 3-4 remain unpublished five weeks after the 2026-07-21 check. Nothing to ingest; re-check again later.
 
 The inferred Key Concepts notes below (written from title/meta-description only,
 before the real content was accessible) are now superseded by the real
