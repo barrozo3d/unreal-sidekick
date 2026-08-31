@@ -118,6 +118,35 @@ Before answering, search `tutorials/INDEX.md` for entries matching the technique
 > `houdini-wand/PROMO_ENTRY_CLEANUP_PLAN.md` (workstream B).
 
 
+### Step 2c — Does the question cross into a sibling skill?
+
+The user works across five applications and questions routinely cross between
+them. **This library already holds 44 entries whose own Structured Notes discuss
+another application** — the crossing is already in the content. What was missing
+until 2026-08-31 was any instruction to *follow* it: `SKILL.md` named its siblings
+only as shared architecture, never as knowledge to route to.
+
+When a question continues past this skill's scope, hand off:
+
+| the question moves to | sibling skill | crossings already here |
+|---|---|---|
+| Blender — geometry nodes, Cycles/EEVEE, motion design | `blender-motion` | 17 |
+| Nuke / NukeX / Katana / Mari — compositing, lookdev, texture painting | `nuke-em-all` | 16 |
+| Substance 3D Painter — texturing, smart materials, baking | `paint-me-like-your-french-substances` | 10 |
+| Houdini — SOPs, DOPs, VEX, LOPs/Solaris, Karma, KineFX | `houdini-wand` | 1 |
+
+Read that sibling's `tutorials/INDEX.md` exactly as in Step 1, then answer from it.
+
+**Say which skill the answer came from.** The answer-level attribution rule (B7)
+applies across skills, not only within one — "from `nuke-em-all`:" is part of the
+answer, not a footnote.
+
+⚠️ **Never answer a sibling's domain from *this* skill's `references/`.** They are
+scoped to this application, and **30 reference files across the five skills are
+`verified: no`** — written from model memory. Answering a Nuke question from a
+Houdini reference is the `copernicus.md` failure mode with an extra step. Route the
+question, or say it is not covered here.
+
 ### Step 2b — Check Recipes (for multi-step pipeline questions)
 
 | Recipe | When to use |
