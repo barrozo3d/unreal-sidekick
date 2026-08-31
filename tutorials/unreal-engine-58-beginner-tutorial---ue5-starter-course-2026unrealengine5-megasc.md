@@ -1307,5 +1307,4 @@ Beginner. Explicitly framed as a starter/onboarding course ("today we are going 
 ## Related Entries
 - [[creating-a-blend-material-in-unreal-engine-5-just-got-easier]] — Polygonflow Dash's faster/easier take on the same multi-layer blend-material workflow built manually here.
 - [[lighting-in-unreal-engine-5-for-beginners]] — William Faucher's dedicated lighting deep-dive, a natural next step after this course's quick Environment Light Mixer setup.
-- [[unreal-engine-54-cinematic-previs-course]] — goes deeper on Sequencer, camera rigs, and previs than this course's brief camera/animation section.
 - [[how-to-use-the-movie-render-graph-in-unreal-engine-58---simple-setup-for-filmmak]] — same UE5.8 version; covers the newer Movie Render Graph as a follow-on to the Movie Render Queue workflow used here.

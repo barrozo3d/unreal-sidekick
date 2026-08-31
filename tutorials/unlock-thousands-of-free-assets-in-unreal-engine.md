@@ -78,4 +78,3 @@ UE 5.x (2025 — Fab plugin era)
 
 ## Related Entries
 - [[new-ue5-asset-management-plugin---now-free-on-fab]] — Polygonflow Dash free tier + Fab overview
-- [[free-unreal-engine-53-beginner-course---create-cinematic-3d-worlds]] — full beginner UE environment course

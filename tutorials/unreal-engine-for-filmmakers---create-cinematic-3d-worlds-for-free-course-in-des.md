@@ -73,5 +73,3 @@ UE 5.x (early UE5 era, Quixel Bridge era)
 
 ## Related Entries
 - [[unlock-thousands-of-free-assets-in-unreal-engine]] — 2025 Megascans via Fab plugin (Quixel Bridge replaced)
-- [[free-unreal-engine-53-beginner-course---create-cinematic-3d-worlds]] — free beginner course (later channel addition)
-- [[unreal-engine-filmmaking-course---create-cinematic-3d-worlds]] — first paid course announcement

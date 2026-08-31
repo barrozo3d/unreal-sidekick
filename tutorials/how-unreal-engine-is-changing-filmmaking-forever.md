@@ -67,7 +67,5 @@ UE 5.x
 - [6:30] tutorials/frames/how-unreal-engine-is-changing-filmmaking-forever/frame_003.jpg
 
 ## Related Entries
-- [[unreal-engine-54-cinematic-previs-course]] — full previs course promo
-- [[unreal-engine-57-filmmaking-course---unreal-engine-for-filmmakers-2026-update]] — updated full filmmaking course
 - [[no-cost-virtual-production-is-here---and-its-changing-filmmaking]] — companion manifesto
 - [[dune-cinematography-breakdown-how-to-get-the-dune-look]] — Dune visual language breakdown
