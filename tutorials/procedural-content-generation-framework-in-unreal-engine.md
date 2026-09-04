@@ -4,7 +4,7 @@ source: Epic Documentation
 url: https://dev.epicgames.com/documentation/unreal-engine/procedural-content-generation-framework-in-unreal-engine
 ingested: 2026-06-12
 ue_version: "UE 5.7"
-tags: [pcg, procedural-generation, environment, modelling, geometry, blueprints, gpu, hlsl, intermediate, advanced, ue5-7]
+tags: [pcg, procedural-generation, environment, modelling, geometry, blueprint, gpu, hlsl, intermediate, advanced, ue5-7]
 extraction_status: complete
 page_count: 18
 ---

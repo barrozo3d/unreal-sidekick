@@ -5,7 +5,7 @@ url: https://www.youtube.com/watch?v=8eIavj62Mu8
 author: William Faucher
 ingested: 2026-06-23
 ue_version: "UE5"
-tags: [camera, sequencer, cinematics, camera-shake, perlin-noise, blueprints, rendering, beginner-friendly]
+tags: [camera, sequencer, cinematics, camera-shake, perlin-noise, blueprint, rendering, beginner-friendly]
 extraction_status: complete
 frames_dir: tutorials/frames/how-to-add-camera-shake-in-unreal-engine/
 frame_count: 5

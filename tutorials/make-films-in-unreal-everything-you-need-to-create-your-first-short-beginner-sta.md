@@ -5,7 +5,7 @@ url: https://www.youtube.com/watch?v=PPRugNC7POA
 author: Dean Yurke - Unreal Engine and VFX Filmmaking
 ingested: 2026-06-23
 ue_version: "UE5"
-tags: [filmmaking, sequencer, cinematic, camera, mrq, animation, workflow, beginner, exr, depth-of-field]
+tags: [filmmaking, sequencer, cinematics, camera, mrq, animation, workflow, beginner, exr, depth-of-field]
 extraction_status: complete
 frames_dir: tutorials/frames/make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta/
 frame_count: 17

@@ -5,7 +5,7 @@ url: https://www.youtube.com/watch?v=9rRiExTYrpE
 author: Josh Toonen
 ingested: 2026-06-23
 ue_version: "UE5"
-tags: [beginner, learning-path, vfx, filmmaking, niagara, sequencer, virtual-production, progression, blueprints, workflow]
+tags: [beginner, learning-path, vfx, filmmaking, niagara, sequencer, virtual-production, progression, blueprint, workflow]
 extraction_status: complete
 frames_dir: tutorials/frames/learning-unreal-5-in-one-year-progression-lessons/
 frame_count: 16

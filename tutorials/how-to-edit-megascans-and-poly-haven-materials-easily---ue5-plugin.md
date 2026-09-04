@@ -5,7 +5,7 @@ url: https://www.youtube.com/watch?v=7NKl90gt0w0
 author: Polygonflow Dash
 ingested: 2026-06-23
 ue_version: "UE5"
-tags: [materials, megascans, poly-haven, polygonflow-dash, plugin, displacement, nanite, environment, texturing]
+tags: [materials, megascans, polyhaven, polygonflow-dash, plugin, displacement, nanite, environment, texturing]
 extraction_status: complete
 frames_dir: tutorials/frames/how-to-edit-megascans-and-poly-haven-materials-easily---ue5-plugin/
 frame_count: 9

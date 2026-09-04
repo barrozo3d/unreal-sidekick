@@ -5,7 +5,7 @@ url: https://www.youtube.com/watch?v=wQoa1j4Rgss
 author: Unreal Engine
 ingested: 2026-07-18
 ue_version: "UE 5.8 (MetaHuman Crowds + Collections both experimental)"
-tags: [metahuman, animation, performance, blueprint, cpp, worldbuilding, advanced]
+tags: [metahuman, animation, performance, blueprint, cpp, world-building, advanced]
 extraction_status: complete
 frames_dir: tutorials/frames/how-to-build-scalable-metahuman-crowds-in-unreal-engine-unreal-fest-chicago-2026/
 frame_count: 8

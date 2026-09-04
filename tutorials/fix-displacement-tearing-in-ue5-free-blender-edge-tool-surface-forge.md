@@ -5,7 +5,7 @@ url: https://www.youtube.com/watch?v=jyQCaCJ_eY8
 author: Arghanion's Puzzlebox
 ingested: 2026-07-23
 ue_version: "UE5"
-tags: [nanite, displacement, materials, vertex-color, blender, fbx, mesh-import, chamfer, tri-planar, surface-forge, world-forge, modeling-mode]
+tags: [nanite, displacement, materials, vertex-color, blender, fbx, mesh-import, chamfer, tri-planar, surface-forge, world-forge, modelling-mode]
 extraction_status: complete
 frames_dir: tutorials/frames/fix-displacement-tearing-in-ue5-free-blender-edge-tool-surface-forge/
 frame_count: 8

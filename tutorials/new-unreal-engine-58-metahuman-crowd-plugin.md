@@ -5,7 +5,7 @@ url: https://www.youtube.com/watch?v=bJIPlvmoTVw
 author: Smart Poly
 ingested: 2026-06-23
 ue_version: "UE5.8"
-tags: [metahuman, crowd, mass-ai, lod, performance, npcs, plugin, characters, simulation, experimental]
+tags: [metahuman, crowds, mass-ai, lod, performance, npcs, plugin, characters, simulation, experimental]
 extraction_status: complete
 frames_dir: tutorials/frames/new-unreal-engine-58-metahuman-crowd-plugin/
 frame_count: 4

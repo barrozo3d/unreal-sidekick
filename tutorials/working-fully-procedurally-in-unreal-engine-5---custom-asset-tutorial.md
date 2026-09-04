@@ -6,7 +6,7 @@ author: Polygonflow Dash
 ingested: 2026-06-16
 plugin_version: dash-1.8
 ue_version: "UE 5.x"
-tags: [dash-1.8, procedural, path-scatter, quick-pipe, cable, surface-scatter, proximity-mask, splines, intermediate]
+tags: [dash-1.8, procedural, path-scatter, quick-pipe, cable, surface-scatter, proximity-mask, spline, intermediate]
 extraction_status: complete
 frames_dir: tutorials/frames/working-fully-procedurally-in-unreal-engine-5---custom-asset-tutorial/
 frame_count: 9

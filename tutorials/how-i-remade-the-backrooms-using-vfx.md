@@ -5,7 +5,7 @@ url: https://www.youtube.com/watch?v=N4hq0WUaPmk
 author: Josh Toonen
 ingested: 2026-06-23
 ue_version: "UE5"
-tags: [environment, materials, post-process, vhs, blueprints, sequencer, gameplay-recording, take-recorder, found-footage, rendering, beginner-friendly]
+tags: [environment, materials, post-process, vhs, blueprint, sequencer, gameplay-recording, take-recorder, found-footage, rendering, beginner-friendly]
 extraction_status: complete
 frames_dir: tutorials/frames/how-i-remade-the-backrooms-using-vfx/
 frame_count: 6

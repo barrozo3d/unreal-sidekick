@@ -5,7 +5,7 @@ url: https://www.youtube.com/watch?v=NDrc3ap2ZAA
 author: Unreal Engine
 ingested: 2026-06-23
 ue_version: "UE5"
-tags: [animation, sequencer, animation-layers, control-rig, camera-shake, non-destructive, weight, characters, workflow, technique]
+tags: [animation, sequencer, animation-layers, control-rig, camera-shake, non-destructive, weights, characters, workflow, technique]
 extraction_status: complete
 frames_dir: tutorials/frames/ue5-animation-layers-non-destructive-camera-shake-character-tweaks/
 frame_count: 4

@@ -5,7 +5,7 @@ url: https://www.youtube.com/watch?v=vs6yjL-l_FQ
 author: Black Eye Technologies
 ingested: 2026-06-23
 ue_version: "UE5"
-tags: [black-eye-cameras, v2, gameplay, orbit-camera, camera-manager, blend-list, trigger-volume, save-and-play, cross-camera, dead-zone, dynamic-zoom, adaptive-cutscene, hybrid-workflow, modifiers, blueprints]
+tags: [black-eye-cameras, v2, gameplay, orbit-camera, camera-manager, blend-list, trigger-volume, save-and-play, cross-camera, dead-zone, dynamic-zoom, adaptive-cutscene, hybrid-workflow, modifiers, blueprint]
 extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-v2-start-here-tutorial/
 frame_count: 24

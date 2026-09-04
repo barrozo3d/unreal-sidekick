@@ -5,7 +5,7 @@ url: https://www.youtube.com/watch?v=nIZpZyCrmMc
 author: Andrew Averkin Art
 ingested: 2026-08-09
 ue_version: "not specified on screen (Lumen/Rect Light ray tracing implies UE5.x)"
-tags: [lighting, physically-based-lighting, lumen, post-process, exposure, tone-mapper, local-exposure, rect-light, ray-traced-shadows, color-grading, ambient-occlusion, cinematic, hdri-visualization, interior-lighting]
+tags: [lighting, physically-based-lighting, lumen, post-process, exposure, tone-mapper, local-exposure, rect-light, ray-traced-shadows, color-grading, ambient-occlusion, cinematics, hdri-visualization, interior-lighting]
 extraction_status: complete
 frames_dir: tutorials/frames/create-cinematic-lighting-in-unreal-engine-5-physically-based-workflow/
 frame_count: 13

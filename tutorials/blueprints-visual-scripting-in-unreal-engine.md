@@ -4,7 +4,7 @@ source: Epic Documentation
 url: https://dev.epicgames.com/documentation/unreal-engine/blueprints-visual-scripting-in-unreal-engine
 ingested: 2026-06-12
 ue_version: "UE 5.7"
-tags: [blueprints, visual-scripting, blueprint-types, event-graph, variables, functions, macros, interfaces, cpp, beginner, intermediate, ue5-7]
+tags: [blueprint, visual-scripting, blueprint-types, event-graph, variables, functions, macros, interfaces, cpp, beginner, intermediate, ue5-7]
 extraction_status: complete
 page_count: 35
 ---

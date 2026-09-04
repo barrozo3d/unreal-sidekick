@@ -4,7 +4,7 @@ source: Epic Documentation
 url: https://dev.epicgames.com/documentation/unreal-engine/understanding-the-basics-of-unreal-engine
 ingested: 2026-06-12
 ue_version: "UE 5.7"
-tags: [basics, editor, actors, components, blueprints, levels, assets, content-browser, plugins, projects, templates, packaging, gameplay-framework, ue-terminology, directory-structure, epic-docs, beginner, ue5-7]
+tags: [basics, editor, actors, components, blueprint, levels, assets, content-browser, plugin, projects, templates, packaging, gameplay-framework, ue-terminology, directory-structure, epic-docs, beginner, ue5-7]
 extraction_status: complete
 page_count: 78
 ---

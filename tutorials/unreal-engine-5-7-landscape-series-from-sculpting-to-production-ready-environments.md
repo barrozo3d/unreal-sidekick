@@ -4,7 +4,7 @@ source: Epic Developer Community (written tutorial)
 url: https://dev.epicgames.com/community/learning/tutorials/x1pX/unreal-engine-5-7-landscape-series-from-sculpting-to-production-ready-environments
 ingested: 2026-07-20
 ue_version: "UE 5.7"
-tags: [landscape, sculpting, materials, terrain, worldbuilding, epic-community, beginner, intermediate, ue5-7]
+tags: [landscape, sculpting, materials, terrain, world-building, epic-community, beginner, intermediate, ue5-7]
 extraction_status: superseded-partial
 page_count: 1
 ---

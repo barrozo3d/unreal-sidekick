@@ -5,7 +5,7 @@ url: https://www.youtube.com/watch?v=IUyufiqS3RE
 author: Andrew Vish
 ingested: 2026-08-19
 ue_version: "UE5.3"
-tags: [rigging, skinning, blender, epic-skeleton, twist-bones, control-rig, ik-rig, retargeter, foot-roll, curve-editor, physics-asset, post-process-deformation, lods, marketplace, fab, character-pipeline, advanced, youtube, ue5]
+tags: [rigging, skinning, blender, epic-skeleton, twist-bones, control-rig, ik-rig, retargeter, foot-roll, curve-editor, physics-asset, post-process-deformation, lod, marketplace, fab, character-pipeline, advanced, youtube, ue5]
 extraction_status: complete
 frames_dir: tutorials/frames/static-assets-dont-sell-rigged-monsters-do-full-ue5-pipeline/
 frame_count: 15

@@ -5,7 +5,7 @@ url: https://www.youtube.com/watch?v=QJwTTmNez3k
 author: Unreal Engine
 ingested: 2026-07-18
 ue_version: "UE 5.8 (experimental; production-ready targeted late 2027)"
-tags: [landscape, nanite, pcg, worldbuilding, open-world, performance, advanced]
+tags: [landscape, nanite, pcg, world-building, open-world, performance, advanced]
 extraction_status: complete
 frames_dir: tutorials/frames/introducing-mesh-terrain-craft-large-complex-worlds-unreal-fest-chicago-2026/
 frame_count: 8

@@ -4,7 +4,7 @@ source: Epic Documentation
 url: https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-5-6-release-notes
 ingested: 2026-06-12
 ue_version: "UE 5.6"
-tags: [release-notes, rendering, animation, nanite, lumen, substrate, motion-design, virtualproduction, ue5-6]
+tags: [release-notes, rendering, animation, nanite, lumen, substrate, motion-design, virtual-production, ue5-6]
 extraction_status: complete
 page_count: 1
 ---

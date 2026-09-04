@@ -5,7 +5,7 @@ url: https://www.youtube.com/watch?v=aO_ceeiGHuw
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-23
 ue_version: "UE 5.5"
-tags: [cinematography, camera-settings, film-back, focal-length, aperture, depth-of-field, camera-shake, lens-flare, dirt-mask, movie-render-queue, exr, color-grading, sequencer, multi-camera, 180-degree-rule, premiere, beginner]
+tags: [cinematography, camera-settings, film-back, focal-length, aperture, depth-of-field, camera-shake, lens-flares, dirt-mask, movie-render-queue, exr, color-grading, sequencer, multi-camera, 180-degree-rule, premiere, beginner]
 extraction_status: complete
 frames_dir: tutorials/frames/cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un/
 frame_count: 34

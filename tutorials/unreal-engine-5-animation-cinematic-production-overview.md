@@ -5,7 +5,7 @@ url: https://www.youtube.com/watch?v=ywtvn1uncZo
 author: Unreal Engine
 ingested: 2026-06-23
 ue_version: "UE5"
-tags: [animation, sequencer, cinematic, pipeline, production, acom, sub-sequences, workflow, overview, project-structure]
+tags: [animation, sequencer, cinematics, pipeline, production, acom, sub-sequences, workflow, overview, project-structure]
 extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-5-animation-cinematic-production-overview/
 frame_count: 4

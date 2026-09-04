@@ -5,7 +5,7 @@ url: https://www.youtube.com/watch?v=Og9za5-VCag
 author: Josh Toonen
 ingested: 2026-06-23
 ue_version: "UE5"
-tags: [cinematics, production-breakdown, world-building, lighting, matte-painting, vfx, niagara, nuke, fog-cards, crowd, mixamo, compositing]
+tags: [cinematics, production-breakdown, world-building, lighting, matte-painting, vfx, niagara, nuke, fog-cards, crowds, mixamo, compositing]
 extraction_status: complete
 frames_dir: tutorials/frames/how-i-made-a-godzilla-cinematic-in-unreal-engine-5/
 frame_count: 11

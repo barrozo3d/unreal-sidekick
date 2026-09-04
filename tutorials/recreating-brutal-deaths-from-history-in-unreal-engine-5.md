@@ -5,7 +5,7 @@ url: https://www.youtube.com/watch?v=2t3c1KJbBe8
 author: Charlie Driscoll - Unreal Engine Filmmaking
 ingested: 2026-06-23
 ue_version: "UE5"
-tags: [metahuman, mocap, move-ai, eleven-labs, short-film, cinematics, crowd, fab, production-pipeline, virtual-production]
+tags: [metahuman, mocap, move-ai, eleven-labs, short-film, cinematics, crowds, fab, production-pipeline, virtual-production]
 extraction_status: complete
 frames_dir: tutorials/frames/recreating-brutal-deaths-from-history-in-unreal-engine-5/
 frame_count: 9

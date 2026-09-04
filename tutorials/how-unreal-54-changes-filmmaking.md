@@ -5,7 +5,7 @@ url: https://www.youtube.com/watch?v=NiOgmvMBcxk
 author: Josh Toonen
 ingested: 2026-06-23
 ue_version: "UE5.4"
-tags: [ue54, motion-design, nanite-tessellation, mrg, retargeting, material-designer, motion-matching, filmmaking, new-features]
+tags: [ue5-4, motion-design, nanite-tessellation, mrg, retargeting, material-designer, motion-matching, filmmaking, new-features]
 extraction_status: complete
 frames_dir: tutorials/frames/how-unreal-54-changes-filmmaking/
 frame_count: 8

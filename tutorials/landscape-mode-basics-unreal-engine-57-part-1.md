@@ -5,7 +5,7 @@ url: https://www.youtube.com/watch?v=rxUsQRcq168
 author: R SH
 ingested: 2026-07-20
 ue_version: "UE 5.7.3"
-tags: [landscape, sculpting, terrain, worldbuilding, beginner, ue5-7]
+tags: [landscape, sculpting, terrain, world-building, beginner, ue5-7]
 extraction_status: complete
 frames_dir: tutorials/frames/landscape-mode-basics-unreal-engine-57-part-1/
 frame_count: 7

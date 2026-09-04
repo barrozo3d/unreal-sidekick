@@ -4,7 +4,7 @@ source: Epic Documentation
 url: https://dev.epicgames.com/documentation/en-us/unreal-engine/level-streaming-in-unreal-engine
 ingested: 2026-06-18
 ue_version: "UE5"
-tags: [level-streaming, world-partition, world-composition, streaming-volumes, blueprints, large-worlds, sub-levels, open-world, level-management, pipeline]
+tags: [level-streaming, world-partition, world-composition, streaming-volumes, blueprint, large-worlds, sub-levels, open-world, level-management, pipeline]
 extraction_status: complete
 page_count: 15
 ---

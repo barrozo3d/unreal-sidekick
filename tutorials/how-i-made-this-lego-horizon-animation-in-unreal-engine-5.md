@@ -5,7 +5,7 @@ url: https://www.youtube.com/watch?v=AomczYcvBYM
 author: Josh Toonen
 ingested: 2026-06-23
 ue_version: "UE5"
-tags: [animation, stop-motion, production-breakdown, lighting, control-rig, sequencer, crowd, cinematics, lego]
+tags: [animation, stop-motion, production-breakdown, lighting, control-rig, sequencer, crowds, cinematics, lego]
 extraction_status: complete
 frames_dir: tutorials/frames/how-i-made-this-lego-horizon-animation-in-unreal-engine-5/
 frame_count: 15

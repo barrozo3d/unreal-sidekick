@@ -5,7 +5,7 @@ url: https://www.youtube.com/watch?v=-syj6kFf6e4
 author: Josh Toonen
 ingested: 2026-06-23
 ue_version: "UE5"
-tags: [world-building, displacement, materials, nanite, modeling, cinematics, production-breakdown, environment, landscape, rendering]
+tags: [world-building, displacement, materials, nanite, modelling, cinematics, production-breakdown, environment, landscape, rendering]
 extraction_status: complete
 frames_dir: tutorials/frames/how-i-remade-dune-in-24-hours-using-vfx/
 frame_count: 11

@@ -17,7 +17,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **URL:** https://dev.epicgames.com/documentation/unreal-engine/creating-visual-effects-in-niagara-for-unreal-engine
 - **Pages:** 37
 - **UE Version:** UE 5.7
-- **Tags:** niagara, vfx, particles, gpu-particles, fluids, rendering, blueprints, audio, epic-docs, intermediate, advanced, ue5-7
+- **Tags:** niagara, vfx, particles, gpu-particles, fluids, rendering, blueprint, audio, epic-docs, intermediate, advanced
 - **Summary:** UE 5.7 Niagara VFX system reference — Getting Started, key concepts, emitter/system architecture, Fluids, GPU Raytracing Collisions, Niagara Script Editor, Debugger, optimization. 37 pages.
 - **File:** tutorials/creating-visual-effects-in-niagara-for-unreal-engine.md
 
@@ -47,7 +47,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **URL:** https://dev.epicgames.com/documentation/unreal-engine/understanding-the-basics-of-unreal-engine
 - **Pages:** 78
 - **UE Version:** UE 5.7
-- **Tags:** basics, editor, actors, components, blueprints, levels, assets, content-browser, plugins, projects, templates, packaging, gameplay-framework, ue-terminology, epic-docs, beginner, ue5-7
+- **Tags:** basics, editor, actors, components, blueprint, levels, assets, content-browser, plugin, projects, templates, packaging, gameplay-framework, ue-terminology, directory-structure, epic-docs, beginner, ue5-7
 - **Summary:** Foundational UE 5.7 reference — installation, terminology (Actor/Component/Blueprint/GameMode/World), all core editors overview, Content Browser, Levels, Assets, Actors, gameplay framework classes, packaging. 78 pages.
 - **File:** tutorials/understanding-the-basics-of-unreal-engine.md
 
@@ -57,7 +57,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **URL:** https://dev.epicgames.com/documentation/unreal-engine/procedural-content-generation-framework-in-unreal-engine
 - **Pages:** 18
 - **UE Version:** UE 5.7
-- **Tags:** pcg, procedural-generation, environment, geometry, blueprints, gpu, hlsl, biome, world-partition, intermediate, advanced, ue5-7
+- **Tags:** pcg, procedural-generation, environment, modelling, geometry, blueprint, gpu, hlsl, intermediate, advanced, ue5-7
 - **Summary:** Full PCG v2 reference — PCG Graph system, Point data flow, GPU Processing (Beta), Shape Grammar for rule-based placement, PCG Editor Mode, Biome system, PCG Volume Entities (PVE), Runtime Generation, World Partition integration with hierarchical generation. Custom HLSL node examples included.
 - **File:** tutorials/procedural-content-generation-framework-in-unreal-engine.md
 
@@ -77,7 +77,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **URL:** https://dev.epicgames.com/documentation/unreal-engine/blueprints-visual-scripting-in-unreal-engine
 - **Pages:** 35
 - **UE Version:** UE 5.7
-- **Tags:** blueprints, visual-scripting, blueprint-types, event-graph, variables, functions, macros, interfaces, cpp, beginner, intermediate, ue5-7
+- **Tags:** blueprint, visual-scripting, blueprint-types, event-graph, variables, functions, macros, interfaces, cpp, beginner, intermediate, ue5-7
 - **Summary:** Complete Blueprint Visual Scripting reference — all Blueprint types (Level/Actor/Widget/Anim/Data/Interface), core graph types (Event/Construction/Function/Macro), variable types and replication, key node categories, communication patterns (Direct Reference/Cast/Interface/Dispatcher/GameState), performance tips, Blueprint-to-C++ integration guidance.
 - **File:** tutorials/blueprints-visual-scripting-in-unreal-engine.md
 
@@ -417,7 +417,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **URL:** https://www.youtube.com/watch?v=8eIavj62Mu8
 - **Author:** William Faucher
 - **UE Version:** UE 4 & 5
-- **Tags:** camera, camera-shake, sequencer, blueprints, cinematics, animation, procedural, william-faucher, beginner, ue4, ue5
+- **Tags:** camera, sequencer, cinematics, camera-shake, perlin-noise, blueprint, rendering, beginner-friendly
 - **Summary:** Procedural camera shake — create CameraShakeBase Blueprint, configure Procedural Shake Component amplitude/frequency per channel, add to Sequencer camera via + Track → Camera Shake. Stack two shakes (low-freq+medium-amp for sway + high-freq+low-amp for micro-vibration) for realistic handheld feel.
 - **File:** tutorials/how-to-add-camera-shake-in-unreal-engine.md
 
@@ -797,7 +797,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Black Eye Technologies
 - **Plugin Version:** blackeye-v2
 - **UE Version:** UE 5.3+
-- **Tags:** blackeye-v2, camera, gameplay, cinematics, blueprints, sequencer, intermediate, advanced
+- **Tags:** black-eye-cameras, v2, gameplay, orbit-camera, camera-manager, blend-list, trigger-volume, save-and-play, cross-camera, dead-zone, dynamic-zoom, adaptive-cutscene, hybrid-workflow, modifiers, blueprint
 - **Summary:** 43-minute complete v2 system walkthrough — Camera Manager setup, orbit camera, trigger-volume-based camera switching (aim/tight spaces/cross-camera), Save-in-Play real-time iteration, Blend Lists, Black Eye Panel composition tools, Modifiers/Blueprints, Dead Zones, Dynamic Zoom, and Adaptive Cutscenes in Sequencer.
 - **File:** tutorials/unreal-engine-black-eye-cameras-v2-start-here-tutorial.md
 
@@ -1257,7 +1257,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Polygonflow Dash
 - **Plugin Version:** dash-1.8
 - **UE Version:** UE 5.x
-- **Tags:** dash-1.8, procedural, path-scatter, quick-pipe, cable, surface-scatter, proximity-mask, splines, intermediate
+- **Tags:** dash-1.8, procedural, path-scatter, quick-pipe, cable, surface-scatter, proximity-mask, spline, intermediate
 - **Summary:** Tomas builds a fully procedural rope bridge from one spline: Path Scatter planks (1-per-point + parallel rows; proximity mask prevents post intersection), Quick Pipe for deck ropes (parallel), Cable Tool Curve Mode for handrails (height + gravity + parallel), Surface Scatter with Height Mask on posts (plants on lower zone), Path Scatter hanging vines (Remove Mask + posts). Alt+click adds curve points; all updates propagate (Dash 1.8).
 - **File:** tutorials/working-fully-procedurally-in-unreal-engine-5---custom-asset-tutorial.md
 
@@ -1466,7 +1466,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Author:** Polygonflow Dash
 - **Plugin Version:** dash-1.4
 - **UE Version:** UE 5.x
-- **Tags:** dash-1.4, materials, megascans, polyhaven, displacement, nanite, snow, dirt, water, beginner
+- **Tags:** materials, megascans, polyhaven, polygonflow-dash, plugin, displacement, nanite, environment, texturing
 - **Summary:** Jonathan (Community Director) covers the Dash 1.4 Material Edit tool — Albedo Hue/Saturation/Brightness/Contrast, Roughness, Normal Map Intensity, Texture Tiling, Nanite displacement (Actor Switch Nanite command), Dirt layer (intensity/hue/saturation/tiling), Snow layer (sharpness/slope/roughness/normal/tiling), Dash Water Material (depth/distortion/tiling/underlying hue+saturation). All procedural/non-destructive.
 - **File:** tutorials/how-to-edit-megascans-and-poly-haven-materials-easily---ue5-plugin.md
 
@@ -1715,7 +1715,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **URL:** https://www.youtube.com/watch?v=PPRugNC7POA
 - **Author:** Dean Yurke - Unreal Engine and VFX Filmmaking
 - **UE Version:** 5.x
-- **Tags:** filmmaking, beginner, sequencer, cine, camera, depth, of, field, FBX, animation
+- **Tags:** filmmaking, sequencer, cinematics, camera, mrq, animation, workflow, beginner, exr, depth-of-field
 - **Summary:** 31-minute beginner UE5 filmmaking tutorial by Dean Yurke.
 - **File:** tutorials/make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta.md
 
@@ -1985,7 +1985,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **URL:** https://www.youtube.com/watch?v=2t3c1KJbBe8
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
 - **UE Version:** UE5
-- **Tags:** production-breakdown, cinematics, metahuman, move-pro, overcrowd, niagara, sequencer, client-work, mocap, metahuman-animator, advanced, ue5, youtube
+- **Tags:** metahuman, mocap, move-ai, eleven-labs, short-film, cinematics, crowds, fab, production-pipeline, virtual-production
 - **Summary:** Solo 1-month client project (Sharp Entertainment) — historical drama in UE5: pre-lit FAB environments, Polyphoria armor assets, Move Pro 6-cam body + iPhone face cap, MetaHuman Animator, 11 Labs voice morphing, FAB 2-actor sword fighting mocap pack, OverCrowd armies, Niagara waterfall for molten gold VFX.
 - **File:** tutorials/recreating-brutal-deaths-from-history-in-unreal-engine-5.md
 
@@ -2066,7 +2066,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **URL:** https://www.youtube.com/watch?v=aO_ceeiGHuw
 - **Author:** Charlie Driscoll - Unreal Engine Filmmaking
 - **UE Version:** 5.5
-- **Tags:** cinematography, camera-settings, film-back, lens, aperture, depth-of-field, movie-render-queue, color-grading, camera-shake, sequencer
+- **Tags:** cinematography, camera-settings, film-back, focal-length, aperture, depth-of-field, camera-shake, lens-flares, dirt-mask, movie-render-queue, exr, color-grading, sequencer, multi-camera, 180-degree-rule, premiere, beginner
 - **Summary:** 128m2s comprehensive beginner cinematography tutorial by Charlie Driscoll.
 - **File:** tutorials/cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un.md
 
@@ -2216,7 +2216,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **URL:** https://www.youtube.com/watch?v=N4hq0WUaPmk
 - **Author:** Josh Toonen
 - **UE Version:** UE 5.x
-- **Tags:** cinematics, rendering, post-process, lighting, beginner
+- **Tags:** environment, materials, post-process, vhs, blueprint, sequencer, gameplay-recording, take-recorder, found-footage, rendering, beginner-friendly
 - **Summary:** Josh Toonen shows how he recreated the Backrooms viral horror aesthetic entirely inside Unreal Engine 5 using free tools. Viewers learn to capture gameplay footage with Take Recorder, build a believable liminal-space environment in Modeling Mode, and apply volumetric fog plus a VHS post-process material for the signature degraded-camera look. The end result is a polished found-footage short fil...
 - **File:** tutorials/how-i-remade-the-backrooms-using-vfx.md
 
@@ -2256,7 +2256,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **URL:** https://www.youtube.com/watch?v=AomczYcvBYM
 - **Author:** Josh Toonen
 - **UE Version:** UE 5.x
-- **Tags:** cinematics, sequencer, animation, control-rig, mocap, lighting, crowds, advanced
+- **Tags:** animation, stop-motion, production-breakdown, lighting, control-rig, sequencer, crowds, cinematics, lego
 - **Summary:** Josh Toonen walks through the complete production of a LEGO Horizon Adventures music video made in UE5, from initial pitch to final render. Viewers see how a professional filmmaker structures a large animation project: Sequencer managing 70+ shots, a custom Control Rig watcher control for unique character animations, motion blending from existing game creature clips, additive tracks layered on ...
 - **File:** tutorials/how-i-made-this-lego-horizon-animation-in-unreal-engine-5.md
 
@@ -2309,7 +2309,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **URL:** https://dev.epicgames.com/documentation/en-us/unreal-engine/level-streaming-in-unreal-engine
 - **Pages:** 15
 - **UE Version:** UE 4.0+ (World Partition streaming UE5.0+)
-- **Tags:** level-streaming, narrative, blueprint, pipeline
+- **Tags:** level-streaming, world-partition, world-composition, streaming-volumes, blueprint, large-worlds, sub-levels, open-world, level-management, pipeline
 - **Summary:** Comprehensive Epic docs on Level Streaming - async-loading and unloading sub-levels at runtime for multi-scene narrative projects. Covers Sub-Level Streaming setup (Load Stream Level / Unload Stream Level Blueprint nodes), World Partition cell-based streaming, Sequencer Level Visibility track, and streaming for cinematics via World Partition Streaming Source. Essential for multi-scene film projects. Practical patterns in `references/narrative-blueprints.md`.
 - **File:** tutorials/level-streaming-in-unreal-engine.md
 - **Also see:** `references/narrative-blueprints.md` (practical streaming + cinematic trigger patterns)
@@ -2422,7 +2422,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **URL:** https://www.youtube.com/watch?v=Og9za5-VCag
 - **Author:** Josh Toonen
 - **UE Version:** UE 5.x (+ Nuke)
-- **Tags:** cinematics, lighting, niagara, vfx, compositing, camera, control-rig, intermediate
+- **Tags:** cinematics, production-breakdown, world-building, lighting, matte-painting, vfx, niagara, nuke, fog-cards, crowds, mixamo, compositing
 - **Summary:** Josh Toonen breaks down how he created a Godzilla cinematic entirely in UE5 and Nuke, covering each production challenge from building a believable Tokyo nightscape to integrating a custom Godzilla control rig with the environment. Viewers learn night lighting with practical sources (street lights, car headlights, explosion animated lights), DMP/matte painting as background images, fog card dep...
 - **File:** tutorials/how-i-made-a-godzilla-cinematic-in-unreal-engine-5.md
 
@@ -2432,7 +2432,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **URL:** https://www.youtube.com/watch?v=NiOgmvMBcxk
 - **Author:** Josh Toonen
 - **UE Version:** UE 5.4
-- **Tags:** nanite, rendering, materials, animation, sequencer, movie-render-graph, ue5-4, intermediate
+- **Tags:** ue5-4, motion-design, nanite-tessellation, mrg, retargeting, material-designer, motion-matching, filmmaking, new-features
 - **Summary:** Josh Toonen highlights the four most impactful UE 5.4 additions for filmmakers. The Motion Design plugin brings Adobe After Effects-style cloners and effectors to 3D, enabling procedural motion graphics directly in UE5. Nanite Tessellation adds real-time geometric displacement to any mesh via a simple material setting. One-click retargeting transfers any animation to any character instantly. Th...
 - **File:** tutorials/how-unreal-54-changes-filmmaking.md
 
@@ -2452,7 +2452,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **URL:** https://www.youtube.com/watch?v=-syj6kFf6e4
 - **Author:** Josh Toonen
 - **UE Version:** UE 5.x
-- **Tags:** nanite, materials, geometry, rendering, compositing, intermediate
+- **Tags:** world-building, displacement, materials, nanite, modelling, cinematics, production-breakdown, environment, landscape, rendering
 - **Summary:** Josh Toonen documents a 24-hour speed filmmaking challenge recreating Dune in UE5, showing how to achieve a photorealistic sci-fi desert environment without hand-modeling every detail. Viewers learn to use J-Displacement for adding panel lines and surface complexity to simple building geometry, world-aligned textures for seamless material coverage across modular buildings, Nanite to render bill...
 - **File:** tutorials/how-i-remade-dune-in-24-hours-using-vfx.md
 
@@ -2572,7 +2572,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **URL:** https://www.youtube.com/watch?v=9rRiExTYrpE
 - **Author:** Josh Toonen
 - **UE Version:** UE 5.x
-- **Tags:** cinematics, pipeline, animation, niagara, beginner
+- **Tags:** beginner, learning-path, vfx, filmmaking, niagara, sequencer, virtual-production, progression, blueprint, workflow
 - **Summary:** Josh Toonen reflects on one year of learning Unreal Engine 5 for filmmaking, distilling the experience into 5 lessons that accelerate the learning curve. Viewers learn his recommended approach: start with the game engine fundamentals before filmmaking, master one editor at a time (starting with Materials), use virtual camera and previs, rely on F1/F11 for context-sensitive documentation, and fi...
 - **File:** tutorials/learning-unreal-5-in-one-year-progression-lessons.md
 
@@ -2612,7 +2612,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **URL:** https://www.youtube.com/watch?v=d1ncs8M6Lkg
 - **Author:** Unreal Engine
 - **UE Version:** UE 5.7
-- **Tags:** materials, shaders, substrate, rendering, intermediate
+- **Tags:** substrate, materials, physically-based-rendering, layered-materials, car-paint, carbon-fiber, advanced, rendering, ue5-7, shading-model
 - **Summary:** Official Epic overview of Substrate in UE 5.7 (now enabled by default). Covers the Substrate Slab node structure (F0/F90 reflectivity, roughness, fuzz/glint advanced features), two GBuffer format options (high-fidelity vs. performance), and how Substrate gives artists more layering control than the traditional material system.
 - **File:** tutorials/introduction-to-substrate-materials-unreal-engine-57.md
 
@@ -2682,7 +2682,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **URL:** https://www.youtube.com/watch?v=NDrc3ap2ZAA
 - **Author:** Unreal Engine
 - **UE Version:** UE5
-- **Tags:** animation, sequencer, cinematics, camera, intermediate
+- **Tags:** animation, sequencer, animation-layers, control-rig, camera-shake, non-destructive, weights, characters, workflow, technique
 - **Summary:** Covers UE5's Animation Layers in Sequencer for both characters and camera rigs. Demonstrates adding a camera shake layer on top of a Control Rig camera animation without touching the original keyframe data — layers blend additively and can be weighted/muted independently. Same workflow applies to characters for secondary motion, LOD adjustments, and micro-corrections.
 - **File:** tutorials/ue5-animation-layers-non-destructive-camera-shake-character-tweaks.md
 
@@ -2772,7 +2772,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **URL:** https://www.youtube.com/watch?v=ywtvn1uncZo
 - **Author:** Unreal Engine
 - **UE Version:** UE5
-- **Tags:** animation, sequencer, cinematics, pipeline, beginner
+- **Tags:** animation, sequencer, cinematics, pipeline, production, acom, sub-sequences, workflow, overview, project-structure
 - **Summary:** First video in Sir Wade's UE5 Animation tutorial series using the ACOM (Agora Studio) animation sample project available on FAB. Overview of the full project: welcome level, stylized characters (Beta + Gamma robots), the master Level Sequence structure, how shots are organized as sub-sequences, and what tools will be covered in subsequent videos. Entry point for the entire series.
 - **File:** tutorials/unreal-engine-5-animation-cinematic-production-overview.md
 
@@ -2882,7 +2882,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **URL:** https://www.youtube.com/watch?v=bJIPlvmoTVw
 - **Author:** Smart Poly
 - **UE Version:** 5.8
-- **Tags:** metahuman, mass, optimization, lod, overview
+- **Tags:** metahuman, crowds, mass-ai, lod, performance, npcs, plugin, characters, simulation, experimental
 - **Summary:** Overview of UE 5.8's experimental MetaHuman Crowd plugin, which uses Mass to simulate optimized crowds of MetaHuman characters from tens to thousands, with automatic high-fidelity/low-fidelity LOD transitions based on camera distance, plus the free Fab sample project.
 - **File:** tutorials/new-unreal-engine-58-metahuman-crowd-plugin.md
 
@@ -2922,7 +2922,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **URL:** https://www.youtube.com/watch?v=ZvTJBAkx_lY
 - **Author:** Polygonflow Dash
 - **UE Version:** UE 5.8 (Dash 1.12)
-- **Tags:** dash-1.12, vine-tool, cable-tool, grid-scatter, placement-tools, camera-tool, vertical-stack, performance, ue5.8, release-notes
+- **Tags:** dash-1.12, vine-tool, cable-tool, grid-scatter, placement-tool, camera-tool, vertical-stack, performance, ue5.8, release-notes
 - **Summary:** 6m40s, 12-chapter Dash 1.12 release-notes video by Polygonflow Dash. Covers: UE 5.8 support (early, may have bugs); Vine Tool growing across scattered meshes via additional-surface assignment; Cable Tool scatter-mode input + cable-to-cable settings + hidden-irrelevant-controls UI cleanup; Grid Scatter 2D projection onto uneven surfaces; new Placing Grid / Placing Circle one-click layout actions...
 - **File:** tutorials/dash-112---improved-ue5-world-building-tools.md
 
@@ -2992,7 +2992,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **URL:** https://www.youtube.com/watch?v=QJwTTmNez3k
 - **Author:** Unreal Engine (official — Michael Balzer & Etienne Carrier, Unreal Fest Chicago 2026)
 - **UE Version:** UE 5.8 (experimental; production-ready targeted late 2027)
-- **Tags:** landscape, nanite, pcg, worldbuilding, open-world, performance, advanced
+- **Tags:** landscape, nanite, pcg, world-building, open-world, performance, advanced
 - **Summary:** Official architecture talk on Mesh Terrain: a true triangle-mesh terrain replacing heightmap limits (no overhangs/tunnels, uniform grids, 8K landscape ceiling, proxy file contention), built on the generic Mesh Partition stack — arbitrary streamed "sections" with partial load/edit and seam-free holistic processing. Non-destructive modifier components (Mesh/Texture with auto-tessellation/Spline/Brush with sublayers/Noise/Boolean union-subtract-trim/Remesh) ordered by priority layers + sub-priorities in a Mesh Partition Definition, inspected in the Mesh Terrain Outliner; per-vertex weight channels bake to per-section textures and drive materials, PCG scattering (PCG Mesh Partition Interop: Query + Mesh Projection Instance Spawner), and tool masks. Runtime compiles source → Transformer Pipelines → Build Variants → Platform Settings into purely generic systems (Nanite high-end, static-mesh LODs low-end, simplified Chaos tri-mesh collision ~90% smaller, RVT pending post-5.8). Fortnite-data testing: performance on par with or better than landscape, lower memory. Builds are manual/commandlet with checked-in artifacts; Shift+6 mode.
 - **File:** tutorials/introducing-mesh-terrain-craft-large-complex-worlds-unreal-fest-chicago-2026.md
 
@@ -3012,7 +3012,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **URL:** https://www.youtube.com/watch?v=wQoa1j4Rgss
 - **Author:** Unreal Engine (official — Henry Falconer, Unreal Fest Chicago 2026)
 - **UE Version:** UE 5.8 (MetaHuman Crowds + Collections experimental)
-- **Tags:** metahuman, animation, performance, blueprint, cpp, worldbuilding, advanced
+- **Tags:** metahuman, animation, performance, blueprint, cpp, world-building, advanced
 - **Summary:** Engineering deep dive on the Fab MetaHuman Crowd Sample: 1,000 MetaHumans at 60 fps on consoles (9 ms game / 7 ms render / 16 ms GPU, +2.3 GB; 500 at 30 fps on mobile) via Mass + StateTree entities with two-tier visualization — nearby actors (LOD2, Rig Logic) swapping pose-matched with GPU-skinned Instanced Skinned Meshes (LOD4, rig-logic baked to joints, 4 bone influences, Nanite-capable, Anim Sequence Transform Provider with per-instance offsets). Grooms become skeletal meshes skinned per face (no physics). Workflow: Fab Starter Kit, MetaHuman Collection + Crowd Pipeline, wardrobe items (hidden-surface maps drive body-into-clothing merging), joints-only-rig assembled heads/bodies + Full Body Skeletal Mesh export, build (DDC-cached), Instances (the "material instances" of characters), Mass config + spawner + navmesh. Advanced: procedural Appearance Provider, Per Instance Custom Data colors, custom ~70-line anim-selection processor, multi-collection splitting (1.2 GB single-asset caveat), collections beyond crowds (custom pipelines, any asset type, Sequencer-animatable instances without Mass), Mutable comparison, and 5.8 known issues (motion-vector pop on swap, Mass processing queue disabled).
 - **File:** tutorials/how-to-build-scalable-metahuman-crowds-in-unreal-engine-unreal-fest-chicago-2026.md
 
@@ -3071,7 +3071,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** Epic Developer Community (written tutorial)
 - **URL:** https://dev.epicgames.com/community/learning/tutorials/x1pX/unreal-engine-5-7-landscape-series-from-sculpting-to-production-ready-environments
 - **UE Version:** UE 5.7
-- **Tags:** landscape, sculpting, materials, terrain, worldbuilding, epic-community, beginner, intermediate, ue5-7
+- **Tags:** landscape, sculpting, materials, terrain, world-building, epic-community, beginner, intermediate, ue5-7
 - **Summary:** SUPERSEDED for Episodes 1-2 by the real video entries below (this article-page stub was written when the page couldn't be scraped past Cloudflare; a later session opened it in a real browser and found it links a YouTube playlist with the actual episodes — see `landscape-mode-basics-unreal-engine-57-part-1.md` and `landscape-mode-unreal-engine-57-part-2.md`). Written Epic community tutorial (Part 1 of a 4-part series by RamTechies/"R SH": Fundamentals of Landscape Modeling & Sculpting, Heightmap Principles + Terrain Generation, Landscape Materials for Painting, Foliage Principles + Placement) on the classic/traditional Landscape system in UE 5.7. Only Episodes 1-2 are published as of this check (2026-07-21) — Episodes 3-4 (materials, foliage) aren't out yet; re-check the playlist (https://www.youtube.com/playlist?list=PLqw4sGRzmvyCs9F_hOSNeyUmFZ8xDBx6J) later for them.
 - **File:** tutorials/unreal-engine-5-7-landscape-series-from-sculpting-to-production-ready-environments.md
 
@@ -3081,7 +3081,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **URL:** https://www.youtube.com/watch?v=rxUsQRcq168
 - **Author:** R SH
 - **UE Version:** UE 5.7.3
-- **Tags:** landscape, sculpting, terrain, worldbuilding, beginner, ue5-7
+- **Tags:** landscape, sculpting, terrain, world-building, beginner, ue5-7
 - **Summary:** Episode 1 of the "Landscape in UE5.7" series (Epic Developer Community page: `unreal-engine-5-7-landscape-series-from-sculpting-to-production-ready-environments.md`). Classic heightmap-based Landscape creation and hand-sculpting: grid/component/resolution setup, then a full tour of Sculpt Mode — brush types, Editing Layers, Clay Brush, Apply Without Moving, Erase, Smooth, Flatten, Ramp, Erosion/Hydro Erosion, Noise, Mirror, and grayscale alpha-texture sculpting.
 - **File:** tutorials/landscape-mode-basics-unreal-engine-57-part-1.md
 
@@ -3091,7 +3091,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **URL:** https://www.youtube.com/watch?v=IADB2OR8XCk
 - **Author:** R SH
 - **UE Version:** UE 5.7
-- **Tags:** landscape, sculpting, terrain, worldbuilding, beginner, ue5-7
+- **Tags:** landscape, sculpting, terrain, world-building, beginner, ue5-7
 - **Summary:** Episode 2 of the "Landscape in UE5.7" series, direct sequel to Part 1. Generating a real-world heightmap from a free web tool (location search, square-region crop, 16-bit PNG output, Topo preview) and importing it via Landscape Mode's Import from File, then tuning Scale Z for believable (non-exaggerated) elevation, refining with Part 1's Ramp/Smooth/alpha-noise tools, and organizing sculpt work into dedicated Editing Layers.
 - **File:** tutorials/landscape-mode-unreal-engine-57-part-2.md
 
@@ -3272,7 +3272,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **URL:** https://www.youtube.com/watch?v=jyQCaCJ_eY8
 - **Author:** Arghanion's Puzzlebox
 - **UE Version:** UE5
-- **Tags:** nanite, displacement, materials, vertex-color, blender, fbx, chamfer, tri-planar, surface-forge, intermediate
+- **Tags:** nanite, displacement, materials, vertex-color, blender, fbx, mesh-import, chamfer, tri-planar, surface-forge, world-forge, modelling-mode
 - **Summary:** Why Nanite displacement tears on sharp edges (unblended normals make displaced faces intersect) and two fixes via a free Blender add-on (Edge Mask Painter, Blender 3.2–5.0): angle-threshold edge detection, then either paint a vertex-color mask (needs subdivision; falloff rings/curve) that the UE5 material reads to kill displacement at edges, or chamfer 3–4 segments so displacement flows around corners. Covers FBX round-trip, UE5 Vertex Color Import Option = Replace, Surface Forge's per-channel displacement mask (Red > Alpha priority), and why complex meshes should stick to basic shapes.
 - **File:** tutorials/fix-displacement-tearing-in-ue5-free-blender-edge-tool-surface-forge.md
 
@@ -3562,7 +3562,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **URL:** https://www.youtube.com/watch?v=nIZpZyCrmMc
 - **Author:** Andrew Averkin Art
 - **UE Version:** not specified on screen (Lumen/Rect Light ray tracing implies UE5.x)
-- **Tags:** lighting, physically-based-lighting, lumen, post-process, exposure, tone-mapper, local-exposure, rect-light, ray-traced-shadows, color-grading, ambient-occlusion, cinematic, hdri-visualization, interior-lighting
+- **Tags:** lighting, physically-based-lighting, lumen, post-process, exposure, tone-mapper, local-exposure, rect-light, ray-traced-shadows, color-grading, ambient-occlusion, cinematics, hdri-visualization, interior-lighting
 - **Summary:** Two-stage interior lighting workflow: first build a physically-based (PBL) foundation using real lux/lumen/EV reference values (Environment Light Mixer for Sky Light/Directional Light/Sky Atmosphere/Volumetric Clouds/Height Fog, sun intensity from a lux reference chart, exposure locked via Min/Max EV, verified with the HDR Eye Adaptation visualization's Illuminance/Luminance meters, Film Slope/Toe and Local Exposure Highlight/Shadow Contrast for tonal shaping), then layer artistic "light portal" Rect Lights outside windows with ray-traced shadows, contact shadows, and light shaft occlusion, finishing with Color Grading temperature correction, Bloom/Vignette/Chromatic Aberration, and Lumen-specific Ambient Occlusion (requires two console commands to enable under Lumen). Strong conceptual grounding in *why* PBL values matter as a starting point rather than a rule.
 - **File:** tutorials/create-cinematic-lighting-in-unreal-engine-5-physically-based-workflow.md
 
@@ -3632,7 +3632,7 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **URL:** https://www.youtube.com/watch?v=IUyufiqS3RE
 - **Author:** Andrew Vish
 - **UE Version:** UE 5.3
-- **Tags:** rigging, skinning, blender, epic-skeleton, twist-bones, control-rig, ik-rig, ik-retargeter, foot-roll, curve-editor, physics-asset, ragdoll, post-process-deformation, lods, fab-marketplace, character-pipeline, advanced, youtube, ue5
+- **Tags:** rigging, skinning, blender, epic-skeleton, twist-bones, control-rig, ik-rig, retargeter, foot-roll, curve-editor, physics-asset, post-process-deformation, lod, marketplace, fab, character-pipeline, advanced, youtube, ue5
 - **Summary:** Advanced end-to-end commercial character pipeline: custom rigging + skinning in Blender (twist bones, Epic Skeleton bone-orientation conversion), then UE 5.3 setup — materials, Character Blueprint, IK Rig/Retargeter animation transfer, a stripped-down Control Rig with manual heel/toe foot-roll controllers, Curve-Editor animation cleanup, a second IK-bone rebake pass, a from-scratch Physics Asset with iterative ragdoll drop-testing, post-process twist-correction deformation via Anim Blueprint, LODs, and Fab marketplace submission. High-level pipeline overview/showcase rather than a settings-by-settings tutorial.
 - **File:** tutorials/static-assets-dont-sell-rigged-monsters-do-full-ue5-pipeline.md
 

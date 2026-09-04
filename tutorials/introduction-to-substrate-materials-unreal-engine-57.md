@@ -5,7 +5,7 @@ url: https://www.youtube.com/watch?v=d1ncs8M6Lkg
 author: Unreal Engine
 ingested: 2026-06-23
 ue_version: "UE5.7"
-tags: [substrate, materials, physically-based-rendering, layered-materials, car-paint, carbon-fiber, advanced, rendering, ue57, shading-model]
+tags: [substrate, materials, physically-based-rendering, layered-materials, car-paint, carbon-fiber, advanced, rendering, ue5-7, shading-model]
 extraction_status: complete
 frames_dir: tutorials/frames/introduction-to-substrate-materials-unreal-engine-57/
 frame_count: 4

@@ -6,7 +6,7 @@ author: Polygonflow Dash
 ingested: 2026-07-08
 plugin_version: dash-1.12
 ue_version: "UE 5.8"
-tags: [dash-1.12, vine-tool, cable-tool, grid-scatter, placement-tools, camera-tool, vertical-stack, performance, ue5.8, release-notes]
+tags: [dash-1.12, vine-tool, cable-tool, grid-scatter, placement-tool, camera-tool, vertical-stack, performance, ue5.8, release-notes]
 extraction_status: complete
 frames_dir: tutorials/frames/dash-112---improved-ue5-world-building-tools/
 frame_count: 12
