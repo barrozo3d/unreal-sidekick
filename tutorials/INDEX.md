@@ -3646,6 +3646,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Builds a minimal character-render stage in Unreal, from the "Unreal 5 for Character Artists" series. A single-sided plane extruded into an L-shaped cyclorama in Maya, bevelled at 0.33 so the corner reads as a gradient instead of a hard shadow line. A master material (BackDrop_M) exposes Color, Metal and Roughness as parameters via Convert to Parameter, driven through a Material Instance so the graph never has to be reopened; a near-black backdrop is called out as the reason a scene renders as a black void with no bounce light. The real content is the exposure fix: a CineCameraActor applies adaptive exposure that re-brightens whenever the camera turns, so a PostProcessVolume clamps Min EV100 and Max EV100 to the same value and enables Infinite Extent (Unbound), letting one volume govern the whole level from anywhere in it — after which lights can be tuned honestly. Despite the title, contains no criticism of Unreal.
 - **File:** tutorials/unreal-engine-5-sucks-but-were-gonna-build-our-render-scene-in-it.md
 
+
+### FPOM - Fast Parallax Occlusion Mapping
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=I7LEkredBxU
+- **Author:** Tore Lervik
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/fpom---fast-parallax-occlusion-mapping.md
+
 ---
 
 ## Tag Reference
