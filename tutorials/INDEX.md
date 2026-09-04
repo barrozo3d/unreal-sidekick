@@ -3656,6 +3656,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** NO USABLE NARRATION — the transcript floor raised a CRITICAL (381 chars against a 500 minimum for 156s) and Whisper produced only a repeated hallucinated fragment, so this entry is read from frames anchored on the video chapters. Demonstrates MF_FastParallaxOcclusionMapping, a third-party material function that fakes surface depth from a heightmap. World-space XY divided by a Tile Size parameter (400) generates UVs; the function returns UV, DDX, DDY and Pixel Depth Offset, and the key point is that ALL of them are routed — every downstream Param2D sampler takes UVs plus explicit DDX(UVs)/DDY(UVs) so mip selection stays correct under per-pixel UV displacement, and Pixel Depth Offset goes to the material pin so the illusion holds at silhouettes. IsDecal and IsTiling are static-bool compile-time switches. The final chapter chains a TextureVariation node in front, passing its Shifted UVs plus DDX/DDY into the function so tiling break-up and parallax share one set of derivatives. Measured GPU cost: Basepass 0.06 ms average within a 10.60 ms frame.
 - **File:** tutorials/fpom---fast-parallax-occlusion-mapping.md
 
+
+### Incremental Cooking in UE 5.7: A Dive Into the UE Cook Pipeline | Unreal Fest Chicago 2026
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=6L4Mz4FtMuY
+- **Author:** Unreal Engine
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/incremental-cooking-in-ue-57-a-dive-into-the-ue-cook-pipeline-unreal-fest-chicag.md
+
 ---
 
 ## Tag Reference
