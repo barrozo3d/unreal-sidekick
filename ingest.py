@@ -593,10 +593,13 @@ def segment_by_chapters(transcript, chapters):
 # literal inside download_video_low(): that function is drift-gated by
 # validate.py::check_script_drift(), so its source must stay byte-identical
 # across all five skills while the VALUE differs per skill.
-# content here is more often viewport/result-led than parameter-pane-led, so 720p
-# is the cost/legibility balance. Raise it per run for a UI-heavy screencast.
+# dense DCC UI -- the details panel, Blueprint graphs and Niagara stacks have to be
+# READABLE, and 720p reads a node title but is marginal for a parameter value.
+# Raised from 720 on 2026-09-04: the earlier "viewport/result-led" reading held for
+# cinematic result shots, but not for the Blueprint and details-panel work most UE
+# tutorials actually spend their time in.
 # Override for one run with the INGEST_FRAME_HEIGHT environment variable.
-DEFAULT_FRAME_HEIGHT = "720"
+DEFAULT_FRAME_HEIGHT = "1080"
 
 
 
