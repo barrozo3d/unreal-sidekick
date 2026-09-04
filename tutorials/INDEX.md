@@ -3636,6 +3636,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** Advanced end-to-end commercial character pipeline: custom rigging + skinning in Blender (twist bones, Epic Skeleton bone-orientation conversion), then UE 5.3 setup — materials, Character Blueprint, IK Rig/Retargeter animation transfer, a stripped-down Control Rig with manual heel/toe foot-roll controllers, Curve-Editor animation cleanup, a second IK-bone rebake pass, a from-scratch Physics Asset with iterative ragdoll drop-testing, post-process twist-correction deformation via Anim Blueprint, LODs, and Fab marketplace submission. High-level pipeline overview/showcase rather than a settings-by-settings tutorial.
 - **File:** tutorials/static-assets-dont-sell-rigged-monsters-do-full-ue5-pipeline.md
 
+
+### UNREAL ENGINE 5 SUCKS BUT WERE GONNA BUILD OUR RENDER SCENE IN IT
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=z-NpMJFsiUA
+- **Author:** Jared Chavez
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/unreal-engine-5-sucks-but-were-gonna-build-our-render-scene-in-it.md
+
 ---
 
 ## Tag Reference
