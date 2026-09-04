@@ -4,13 +4,14 @@ source: YouTube
 url: https://www.youtube.com/watch?v=z-NpMJFsiUA
 author: Jared Chavez
 ingested: 2026-09-04
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.4+ (inferred)"
+tags: [materials, shaders, lighting, camera, post-process, rendering, beginner]
+extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-5-sucks-but-were-gonna-build-our-render-scene-in-it/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 10
+frame_status: complete
 uncertainty_frames: []
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # UNREAL ENGINE 5 SUCKS BUT WERE GONNA BUILD OUR RENDER SCENE IN IT
@@ -23,12 +24,7 @@ uncertainty_frames: []
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py unreal-engine-5-sucks-but-were-gonna-build-our-render-scene-in-it <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -159,30 +155,82 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [1:05] tutorials/frames/unreal-engine-5-sucks-but-were-gonna-build-our-render-scene-in-it/frame_000.jpg
+- [3:26] tutorials/frames/unreal-engine-5-sucks-but-were-gonna-build-our-render-scene-in-it/frame_001.jpg
+- [4:19] tutorials/frames/unreal-engine-5-sucks-but-were-gonna-build-our-render-scene-in-it/frame_002.jpg
+- [5:45] tutorials/frames/unreal-engine-5-sucks-but-were-gonna-build-our-render-scene-in-it/frame_003.jpg
+- [7:05] tutorials/frames/unreal-engine-5-sucks-but-were-gonna-build-our-render-scene-in-it/frame_004.jpg
+- [7:33] tutorials/frames/unreal-engine-5-sucks-but-were-gonna-build-our-render-scene-in-it/frame_005.jpg
+- [8:04] tutorials/frames/unreal-engine-5-sucks-but-were-gonna-build-our-render-scene-in-it/frame_006.jpg
+- [9:37] tutorials/frames/unreal-engine-5-sucks-but-were-gonna-build-our-render-scene-in-it/frame_007.jpg
+- [10:23] tutorials/frames/unreal-engine-5-sucks-but-were-gonna-build-our-render-scene-in-it/frame_008.jpg
+- [11:22] tutorials/frames/unreal-engine-5-sucks-but-were-gonna-build-our-render-scene-in-it/frame_009.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Building a minimal character-render stage in Unreal — a bevelled backdrop mesh, a parameterised master material driven through a Material Instance, and a `PostProcessVolume` with `Min EV100` / `Max EV100` clamped and `Infinite Extent (Unbound)` enabled to stop auto-exposure drifting while you light the shot.
 
 ### Summary
-[PENDING EXTRACTION]
+Part of a "Unreal 5 for Character Artists" series, picking up after materials and textures. The 3D work is deliberately trivial: a single-sided plane in Maya, extruded up into an L-shaped cyclorama and bevelled so the corner reads as a soft gradient rather than a hard shadow line. The Unreal work is where the value is. A master material exposes Color, Metal and Roughness as parameters so the backdrop is tuned through a Material Instance rather than by reopening the graph. Then the real problem: a `CineCameraActor` applies adaptive exposure, so the image re-brightens every time the camera turns — useless for judging lighting. The fix is a `PostProcessVolume` with exposure clamped and its bounds set to unbounded, so it governs the whole level regardless of where the camera sits.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Model the backdrop in Maya.** Single-sided plane, scaled wide, then extrude one edge upward to form the vertical section of a cyclorama `[transcript 0:32-0:53]`.
+2. **Bevel the corner.** A couple of segments at a value of **`0.33`**, so the transition is soft — this avoids a harsh shadow at the base and gives a gradient from the darker floor into the lighter back wall `[transcript 1:02-1:29]`.
+3. **Import into Unreal.** Right-click in the mesh folder → Import → `Import All`. No material or mesh-combine options matter here since it is one mesh with nothing assigned `[transcript 1:48-2:17]`.
+4. **Expect it to be small, and expect UV problems.** The mesh imports at the wrong scale and has UV issues at the bevel — irrelevant for a solid-colour backdrop, but would need fixing for tiling textures `[transcript 2:18-2:53]`.
+5. **Create the master material** `BackDrop_M` `[transcript 2:55-3:12]`.
+6. **Wire three inputs**: a `Constant3Vector` into `Base Color`, and two `Constant` scalars into `Metallic` and `Roughness` `[frame_002]` `[transcript 3:24-3:57]`.
+7. **Convert them to parameters** — right-click → Convert to Parameter — named **`Color`**, **`Metal`** and **`Roughness`**, so the material never has to be reopened to adjust `[frame_002]` `[transcript 4:13-4:29]`.
+8. **Create a Material Instance** (`BackDrop_Grey_MI`) and assign it to the mesh `[frame_005]` `[transcript 4:31-5:04]`.
+9. **Scale it in-engine.** The author tries `800`, settles near `500` — noting that a scale convention established at project start is better practice, but scaling as needed is acceptable `[transcript 5:13-5:49]`.
+10. **Fix the black-void problem.** A near-black backdrop returns no bounce light at all; raising the Color parameter starts producing visible light response, shadowing and reflections `[transcript 6:05-6:57]`.
+11. **Tune the three parameters.** Roughly `0.4` for colour and roughness, and a low `Metallic` — `0.1` per narration, since `1.0` would turn the backdrop fully metallic `[transcript 7:02-7:42]`. The Material Instance panel at the sampled moment reads `Metal 0.744008`, `Roughness 0.45` mid-adjustment `[frame_005]`.
+12. **Add a `CineCameraActor`** from the Cinematic category in the placement dropdown `[transcript 7:57-8:15]`.
+13. **Observe the actual problem.** Turning the camera away and back makes the image progressively re-brighten — Unreal's adaptive exposure imitating a real camera adjusting to a dark room `[transcript 8:16-9:24]`.
+14. **Add a `PostProcessVolume`** via All Classes `[transcript 9:25-9:39]`. It applies its settings only within its box bounds `[transcript 9:40-10:06]`.
+15. **Clamp exposure.** Search `expos`, enable **`Min EV100`** and **`Max EV100`** and set both to the same value — narration uses `1` `[frame_008]` `[transcript 10:07-10:24]`. Defaults are `-10.0` and `20.0` `[frame_008]`. Inside the volume the exposure now holds steady; outside it still drifts `[transcript 10:27-10:52]`.
+16. **Make it global.** Rather than scaling the box to cover the camera's travel, enable **`Infinite Extent (Unbound)`** under Post Process Volume Settings, so the volume governs the entire level and can sit anywhere `[frame_009]` `[transcript 10:53-11:31]`.
+17. **Light it.** With exposure locked, the spotlight can be tuned honestly — the author steps intensity through 15, 25, 55 and lands near `350` `[transcript 11:47-12:06]`.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **`BackDrop_M`** (Material) — `Constant3Vector` → `Base Color`; two `Constant` scalars → `Metallic` and `Roughness`; base pass shader reported at **192 instructions** `[frame_002]`
+- **Material parameters** — `Color` (Vector Parameter, `Group: None`, `Sort Priority 32`), `Metal`, `Roughness` `[frame_002]`
+- **`BackDrop_Grey_MI`** (Material Instance) — parent `BackDrop_M`; Global Scalar Parameter Values `Metal`, `Roughness`; Global Vector Parameter Values `Color` `[frame_005]`
+- **`CineCameraActor`** — placed from the Cinematic category; exhibits adaptive exposure by default `[transcript 7:57-8:15]`
+- **`PostProcessVolume`** → Lens → Exposure — `Metering Mode: Auto Exposure Histogram`, `Exposure Compensation`, **`Min EV100`**, **`Max EV100`** (defaults `-10.0` / `20.0`), `Speed Up 3.0`, `Speed Down 1.0`; Advanced: `Low Percent 10.0`, `High Percent 90.0`, `Histogram Min/Max EV100 -10.0 / 20.0` `[frame_008]`
+- **`PostProcessVolume`** → Post Process Volume Settings → **`Infinite Extent (Unbound)`** `[frame_009]`
+- **Scene actors** — `Backdrop` (StaticMeshActor), `CineCameraActor`, `PostProcessVolume`, `SpotLight`, `Torso_Low` (StaticMeshActor) `[frame_008][frame_009]`
+- **Maya side** — single-sided plane, edge extrude, bevel at `0.33` with added segments `[transcript 1:02-1:14]`
+
+> **Frame vs narration.** `[transcript 7:31]` says the Metallic parameter is set to `0.1`;
+> the Material Instance panel at `[frame_005]` reads `Metal 0.744008` with `Roughness 0.45`
+> — the frame catches the value mid-drag, before it settles. The narration's figures are
+> the intent, the frame's are a snapshot. Both recorded rather than picking one.
+>
+> Also worth naming precisely: narration says "infinite extend unbounded"; the checkbox
+> reads **`Infinite Extent (Unbound)`** `[frame_009]`, and the exposure fields are
+> **`Min EV100`** / **`Max EV100`** `[frame_008]`.
+>
+> **The title is clickbait.** Despite "UNREAL ENGINE 5 SUCKS", the video contains no
+> criticism of Unreal — it is a straightforward backdrop-and-exposure setup tutorial.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Beginner
 
 ### UE Version
-[PENDING EXTRACTION]
+Not stated in narration and not visible in the title or status bar. The Material Editor shows a **`Substrate`** tab alongside `Stats`, and the material output node exposes `Surface Thickness` and `Front Material` pins `[frame_002]` — both Substrate-era, indicating **UE 5.4 or newer**. Recorded as an inference from the UI, not as a confirmed version.
 
 ### Tags
-[PENDING EXTRACTION]
+materials, shaders, lighting, camera, post-process, rendering, beginner
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [Lighting in Unreal Engine 5 for Beginners](lighting-in-unreal-engine-5-for-beginners.md) — the lighting pass this video stops just short of; locking exposure first is what makes those lights tunable at all; shares lighting, beginner
+- [The 2025 Guide to Rendering in Unreal Engine 5](the-2025-guide-to-rendering-in-unreal-engine-5.md) — takes a prepared scene like this one through MRQ output; shares rendering, camera
+- [Designing Visuals, Rendering, and Graphics with Unreal Engine](designing-visuals-rendering-and-graphics-with-unreal-engine.md) — Epic's own reference for the post-process and materials systems used here; shares materials, post-process, lighting, rendering
