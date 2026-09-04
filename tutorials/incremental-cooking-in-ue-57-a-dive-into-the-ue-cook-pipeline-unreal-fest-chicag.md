@@ -4,13 +4,14 @@ source: YouTube
 url: https://www.youtube.com/watch?v=6L4Mz4FtMuY
 author: Unreal Engine
 ingested: 2026-09-04
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+ue_version: "UE 5.8 (title says 5.7 -- see notes)"
+tags: [pipeline, automation, cpp, advanced, ue5-7, ue5-8]
+extraction_status: complete
 frames_dir: tutorials/frames/incremental-cooking-in-ue-57-a-dive-into-the-ue-cook-pipeline-unreal-fest-chicag/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 14
+frame_status: complete
 uncertainty_frames: []
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Incremental Cooking in UE 5.7: A Dive Into the UE Cook Pipeline | Unreal Fest Chicago 2026
@@ -23,12 +24,7 @@ uncertainty_frames: []
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py incremental-cooking-in-ue-57-a-dive-into-the-ue-cook-pipeline-unreal-fest-chicag <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Full Content [0:00]
@@ -1198,30 +1194,113 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [2:37] tutorials/frames/incremental-cooking-in-ue-57-a-dive-into-the-ue-cook-pipeline-unreal-fest-chicag/frame_000.jpg
+- [4:07] tutorials/frames/incremental-cooking-in-ue-57-a-dive-into-the-ue-cook-pipeline-unreal-fest-chicag/frame_001.jpg
+- [5:50] tutorials/frames/incremental-cooking-in-ue-57-a-dive-into-the-ue-cook-pipeline-unreal-fest-chicag/frame_002.jpg
+- [14:20] tutorials/frames/incremental-cooking-in-ue-57-a-dive-into-the-ue-cook-pipeline-unreal-fest-chicag/frame_003.jpg
+- [15:05] tutorials/frames/incremental-cooking-in-ue-57-a-dive-into-the-ue-cook-pipeline-unreal-fest-chicag/frame_004.jpg
+- [16:08] tutorials/frames/incremental-cooking-in-ue-57-a-dive-into-the-ue-cook-pipeline-unreal-fest-chicag/frame_005.jpg
+- [17:52] tutorials/frames/incremental-cooking-in-ue-57-a-dive-into-the-ue-cook-pipeline-unreal-fest-chicag/frame_006.jpg
+- [20:26] tutorials/frames/incremental-cooking-in-ue-57-a-dive-into-the-ue-cook-pipeline-unreal-fest-chicag/frame_007.jpg
+- [21:02] tutorials/frames/incremental-cooking-in-ue-57-a-dive-into-the-ue-cook-pipeline-unreal-fest-chicag/frame_008.jpg
+- [21:46] tutorials/frames/incremental-cooking-in-ue-57-a-dive-into-the-ue-cook-pipeline-unreal-fest-chicag/frame_009.jpg
+- [22:16] tutorials/frames/incremental-cooking-in-ue-57-a-dive-into-the-ue-cook-pipeline-unreal-fest-chicag/frame_010.jpg
+- [30:02] tutorials/frames/incremental-cooking-in-ue-57-a-dive-into-the-ue-cook-pipeline-unreal-fest-chicag/frame_011.jpg
+- [31:35] tutorials/frames/incremental-cooking-in-ue-57-a-dive-into-the-ue-cook-pipeline-unreal-fest-chicag/frame_012.jpg
+- [39:12] tutorials/frames/incremental-cooking-in-ue-57-a-dive-into-the-ue-cook-pipeline-unreal-fest-chicag/frame_013.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+Enabling and complying with **Incremental Cook** — Unreal's memoized cook that skips re-cooking packages whose dependencies have not changed — covering its prerequisites (DDC, ZenServer, ZenStore, IoStore), the opt-in config, the C++ compliance burden for custom classes, and `IncrementalValidate` for catching false skips.
 
 ### Summary
-[PENDING EXTRACTION]
+A conference talk by **Matt Peters** of Epic's Foundation Core Data Pipelines team, who owns most of the code in `UCookOnTheFlyServer`. Cooking is load → transform → save, and loading/saving every package every iteration dominates the cost. Incremental Cook memoizes that, but caching is only as sound as its dependency capture — and the previous attempt, **iterative cooking**, failed precisely because it captured only package and config dependencies, missing C++ code changes. The rename to "incremental" marks the promise to capture *all* inputs. Some are automatic (reflection-driven serialization, `TObjectPtr`, the config API); the rest must be **manually declared**, which is the compliance burden the talk exists to explain. Because a false skip means stale data shipping to users, project C++ classes are opted **out** by default, and release builds should always use a full cook.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Understand the cost being attacked.** A full Lyra cook profiles at `UCookOnTheFlyServer::TickMainCookLoop` **145,122.86** with `PumpLoads` **97,255.53** and `PumpRuntimeSaves` **47,593.27** dominating; the incremental equivalent is **4,523.59**, almost all in `PumpRequests` `[frame_000]` `[transcript 2:35-3:03]`.
+2. **Know why the previous attempt failed.** Iterative cooking captured only package and config dependencies. Detecting that a mesh `.uasset` changed is insufficient — you must also detect when `UStaticMesh::Serialize` changes `[transcript 3:49-4:19]`. Working in some but not all cases proved as bad as working in none, and most teams reverted to full recooks `[transcript 4:33-4:41]`.
+3. **Know what is captured automatically**: UProperties and reflection-driven serialization, `TObjectPtr` package dependencies, and reads through the config API `[transcript 5:00-5:14]`.
+4. **Know what is not**: custom serialization code, cached pointers in manager systems, and disk reads outside the Unreal package system — these must be declared by hand `[transcript 5:15-5:31]`. The worked example is a `GConfig` read cached in a `static` function variable: because the call happens once, the dependency is recorded against only the first instance `[transcript 5:44-6:05]`.
+5. **Prerequisite — DDC.** Required even when cooking incrementally; a cold full cook is several times slower than a warm one. On by default `[transcript 14:21-14:55]`.
+6. **Prerequisite — ZenServer as DDC storage.** Aggregates DDC blobs into a database instead of loose files, cutting IO cost — doubly so when DDC lives on a network drive. Configured in `Engine.ini`. Optional but highly recommended and the default `[transcript 14:56-15:33]`.
+7. **Prerequisite — ZenStore as cook output** `[frame_005]`. Default in **5.8** (beta in 5.7), and **required** for incremental cook. Setting: `BaseGame.ini:[/Script/UnrealEd.ProjectPackagingSettings]:bUseZenStore`; commandlines `-zenstore` / `-skipzenstore`; also exposed as Project Settings → Packaging → "Use Zen Server as cooked output store" `[frame_005]` `[transcript 16:00-16:13]`.
+8. **Expect a workflow break.** Intermediate cooked files are no longer on disk, which breaks tools that expect them. Fix immediately by overriding the ini value, then switch back; recover files with `zen export`, or point tools at the Zen server directly `[transcript 16:15-16:43]`.
+9. **Prerequisite — IoStore staging.** Default since **UE 5.0**; `BaseGame.ini:[/Script/UnrealEd.ProjectPackagingSettings]:bUseIoStore` `[frame_005]` `[transcript 16:58-17:05]`.
+10. **Where the data lives.** ZenStore data sits alongside DDC data, governed by the **`UE-LocalDataCachePath`** environment variable. The on-disk format is a private implementation detail with no deprecation guarantees — access it through the Zen server API `[frame_005]` `[transcript 17:07-17:28]`.
+11. **Understand the Oplog.** Cook package data and incremental metadata live in an **Oplog** (operations log) scoped to project + workspace + target platform — a database technique giving operations a sequence order so current state is the in-order traversal `[transcript 17:47-18:08]`.
+12. **Do not cook release builds incrementally.** "Even a 0.1% chance of stale data being sent out to end users is too high." Use it for local cooks, CIS and QA; use a full cook for the release candidate `[transcript 20:23-20:40]`.
+13. **Opt your classes back in.** All project C++ classes opt **out** by default, to avoid assuming day-one dependency compliance. Enable in `Editor.ini:[CookSettings]` with `+IncrementalClassScriptPackageAllowList=Allow,<ProjectRoot>` — Lyra ships an example `[frame_008]` `[transcript 20:43-21:07]`.
+14. **Opt individual classes out** with `+IncrementalClassDenyList=/Script/MyProject.MyClass` for types that are not yet compliant `[frame_008]` `[transcript 21:09-21:18]`. Epic notes `UWorld` and `UBlueprint` took them a while to make compliant `[transcript 21:27-21:31]`.
+15. **Turn it on** with a single dial: pass `-cookincremental` to the cook commandlet `[transcript 23:19-23:27]`.
+16. **Confirm it engaged** via two log lines: at the start, `LogCook: Full cook` or `LogCook: Incremental cook`; at the end, counts of packages cooked (new or re-cooked) versus skipped. Otherwise the output is designed to be indistinguishable between the two `[transcript 21:39-22:03]`.
+17. **Share cook state farm → developer.** The farm cooks, then the build script calls `zen oplog-export`; the developer runs `zen oplog-import` against the same storage and their state matches a prior local cook, so they can incrementally skip anything unchanged `[transcript 22:06-23:16]`. Zen cooks still write some loose files, so use the export argument that embeds them `[transcript 22:29-22:50]`.
+18. **Diagnose false skips with `IncrementalValidate`** `[frame_011]`. A false incremental skip is a package that *should* have been re-cooked. The tool computes the skip decision as normal, then saves the skippable packages anyway and diffs new against kept `[transcript 29:52-30:31]`.
+19. **Invoke it** as `-run=cook ... -incrementalvalidate`, optionally `-incrementalvalidateallowwrite` to let it write after diagnostics; or run `Engine\Build\Graph\Tests\IncrementalValidate.xml`, which uses the allow-write form in a persistent workspace `[frame_011]` `[transcript 30:12-30:19, 30:56-31:05]`.
+20. **Read the output like `-diffonly`.** It is built on the decade-old diff-only technology and reports C++ call stacks and changed property names. A common finding is C++ serialization changing without a bump to the class schema `[frame_011]` `[transcript 30:31-30:55]`.
+21. **Fix indeterminism alongside false skips.** Non-deterministic saves confuse the algorithm; a two-phase mode exists but fixing the indeterminism is better `[frame_011]` `[transcript 31:06-31:29]`. Worked examples: an optional-imports field that was not needed at runtime, and a single integer computed non-deterministically `[transcript 31:43-32:03]`.
+22. **Check file history when hunting a hidden dependency** — it is often a change to native serialization `[frame_011]`.
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+- **Cook hooks** — `BeginCacheForCookedPlatformData`, `IsCachedCookedPlatformDataLoaded`; used for the expensive transforms (texture compression, mesh simplification) that have been DDC-cached for years `[transcript 1:59-2:10]`
+- **`UCookOnTheFlyServer`** — `TickMainCookLoop`, `PumpLoads`, `PumpRuntimeSaves`, `PumpRequests`, `TickCookStatus`, `PumpPollables` `[frame_000]`
+- **Enable** — `-cookincremental` on the cook commandlet `[transcript 23:25]`
+- **Opt-in config** — `Editor.ini:[CookSettings]` → `+IncrementalClassScriptPackageAllowList=Allow,<ProjectRoot>`; per-class opt-out `+IncrementalClassDenyList=/Script/MyProject.MyClass` `[frame_008]`
+- **ZenStore** — `BaseGame.ini:[/Script/UnrealEd.ProjectPackagingSettings]:bUseZenStore`; `-zenstore` / `-skipzenstore`; Project Settings → Packaging → "Use Zen Server as cooked output store" `[frame_005]`
+- **IoStore** — `BaseGame.ini:[/Script/UnrealEd.ProjectPackagingSettings]:bUseIoStore`, default since UE 5.0 `[frame_005]`
+- **Related packaging ini values seen** — `UsePakFile=True`, `bUseIoStore=True`, `bUseZenStore=False`, `bCompressed=True`, `PackageCompressionFormat=Oodle` `[frame_005]`
+- **Storage path** — `UE-LocalDataCachePath` environment variable; format is private, access via the Zen API `[frame_005]`
+- **Transfer commands** — `zen oplog-export` / `zen oplog-import`, targeting a file, cloud storage or another Zen server `[transcript 22:26-23:08]`
+- **Validation** — `-run=cook ... -incrementalvalidate [-incrementalvalidateallowwrite]`, `Engine\Build\Graph\Tests\IncrementalValidate.xml`, built on `-diffonly` `[frame_011]`
+- **Log lines** — `LogCook: Full cook` / `LogCook: Incremental cook` `[transcript 21:44-21:47]`
+- **Docs** — https://dev.epicgames.com/documentation/unreal-engine/using-zen-storage-server-as-cooked-output-store-for-unreal-engine `[frame_005]`
+
+**Internal testing results — cook times (full vs null)** `[frame_013]`
+
+| Project | Full cook packages | Full cook time | Null cook packages | Null cook time |
+|---|---|---|---|---|
+| **Lyra** (small) | 3,980 | 2.7 m | 0 | 28 s |
+| **CitySample** (medium) | 32,467 | 13.8 m | 0 | 68 s |
+| **Fortnite** (large) | 1,565,054 | 10.5 h SP / 3.5 h 4MP / 1.5 h 8MP | 2,546 | 30 m SP / 35 m 4MP / 35 m 8MP |
+
+- **Why Fortnite's null cook is not zero** — some classes are still not incrementally skippable, so ~2,500 packages re-cook `[transcript 39:36-39:48]`
+- **Multi-process irony** — the 8-worker null cook is a few minutes *slower* than single-process, because of cook-worker spin-up `[transcript 39:31-39:35]`
+- **Typical (churn) cook on Fortnite** — 611,000 packages, about one third of full, cutting the saving from ~1 hour to ~35 minutes `[transcript 40:08-40:17]`
+- **Robustness in 5.8** — IncrementalValidate reports ~1,600 false-skip errors across millions of test packages, most from indeterminism; errors confirmed to come from hidden dependencies occur around **one in a thousand submissions** `[transcript 40:50-41:06]`
+
+> **Version discrepancy, worth knowing before you act on this.** The video title says
+> **UE 5.7**, but the speaker repeatedly states the feature "is ready for use in **5.8**"
+> `[transcript 0:11]`, that prerequisites are "on by default in 5.8" `[transcript 14:14]`,
+> and the ZenStore slide reads "Default in 5.8" while noting the system "was in beta in
+> 5.7" `[frame_005]`. **Treat 5.8 as the target release**; 5.7 appears to be the shipping
+> version at talk time, not the version the feature lands in.
+>
+> **Whisper naming errors.** The transcript writes **"ZIN Server"** for `ZenServer` in the
+> early passage, then spells "Zen Store"/"Zen server" correctly later — the same
+> mangled-then-correct pattern seen elsewhere in this batch, and a reminder that one
+> correct occurrence does not vouch for the rest. Also "Ucook on the Fly server" for
+> `UCookOnTheFlyServer`, "gconfig" for `GConfig`, "I&I value" for `.ini`, and "cache
+> invalidification" for cache invalidation. Slide text `[frame_005][frame_008][frame_011]`
+> is the reliable source for every identifier above.
+>
+> **One frame missed its slide:** `[frame_007]` (20:26) caught a cut to the speaker rather
+> than the "do not cook release builds" slide, so that warning is cited to narration only.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Advanced
 
 ### UE Version
-[PENDING EXTRACTION]
+**UE 5.8** is the target release, despite the video title saying 5.7. The speaker states the feature "is ready for use in 5.8" `[transcript 0:11]` and that prerequisites are "on by default in 5.8" `[transcript 14:14]`; the ZenStore slide reads "Default in 5.8" and notes the system "was in beta in 5.7" `[frame_005]`. IoStore staging has been the default since UE 5.0 `[frame_005]`.
 
 ### Tags
-[PENDING EXTRACTION]
+pipeline, automation, cpp, advanced, ue5-7, ue5-8
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [Designing Visuals, Rendering, and Graphics with Unreal Engine](designing-visuals-rendering-and-graphics-with-unreal-engine.md) — Epic's own engine-systems reference covering the same 5.7-era generation; shares pipeline-level engine internals
+- [Nanite: Everything You Should Know [Unreal Engine 5]](nanite-everything-you-should-know-unreal-engine-5.md) — the mesh transforms this talk cites as among the most expensive DDC-cached cook steps

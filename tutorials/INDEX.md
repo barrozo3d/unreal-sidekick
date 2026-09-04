@@ -3661,9 +3661,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=6L4Mz4FtMuY
 - **Author:** Unreal Engine
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.8 (title says 5.7 -- see notes)
+- **Tags:** pipeline, automation, cpp, advanced, ue5-7, ue5-8
+- **Summary:** Epic conference talk (Matt Peters, Foundation Core Data Pipelines) on Incremental Cook, the memoized cook that skips packages whose dependencies have not changed. NOTE: the title says 5.7 but the speaker and slides target 5.8. Explains why the earlier "iterative cooking" failed — it captured only package and config dependencies, missing C++ serialization changes — and what incremental captures automatically (reflection-driven serialization, TObjectPtr, config API) versus what must be declared by hand (custom serialization, cached pointers, non-package disk reads). Prerequisites: DDC, ZenServer as DDC storage, ZenStore as cook output (bUseZenStore, required, default in 5.8) and IoStore staging (default since 5.0); metadata lives in a per-project/workspace/platform Oplog under UE-LocalDataCachePath. Project C++ classes are opted OUT by default — re-enable via Editor.ini [CookSettings] +IncrementalClassScriptPackageAllowList=Allow,<ProjectRoot>, exclude types with +IncrementalClassDenyList. Enable with -cookincremental; confirm via LogCook Full/Incremental lines. Farm-to-developer sharing uses zen oplog-export/import. Debug false skips with -incrementalvalidate (built on -diffonly), and fix indeterminism alongside. Do NOT cook release builds incrementally. Measured: Lyra 2.7m full vs 28s null; CitySample 13.8m vs 68s; Fortnite 1.565M packages 10.5h single-process vs 30m null.
 - **File:** tutorials/incremental-cooking-in-ue-57-a-dive-into-the-ue-cook-pipeline-unreal-fest-chicag.md
 
 ---
