@@ -1,7 +1,17 @@
 {
   "entries": 335,
-  "rank1_pct": 50,
-  "top5_pct": 71,
-  "unreachable_single_query": 53,
-  "recorded": "2026-08-31"
+  "rank1_pct": 59,
+  "top5_pct": 80,
+  "unreachable_single_query": 35,
+  "by_provenance": {
+    "online": {
+      "entries": 333,
+      "top5_pct": 81
+    },
+    "other": {
+      "entries": 2,
+      "top5_pct": 50
+    }
+  },
+  "recorded": "2026-09-03"
 }
