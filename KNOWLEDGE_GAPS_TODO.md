@@ -81,8 +81,9 @@ Completed section below)
   matching an unrelated paid-course trailer — was overwritten with a do-not-use
   notice at `tutorials/architectural-presentation-masterclass-unreal-engine-57.md`.
   ⏳ **Open, but not actionable: Episodes 3 (Landscape Materials) and 4 (Foliage)
-  are still unpublished.** Playlist re-checked **2026-08-31**: still 2 videos, five
-  weeks after the 07-21 check. Re-check the playlist and ingest them the same way
+  are still unpublished.** Playlist re-checked **2026-09-06**: still 2 videos
+  (`IADB2OR8XCk`, `rxUsQRcq168`) — unchanged since the 08-31 check, seven weeks
+  after the 07-21 one. Re-check the playlist and ingest them the same way
   when they appear — the article page will need another look then too, since its
   body likely lists them once added.
   Playlist: https://www.youtube.com/playlist?list=PLqw4sGRzmvyCs9F_hOSNeyUmFZ8xDBx6J
