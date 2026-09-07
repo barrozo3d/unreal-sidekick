@@ -3676,6 +3676,16 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Summary:** [PENDING EXTRACTION]
 - **File:** tutorials/lumen-in-unreal-engine-a-closer-look.md
 
+
+### Full UE5 Forest Cabin Tutorial - Procedural Tools & More!
+- **Source:** YouTube
+- **URL:** https://www.youtube.com/watch?v=VQMHQR4sQCo
+- **Author:** Polygonflow Dash
+- **UE Version:** [PENDING]
+- **Tags:** [PENDING]
+- **Summary:** [PENDING EXTRACTION]
+- **File:** tutorials/full-ue5-forest-cabin-tutorial---procedural-tools-more.md
+
 ---
 
 ## Tag Reference
