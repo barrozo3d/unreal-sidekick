@@ -4,13 +4,15 @@ source: YouTube
 url: https://www.youtube.com/watch?v=VQMHQR4sQCo
 author: Polygonflow Dash
 ingested: 2026-09-07
-ue_version: "[PENDING]"
-tags: []
-extraction_status: pending
+plugin_version: "Not specified"
+ue_version: "UE5 (version not stated)"
+tags: [dash, polygonflow, procedural, terrain, curve-deformation, road-tool, surface-scatter, path-scatter, proximity-mask, object-mask, vertex-painting, vines, rvt, runtime-virtual-texture, fog-cards, environment-art, foliage, lighting, cine-camera, composition, world-building, intermediate, youtube, ue5]
+extraction_status: complete
 frames_dir: tutorials/frames/full-ue5-forest-cabin-tutorial---procedural-tools-more/
-frame_count: 0
-frame_status: pending-selection
+frame_count: 10
+frame_status: complete
 uncertainty_frames: []
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Full UE5 Forest Cabin Tutorial - Procedural Tools & More!
@@ -23,12 +25,7 @@ uncertainty_frames: []
 
 ## Raw Data (for Claude Code extraction)
 
-Frames are not captured yet. Read the timestamped transcript below, pick moments
-that actually show a technique/result worth a still (not blind percentages —
-even within a named chapter, verify the real moment against its timestamps), then run:
-  python select_frames.py full-ue5-forest-cabin-tutorial---procedural-tools-more <ts1> <ts2> ...
-(seconds or mm:ss). This appends a "Captured Frames" section and updates the
-frontmatter before you write the Structured Notes below.
+Frames captured — see "Captured Frames" section below.
 
 
 ### Intro [0:00]
@@ -267,30 +264,84 @@ frontmatter before you write the Structured Notes below.
 
 ---
 
+## Captured Frames
+
+- [1:27] tutorials/frames/full-ue5-forest-cabin-tutorial---procedural-tools-more/frame_000.jpg
+- [2:46] tutorials/frames/full-ue5-forest-cabin-tutorial---procedural-tools-more/frame_001.jpg
+- [4:15] tutorials/frames/full-ue5-forest-cabin-tutorial---procedural-tools-more/frame_002.jpg
+- [5:11] tutorials/frames/full-ue5-forest-cabin-tutorial---procedural-tools-more/frame_003.jpg
+- [6:27] tutorials/frames/full-ue5-forest-cabin-tutorial---procedural-tools-more/frame_004.jpg
+- [11:51] tutorials/frames/full-ue5-forest-cabin-tutorial---procedural-tools-more/frame_005.jpg
+- [15:08] tutorials/frames/full-ue5-forest-cabin-tutorial---procedural-tools-more/frame_006.jpg
+- [16:30] tutorials/frames/full-ue5-forest-cabin-tutorial---procedural-tools-more/frame_007.jpg
+- [22:03] tutorials/frames/full-ue5-forest-cabin-tutorial---procedural-tools-more/frame_008.jpg
+- [24:48] tutorials/frames/full-ue5-forest-cabin-tutorial---procedural-tools-more/frame_009.jpg
+
+---
+
 ## Structured Notes
 
 ### Core Technique
-[PENDING EXTRACTION]
+End-to-end procedural environment build in UE5 driven almost entirely from the Dash toolbar — Create Terrain with curve deformation, Road tool on a spline, vertex-painted material breakup, Surface/Path Scatter governed by proximity and object masks, vines, Runtime Virtual Texture blending, fog cards, and a Dash cine camera — so that moving one curve point re-propagates through terrain, road and scatter.
 
 ### Summary
-[PENDING EXTRACTION]
+A 29-minute full-scene tutorial building a forest cabin environment, structured in 12 chapters from bare terrain to final graded camera. The spine of the workflow is that nearly every element stays linked to a Dash curve or a mask rather than being hand-placed: curves deform the terrain and drive the road, then the same curves act as proximity masks that carve grass and trees away from the path and cabin, so composition changes stay non-destructive. The back half shifts from construction to look — RVT blending to seat scattered assets into the terrain [frame_007], fog cards for atmospheric depth [frame_008], practical lights around the fire pit and window, and a Dash cine camera with grading presets [frame_009]. The author repeatedly re-blocks composition (rotating the cabin, moving curve points) and lets the procedural setup absorb it.
 
 ### Key Steps
-[PENDING EXTRACTION]
+1. **Terrain** — type `terrain` in the Dash toolbar → **Create Terrain**; the terrain and the **Tools Panel** appear together. `Curved` hides the horizon line at eye level; `UV Scale` drives texture tiling [frame_001 shows `Uv Scale 3.0`, `Seed 954`]. Ctrl+drag materials from the Content Browser onto the terrain → **Apply Blend Material**, then **Edit → Edit Blend Material** → `Global Tiling` **2.8**, and enable **Tiling Control → Enable Breakup Tiling** to kill the visible repeat [frame_000 shows the Blend Material panel: R/G/B/S/T Weight, Global Tiling, Height Contrast, Height Intensity; transcript 1:19–1:45].
+2. **Curves + terrain deformation** — type `draw` → **Draw Curve**, draw the path; `distance` thins the point count. In **Terrain Tool → Curve Deformation** add the curve and set `Width` / `Falloff` [frame_001: `Sampling 180.0`, `Width 13.33`, `Falloff 0.33`, `Project Curves` on]. Multiple curves are managed via **Edit Table** — `+` adds an item, then `+` under `Curve` assigns the curve; each item carries its own Width/position/rotation. One curve forms the path, a second levels the ground under the cabin (Width **11**) [transcript 2:46–3:41].
+3. **Road** — type `road` → **Road tool**; with the curve selected, `+` under `Curves` in the Tools panel snaps the road onto it [frame_002: `Width 25.0`, `Inside Height 5.0`, `Border Height -6.0`, plus `Projection Mask` and `Full Mesh Projection`]. Any material can be applied — he uses a Megascans pine/American road material. The cabin (Fisherman's Cabin pack from Fab) is imported as the focal point.
+4. **Shadow artifact fix** — console command `r.raytracing.normalbias 5` clears the shadow artifact on the terrain [transcript 4:51]. *(Transcript-only — not visible in a captured frame.)*
+5. **Vertex painting** — switch to **Modeling Mode → Attribs → Paint Vertex Colors** [frame_003 confirms the mode and category]. Set `Brush Size` / `Strength`, enable **only the R channel**, set paint colour to black, and paint the path so the material stops reading as uniform.
+6. **Scatter grass** — Ctrl+drag grass from the Content Browser into the scene → **Scatter here**. Base properties are `Density`, `Uniform Scale`, `Min/Max Scale`, `Pivot Mode`, `Scale Mode`, `Falloff`, `Sink` [frame_006]. Lighting is swapped here to set mood — the project carries Dash lighting blueprints (`Dash_Night_/Noon_/Overcast_/Sunrise_/Sunset_Lighting`) [frame_004].
+7. **Mask the scatter back off** — select the grass scatter → **Proximity Mask** → `+` on the `Object` property, add the curve, tune `width` and `falloff`; repeat for road and cabin. A drawn circle added to the **Object Mask** clears the secondary focal point. The full mask set available on a scatter is `Feature Masking`, `Proximity Mask`, `Noise Mask`, `Object Masking`, `Border Masking`, `Edge Breakup`, `Directional Masking`, `Rotation Properties` [frame_004].
+8. **Trees** — scatter mixed tree species for variety, drop `Density` to **0.2**, then clear them from paths with the same proximity-mask method. Behind the cabin, draw a curve and use **Path Scatter** (`scatter on selection`); add **jitter** to break the uniform spacing, and add the cabin to the proximity table where trees intersect it [transcript 7:12–8:40].
+9. **Mid-layer bushes** — the scene reads as grass-then-trees with nothing between, so bushes (large/medium/small) are added *into the existing grass scatter* via the scatter's **Edit Table** → new element → assign meshes, `Density` **0.1** [frame_006 shows `Edit Table` beside the `Scatter` row; transcript 11:31–12:14].
+10. **Fire pit** — a Polyhaven fire pit is placed as the secondary focal point, **physics paint** drops wood inside it, and fire comes from existing blueprints built on Niagara particles + textures [transcript 12:44–13:30].
+11. **Vines** — roof vines: drag Quixel broom creeper onto a curve → `scatter on selection`, then **disable `use asset rotation scale`** to correct their orientation. Truck/tree vines: drag atlases onto the mesh → **create vines on selection**, then tune `growth instance`, `growth size` and especially `seed` for variation [transcript 14:35–18:32].
+12. **RVT blending** — select the terrain and run the **RVT** command, then per asset: **Tools panel → Edit → Edit Material → Virtual Texture → Enable Virtual Texture**. The blend is controlled by `Slope`, `Edge Blend`, `Blend Falloff` and `Noise` [frame_007: `Slope 3.42`, `Edge Blend 1.58`, `Blend Falloff 1.17`, `Noise 1.0`]. Also applied to path rocks to fake moss [transcript 21:05].
+13. **Lighting** — spotlights for the torch and fire pit tuned on `intensity`, unit, `attenuation radius` and **volumetric scatter**; a light in the cabin window so it reads from outside; the fire pit deliberately over-bright so it spills onto surrounding vegetation. Later a rectangular light warms the main path and a yellow light strengthens the tree highlight [transcript 19:03–20:27, 26:02–27:35].
+14. **Fog cards** — Dash bar → **Create → Create Fog Card**, then scale/place. Controlled by `Base Color Tint`, `Cloud Density`, `Cloud Brightness`, `Cloud Contrast`, `Edge Fading Distance`, `Camera Fading Distance`, `Wind Speed`, `Wind Direction`, `Cloud Wind Tilling` [frame_008: tint `FFFFFF`, density `1.0`, brightness `2.0`, contrast `-2.3`, edge fade `300.0`, camera fade `1000.0`, wind speed `0.1`]. **Cloud Brightness must be balanced against the Exponential Height Fog** — the higher the brightness, the more the card's colour survives the height fog [transcript 22:53–23:04].
+15. **Camera** — Dash bar → `camera` → **Create Camera** (a `DashCineCameraV2`), then **Edit → Edit Camera** for live viewport feedback [frame_009: `Focal Length ~24`, `Aperture 2.8`, `Focus Distance 2.0`, `Squeeze Factor 1.0`, `Sensor Width 36.0`, `Sensor Height 24.0`, `Aspect Ratio 16:9`, plus a `Control Camera from UE Details Panel` toggle]. Post FX via grading presets — he picks **bright sunny day** — with film grain, vignette and sharpen.
+16. **Final tweaks** — the cabin is rotated for a better read of its side and window light; roof and grass offsets are re-fixed afterwards; Exponential Height Fog start distance reduced; and **Create → Create Falling Leaves** is placed above ground near the fire pit to finish [transcript 25:28–28:52].
 
 ### UE Systems / Blueprints / Settings
-[PENDING EXTRACTION]
+**Dash toolbar** — `Content · Place · Scatter · Create · Edit · Marketplace · Search` [frame_000]. Tools open into a dockable **Tools Panel**; `Edit` re-opens the panel for whatever is selected.
+
+| Tool / Panel | Key properties (frame-confirmed) |
+|---|---|
+| **Terrain Tool** | `Uv Scale`, `Seed`, `Noise Deformation`, `Curve Deformation` → `Curves`, `Sampling`, `Width`, `Falloff`, `Project Curves` [frame_001] |
+| **Blend Material** | `R/G/B/S/T Weight`, `Global Tiling`, `Height Contrast`, `Height Intensity`; `Tiling Control → Enable Breakup Tiling` [frame_000] |
+| **Road Tool** | `Curves`, `Projection Mask`, `Full Mesh Projection`, `Width`, `Inside Height`, `Border Height`, `Shape Refining`, `Profile Settings` [frame_002] |
+| **Surface Scatter** | `Surface`, `Scatter` (+ **Edit Table**), `Density`, `Uniform Scale`, `Min Scale`, `Max Scale`, `Pivot Mode`, `Scale Mode`, `Falloff`, `Sink`, `Randomize Sink` [frame_006] |
+| **Scatter masks** | `Feature Masking`, `Proximity Mask`, `Noise Mask`, `Object Masking`, `Border Masking`, `Edge Breakup`, `Directional Masking`, `Rotation Properties` [frame_004] |
+| **Edit Material (RVT)** | `Tiling`, `Displacement`, `Virtual Texture → Enable Virtual Texture`, `Slope`, `Edge Blend`, `Blend Falloff`, `Noise`, `Uvs` [frame_007] |
+| **Fog Card** | `Base Color Tint`, `Cloud Density`, `Cloud Brightness`, `Cloud Contrast`, `Edge Fading Distance`, `Camera Fading Distance`, `Wind Speed`, `Wind Direction`, `Cloud Wind Tilling` [frame_008] |
+| **Edit Camera** | `Control Camera from UE Details Panel`, `Focal Length`, `Aperture`, `Focus Distance`, `Squeeze Factor`, `Sensor Width/Height`, `Aspect Ratio` [frame_009] |
+
+**Concrete values called out:** Global Tiling `2.8`; second deformation curve Width `11`; tree scatter Density `0.2`; bush element Density `0.1`; camera Focal Length `24`; `r.raytracing.normalbias 5`.
+
+**Scene organisation:** Dash writes its output into a `DashToolsOutput` folder in the Outliner (`Terrain Tool_Terrain`, `Road Tool_Dash_Road`, `dash_curve` ×3, `Scatter Wild Grass`, `Scatter Mossy Rocks`, `Ivy` group, etc.), with a `DashSceneData` actor alongside [frame_004, frame_009]. Level is `H_Cabin_LVL`; the scene reaches ~1,020 actors by the camera stage.
+
+> **Naming note:** `Cloud Wind Tilling` is spelled that way in the Dash UI [frame_008] — recorded as shown rather than corrected to "Tiling", so a grep against the panel matches.
+
+> **Transcript note:** a few lines are duplicated by the transcriber around 12:38–13:08 and 27:02–28:10 (the same sentence emitted twice); these are artifacts, not repeated steps. "Fountain browser" at 12:31 is a mishearing of *content browser*, and "exponential height bog" at 27:02 is *Exponential Height Fog*.
 
 ### Difficulty
-[PENDING EXTRACTION]
+Intermediate
 
 ### UE Version
-[PENDING EXTRACTION]
+UE5, exact version not stated. The Dash bar carries both `Marketplace` and a `Fab` Content Browser source, and the Content Browser also still shows a `Quixel (old)` source [frame_000, frame_002], consistent with a UE 5.5+ editor during the Fab transition. Treat as UE5.x — no on-screen version string was shown.
 
 ### Tags
-[PENDING EXTRACTION]
+dash, polygonflow, procedural, terrain, curve-deformation, road-tool, surface-scatter, path-scatter, proximity-mask, object-mask, vertex-painting, vines, rvt, runtime-virtual-texture, fog-cards, environment-art, foliage, lighting, cine-camera, composition, world-building, intermediate, youtube, ue5
 
 ---
 
 ## Related Entries
-[PENDING EXTRACTION]
+- [Working Fully Procedurally in Unreal Engine 5 - Custom Asset Tutorial](working-fully-procedurally-in-unreal-engine-5---custom-asset-tutorial.md) — same author; the single-curve version of this idea (Path Scatter + proximity mask + Quick Pipe/Cable on one spline). Strongest overlap on proximity masking and curve-driven scatter.
+- [DASH 1.12 - IMPROVED UE5 WORLD BUILDING TOOLS](dash-112---improved-ue5-world-building-tools.md) — nearest release-notes entry for the toolset used here; useful for dating individual tools.
+- [DASH 1.10 - Procedural Scatter Presets in UE5](dash-110---procedural-scatter-presets-in-ue5.md) — path scatter, physics paint and preset workflow, all of which appear in this build.
+- [DASH 1.11 - Unreal Engine World Building Just Got Easier](dash-111---unreal-engine-world-building-just-got-easier.md) — Content Browser / preset side of the same toolset.
+
+> **Dash version not recorded.** The video (uploaded 2026-09-07) never states a Dash version on screen or in its description, and no version string appears in the captured frames. `plugin_version` is deliberately left `Not specified` rather than assumed to be the newest known entry (`dash-1.12`) — several tools shown here (Fog Card, Falling Leaves, Create Camera, RVT command) postdate the earlier entries and may belong to a later release.

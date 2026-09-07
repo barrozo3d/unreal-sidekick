@@ -3671,9 +3671,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=2qc7I6bfRBo
 - **Author:** Karim Yasser
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE 5.5+ (inferred)
+- **Tags:** lumen, reflections, radiosity, surface-cache, console-variables, console-commands, global-illumination, flickering, noise, debugging, rendering, lighting, advanced, youtube, ue5
+- **Summary:** In-depth Lumen console-variable tuning via the Console Variables Editor panel: r.LumenScene.Radiosity.HemisphereProbeResolution (128), r.LumenScene.Radiosity.MaxRayIntensity (4.0), r.LumenScene.Radiosity.Temporal.MaxFramesAccumulated (4096), plus VisualizeProbes / VisualizeProbeRadius as the live debug view; r.Lumen.Reflections.Temporal.MaxFramesAccumulated (4096), r.Lumen.Reflections.MaxRayIntensity, SpecularScale and Contrast; r.LumenScene.SurfaceCache.CardMaxResolution (4096); r.Lumen.ScreenProbeGather.DownsampleFactor (1 - inverted, LOWER is better, high values black out edge occlusion); r.LumenScene.Radiosity.Temporal.FixedJitterIndex (-1). Fixes GI and reflection flicker WITHOUT touching Final Gather Quality. All twelve variable names were read from captured frames - the narration never says one aloud, and Whisper rendered Radiosity as rigidity throughout.
 - **File:** tutorials/lumen-in-unreal-engine-a-closer-look.md
 
 
@@ -3681,9 +3681,9 @@ This is the skill's growing knowledge base. Every ingested tutorial, article, an
 - **Source:** YouTube
 - **URL:** https://www.youtube.com/watch?v=VQMHQR4sQCo
 - **Author:** Polygonflow Dash
-- **UE Version:** [PENDING]
-- **Tags:** [PENDING]
-- **Summary:** [PENDING EXTRACTION]
+- **UE Version:** UE5 (version not stated)
+- **Tags:** dash, polygonflow, procedural, terrain, curve-deformation, road-tool, surface-scatter, path-scatter, proximity-mask, object-mask, vertex-painting, vines, rvt, runtime-virtual-texture, fog-cards, environment-art, foliage, lighting, cine-camera, composition, world-building, intermediate, youtube, ue5
+- **Summary:** 29-minute full environment build driven from the Dash toolbar: Create Terrain and Edit Blend Material (Global Tiling 2.8, Enable Breakup Tiling); Draw Curve into Terrain Tool Curve Deformation (Edit Table, Width, Falloff, Project Curves); Road tool (Width, Inside Height, Border Height); Modeling Mode Attribs Paint Vertex Colors on the R channel only; Surface Scatter and Path Scatter carved back with Proximity Mask and Object Mask so grass and trees clear the road, cabin and paths; scatter Edit Table for a mid-layer of bushes (density 0.1); create vines on selection (growth instance, growth size, seed); RVT blending via Edit Material Enable Virtual Texture (Slope, Edge Blend, Blend Falloff, Noise); Create Fog Card with Cloud Brightness balanced against the Exponential Height Fog; DashCineCameraV2 at focal length 24 with grading presets; Create Falling Leaves. Also r.raytracing.normalbias 5 for terrain shadow artifacts.
 - **File:** tutorials/full-ue5-forest-cabin-tutorial---procedural-tools-more.md
 
 ---
