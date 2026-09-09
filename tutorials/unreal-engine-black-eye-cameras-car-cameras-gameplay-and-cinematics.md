@@ -8,7 +8,9 @@ ue_version: "UE5"
 tags: [black-eye-cameras, car-camera, driving, cinematics, gameplay, velocity-lookahead, follow, damping, sequencer, workflow]
 extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics/
-frame_count: 8
+frame_count: 15
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Unreal Engine Black Eye Cameras: Car Cameras! Gameplay and Cinematics.
@@ -27,6 +29,26 @@ frame_count: 8
 
 **Frame:** tutorials\frames\unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics\frame_000.jpg
 
+
+---
+
+## Captured Frames
+
+- [0:50] tutorials/frames/unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics/frame_000.jpg
+- [1:25] tutorials/frames/unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics/frame_001.jpg
+- [2:45] tutorials/frames/unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics/frame_002.jpg
+- [4:05] tutorials/frames/unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics/frame_003.jpg
+- [5:25] tutorials/frames/unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics/frame_004.jpg
+- [6:50] tutorials/frames/unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics/frame_005.jpg
+- [8:10] tutorials/frames/unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics/frame_006.jpg
+- [9:30] tutorials/frames/unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics/frame_007.jpg
+- [10:50] tutorials/frames/unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics/frame_008.jpg
+- [12:15] tutorials/frames/unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics/frame_009.jpg
+- [13:35] tutorials/frames/unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics/frame_010.jpg
+- [15:00] tutorials/frames/unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics/frame_011.jpg
+- [17:45] tutorials/frames/unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics/frame_012.jpg
+- [20:30] tutorials/frames/unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics/frame_013.jpg
+- [23:15] tutorials/frames/unreal-engine-black-eye-cameras-car-cameras-gameplay-and-cinematics/frame_014.jpg
 
 ---
 

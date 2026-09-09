@@ -8,7 +8,9 @@ ue_version: "UE 5.5"
 tags: [cinematography, camera-settings, film-back, focal-length, aperture, depth-of-field, camera-shake, lens-flares, dirt-mask, movie-render-queue, exr, color-grading, sequencer, multi-camera, 180-degree-rule, premiere, beginner]
 extraction_status: complete
 frames_dir: tutorials/frames/cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un/
-frame_count: 34
+frame_count: 23
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Cinematography Deepdive for Beginners - Camera and Render Settings Tutorial - Unreal Engine 5.5
@@ -27,6 +29,34 @@ frame_count: 34
 
 **Frame:** tutorials\frames\cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un\frame_000.jpg
 
+
+---
+
+## Captured Frames
+
+- [0:50] tutorials/frames/cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un/frame_000.jpg
+- [5:40] tutorials/frames/cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un/frame_001.jpg
+- [11:10] tutorials/frames/cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un/frame_002.jpg
+- [16:50] tutorials/frames/cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un/frame_003.jpg
+- [22:30] tutorials/frames/cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un/frame_004.jpg
+- [28:00] tutorials/frames/cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un/frame_005.jpg
+- [33:30] tutorials/frames/cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un/frame_006.jpg
+- [39:05] tutorials/frames/cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un/frame_007.jpg
+- [44:35] tutorials/frames/cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un/frame_008.jpg
+- [50:05] tutorials/frames/cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un/frame_009.jpg
+- [55:40] tutorials/frames/cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un/frame_010.jpg
+- [61:10] tutorials/frames/cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un/frame_011.jpg
+- [66:45] tutorials/frames/cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un/frame_012.jpg
+- [72:20] tutorials/frames/cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un/frame_013.jpg
+- [77:50] tutorials/frames/cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un/frame_014.jpg
+- [83:20] tutorials/frames/cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un/frame_015.jpg
+- [89:00] tutorials/frames/cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un/frame_016.jpg
+- [94:30] tutorials/frames/cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un/frame_017.jpg
+- [100:05] tutorials/frames/cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un/frame_018.jpg
+- [105:35] tutorials/frames/cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un/frame_019.jpg
+- [111:05] tutorials/frames/cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un/frame_020.jpg
+- [116:40] tutorials/frames/cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un/frame_021.jpg
+- [122:10] tutorials/frames/cinematography-deepdive-for-beginners---camera-and-render-settings-tutorial---un/frame_022.jpg
 
 ---
 

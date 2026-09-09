@@ -8,7 +8,9 @@ ue_version: "UE5 / UE4"
 tags: [sky-atmosphere, fog, environment, lighting, atmosphere, workflow, tips, outdoor, rendering]
 extraction_status: complete
 frames_dir: tutorials/frames/tips-for-sky-atmosphere-fog---unreal-engine-5-ue4/
-frame_count: 4
+frame_count: 10
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Tips for Sky Atmosphere & Fog - Unreal Engine 5 (& UE4)
@@ -25,6 +27,21 @@ frame_count: 4
 ### Full Content [0:00]
 **Frame:** tutorials\frames\tips-for-sky-atmosphere-fog---unreal-engine-5-ue4\frame_000.jpg
 
+
+---
+
+## Captured Frames
+
+- [0:50] tutorials/frames/tips-for-sky-atmosphere-fog---unreal-engine-5-ue4/frame_000.jpg
+- [1:25] tutorials/frames/tips-for-sky-atmosphere-fog---unreal-engine-5-ue4/frame_001.jpg
+- [1:55] tutorials/frames/tips-for-sky-atmosphere-fog---unreal-engine-5-ue4/frame_002.jpg
+- [2:25] tutorials/frames/tips-for-sky-atmosphere-fog---unreal-engine-5-ue4/frame_003.jpg
+- [2:55] tutorials/frames/tips-for-sky-atmosphere-fog---unreal-engine-5-ue4/frame_004.jpg
+- [3:25] tutorials/frames/tips-for-sky-atmosphere-fog---unreal-engine-5-ue4/frame_005.jpg
+- [4:00] tutorials/frames/tips-for-sky-atmosphere-fog---unreal-engine-5-ue4/frame_006.jpg
+- [4:30] tutorials/frames/tips-for-sky-atmosphere-fog---unreal-engine-5-ue4/frame_007.jpg
+- [5:00] tutorials/frames/tips-for-sky-atmosphere-fog---unreal-engine-5-ue4/frame_008.jpg
+- [5:20] tutorials/frames/tips-for-sky-atmosphere-fog---unreal-engine-5-ue4/frame_009.jpg
 
 ---
 
