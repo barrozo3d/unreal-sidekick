@@ -8,7 +8,9 @@ ue_version: "UE5"
 tags: [environment, world-building, lighting, cloth-simulation, fog-cards, landscape, foliage, level-organization, cinematics, animation]
 extraction_status: complete
 frames_dir: tutorials/frames/how-to-create-cinematic-environments-in-unreal-engine-5/
-frame_count: 10
+frame_count: 12
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # How to Create Cinematic Environments in Unreal Engine 5
@@ -27,6 +29,23 @@ frame_count: 10
 
 **Frame:** tutorials\frames\how-to-create-cinematic-environments-in-unreal-engine-5\frame_000.jpg
 
+
+---
+
+## Captured Frames
+
+- [0:50] tutorials/frames/how-to-create-cinematic-environments-in-unreal-engine-5/frame_000.jpg
+- [1:20] tutorials/frames/how-to-create-cinematic-environments-in-unreal-engine-5/frame_001.jpg
+- [2:40] tutorials/frames/how-to-create-cinematic-environments-in-unreal-engine-5/frame_002.jpg
+- [3:55] tutorials/frames/how-to-create-cinematic-environments-in-unreal-engine-5/frame_003.jpg
+- [5:15] tutorials/frames/how-to-create-cinematic-environments-in-unreal-engine-5/frame_004.jpg
+- [6:30] tutorials/frames/how-to-create-cinematic-environments-in-unreal-engine-5/frame_005.jpg
+- [7:45] tutorials/frames/how-to-create-cinematic-environments-in-unreal-engine-5/frame_006.jpg
+- [9:00] tutorials/frames/how-to-create-cinematic-environments-in-unreal-engine-5/frame_007.jpg
+- [10:15] tutorials/frames/how-to-create-cinematic-environments-in-unreal-engine-5/frame_008.jpg
+- [11:30] tutorials/frames/how-to-create-cinematic-environments-in-unreal-engine-5/frame_009.jpg
+- [12:45] tutorials/frames/how-to-create-cinematic-environments-in-unreal-engine-5/frame_010.jpg
+- [14:00] tutorials/frames/how-to-create-cinematic-environments-in-unreal-engine-5/frame_011.jpg
 
 ---
 

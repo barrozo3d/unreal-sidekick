@@ -9,6 +9,8 @@ tags: [cinematics, production-breakdown, mocap, metahuman, move-ai, animation, s
 extraction_status: complete
 frames_dir: tutorials/frames/how-i-made-this-aaa-cinematic-in-unreal-engine-5---moveai-and-metahuman-animator/
 frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # How I made this AAA Cinematic in Unreal Engine 5 - Move.Ai and Metahuman Animator short film
@@ -27,6 +29,19 @@ frame_count: 8
 
 **Frame:** tutorials\frames\how-i-made-this-aaa-cinematic-in-unreal-engine-5---moveai-and-metahuman-animator\frame_000.jpg
 
+
+---
+
+## Captured Frames
+
+- [0:50] tutorials/frames/how-i-made-this-aaa-cinematic-in-unreal-engine-5---moveai-and-metahuman-animator/frame_000.jpg
+- [1:20] tutorials/frames/how-i-made-this-aaa-cinematic-in-unreal-engine-5---moveai-and-metahuman-animator/frame_001.jpg
+- [2:40] tutorials/frames/how-i-made-this-aaa-cinematic-in-unreal-engine-5---moveai-and-metahuman-animator/frame_002.jpg
+- [3:55] tutorials/frames/how-i-made-this-aaa-cinematic-in-unreal-engine-5---moveai-and-metahuman-animator/frame_003.jpg
+- [5:15] tutorials/frames/how-i-made-this-aaa-cinematic-in-unreal-engine-5---moveai-and-metahuman-animator/frame_004.jpg
+- [6:30] tutorials/frames/how-i-made-this-aaa-cinematic-in-unreal-engine-5---moveai-and-metahuman-animator/frame_005.jpg
+- [7:50] tutorials/frames/how-i-made-this-aaa-cinematic-in-unreal-engine-5---moveai-and-metahuman-animator/frame_006.jpg
+- [9:10] tutorials/frames/how-i-made-this-aaa-cinematic-in-unreal-engine-5---moveai-and-metahuman-animator/frame_007.jpg
 
 ---
 

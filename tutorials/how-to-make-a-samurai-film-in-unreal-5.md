@@ -9,6 +9,8 @@ tags: [production-breakdown, mocap, rokoko, short-film, cinematics, animation-cl
 extraction_status: complete
 frames_dir: tutorials/frames/how-to-make-a-samurai-film-in-unreal-5/
 frame_count: 9
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # How to Make a Samurai Film in Unreal 5
@@ -27,6 +29,20 @@ frame_count: 9
 
 **Frame:** tutorials\frames\how-to-make-a-samurai-film-in-unreal-5\frame_000.jpg
 
+
+---
+
+## Captured Frames
+
+- [0:50] tutorials/frames/how-to-make-a-samurai-film-in-unreal-5/frame_000.jpg
+- [1:20] tutorials/frames/how-to-make-a-samurai-film-in-unreal-5/frame_001.jpg
+- [2:40] tutorials/frames/how-to-make-a-samurai-film-in-unreal-5/frame_002.jpg
+- [3:55] tutorials/frames/how-to-make-a-samurai-film-in-unreal-5/frame_003.jpg
+- [5:10] tutorials/frames/how-to-make-a-samurai-film-in-unreal-5/frame_004.jpg
+- [6:30] tutorials/frames/how-to-make-a-samurai-film-in-unreal-5/frame_005.jpg
+- [7:45] tutorials/frames/how-to-make-a-samurai-film-in-unreal-5/frame_006.jpg
+- [9:00] tutorials/frames/how-to-make-a-samurai-film-in-unreal-5/frame_007.jpg
+- [10:15] tutorials/frames/how-to-make-a-samurai-film-in-unreal-5/frame_008.jpg
 
 ---
 

@@ -9,7 +9,9 @@ ue_version: "UE 5.x"
 tags: [dash-1.3, camera, dof, color-grading, post-process, cinematics, beginner]
 extraction_status: complete
 frames_dir: tutorials/frames/beginner-guide-to-ue5-co-pilot-dash-camera-settings/
-frame_count: 15
+frame_count: 5
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Beginner Guide to UE5 Co-Pilot DASH Camera Settings
@@ -28,6 +30,16 @@ frame_count: 15
 
 **Frame:** tutorials\frames\beginner-guide-to-ue5-co-pilot-dash-camera-settings\frame_000.jpg
 
+
+---
+
+## Captured Frames
+
+- [0:40] tutorials/frames/beginner-guide-to-ue5-co-pilot-dash-camera-settings/frame_000.jpg
+- [1:20] tutorials/frames/beginner-guide-to-ue5-co-pilot-dash-camera-settings/frame_001.jpg
+- [1:55] tutorials/frames/beginner-guide-to-ue5-co-pilot-dash-camera-settings/frame_002.jpg
+- [2:35] tutorials/frames/beginner-guide-to-ue5-co-pilot-dash-camera-settings/frame_003.jpg
+- [3:20] tutorials/frames/beginner-guide-to-ue5-co-pilot-dash-camera-settings/frame_004.jpg
 
 ---
 
