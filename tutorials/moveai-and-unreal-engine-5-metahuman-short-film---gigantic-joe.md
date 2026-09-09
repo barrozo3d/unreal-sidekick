@@ -8,7 +8,9 @@ ue_version: "UE5"
 tags: [metahuman, move-ai, mocap, short-film, virtual-production, metahuman-animator, eleven-labs, scale, indie-studio, cinematics]
 extraction_status: complete
 frames_dir: tutorials/frames/moveai-and-unreal-engine-5-metahuman-short-film---gigantic-joe/
-frame_count: 2
+frame_count: 5
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Move.AI and Unreal Engine 5 Metahuman Short Film - GIGANTIC JOE
@@ -27,6 +29,16 @@ frame_count: 2
 
 **Frame:** tutorials\frames\moveai-and-unreal-engine-5-metahuman-short-film---gigantic-joe\frame_000.jpg
 
+
+---
+
+## Captured Frames
+
+- [0:30] tutorials/frames/moveai-and-unreal-engine-5-metahuman-short-film---gigantic-joe/frame_000.jpg
+- [3:40] tutorials/frames/moveai-and-unreal-engine-5-metahuman-short-film---gigantic-joe/frame_001.jpg
+- [4:05] tutorials/frames/moveai-and-unreal-engine-5-metahuman-short-film---gigantic-joe/frame_002.jpg
+- [4:30] tutorials/frames/moveai-and-unreal-engine-5-metahuman-short-film---gigantic-joe/frame_003.jpg
+- [4:55] tutorials/frames/moveai-and-unreal-engine-5-metahuman-short-film---gigantic-joe/frame_004.jpg
 
 ---
 

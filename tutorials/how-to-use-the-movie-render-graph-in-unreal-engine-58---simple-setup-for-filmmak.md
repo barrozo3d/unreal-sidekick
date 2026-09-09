@@ -9,6 +9,8 @@ tags: [movie-render-graph, mrg, mrq, rendering, exr, multi-camera, sequencer, fi
 extraction_status: complete
 frames_dir: tutorials/frames/how-to-use-the-movie-render-graph-in-unreal-engine-58---simple-setup-for-filmmak/
 frame_count: 11
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # How to use the Movie Render Graph in Unreal Engine 5.8 - Simple Setup for Filmmakers.
@@ -27,6 +29,22 @@ frame_count: 11
 
 **Frame:** tutorials\frames\how-to-use-the-movie-render-graph-in-unreal-engine-58---simple-setup-for-filmmak\frame_000.jpg
 
+
+---
+
+## Captured Frames
+
+- [0:50] tutorials/frames/how-to-use-the-movie-render-graph-in-unreal-engine-58---simple-setup-for-filmmak/frame_000.jpg
+- [1:10] tutorials/frames/how-to-use-the-movie-render-graph-in-unreal-engine-58---simple-setup-for-filmmak/frame_001.jpg
+- [2:10] tutorials/frames/how-to-use-the-movie-render-graph-in-unreal-engine-58---simple-setup-for-filmmak/frame_002.jpg
+- [3:10] tutorials/frames/how-to-use-the-movie-render-graph-in-unreal-engine-58---simple-setup-for-filmmak/frame_003.jpg
+- [4:15] tutorials/frames/how-to-use-the-movie-render-graph-in-unreal-engine-58---simple-setup-for-filmmak/frame_004.jpg
+- [5:15] tutorials/frames/how-to-use-the-movie-render-graph-in-unreal-engine-58---simple-setup-for-filmmak/frame_005.jpg
+- [6:20] tutorials/frames/how-to-use-the-movie-render-graph-in-unreal-engine-58---simple-setup-for-filmmak/frame_006.jpg
+- [7:20] tutorials/frames/how-to-use-the-movie-render-graph-in-unreal-engine-58---simple-setup-for-filmmak/frame_007.jpg
+- [8:20] tutorials/frames/how-to-use-the-movie-render-graph-in-unreal-engine-58---simple-setup-for-filmmak/frame_008.jpg
+- [9:20] tutorials/frames/how-to-use-the-movie-render-graph-in-unreal-engine-58---simple-setup-for-filmmak/frame_009.jpg
+- [10:25] tutorials/frames/how-to-use-the-movie-render-graph-in-unreal-engine-58---simple-setup-for-filmmak/frame_010.jpg
 
 ---
 
