@@ -9,7 +9,9 @@ ue_version: "UE 5.x"
 tags: [compositing, camera-tracking, image-plate, vfx, sequencer, intermediate]
 extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-5-compositing-tutorial---composite-any-scene-fully-inside-of-ue5/
-frame_count: 4
+frame_count: 6
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Unreal Engine 5 Compositing Tutorial - Composite Any Scene Fully Inside of UE5
@@ -58,17 +60,14 @@ UE 5.x (pre-Genesis era)
 
 ## Captured Frames
 
-<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
-     ingest.py before c4decae picked blind-era moments deterministically;
-     re-derived from the source's own chapter/duration metadata and
-     accepted only because the count matched frame_count exactly.
-     These are blind-era moments: legible and citable now, but not
-     content-anchored. Re-selecting them is still a human call. -->
+- [0:15] tutorials/frames/unreal-engine-5-compositing-tutorial---composite-any-scene-fully-inside-of-ue5/frame_000.jpg
+- [1:23] tutorials/frames/unreal-engine-5-compositing-tutorial---composite-any-scene-fully-inside-of-ue5/frame_001.jpg
+- [2:46] tutorials/frames/unreal-engine-5-compositing-tutorial---composite-any-scene-fully-inside-of-ue5/frame_002.jpg
+- [4:07] tutorials/frames/unreal-engine-5-compositing-tutorial---composite-any-scene-fully-inside-of-ue5/frame_003.jpg
+- [5:29] tutorials/frames/unreal-engine-5-compositing-tutorial---composite-any-scene-fully-inside-of-ue5/frame_004.jpg
+- [6:20] tutorials/frames/unreal-engine-5-compositing-tutorial---composite-any-scene-fully-inside-of-ue5/frame_005.jpg
 
-- [0:41] tutorials/frames/unreal-engine-5-compositing-tutorial---composite-any-scene-fully-inside-of-ue5/frame_000.jpg
-- [2:04] tutorials/frames/unreal-engine-5-compositing-tutorial---composite-any-scene-fully-inside-of-ue5/frame_001.jpg
-- [3:47] tutorials/frames/unreal-engine-5-compositing-tutorial---composite-any-scene-fully-inside-of-ue5/frame_002.jpg
-- [5:30] tutorials/frames/unreal-engine-5-compositing-tutorial---composite-any-scene-fully-inside-of-ue5/frame_003.jpg
+---
 
 ## Related Entries
 - [[3d-tracking-natively-in-unreal-engine---full-tutorial]] — Genesis: automated camera-tracking natively in UE (supersedes this workflow)

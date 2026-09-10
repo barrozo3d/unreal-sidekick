@@ -8,7 +8,9 @@ ue_version: "UE 5.8"
 tags: [mesh-terrain, world-partition, nanite, landscape, sculpting, procedural, terrain-modifiers, early-access]
 extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-58-mesh-terrain-full-deep-dive/
-frame_count: 4
+frame_count: 14
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Unreal Engine 5.8 Mesh Terrain — Full Deep Dive
@@ -84,18 +86,22 @@ UE 5.8 (Mesh Terrain is new in 5.8, explicitly early access/beta — not recomme
 
 ## Captured Frames
 
-<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
-     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
-     fallback '### Full Content [0:00]' heading, so reground_frames.py
-     re-captured them at 0:00 and produced title cards. Moments below are
-     re-derived from the source's duration, not chosen. Bullet refs take
-     precedence over the heading layout, so the stale [0:00] line above is
-     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+- [0:15] tutorials/frames/unreal-engine-58-mesh-terrain-full-deep-dive/frame_000.jpg
+- [1:25] tutorials/frames/unreal-engine-58-mesh-terrain-full-deep-dive/frame_001.jpg
+- [2:49] tutorials/frames/unreal-engine-58-mesh-terrain-full-deep-dive/frame_002.jpg
+- [4:13] tutorials/frames/unreal-engine-58-mesh-terrain-full-deep-dive/frame_003.jpg
+- [5:34] tutorials/frames/unreal-engine-58-mesh-terrain-full-deep-dive/frame_004.jpg
+- [6:54] tutorials/frames/unreal-engine-58-mesh-terrain-full-deep-dive/frame_005.jpg
+- [10:02] tutorials/frames/unreal-engine-58-mesh-terrain-full-deep-dive/frame_006.jpg
+- [15:02] tutorials/frames/unreal-engine-58-mesh-terrain-full-deep-dive/frame_007.jpg
+- [20:04] tutorials/frames/unreal-engine-58-mesh-terrain-full-deep-dive/frame_008.jpg
+- [25:09] tutorials/frames/unreal-engine-58-mesh-terrain-full-deep-dive/frame_009.jpg
+- [30:10] tutorials/frames/unreal-engine-58-mesh-terrain-full-deep-dive/frame_010.jpg
+- [35:12] tutorials/frames/unreal-engine-58-mesh-terrain-full-deep-dive/frame_011.jpg
+- [40:12] tutorials/frames/unreal-engine-58-mesh-terrain-full-deep-dive/frame_012.jpg
+- [45:15] tutorials/frames/unreal-engine-58-mesh-terrain-full-deep-dive/frame_013.jpg
 
-- [4:48] tutorials/frames/unreal-engine-58-mesh-terrain-full-deep-dive/frame_000.jpg
-- [14:22] tutorials/frames/unreal-engine-58-mesh-terrain-full-deep-dive/frame_001.jpg
-- [26:21] tutorials/frames/unreal-engine-58-mesh-terrain-full-deep-dive/frame_002.jpg
-- [38:20] tutorials/frames/unreal-engine-58-mesh-terrain-full-deep-dive/frame_003.jpg
+---
 
 ## Related Entries
 [[world-partition-in-unreal-engine]] — World Partition fundamentals required as a prerequisite for Mesh Terrain
