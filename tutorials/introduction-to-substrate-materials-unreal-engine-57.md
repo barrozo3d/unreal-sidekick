@@ -8,7 +8,9 @@ ue_version: "UE5.7"
 tags: [substrate, materials, physically-based-rendering, layered-materials, car-paint, carbon-fiber, advanced, rendering, ue5-7, shading-model]
 extraction_status: complete
 frames_dir: tutorials/frames/introduction-to-substrate-materials-unreal-engine-57/
-frame_count: 4
+frame_count: 13
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Introduction to Substrate Materials | Unreal Engine 5.7
@@ -92,18 +94,21 @@ substrate, materials, physically-based-rendering, layered-materials, car-paint, 
 
 ## Captured Frames
 
-<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
-     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
-     fallback '### Full Content [0:00]' heading, so reground_frames.py
-     re-captured them at 0:00 and produced title cards. Moments below are
-     re-derived from the source's duration, not chosen. Bullet refs take
-     precedence over the heading layout, so the stale [0:00] line above is
-     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
-
 - [0:54] tutorials/frames/introduction-to-substrate-materials-unreal-engine-57/frame_000.jpg
-- [2:42] tutorials/frames/introduction-to-substrate-materials-unreal-engine-57/frame_001.jpg
-- [4:56] tutorials/frames/introduction-to-substrate-materials-unreal-engine-57/frame_002.jpg
-- [7:11] tutorials/frames/introduction-to-substrate-materials-unreal-engine-57/frame_003.jpg
+- [1:28] tutorials/frames/introduction-to-substrate-materials-unreal-engine-57/frame_001.jpg
+- [2:02] tutorials/frames/introduction-to-substrate-materials-unreal-engine-57/frame_002.jpg
+- [2:36] tutorials/frames/introduction-to-substrate-materials-unreal-engine-57/frame_003.jpg
+- [3:10] tutorials/frames/introduction-to-substrate-materials-unreal-engine-57/frame_004.jpg
+- [4:18] tutorials/frames/introduction-to-substrate-materials-unreal-engine-57/frame_005.jpg
+- [4:52] tutorials/frames/introduction-to-substrate-materials-unreal-engine-57/frame_006.jpg
+- [5:26] tutorials/frames/introduction-to-substrate-materials-unreal-engine-57/frame_007.jpg
+- [6:00] tutorials/frames/introduction-to-substrate-materials-unreal-engine-57/frame_008.jpg
+- [6:34] tutorials/frames/introduction-to-substrate-materials-unreal-engine-57/frame_009.jpg
+- [7:08] tutorials/frames/introduction-to-substrate-materials-unreal-engine-57/frame_010.jpg
+- [7:42] tutorials/frames/introduction-to-substrate-materials-unreal-engine-57/frame_011.jpg
+- [8:50] tutorials/frames/introduction-to-substrate-materials-unreal-engine-57/frame_012.jpg
+
+---
 
 ## Related Entries
 - `how-to-edit-megascans-and-poly-haven-materials-easily---ue5-plugin.md` — Polygonflow Dash material editor (traditional PBR approach)

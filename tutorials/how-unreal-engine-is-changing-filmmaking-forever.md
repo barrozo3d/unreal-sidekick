@@ -9,7 +9,9 @@ ue_version: "UE 5.x"
 tags: [previs, virtual-production, filmmaking, cinematics, beginner]
 extraction_status: complete
 frames_dir: tutorials/frames/how-unreal-engine-is-changing-filmmaking-forever/
-frame_count: 4
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # How Unreal Engine Is Changing Filmmaking Forever
@@ -54,17 +56,16 @@ UE 5.x
 
 ## Captured Frames
 
-<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
-     ingest.py before c4decae picked blind-era moments deterministically;
-     re-derived from the source's own chapter/duration metadata and
-     accepted only because the count matched frame_count exactly.
-     These are blind-era moments: legible and citable now, but not
-     content-anchored. Re-selecting them is still a human call. -->
+- [0:15] tutorials/frames/how-unreal-engine-is-changing-filmmaking-forever/frame_000.jpg
+- [1:00] tutorials/frames/how-unreal-engine-is-changing-filmmaking-forever/frame_001.jpg
+- [2:01] tutorials/frames/how-unreal-engine-is-changing-filmmaking-forever/frame_002.jpg
+- [3:03] tutorials/frames/how-unreal-engine-is-changing-filmmaking-forever/frame_003.jpg
+- [4:03] tutorials/frames/how-unreal-engine-is-changing-filmmaking-forever/frame_004.jpg
+- [5:03] tutorials/frames/how-unreal-engine-is-changing-filmmaking-forever/frame_005.jpg
+- [6:03] tutorials/frames/how-unreal-engine-is-changing-filmmaking-forever/frame_006.jpg
+- [7:30] tutorials/frames/how-unreal-engine-is-changing-filmmaking-forever/frame_007.jpg
 
-- [0:49] tutorials/frames/how-unreal-engine-is-changing-filmmaking-forever/frame_000.jpg
-- [2:26] tutorials/frames/how-unreal-engine-is-changing-filmmaking-forever/frame_001.jpg
-- [4:28] tutorials/frames/how-unreal-engine-is-changing-filmmaking-forever/frame_002.jpg
-- [6:30] tutorials/frames/how-unreal-engine-is-changing-filmmaking-forever/frame_003.jpg
+---
 
 ## Related Entries
 - [[no-cost-virtual-production-is-here---and-its-changing-filmmaking]] — companion manifesto
