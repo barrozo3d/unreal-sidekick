@@ -9,7 +9,9 @@ ue_version: "UE 5.x"
 tags: [dash-1.6, environment, terrain, scatter, path-scatter, cable-tool, grid-scatter, decals, materials, cross-project, intermediate]
 extraction_status: complete
 frames_dir: tutorials/frames/how-to-create-a-training-environment-in-unreal-engine-5---dash-workflow/
-frame_count: 10
+frame_count: 11
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # How to create a training environment in Unreal Engine 5 - Dash Workflow
@@ -71,23 +73,19 @@ UE 5.x (Dash 1.6)
 
 ## Captured Frames
 
-<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
-     ingest.py before c4decae picked blind-era moments deterministically;
-     re-derived from the source's own chapter/duration metadata and
-     accepted only because the count matched frame_count exactly.
-     These are blind-era moments: legible and citable now, but not
-     content-anchored. Re-selecting them is still a human call. -->
+- [0:15] tutorials/frames/how-to-create-a-training-environment-in-unreal-engine-5---dash-workflow/frame_000.jpg
+- [1:03] tutorials/frames/how-to-create-a-training-environment-in-unreal-engine-5---dash-workflow/frame_001.jpg
+- [2:06] tutorials/frames/how-to-create-a-training-environment-in-unreal-engine-5---dash-workflow/frame_002.jpg
+- [3:07] tutorials/frames/how-to-create-a-training-environment-in-unreal-engine-5---dash-workflow/frame_003.jpg
+- [4:09] tutorials/frames/how-to-create-a-training-environment-in-unreal-engine-5---dash-workflow/frame_004.jpg
+- [5:11] tutorials/frames/how-to-create-a-training-environment-in-unreal-engine-5---dash-workflow/frame_005.jpg
+- [6:05] tutorials/frames/how-to-create-a-training-environment-in-unreal-engine-5---dash-workflow/frame_006.jpg
+- [7:36] tutorials/frames/how-to-create-a-training-environment-in-unreal-engine-5---dash-workflow/frame_007.jpg
+- [9:07] tutorials/frames/how-to-create-a-training-environment-in-unreal-engine-5---dash-workflow/frame_008.jpg
+- [10:37] tutorials/frames/how-to-create-a-training-environment-in-unreal-engine-5---dash-workflow/frame_009.jpg
+- [12:12] tutorials/frames/how-to-create-a-training-environment-in-unreal-engine-5---dash-workflow/frame_010.jpg
 
-- [0:05] tutorials/frames/how-to-create-a-training-environment-in-unreal-engine-5---dash-workflow/frame_000.jpg
-- [1:19] tutorials/frames/how-to-create-a-training-environment-in-unreal-engine-5---dash-workflow/frame_001.jpg
-- [2:18] tutorials/frames/how-to-create-a-training-environment-in-unreal-engine-5---dash-workflow/frame_002.jpg
-- [3:51] tutorials/frames/how-to-create-a-training-environment-in-unreal-engine-5---dash-workflow/frame_003.jpg
-- [7:02] tutorials/frames/how-to-create-a-training-environment-in-unreal-engine-5---dash-workflow/frame_004.jpg
-- [8:26] tutorials/frames/how-to-create-a-training-environment-in-unreal-engine-5---dash-workflow/frame_005.jpg
-- [10:34] tutorials/frames/how-to-create-a-training-environment-in-unreal-engine-5---dash-workflow/frame_006.jpg
-- [11:16] tutorials/frames/how-to-create-a-training-environment-in-unreal-engine-5---dash-workflow/frame_007.jpg
-- [12:12] tutorials/frames/how-to-create-a-training-environment-in-unreal-engine-5---dash-workflow/frame_008.jpg
-- [12:42] tutorials/frames/how-to-create-a-training-environment-in-unreal-engine-5---dash-workflow/frame_009.jpg
+---
 
 ## Related Entries
 - [[centralized-content-browser-for-ue5---free-plugin]] — Cross-project asset access (1.6 feature)

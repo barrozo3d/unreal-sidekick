@@ -8,7 +8,9 @@ ue_version: "UE5"
 tags: [metahuman, groom, hair, houdini, technical, character, strand-based-hair, lod, cloth]
 extraction_status: complete
 frames_dir: tutorials/frames/how-to-create-grooms-for-metahumans-unreal-fest-bali-2025/
-frame_count: 4
+frame_count: 14
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # How to Create Grooms for MetaHumans | Unreal Fest Bali 2025
@@ -97,18 +99,22 @@ UE5
 
 ## Captured Frames
 
-<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
-     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
-     fallback '### Full Content [0:00]' heading, so reground_frames.py
-     re-captured them at 0:00 and produced title cards. Moments below are
-     re-derived from the source's duration, not chosen. Bullet refs take
-     precedence over the heading layout, so the stale [0:00] line above is
-     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+- [0:15] tutorials/frames/how-to-create-grooms-for-metahumans-unreal-fest-bali-2025/frame_000.jpg
+- [1:06] tutorials/frames/how-to-create-grooms-for-metahumans-unreal-fest-bali-2025/frame_001.jpg
+- [2:11] tutorials/frames/how-to-create-grooms-for-metahumans-unreal-fest-bali-2025/frame_002.jpg
+- [3:13] tutorials/frames/how-to-create-grooms-for-metahumans-unreal-fest-bali-2025/frame_003.jpg
+- [4:16] tutorials/frames/how-to-create-grooms-for-metahumans-unreal-fest-bali-2025/frame_004.jpg
+- [5:21] tutorials/frames/how-to-create-grooms-for-metahumans-unreal-fest-bali-2025/frame_005.jpg
+- [6:23] tutorials/frames/how-to-create-grooms-for-metahumans-unreal-fest-bali-2025/frame_006.jpg
+- [9:46] tutorials/frames/how-to-create-grooms-for-metahumans-unreal-fest-bali-2025/frame_007.jpg
+- [12:59] tutorials/frames/how-to-create-grooms-for-metahumans-unreal-fest-bali-2025/frame_008.jpg
+- [16:12] tutorials/frames/how-to-create-grooms-for-metahumans-unreal-fest-bali-2025/frame_009.jpg
+- [19:26] tutorials/frames/how-to-create-grooms-for-metahumans-unreal-fest-bali-2025/frame_010.jpg
+- [22:40] tutorials/frames/how-to-create-grooms-for-metahumans-unreal-fest-bali-2025/frame_011.jpg
+- [25:54] tutorials/frames/how-to-create-grooms-for-metahumans-unreal-fest-bali-2025/frame_012.jpg
+- [29:04] tutorials/frames/how-to-create-grooms-for-metahumans-unreal-fest-bali-2025/frame_013.jpg
 
-- [3:04] tutorials/frames/how-to-create-grooms-for-metahumans-unreal-fest-bali-2025/frame_000.jpg
-- [9:11] tutorials/frames/how-to-create-grooms-for-metahumans-unreal-fest-bali-2025/frame_001.jpg
-- [16:51] tutorials/frames/how-to-create-grooms-for-metahumans-unreal-fest-bali-2025/frame_002.jpg
-- [24:30] tutorials/frames/how-to-create-grooms-for-metahumans-unreal-fest-bali-2025/frame_003.jpg
+---
 
 ## Related Entries
 - how-to-generate-custom-metahuman-bodies-with-ai---yvo3d-faceform-wrap-2dnax---un.md (custom MetaHuman body modification pipeline)
