@@ -8,7 +8,9 @@ ue_version: "UE5"
 tags: [black-eye-cameras, gameplay, top-down, velocity-lookahead, follow, damping, workflow, installation]
 extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-for-gameplay-top-down/
-frame_count: 4
+frame_count: 5
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Unreal Engine Black Eye Cameras for Gameplay: Top Down
@@ -85,18 +87,13 @@ black-eye-cameras, gameplay, top-down, velocity-lookahead, follow, damping, work
 
 ## Captured Frames
 
-<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
-     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
-     fallback '### Full Content [0:00]' heading, so reground_frames.py
-     re-captured them at 0:00 and produced title cards. Moments below are
-     re-derived from the source's duration, not chosen. Bullet refs take
-     precedence over the heading layout, so the stale [0:00] line above is
-     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+- [0:15] tutorials/frames/unreal-engine-black-eye-cameras-for-gameplay-top-down/frame_000.jpg
+- [0:47] tutorials/frames/unreal-engine-black-eye-cameras-for-gameplay-top-down/frame_001.jpg
+- [1:36] tutorials/frames/unreal-engine-black-eye-cameras-for-gameplay-top-down/frame_002.jpg
+- [2:22] tutorials/frames/unreal-engine-black-eye-cameras-for-gameplay-top-down/frame_003.jpg
+- [3:07] tutorials/frames/unreal-engine-black-eye-cameras-for-gameplay-top-down/frame_004.jpg
 
-- [0:20] tutorials/frames/unreal-engine-black-eye-cameras-for-gameplay-top-down/frame_000.jpg
-- [1:02] tutorials/frames/unreal-engine-black-eye-cameras-for-gameplay-top-down/frame_001.jpg
-- [1:53] tutorials/frames/unreal-engine-black-eye-cameras-for-gameplay-top-down/frame_002.jpg
-- [2:44] tutorials/frames/unreal-engine-black-eye-cameras-for-gameplay-top-down/frame_003.jpg
+---
 
 ## Related Entries
 - `unreal-engine-black-eye-cameras-overview-tutorial.md` — full BEC plugin overview; all follow modes

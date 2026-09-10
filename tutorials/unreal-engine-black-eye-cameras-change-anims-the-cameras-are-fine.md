@@ -9,7 +9,9 @@ ue_version: "UE 5.x"
 tags: [blackeye-v1, camera, animation, beginner]
 extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-black-eye-cameras-change-anims-the-cameras-are-fine/
-frame_count: 4
+frame_count: 3
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Unreal Engine Black Eye Cameras: Change Anims (the cameras are fine)
@@ -64,18 +66,11 @@ UE 5.x (Black Eye v1)
 
 ## Captured Frames
 
-<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
-     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
-     fallback '### Full Content [0:00]' heading, so reground_frames.py
-     re-captured them at 0:00 and produced title cards. Moments below are
-     re-derived from the source's duration, not chosen. Bullet refs take
-     precedence over the heading layout, so the stale [0:00] line above is
-     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+- [0:15] tutorials/frames/unreal-engine-black-eye-cameras-change-anims-the-cameras-are-fine/frame_000.jpg
+- [0:35] tutorials/frames/unreal-engine-black-eye-cameras-change-anims-the-cameras-are-fine/frame_001.jpg
+- [0:50] tutorials/frames/unreal-engine-black-eye-cameras-change-anims-the-cameras-are-fine/frame_002.jpg
 
-- [0:07] tutorials/frames/unreal-engine-black-eye-cameras-change-anims-the-cameras-are-fine/frame_000.jpg
-- [0:21] tutorials/frames/unreal-engine-black-eye-cameras-change-anims-the-cameras-are-fine/frame_001.jpg
-- [0:38] tutorials/frames/unreal-engine-black-eye-cameras-change-anims-the-cameras-are-fine/frame_002.jpg
-- [0:55] tutorials/frames/unreal-engine-black-eye-cameras-change-anims-the-cameras-are-fine/frame_003.jpg
+---
 
 ## Related Entries
 - [[unreal-engine-black-eye-cameras-overview-tutorial]] — full LookAt + Follow system explanation
