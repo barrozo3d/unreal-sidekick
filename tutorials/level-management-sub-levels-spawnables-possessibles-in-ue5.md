@@ -8,7 +8,9 @@ ue_version: "UE5"
 tags: [level-management, sub-levels, sequencer, spawnables, possessibles, world-partition, cinematics, pipeline, collaboration, level-streaming]
 extraction_status: complete
 frames_dir: tutorials/frames/level-management-sub-levels-spawnables-possessibles-in-ue5/
-frame_count: 4
+frame_count: 11
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Level Management: Sub-Levels, Spawnables, Possessibles in UE5
@@ -78,18 +80,19 @@ level-management, sub-levels, sequencer, spawnables, possessibles, world-partiti
 
 ## Captured Frames
 
-<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
-     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
-     fallback '### Full Content [0:00]' heading, so reground_frames.py
-     re-captured them at 0:00 and produced title cards. Moments below are
-     re-derived from the source's duration, not chosen. Bullet refs take
-     precedence over the heading layout, so the stale [0:00] line above is
-     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+- [0:15] tutorials/frames/level-management-sub-levels-spawnables-possessibles-in-ue5/frame_000.jpg
+- [1:01] tutorials/frames/level-management-sub-levels-spawnables-possessibles-in-ue5/frame_001.jpg
+- [2:01] tutorials/frames/level-management-sub-levels-spawnables-possessibles-in-ue5/frame_002.jpg
+- [3:04] tutorials/frames/level-management-sub-levels-spawnables-possessibles-in-ue5/frame_003.jpg
+- [4:05] tutorials/frames/level-management-sub-levels-spawnables-possessibles-in-ue5/frame_004.jpg
+- [5:32] tutorials/frames/level-management-sub-levels-spawnables-possessibles-in-ue5/frame_005.jpg
+- [7:25] tutorials/frames/level-management-sub-levels-spawnables-possessibles-in-ue5/frame_006.jpg
+- [9:19] tutorials/frames/level-management-sub-levels-spawnables-possessibles-in-ue5/frame_007.jpg
+- [11:10] tutorials/frames/level-management-sub-levels-spawnables-possessibles-in-ue5/frame_008.jpg
+- [13:00] tutorials/frames/level-management-sub-levels-spawnables-possessibles-in-ue5/frame_009.jpg
+- [14:50] tutorials/frames/level-management-sub-levels-spawnables-possessibles-in-ue5/frame_010.jpg
 
-- [1:35] tutorials/frames/level-management-sub-levels-spawnables-possessibles-in-ue5/frame_000.jpg
-- [4:44] tutorials/frames/level-management-sub-levels-spawnables-possessibles-in-ue5/frame_001.jpg
-- [8:41] tutorials/frames/level-management-sub-levels-spawnables-possessibles-in-ue5/frame_002.jpg
-- [12:38] tutorials/frames/level-management-sub-levels-spawnables-possessibles-in-ue5/frame_003.jpg
+---
 
 ## Related Entries
 - `level-streaming-in-unreal-engine.md` — related level streaming system for runtime-loaded levels

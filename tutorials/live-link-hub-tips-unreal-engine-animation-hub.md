@@ -8,7 +8,9 @@ ue_version: "UE5"
 tags: [live-link, motion-capture, metahuman, virtual-production, facial-animation, animation, performance-capture, timecode, recording]
 extraction_status: complete
 frames_dir: tutorials/frames/live-link-hub-tips-unreal-engine-animation-hub/
-frame_count: 4
+frame_count: 6
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Live Link Hub Tips | Unreal Engine Animation Hub
@@ -85,18 +87,14 @@ live-link, motion-capture, metahuman, virtual-production, facial-animation, anim
 
 ## Captured Frames
 
-<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
-     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
-     fallback '### Full Content [0:00]' heading, so reground_frames.py
-     re-captured them at 0:00 and produced title cards. Moments below are
-     re-derived from the source's duration, not chosen. Bullet refs take
-     precedence over the heading layout, so the stale [0:00] line above is
-     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+- [0:15] tutorials/frames/live-link-hub-tips-unreal-engine-animation-hub/frame_000.jpg
+- [1:02] tutorials/frames/live-link-hub-tips-unreal-engine-animation-hub/frame_001.jpg
+- [2:03] tutorials/frames/live-link-hub-tips-unreal-engine-animation-hub/frame_002.jpg
+- [3:04] tutorials/frames/live-link-hub-tips-unreal-engine-animation-hub/frame_003.jpg
+- [4:04] tutorials/frames/live-link-hub-tips-unreal-engine-animation-hub/frame_004.jpg
+- [5:04] tutorials/frames/live-link-hub-tips-unreal-engine-animation-hub/frame_005.jpg
 
-- [0:36] tutorials/frames/live-link-hub-tips-unreal-engine-animation-hub/frame_000.jpg
-- [1:48] tutorials/frames/live-link-hub-tips-unreal-engine-animation-hub/frame_001.jpg
-- [3:18] tutorials/frames/live-link-hub-tips-unreal-engine-animation-hub/frame_002.jpg
-- [4:48] tutorials/frames/live-link-hub-tips-unreal-engine-animation-hub/frame_003.jpg
+---
 
 ## Related Entries
 - `lip-sync-in-unreal-engine.md` — lip-sync documentation (empty crawl)
