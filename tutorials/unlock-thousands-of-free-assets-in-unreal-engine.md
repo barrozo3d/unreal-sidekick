@@ -9,7 +9,9 @@ ue_version: "UE 5.x"
 tags: [megascans, fab, assets, content-library, workflow, beginner]
 extraction_status: complete
 frames_dir: tutorials/frames/unlock-thousands-of-free-assets-in-unreal-engine/
-frame_count: 6
+frame_count: 7
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Unlock Thousands of FREE Assets in Unreal Engine
@@ -62,19 +64,15 @@ UE 5.x (2025 — Fab plugin era)
 
 ## Captured Frames
 
-<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
-     ingest.py before c4decae picked blind-era moments deterministically;
-     re-derived from the source's own chapter/duration metadata and
-     accepted only because the count matched frame_count exactly.
-     These are blind-era moments: legible and citable now, but not
-     content-anchored. Re-selecting them is still a human call. -->
+- [0:15] tutorials/frames/unlock-thousands-of-free-assets-in-unreal-engine/frame_000.jpg
+- [1:20] tutorials/frames/unlock-thousands-of-free-assets-in-unreal-engine/frame_001.jpg
+- [2:42] tutorials/frames/unlock-thousands-of-free-assets-in-unreal-engine/frame_002.jpg
+- [4:05] tutorials/frames/unlock-thousands-of-free-assets-in-unreal-engine/frame_003.jpg
+- [5:28] tutorials/frames/unlock-thousands-of-free-assets-in-unreal-engine/frame_004.jpg
+- [6:52] tutorials/frames/unlock-thousands-of-free-assets-in-unreal-engine/frame_005.jpg
+- [7:25] tutorials/frames/unlock-thousands-of-free-assets-in-unreal-engine/frame_006.jpg
 
-- [0:05] tutorials/frames/unlock-thousands-of-free-assets-in-unreal-engine/frame_000.jpg
-- [1:05] tutorials/frames/unlock-thousands-of-free-assets-in-unreal-engine/frame_001.jpg
-- [2:31] tutorials/frames/unlock-thousands-of-free-assets-in-unreal-engine/frame_002.jpg
-- [3:33] tutorials/frames/unlock-thousands-of-free-assets-in-unreal-engine/frame_003.jpg
-- [4:07] tutorials/frames/unlock-thousands-of-free-assets-in-unreal-engine/frame_004.jpg
-- [6:39] tutorials/frames/unlock-thousands-of-free-assets-in-unreal-engine/frame_005.jpg
+---
 
 ## Related Entries
 - [[new-ue5-asset-management-plugin---now-free-on-fab]] — Polygonflow Dash free tier + Fab overview

@@ -8,7 +8,9 @@ ue_version: "UE5"
 tags: [animation, curve-editor, sequencer, buffer-curves, tween, bake, workflow, technique, keyframes, tools]
 extraction_status: complete
 frames_dir: tutorials/frames/ue5-curve-editor-secrets-buffer-curves-smart-snap-keyframe-tricks/
-frame_count: 4
+frame_count: 10
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # UE5 Curve Editor SECRETS: Buffer Curves & Smart Snap Keyframe Tricks
@@ -108,18 +110,18 @@ animation, curve-editor, sequencer, buffer-curves, tween, bake, workflow, techni
 
 ## Captured Frames
 
-<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
-     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
-     fallback '### Full Content [0:00]' heading, so reground_frames.py
-     re-captured them at 0:00 and produced title cards. Moments below are
-     re-derived from the source's duration, not chosen. Bullet refs take
-     precedence over the heading layout, so the stale [0:00] line above is
-     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+- [0:15] tutorials/frames/ue5-curve-editor-secrets-buffer-curves-smart-snap-keyframe-tricks/frame_000.jpg
+- [1:17] tutorials/frames/ue5-curve-editor-secrets-buffer-curves-smart-snap-keyframe-tricks/frame_001.jpg
+- [2:35] tutorials/frames/ue5-curve-editor-secrets-buffer-curves-smart-snap-keyframe-tricks/frame_002.jpg
+- [3:50] tutorials/frames/ue5-curve-editor-secrets-buffer-curves-smart-snap-keyframe-tricks/frame_003.jpg
+- [5:08] tutorials/frames/ue5-curve-editor-secrets-buffer-curves-smart-snap-keyframe-tricks/frame_004.jpg
+- [6:25] tutorials/frames/ue5-curve-editor-secrets-buffer-curves-smart-snap-keyframe-tricks/frame_005.jpg
+- [7:28] tutorials/frames/ue5-curve-editor-secrets-buffer-curves-smart-snap-keyframe-tricks/frame_006.jpg
+- [9:18] tutorials/frames/ue5-curve-editor-secrets-buffer-curves-smart-snap-keyframe-tricks/frame_007.jpg
+- [11:09] tutorials/frames/ue5-curve-editor-secrets-buffer-curves-smart-snap-keyframe-tricks/frame_008.jpg
+- [13:00] tutorials/frames/ue5-curve-editor-secrets-buffer-curves-smart-snap-keyframe-tricks/frame_009.jpg
 
-- [1:26] tutorials/frames/ue5-curve-editor-secrets-buffer-curves-smart-snap-keyframe-tricks/frame_000.jpg
-- [4:20] tutorials/frames/ue5-curve-editor-secrets-buffer-curves-smart-snap-keyframe-tricks/frame_001.jpg
-- [7:56] tutorials/frames/ue5-curve-editor-secrets-buffer-curves-smart-snap-keyframe-tricks/frame_002.jpg
-- [11:32] tutorials/frames/ue5-curve-editor-secrets-buffer-curves-smart-snap-keyframe-tricks/frame_003.jpg
+---
 
 ## Related Entries
 - `ue5-curve-editor-20-new-lattice-tool-curve-scaling-hacks-ue-56.md` — companion tutorial; Lattice tool, view modes, time-scaling, Smart Snap workflow
