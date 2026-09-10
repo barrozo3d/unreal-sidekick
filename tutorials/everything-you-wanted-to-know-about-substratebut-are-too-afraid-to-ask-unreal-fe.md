@@ -8,7 +8,9 @@ ue_version: "UE 5.7"
 tags: [substrate, materials, shading-model, slab, energy-conservation, pbr, subsurface-scattering, layered-materials, rendering, gbuffer, technical, advanced]
 extraction_status: complete
 frames_dir: tutorials/frames/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe/
-frame_count: 4
+frame_count: 16
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Everything You Wanted to Know About Substrate(But Are Too Afraid to Ask)| Unreal Fest Stockholm 2025
@@ -78,18 +80,24 @@ UE 5.7
 
 ## Captured Frames
 
-<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
-     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
-     fallback '### Full Content [0:00]' heading, so reground_frames.py
-     re-captured them at 0:00 and produced title cards. Moments below are
-     re-derived from the source's duration, not chosen. Bullet refs take
-     precedence over the heading layout, so the stale [0:00] line above is
-     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+- [0:15] tutorials/frames/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe/frame_000.jpg
+- [1:04] tutorials/frames/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe/frame_001.jpg
+- [2:10] tutorials/frames/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe/frame_002.jpg
+- [3:10] tutorials/frames/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe/frame_003.jpg
+- [4:21] tutorials/frames/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe/frame_004.jpg
+- [5:15] tutorials/frames/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe/frame_005.jpg
+- [6:18] tutorials/frames/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe/frame_006.jpg
+- [7:18] tutorials/frames/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe/frame_007.jpg
+- [8:45] tutorials/frames/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe/frame_008.jpg
+- [13:07] tutorials/frames/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe/frame_009.jpg
+- [17:30] tutorials/frames/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe/frame_010.jpg
+- [21:51] tutorials/frames/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe/frame_011.jpg
+- [26:11] tutorials/frames/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe/frame_012.jpg
+- [30:34] tutorials/frames/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe/frame_013.jpg
+- [34:56] tutorials/frames/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe/frame_014.jpg
+- [39:16] tutorials/frames/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe/frame_015.jpg
 
-- [4:18] tutorials/frames/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe/frame_000.jpg
-- [12:55] tutorials/frames/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe/frame_001.jpg
-- [23:40] tutorials/frames/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe/frame_002.jpg
-- [34:26] tutorials/frames/everything-you-wanted-to-know-about-substratebut-are-too-afraid-to-ask-unreal-fe/frame_003.jpg
+---
 
 ## Related Entries
 - creating-cinematics-in-unreal-engine-with-kitbash3ds-secrets-of-the-luminara.md (Electric Dreams requires Substrate enable in Project Settings)

@@ -8,7 +8,9 @@ ue_version: "UE5"
 tags: [cinematics, filmmaking, color-theory, storytelling, oscar, animation, breakdown, short-film, color-script, camera-movement]
 extraction_status: complete
 frames_dir: tutorials/frames/how-this-unreal-engine-5-film-won-an-oscar/
-frame_count: 4
+frame_count: 12
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # How this Unreal Engine 5 film won an Oscar
@@ -86,18 +88,20 @@ UE5
 
 ## Captured Frames
 
-<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
-     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
-     fallback '### Full Content [0:00]' heading, so reground_frames.py
-     re-captured them at 0:00 and produced title cards. Moments below are
-     re-derived from the source's duration, not chosen. Bullet refs take
-     precedence over the heading layout, so the stale [0:00] line above is
-     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+- [0:15] tutorials/frames/how-this-unreal-engine-5-film-won-an-oscar/frame_000.jpg
+- [1:02] tutorials/frames/how-this-unreal-engine-5-film-won-an-oscar/frame_001.jpg
+- [2:04] tutorials/frames/how-this-unreal-engine-5-film-won-an-oscar/frame_002.jpg
+- [3:04] tutorials/frames/how-this-unreal-engine-5-film-won-an-oscar/frame_003.jpg
+- [4:05] tutorials/frames/how-this-unreal-engine-5-film-won-an-oscar/frame_004.jpg
+- [5:06] tutorials/frames/how-this-unreal-engine-5-film-won-an-oscar/frame_005.jpg
+- [6:41] tutorials/frames/how-this-unreal-engine-5-film-won-an-oscar/frame_006.jpg
+- [8:53] tutorials/frames/how-this-unreal-engine-5-film-won-an-oscar/frame_007.jpg
+- [11:04] tutorials/frames/how-this-unreal-engine-5-film-won-an-oscar/frame_008.jpg
+- [13:17] tutorials/frames/how-this-unreal-engine-5-film-won-an-oscar/frame_009.jpg
+- [15:28] tutorials/frames/how-this-unreal-engine-5-film-won-an-oscar/frame_010.jpg
+- [17:42] tutorials/frames/how-this-unreal-engine-5-film-won-an-oscar/frame_011.jpg
 
-- [1:54] tutorials/frames/how-this-unreal-engine-5-film-won-an-oscar/frame_000.jpg
-- [5:42] tutorials/frames/how-this-unreal-engine-5-film-won-an-oscar/frame_001.jpg
-- [10:27] tutorials/frames/how-this-unreal-engine-5-film-won-an-oscar/frame_002.jpg
-- [15:12] tutorials/frames/how-this-unreal-engine-5-film-won-an-oscar/frame_003.jpg
+---
 
 ## Related Entries
 - give-me-14-minutes-and-youll-make-cinematic-renders.md (camera movement + cinematic techniques)

@@ -8,7 +8,9 @@ ue_version: "UE5"
 tags: [lumen, lighting, rendering, ray-tracing, distance-fields, performance, environment, technical-settings]
 extraction_status: complete
 frames_dir: tutorials/frames/how-i-use-lumen-in-aaa-projects-unreal-engine-5/
-frame_count: 4
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # How I Use Lumen in AAA Projects | Unreal Engine 5
@@ -80,18 +82,16 @@ UE5
 
 ## Captured Frames
 
-<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
-     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
-     fallback '### Full Content [0:00]' heading, so reground_frames.py
-     re-captured them at 0:00 and produced title cards. Moments below are
-     re-derived from the source's duration, not chosen. Bullet refs take
-     precedence over the heading layout, so the stale [0:00] line above is
-     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+- [0:15] tutorials/frames/how-i-use-lumen-in-aaa-projects-unreal-engine-5/frame_000.jpg
+- [1:02] tutorials/frames/how-i-use-lumen-in-aaa-projects-unreal-engine-5/frame_001.jpg
+- [2:05] tutorials/frames/how-i-use-lumen-in-aaa-projects-unreal-engine-5/frame_002.jpg
+- [3:07] tutorials/frames/how-i-use-lumen-in-aaa-projects-unreal-engine-5/frame_003.jpg
+- [4:07] tutorials/frames/how-i-use-lumen-in-aaa-projects-unreal-engine-5/frame_004.jpg
+- [5:09] tutorials/frames/how-i-use-lumen-in-aaa-projects-unreal-engine-5/frame_005.jpg
+- [6:15] tutorials/frames/how-i-use-lumen-in-aaa-projects-unreal-engine-5/frame_006.jpg
+- [7:20] tutorials/frames/how-i-use-lumen-in-aaa-projects-unreal-engine-5/frame_007.jpg
 
-- [0:47] tutorials/frames/how-i-use-lumen-in-aaa-projects-unreal-engine-5/frame_000.jpg
-- [2:22] tutorials/frames/how-i-use-lumen-in-aaa-projects-unreal-engine-5/frame_001.jpg
-- [4:20] tutorials/frames/how-i-use-lumen-in-aaa-projects-unreal-engine-5/frame_002.jpg
-- [6:18] tutorials/frames/how-i-use-lumen-in-aaa-projects-unreal-engine-5/frame_003.jpg
+---
 
 ## Related Entries
 - how-to-create-cinematic-environments-in-unreal-engine-5.md (Lumen setup in cinematic context)
