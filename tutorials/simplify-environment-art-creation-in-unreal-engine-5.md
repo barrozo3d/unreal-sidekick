@@ -9,7 +9,9 @@ ue_version: "UE 5.x"
 tags: [dash-early, scatter, surface-scatter, decals, proximity-mask, intermediate]
 extraction_status: complete
 frames_dir: tutorials/frames/simplify-environment-art-creation-in-unreal-engine-5/
-frame_count: 4
+frame_count: 6
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Simplify Environment Art Creation in Unreal Engine 5
@@ -60,17 +62,14 @@ UE 5.x (Dash early)
 
 ## Captured Frames
 
-<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
-     ingest.py before c4decae picked blind-era moments deterministically;
-     re-derived from the source's own chapter/duration metadata and
-     accepted only because the count matched frame_count exactly.
-     These are blind-era moments: legible and citable now, but not
-     content-anchored. Re-selecting them is still a human call. -->
+- [0:15] tutorials/frames/simplify-environment-art-creation-in-unreal-engine-5/frame_000.jpg
+- [1:19] tutorials/frames/simplify-environment-art-creation-in-unreal-engine-5/frame_001.jpg
+- [2:36] tutorials/frames/simplify-environment-art-creation-in-unreal-engine-5/frame_002.jpg
+- [3:52] tutorials/frames/simplify-environment-art-creation-in-unreal-engine-5/frame_003.jpg
+- [5:07] tutorials/frames/simplify-environment-art-creation-in-unreal-engine-5/frame_004.jpg
+- [5:35] tutorials/frames/simplify-environment-art-creation-in-unreal-engine-5/frame_005.jpg
 
-- [0:05] tutorials/frames/simplify-environment-art-creation-in-unreal-engine-5/frame_000.jpg
-- [0:31] tutorials/frames/simplify-environment-art-creation-in-unreal-engine-5/frame_001.jpg
-- [2:44] tutorials/frames/simplify-environment-art-creation-in-unreal-engine-5/frame_002.jpg
-- [5:19] tutorials/frames/simplify-environment-art-creation-in-unreal-engine-5/frame_003.jpg
+---
 
 ## Related Entries
 - [[create-run-down-environments-in-minutes---dash-ue5]] — Josh Powers early-era layering tutorial (dash-early)
