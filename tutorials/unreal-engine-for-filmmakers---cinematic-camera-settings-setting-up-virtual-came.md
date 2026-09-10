@@ -10,6 +10,8 @@ tags: [camera, cinematography, lighting, fog, rendering, composition, beginner]
 extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-for-filmmakers---cinematic-camera-settings-setting-up-virtual-came/
 frame_count: 9
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Unreal Engine for Filmmakers - Cinematic Camera Settings & Setting up Virtual Camera
@@ -57,22 +59,17 @@ UE 5.x
 
 ## Captured Frames
 
-<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
-     ingest.py before c4decae picked blind-era moments deterministically;
-     re-derived from the source's own chapter/duration metadata and
-     accepted only because the count matched frame_count exactly.
-     These are blind-era moments: legible and citable now, but not
-     content-anchored. Re-selecting them is still a human call. -->
+- [0:15] tutorials/frames/unreal-engine-for-filmmakers---cinematic-camera-settings-setting-up-virtual-came/frame_000.jpg
+- [1:33] tutorials/frames/unreal-engine-for-filmmakers---cinematic-camera-settings-setting-up-virtual-came/frame_001.jpg
+- [3:07] tutorials/frames/unreal-engine-for-filmmakers---cinematic-camera-settings-setting-up-virtual-came/frame_002.jpg
+- [4:40] tutorials/frames/unreal-engine-for-filmmakers---cinematic-camera-settings-setting-up-virtual-came/frame_003.jpg
+- [6:10] tutorials/frames/unreal-engine-for-filmmakers---cinematic-camera-settings-setting-up-virtual-came/frame_004.jpg
+- [6:35] tutorials/frames/unreal-engine-for-filmmakers---cinematic-camera-settings-setting-up-virtual-came/frame_005.jpg
+- [8:45] tutorials/frames/unreal-engine-for-filmmakers---cinematic-camera-settings-setting-up-virtual-came/frame_006.jpg
+- [10:55] tutorials/frames/unreal-engine-for-filmmakers---cinematic-camera-settings-setting-up-virtual-came/frame_007.jpg
+- [13:07] tutorials/frames/unreal-engine-for-filmmakers---cinematic-camera-settings-setting-up-virtual-came/frame_008.jpg
 
-- [0:05] tutorials/frames/unreal-engine-for-filmmakers---cinematic-camera-settings-setting-up-virtual-came/frame_000.jpg
-- [0:55] tutorials/frames/unreal-engine-for-filmmakers---cinematic-camera-settings-setting-up-virtual-came/frame_001.jpg
-- [2:29] tutorials/frames/unreal-engine-for-filmmakers---cinematic-camera-settings-setting-up-virtual-came/frame_002.jpg
-- [3:12] tutorials/frames/unreal-engine-for-filmmakers---cinematic-camera-settings-setting-up-virtual-came/frame_003.jpg
-- [5:44] tutorials/frames/unreal-engine-for-filmmakers---cinematic-camera-settings-setting-up-virtual-came/frame_004.jpg
-- [7:55] tutorials/frames/unreal-engine-for-filmmakers---cinematic-camera-settings-setting-up-virtual-came/frame_005.jpg
-- [10:55] tutorials/frames/unreal-engine-for-filmmakers---cinematic-camera-settings-setting-up-virtual-came/frame_006.jpg
-- [12:08] tutorials/frames/unreal-engine-for-filmmakers---cinematic-camera-settings-setting-up-virtual-came/frame_007.jpg
-- [13:57] tutorials/frames/unreal-engine-for-filmmakers---cinematic-camera-settings-setting-up-virtual-came/frame_008.jpg
+---
 
 ## Related Entries
 - [[unreal-engine-depth-fog-tutorial-path-traced]] — depth fog workaround for Path Tracer

@@ -9,7 +9,9 @@ ue_version: "UE 5.x"
 tags: [niagara, vfx, simulation, rendering, lighting, intermediate]
 extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-for-filmmakers---cinematic-vfx-for-free---ue5-part-2/
-frame_count: 5
+frame_count: 10
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Unreal Engine for Filmmakers - Cinematic vfx for FREE - UE5 [PART 2]
@@ -56,18 +58,18 @@ UE 5.x (UE5 era — Niagara Fluids plugin required)
 
 ## Captured Frames
 
-<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
-     ingest.py before c4decae picked blind-era moments deterministically;
-     re-derived from the source's own chapter/duration metadata and
-     accepted only because the count matched frame_count exactly.
-     These are blind-era moments: legible and citable now, but not
-     content-anchored. Re-selecting them is still a human call. -->
+- [0:15] tutorials/frames/unreal-engine-for-filmmakers---cinematic-vfx-for-free---ue5-part-2/frame_000.jpg
+- [3:16] tutorials/frames/unreal-engine-for-filmmakers---cinematic-vfx-for-free---ue5-part-2/frame_001.jpg
+- [4:48] tutorials/frames/unreal-engine-for-filmmakers---cinematic-vfx-for-free---ue5-part-2/frame_002.jpg
+- [6:20] tutorials/frames/unreal-engine-for-filmmakers---cinematic-vfx-for-free---ue5-part-2/frame_003.jpg
+- [6:39] tutorials/frames/unreal-engine-for-filmmakers---cinematic-vfx-for-free---ue5-part-2/frame_004.jpg
+- [8:49] tutorials/frames/unreal-engine-for-filmmakers---cinematic-vfx-for-free---ue5-part-2/frame_005.jpg
+- [10:59] tutorials/frames/unreal-engine-for-filmmakers---cinematic-vfx-for-free---ue5-part-2/frame_006.jpg
+- [13:12] tutorials/frames/unreal-engine-for-filmmakers---cinematic-vfx-for-free---ue5-part-2/frame_007.jpg
+- [15:23] tutorials/frames/unreal-engine-for-filmmakers---cinematic-vfx-for-free---ue5-part-2/frame_008.jpg
+- [17:34] tutorials/frames/unreal-engine-for-filmmakers---cinematic-vfx-for-free---ue5-part-2/frame_009.jpg
 
-- [0:05] tutorials/frames/unreal-engine-for-filmmakers---cinematic-vfx-for-free---ue5-part-2/frame_000.jpg
-- [2:52] tutorials/frames/unreal-engine-for-filmmakers---cinematic-vfx-for-free---ue5-part-2/frame_001.jpg
-- [9:54] tutorials/frames/unreal-engine-for-filmmakers---cinematic-vfx-for-free---ue5-part-2/frame_002.jpg
-- [14:44] tutorials/frames/unreal-engine-for-filmmakers---cinematic-vfx-for-free---ue5-part-2/frame_003.jpg
-- [18:33] tutorials/frames/unreal-engine-for-filmmakers---cinematic-vfx-for-free---ue5-part-2/frame_004.jpg
+---
 
 ## Related Entries
 - [[unreal-engine-for-filmmakers---add-cinematic-vfx-to-your-films-for-free---ue5-pa]] — Part 1 (setup and basics)

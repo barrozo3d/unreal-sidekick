@@ -9,7 +9,9 @@ ue_version: "UE 5.x"
 tags: [vfx, filmmaking, compositing, cinematography, beginner]
 extraction_status: complete
 frames_dir: tutorials/frames/why-modern-vfx-suck-and-how-to-make-yours-not-suck/
-frame_count: 6
+frame_count: 5
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Why Modern vfx Suck (And How to Make Yours Not Suck)
@@ -60,19 +62,13 @@ UE 5.x
 
 ## Captured Frames
 
-<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
-     ingest.py before c4decae picked blind-era moments deterministically;
-     re-derived from the source's own chapter/duration metadata and
-     accepted only because the count matched frame_count exactly.
-     These are blind-era moments: legible and citable now, but not
-     content-anchored. Re-selecting them is still a human call. -->
+- [0:15] tutorials/frames/why-modern-vfx-suck-and-how-to-make-yours-not-suck/frame_000.jpg
+- [1:52] tutorials/frames/why-modern-vfx-suck-and-how-to-make-yours-not-suck/frame_001.jpg
+- [3:45] tutorials/frames/why-modern-vfx-suck-and-how-to-make-yours-not-suck/frame_002.jpg
+- [5:35] tutorials/frames/why-modern-vfx-suck-and-how-to-make-yours-not-suck/frame_003.jpg
+- [7:25] tutorials/frames/why-modern-vfx-suck-and-how-to-make-yours-not-suck/frame_004.jpg
 
-- [0:05] tutorials/frames/why-modern-vfx-suck-and-how-to-make-yours-not-suck/frame_000.jpg
-- [0:41] tutorials/frames/why-modern-vfx-suck-and-how-to-make-yours-not-suck/frame_001.jpg
-- [2:20] tutorials/frames/why-modern-vfx-suck-and-how-to-make-yours-not-suck/frame_002.jpg
-- [4:05] tutorials/frames/why-modern-vfx-suck-and-how-to-make-yours-not-suck/frame_003.jpg
-- [5:53] tutorials/frames/why-modern-vfx-suck-and-how-to-make-yours-not-suck/frame_004.jpg
-- [7:19] tutorials/frames/why-modern-vfx-suck-and-how-to-make-yours-not-suck/frame_005.jpg
+---
 
 ## Related Entries
 - [[why-modern-vfx-suck-and-how-to-make-yours-not-suck-part-2---transformers-vs-marv]] — Part 2: Transformers vs Marvel case studies

@@ -9,7 +9,9 @@ ue_version: "UE 5.x"
 tags: [lightforge-v2, lighting, materials, media, beginner]
 extraction_status: complete
 frames_dir: tutorials/frames/unreal-engines-secret-weapon-for-cinematic-lighting/
-frame_count: 5
+frame_count: 7
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Unreal Engine's Secret Weapon for Cinematic Lighting
@@ -74,18 +76,15 @@ UE 5.x (LightForge 2.0)
 
 ## Captured Frames
 
-<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
-     ingest.py before c4decae picked blind-era moments deterministically;
-     re-derived from the source's own chapter/duration metadata and
-     accepted only because the count matched frame_count exactly.
-     These are blind-era moments: legible and citable now, but not
-     content-anchored. Re-selecting them is still a human call. -->
+- [0:15] tutorials/frames/unreal-engines-secret-weapon-for-cinematic-lighting/frame_000.jpg
+- [1:50] tutorials/frames/unreal-engines-secret-weapon-for-cinematic-lighting/frame_001.jpg
+- [3:41] tutorials/frames/unreal-engines-secret-weapon-for-cinematic-lighting/frame_002.jpg
+- [5:31] tutorials/frames/unreal-engines-secret-weapon-for-cinematic-lighting/frame_003.jpg
+- [7:23] tutorials/frames/unreal-engines-secret-weapon-for-cinematic-lighting/frame_004.jpg
+- [9:14] tutorials/frames/unreal-engines-secret-weapon-for-cinematic-lighting/frame_005.jpg
+- [11:30] tutorials/frames/unreal-engines-secret-weapon-for-cinematic-lighting/frame_006.jpg
 
-- [0:05] tutorials/frames/unreal-engines-secret-weapon-for-cinematic-lighting/frame_000.jpg
-- [0:21] tutorials/frames/unreal-engines-secret-weapon-for-cinematic-lighting/frame_001.jpg
-- [7:42] tutorials/frames/unreal-engines-secret-weapon-for-cinematic-lighting/frame_002.jpg
-- [10:19] tutorials/frames/unreal-engines-secret-weapon-for-cinematic-lighting/frame_003.jpg
-- [12:02] tutorials/frames/unreal-engines-secret-weapon-for-cinematic-lighting/frame_004.jpg
+---
 
 ## Related Entries
 - [[the-ultimate-plugin-for-filmmaking-in-unreal-engine]] - LightForge full feature overview

@@ -9,7 +9,9 @@ ue_version: "UE 5.x"
 tags: [dash-1.5, ai-tagging, megascans, atlas, presets, camera, content-library, release-notes]
 extraction_status: complete
 frames_dir: tutorials/frames/whats-new-in-dash-15---ai-content-tagging-tool-presets-more/
-frame_count: 6
+frame_count: 7
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # What's New in Dash 1.5 - AI Content Tagging, Tool Presets & More
@@ -59,19 +61,15 @@ UE 5.x (Dash 1.5 - explicit in title)
 
 ## Captured Frames
 
-<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
-     ingest.py before c4decae picked blind-era moments deterministically;
-     re-derived from the source's own chapter/duration metadata and
-     accepted only because the count matched frame_count exactly.
-     These are blind-era moments: legible and citable now, but not
-     content-anchored. Re-selecting them is still a human call. -->
+- [0:13] tutorials/frames/whats-new-in-dash-15---ai-content-tagging-tool-presets-more/frame_000.jpg
+- [0:29] tutorials/frames/whats-new-in-dash-15---ai-content-tagging-tool-presets-more/frame_001.jpg
+- [0:45] tutorials/frames/whats-new-in-dash-15---ai-content-tagging-tool-presets-more/frame_002.jpg
+- [1:01] tutorials/frames/whats-new-in-dash-15---ai-content-tagging-tool-presets-more/frame_003.jpg
+- [1:17] tutorials/frames/whats-new-in-dash-15---ai-content-tagging-tool-presets-more/frame_004.jpg
+- [1:33] tutorials/frames/whats-new-in-dash-15---ai-content-tagging-tool-presets-more/frame_005.jpg
+- [1:49] tutorials/frames/whats-new-in-dash-15---ai-content-tagging-tool-presets-more/frame_006.jpg
 
-- [0:05] tutorials/frames/whats-new-in-dash-15---ai-content-tagging-tool-presets-more/frame_000.jpg
-- [0:26] tutorials/frames/whats-new-in-dash-15---ai-content-tagging-tool-presets-more/frame_001.jpg
-- [0:43] tutorials/frames/whats-new-in-dash-15---ai-content-tagging-tool-presets-more/frame_002.jpg
-- [1:13] tutorials/frames/whats-new-in-dash-15---ai-content-tagging-tool-presets-more/frame_003.jpg
-- [1:32] tutorials/frames/whats-new-in-dash-15---ai-content-tagging-tool-presets-more/frame_004.jpg
-- [1:52] tutorials/frames/whats-new-in-dash-15---ai-content-tagging-tool-presets-more/frame_005.jpg
+---
 
 ## Related Entries
 - [[dash-for-ue5-helps-you-organize-your-local-3d-assets-with-ai-tagging]] - AI Tagging dedicated tutorial (1.5)

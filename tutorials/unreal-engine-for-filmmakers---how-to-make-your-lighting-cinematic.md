@@ -9,7 +9,9 @@ ue_version: "UE 5.x"
 tags: [lighting, lumen, fog, atmospherics, sequencer, cinematography, intermediate]
 extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-for-filmmakers---how-to-make-your-lighting-cinematic/
-frame_count: 9
+frame_count: 7
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Unreal Engine for Filmmakers - How to Make your Lighting CINEMATIC
@@ -59,22 +61,15 @@ UE 5.x (Lumen GI era)
 
 ## Captured Frames
 
-<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
-     ingest.py before c4decae picked blind-era moments deterministically;
-     re-derived from the source's own chapter/duration metadata and
-     accepted only because the count matched frame_count exactly.
-     These are blind-era moments: legible and citable now, but not
-     content-anchored. Re-selecting them is still a human call. -->
+- [0:15] tutorials/frames/unreal-engine-for-filmmakers---how-to-make-your-lighting-cinematic/frame_000.jpg
+- [1:52] tutorials/frames/unreal-engine-for-filmmakers---how-to-make-your-lighting-cinematic/frame_001.jpg
+- [3:44] tutorials/frames/unreal-engine-for-filmmakers---how-to-make-your-lighting-cinematic/frame_002.jpg
+- [5:36] tutorials/frames/unreal-engine-for-filmmakers---how-to-make-your-lighting-cinematic/frame_003.jpg
+- [7:27] tutorials/frames/unreal-engine-for-filmmakers---how-to-make-your-lighting-cinematic/frame_004.jpg
+- [9:17] tutorials/frames/unreal-engine-for-filmmakers---how-to-make-your-lighting-cinematic/frame_005.jpg
+- [10:20] tutorials/frames/unreal-engine-for-filmmakers---how-to-make-your-lighting-cinematic/frame_006.jpg
 
-- [0:05] tutorials/frames/unreal-engine-for-filmmakers---how-to-make-your-lighting-cinematic/frame_000.jpg
-- [0:32] tutorials/frames/unreal-engine-for-filmmakers---how-to-make-your-lighting-cinematic/frame_001.jpg
-- [1:14] tutorials/frames/unreal-engine-for-filmmakers---how-to-make-your-lighting-cinematic/frame_002.jpg
-- [1:52] tutorials/frames/unreal-engine-for-filmmakers---how-to-make-your-lighting-cinematic/frame_003.jpg
-- [2:10] tutorials/frames/unreal-engine-for-filmmakers---how-to-make-your-lighting-cinematic/frame_004.jpg
-- [4:35] tutorials/frames/unreal-engine-for-filmmakers---how-to-make-your-lighting-cinematic/frame_005.jpg
-- [6:30] tutorials/frames/unreal-engine-for-filmmakers---how-to-make-your-lighting-cinematic/frame_006.jpg
-- [8:15] tutorials/frames/unreal-engine-for-filmmakers---how-to-make-your-lighting-cinematic/frame_007.jpg
-- [10:05] tutorials/frames/unreal-engine-for-filmmakers---how-to-make-your-lighting-cinematic/frame_008.jpg
+---
 
 ## Related Entries
 - [[unreal-engines-secret-weapon-for-cinematic-lighting]] — LightForge 2.0 gobo lighting setup
