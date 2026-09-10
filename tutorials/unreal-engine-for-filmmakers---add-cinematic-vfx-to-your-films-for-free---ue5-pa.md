@@ -9,7 +9,9 @@ ue_version: "UE 5.x"
 tags: [niagara, vfx, simulation, particles, intermediate]
 extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-for-filmmakers---add-cinematic-vfx-to-your-films-for-free---ue5-pa/
-frame_count: 8
+frame_count: 9
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Unreal Engine for Filmmakers - Add Cinematic vfx to your Films for FREE - UE5 [PART 1]
@@ -58,21 +60,17 @@ UE 5.x (Niagara Fluids — early UE5 era, beta plugin)
 
 ## Captured Frames
 
-<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
-     ingest.py before c4decae picked blind-era moments deterministically;
-     re-derived from the source's own chapter/duration metadata and
-     accepted only because the count matched frame_count exactly.
-     These are blind-era moments: legible and citable now, but not
-     content-anchored. Re-selecting them is still a human call. -->
+- [0:15] tutorials/frames/unreal-engine-for-filmmakers---add-cinematic-vfx-to-your-films-for-free---ue5-pa/frame_000.jpg
+- [1:32] tutorials/frames/unreal-engine-for-filmmakers---add-cinematic-vfx-to-your-films-for-free---ue5-pa/frame_001.jpg
+- [3:05] tutorials/frames/unreal-engine-for-filmmakers---add-cinematic-vfx-to-your-films-for-free---ue5-pa/frame_002.jpg
+- [4:37] tutorials/frames/unreal-engine-for-filmmakers---add-cinematic-vfx-to-your-films-for-free---ue5-pa/frame_003.jpg
+- [6:08] tutorials/frames/unreal-engine-for-filmmakers---add-cinematic-vfx-to-your-films-for-free---ue5-pa/frame_004.jpg
+- [6:36] tutorials/frames/unreal-engine-for-filmmakers---add-cinematic-vfx-to-your-films-for-free---ue5-pa/frame_005.jpg
+- [8:47] tutorials/frames/unreal-engine-for-filmmakers---add-cinematic-vfx-to-your-films-for-free---ue5-pa/frame_006.jpg
+- [10:57] tutorials/frames/unreal-engine-for-filmmakers---add-cinematic-vfx-to-your-films-for-free---ue5-pa/frame_007.jpg
+- [12:30] tutorials/frames/unreal-engine-for-filmmakers---add-cinematic-vfx-to-your-films-for-free---ue5-pa/frame_008.jpg
 
-- [0:05] tutorials/frames/unreal-engine-for-filmmakers---add-cinematic-vfx-to-your-films-for-free---ue5-pa/frame_000.jpg
-- [2:27] tutorials/frames/unreal-engine-for-filmmakers---add-cinematic-vfx-to-your-films-for-free---ue5-pa/frame_001.jpg
-- [3:43] tutorials/frames/unreal-engine-for-filmmakers---add-cinematic-vfx-to-your-films-for-free---ue5-pa/frame_002.jpg
-- [4:23] tutorials/frames/unreal-engine-for-filmmakers---add-cinematic-vfx-to-your-films-for-free---ue5-pa/frame_003.jpg
-- [5:53] tutorials/frames/unreal-engine-for-filmmakers---add-cinematic-vfx-to-your-films-for-free---ue5-pa/frame_004.jpg
-- [7:13] tutorials/frames/unreal-engine-for-filmmakers---add-cinematic-vfx-to-your-films-for-free---ue5-pa/frame_005.jpg
-- [10:02] tutorials/frames/unreal-engine-for-filmmakers---add-cinematic-vfx-to-your-films-for-free---ue5-pa/frame_006.jpg
-- [12:18] tutorials/frames/unreal-engine-for-filmmakers---add-cinematic-vfx-to-your-films-for-free---ue5-pa/frame_007.jpg
+---
 
 ## Related Entries
 - [[unreal-engine-for-filmmakers---cinematic-vfx-for-free---ue5-part-2]] — Part 2 (parameter tweaking + lighting)
