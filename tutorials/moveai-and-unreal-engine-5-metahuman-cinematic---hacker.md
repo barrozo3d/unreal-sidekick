@@ -8,7 +8,9 @@ ue_version: "UE5"
 tags: [mocap, metahuman, metahuman-animator, move-ai, short-film, sci-fi, performance-capture, ue5]
 extraction_status: complete
 frames_dir: tutorials/frames/moveai-and-unreal-engine-5-metahuman-cinematic---hacker/
-frame_count: 4
+frame_count: 6
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Move.AI and Unreal Engine 5 Metahuman Cinematic - HACKER
@@ -68,18 +70,14 @@ mocap, metahuman, metahuman-animator, move-ai, short-film, sci-fi, performance-c
 
 ## Captured Frames
 
-<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
-     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
-     fallback '### Full Content [0:00]' heading, so reground_frames.py
-     re-captured them at 0:00 and produced title cards. Moments below are
-     re-derived from the source's duration, not chosen. Bullet refs take
-     precedence over the heading layout, so the stale [0:00] line above is
-     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+- [0:03] tutorials/frames/moveai-and-unreal-engine-5-metahuman-cinematic---hacker/frame_000.jpg
+- [0:13] tutorials/frames/moveai-and-unreal-engine-5-metahuman-cinematic---hacker/frame_001.jpg
+- [0:33] tutorials/frames/moveai-and-unreal-engine-5-metahuman-cinematic---hacker/frame_002.jpg
+- [0:53] tutorials/frames/moveai-and-unreal-engine-5-metahuman-cinematic---hacker/frame_003.jpg
+- [1:03] tutorials/frames/moveai-and-unreal-engine-5-metahuman-cinematic---hacker/frame_004.jpg
+- [1:13] tutorials/frames/moveai-and-unreal-engine-5-metahuman-cinematic---hacker/frame_005.jpg
 
-- [0:08] tutorials/frames/moveai-and-unreal-engine-5-metahuman-cinematic---hacker/frame_000.jpg
-- [0:25] tutorials/frames/moveai-and-unreal-engine-5-metahuman-cinematic---hacker/frame_001.jpg
-- [0:45] tutorials/frames/moveai-and-unreal-engine-5-metahuman-cinematic---hacker/frame_002.jpg
-- [1:06] tutorials/frames/moveai-and-unreal-engine-5-metahuman-cinematic---hacker/frame_003.jpg
+---
 
 ## Related Entries
 - `moveai-and-unreal-engine-5-metahuman-short-film---gigantic-joe.md` — similar short film showcase featuring Marvin character again

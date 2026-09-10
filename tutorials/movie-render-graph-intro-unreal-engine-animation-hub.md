@@ -8,7 +8,9 @@ ue_version: "UE5"
 tags: [mrq, movie-render-graph, rendering, compositing, layers, hold-out, aov, nuke, vfx, cinematics]
 extraction_status: complete
 frames_dir: tutorials/frames/movie-render-graph-intro-unreal-engine-animation-hub/
-frame_count: 4
+frame_count: 11
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Movie Render Graph Intro | Unreal Engine Animation Hub
@@ -96,18 +98,19 @@ mrq, movie-render-graph, rendering, compositing, layers, hold-out, aov, nuke, vf
 
 ## Captured Frames
 
-<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
-     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
-     fallback '### Full Content [0:00]' heading, so reground_frames.py
-     re-captured them at 0:00 and produced title cards. Moments below are
-     re-derived from the source's duration, not chosen. Bullet refs take
-     precedence over the heading layout, so the stale [0:00] line above is
-     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+- [0:15] tutorials/frames/movie-render-graph-intro-unreal-engine-animation-hub/frame_000.jpg
+- [1:01] tutorials/frames/movie-render-graph-intro-unreal-engine-animation-hub/frame_001.jpg
+- [2:05] tutorials/frames/movie-render-graph-intro-unreal-engine-animation-hub/frame_002.jpg
+- [3:06] tutorials/frames/movie-render-graph-intro-unreal-engine-animation-hub/frame_003.jpg
+- [4:09] tutorials/frames/movie-render-graph-intro-unreal-engine-animation-hub/frame_004.jpg
+- [5:09] tutorials/frames/movie-render-graph-intro-unreal-engine-animation-hub/frame_005.jpg
+- [5:25] tutorials/frames/movie-render-graph-intro-unreal-engine-animation-hub/frame_006.jpg
+- [6:45] tutorials/frames/movie-render-graph-intro-unreal-engine-animation-hub/frame_007.jpg
+- [8:06] tutorials/frames/movie-render-graph-intro-unreal-engine-animation-hub/frame_008.jpg
+- [9:29] tutorials/frames/movie-render-graph-intro-unreal-engine-animation-hub/frame_009.jpg
+- [10:55] tutorials/frames/movie-render-graph-intro-unreal-engine-animation-hub/frame_010.jpg
 
-- [1:07] tutorials/frames/movie-render-graph-intro-unreal-engine-animation-hub/frame_000.jpg
-- [3:20] tutorials/frames/movie-render-graph-intro-unreal-engine-animation-hub/frame_001.jpg
-- [6:06] tutorials/frames/movie-render-graph-intro-unreal-engine-animation-hub/frame_002.jpg
-- [8:53] tutorials/frames/movie-render-graph-intro-unreal-engine-animation-hub/frame_003.jpg
+---
 
 ## Related Entries
 - `make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta.md` — MRQ basics (legacy EXR/TSR workflow); beginner filmmaking pipeline
