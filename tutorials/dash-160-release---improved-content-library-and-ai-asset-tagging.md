@@ -9,7 +9,9 @@ ue_version: "UE 5.x"
 tags: [dash-1.6, content-library, ai-tagging, teaser, release-notes]
 extraction_status: complete
 frames_dir: tutorials/frames/dash-160-release---improved-content-library-and-ai-asset-tagging/
-frame_count: 4
+frame_count: 6
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Dash 1.6.0 Release - Improved Content Library and AI Asset Tagging!
@@ -60,18 +62,14 @@ UE 5.x (Dash 1.6)
 
 ## Captured Frames
 
-<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
-     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
-     fallback '### Full Content [0:00]' heading, so reground_frames.py
-     re-captured them at 0:00 and produced title cards. Moments below are
-     re-derived from the source's duration, not chosen. Bullet refs take
-     precedence over the heading layout, so the stale [0:00] line above is
-     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+- [0:03] tutorials/frames/dash-160-release---improved-content-library-and-ai-asset-tagging/frame_000.jpg
+- [0:10] tutorials/frames/dash-160-release---improved-content-library-and-ai-asset-tagging/frame_001.jpg
+- [0:18] tutorials/frames/dash-160-release---improved-content-library-and-ai-asset-tagging/frame_002.jpg
+- [0:23] tutorials/frames/dash-160-release---improved-content-library-and-ai-asset-tagging/frame_003.jpg
+- [0:28] tutorials/frames/dash-160-release---improved-content-library-and-ai-asset-tagging/frame_004.jpg
+- [0:38] tutorials/frames/dash-160-release---improved-content-library-and-ai-asset-tagging/frame_005.jpg
 
-- [0:14] tutorials/frames/dash-160-release---improved-content-library-and-ai-asset-tagging/frame_000.jpg
-- [0:42] tutorials/frames/dash-160-release---improved-content-library-and-ai-asset-tagging/frame_001.jpg
-- [1:17] tutorials/frames/dash-160-release---improved-content-library-and-ai-asset-tagging/frame_002.jpg
-- [1:52] tutorials/frames/dash-160-release---improved-content-library-and-ai-asset-tagging/frame_003.jpg
+---
 
 ## Related Entries
 - [[centralized-content-browser-for-ue5---free-plugin]] — cross-project access (Dash 1.6 key feature)

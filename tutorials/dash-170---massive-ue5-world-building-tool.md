@@ -9,7 +9,9 @@ ue_version: "UE 5.4"
 tags: [dash-1.7, release-notes, vines, blend-material, property-references, ies-lights, fog-cards, landscape-masking, tool-presets, volume-scatter, beginner]
 extraction_status: complete
 frames_dir: tutorials/frames/dash-170---massive-ue5-world-building-tool/
-frame_count: 17
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # DASH 1.7.0 - MASSIVE UE5 WORLD BUILDING TOOL
@@ -79,30 +81,16 @@ UE 5.4 (Dash 1.7)
 
 ## Captured Frames
 
-<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
-     ingest.py before c4decae picked blind-era moments deterministically;
-     re-derived from the source's own chapter/duration metadata and
-     accepted only because the count matched frame_count exactly.
-     These are blind-era moments: legible and citable now, but not
-     content-anchored. Re-selecting them is still a human call. -->
+- [0:15] tutorials/frames/dash-170---massive-ue5-world-building-tool/frame_000.jpg
+- [0:50] tutorials/frames/dash-170---massive-ue5-world-building-tool/frame_001.jpg
+- [1:36] tutorials/frames/dash-170---massive-ue5-world-building-tool/frame_002.jpg
+- [2:24] tutorials/frames/dash-170---massive-ue5-world-building-tool/frame_003.jpg
+- [3:11] tutorials/frames/dash-170---massive-ue5-world-building-tool/frame_004.jpg
+- [4:00] tutorials/frames/dash-170---massive-ue5-world-building-tool/frame_005.jpg
+- [4:49] tutorials/frames/dash-170---massive-ue5-world-building-tool/frame_006.jpg
+- [5:20] tutorials/frames/dash-170---massive-ue5-world-building-tool/frame_007.jpg
 
-- [0:05] tutorials/frames/dash-170---massive-ue5-world-building-tool/frame_000.jpg
-- [0:42] tutorials/frames/dash-170---massive-ue5-world-building-tool/frame_001.jpg
-- [0:59] tutorials/frames/dash-170---massive-ue5-world-building-tool/frame_002.jpg
-- [1:27] tutorials/frames/dash-170---massive-ue5-world-building-tool/frame_003.jpg
-- [1:42] tutorials/frames/dash-170---massive-ue5-world-building-tool/frame_004.jpg
-- [1:56] tutorials/frames/dash-170---massive-ue5-world-building-tool/frame_005.jpg
-- [2:12] tutorials/frames/dash-170---massive-ue5-world-building-tool/frame_006.jpg
-- [2:39] tutorials/frames/dash-170---massive-ue5-world-building-tool/frame_007.jpg
-- [2:53] tutorials/frames/dash-170---massive-ue5-world-building-tool/frame_008.jpg
-- [3:12] tutorials/frames/dash-170---massive-ue5-world-building-tool/frame_009.jpg
-- [3:27] tutorials/frames/dash-170---massive-ue5-world-building-tool/frame_010.jpg
-- [3:42] tutorials/frames/dash-170---massive-ue5-world-building-tool/frame_011.jpg
-- [3:58] tutorials/frames/dash-170---massive-ue5-world-building-tool/frame_012.jpg
-- [4:11] tutorials/frames/dash-170---massive-ue5-world-building-tool/frame_013.jpg
-- [4:19] tutorials/frames/dash-170---massive-ue5-world-building-tool/frame_014.jpg
-- [4:39] tutorials/frames/dash-170---massive-ue5-world-building-tool/frame_015.jpg
-- [4:52] tutorials/frames/dash-170---massive-ue5-world-building-tool/frame_016.jpg
+---
 
 ## Related Entries
 - [[creating-a-helldivers-2-environment-in-79-minutes---ue5-tutorial]] — Dash 1.7 Vines + Image-to-Grading used in production
