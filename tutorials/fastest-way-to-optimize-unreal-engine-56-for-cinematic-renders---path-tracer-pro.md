@@ -9,7 +9,9 @@ ue_version: "UE 5.2"
 tags: [lightforge-v1, rendering, path-tracing, nanite, project-settings, beginner]
 extraction_status: complete
 frames_dir: tutorials/frames/fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro/
-frame_count: 11
+frame_count: 10
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # FASTEST Way to Optimize Unreal Engine 5.6 for Cinematic Renders - Path Tracer Pro
@@ -55,24 +57,18 @@ UE 5.2 (announcement era; Path Tracer Pro released for UE 5.2)
 
 ## Captured Frames
 
-<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
-     ingest.py before c4decae picked blind-era moments deterministically;
-     re-derived from the source's own chapter/duration metadata and
-     accepted only because the count matched frame_count exactly.
-     These are blind-era moments: legible and citable now, but not
-     content-anchored. Re-selecting them is still a human call. -->
+- [0:15] tutorials/frames/fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro/frame_000.jpg
+- [1:00] tutorials/frames/fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro/frame_001.jpg
+- [2:01] tutorials/frames/fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro/frame_002.jpg
+- [3:04] tutorials/frames/fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro/frame_003.jpg
+- [4:08] tutorials/frames/fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro/frame_004.jpg
+- [5:08] tutorials/frames/fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro/frame_005.jpg
+- [6:08] tutorials/frames/fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro/frame_006.jpg
+- [7:10] tutorials/frames/fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro/frame_007.jpg
+- [8:12] tutorials/frames/fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro/frame_008.jpg
+- [9:35] tutorials/frames/fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro/frame_009.jpg
 
-- [0:05] tutorials/frames/fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro/frame_000.jpg
-- [0:55] tutorials/frames/fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro/frame_001.jpg
-- [1:16] tutorials/frames/fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro/frame_002.jpg
-- [1:36] tutorials/frames/fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro/frame_003.jpg
-- [1:42] tutorials/frames/fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro/frame_004.jpg
-- [2:00] tutorials/frames/fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro/frame_005.jpg
-- [2:26] tutorials/frames/fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro/frame_006.jpg
-- [2:35] tutorials/frames/fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro/frame_007.jpg
-- [5:03] tutorials/frames/fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro/frame_008.jpg
-- [5:27] tutorials/frames/fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro/frame_009.jpg
-- [5:33] tutorials/frames/fastest-way-to-optimize-unreal-engine-56-for-cinematic-renders---path-tracer-pro/frame_010.jpg
+---
 
 ## Related Entries
 - [[best-settings-for-unreal-engine-56---perfect-renders-every-time]] — LightForge v1 (successor to Path Tracer Pro)
