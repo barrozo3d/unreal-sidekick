@@ -8,7 +8,9 @@ ue_version: "UE5.7"
 tags: [foliage, nanite, assemblies, wind, skinning, performance, witcher4, tech-demo, lod, voxels, animation, open-world]
 extraction_status: complete
 frames_dir: tutorials/frames/large-scale-animated-foliage-in-the-witcher-4-unreal-engine-5-tech-demo-unreal-f/
-frame_count: 4
+frame_count: 14
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Large Scale Animated Foliage in The Witcher 4 Unreal Engine 5 Tech Demo | Unreal Fest Stockholm 2025
@@ -97,18 +99,22 @@ foliage, nanite, assemblies, wind, skinning, performance, witcher4, tech-demo, l
 
 ## Captured Frames
 
-<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
-     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
-     fallback '### Full Content [0:00]' heading, so reground_frames.py
-     re-captured them at 0:00 and produced title cards. Moments below are
-     re-derived from the source's duration, not chosen. Bullet refs take
-     precedence over the heading layout, so the stale [0:00] line above is
-     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+- [0:15] tutorials/frames/large-scale-animated-foliage-in-the-witcher-4-unreal-engine-5-tech-demo-unreal-f/frame_000.jpg
+- [1:02] tutorials/frames/large-scale-animated-foliage-in-the-witcher-4-unreal-engine-5-tech-demo-unreal-f/frame_001.jpg
+- [2:07] tutorials/frames/large-scale-animated-foliage-in-the-witcher-4-unreal-engine-5-tech-demo-unreal-f/frame_002.jpg
+- [3:12] tutorials/frames/large-scale-animated-foliage-in-the-witcher-4-unreal-engine-5-tech-demo-unreal-f/frame_003.jpg
+- [4:16] tutorials/frames/large-scale-animated-foliage-in-the-witcher-4-unreal-engine-5-tech-demo-unreal-f/frame_004.jpg
+- [5:17] tutorials/frames/large-scale-animated-foliage-in-the-witcher-4-unreal-engine-5-tech-demo-unreal-f/frame_005.jpg
+- [6:18] tutorials/frames/large-scale-animated-foliage-in-the-witcher-4-unreal-engine-5-tech-demo-unreal-f/frame_006.jpg
+- [11:37] tutorials/frames/large-scale-animated-foliage-in-the-witcher-4-unreal-engine-5-tech-demo-unreal-f/frame_007.jpg
+- [15:28] tutorials/frames/large-scale-animated-foliage-in-the-witcher-4-unreal-engine-5-tech-demo-unreal-f/frame_008.jpg
+- [19:20] tutorials/frames/large-scale-animated-foliage-in-the-witcher-4-unreal-engine-5-tech-demo-unreal-f/frame_009.jpg
+- [23:10] tutorials/frames/large-scale-animated-foliage-in-the-witcher-4-unreal-engine-5-tech-demo-unreal-f/frame_010.jpg
+- [27:03] tutorials/frames/large-scale-animated-foliage-in-the-witcher-4-unreal-engine-5-tech-demo-unreal-f/frame_011.jpg
+- [30:55] tutorials/frames/large-scale-animated-foliage-in-the-witcher-4-unreal-engine-5-tech-demo-unreal-f/frame_012.jpg
+- [34:49] tutorials/frames/large-scale-animated-foliage-in-the-witcher-4-unreal-engine-5-tech-demo-unreal-f/frame_013.jpg
 
-- [3:45] tutorials/frames/large-scale-animated-foliage-in-the-witcher-4-unreal-engine-5-tech-demo-unreal-f/frame_000.jpg
-- [11:14] tutorials/frames/large-scale-animated-foliage-in-the-witcher-4-unreal-engine-5-tech-demo-unreal-f/frame_001.jpg
-- [20:36] tutorials/frames/large-scale-animated-foliage-in-the-witcher-4-unreal-engine-5-tech-demo-unreal-f/frame_002.jpg
-- [29:58] tutorials/frames/large-scale-animated-foliage-in-the-witcher-4-unreal-engine-5-tech-demo-unreal-f/frame_003.jpg
+---
 
 ## Related Entries
 - `nanite-everything-you-should-know-unreal-engine-5.md` — Nanite deep-dive; Preserve Area flag; fundamentals for understanding assemblies

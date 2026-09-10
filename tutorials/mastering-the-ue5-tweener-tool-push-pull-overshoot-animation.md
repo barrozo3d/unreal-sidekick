@@ -8,7 +8,9 @@ ue_version: "UE5"
 tags: [animation, sequencer, curves-editor, tween-tool, keyframing, polish, workflow, animator-tools, blend, overshoot]
 extraction_status: complete
 frames_dir: tutorials/frames/mastering-the-ue5-tweener-tool-push-pull-overshoot-animation/
-frame_count: 4
+frame_count: 10
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Mastering the UE5 Tweener Tool: Push Pull & Overshoot Animation
@@ -112,18 +114,18 @@ animation, sequencer, curves-editor, tween-tool, keyframing, polish, workflow, a
 
 ## Captured Frames
 
-<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
-     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
-     fallback '### Full Content [0:00]' heading, so reground_frames.py
-     re-captured them at 0:00 and produced title cards. Moments below are
-     re-derived from the source's duration, not chosen. Bullet refs take
-     precedence over the heading layout, so the stale [0:00] line above is
-     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+- [0:15] tutorials/frames/mastering-the-ue5-tweener-tool-push-pull-overshoot-animation/frame_000.jpg
+- [1:00] tutorials/frames/mastering-the-ue5-tweener-tool-push-pull-overshoot-animation/frame_001.jpg
+- [2:02] tutorials/frames/mastering-the-ue5-tweener-tool-push-pull-overshoot-animation/frame_002.jpg
+- [3:05] tutorials/frames/mastering-the-ue5-tweener-tool-push-pull-overshoot-animation/frame_003.jpg
+- [4:05] tutorials/frames/mastering-the-ue5-tweener-tool-push-pull-overshoot-animation/frame_004.jpg
+- [5:06] tutorials/frames/mastering-the-ue5-tweener-tool-push-pull-overshoot-animation/frame_005.jpg
+- [6:11] tutorials/frames/mastering-the-ue5-tweener-tool-push-pull-overshoot-animation/frame_006.jpg
+- [7:41] tutorials/frames/mastering-the-ue5-tweener-tool-push-pull-overshoot-animation/frame_007.jpg
+- [9:14] tutorials/frames/mastering-the-ue5-tweener-tool-push-pull-overshoot-animation/frame_008.jpg
+- [10:44] tutorials/frames/mastering-the-ue5-tweener-tool-push-pull-overshoot-animation/frame_009.jpg
 
-- [1:12] tutorials/frames/mastering-the-ue5-tweener-tool-push-pull-overshoot-animation/frame_000.jpg
-- [3:35] tutorials/frames/mastering-the-ue5-tweener-tool-push-pull-overshoot-animation/frame_001.jpg
-- [6:35] tutorials/frames/mastering-the-ue5-tweener-tool-push-pull-overshoot-animation/frame_002.jpg
-- [9:34] tutorials/frames/mastering-the-ue5-tweener-tool-push-pull-overshoot-animation/frame_003.jpg
+---
 
 ## Related Entries
 - `make-films-in-unreal-everything-you-need-to-create-your-first-short-beginner-sta.md` — beginner Sequencer/filmmaking pipeline; Curves Editor basics

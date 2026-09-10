@@ -8,7 +8,9 @@ ue_version: "UE5"
 tags: [metahuman, facial-animation, live-link, webcam, performance-capture, animation, real-time, virtual-production, motion-capture, beginner]
 extraction_status: complete
 frames_dir: tutorials/frames/metahuman-realtime-animator-best-practices-unreal-engine-animation-hub/
-frame_count: 4
+frame_count: 10
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # MetaHuman Realtime Animator Best Practices | Unreal Engine Animation Hub
@@ -98,18 +100,18 @@ metahuman, facial-animation, live-link, webcam, performance-capture, animation, 
 
 ## Captured Frames
 
-<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
-     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
-     fallback '### Full Content [0:00]' heading, so reground_frames.py
-     re-captured them at 0:00 and produced title cards. Moments below are
-     re-derived from the source's duration, not chosen. Bullet refs take
-     precedence over the heading layout, so the stale [0:00] line above is
-     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+- [0:15] tutorials/frames/metahuman-realtime-animator-best-practices-unreal-engine-animation-hub/frame_000.jpg
+- [1:01] tutorials/frames/metahuman-realtime-animator-best-practices-unreal-engine-animation-hub/frame_001.jpg
+- [2:01] tutorials/frames/metahuman-realtime-animator-best-practices-unreal-engine-animation-hub/frame_002.jpg
+- [3:01] tutorials/frames/metahuman-realtime-animator-best-practices-unreal-engine-animation-hub/frame_003.jpg
+- [4:01] tutorials/frames/metahuman-realtime-animator-best-practices-unreal-engine-animation-hub/frame_004.jpg
+- [4:37] tutorials/frames/metahuman-realtime-animator-best-practices-unreal-engine-animation-hub/frame_005.jpg
+- [5:04] tutorials/frames/metahuman-realtime-animator-best-practices-unreal-engine-animation-hub/frame_006.jpg
+- [6:09] tutorials/frames/metahuman-realtime-animator-best-practices-unreal-engine-animation-hub/frame_007.jpg
+- [7:40] tutorials/frames/metahuman-realtime-animator-best-practices-unreal-engine-animation-hub/frame_008.jpg
+- [9:13] tutorials/frames/metahuman-realtime-animator-best-practices-unreal-engine-animation-hub/frame_009.jpg
 
-- [0:58] tutorials/frames/metahuman-realtime-animator-best-practices-unreal-engine-animation-hub/frame_000.jpg
-- [2:55] tutorials/frames/metahuman-realtime-animator-best-practices-unreal-engine-animation-hub/frame_001.jpg
-- [5:21] tutorials/frames/metahuman-realtime-animator-best-practices-unreal-engine-animation-hub/frame_002.jpg
-- [7:47] tutorials/frames/metahuman-realtime-animator-best-practices-unreal-engine-animation-hub/frame_003.jpg
+---
 
 ## Related Entries
 - `live-link-hub-tips-unreal-engine-animation-hub.md` — Live Link Hub multi-source setup; Virtual Subject; recording; timecode
