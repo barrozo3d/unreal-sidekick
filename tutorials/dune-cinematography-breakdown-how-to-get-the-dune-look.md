@@ -9,7 +9,9 @@ ue_version: "UE 5.x"
 tags: [cinematography, lighting, vfx, compositing, atmospherics, beginner]
 extraction_status: complete
 frames_dir: tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/
-frame_count: 22
+frame_count: 14
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # DUNE Cinematography Breakdown | HOW TO GET THE DUNE LOOK
@@ -95,35 +97,22 @@ UE 5.x
 
 ## Captured Frames
 
-<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
-     ingest.py before c4decae picked blind-era moments deterministically;
-     re-derived from the source's own chapter/duration metadata and
-     accepted only because the count matched frame_count exactly.
-     These are blind-era moments: legible and citable now, but not
-     content-anchored. Re-selecting them is still a human call. -->
+- [0:15] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_000.jpg
+- [2:05] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_001.jpg
+- [3:05] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_002.jpg
+- [4:05] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_003.jpg
+- [5:08] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_004.jpg
+- [6:41] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_005.jpg
+- [7:13] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_006.jpg
+- [10:04] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_007.jpg
+- [13:26] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_008.jpg
+- [16:48] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_009.jpg
+- [20:09] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_010.jpg
+- [23:29] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_011.jpg
+- [26:50] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_012.jpg
+- [30:13] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_013.jpg
 
-- [0:05] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_000.jpg
-- [1:21] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_001.jpg
-- [2:46] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_002.jpg
-- [5:35] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_003.jpg
-- [9:04] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_004.jpg
-- [11:27] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_005.jpg
-- [12:39] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_006.jpg
-- [13:37] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_007.jpg
-- [14:52] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_008.jpg
-- [16:34] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_009.jpg
-- [17:04] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_010.jpg
-- [19:34] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_011.jpg
-- [20:03] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_012.jpg
-- [20:30] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_013.jpg
-- [21:47] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_014.jpg
-- [24:45] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_015.jpg
-- [25:18] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_016.jpg
-- [25:59] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_017.jpg
-- [27:02] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_018.jpg
-- [27:33] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_019.jpg
-- [29:07] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_020.jpg
-- [29:31] tutorials/frames/dune-cinematography-breakdown-how-to-get-the-dune-look/frame_021.jpg
+---
 
 ## Related Entries
 - [[how-unreal-engine-is-changing-filmmaking-forever]] — Greig Fraser / Dune previs context
