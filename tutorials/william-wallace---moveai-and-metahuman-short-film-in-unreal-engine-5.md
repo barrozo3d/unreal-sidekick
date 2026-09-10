@@ -9,6 +9,8 @@ tags: [mocap, metahuman, move-ai, short-film, historical, performance-capture, e
 extraction_status: complete
 frames_dir: tutorials/frames/william-wallace---moveai-and-metahuman-short-film-in-unreal-engine-5/
 frame_count: 4
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # William Wallace - Move.AI and Metahuman short film in Unreal Engine 5
@@ -68,18 +70,12 @@ mocap, metahuman, move-ai, short-film, historical, performance-capture, elevenla
 
 ## Captured Frames
 
-<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
-     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
-     fallback '### Full Content [0:00]' heading, so reground_frames.py
-     re-captured them at 0:00 and produced title cards. Moments below are
-     re-derived from the source's duration, not chosen. Bullet refs take
-     precedence over the heading layout, so the stale [0:00] line above is
-     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+- [0:10] tutorials/frames/william-wallace---moveai-and-metahuman-short-film-in-unreal-engine-5/frame_000.jpg
+- [0:30] tutorials/frames/william-wallace---moveai-and-metahuman-short-film-in-unreal-engine-5/frame_001.jpg
+- [0:50] tutorials/frames/william-wallace---moveai-and-metahuman-short-film-in-unreal-engine-5/frame_002.jpg
+- [1:05] tutorials/frames/william-wallace---moveai-and-metahuman-short-film-in-unreal-engine-5/frame_003.jpg
 
-- [0:08] tutorials/frames/william-wallace---moveai-and-metahuman-short-film-in-unreal-engine-5/frame_000.jpg
-- [0:26] tutorials/frames/william-wallace---moveai-and-metahuman-short-film-in-unreal-engine-5/frame_001.jpg
-- [0:47] tutorials/frames/william-wallace---moveai-and-metahuman-short-film-in-unreal-engine-5/frame_002.jpg
-- [1:08] tutorials/frames/william-wallace---moveai-and-metahuman-short-film-in-unreal-engine-5/frame_003.jpg
+---
 
 ## Related Entries
 - `moveai-and-unreal-engine-5-metahuman-short-film---gigantic-joe.md` — comparable short film showcasing the Move.AI + MetaHuman pipeline as a creative vehicle
