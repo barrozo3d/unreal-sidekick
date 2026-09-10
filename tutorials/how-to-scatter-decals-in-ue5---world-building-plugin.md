@@ -9,7 +9,9 @@ ue_version: "UE 5.x"
 tags: [dash-1.4, decals, scatter, placement-tool, environment-art, detail, beginner]
 extraction_status: complete
 frames_dir: tutorials/frames/how-to-scatter-decals-in-ue5---world-building-plugin/
-frame_count: 4
+frame_count: 5
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # How to Scatter Decals in UE5 - World Building Plugin
@@ -63,18 +65,13 @@ UE 5.x (Dash 1.4 era)
 
 ## Captured Frames
 
-<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
-     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
-     fallback '### Full Content [0:00]' heading, so reground_frames.py
-     re-captured them at 0:00 and produced title cards. Moments below are
-     re-derived from the source's duration, not chosen. Bullet refs take
-     precedence over the heading layout, so the stale [0:00] line above is
-     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+- [0:15] tutorials/frames/how-to-scatter-decals-in-ue5---world-building-plugin/frame_000.jpg
+- [1:01] tutorials/frames/how-to-scatter-decals-in-ue5---world-building-plugin/frame_001.jpg
+- [2:01] tutorials/frames/how-to-scatter-decals-in-ue5---world-building-plugin/frame_002.jpg
+- [3:02] tutorials/frames/how-to-scatter-decals-in-ue5---world-building-plugin/frame_003.jpg
+- [4:02] tutorials/frames/how-to-scatter-decals-in-ue5---world-building-plugin/frame_004.jpg
 
-- [0:30] tutorials/frames/how-to-scatter-decals-in-ue5---world-building-plugin/frame_000.jpg
-- [1:30] tutorials/frames/how-to-scatter-decals-in-ue5---world-building-plugin/frame_001.jpg
-- [2:46] tutorials/frames/how-to-scatter-decals-in-ue5---world-building-plugin/frame_002.jpg
-- [4:01] tutorials/frames/how-to-scatter-decals-in-ue5---world-building-plugin/frame_003.jpg
+---
 
 ## Related Entries
 - [[surface-scatter-beginner-guide-to-your-ue5-co-pilot-dash]] — full surface scatter system (masking, rotation, etc.)
