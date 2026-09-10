@@ -9,7 +9,9 @@ ue_version: "UE 5.x"
 tags: [dash-1.9, content-library, polyhaven, megascans, amazon-abo, ambientcg, ies-lights, ai-tagging, collections, cross-project, beginner]
 extraction_status: complete
 frames_dir: tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/
-frame_count: 13
+frame_count: 5
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # NEW UE5 ASSET MANAGEMENT PLUGIN - NOW FREE ON FAB
@@ -73,26 +75,13 @@ UE 5.x (Dash 1.9+)
 
 ## Captured Frames
 
-<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
-     ingest.py before c4decae picked blind-era moments deterministically;
-     re-derived from the source's own chapter/duration metadata and
-     accepted only because the count matched frame_count exactly.
-     These are blind-era moments: legible and citable now, but not
-     content-anchored. Re-selecting them is still a human call. -->
+- [0:15] tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/frame_000.jpg
+- [1:04] tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/frame_001.jpg
+- [2:19] tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/frame_002.jpg
+- [3:24] tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/frame_003.jpg
+- [4:35] tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/frame_004.jpg
 
-- [0:05] tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/frame_000.jpg
-- [0:28] tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/frame_001.jpg
-- [0:59] tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/frame_002.jpg
-- [1:27] tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/frame_003.jpg
-- [1:54] tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/frame_004.jpg
-- [2:23] tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/frame_005.jpg
-- [2:43] tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/frame_006.jpg
-- [3:00] tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/frame_007.jpg
-- [3:21] tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/frame_008.jpg
-- [3:52] tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/frame_009.jpg
-- [4:15] tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/frame_010.jpg
-- [4:39] tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/frame_011.jpg
-- [5:10] tutorials/frames/new-ue5-asset-management-plugin---now-free-on-fab/frame_012.jpg
+---
 
 ## Related Entries
 - [[best-free-unreal-engine-5-asset-management-plugin-in-2025]] — Full Dash 1.9 Content Browser deep-dive (Tomáš)

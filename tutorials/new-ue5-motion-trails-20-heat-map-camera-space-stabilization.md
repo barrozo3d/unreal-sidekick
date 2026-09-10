@@ -8,7 +8,9 @@ ue_version: "UE5.6"
 tags: [animation, motion-trails, heat-map, camera-space, sequencer, arc-visualization, spacing, control-rig, animator-tools, ue5-6]
 extraction_status: complete
 frames_dir: tutorials/frames/new-ue5-motion-trails-20-heat-map-camera-space-stabilization/
-frame_count: 4
+frame_count: 9
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # NEW UE5 Motion Trails 2.0: Heat Map & Camera Space Stabilization
@@ -95,18 +97,17 @@ animation, motion-trails, heat-map, camera-space, sequencer, arc-visualization, 
 
 ## Captured Frames
 
-<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
-     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
-     fallback '### Full Content [0:00]' heading, so reground_frames.py
-     re-captured them at 0:00 and produced title cards. Moments below are
-     re-derived from the source's duration, not chosen. Bullet refs take
-     precedence over the heading layout, so the stale [0:00] line above is
-     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+- [0:15] tutorials/frames/new-ue5-motion-trails-20-heat-map-camera-space-stabilization/frame_000.jpg
+- [1:00] tutorials/frames/new-ue5-motion-trails-20-heat-map-camera-space-stabilization/frame_001.jpg
+- [2:04] tutorials/frames/new-ue5-motion-trails-20-heat-map-camera-space-stabilization/frame_002.jpg
+- [3:04] tutorials/frames/new-ue5-motion-trails-20-heat-map-camera-space-stabilization/frame_003.jpg
+- [4:06] tutorials/frames/new-ue5-motion-trails-20-heat-map-camera-space-stabilization/frame_004.jpg
+- [5:07] tutorials/frames/new-ue5-motion-trails-20-heat-map-camera-space-stabilization/frame_005.jpg
+- [6:24] tutorials/frames/new-ue5-motion-trails-20-heat-map-camera-space-stabilization/frame_006.jpg
+- [7:42] tutorials/frames/new-ue5-motion-trails-20-heat-map-camera-space-stabilization/frame_007.jpg
+- [8:58] tutorials/frames/new-ue5-motion-trails-20-heat-map-camera-space-stabilization/frame_008.jpg
 
-- [0:58] tutorials/frames/new-ue5-motion-trails-20-heat-map-camera-space-stabilization/frame_000.jpg
-- [2:55] tutorials/frames/new-ue5-motion-trails-20-heat-map-camera-space-stabilization/frame_001.jpg
-- [5:21] tutorials/frames/new-ue5-motion-trails-20-heat-map-camera-space-stabilization/frame_002.jpg
-- [7:46] tutorials/frames/new-ue5-motion-trails-20-heat-map-camera-space-stabilization/frame_003.jpg
+---
 
 ## Related Entries
 - `mastering-the-ue5-tweener-tool-push-pull-overshoot-animation.md` — animation viewport tools for polish; Tween Tool works alongside Motion Trails for spacing/timing review
