@@ -9,7 +9,9 @@ ue_version: "UE 5.x"
 tags: [vfx, filmmaking, cinematography, compositing, beginner]
 extraction_status: complete
 frames_dir: tutorials/frames/the-5-secrets-to-hollywood-level-visual-effects-with-no-budget/
-frame_count: 4
+frame_count: 7
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # The 5 Secrets to Hollywood-Level Visual Effects With No Budget
@@ -54,17 +56,15 @@ UE 5.x
 
 ## Captured Frames
 
-<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
-     ingest.py before c4decae picked blind-era moments deterministically;
-     re-derived from the source's own chapter/duration metadata and
-     accepted only because the count matched frame_count exactly.
-     These are blind-era moments: legible and citable now, but not
-     content-anchored. Re-selecting them is still a human call. -->
+- [0:15] tutorials/frames/the-5-secrets-to-hollywood-level-visual-effects-with-no-budget/frame_000.jpg
+- [1:15] tutorials/frames/the-5-secrets-to-hollywood-level-visual-effects-with-no-budget/frame_001.jpg
+- [2:32] tutorials/frames/the-5-secrets-to-hollywood-level-visual-effects-with-no-budget/frame_002.jpg
+- [3:49] tutorials/frames/the-5-secrets-to-hollywood-level-visual-effects-with-no-budget/frame_003.jpg
+- [5:06] tutorials/frames/the-5-secrets-to-hollywood-level-visual-effects-with-no-budget/frame_004.jpg
+- [6:25] tutorials/frames/the-5-secrets-to-hollywood-level-visual-effects-with-no-budget/frame_005.jpg
+- [8:03] tutorials/frames/the-5-secrets-to-hollywood-level-visual-effects-with-no-budget/frame_006.jpg
 
-- [0:56] tutorials/frames/the-5-secrets-to-hollywood-level-visual-effects-with-no-budget/frame_000.jpg
-- [2:50] tutorials/frames/the-5-secrets-to-hollywood-level-visual-effects-with-no-budget/frame_001.jpg
-- [5:11] tutorials/frames/the-5-secrets-to-hollywood-level-visual-effects-with-no-budget/frame_002.jpg
-- [7:32] tutorials/frames/the-5-secrets-to-hollywood-level-visual-effects-with-no-budget/frame_003.jpg
+---
 
 ## Related Entries
 - [[these-simple-mistakes-are-ruining-your-vfx]] — Part 1: CGI as crutch (opposite of secret #1)

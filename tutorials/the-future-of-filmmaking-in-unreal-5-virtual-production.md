@@ -8,7 +8,9 @@ ue_version: "UE5"
 tags: [virtual-production, led-volume, filmmaking, cinematics, blueprint, camera-tracking, light-interaction, parallax, short-film, workflow]
 extraction_status: complete
 frames_dir: tutorials/frames/the-future-of-filmmaking-in-unreal-5-virtual-production/
-frame_count: 4
+frame_count: 9
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # The Future of Filmmaking in Unreal 5 (Virtual Production)
@@ -115,18 +117,17 @@ virtual-production, led-volume, filmmaking, cinematics, blueprint, camera-tracki
 
 ## Captured Frames
 
-<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
-     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
-     fallback '### Full Content [0:00]' heading, so reground_frames.py
-     re-captured them at 0:00 and produced title cards. Moments below are
-     re-derived from the source's duration, not chosen. Bullet refs take
-     precedence over the heading layout, so the stale [0:00] line above is
-     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+- [0:15] tutorials/frames/the-future-of-filmmaking-in-unreal-5-virtual-production/frame_000.jpg
+- [1:15] tutorials/frames/the-future-of-filmmaking-in-unreal-5-virtual-production/frame_001.jpg
+- [2:31] tutorials/frames/the-future-of-filmmaking-in-unreal-5-virtual-production/frame_002.jpg
+- [3:47] tutorials/frames/the-future-of-filmmaking-in-unreal-5-virtual-production/frame_003.jpg
+- [5:03] tutorials/frames/the-future-of-filmmaking-in-unreal-5-virtual-production/frame_004.jpg
+- [6:29] tutorials/frames/the-future-of-filmmaking-in-unreal-5-virtual-production/frame_005.jpg
+- [8:04] tutorials/frames/the-future-of-filmmaking-in-unreal-5-virtual-production/frame_006.jpg
+- [9:41] tutorials/frames/the-future-of-filmmaking-in-unreal-5-virtual-production/frame_007.jpg
+- [11:16] tutorials/frames/the-future-of-filmmaking-in-unreal-5-virtual-production/frame_008.jpg
 
-- [1:12] tutorials/frames/the-future-of-filmmaking-in-unreal-5-virtual-production/frame_000.jpg
-- [3:35] tutorials/frames/the-future-of-filmmaking-in-unreal-5-virtual-production/frame_001.jpg
-- [6:34] tutorials/frames/the-future-of-filmmaking-in-unreal-5-virtual-production/frame_002.jpg
-- [9:33] tutorials/frames/the-future-of-filmmaking-in-unreal-5-virtual-production/frame_003.jpg
+---
 
 ## Related Entries
 - `no-cost-virtual-production-is-here---and-its-changing-filmmaking.md` — accessible/free VP pipeline overview

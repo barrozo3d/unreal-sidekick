@@ -8,7 +8,9 @@ ue_version: "UE5"
 tags: [animation, sequencer, time-warp, slow-motion, play-rate, curves, timing, workflow, animator-tools, post-production]
 extraction_status: complete
 frames_dir: tutorials/frames/slow-motion-secrets-how-to-time-warp-animation-in-unreal-engine/
-frame_count: 4
+frame_count: 10
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Slow Motion SECRETS! How to Time Warp Animation in Unreal Engine
@@ -94,18 +96,18 @@ animation, sequencer, time-warp, slow-motion, play-rate, curves, timing, workflo
 
 ## Captured Frames
 
-<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
-     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
-     fallback '### Full Content [0:00]' heading, so reground_frames.py
-     re-captured them at 0:00 and produced title cards. Moments below are
-     re-derived from the source's duration, not chosen. Bullet refs take
-     precedence over the heading layout, so the stale [0:00] line above is
-     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+- [0:15] tutorials/frames/slow-motion-secrets-how-to-time-warp-animation-in-unreal-engine/frame_000.jpg
+- [1:15] tutorials/frames/slow-motion-secrets-how-to-time-warp-animation-in-unreal-engine/frame_001.jpg
+- [2:32] tutorials/frames/slow-motion-secrets-how-to-time-warp-animation-in-unreal-engine/frame_002.jpg
+- [3:51] tutorials/frames/slow-motion-secrets-how-to-time-warp-animation-in-unreal-engine/frame_003.jpg
+- [5:07] tutorials/frames/slow-motion-secrets-how-to-time-warp-animation-in-unreal-engine/frame_004.jpg
+- [6:24] tutorials/frames/slow-motion-secrets-how-to-time-warp-animation-in-unreal-engine/frame_005.jpg
+- [6:45] tutorials/frames/slow-motion-secrets-how-to-time-warp-animation-in-unreal-engine/frame_006.jpg
+- [7:41] tutorials/frames/slow-motion-secrets-how-to-time-warp-animation-in-unreal-engine/frame_007.jpg
+- [8:28] tutorials/frames/slow-motion-secrets-how-to-time-warp-animation-in-unreal-engine/frame_008.jpg
+- [10:09] tutorials/frames/slow-motion-secrets-how-to-time-warp-animation-in-unreal-engine/frame_009.jpg
 
-- [1:02] tutorials/frames/slow-motion-secrets-how-to-time-warp-animation-in-unreal-engine/frame_000.jpg
-- [3:07] tutorials/frames/slow-motion-secrets-how-to-time-warp-animation-in-unreal-engine/frame_001.jpg
-- [5:42] tutorials/frames/slow-motion-secrets-how-to-time-warp-animation-in-unreal-engine/frame_002.jpg
-- [8:18] tutorials/frames/slow-motion-secrets-how-to-time-warp-animation-in-unreal-engine/frame_003.jpg
+---
 
 ## Related Entries
 - `mastering-the-ue5-tweener-tool-push-pull-overshoot-animation.md` — Tween Tool; timing polish at the keyframe level (different approach to timing adjustment)

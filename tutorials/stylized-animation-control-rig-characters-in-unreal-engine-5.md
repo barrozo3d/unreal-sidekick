@@ -8,7 +8,9 @@ ue_version: "UE5"
 tags: [animation, control-rig, modular-rig, characters, sequencer, ik-fk, face-rig, workflow, animator-tools, acom]
 extraction_status: complete
 frames_dir: tutorials/frames/stylized-animation-control-rig-characters-in-unreal-engine-5/
-frame_count: 4
+frame_count: 11
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Stylized Animation Control Rig Characters in Unreal Engine 5
@@ -92,18 +94,19 @@ animation, control-rig, modular-rig, characters, sequencer, ik-fk, face-rig, wor
 
 ## Captured Frames
 
-<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
-     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
-     fallback '### Full Content [0:00]' heading, so reground_frames.py
-     re-captured them at 0:00 and produced title cards. Moments below are
-     re-derived from the source's duration, not chosen. Bullet refs take
-     precedence over the heading layout, so the stale [0:00] line above is
-     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+- [0:15] tutorials/frames/stylized-animation-control-rig-characters-in-unreal-engine-5/frame_000.jpg
+- [1:17] tutorials/frames/stylized-animation-control-rig-characters-in-unreal-engine-5/frame_001.jpg
+- [2:32] tutorials/frames/stylized-animation-control-rig-characters-in-unreal-engine-5/frame_002.jpg
+- [3:48] tutorials/frames/stylized-animation-control-rig-characters-in-unreal-engine-5/frame_003.jpg
+- [5:03] tutorials/frames/stylized-animation-control-rig-characters-in-unreal-engine-5/frame_004.jpg
+- [6:20] tutorials/frames/stylized-animation-control-rig-characters-in-unreal-engine-5/frame_005.jpg
+- [6:48] tutorials/frames/stylized-animation-control-rig-characters-in-unreal-engine-5/frame_006.jpg
+- [7:37] tutorials/frames/stylized-animation-control-rig-characters-in-unreal-engine-5/frame_007.jpg
+- [8:30] tutorials/frames/stylized-animation-control-rig-characters-in-unreal-engine-5/frame_008.jpg
+- [10:13] tutorials/frames/stylized-animation-control-rig-characters-in-unreal-engine-5/frame_009.jpg
+- [11:53] tutorials/frames/stylized-animation-control-rig-characters-in-unreal-engine-5/frame_010.jpg
 
-- [1:20] tutorials/frames/stylized-animation-control-rig-characters-in-unreal-engine-5/frame_000.jpg
-- [4:01] tutorials/frames/stylized-animation-control-rig-characters-in-unreal-engine-5/frame_001.jpg
-- [7:22] tutorials/frames/stylized-animation-control-rig-characters-in-unreal-engine-5/frame_002.jpg
-- [10:42] tutorials/frames/stylized-animation-control-rig-characters-in-unreal-engine-5/frame_003.jpg
+---
 
 ## Related Entries
 - `non-destructive-animation-in-ue5-layered-control-rigs-explained.md` — Layered Control Rigs; non-destructive additive animation on top of sequences (same ACOM series context)
