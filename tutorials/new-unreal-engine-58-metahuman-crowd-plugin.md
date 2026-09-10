@@ -8,7 +8,9 @@ ue_version: "UE5.8"
 tags: [metahuman, crowds, mass-ai, lod, performance, npcs, plugin, characters, simulation, experimental]
 extraction_status: complete
 frames_dir: tutorials/frames/new-unreal-engine-58-metahuman-crowd-plugin/
-frame_count: 4
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # New Unreal Engine 5.8 Metahuman Crowd Plugin
@@ -80,18 +82,16 @@ metahuman, crowd, mass-ai, lod, performance, npcs, plugin, characters, simulatio
 
 ## Captured Frames
 
-<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
-     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
-     fallback '### Full Content [0:00]' heading, so reground_frames.py
-     re-captured them at 0:00 and produced title cards. Moments below are
-     re-derived from the source's duration, not chosen. Bullet refs take
-     precedence over the heading layout, so the stale [0:00] line above is
-     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+- [0:15] tutorials/frames/new-unreal-engine-58-metahuman-crowd-plugin/frame_000.jpg
+- [2:04] tutorials/frames/new-unreal-engine-58-metahuman-crowd-plugin/frame_001.jpg
+- [3:05] tutorials/frames/new-unreal-engine-58-metahuman-crowd-plugin/frame_002.jpg
+- [4:09] tutorials/frames/new-unreal-engine-58-metahuman-crowd-plugin/frame_003.jpg
+- [5:10] tutorials/frames/new-unreal-engine-58-metahuman-crowd-plugin/frame_004.jpg
+- [5:27] tutorials/frames/new-unreal-engine-58-metahuman-crowd-plugin/frame_005.jpg
+- [6:51] tutorials/frames/new-unreal-engine-58-metahuman-crowd-plugin/frame_006.jpg
+- [8:13] tutorials/frames/new-unreal-engine-58-metahuman-crowd-plugin/frame_007.jpg
 
-- [0:54] tutorials/frames/new-unreal-engine-58-metahuman-crowd-plugin/frame_000.jpg
-- [2:43] tutorials/frames/new-unreal-engine-58-metahuman-crowd-plugin/frame_001.jpg
-- [4:59] tutorials/frames/new-unreal-engine-58-metahuman-crowd-plugin/frame_002.jpg
-- [7:15] tutorials/frames/new-unreal-engine-58-metahuman-crowd-plugin/frame_003.jpg
+---
 
 ## Related Entries
 - `metahumans-in-unreal-engine.md` — MetaHuman Blueprint structure, LODs, groom — underlying tech behind crowd plugin characters

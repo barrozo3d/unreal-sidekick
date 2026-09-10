@@ -8,7 +8,9 @@ ue_version: "UE5.8"
 tags: [mcp, ai-agent, claude-code, blueprint, pcg, workflow, automation, plugin, setup, tool]
 extraction_status: complete
 frames_dir: tutorials/frames/new-unreal-engine-58-mcp-tutorial-quickstart-guide/
-frame_count: 4
+frame_count: 11
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # NEW Unreal Engine 5.8 MCP Tutorial (QuickStart Guide)
@@ -93,18 +95,19 @@ mcp, ai-agent, claude-code, blueprint, pcg, workflow, automation, plugin, setup,
 
 ## Captured Frames
 
-<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
-     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
-     fallback '### Full Content [0:00]' heading, so reground_frames.py
-     re-captured them at 0:00 and produced title cards. Moments below are
-     re-derived from the source's duration, not chosen. Bullet refs take
-     precedence over the heading layout, so the stale [0:00] line above is
-     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+- [0:15] tutorials/frames/new-unreal-engine-58-mcp-tutorial-quickstart-guide/frame_000.jpg
+- [2:03] tutorials/frames/new-unreal-engine-58-mcp-tutorial-quickstart-guide/frame_001.jpg
+- [3:07] tutorials/frames/new-unreal-engine-58-mcp-tutorial-quickstart-guide/frame_002.jpg
+- [4:08] tutorials/frames/new-unreal-engine-58-mcp-tutorial-quickstart-guide/frame_003.jpg
+- [5:08] tutorials/frames/new-unreal-engine-58-mcp-tutorial-quickstart-guide/frame_004.jpg
+- [5:27] tutorials/frames/new-unreal-engine-58-mcp-tutorial-quickstart-guide/frame_005.jpg
+- [6:47] tutorials/frames/new-unreal-engine-58-mcp-tutorial-quickstart-guide/frame_006.jpg
+- [8:07] tutorials/frames/new-unreal-engine-58-mcp-tutorial-quickstart-guide/frame_007.jpg
+- [9:28] tutorials/frames/new-unreal-engine-58-mcp-tutorial-quickstart-guide/frame_008.jpg
+- [10:51] tutorials/frames/new-unreal-engine-58-mcp-tutorial-quickstart-guide/frame_009.jpg
+- [12:12] tutorials/frames/new-unreal-engine-58-mcp-tutorial-quickstart-guide/frame_010.jpg
 
-- [1:14] tutorials/frames/new-unreal-engine-58-mcp-tutorial-quickstart-guide/frame_000.jpg
-- [3:42] tutorials/frames/new-unreal-engine-58-mcp-tutorial-quickstart-guide/frame_001.jpg
-- [6:48] tutorials/frames/new-unreal-engine-58-mcp-tutorial-quickstart-guide/frame_002.jpg
-- [9:53] tutorials/frames/new-unreal-engine-58-mcp-tutorial-quickstart-guide/frame_003.jpg
+---
 
 ## Related Entries
 - `procedural-content-generation-framework-in-unreal-engine.md` — PCG framework; primary use case for MCP AI automation (city generation demo)

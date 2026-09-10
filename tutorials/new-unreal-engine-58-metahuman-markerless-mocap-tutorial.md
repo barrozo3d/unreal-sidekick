@@ -8,7 +8,9 @@ ue_version: "UE5.8"
 tags: [metahuman, mocap, markerless, live-link, body-tracking, facial-capture, retargeting, plugin, workflow, beginner]
 extraction_status: complete
 frames_dir: tutorials/frames/new-unreal-engine-58-metahuman-markerless-mocap-tutorial/
-frame_count: 4
+frame_count: 11
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # NEW Unreal Engine 5.8 MetaHuman Markerless Mocap Tutorial
@@ -114,18 +116,19 @@ metahuman, mocap, markerless, live-link, body-tracking, facial-capture, retarget
 
 ## Captured Frames
 
-<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
-     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
-     fallback '### Full Content [0:00]' heading, so reground_frames.py
-     re-captured them at 0:00 and produced title cards. Moments below are
-     re-derived from the source's duration, not chosen. Bullet refs take
-     precedence over the heading layout, so the stale [0:00] line above is
-     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+- [0:15] tutorials/frames/new-unreal-engine-58-metahuman-markerless-mocap-tutorial/frame_000.jpg
+- [2:06] tutorials/frames/new-unreal-engine-58-metahuman-markerless-mocap-tutorial/frame_001.jpg
+- [3:08] tutorials/frames/new-unreal-engine-58-metahuman-markerless-mocap-tutorial/frame_002.jpg
+- [4:08] tutorials/frames/new-unreal-engine-58-metahuman-markerless-mocap-tutorial/frame_003.jpg
+- [5:09] tutorials/frames/new-unreal-engine-58-metahuman-markerless-mocap-tutorial/frame_004.jpg
+- [5:26] tutorials/frames/new-unreal-engine-58-metahuman-markerless-mocap-tutorial/frame_005.jpg
+- [6:46] tutorials/frames/new-unreal-engine-58-metahuman-markerless-mocap-tutorial/frame_006.jpg
+- [8:06] tutorials/frames/new-unreal-engine-58-metahuman-markerless-mocap-tutorial/frame_007.jpg
+- [9:27] tutorials/frames/new-unreal-engine-58-metahuman-markerless-mocap-tutorial/frame_008.jpg
+- [10:48] tutorials/frames/new-unreal-engine-58-metahuman-markerless-mocap-tutorial/frame_009.jpg
+- [12:08] tutorials/frames/new-unreal-engine-58-metahuman-markerless-mocap-tutorial/frame_010.jpg
 
-- [1:30] tutorials/frames/new-unreal-engine-58-metahuman-markerless-mocap-tutorial/frame_000.jpg
-- [4:28] tutorials/frames/new-unreal-engine-58-metahuman-markerless-mocap-tutorial/frame_001.jpg
-- [8:12] tutorials/frames/new-unreal-engine-58-metahuman-markerless-mocap-tutorial/frame_002.jpg
-- [11:56] tutorials/frames/new-unreal-engine-58-metahuman-markerless-mocap-tutorial/frame_003.jpg
+---
 
 ## Related Entries
 - `metahuman-realtime-animator-best-practices-unreal-engine-animation-hub.md` — real-time webcam face capture (alternative/complementary to markerless)
