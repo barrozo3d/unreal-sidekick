@@ -10,6 +10,8 @@ tags: [compositing, fog-cards, media-player, sequencer, materials, intermediate]
 extraction_status: complete
 frames_dir: tutorials/frames/unreal-engine-compositing-tutorial---unreal-engine-for-filmmakers-course-link-in/
 frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Unreal Engine Compositing Tutorial - UNREAL ENGINE FOR FILMMAKERS [Course Link in Description]
@@ -57,21 +59,16 @@ UE 5.x (early era)
 
 ## Captured Frames
 
-<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
-     ingest.py before c4decae picked blind-era moments deterministically;
-     re-derived from the source's own chapter/duration metadata and
-     accepted only because the count matched frame_count exactly.
-     These are blind-era moments: legible and citable now, but not
-     content-anchored. Re-selecting them is still a human call. -->
+- [0:15] tutorials/frames/unreal-engine-compositing-tutorial---unreal-engine-for-filmmakers-course-link-in/frame_000.jpg
+- [1:12] tutorials/frames/unreal-engine-compositing-tutorial---unreal-engine-for-filmmakers-course-link-in/frame_001.jpg
+- [2:23] tutorials/frames/unreal-engine-compositing-tutorial---unreal-engine-for-filmmakers-course-link-in/frame_002.jpg
+- [3:35] tutorials/frames/unreal-engine-compositing-tutorial---unreal-engine-for-filmmakers-course-link-in/frame_003.jpg
+- [4:47] tutorials/frames/unreal-engine-compositing-tutorial---unreal-engine-for-filmmakers-course-link-in/frame_004.jpg
+- [5:45] tutorials/frames/unreal-engine-compositing-tutorial---unreal-engine-for-filmmakers-course-link-in/frame_005.jpg
+- [7:10] tutorials/frames/unreal-engine-compositing-tutorial---unreal-engine-for-filmmakers-course-link-in/frame_006.jpg
+- [8:35] tutorials/frames/unreal-engine-compositing-tutorial---unreal-engine-for-filmmakers-course-link-in/frame_007.jpg
 
-- [0:05] tutorials/frames/unreal-engine-compositing-tutorial---unreal-engine-for-filmmakers-course-link-in/frame_000.jpg
-- [1:05] tutorials/frames/unreal-engine-compositing-tutorial---unreal-engine-for-filmmakers-course-link-in/frame_001.jpg
-- [1:36] tutorials/frames/unreal-engine-compositing-tutorial---unreal-engine-for-filmmakers-course-link-in/frame_002.jpg
-- [2:22] tutorials/frames/unreal-engine-compositing-tutorial---unreal-engine-for-filmmakers-course-link-in/frame_003.jpg
-- [3:01] tutorials/frames/unreal-engine-compositing-tutorial---unreal-engine-for-filmmakers-course-link-in/frame_004.jpg
-- [4:46] tutorials/frames/unreal-engine-compositing-tutorial---unreal-engine-for-filmmakers-course-link-in/frame_005.jpg
-- [6:57] tutorials/frames/unreal-engine-compositing-tutorial---unreal-engine-for-filmmakers-course-link-in/frame_006.jpg
-- [7:45] tutorials/frames/unreal-engine-compositing-tutorial---unreal-engine-for-filmmakers-course-link-in/frame_007.jpg
+---
 
 ## Related Entries
 - [[unreal-engine-5-compositing-tutorial---composite-any-scene-fully-inside-of-ue5]] — full compositing workflow (camera-tracking + image plate)
