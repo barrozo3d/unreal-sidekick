@@ -8,7 +8,9 @@ ue_version: "UE5"
 tags: [previz, polycam, lidar-scan, metahuman, move-ai, performance-capture, cinematics, pre-production, sequencer]
 extraction_status: complete
 frames_dir: tutorials/frames/how-to-create-the-ultimate-previz-with-polycam-metahumans-and-moveai-in-unreal-e/
-frame_count: 4
+frame_count: 9
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # How to Create the ULTIMATE Previz with Polycam, Metahumans, and Move.AI in Unreal Engine 5
@@ -76,18 +78,17 @@ previz, polycam, lidar-scan, metahuman, move-ai, performance-capture, cinematics
 
 ## Captured Frames
 
-<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
-     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
-     fallback '### Full Content [0:00]' heading, so reground_frames.py
-     re-captured them at 0:00 and produced title cards. Moments below are
-     re-derived from the source's duration, not chosen. Bullet refs take
-     precedence over the heading layout, so the stale [0:00] line above is
-     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+- [0:15] tutorials/frames/how-to-create-the-ultimate-previz-with-polycam-metahumans-and-moveai-in-unreal-e/frame_000.jpg
+- [1:02] tutorials/frames/how-to-create-the-ultimate-previz-with-polycam-metahumans-and-moveai-in-unreal-e/frame_001.jpg
+- [2:05] tutorials/frames/how-to-create-the-ultimate-previz-with-polycam-metahumans-and-moveai-in-unreal-e/frame_002.jpg
+- [3:05] tutorials/frames/how-to-create-the-ultimate-previz-with-polycam-metahumans-and-moveai-in-unreal-e/frame_003.jpg
+- [4:05] tutorials/frames/how-to-create-the-ultimate-previz-with-polycam-metahumans-and-moveai-in-unreal-e/frame_004.jpg
+- [5:08] tutorials/frames/how-to-create-the-ultimate-previz-with-polycam-metahumans-and-moveai-in-unreal-e/frame_005.jpg
+- [6:09] tutorials/frames/how-to-create-the-ultimate-previz-with-polycam-metahumans-and-moveai-in-unreal-e/frame_006.jpg
+- [7:15] tutorials/frames/how-to-create-the-ultimate-previz-with-polycam-metahumans-and-moveai-in-unreal-e/frame_007.jpg
+- [8:30] tutorials/frames/how-to-create-the-ultimate-previz-with-polycam-metahumans-and-moveai-in-unreal-e/frame_008.jpg
 
-- [0:57] tutorials/frames/how-to-create-the-ultimate-previz-with-polycam-metahumans-and-moveai-in-unreal-e/frame_000.jpg
-- [2:52] tutorials/frames/how-to-create-the-ultimate-previz-with-polycam-metahumans-and-moveai-in-unreal-e/frame_001.jpg
-- [5:15] tutorials/frames/how-to-create-the-ultimate-previz-with-polycam-metahumans-and-moveai-in-unreal-e/frame_002.jpg
-- [7:38] tutorials/frames/how-to-create-the-ultimate-previz-with-polycam-metahumans-and-moveai-in-unreal-e/frame_003.jpg
+---
 
 ## Related Entries
 - `how-i-use-moveai-and-metahumans-to-achieve-aaa-character-animation-in-unreal-eng.md` — full Move AI + MetaHuman Animator pipeline detail

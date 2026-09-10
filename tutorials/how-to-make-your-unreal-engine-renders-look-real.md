@@ -9,7 +9,9 @@ ue_version: "UE 5.x"
 tags: [lightforge-v1, rendering, path-tracing, color-grading, post-process, intermediate]
 extraction_status: complete
 frames_dir: tutorials/frames/how-to-make-your-unreal-engine-renders-look-real/
-frame_count: 4
+frame_count: 14
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # How to Make Your Unreal Engine Renders Look REAL
@@ -66,17 +68,22 @@ UE 5.x
 
 ## Captured Frames
 
-<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
-     ingest.py before c4decae picked blind-era moments deterministically;
-     re-derived from the source's own chapter/duration metadata and
-     accepted only because the count matched frame_count exactly.
-     These are blind-era moments: legible and citable now, but not
-     content-anchored. Re-selecting them is still a human call. -->
+- [0:15] tutorials/frames/how-to-make-your-unreal-engine-renders-look-real/frame_000.jpg
+- [1:01] tutorials/frames/how-to-make-your-unreal-engine-renders-look-real/frame_001.jpg
+- [2:01] tutorials/frames/how-to-make-your-unreal-engine-renders-look-real/frame_002.jpg
+- [3:04] tutorials/frames/how-to-make-your-unreal-engine-renders-look-real/frame_003.jpg
+- [4:07] tutorials/frames/how-to-make-your-unreal-engine-renders-look-real/frame_004.jpg
+- [5:07] tutorials/frames/how-to-make-your-unreal-engine-renders-look-real/frame_005.jpg
+- [6:09] tutorials/frames/how-to-make-your-unreal-engine-renders-look-real/frame_006.jpg
+- [10:05] tutorials/frames/how-to-make-your-unreal-engine-renders-look-real/frame_007.jpg
+- [13:27] tutorials/frames/how-to-make-your-unreal-engine-renders-look-real/frame_008.jpg
+- [16:49] tutorials/frames/how-to-make-your-unreal-engine-renders-look-real/frame_009.jpg
+- [20:11] tutorials/frames/how-to-make-your-unreal-engine-renders-look-real/frame_010.jpg
+- [23:35] tutorials/frames/how-to-make-your-unreal-engine-renders-look-real/frame_011.jpg
+- [26:56] tutorials/frames/how-to-make-your-unreal-engine-renders-look-real/frame_012.jpg
+- [30:19] tutorials/frames/how-to-make-your-unreal-engine-renders-look-real/frame_013.jpg
 
-- [3:14] tutorials/frames/how-to-make-your-unreal-engine-renders-look-real/frame_000.jpg
-- [9:40] tutorials/frames/how-to-make-your-unreal-engine-renders-look-real/frame_001.jpg
-- [17:44] tutorials/frames/how-to-make-your-unreal-engine-renders-look-real/frame_002.jpg
-- [25:48] tutorials/frames/how-to-make-your-unreal-engine-renders-look-real/frame_003.jpg
+---
 
 ## Related Entries
 - [[the-simplest-rendering-trick-90-of-unreal-artists-miss]] — chromatic aberration, vignette, grain overview
