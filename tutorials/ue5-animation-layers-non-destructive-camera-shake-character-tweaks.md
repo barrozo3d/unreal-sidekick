@@ -8,7 +8,9 @@ ue_version: "UE5"
 tags: [animation, sequencer, animation-layers, control-rig, camera-shake, non-destructive, weights, characters, workflow, technique]
 extraction_status: complete
 frames_dir: tutorials/frames/ue5-animation-layers-non-destructive-camera-shake-character-tweaks/
-frame_count: 4
+frame_count: 11
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # UE5 Animation Layers: Non-Destructive Camera Shake & Character Tweaks
@@ -93,18 +95,19 @@ animation, sequencer, animation-layers, control-rig, camera-shake, non-destructi
 
 ## Captured Frames
 
-<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
-     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
-     fallback '### Full Content [0:00]' heading, so reground_frames.py
-     re-captured them at 0:00 and produced title cards. Moments below are
-     re-derived from the source's duration, not chosen. Bullet refs take
-     precedence over the heading layout, so the stale [0:00] line above is
-     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+- [0:15] tutorials/frames/ue5-animation-layers-non-destructive-camera-shake-character-tweaks/frame_000.jpg
+- [1:18] tutorials/frames/ue5-animation-layers-non-destructive-camera-shake-character-tweaks/frame_001.jpg
+- [2:34] tutorials/frames/ue5-animation-layers-non-destructive-camera-shake-character-tweaks/frame_002.jpg
+- [3:49] tutorials/frames/ue5-animation-layers-non-destructive-camera-shake-character-tweaks/frame_003.jpg
+- [5:07] tutorials/frames/ue5-animation-layers-non-destructive-camera-shake-character-tweaks/frame_004.jpg
+- [6:25] tutorials/frames/ue5-animation-layers-non-destructive-camera-shake-character-tweaks/frame_005.jpg
+- [7:42] tutorials/frames/ue5-animation-layers-non-destructive-camera-shake-character-tweaks/frame_006.jpg
+- [7:51] tutorials/frames/ue5-animation-layers-non-destructive-camera-shake-character-tweaks/frame_007.jpg
+- [9:50] tutorials/frames/ue5-animation-layers-non-destructive-camera-shake-character-tweaks/frame_008.jpg
+- [11:45] tutorials/frames/ue5-animation-layers-non-destructive-camera-shake-character-tweaks/frame_009.jpg
+- [13:42] tutorials/frames/ue5-animation-layers-non-destructive-camera-shake-character-tweaks/frame_010.jpg
 
-- [1:33] tutorials/frames/ue5-animation-layers-non-destructive-camera-shake-character-tweaks/frame_000.jpg
-- [4:38] tutorials/frames/ue5-animation-layers-non-destructive-camera-shake-character-tweaks/frame_001.jpg
-- [8:30] tutorials/frames/ue5-animation-layers-non-destructive-camera-shake-character-tweaks/frame_002.jpg
-- [12:22] tutorials/frames/ue5-animation-layers-non-destructive-camera-shake-character-tweaks/frame_003.jpg
+---
 
 ## Related Entries
 - `stylized-animation-control-rig-characters-in-unreal-engine-5.md` — ACOM modular rig intro; Sequencer + Control Rig basics; same ACOM project

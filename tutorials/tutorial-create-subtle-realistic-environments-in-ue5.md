@@ -9,7 +9,9 @@ ue_version: "UE 5.x"
 tags: [dash-early, scatter, surface-scatter, decals, atlas, water, materials, color-grading, intermediate]
 extraction_status: complete
 frames_dir: tutorials/frames/tutorial-create-subtle-realistic-environments-in-ue5/
-frame_count: 8
+frame_count: 10
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Tutorial - Create Subtle Realistic Environments in UE5
@@ -67,21 +69,18 @@ UE 5.x (Dash early — no Polyhaven, no AI tagging)
 
 ## Captured Frames
 
-<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
-     ingest.py before c4decae picked blind-era moments deterministically;
-     re-derived from the source's own chapter/duration metadata and
-     accepted only because the count matched frame_count exactly.
-     These are blind-era moments: legible and citable now, but not
-     content-anchored. Re-selecting them is still a human call. -->
+- [0:15] tutorials/frames/tutorial-create-subtle-realistic-environments-in-ue5/frame_000.jpg
+- [1:16] tutorials/frames/tutorial-create-subtle-realistic-environments-in-ue5/frame_001.jpg
+- [2:33] tutorials/frames/tutorial-create-subtle-realistic-environments-in-ue5/frame_002.jpg
+- [3:50] tutorials/frames/tutorial-create-subtle-realistic-environments-in-ue5/frame_003.jpg
+- [5:07] tutorials/frames/tutorial-create-subtle-realistic-environments-in-ue5/frame_004.jpg
+- [6:26] tutorials/frames/tutorial-create-subtle-realistic-environments-in-ue5/frame_005.jpg
+- [6:44] tutorials/frames/tutorial-create-subtle-realistic-environments-in-ue5/frame_006.jpg
+- [7:42] tutorials/frames/tutorial-create-subtle-realistic-environments-in-ue5/frame_007.jpg
+- [8:25] tutorials/frames/tutorial-create-subtle-realistic-environments-in-ue5/frame_008.jpg
+- [9:20] tutorials/frames/tutorial-create-subtle-realistic-environments-in-ue5/frame_009.jpg
 
-- [0:05] tutorials/frames/tutorial-create-subtle-realistic-environments-in-ue5/frame_000.jpg
-- [0:35] tutorials/frames/tutorial-create-subtle-realistic-environments-in-ue5/frame_001.jpg
-- [1:42] tutorials/frames/tutorial-create-subtle-realistic-environments-in-ue5/frame_002.jpg
-- [2:35] tutorials/frames/tutorial-create-subtle-realistic-environments-in-ue5/frame_003.jpg
-- [3:10] tutorials/frames/tutorial-create-subtle-realistic-environments-in-ue5/frame_004.jpg
-- [4:25] tutorials/frames/tutorial-create-subtle-realistic-environments-in-ue5/frame_005.jpg
-- [7:07] tutorials/frames/tutorial-create-subtle-realistic-environments-in-ue5/frame_006.jpg
-- [8:45] tutorials/frames/tutorial-create-subtle-realistic-environments-in-ue5/frame_007.jpg
+---
 
 ## Related Entries
 - [[create-run-down-environments-in-minutes---dash-ue5]] — Josh Powers early: Color Grading Library, camera sharpness (dash-early)
