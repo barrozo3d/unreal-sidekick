@@ -10,6 +10,8 @@ tags: [dash-1.9, release-notes, mesh-pattern, content-library, rainfall, draw-sp
 extraction_status: complete
 frames_dir: tutorials/frames/dash-192---new-ue5-tools-amazon-3d-library-integration/
 frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # DASH 1.9.2 - NEW UE5 TOOLS + AMAZON 3D LIBRARY INTEGRATION
@@ -65,21 +67,16 @@ UE 5.x (Dash 1.9.2)
 
 ## Captured Frames
 
-<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
-     ingest.py before c4decae picked blind-era moments deterministically;
-     re-derived from the source's own chapter/duration metadata and
-     accepted only because the count matched frame_count exactly.
-     These are blind-era moments: legible and citable now, but not
-     content-anchored. Re-selecting them is still a human call. -->
+- [0:15] tutorials/frames/dash-192---new-ue5-tools-amazon-3d-library-integration/frame_000.jpg
+- [1:02] tutorials/frames/dash-192---new-ue5-tools-amazon-3d-library-integration/frame_001.jpg
+- [2:02] tutorials/frames/dash-192---new-ue5-tools-amazon-3d-library-integration/frame_002.jpg
+- [3:02] tutorials/frames/dash-192---new-ue5-tools-amazon-3d-library-integration/frame_003.jpg
+- [4:05] tutorials/frames/dash-192---new-ue5-tools-amazon-3d-library-integration/frame_004.jpg
+- [5:08] tutorials/frames/dash-192---new-ue5-tools-amazon-3d-library-integration/frame_005.jpg
+- [6:10] tutorials/frames/dash-192---new-ue5-tools-amazon-3d-library-integration/frame_006.jpg
+- [7:12] tutorials/frames/dash-192---new-ue5-tools-amazon-3d-library-integration/frame_007.jpg
 
-- [0:05] tutorials/frames/dash-192---new-ue5-tools-amazon-3d-library-integration/frame_000.jpg
-- [0:24] tutorials/frames/dash-192---new-ue5-tools-amazon-3d-library-integration/frame_001.jpg
-- [2:58] tutorials/frames/dash-192---new-ue5-tools-amazon-3d-library-integration/frame_002.jpg
-- [3:50] tutorials/frames/dash-192---new-ue5-tools-amazon-3d-library-integration/frame_003.jpg
-- [4:25] tutorials/frames/dash-192---new-ue5-tools-amazon-3d-library-integration/frame_004.jpg
-- [5:28] tutorials/frames/dash-192---new-ue5-tools-amazon-3d-library-integration/frame_005.jpg
-- [5:49] tutorials/frames/dash-192---new-ue5-tools-amazon-3d-library-integration/frame_006.jpg
-- [7:05] tutorials/frames/dash-192---new-ue5-tools-amazon-3d-library-integration/frame_007.jpg
+---
 
 ## Related Entries
 - [[best-free-unreal-engine-5-asset-management-plugin-in-2025]] — Full Dash 1.9 Content Browser overview

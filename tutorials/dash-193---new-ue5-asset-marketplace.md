@@ -9,7 +9,9 @@ ue_version: "UE 5.x"
 tags: [dash-1.9, release-notes, marketplace, content-library, dekogon, ambientcg, scatter, beginner]
 extraction_status: complete
 frames_dir: tutorials/frames/dash-193---new-ue5-asset-marketplace/
-frame_count: 7
+frame_count: 8
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # DASH 1.9.3 - NEW UE5 ASSET MARKETPLACE
@@ -63,20 +65,16 @@ UE 5.x (Dash 1.9.3)
 
 ## Captured Frames
 
-<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
-     ingest.py before c4decae picked blind-era moments deterministically;
-     re-derived from the source's own chapter/duration metadata and
-     accepted only because the count matched frame_count exactly.
-     These are blind-era moments: legible and citable now, but not
-     content-anchored. Re-selecting them is still a human call. -->
+- [0:15] tutorials/frames/dash-193---new-ue5-asset-marketplace/frame_000.jpg
+- [1:03] tutorials/frames/dash-193---new-ue5-asset-marketplace/frame_001.jpg
+- [2:09] tutorials/frames/dash-193---new-ue5-asset-marketplace/frame_002.jpg
+- [3:27] tutorials/frames/dash-193---new-ue5-asset-marketplace/frame_003.jpg
+- [4:31] tutorials/frames/dash-193---new-ue5-asset-marketplace/frame_004.jpg
+- [5:49] tutorials/frames/dash-193---new-ue5-asset-marketplace/frame_005.jpg
+- [6:58] tutorials/frames/dash-193---new-ue5-asset-marketplace/frame_006.jpg
+- [7:58] tutorials/frames/dash-193---new-ue5-asset-marketplace/frame_007.jpg
 
-- [0:05] tutorials/frames/dash-193---new-ue5-asset-marketplace/frame_000.jpg
-- [0:22] tutorials/frames/dash-193---new-ue5-asset-marketplace/frame_001.jpg
-- [3:56] tutorials/frames/dash-193---new-ue5-asset-marketplace/frame_002.jpg
-- [4:35] tutorials/frames/dash-193---new-ue5-asset-marketplace/frame_003.jpg
-- [6:40] tutorials/frames/dash-193---new-ue5-asset-marketplace/frame_004.jpg
-- [7:03] tutorials/frames/dash-193---new-ue5-asset-marketplace/frame_005.jpg
-- [7:40] tutorials/frames/dash-193---new-ue5-asset-marketplace/frame_006.jpg
+---
 
 ## Related Entries
 - [[dash-192---new-ue5-tools-amazon-3d-library-integration]] — 1.9.2 ABO + Mesh Pattern + rainfall
