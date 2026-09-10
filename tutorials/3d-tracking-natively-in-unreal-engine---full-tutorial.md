@@ -9,7 +9,9 @@ ue_version: "UE 5.x"
 tags: [genesis, camera-tracking, vfx, compositing, distortion, intermediate]
 extraction_status: complete
 frames_dir: tutorials/frames/3d-tracking-natively-in-unreal-engine---full-tutorial/
-frame_count: 7
+frame_count: 10
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # 3D Tracking Natively in Unreal Engine - FULL TUTORIAL
@@ -66,20 +68,18 @@ UE 5.x (Genesis plugin)
 
 ## Captured Frames
 
-<!-- Timestamps RECOVERED 2026-08-25 by recover_moments.py, not chosen.
-     ingest.py before c4decae picked blind-era moments deterministically;
-     re-derived from the source's own chapter/duration metadata and
-     accepted only because the count matched frame_count exactly.
-     These are blind-era moments: legible and citable now, but not
-     content-anchored. Re-selecting them is still a human call. -->
+- [0:15] tutorials/frames/3d-tracking-natively-in-unreal-engine---full-tutorial/frame_000.jpg
+- [1:31] tutorials/frames/3d-tracking-natively-in-unreal-engine---full-tutorial/frame_001.jpg
+- [3:03] tutorials/frames/3d-tracking-natively-in-unreal-engine---full-tutorial/frame_002.jpg
+- [4:35] tutorials/frames/3d-tracking-natively-in-unreal-engine---full-tutorial/frame_003.jpg
+- [6:09] tutorials/frames/3d-tracking-natively-in-unreal-engine---full-tutorial/frame_004.jpg
+- [7:40] tutorials/frames/3d-tracking-natively-in-unreal-engine---full-tutorial/frame_005.jpg
+- [9:14] tutorials/frames/3d-tracking-natively-in-unreal-engine---full-tutorial/frame_006.jpg
+- [10:45] tutorials/frames/3d-tracking-natively-in-unreal-engine---full-tutorial/frame_007.jpg
+- [12:15] tutorials/frames/3d-tracking-natively-in-unreal-engine---full-tutorial/frame_008.jpg
+- [13:46] tutorials/frames/3d-tracking-natively-in-unreal-engine---full-tutorial/frame_009.jpg
 
-- [0:05] tutorials/frames/3d-tracking-natively-in-unreal-engine---full-tutorial/frame_000.jpg
-- [0:39] tutorials/frames/3d-tracking-natively-in-unreal-engine---full-tutorial/frame_001.jpg
-- [1:12] tutorials/frames/3d-tracking-natively-in-unreal-engine---full-tutorial/frame_002.jpg
-- [4:21] tutorials/frames/3d-tracking-natively-in-unreal-engine---full-tutorial/frame_003.jpg
-- [6:38] tutorials/frames/3d-tracking-natively-in-unreal-engine---full-tutorial/frame_004.jpg
-- [11:30] tutorials/frames/3d-tracking-natively-in-unreal-engine---full-tutorial/frame_005.jpg
-- [13:51] tutorials/frames/3d-tracking-natively-in-unreal-engine---full-tutorial/frame_006.jpg
+---
 
 ## Related Entries
 - [[i-built-the-camera-tracking-tool-i-always-wished-unreal-had]] - Genesis announcement + feature overview

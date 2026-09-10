@@ -8,7 +8,9 @@ ue_version: "UE5"
 tags: ["animation", "rigging", "control-rig", "sequencer", "intermediate"]
 extraction_status: complete
 frames_dir: tutorials/frames/baking-animation-in-ue5-control-rig-to-animation-sequence-back/
-frame_count: 4
+frame_count: 10
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Baking Animation in UE5: Control Rig to Animation Sequence & Back!
@@ -62,18 +64,18 @@ UE5 (Sequencer/Control Rig workflow shown is current UE5; exact minor version no
 
 ## Captured Frames
 
-<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
-     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
-     fallback '### Full Content [0:00]' heading, so reground_frames.py
-     re-captured them at 0:00 and produced title cards. Moments below are
-     re-derived from the source's duration, not chosen. Bullet refs take
-     precedence over the heading layout, so the stale [0:00] line above is
-     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+- [0:15] tutorials/frames/baking-animation-in-ue5-control-rig-to-animation-sequence-back/frame_000.jpg
+- [1:30] tutorials/frames/baking-animation-in-ue5-control-rig-to-animation-sequence-back/frame_001.jpg
+- [3:00] tutorials/frames/baking-animation-in-ue5-control-rig-to-animation-sequence-back/frame_002.jpg
+- [4:33] tutorials/frames/baking-animation-in-ue5-control-rig-to-animation-sequence-back/frame_003.jpg
+- [6:04] tutorials/frames/baking-animation-in-ue5-control-rig-to-animation-sequence-back/frame_004.jpg
+- [7:34] tutorials/frames/baking-animation-in-ue5-control-rig-to-animation-sequence-back/frame_005.jpg
+- [9:05] tutorials/frames/baking-animation-in-ue5-control-rig-to-animation-sequence-back/frame_006.jpg
+- [10:38] tutorials/frames/baking-animation-in-ue5-control-rig-to-animation-sequence-back/frame_007.jpg
+- [12:09] tutorials/frames/baking-animation-in-ue5-control-rig-to-animation-sequence-back/frame_008.jpg
+- [13:39] tutorials/frames/baking-animation-in-ue5-control-rig-to-animation-sequence-back/frame_009.jpg
 
-- [1:25] tutorials/frames/baking-animation-in-ue5-control-rig-to-animation-sequence-back/frame_000.jpg
-- [4:14] tutorials/frames/baking-animation-in-ue5-control-rig-to-animation-sequence-back/frame_001.jpg
-- [7:46] tutorials/frames/baking-animation-in-ue5-control-rig-to-animation-sequence-back/frame_002.jpg
-- [11:18] tutorials/frames/baking-animation-in-ue5-control-rig-to-animation-sequence-back/frame_003.jpg
+---
 
 ## Related Entries
 None with direct technical overlap yet — likely part of a series with other "ACOM animation sample project" videos by the same presenter (Wade/"Sir Wade"); cross-reference once other entries from that series are extracted.

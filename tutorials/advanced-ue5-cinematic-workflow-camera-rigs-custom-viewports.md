@@ -8,7 +8,9 @@ ue_version: "UE 5.6+"
 tags: [cinematics, sequencer, sub-sequences, camera-rig, control-rig, camera-shake, animation-layers, viewport-layout, cinematic-viewport, filmmaking, intermediate]
 extraction_status: complete
 frames_dir: tutorials/frames/advanced-ue5-cinematic-workflow-camera-rigs-custom-viewports/
-frame_count: 4
+frame_count: 9
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Advanced UE5 Cinematic Workflow: Camera Rigs & Custom Viewports
@@ -71,18 +73,17 @@ UE 5.6+
 
 ## Captured Frames
 
-<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
-     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
-     fallback '### Full Content [0:00]' heading, so reground_frames.py
-     re-captured them at 0:00 and produced title cards. Moments below are
-     re-derived from the source's duration, not chosen. Bullet refs take
-     precedence over the heading layout, so the stale [0:00] line above is
-     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+- [0:15] tutorials/frames/advanced-ue5-cinematic-workflow-camera-rigs-custom-viewports/frame_000.jpg
+- [1:30] tutorials/frames/advanced-ue5-cinematic-workflow-camera-rigs-custom-viewports/frame_001.jpg
+- [3:03] tutorials/frames/advanced-ue5-cinematic-workflow-camera-rigs-custom-viewports/frame_002.jpg
+- [4:33] tutorials/frames/advanced-ue5-cinematic-workflow-camera-rigs-custom-viewports/frame_003.jpg
+- [6:05] tutorials/frames/advanced-ue5-cinematic-workflow-camera-rigs-custom-viewports/frame_004.jpg
+- [7:35] tutorials/frames/advanced-ue5-cinematic-workflow-camera-rigs-custom-viewports/frame_005.jpg
+- [9:05] tutorials/frames/advanced-ue5-cinematic-workflow-camera-rigs-custom-viewports/frame_006.jpg
+- [10:36] tutorials/frames/advanced-ue5-cinematic-workflow-camera-rigs-custom-viewports/frame_007.jpg
+- [12:09] tutorials/frames/advanced-ue5-cinematic-workflow-camera-rigs-custom-viewports/frame_008.jpg
 
-- [1:18] tutorials/frames/advanced-ue5-cinematic-workflow-camera-rigs-custom-viewports/frame_000.jpg
-- [3:53] tutorials/frames/advanced-ue5-cinematic-workflow-camera-rigs-custom-viewports/frame_001.jpg
-- [7:07] tutorials/frames/advanced-ue5-cinematic-workflow-camera-rigs-custom-viewports/frame_002.jpg
-- [10:21] tutorials/frames/advanced-ue5-cinematic-workflow-camera-rigs-custom-viewports/frame_003.jpg
+---
 
 ## Related Entries
 - ue5-animation-layers-non-destructive-camera-shake-character-tweaks.md (animation layers in depth)

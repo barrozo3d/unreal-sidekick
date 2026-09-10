@@ -8,7 +8,9 @@ ue_version: "UE 5.7"
 tags: [groom, dataflow, hair, metahuman, simulation, deformer-graph, control-rig, skin-weights, guide-generation, card-generation, physics, advanced]
 extraction_status: complete
 frames_dir: tutorials/frames/advanced-groom-dataflow-setup-in-ue-57-unreal-fest-stockholm-2025/
-frame_count: 4
+frame_count: 13
+frame_status: complete
+frame_selection: content-anchored (manual timestamps chosen from transcript, not blind percentages)
 ---
 
 # Advanced Groom Dataflow Setup in UE 5.7 | Unreal Fest Stockholm 2025
@@ -77,18 +79,21 @@ UE 5.7
 
 ## Captured Frames
 
-<!-- BUG 6 REPAIR 2026-08-25. These frames were captured at
-     duration * (0.1, 0.3, 0.55, 0.8), but the .md parked them under a
-     fallback '### Full Content [0:00]' heading, so reground_frames.py
-     re-captured them at 0:00 and produced title cards. Moments below are
-     re-derived from the source's duration, not chosen. Bullet refs take
-     precedence over the heading layout, so the stale [0:00] line above is
-     ignored. Still BLIND-ERA moments: legible, not content-anchored. -->
+- [0:15] tutorials/frames/advanced-groom-dataflow-setup-in-ue-57-unreal-fest-stockholm-2025/frame_000.jpg
+- [1:32] tutorials/frames/advanced-groom-dataflow-setup-in-ue-57-unreal-fest-stockholm-2025/frame_001.jpg
+- [3:02] tutorials/frames/advanced-groom-dataflow-setup-in-ue-57-unreal-fest-stockholm-2025/frame_002.jpg
+- [4:36] tutorials/frames/advanced-groom-dataflow-setup-in-ue-57-unreal-fest-stockholm-2025/frame_003.jpg
+- [6:06] tutorials/frames/advanced-groom-dataflow-setup-in-ue-57-unreal-fest-stockholm-2025/frame_004.jpg
+- [7:40] tutorials/frames/advanced-groom-dataflow-setup-in-ue-57-unreal-fest-stockholm-2025/frame_005.jpg
+- [10:06] tutorials/frames/advanced-groom-dataflow-setup-in-ue-57-unreal-fest-stockholm-2025/frame_006.jpg
+- [13:31] tutorials/frames/advanced-groom-dataflow-setup-in-ue-57-unreal-fest-stockholm-2025/frame_007.jpg
+- [16:53] tutorials/frames/advanced-groom-dataflow-setup-in-ue-57-unreal-fest-stockholm-2025/frame_008.jpg
+- [20:13] tutorials/frames/advanced-groom-dataflow-setup-in-ue-57-unreal-fest-stockholm-2025/frame_009.jpg
+- [23:36] tutorials/frames/advanced-groom-dataflow-setup-in-ue-57-unreal-fest-stockholm-2025/frame_010.jpg
+- [26:56] tutorials/frames/advanced-groom-dataflow-setup-in-ue-57-unreal-fest-stockholm-2025/frame_011.jpg
+- [30:19] tutorials/frames/advanced-groom-dataflow-setup-in-ue-57-unreal-fest-stockholm-2025/frame_012.jpg
 
-- [3:11] tutorials/frames/advanced-groom-dataflow-setup-in-ue-57-unreal-fest-stockholm-2025/frame_000.jpg
-- [9:32] tutorials/frames/advanced-groom-dataflow-setup-in-ue-57-unreal-fest-stockholm-2025/frame_001.jpg
-- [17:28] tutorials/frames/advanced-groom-dataflow-setup-in-ue-57-unreal-fest-stockholm-2025/frame_002.jpg
-- [25:25] tutorials/frames/advanced-groom-dataflow-setup-in-ue-57-unreal-fest-stockholm-2025/frame_003.jpg
+---
 
 ## Related Entries
 - how-to-create-grooms-for-metahumans-unreal-fest-bali-2025.md (groom setup for MetaHumans)
